@@ -1,11 +1,14 @@
 # Manuscript data and local outputs do not belong in the public skill package.
 *.pdf
 !docs/assets/gallery/*.pdf
+!docs/assets/showcase/*/figure.pdf
+!examples/showcase/*/figure.pdf
 *.docx
 *.pptx
 *.xlsx
 *.zip
 !docs/downloads/*.zip
+!docs/assets/showcase/assembly-demo.zip
 .env
 .env.*
 __pycache__/

@@ -1,0 +1,13 @@
+{
+  "source_study": "single invented A/B electrolyte comparison",
+  "uses": [
+    "../li_cu_ce/data.csv",
+    "../li_cu_ce/profiles.csv",
+    "../li_li/data.csv",
+    "../eis/data.csv",
+    "../full_cell/data.csv",
+    "../full_cell/voltage_profiles.csv"
+  ],
+  "identity_rule": "A and B retain the same color and label in every panel",
+  "status": "synthetic_demo; no mechanistic inference"
+}

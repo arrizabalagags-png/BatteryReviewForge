@@ -1,0 +1,18 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260923,
+  "generator_version": "1.0",
+  "figure_grammar_id": "operando_xrd + matched_voltage_trace",
+  "journal_preset": "journal_neutral_180mm",
+  "test_conditions": "Illustrative angle-by-SOC model with moving and splitting Gaussian peaks; no phase assignment or acquired diffraction.",
+  "source_files": [
+    "data.csv",
+    "voltage.csv"
+  ],
+  "creator": "BatteryReviewForge original code",
+  "review": {
+    "science": "models and data-to-panel links inspected; no experimental interpretation",
+    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+  }
+}

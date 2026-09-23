@@ -1,0 +1,17 @@
+name: Python 绘图与解析
+description: 修复解析、渲染、导出或测试中的可复现问题
+title: "[Code] "
+labels: ["good first issue"]
+body:
+  - type: textarea
+    id: behavior
+    attributes:
+      label: 期望与实际结果
+      placeholder: "请提供最小可公开复现的数据格式和运行命令"
+    validations: {required: true}
+  - type: textarea
+    id: environment
+    attributes:
+      label: 环境
+      placeholder: "系统、Python 版本、依赖版本"
+    validations: {required: true}

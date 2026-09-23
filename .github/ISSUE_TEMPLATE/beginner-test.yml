@@ -1,0 +1,15 @@
+name: 新手上手测试
+description: 告诉我们哪一步看不懂或跑不通
+title: "[Beginner] "
+labels: ["good first issue"]
+body:
+  - type: textarea
+    id: step
+    attributes:
+      label: 你卡在哪一步？
+      placeholder: "页面链接、你点了什么、预期看到什么"
+    validations: {required: true}
+  - type: textarea
+    id: wording
+    attributes:
+      label: 哪句话难懂？你希望怎样说？

@@ -1,0 +1,16 @@
+name: 文档与翻译
+description: 改善教程、术语解释或中英文表达
+title: "[Docs] "
+labels: ["good first issue"]
+body:
+  - type: textarea
+    id: location
+    attributes:
+      label: 页面或文件位置
+      placeholder: "链接、标题或原句"
+    validations: {required: true}
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 建议的新说法
+    validations: {required: true}

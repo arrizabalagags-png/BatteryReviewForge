@@ -1,0 +1,17 @@
+name: 图件与排版改进
+description: 改进 SVG、拼版、字号与视觉复核
+title: "[Figure] "
+labels: ["good first issue"]
+body:
+  - type: textarea
+    id: figure
+    attributes:
+      label: 哪张图或哪个排版步骤？
+      placeholder: "链接或示例名称；指出具体位置"
+    validations: {required: true}
+  - type: textarea
+    id: change
+    attributes:
+      label: 你建议怎么改？
+      placeholder: "例：将 panel b 字号从 5 pt 调到 6 pt，去掉多余副标题"
+    validations: {required: true}

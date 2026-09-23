@@ -1,0 +1,24 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260923,
+  "generator_version": "1.0",
+  "figure_grammar_id": "same_synthetic_study_cross_validation",
+  "journal_preset": "journal_neutral_180mm",
+  "test_conditions": "One invented A/B electrolyte comparison reuses the source files and identities above; panels do not establish a real mechanism.",
+  "source_files": [
+    "data_index.csv",
+    "sources.json",
+    "../li_cu_ce/data.csv",
+    "../li_cu_ce/profiles.csv",
+    "../li_li/data.csv",
+    "../eis/data.csv",
+    "../full_cell/data.csv",
+    "../full_cell/voltage_profiles.csv"
+  ],
+  "creator": "BatteryReviewForge original code",
+  "review": {
+    "science": "models and data-to-panel links inspected; no experimental interpretation",
+    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+  }
+}

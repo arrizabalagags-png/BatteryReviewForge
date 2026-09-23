@@ -1,0 +1,18 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260923,
+  "generator_version": "1.0",
+  "figure_grammar_id": "tof_sims_map + same-model_sputter_profile",
+  "journal_preset": "journal_neutral_180mm",
+  "test_conditions": "Illustrative 20 × 20 µm ion maps at 30 s sputter time; arbitrary intensity, common 0–0.65 display scale; time is not depth.",
+  "source_files": [
+    "data.csv",
+    "depth.csv"
+  ],
+  "creator": "BatteryReviewForge original code",
+  "review": {
+    "science": "models and data-to-panel links inspected; no experimental interpretation",
+    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260923,
+  "generator_version": "1.0",
+  "figure_grammar_id": "li_li_symmetric + linked_zoom",
+  "journal_preset": "journal_neutral_180mm",
+  "test_conditions": "Illustrative Li||Li; ±1 mA cm−2; 1 mAh cm−2 per half-cycle; no rest; 25 °C.",
+  "source_files": [
+    "data.csv"
+  ],
+  "creator": "BatteryReviewForge original code",
+  "review": {
+    "science": "models and data-to-panel links inspected; no experimental interpretation",
+    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+  }
+}

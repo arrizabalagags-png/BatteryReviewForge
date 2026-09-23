@@ -1,0 +1,20 @@
+name: 电池科学规则核对
+description: 核对图型语法、测试条件或一条文献证据
+title: "[Science] "
+labels: ["good first issue"]
+body:
+  - type: markdown
+    attributes:
+      value: "感谢帮我们把规则做准。请只分享你有权公开的资料，不要上传未公开数据。"
+  - type: textarea
+    id: scope
+    attributes:
+      label: 你想核对哪一种图？
+      placeholder: "例：Li||Cu 逐圈 CE 的横纵轴、测试条件和常见搭配"
+    validations: {required: true}
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 可公开核查的论文或证据
+      placeholder: "DOI、Figure/Panel、具体差异"
+    validations: {required: true}

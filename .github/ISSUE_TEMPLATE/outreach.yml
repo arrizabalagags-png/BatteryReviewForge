@@ -1,0 +1,14 @@
+name: 使用场景与传播
+description: 提供公开案例、活动或真实用户需求
+title: "[Community] "
+labels: ["good first issue"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: 你想帮助什么人，解决什么问题？
+    validations: {required: true}
+  - type: textarea
+    id: source
+    attributes:
+      label: 可公开分享的材料或链接

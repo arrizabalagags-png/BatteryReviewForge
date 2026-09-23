@@ -1,0 +1,18 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260923,
+  "generator_version": "1.0",
+  "figure_grammar_id": "li_cu_cycle_ce + li_cu_voltage_profile",
+  "journal_preset": "journal_neutral_180mm",
+  "test_conditions": "Illustrative Li||Cu repeated plating/stripping; 1 mA cm−2; 1 mAh cm−2 plated; 1 V stripping cutoff; 25 °C.",
+  "source_files": [
+    "data.csv",
+    "profiles.csv"
+  ],
+  "creator": "BatteryReviewForge original code",
+  "review": {
+    "science": "models and data-to-panel links inspected; no experimental interpretation",
+    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+  }
+}

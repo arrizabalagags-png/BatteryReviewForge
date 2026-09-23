@@ -1,0 +1,18 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260923,
+  "generator_version": "1.0",
+  "figure_grammar_id": "FULL_PROFILE_01",
+  "journal_preset": "journal_neutral_180mm",
+  "test_conditions": "Illustrative NMC811||Li; 0.5 C; 2.8–4.3 V; 25 °C; cathode 3 mAh cm−2. These are invented settings, not a test report.",
+  "source_files": [
+    "data.csv",
+    "voltage_profiles.csv"
+  ],
+  "creator": "BatteryReviewForge original code",
+  "review": {
+    "science": "models and data-to-panel links inspected; no experimental interpretation",
+    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+  }
+}

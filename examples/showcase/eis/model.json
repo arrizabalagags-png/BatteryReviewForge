@@ -1,0 +1,20 @@
+{
+  "circuit": "Rs + (Rct || CPE) + semi-infinite Warburg",
+  "parameters": {
+    "A": {
+      "Rs_ohm": 4.2,
+      "Rct_ohm": 23,
+      "CPE_Q": 0.00085,
+      "CPE_alpha": 0.86,
+      "Warburg_sigma": 3.0
+    },
+    "B": {
+      "Rs_ohm": 5.1,
+      "Rct_ohm": 43,
+      "CPE_Q": 0.00067,
+      "CPE_alpha": 0.83,
+      "Warburg_sigma": 4.0
+    }
+  },
+  "status": "invented model, not fitted data"
+}

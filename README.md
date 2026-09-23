@@ -2,17 +2,17 @@
 
 ![BatteryReviewForge wordmark](assets/brand.svg)
 
-**第一次用？** 打开[中文上手页](https://arrizabalagags-png.github.io/BatteryReviewForge/guide.html)：先选手头的材料，看图文步骤和可以直接复制的话；需要安装时再按软件选做法。**New here?** Start with the [plain-language guide](https://arrizabalagags-png.github.io/BatteryReviewForge/guide.html). Source files and technical notes are linked from its separate developer page.
+**第一次用？** 打开[四步上手页](https://arrizabalagags-png.github.io/BatteryReviewForge/start.html)：选软件、选电脑系统、安装、下载示例数据试一次。先看[样图库](https://arrizabalagags-png.github.io/BatteryReviewForge/gallery.html)也可以。**New here?** Start with the [four-step setup](https://arrizabalagags-png.github.io/BatteryReviewForge/start.html) or browse the [gallery](https://arrizabalagags-png.github.io/BatteryReviewForge/gallery.html).
 
 **把重复画图、拼图、查证和改稿的工夫省下来，留给真正的科研思考。** 这是一个免费、开放、欢迎一起改的电池科研工具箱。你可以直接给 Codex 一份数据表、一堆待拼的图，或一篇正在写的综述；它会先识别材料与缺少的测试条件，再按对应的小技能完成工作。代码和空白模板可公开复用，论文原图和未授权素材不会混入公共库。
 
-**数据与成图：** 本仓库的开源许可不接管你的原始数据或图。随包绘图和拼图脚本不在图面强加项目水印；本站没有文件上传入口。若把材料交给在线 AI 软件，其处理方式取决于该软件和账户设置。SVG/PDF 的普通元信息及溯源 JSON 中的数据路径，分享前应检查。先看[站内常见问题](https://arrizabalagags-png.github.io/BatteryReviewForge/#api-help)。
+**数据与成图：** 本仓库的开源许可不接管你的原始数据或图。随包绘图和拼图脚本不在图面强加项目水印；本站没有文件上传入口。若把材料交给在线 AI 软件，其处理方式取决于该软件和账户设置。SVG/PDF 的普通元信息及溯源 JSON 中的数据路径，分享前应检查。详见[数据与责任说明](https://arrizabalagags-png.github.io/BatteryReviewForge/disclaimer.html)。
 
 **想先试试？** 不用知道技能名称：把材料交给助手，说“先告诉我你看到了什么、能做什么、还缺什么，再建议一张预览；不要猜数值，也别改原始文件”。复杂拼图和示意图的初版质量会受模型看图与推理能力影响；确定的数值图由脚本读取文件生成，成图仍需与原始数据逐项核对。
 
 **Give Codex a battery data table, a folder of panels, or a draft Review.** The toolkit helps with repetitive plotting, assembly, evidence checks and writing so researchers can spend more time on the scientific question. It is free to use and improve together.
 
-**Data and figures:** The repository's open-source license does not transfer your research data or artwork to the project. Bundled plotting and assembly scripts do not impose a project watermark. The website has no file-upload form; an online AI host handles material according to its own terms and account settings. Inspect ordinary SVG/PDF metadata and any paths in provenance JSON before sharing files. See the [plain-language FAQ](https://arrizabalagags-png.github.io/BatteryReviewForge/#api-help).
+**Data and figures:** The repository's open-source license does not transfer your research data or artwork to the project. Bundled plotting and assembly scripts do not impose a project watermark. The website has no file-upload form; an online AI host handles material according to its own terms and account settings. Inspect ordinary SVG/PDF metadata and any paths in provenance JSON before sharing files. See the [data and responsibility notes](https://arrizabalagags-png.github.io/BatteryReviewForge/disclaimer.html).
 
 **First try:** Give the assistant your material and ask it to report what it found, what it can make, what is missing, and one suggested preview. Complex layout and schematic choices depend partly on the model's visual reasoning. Numeric plotting should read the source file through reproducible code; always compare the export with the original data.
 
@@ -63,7 +63,7 @@ For figures that look too generic or over-decorated, use the [visual finishing g
 
 **Figure grammar first:** the [battery figure grammar](skills/battery-review-figure/references/BATTERY_FIGURE_GRAMMAR.md) now separates 49 experiment/figure types and records two panel pairings supported by at least three independent primary papers. [Panel evidence](skills/battery-review-figure/references/PANEL_EVIDENCE.json), [publisher profiles](skills/battery-review-figure/references/JOURNAL_FIGURE_SPEC.json), and the [PDF font audit](skills/battery-review-figure/scripts/audit_pdf_fonts.py) make the basis inspectable. The 51 local PDFs yielded 297 automated caption candidates; 31 panels in five papers have been visually checked in the current curated seed. The broader corpus is not yet a fully audited template library.
 
-The older [layout recipes](skills/battery-review-figure/references/SHOWCASE_RECIPES.md) are ideas, not default battery figure grammar. The [editable gallery assets](docs/assets/gallery/README.md), including the CE, full-cell, EIS, matrix and six-panel prototypes, are **synthetic test/tutorial materials with known shortcomings**. Do not treat them as publication-ready examples. Exported SVGs can be adjusted with the [beginner Inkscape guide](skills/battery-review-figure/references/SVG_HANDOFF.md); [Inkscape](https://inkscape.org/) is free and open source.
+The [new showcase](examples/showcase/) generates input CSV files first and then renders figures from those saved files. Every example is explicitly synthetic and includes source files, a plotting script, SVG, PDF, PNG, and metadata. The older [layout exercises](docs/assets/gallery/README.md) remain test and tutorial material; they are not featured on the new site. Exported SVGs can be adjusted with the [beginner Inkscape guide](skills/battery-review-figure/references/SVG_HANDOFF.md); [Inkscape](https://inkscape.org/) is free and open source.
 
 The [six-panel composition](docs/assets/gallery/editorial-assembly-demo.svg) is retained only as a rejected layout exercise. Its independent synthetic CSV inputs do not represent one experiment or a mechanism; [source code and provenance](docs/assets/gallery/render_editorial.py) remain for regression and critique.
 
@@ -114,7 +114,7 @@ codex plugin add battery-review-forge@battery-review-forge
 
 Start a new Codex task after installation so its skills are loaded. The package is also available as standalone skills: clone the repository and copy **all** skill folders using the commands below. The `$...` examples assume standalone installation; plugin skill names may be qualified by the plugin. See the [official skill documentation](https://learn.chatgpt.com/docs/build-skills) and [plugin packaging guide](https://developers.openai.com/plugins/build/plugins) for current distribution options.
 
-For an offline standalone install, download the [v0.7.2 ZIP package](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-v0.7.2.zip), extract it, and run `install.ps1` on Windows or `sh install.sh` on macOS/Linux from the extracted folder. The installer copies the 13 skill folders into your user Codex skills directory by default; `-Agent KimiCode` / `-Agent DeepSeekHarness` or `--agent kimi` / `--agent dsh` select their official directories. It stops if those folders already exist; review existing copies before using `-Overwrite` or `--overwrite`. WorkBuddy uses [separate import ZIPs](docs/COMPATIBILITY.md). Python plotting and assembly dependencies are installed separately only when those functions are used.
+For an offline standalone install, download the [v0.8.0 ZIP package](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-v0.8.0.zip), extract it, and run `install.ps1` on Windows or `sh install.sh` on macOS/Linux from the extracted folder. The installer copies the 13 skill folders into your user Codex skills directory by default; `-Agent KimiCode` / `-Agent DeepSeekHarness` or `--agent kimi` / `--agent dsh` select their official directories. It stops if those folders already exist; review existing copies before using `-Overwrite` or `--overwrite`. WorkBuddy uses [separate import ZIPs](docs/COMPATIBILITY.md). Python plotting and assembly dependencies are installed separately only when those functions are used.
 
 **macOS / Linux**
 
@@ -224,7 +224,7 @@ BatteryReviewForge 是面向电池领域 Review 和 Perspective 的 **模块化 
 
 可以先运行上方两条 `codex plugin` 命令安装整个插件，然后在新任务里调用各 skill；也可以克隆仓库，将 `skills` 下的**全部文件夹**复制到本机 `~/.codex/skills`（Windows 为用户目录下的 `.codex\skills`）。单项任务直接调用相应 skill：
 
-不想用命令克隆仓库时，可下载 [v0.7.2 完整 ZIP 安装包](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-v0.7.2.zip)，解压后在该目录运行 Windows 的 `install.ps1`，或 macOS/Linux 的 `sh install.sh`。默认装入 Codex；Kimi Code 和 DeepSeek Harness 的参数见[逐步教程](docs/COMPATIBILITY.md)。WorkBuddy 请下载[专用技能包合集](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-WorkBuddy-v0.7.2.zip)，解压后逐个导入需要的技能。安装脚本只复制文件；若已有同名技能会先停下，确认后再用 `-Overwrite` / `--overwrite` 更新。画图和拼图的 Python 依赖按需安装。
+不想用命令克隆仓库时，可下载 [v0.8.0 完整 ZIP 安装包](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-v0.8.0.zip)，解压后在该目录运行 Windows 的 `install.ps1`，或 macOS/Linux 的 `sh install.sh`。默认装入 Codex；Kimi Code 和 DeepSeek Harness 的参数见[逐步教程](docs/COMPATIBILITY.md)。WorkBuddy 请下载[专用技能包合集](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-WorkBuddy-v0.8.0.zip)，解压后逐个导入需要的技能。安装脚本只复制文件；若已有同名技能会先停下，确认后再用 `-Overwrite` / `--overwrite` 更新。画图和拼图的 Python 依赖按需安装。
 
 ```text
 用 $battery-review-plan 规划一篇水系锌电池综述：先核查相近综述，
