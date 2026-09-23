@@ -44,7 +44,7 @@ class SiteRoutesTest(unittest.TestCase):
     def test_beginner_tasks_stay_on_site(self):
         self.assertEqual(
             self.pages["index.html"].task_links,
-            ["guide.html#data", "guide.html#assemble", "guide.html#schematic", "guide.html#review"],
+            ["guide.html#data", "guide.html#assemble", "guide.html#review", "guide.html#unsure"],
         )
         for name in ("index.html", "guide.html", "disclaimer.html"):
             for link in self.pages[name].links:
@@ -78,6 +78,13 @@ class SiteRoutesTest(unittest.TestCase):
             self.assertNotRegex(html, r"<input\b[^>]*\btype=[\"']file[\"']", name)
         script = (ROOT / "site.js").read_text(encoding="utf-8")
         self.assertNotRegex(script, r"\b(?:fetch|XMLHttpRequest|sendBeacon)\s*\(")
+
+    def test_beginner_controls_hide_technical_detail_until_chosen(self):
+        home = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertIn('id="platform-codex"><summary>', home)
+        self.assertIn('<details class="skill-details">', home)
+        self.assertIn('href="guide.html#unsure"', home)
+        self.assertIn('<details class="gallery-more">', home)
 
 
 if __name__ == "__main__":

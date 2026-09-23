@@ -8,9 +8,13 @@
 
 **数据与成图：** 本仓库的开源许可不接管你的原始数据或图。随包绘图和拼图脚本不在图面强加项目水印；本站没有文件上传入口。若把材料交给在线 AI 软件，其处理方式取决于该软件和账户设置。SVG/PDF 的普通元信息及溯源 JSON 中的数据路径，分享前应检查。先看[站内常见问题](https://arrizabalagags-png.github.io/BatteryReviewForge/#api-help)。
 
+**想先试试？** 不用知道技能名称：把材料交给助手，说“先告诉我你看到了什么、能做什么、还缺什么，再建议一张预览；不要猜数值，也别改原始文件”。复杂拼图和示意图的初版质量会受模型看图与推理能力影响；确定的数值图由脚本读取文件生成，成图仍需与原始数据逐项核对。
+
 **Give Codex a battery data table, a folder of panels, or a draft Review.** The toolkit helps with repetitive plotting, assembly, evidence checks and writing so researchers can spend more time on the scientific question. It is free to use and improve together.
 
 **Data and figures:** The repository's open-source license does not transfer your research data or artwork to the project. Bundled plotting and assembly scripts do not impose a project watermark. The website has no file-upload form; an online AI host handles material according to its own terms and account settings. Inspect ordinary SVG/PDF metadata and any paths in provenance JSON before sharing files. See the [plain-language FAQ](https://arrizabalagags-png.github.io/BatteryReviewForge/#api-help).
+
+**First try:** Give the assistant your material and ask it to report what it found, what it can make, what is missing, and one suggested preview. Complex layout and schematic choices depend partly on the model's visual reasoning. Numeric plotting should read the source file through reproducible code; always compare the export with the original data.
 
 **An open battery research toolkit for turning data, existing panels, and literature into traceable figures and evidence-led Reviews.**
 
@@ -53,7 +57,7 @@ The aim is a useful scientific synthesis: a bounded question, a visible contribu
 
 The `battery-review-figure` skill includes an importable [Matplotlib library](skills/battery-review-figure/references/PYTHON_PLOTTING.md) for Coulombic efficiency, full-cell and half-cell cycling, symmetric-cell voltage, charge/discharge profiles, Nyquist plots, cycle retention, rate capability, bars, literature conditions matrices, and calibrated ToF-SIMS ion maps/depth profiles. The [uploaded-data route](skills/battery-review-figure/references/UPLOADED_DATA.md) inspects CSV/TSV/TXT/XLSX columns before plotting. Direct cross-study charts require author-checked values, source IDs, consistent units and matching declared cell/test conditions. `NR` and `NV` remain separate states. Exports include PDF, SVG, a 300 dpi review image, and a provenance sidecar. The code checks declarations; it does not independently verify experiments, supply literature values, or replace source checks and final-size visual review.
 
-New to figure making? Start with the [plain-language figure router](skills/battery-review-figure/references/FIGURE_ROUTER.md): a raw table or new schematic uses the figure skill; existing finished panels use the assembly skill. Before drawing, choose one of [six color styles](skills/battery-review-figure/references/STYLE_PRESETS.md). The skill asks once; the CLI requires that choice in its mapping file and records it in provenance. A manuscript can use one choice across all figures.
+New to figure making? Start with the [plain-language figure router](skills/battery-review-figure/references/FIGURE_ROUTER.md): a raw table or new schematic uses the figure skill; existing finished panels use the assembly skill. Before drawing, choose from three plain-language styles; [six named presets](skills/battery-review-figure/references/STYLE_PRESETS.md) remain available when you want finer control. The skill asks once; the CLI requires that choice in its mapping file and records it in provenance. A manuscript can use one choice across all figures.
 
 For figures that look too generic or over-decorated, use the [visual finishing guide](skills/battery-review-figure/references/VISUAL_FINISH.md). It turns “less AI-looking” into concrete checks for panel hierarchy, real data and source details, consistent type and color, final-size readability, and transparent AI-use records.
 
@@ -61,7 +65,7 @@ The [figure showcase recipes](skills/battery-review-figure/references/SHOWCASE_R
 
 ![Six original figure style choices, shown with invented data](skills/battery-review-figure/assets/style-preview.svg)
 
-For a set of existing plots, spectra, micrographs, or diagrams, use [`battery-figure-assemble`](skills/battery-figure-assemble/references/COMPOSITION.md). Its [plain-language layout recipes](skills/battery-figure-assemble/references/LAYOUT_RECIPES.md) help choose a grid. It inventories sources, builds a fixed physical-size grid without stretching panels, preserves vector PDF/SVG material where possible, and writes an alignment overlay, panel-level QA crops, and a final-PDF font audit. Each crop and reused visual remains traceable to its original file and rights status.
+For a set of existing plots, spectra, micrographs, or diagrams, use [`battery-figure-assemble`](skills/battery-figure-assemble/references/COMPOSITION.md). Its [Figure Director guide](skills/battery-figure-assemble/references/EDITORIAL_COMPOSITION.md) sets evidence roles and a reading path before the [physical layout recipes](skills/battery-figure-assemble/references/LAYOUT_RECIPES.md) choose a grid. For complex figures it offers three quick composition previews. If a supplied panel cannot stay legible, it requests raw data or an editable source from the figure skill, regenerates the panel, and assembles again. The CLI builds a fixed physical-size grid without stretching panels, preserves vector PDF/SVG where possible, and writes alignment overlays, panel crops, and a final-PDF font audit. Every reused visual remains traceable to its source and rights status.
 
 The [original resource library](skills/battery-review-figure/references/RESOURCE_LIBRARY.md) has editable cell-boundary, electrolyte-evidence-chain and circular Review layouts, plus battery lab icons and generic morphology shapes. Its [pattern atlas](skills/battery-review-figure/references/ASSET_PATTERN_ATLAS.md) explains how private PPT/AI/PSD/image references are distilled into new editable diagrams without publishing third-party art. A local cataloger records these source packs privately.
 
@@ -106,7 +110,7 @@ codex plugin add battery-review-forge@battery-review-forge
 
 Start a new Codex task after installation so its skills are loaded. The package is also available as standalone skills: clone the repository and copy **all** skill folders using the commands below. The `$...` examples assume standalone installation; plugin skill names may be qualified by the plugin. See the [official skill documentation](https://learn.chatgpt.com/docs/build-skills) and [plugin packaging guide](https://developers.openai.com/plugins/build/plugins) for current distribution options.
 
-For an offline standalone install, download the [v0.6.2 ZIP package](https://github.com/arrizabalagags-png/BatteryReviewForge/releases/download/v0.6.2/BatteryReviewForge-v0.6.2.zip), extract it, and run `install.ps1` on Windows or `sh install.sh` on macOS/Linux from the extracted folder. The installer copies the 13 skill folders into your user Codex skills directory by default; `-Agent KimiCode` / `-Agent DeepSeekHarness` or `--agent kimi` / `--agent dsh` select their official directories. It stops if those folders already exist; review existing copies before using `-Overwrite` or `--overwrite`. WorkBuddy uses [separate import ZIPs](docs/COMPATIBILITY.md). Python plotting and assembly dependencies are installed separately only when those functions are used.
+For an offline standalone install, download the [v0.7.0 ZIP package](https://github.com/arrizabalagags-png/BatteryReviewForge/releases/download/v0.7.0/BatteryReviewForge-v0.7.0.zip), extract it, and run `install.ps1` on Windows or `sh install.sh` on macOS/Linux from the extracted folder. The installer copies the 13 skill folders into your user Codex skills directory by default; `-Agent KimiCode` / `-Agent DeepSeekHarness` or `--agent kimi` / `--agent dsh` select their official directories. It stops if those folders already exist; review existing copies before using `-Overwrite` or `--overwrite`. WorkBuddy uses [separate import ZIPs](docs/COMPATIBILITY.md). Python plotting and assembly dependencies are installed separately only when those functions are used.
 
 **macOS / Linux**
 
@@ -216,7 +220,7 @@ BatteryReviewForge 是面向电池领域 Review 和 Perspective 的 **模块化 
 
 可以先运行上方两条 `codex plugin` 命令安装整个插件，然后在新任务里调用各 skill；也可以克隆仓库，将 `skills` 下的**全部文件夹**复制到本机 `~/.codex/skills`（Windows 为用户目录下的 `.codex\skills`）。单项任务直接调用相应 skill：
 
-不想用命令克隆仓库时，可下载 [v0.6.2 完整 ZIP 安装包](https://github.com/arrizabalagags-png/BatteryReviewForge/releases/download/v0.6.2/BatteryReviewForge-v0.6.2.zip)，解压后在该目录运行 Windows 的 `install.ps1`，或 macOS/Linux 的 `sh install.sh`。默认装入 Codex；Kimi Code 和 DeepSeek Harness 的参数见[逐步教程](docs/COMPATIBILITY.md)。WorkBuddy 请下载[专用技能包合集](https://github.com/arrizabalagags-png/BatteryReviewForge/releases/download/v0.6.2/BatteryReviewForge-WorkBuddy-v0.6.2.zip)，解压后逐个导入需要的技能。安装脚本只复制文件；若已有同名技能会先停下，确认后再用 `-Overwrite` / `--overwrite` 更新。画图和拼图的 Python 依赖按需安装。
+不想用命令克隆仓库时，可下载 [v0.7.0 完整 ZIP 安装包](https://github.com/arrizabalagags-png/BatteryReviewForge/releases/download/v0.7.0/BatteryReviewForge-v0.7.0.zip)，解压后在该目录运行 Windows 的 `install.ps1`，或 macOS/Linux 的 `sh install.sh`。默认装入 Codex；Kimi Code 和 DeepSeek Harness 的参数见[逐步教程](docs/COMPATIBILITY.md)。WorkBuddy 请下载[专用技能包合集](https://github.com/arrizabalagags-png/BatteryReviewForge/releases/download/v0.7.0/BatteryReviewForge-WorkBuddy-v0.7.0.zip)，解压后逐个导入需要的技能。安装脚本只复制文件；若已有同名技能会先停下，确认后再用 `-Overwrite` / `--overwrite` 更新。画图和拼图的 Python 依赖按需安装。
 
 ```text
 用 $battery-review-plan 规划一篇水系锌电池综述：先核查相近综述，
