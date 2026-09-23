@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "battery-review-forge",
-  "version": "0.2.0",
-  "description": "Modular evidence-first skills and an original Python plotting library for battery review articles.",
+  "version": "0.3.0",
+  "description": "Evidence-first skills, uploaded-data battery plots, original figure templates, and reproducible panel assembly.",
   "author": {
     "name": "Shuo Guo and Jinlong Jiang"
   },

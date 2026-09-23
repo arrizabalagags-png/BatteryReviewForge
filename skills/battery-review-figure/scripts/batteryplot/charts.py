@@ -16,7 +16,7 @@ from .data import (
     source_ids,
     verified_rows,
 )
-from .style import COLORS, LINESTYLES, MARKERS, condition_banner, make_figure
+from .style import COLORS, LINESTYLES, MARKERS, THEME, condition_banner, make_figure
 
 
 CYCLE_CONTEXT = (
@@ -175,21 +175,22 @@ def conditions_matrix(
                       1 if str(row[field]).strip().upper() == "NR" else 2 for field in fields])
     height = height_mm or max(45.0, 13.0 + 7.0 * len(rows))
     fig, ax = make_figure(width_mm, height)
-    cmap = ListedColormap(("#EEE6DF", "#B8C0C4", "#4C8B85"))
+    cmap = ListedColormap((THEME["pastels"]["rust"], "#B8C0C4",
+                           THEME["roles"]["new_or_intervention"]))
     ax.imshow(codes, vmin=-0.5, vmax=2.5, cmap=cmap, aspect="auto", interpolation="nearest")
     ax.set_xticks(range(len(fields)), [field.replace("_", " ") for field in fields], rotation=35, ha="right")
     ax.set_yticks(range(len(rows)), [str(row[label_field]) for row in rows])
     for i, code_row in enumerate(codes):
         for j, code in enumerate(code_row):
             ax.text(j, i, ("NV", "NR", "R")[code], ha="center", va="center",
-                    color="white" if code == 2 else "#26343D", fontsize=6)
+                    color="white" if code == 2 else THEME["ink"], fontsize=6)
     ax.set_xticks([x - 0.5 for x in range(1, len(fields))], minor=True)
     ax.set_yticks([y - 0.5 for y in range(1, len(rows))], minor=True)
     ax.grid(which="minor", color="white", linewidth=1)
     ax.tick_params(which="minor", bottom=False, left=False)
-    ax.legend(handles=[Patch(facecolor="#4C8B85", label="Reported"),
+    ax.legend(handles=[Patch(facecolor=THEME["roles"]["new_or_intervention"], label="Reported"),
                        Patch(facecolor="#B8C0C4", label="NR: checked, not reported"),
-                       Patch(facecolor="#EEE6DF", label="NV: not verified")],
+                       Patch(facecolor=THEME["pastels"]["rust"], label="NV: not verified")],
               loc="upper center", bbox_to_anchor=(0.5, -0.38), ncol=3, frameon=False)
     _meta(fig, "conditions_matrix", rows, "not_applicable")
     return fig, ax

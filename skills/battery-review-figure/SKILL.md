@@ -1,11 +1,19 @@
 ---
 name: battery-review-figure
-description: Plan, create, revise, or audit figures for a battery Review or Perspective, including scientific claims, source trace, rights, and export quality.
+description: Plan or audit battery Review figures, and turn author-uploaded battery test data into traceable plots; check claims, test conditions, rights, and final-size quality.
 ---
 
 # Figures for battery Reviews
 
-Use this for conceptual diagrams, mechanism schemes, evidence maps, quantitative plots, visual abstracts, or figure audits. First read the owning section and decide the *one judgement* the figure helps the reader make. Use [FIGURE_LEDGER.md](assets/templates/FIGURE_LEDGER.md) only when the project lacks a figure record. For Python quantitative figures, read [the plotting library guide](references/PYTHON_PLOTTING.md) and import the bundled `scripts/batteryplot` package. This does not require installing a second skill.
+The data-plotting route also works for author-owned experimental battery data when the manuscript is not a Review. Handle that plotting request here without invoking the whole Review writing workflow.
+
+Use this for conceptual diagrams, mechanism schemes, evidence maps, quantitative plots, visual abstracts, or figure audits. First read the owning section and decide the *one judgement* the figure helps the reader make. Use [FIGURE_LEDGER.md](assets/templates/FIGURE_LEDGER.md) only when the project lacks a figure record. For author-uploaded data, read [the plain-language upload route](references/UPLOADED_DATA.md), run `scripts/plot_uploaded.py inspect`, map columns and test conditions, then plot. For custom Python quantitative figures, read [the plotting library guide](references/PYTHON_PLOTTING.md) and import `scripts/batteryplot`. This does not require a second skill.
+
+When the author supplies a set of existing image/PDF/SVG panels and wants them assembled, route the composition to `battery-figure-assemble`. It owns asset inventory, millimetre-grid placement, final panel labels, source/crop provenance and alignment QA. Keep this skill responsible for the figure's scientific claim, battery-specific comparability, caption and rights decisions.
+
+For uploaded PPT/AI/PSD/reference collections, run `scripts/asset_inventory.py` to make a private metadata catalog. Read [the resource and redraw guide](references/RESOURCE_LIBRARY.md) before adapting a diagram. The bundled editable SVGs and theme are original starting points, not evidence. Never redistribute an unverified third-party asset or trace its pixels as a substitute for permission.
+
+When the chart family is unclear or a Review needs a planned figure set, use [the battery figure atlas](references/BATTERY_FIGURE_ATLAS.md) to choose the evidence role, axes, conditions and display type. Read only the relevant entries; it separates what the upload script can draw directly from figures needing raw spectra, image calibration, modelling details or a newly drawn schematic.
 
 ## Plan the figure
 

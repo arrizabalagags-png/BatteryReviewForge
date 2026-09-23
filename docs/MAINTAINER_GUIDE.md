@@ -15,6 +15,8 @@ This document records why the skill is shaped as it is and what to inspect befor
 9. **What counts as independent review?** Freeze the input, keep the original assessment, and distinguish responding to comments from re-reviewing a revised version.
 10. **How does the workflow survive model updates?** Define outcomes and evidence standards, route detail on demand, and test behavior with realistic tasks. Do not encode model names, quotas, or mandatory rereading rituals in the skill.
 11. **What may be public?** Only original general instructions, blank templates, and shareable examples belong here. Keep project manuscripts, PDFs, figures, reviewer materials, and institutional access details outside this repository.
+12. **Which figure specialist owns the request?** `battery-review-figure` owns scientific claims, uploaded-table plotting, captions and source rights; `battery-figure-assemble` owns supplied-panel geometry and final-size composite QA. A narrow primary-data plot does not trigger the full Review coordinator.
+13. **How are reference asset packs handled?** Hash and index them in a private output, deduplicate logically, verify rights, then redraw original editable templates from checked facts. Never import a third-party PPT/AI/PSD pack into the public plugin merely because it is present locally.
 
 ## Release checklist
 
@@ -26,6 +28,8 @@ This document records why the skill is shaped as it is and what to inspect befor
 - Journal checks use current official guidance for the exact article type and preserve unresolved conflicts.
 - Public-diff inspection finds no unpublished research data, downloaded PDFs, private paths, credentials, or third-party artwork.
 - README installation instructions and both language sections still match the actual package.
+- Uploaded CSV and XLSX examples render all supported battery-specific plot families; condition mismatches, uncertain CE definitions and mixed full/half-cell inputs fail visibly.
+- Multi-panel PDF/PNG/SVG composition passes grid/plot-area tests and a human visual check at final size; PDF text scanners with transformed SVG fonts are investigated, not blindly ignored.
 
 Use [test scenarios](../tests/scenarios.md) to evaluate an update. Record the observed artifact and decision, not just whether wording matched an expected phrase. Fix demonstrated failure modes narrowly; do not grow the entry point with another universal rule for every edge case.
 

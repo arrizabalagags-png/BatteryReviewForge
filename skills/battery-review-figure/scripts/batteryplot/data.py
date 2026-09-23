@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import csv
 import math
 from pathlib import Path
 
@@ -12,15 +11,11 @@ class DataContractError(ValueError):
 
 
 def read_csv(path: str | Path) -> list[dict[str, str]]:
-    """Read a tidy UTF-8 CSV without dropping rows or interpreting blanks as zero."""
-    with Path(path).open(newline="", encoding="utf-8-sig") as handle:
-        reader = csv.DictReader(handle)
-        if not reader.fieldnames or len(reader.fieldnames) != len(set(reader.fieldnames)):
-            raise DataContractError("CSV needs a header with unique field names")
-        rows = list(reader)
-    if not rows:
-        raise DataContractError("CSV has no data rows")
-    return rows
+    """Backward-compatible CSV entrypoint using the shared upload parser."""
+    if Path(path).suffix.lower() != ".csv":
+        raise DataContractError("read_csv accepts .csv only; use read_table for other files")
+    from .ingest import read_table
+    return read_table(path)
 
 
 def require_fields(rows: list[dict], fields: tuple[str, ...]) -> None:

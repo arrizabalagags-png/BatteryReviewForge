@@ -19,6 +19,7 @@ Identify the chemistry or device class, article type (narrative/critical Review,
 | Battery metrics, mechanisms, cross-study comparisons | `battery-metrics-audit` |
 | Draft or restructure sections | `battery-review-write` |
 | Plan, create, or audit figures | `battery-review-figure` |
+| Assemble supplied image/PDF/SVG panels | `battery-figure-assemble` |
 | Polish, translate, or compress existing prose | `battery-review-polish` |
 | Whole-manuscript pre-submission audit | `battery-review-audit` |
 | Journal rules and initial submission package | `battery-review-submission` |

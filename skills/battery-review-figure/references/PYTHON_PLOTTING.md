@@ -1,10 +1,10 @@
 # BatteryReviewForge Python plotting library
 
-The bundled `scripts/batteryplot` package uses Matplotlib. It is an original implementation for battery Review and Perspective figures. It keeps an individual figure's code, input table, outputs and provenance close together in the manuscript project. It does not ship paper data or copy third-party artwork.
+The bundled `scripts/batteryplot` package uses Matplotlib. It is an original implementation for battery Review and Perspective figures. It keeps an individual figure's code, input table, outputs and provenance close together in the manuscript project. It does not ship paper data or copy third-party artwork. For ordinary author uploads, start with [the CSV/XLSX guide](UPLOADED_DATA.md) and `scripts/plot_uploaded.py`; custom Python is optional.
 
 ## Install and import
 
-Install Python 3.10+ and Matplotlib 3.8+ in the plotting environment. No Pandas, Seaborn, paid database or network service is needed. Set `PYTHONPATH` to the installed skill's `scripts` directory, or add that directory to `sys.path` in the figure script:
+Install Python 3.10+ and the small requirements file in the plotting environment. Matplotlib makes the plots; openpyxl reads XLSX; python-pptx counts slides in private asset inventories. No Pandas, Seaborn, paid database or network service is needed. Set `PYTHONPATH` to the installed skill's `scripts` directory, or add that directory to `sys.path` in the figure script:
 
 ```python
 from pathlib import Path
@@ -35,6 +35,11 @@ The example data are invented and must never be used as literature evidence.
 | `rate_capability(rows)` | One row per test step and series | Preserves test order and recovery steps; requires matching step/rate sequences and capacity units |
 | `comparison_bars(rows, metric_label=...)` | One row per category | Starts at zero; refuses unlike declared test conditions and undefined uncertainty |
 | `conditions_matrix(rows, fields)` | One row per paper or case | Shows reported (`R`), `NR`, and `NV` as distinct states; never interprets blank as zero |
+| `coulombic_efficiency(rows)` | One row per cycle and series | Requires a CE definition and supplied CE or explicit numerator/denominator; never caps >100% values silently |
+| `cycling_capacity(rows, cell_configuration="full" or "half")` | One row per cycle and series | Rejects mixed full/half cell rows; labels the capacity unit and requires a stated basis |
+| `symmetric_voltage(rows)` | Signed mV vs elapsed hours | Requires symmetric cell configuration, current density, areal capacity and pressure; retains polarity and failure region |
+| `voltage_capacity(rows)` | Charge/discharge profile points | Keeps cycle and direction separate, requires voltage and capacity units/basis |
+| `nyquist(rows)` | Real impedance and explicit positive negative-imaginary column | Requires cell state and frequency range; does not silently flip raw impedance sign |
 
 All quantitative rows require `source_id` and `evidence_state=verified`. A source ID is a DOI, stable paper ID or locally resolvable bibliography key. This is an author-supplied declaration; inspect the actual source and DOI with the claim/citation skills. Required numeric fields must be finite. Keep the raw input unchanged; calculate normalization in a separate, documented step.
 
@@ -49,6 +54,8 @@ These are deliberately strict defaults. Supply each field for every quantitative
 | Comparison bars | `chemistry`, `cell_configuration`, `metric_basis`, `rate`, `temperature_c`, `loading_mg_cm2`, `electrolyte_ul_mg` |
 
 For solid-state, lithium-sulfur, aqueous zinc, sodium-ion, flow batteries and full-cell energy comparisons, add claim-specific conditions to the figure ledger and caption: pressure, sulfur loading, E/S, N/P, depth of discharge, zinc excess, areal capacity, power basis, stack boundary, etc. The fixed API cannot know every chemistry's decisive factor. A paper with a different normalization or cell boundary should be separated even if the listed defaults happen to match. Do not fabricate a numeric value to satisfy a field; use a conditions matrix when values are `NR` or `NV`.
+
+The specialized chart functions additionally check the fields defined beside them in `batteryplot/battery_charts.py`. Their input files retain row order: a backwards time/capacity axis is a data issue to review, not something to hide by automatic sorting. For CE, distinguish full-cell discharge/charge from metal stripping/plating definitions. For full-cell capacity, name whether mass refers to cathode, anode, both active materials or a complete cell. A symmetric-cell voltage trace does not measure a full cell's energy density.
 
 `cycle_retention` and `rate_capability` accept `mode="contextual", condition_note="..."` for descriptive overlays under different conditions. A warning is printed on the figure and written to provenance. The author must still state the differences in the caption. `comparison_bars` intentionally has no contextual override.
 

@@ -2,17 +2,29 @@
 
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
 MM_PER_INCH = 25.4
-COLORS = ("#205C85", "#B45A48", "#348678", "#8B6F9E", "#776B58")
+THEME = json.loads((Path(__file__).resolve().parents[2] / "assets" / "figure_theme.json").read_text(encoding="utf-8"))
+COLORS = tuple(THEME["roles"][role] for role in (
+    "reference_or_baseline", "new_or_intervention", "limitation_or_failure",
+    "mechanism_or_model", "neutral_context",
+))
 MARKERS = ("o", "s", "^", "D", "v")
 LINESTYLES = ("-", "--", "-.", ":", "-")
 PLOT_STYLE = {
     "font.family": "sans-serif",
     "font.sans-serif": ["Arial", "Helvetica", "DejaVu Sans"],
     "font.size": 7,
+    "text.color": THEME["ink"],
+    "axes.labelcolor": THEME["ink"],
+    "axes.edgecolor": THEME["ink"],
+    "xtick.color": THEME["ink"],
+    "ytick.color": THEME["ink"],
     "axes.labelsize": 8,
     "axes.titlesize": 8,
     "xtick.labelsize": 6,
@@ -43,4 +55,5 @@ def make_figure(width_mm: float = 89, height_mm: float = 65):
 
 
 def condition_banner(fig, note: str) -> None:
-    fig.text(0.5, 0.99, f"Different test conditions · {note}", ha="center", va="top", fontsize=6, color="#8A3E34")
+    fig.text(0.5, 0.99, f"Different test conditions · {note}", ha="center", va="top", fontsize=6,
+             color=THEME["roles"]["limitation_or_failure"])

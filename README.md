@@ -2,6 +2,10 @@
 
 ![BatteryReviewForge wordmark](assets/brand.svg)
 
+**把重复画图、拼图、查证和改稿的工夫省下来，留给真正的科研思考。** 这是一个免费、开放、欢迎一起改的电池科研工具箱。你可以直接给 Codex 一份数据表、一堆待拼的图，或一篇正在写的综述；它会先识别材料与缺少的测试条件，再按对应的小技能完成工作。代码和空白模板可公开复用，论文原图和未授权素材不会混入公共库。
+
+**Give Codex a battery data table, a folder of panels, or a draft Review.** The toolkit helps with repetitive plotting, assembly, evidence checks and writing so researchers can spend more time on the scientific question. It is free to use and improve together.
+
 **An evidence-first skill suite for battery review articles, from the first question to the final response letter.**
 
 English · [简体中文](#简体中文)
@@ -22,6 +26,7 @@ BatteryReviewForge is a modular set of Codex skills for battery researchers writ
 | Evidence | [`battery-metrics-audit`](skills/battery-metrics-audit/SKILL.md) | Check cell conditions, denominators, mechanisms, comparisons |
 | Create | [`battery-review-write`](skills/battery-review-write/SKILL.md) | Draft or restructure evidence-led sections |
 | Create | [`battery-review-figure`](skills/battery-review-figure/SKILL.md) | Plan, plot, export, and audit figures and rights |
+| Create | [`battery-figure-assemble`](skills/battery-figure-assemble/SKILL.md) | Align supplied panels into a source-traceable composite |
 | Refine | [`battery-review-polish`](skills/battery-review-polish/SKILL.md) | Polish, translate, or compress existing prose |
 | Quality | [`battery-review-audit`](skills/battery-review-audit/SKILL.md) | Whole-manuscript scientific and structural preflight |
 | Quality | [`battery-reviewer`](skills/battery-reviewer/SKILL.md) | Independent referee-style report on a frozen draft |
@@ -38,12 +43,36 @@ The aim is a useful scientific synthesis: a bounded question, a visible contribu
 
 ## Python figures for battery Reviews
 
-The `battery-review-figure` skill includes an importable [Matplotlib library](skills/battery-review-figure/references/PYTHON_PLOTTING.md) for cycle retention, rate capability, comparable metric bars, and literature conditions matrices. Direct cross-study charts require verified values, source IDs, consistent units and matching declared cell/test conditions. `NR` and `NV` remain separate states. Exports include PDF, SVG, a 300 dpi review image, and a provenance sidecar. The code does not supply literature values or replace source checks and final-size visual review.
+The `battery-review-figure` skill includes an importable [Matplotlib library](skills/battery-review-figure/references/PYTHON_PLOTTING.md) for Coulombic efficiency, full-cell and half-cell cycling, symmetric-cell voltage, charge/discharge profiles, Nyquist plots, cycle retention, rate capability, bars and literature conditions matrices. The [uploaded-data route](skills/battery-review-figure/references/UPLOADED_DATA.md) inspects CSV/TSV/TXT/XLSX columns before plotting. Direct cross-study charts require verified values, source IDs, consistent units and matching declared cell/test conditions. `NR` and `NV` remain separate states. Exports include PDF, SVG, a 300 dpi review image, and a provenance sidecar. The code does not supply literature values or replace source checks and final-size visual review.
 
-Run the synthetic demonstration after installing Matplotlib:
+For a set of existing plots, spectra, micrographs, or diagrams, use [`battery-figure-assemble`](skills/battery-figure-assemble/references/COMPOSITION.md). It inventories sources, builds a fixed physical-size grid without stretching panels, preserves vector PDF/SVG material where possible, and writes an alignment overlay plus panel-level QA crops. Each crop and reused visual remains traceable to its original file and rights status.
+
+The [original resource library](skills/battery-review-figure/references/RESOURCE_LIBRARY.md) has editable cell-boundary, electrolyte-evidence-chain and circular Review layouts plus shared colors. A local asset cataloger can index a researcher's PPT/AI/PSD/image collections without publishing or copying files of unknown rights.
+
+![Original editable full-cell, half-cell and symmetric-cell layout template](skills/battery-review-figure/assets/original/cell-boundaries.svg)
+
+**Give it a file, then choose the job:**
+
+```text
+“这是全电池循环数据.xlsx。先看看列名，再画容量随圈数变化，告诉我缺哪些条件。”
+“这 6 张图要拼成 Fig. 3。统一面板宽度、字母、留白，检查最终尺寸。”
+“这是综述大纲和文献。帮我规划图件，每张图只回答一个清楚的问题。”
+```
+
+For local Python plotting and XLSX support:
+
+```bash
+python -m pip install -r skills/battery-review-figure/requirements.txt
+```
+
+For panel assembly, install [its small dependency set](skills/battery-figure-assemble/requirements.txt) separately when needed.
+
+Run the synthetic demonstrations after installing the plotting and assembly requirements:
 
 ```bash
 python skills/battery-review-figure/examples/demo_figures.py --output outputs/figure-demo
+python skills/battery-review-figure/examples/demo_uploaded.py --output outputs/uploaded-demo
+python skills/battery-figure-assemble/examples/demo_assemble.py outputs/assemble-demo
 ```
 
 The sample values are invented for testing and must not enter a manuscript.
@@ -122,7 +151,9 @@ Bring an anonymized failure case, a sourced battery-specific correction, or a si
 
 BatteryReviewForge 是面向电池领域 Review 和 Perspective 的 **模块化 Codex 技能组**。选题、检索、引文核验、性能比较、写作、图件、润色、整稿审计、投稿、独立审稿和返修都有独立入口；总入口只负责跨阶段协调。这样，要求“润色两段”时不会自动跑完整个投稿流程。
 
-图件 skill 内置了 [Python 绘图库与使用说明](skills/battery-review-figure/references/PYTHON_PLOTTING.md)：支持循环保持率、倍率性能、同条件指标柱图与文献条件矩阵；要求来源 ID、已核数据和可比条件，导出 PDF/SVG、300 dpi 预览图及溯源记录。示例为明确标注的虚构数据，仅用于检查绘图库。
+图件 skill 内置了 [上传数据画图的白话说明](skills/battery-review-figure/references/UPLOADED_DATA.md)和 [Python 绘图库](skills/battery-review-figure/references/PYTHON_PLOTTING.md)：支持库伦效率、全电池/半电池循环、对称电池电压、充放电曲线、EIS、循环保持率、倍率性能、同条件柱图和文献条件矩阵。数据表先识别列，再核实来源、单位、电芯构型和可比条件；导出 PDF/SVG、300 dpi 预览图及溯源记录。示例为明确标注的虚构数据，仅用于检查工具。
+
+作者已有一组图时，使用独立的 [`battery-figure-assemble` 拼图技能](skills/battery-figure-assemble/references/COMPOSITION.md)：先盘点素材，再按毫米网格拼版，检查面板外框与实际绘图区的对齐、有效分辨率、裁剪记录、版权状态和投稿尺寸下的可读性。工具会输出拼图 PDF/PNG、逐面板检查图、对齐叠加图与 QA 记录。
 
 **合作署名：** 上海理工大学能源材料科学研究院 郭硕、姜金龙合作。
 **开源协议：** [MIT](LICENSE)。
@@ -136,6 +167,7 @@ BatteryReviewForge 是面向电池领域 Review 和 Perspective 的 **模块化 
 | 证据 | `battery-metrics-audit` | 电池指标、机制证据和跨论文可比性 |
 | 创作 | `battery-review-write` | 基于证据起草、重构章节 |
 | 创作 | `battery-review-figure` | 图件规划、制作、科学与版权审查 |
+| 创作 | `battery-figure-assemble` | 给已有图件拼版、对齐和逐面板质检 |
 | 润色 | `battery-review-polish` | 润色、翻译、压缩已有文字 |
 | 质控 | `battery-review-audit` | 整稿投稿前科学与一致性审计 |
 | 质控 | `battery-reviewer` | 冻结稿件后的独立审稿意见 |

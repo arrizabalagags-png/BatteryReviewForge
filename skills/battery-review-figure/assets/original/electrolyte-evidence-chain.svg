@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540" role="img" aria-label="Original editable evidence chain template for battery electrolyte reviews">
+  <rect width="1200" height="540" fill="#ffffff"/>
+  <style>
+    text{font-family:Arial,Helvetica,sans-serif;fill:#26343D}
+    .title{font-size:31px;font-weight:700}
+    .heading{font-size:25px;font-weight:700}
+    .body{font-size:19px}
+    .note{font-size:16px;fill:#66747C}
+    text.pill{font-size:14px;font-weight:700;fill:#ffffff}
+  </style>
+  <text x="42" y="56" class="title">From electrolyte recipe to battery evidence</text>
+  <text x="42" y="86" class="note">Template only. Replace each method, source ID and conclusion with the actual paper or experiment.</text>
+  <g transform="translate(42 130)">
+    <rect width="246" height="290" rx="18" fill="#EAF2F7" stroke="#205C85" stroke-width="2"/>
+    <rect x="18" y="18" width="116" height="29" rx="14" fill="#205C85"/>
+    <text x="76" y="39" text-anchor="middle" class="pill">REPORTED</text>
+    <text x="20" y="91" class="heading">Formulation</text>
+    <text x="20" y="134" class="body">Salt + solvent</text>
+    <text x="20" y="164" class="body">+ diluent</text>
+    <text x="20" y="225" class="note">Composition, molarity,</text>
+    <text x="20" y="249" class="note">ratios, water content</text>
+  </g>
+  <g transform="translate(332 130)">
+    <rect width="246" height="290" rx="18" fill="#F2EFF6" stroke="#8B6F9E" stroke-width="2"/>
+    <rect x="18" y="18" width="160" height="29" rx="14" fill="#8B6F9E"/>
+    <text x="98" y="39" text-anchor="middle" class="pill">MIXED EVIDENCE</text>
+    <text x="20" y="91" class="heading">Solvation</text>
+    <text x="20" y="134" class="body">Raman / NMR</text>
+    <text x="20" y="164" class="body">RDF / MD</text>
+    <text x="20" y="225" class="note">Mark measured and</text>
+    <text x="20" y="249" class="note">calculated separately</text>
+  </g>
+  <g transform="translate(622 130)">
+    <rect width="246" height="290" rx="18" fill="#E9F4F0" stroke="#348678" stroke-width="2"/>
+    <rect x="18" y="18" width="112" height="29" rx="14" fill="#348678"/>
+    <text x="74" y="39" text-anchor="middle" class="pill">MEASURED</text>
+    <text x="20" y="91" class="heading">Interphase</text>
+    <text x="20" y="134" class="body">XPS / SEM</text>
+    <text x="20" y="164" class="body">Depth / morphology</text>
+    <text x="20" y="225" class="note">Acquisition and fitting</text>
+    <text x="20" y="249" class="note">conditions matter</text>
+  </g>
+  <g transform="translate(912 130)">
+    <rect width="246" height="290" rx="18" fill="#F8EFEC" stroke="#B45A48" stroke-width="2"/>
+    <rect x="18" y="18" width="112" height="29" rx="14" fill="#B45A48"/>
+    <text x="74" y="39" text-anchor="middle" class="pill">MEASURED</text>
+    <text x="20" y="91" class="heading">Cell outcome</text>
+    <text x="20" y="134" class="body">CE / symmetric</text>
+    <text x="20" y="164" class="body">/ full cell</text>
+    <text x="20" y="225" class="note">Keep each test boundary</text>
+    <text x="20" y="249" class="note">and failure rule visible</text>
+  </g>
+  <g fill="none" stroke="#66747C" stroke-width="3" stroke-dasharray="7 6">
+    <path d="M 294,276 H 327"/><path d="M 584,276 H 617"/><path d="M 874,276 H 907"/>
+  </g>
+  <g fill="#66747C">
+    <path d="M 327,276 l-11,-7 v14 z"/><path d="M 617,276 l-11,-7 v14 z"/><path d="M 907,276 l-11,-7 v14 z"/>
+  </g>
+  <text x="42" y="470" class="note">Dashed links show the proposed interpretation, not automatic proof of causality. Cite each link or mark it as a hypothesis.</text>
+</svg>

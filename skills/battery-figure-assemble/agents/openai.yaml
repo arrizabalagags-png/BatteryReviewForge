@@ -1,0 +1,4 @@
+interface:
+  display_name: "Battery Review · Assemble Figures"
+  short_description: "Align and audit supplied paper panels"
+  default_prompt: "Use $battery-figure-assemble to inspect these panels and build a tightly aligned, source-traceable manuscript figure."

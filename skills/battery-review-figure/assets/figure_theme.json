@@ -1,0 +1,27 @@
+{
+  "name": "BatteryReviewForge original figure theme",
+  "version": 1,
+  "background": "#FFFFFF",
+  "ink": "#26343D",
+  "muted_ink": "#66747C",
+  "grid": "#D8E0E4",
+  "roles": {
+    "reference_or_baseline": "#205C85",
+    "new_or_intervention": "#348678",
+    "limitation_or_failure": "#B45A48",
+    "mechanism_or_model": "#8B6F9E",
+    "neutral_context": "#776B58"
+  },
+  "pastels": {
+    "blue": "#EAF2F7",
+    "teal": "#E9F4F0",
+    "rust": "#F8EFEC",
+    "purple": "#F2EFF6"
+  },
+  "rules": [
+    "Keep one semantic role per color within a figure; define the mapping in the caption.",
+    "Use direct labels, line styles, or symbols as a second channel; do not rely on color alone.",
+    "Do not encode evidence strength or performance ranking by color without a stated legend.",
+    "Set typography and stroke widths at the final physical size."
+  ]
+}

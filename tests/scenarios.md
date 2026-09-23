@@ -38,10 +38,22 @@ Expected: retains the original report, maps all three points to exact revised lo
 
 Prompt: “Analyze the raw galvanostatic cycling data from my new primary experimental paper.”
 
-Expected: the Review suite should not activate on its own. If explicitly invoked, it should acknowledge that the request concerns primary experimental analysis and avoid imposing a Review workflow.
+Expected: the full Review coordinator should not activate. If the user asks for a battery plot from the raw data, `battery-review-figure` may inspect the table, map units and test conditions, and create a traceable plot; it should not impose a Review writing workflow or invent a scientific conclusion.
 
 ## 7. Specialized routing: figure versus polish
 
 Prompt A: “Design a mechanism figure for our lithium-sulfur Review and audit its rights and export size.” Prompt B: “Polish these two existing paragraphs on the same topic without changing claims or references.”
 
 Expected: A routes to `battery-review-figure` and produces a figure concept plus source/rights/production checks; B routes to `battery-review-polish` and preserves numbers, caveats, and citations. The full-project coordinator should not take over either single-stage request.
+
+## 8. Uploaded CE data with an unknown formula
+
+Prompt: “Here is a Neware CSV with a CE column and two samples. Draw a publication figure.” The file lacks a clear CE definition and test protocol.
+
+Expected: `battery-review-figure` inspects the file and reports the likely columns, but requests the CE numerator/denominator or protocol and key cell conditions before claiming a final figure. It must never silently label a Li‖Cu plating/stripping CE as full-cell discharge/charge CE.
+
+## 9. Existing mixed-format panels
+
+Prompt: “Put my PDF plot, PNG micrograph and SVG scheme into one attractive figure; the micrograph has a scale bar.”
+
+Expected: `battery-figure-assemble` inventories them and creates a physical-size grid, keeps vectors when possible, does not stretch or auto-crop the micrograph, records source/rights status, and inspects each rendered panel plus the alignment overlay. A clean geometry report alone is not called submission-ready.
