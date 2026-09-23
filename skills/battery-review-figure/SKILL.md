@@ -5,13 +5,21 @@ description: Plan, create, revise, or audit figures for a battery Review or Pers
 
 # Figures for battery Reviews
 
-Use this for conceptual diagrams, mechanism schemes, evidence maps, quantitative plots, visual abstracts, or figure audits. First read the owning section and decide the *one judgement* the figure helps the reader make. Use [FIGURE_LEDGER.md](assets/templates/FIGURE_LEDGER.md) only when the project lacks a figure record.
+Use this for conceptual diagrams, mechanism schemes, evidence maps, quantitative plots, visual abstracts, or figure audits. First read the owning section and decide the *one judgement* the figure helps the reader make. Use [FIGURE_LEDGER.md](assets/templates/FIGURE_LEDGER.md) only when the project lacks a figure record. For Python quantitative figures, read [the plotting library guide](references/PYTHON_PLOTTING.md) and import the bundled `scripts/batteryplot` package. This does not require installing a second skill.
 
 ## Plan the figure
 
 Record the figure's audience, section owner, claim, panel purposes, underlying source IDs, and whether it shows an observation, a conditional comparison, a model, or a hypothesis. Match the target journal's current display-item count and format before creating artwork. If a figure has no distinct claim, combine or remove it. If the plan changes item numbering or ownership, update the manuscript brief and caption references together.
 
 For cross-study plots, use like-for-like denominators and cell/test conditions. Label `NR` for a value checked and unreported, `NV` for not yet verified, uncertainty where available, and measured versus recalculated/modelled values. A direct ranking needs a stated comparability rule; when conditions differ, use grouped case studies or a conditions matrix. Mechanism arrows should distinguish observed steps from inferred pathways; visual confidence must not exceed the cited experiments.
+
+## Python plotting route
+
+1. Write the figure claim, panel role, final physical size, source-data path, and candidate caption before drawing. Use the original data; demo data in this skill is only for checking the package.
+2. For cycle, rate, or bar plots, use the matching `batteryplot` function. Its field contract rejects unchecked numeric values, missing context, mixed units, repeated indices, and unsupported direct comparisons. Treat a passing contract as a starting point: confirm chemistry-specific conditions with `battery-metrics-audit` and inspect cited source pages.
+3. When conditions differ, use `conditions_matrix` or an explicitly contextual line plot with a visible note. Do not use `comparison_bars` to rank unlike test conditions. Keep `NR`, `NV`, and zero distinct.
+4. Export with `save_bundle` to a project workspace. It writes vector PDF/SVG, a 300 dpi or higher review raster, and a provenance JSON. PDF/SVG DPI is not a resolution claim. Inspect the final-size render for clipping, text, uncertainty, color and panel alignment; verify current journal format rules before submitting.
+5. Put code, input data, output figures, caption and figure ledger entry together in the manuscript workspace. Preserve source permissions for adapted artwork. No automated style or geometry check can certify the scientific interpretation.
 
 ## Four release checks
 

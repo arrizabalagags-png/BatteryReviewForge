@@ -1,0 +1,23 @@
+{
+  "name": "battery-review-forge",
+  "version": "0.2.0",
+  "description": "Modular, evidence-first Codex skills and a Python plotting library for battery review articles.",
+  "author": {
+    "name": "Shuo Guo and Jinlong Jiang"
+  },
+  "repository": "https://github.com/arrizabalagags-png/BatteryReviewForge",
+  "license": "MIT",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "BatteryReviewForge",
+    "shortDescription": "Write and verify battery review articles and figures.",
+    "longDescription": "Plan, search, write, audit, illustrate, submit, and revise battery Reviews and Perspectives with traceable evidence.",
+    "developerName": "Shuo Guo and Jinlong Jiang, Shanghai Institute of Energy Materials Science, University of Shanghai for Science and Technology",
+    "category": "Productivity",
+    "websiteURL": "https://github.com/arrizabalagags-png/BatteryReviewForge",
+    "brandColor": "#205C85",
+    "logo": "assets/brand.svg",
+    "capabilities": [],
+    "defaultPrompt": "Help me plan and write an evidence-grounded battery review article."
+  }
+}

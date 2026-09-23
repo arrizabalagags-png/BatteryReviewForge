@@ -6,7 +6,7 @@
 
 English · [简体中文](#简体中文)
 
-BatteryReviewForge is a modular set of Codex skills for battery researchers writing Reviews and Perspectives. Each skill has one job, so a request to polish a paragraph does not launch a submission workflow, and a figure audit does not silently rewrite the article. A small coordinator handles full projects. The repository also has a portable skill-only `plugin.json`; no MCP server or paid database is required.
+BatteryReviewForge is a modular set of Codex skills for battery researchers writing Reviews and Perspectives. Each skill has one job, so a request to polish a paragraph does not launch a submission workflow, and a figure audit does not silently rewrite the article. A small coordinator handles full projects. The repository contains a Codex plugin manifest at `.codex-plugin/plugin.json`, a portable `plugin.json`, and an original Python plotting library inside the figure skill. No MCP server or paid database is required.
 
 **Collaboration:** 郭硕 and 姜金龙 · 上海理工大学能源材料科学研究院
 **License:** [MIT](LICENSE)
@@ -21,7 +21,7 @@ BatteryReviewForge is a modular set of Codex skills for battery researchers writ
 | Evidence | [`battery-claim-check`](skills/battery-claim-check/SKILL.md) | Verify claim-to-source support and references |
 | Evidence | [`battery-metrics-audit`](skills/battery-metrics-audit/SKILL.md) | Check cell conditions, denominators, mechanisms, comparisons |
 | Create | [`battery-review-write`](skills/battery-review-write/SKILL.md) | Draft or restructure evidence-led sections |
-| Create | [`battery-review-figure`](skills/battery-review-figure/SKILL.md) | Plan, create, and audit figures and rights |
+| Create | [`battery-review-figure`](skills/battery-review-figure/SKILL.md) | Plan, plot, export, and audit figures and rights |
 | Refine | [`battery-review-polish`](skills/battery-review-polish/SKILL.md) | Polish, translate, or compress existing prose |
 | Quality | [`battery-review-audit`](skills/battery-review-audit/SKILL.md) | Whole-manuscript scientific and structural preflight |
 | Quality | [`battery-reviewer`](skills/battery-reviewer/SKILL.md) | Independent referee-style report on a frozen draft |
@@ -36,9 +36,28 @@ A battery Review can look complete while comparing unlike evidence. Half-cell ca
 
 The aim is a useful scientific synthesis: a bounded question, a visible contribution relative to close Reviews, evidence for and against each key judgement, and a manuscript that still answers its original question after many editing sessions.
 
+## Python figures for battery Reviews
+
+The `battery-review-figure` skill includes an importable [Matplotlib library](skills/battery-review-figure/references/PYTHON_PLOTTING.md) for cycle retention, rate capability, comparable metric bars, and literature conditions matrices. Direct cross-study charts require verified values, source IDs, consistent units and matching declared cell/test conditions. `NR` and `NV` remain separate states. Exports include PDF, SVG, a 300 dpi review image, and a provenance sidecar. The code does not supply literature values or replace source checks and final-size visual review.
+
+Run the synthetic demonstration after installing Matplotlib:
+
+```bash
+python skills/battery-review-figure/examples/demo_figures.py --output outputs/figure-demo
+```
+
+The sample values are invented for testing and must not enter a manuscript.
+
 ## Install locally
 
-Clone the repository and copy **all** skill folders. These commands install standalone skills for the current Codex user. When installed as a plugin instead, select the corresponding plugin-qualified skill from your skill picker; the `$...` examples below assume standalone installation. See the [official skill documentation](https://learn.chatgpt.com/docs/build-skills) and [plugin packaging guide](https://developers.openai.com/plugins/build/plugins) for current distribution options.
+Install the complete package through its repository marketplace:
+
+```bash
+codex plugin marketplace add arrizabalagags-png/BatteryReviewForge
+codex plugin add battery-review-forge@battery-review-forge
+```
+
+Start a new Codex task after installation so its skills are loaded. The package is also available as standalone skills: clone the repository and copy **all** skill folders using the commands below. The `$...` examples assume standalone installation; plugin skill names may be qualified by the plugin. See the [official skill documentation](https://learn.chatgpt.com/docs/build-skills) and [plugin packaging guide](https://developers.openai.com/plugins/build/plugins) for current distribution options.
 
 **macOS / Linux**
 
@@ -103,6 +122,8 @@ Bring an anonymized failure case, a sourced battery-specific correction, or a si
 
 BatteryReviewForge 是面向电池领域 Review 和 Perspective 的 **模块化 Codex 技能组**。选题、检索、引文核验、性能比较、写作、图件、润色、整稿审计、投稿、独立审稿和返修都有独立入口；总入口只负责跨阶段协调。这样，要求“润色两段”时不会自动跑完整个投稿流程。
 
+图件 skill 内置了 [Python 绘图库与使用说明](skills/battery-review-figure/references/PYTHON_PLOTTING.md)：支持循环保持率、倍率性能、同条件指标柱图与文献条件矩阵；要求来源 ID、已核数据和可比条件，导出 PDF/SVG、300 dpi 预览图及溯源记录。示例为明确标注的虚构数据，仅用于检查绘图库。
+
 **合作署名：** 上海理工大学能源材料科学研究院 郭硕、姜金龙合作。
 **开源协议：** [MIT](LICENSE)。
 
@@ -131,7 +152,7 @@ BatteryReviewForge 是面向电池领域 Review 和 Perspective 的 **模块化 
 
 ### 安装与调用
 
-按上方命令克隆仓库，并将 `skills` 下的**全部文件夹**复制到本机 `~/.codex/skills`（Windows 为用户目录下的 `.codex\skills`）。单项任务直接调用相应 skill：
+可以先运行上方两条 `codex plugin` 命令安装整个插件，然后在新任务里调用各 skill；也可以克隆仓库，将 `skills` 下的**全部文件夹**复制到本机 `~/.codex/skills`（Windows 为用户目录下的 `.codex\skills`）。单项任务直接调用相应 skill：
 
 ```text
 用 $battery-review-plan 规划一篇水系锌电池综述：先核查相近综述，
