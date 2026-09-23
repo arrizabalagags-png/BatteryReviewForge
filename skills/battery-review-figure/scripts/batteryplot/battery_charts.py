@@ -121,8 +121,10 @@ def coulombic_efficiency(
     width_mm: float = 89, height_mm: float = 65,
     style: str = "forge",
 ):
-    """Plot CE as supplied or calculate an explicitly defined numerator/denominator ratio."""
+    """Plot cycle-by-cycle CE; never treat Aurbach CE as a cycle trace."""
     verified_rows(rows, ("series", "cycle"))
+    if any("aurbach" in str(row.get("ce_protocol", "")).casefold() for row in rows):
+        raise DataContractError("Aurbach CE is a distinct protocol; do not plot it as cycle-by-cycle CE")
     comparable = _context(rows, CE,
                           ("current_density_ma_cm2", "areal_capacity_mah_cm2", "cutoff_rule",
                            "ce_protocol", "loading_mg_cm2", "electrolyte_ul_mg", "voltage_window_v"),

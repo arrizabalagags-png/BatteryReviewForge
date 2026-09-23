@@ -1,0 +1,19 @@
+{
+  "status": "synthetic test-only; rejected front-page prototype, no measured cell data",
+  "showcase_eligible": false,
+  "source": "render_frontpage.py",
+  "transformations": "Deterministic equations and seeded small noise; no outlier removal or smoothing",
+  "outputs": [
+    "eis-frontpage.png",
+    "eis-frontpage.svg",
+    "eis-frontpage.pdf"
+  ],
+  "panels": {
+    "a": "Nyquist plot from invented equivalent-circuit parameters",
+    "b": "high-frequency detail; same x/y scale"
+  },
+  "input_csv": [
+    "data/frontpage-eis-synthetic.csv"
+  ],
+  "note": "Line is the generating model, not a fit to empirical points. Circles are seeded perturbations of that model. No measured impedance or validated equivalent circuit is claimed."
+}

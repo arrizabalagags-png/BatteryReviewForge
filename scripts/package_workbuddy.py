@@ -14,7 +14,7 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS = ROOT / "skills"
-VERSION = "0.7.1"
+VERSION = json.loads((ROOT / ".codex-plugin" / "plugin.json").read_text(encoding="utf-8"))["version"]
 AUTHOR = "郭硕、姜金龙｜上海理工大学能源材料科学研究院"
 
 ZH = {
@@ -82,9 +82,11 @@ def build(output: Path) -> list[Path]:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / "outputs" / "workbuddy")
+    parser.add_argument("--collection", type=Path, default=ROOT / "docs" / "downloads" / f"BatteryReviewForge-WorkBuddy-v{VERSION}.zip")
     args = parser.parse_args()
     archives = build(args.output)
-    collection = args.output.parent / f"BatteryReviewForge-WorkBuddy-v{VERSION}.zip"
+    collection = args.collection
+    collection.parent.mkdir(parents=True, exist_ok=True)
     with ZipFile(collection, "w", ZIP_DEFLATED) as target:
         for archive in archives:
             target.write(archive, archive.name)

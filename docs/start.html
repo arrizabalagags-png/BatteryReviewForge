@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="三步找到适合你材料的电池科研工具和第一句话。">
+  <title>跟着做｜BatteryReviewForge</title>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body data-page="start">
+  <a class="skip-link" href="#main" data-t="skip">跳到正文</a>
+  <div class="topline"><div class="container topline-inner"><span data-t="topline">一个免费的电池科研开源项目</span><div class="language" role="group" aria-label="语言 / Language"><button type="button" class="language-button" data-set-lang="zh" aria-pressed="true">中文</button><span aria-hidden="true">/</span><button type="button" class="language-button" data-set-lang="en" aria-pressed="false">English</button></div></div></div>
+  <header class="site-header container"><a class="logo" href="index.html" aria-label="BatteryReviewForge"><span class="logo-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>BatteryReviewForge</span></a><nav class="nav" aria-label="主导航 / Main navigation"><a href="index.html" data-t="startBackHome">返回首页</a><a href="index.html#examples" data-t="navExamples">看进展</a><a href="index.html#start" data-t="startInstallNav">安装步骤</a></nav></header>
+  <main id="main" class="wizard-page container">
+    <div class="wizard-head"><p class="overline" data-t="wizardOverline">不用记技能名字</p><h1 data-t="wizardTitle">告诉我你有什么，三步找到第一句话。</h1><p data-t="wizardIntro">这里不收文件，也不用注册。点几下，就能拿到一段可以直接发给 AI 助手的话。</p></div>
+    <ol class="wizard-progress" aria-label="进度 / Progress"><li data-progress="1" aria-current="step"><span>01</span><strong data-t="wizardProgress1">有什么</strong></li><li data-progress="2"><span>02</span><strong data-t="wizardProgress2">想做什么</strong></li><li data-progress="3"><span>03</span><strong data-t="wizardProgress3">开始动手</strong></li></ol>
+    <div class="wizard-main">
+      <section class="wizard-step" id="step1" data-step="1" aria-labelledby="wizard-one"><p class="wizard-step-label" data-t="wizardStepOne">第一步 / 选择你手里的材料</p><h2 id="wizard-one" data-t="wizardWhat">你现在手里有什么？</h2><div class="wizard-options"><button type="button" data-material="data"><strong data-t="wizardData">实验数据</strong><span data-t="wizardDataDesc">Excel、CSV 或设备导出的表格</span><i aria-hidden="true">↗</i></button><button type="button" data-material="images"><strong data-t="wizardImages">几张图片</strong><span data-t="wizardImagesDesc">已有图、草图、示意想法</span><i aria-hidden="true">↗</i></button><button type="button" data-material="review"><strong data-t="wizardReview">论文或综述题目</strong><span data-t="wizardReviewDesc">文献、提纲、初稿都可以</span><i aria-hidden="true">↗</i></button></div><p class="wizard-uncertain"><span data-t="wizardUnsure">分不清属于哪种？</span> <a href="guide.html#unsure" data-t="wizardUnsureLink">先让助手帮你看 ↗</a></p></section>
+      <section class="wizard-step" id="step2" data-step="2" aria-labelledby="wizard-two" hidden><p class="wizard-step-label" data-t="wizardStepTwo">第二步 / 选一件最想做的事</p><h2 id="wizard-two" data-t="wizardWant">这次最想完成什么？</h2><div class="wizard-options" id="wizard-goals"></div><button type="button" class="wizard-back" data-back="1"><span aria-hidden="true">←</span> <span data-t="wizardBack">上一步</span></button></section>
+      <section class="wizard-step" id="step3" data-step="3" aria-labelledby="wizard-three" hidden><p class="wizard-step-label" data-t="wizardStepThree">第三步 / 复制后发给助手</p><h2 id="wizard-three" data-t="wizardReady">第一句话已经帮你写好。</h2><p class="wizard-result-intro" data-t="wizardResultIntro">安装好后，把材料和下面这句话一起发给你正在用的 AI 软件。</p><div class="wizard-result"><p id="wizard-prompt"></p><button type="button" class="prompt-copy" data-copy-target="wizard-prompt"><span data-t="wizardCopy">复制这句话</span><span aria-hidden="true">↗</span></button></div><div class="wizard-actions"><a class="button button-solid" href="index.html#start" data-t="wizardInstall">还没安装？看三步安装</a><a class="inline-link" id="wizard-detail" href="guide.html" data-t="wizardDetail">看这个任务的图文说明 ↗</a></div><button type="button" class="wizard-back" data-back="2"><span aria-hidden="true">←</span> <span data-t="wizardBack">上一步</span></button></section>
+    </div>
+    <aside class="wizard-reassure"><p data-t="wizardReassure">我们会先看你提供的文件，再决定画什么。缺了单位或测试条件，就把问题指出来，不用样图数字代替你的结果。</p><a href="index.html#api-help" data-t="wizardFaq">有顾虑？先看常见问题 ↗</a></aside>
+  </main>
+  <footer class="footer"><div class="container footer-main"><div><a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>BatteryReviewForge</span></a><p data-t="footerMotto">免费使用，欢迎一起维护。</p></div><div class="footer-actions"><a href="index.html" data-t="startBackHome">返回首页</a><a href="disclaimer.html" data-t="disclaimerLink">使用与免责说明 ↗</a></div></div><div class="container footer-credit"><span data-t="creditInstitute">上海理工大学能源材料科学研究院</span><span data-t="creditPeople">郭硕、姜金龙合作</span></div></footer>
+  <script src="site.js" defer></script><script src="start.js" defer></script>
+</body>
+</html>

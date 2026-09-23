@@ -1,6 +1,6 @@
 # 电池图怎么选构图：先看证据，再挑画法
 
-这个目录把样图分成**图的结构**，颜色则由 [STYLE_PRESETS.md](STYLE_PRESETS.md) 单独选择。不要把“换一套粉蓝”当作“换一种图”。下面的图像与数据都由本项目原创代码生成；样图用于展示视觉组织方式，不是论文实验。
+这个目录保留宽覆盖的**布局想法**，颜色由 [STYLE_PRESETS.md](STYLE_PRESETS.md) 单独选择。**先按[电池图型语法](BATTERY_FIGURE_GRAMMAR.md)核对测试协议与相邻 panel；下表不是已验证的默认模板。**链接里的旧版图均为虚构教程或回归测试，其中 CE、全电池、综合拼图等已发现科学表达问题，不能直接挪进论文或首页精选。
 
 ## 先回答三个小问题
 
@@ -12,7 +12,7 @@
 
 | 手头的东西 | 推荐构图 | 图内留下什么 | 样图与代码 |
 | --- | --- | --- | --- |
-| CE 的形成阶段与长期循环 | 两个等高绘图区，左看初期、右看全程；同组同色同线型 | 分图字母、cycle、CE (%)、系列身份；完整异常点 | [CE](../../../docs/assets/gallery/ce-demo.svg) · `render_gallery.py:draw_ce` |
+| Li∥Cu 逐圈 CE | 先画完整逐圈 CE；若有同源 Aurbach 协议，可作独立 panel。早期/后期放大只有确有科学问题时才加 | 协议、cycle、CE (%)、电流/面容量和完整失效点 | [旧版教程图（待修订）](../../../docs/assets/gallery/ce-demo.svg) · `render_gallery.py:draw_ce` |
 | 全电池容量与电压曲线 | 放电剖面与 cycling 相邻，容量分母由轴标和图注说清 | 电压、容量、圈数和系列身份 | [全电池](../../../docs/assets/gallery/full-cell-demo.svg) · `draw_full_cell` |
 | 对称电池长时记录 | 主图保留全程，旁边放明确时间段放大图 | 正负电压、小时、放大窗口和相同颜色 | [对称电池](../../../docs/assets/gallery/symmetric-demo.svg) · `draw_symmetric` |
 | 已有多张性能、示意和重复实验图 | 证据主次明确的 2×2 或跨栏拼版；比较图对齐**实际绘图区** | 分图字母和必要对象标签；图注解释各面板角色 | [拼图](../../../docs/assets/gallery/assembled-demo.svg) · `battery-figure-assemble` |

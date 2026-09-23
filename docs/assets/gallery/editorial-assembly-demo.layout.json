@@ -1,5 +1,5 @@
 {
-  "status": "synthetic composition example; not experimental data or one connected study",
+  "status": "synthetic test-only layout exercise; not experimental data or one connected study",
   "panels": {
     "a": "generic battery stack schematic; original geometry",
     "b": "raman-waterfall-synthetic.csv; formulations A and B only; intensities offset",
@@ -8,5 +8,14 @@
     "e": "symmetric-synthetic.csv",
     "f": "full-cell-cycling-synthetic.csv"
   },
-  "purpose": "Demonstrate panel hierarchy, grouping and a full-width performance endpoint; no causal interpretation is licensed."
+  "purpose": "Demonstrate panel hierarchy, grouping and a full-width performance endpoint; no causal interpretation is licensed.",
+  "panel_previews": [
+    "editorial-panel-a.png",
+    "editorial-panel-b.png",
+    "editorial-panel-c.png",
+    "editorial-panel-d.png",
+    "editorial-panel-e.png",
+    "editorial-panel-f.png"
+  ],
+  "showcase_eligible": false
 }

@@ -1,0 +1,19 @@
+{
+  "status": "synthetic test-only; rejected front-page prototype, no measured cell data",
+  "showcase_eligible": false,
+  "source": "render_frontpage.py",
+  "transformations": "Deterministic equations and seeded small noise; no outlier removal or smoothing",
+  "outputs": [
+    "ce-frontpage.png",
+    "ce-frontpage.svg",
+    "ce-frontpage.pdf"
+  ],
+  "panels": {
+    "a": "invented Li||Cu cycling Coulombic efficiency",
+    "b": "individual synthetic values every third cycle and median; cycles 101–300"
+  },
+  "input_csv": [
+    "data/frontpage-li-cu-ce-synthetic.csv"
+  ],
+  "note": "Illustrative Li||Cu workflow only. Current density, capacity per cycle, electrolyte and test setup are not specified; do not compare as experimental performance."
+}

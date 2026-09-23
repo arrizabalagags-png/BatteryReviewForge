@@ -24,8 +24,8 @@ BASE = {
 class BatteryPlotTests(unittest.TestCase):
     def test_direct_comparison_rejects_changed_condition(self):
         rows = [
-            {**BASE, "series": "A", "cycle": "0", "retention_pct": "100", "retention_basis": "initial", "rate": "1 C"},
-            {**BASE, "series": "B", "cycle": "0", "retention_pct": "90", "retention_basis": "initial", "rate": "2 C"},
+            {**BASE, "series": "A", "cycle": "0", "reference_cycle": "0", "retention_pct": "100", "retention_basis": "initial", "rate": "1 C"},
+            {**BASE, "series": "B", "cycle": "0", "reference_cycle": "0", "retention_pct": "90", "retention_basis": "initial", "rate": "2 C"},
         ]
         with self.assertRaisesRegex(DataContractError, "conditions differ"):
             cycle_retention(rows)
@@ -33,6 +33,19 @@ class BatteryPlotTests(unittest.TestCase):
             cycle_retention(rows, mode="contextual")
         fig, _ = cycle_retention(rows, mode="contextual", condition_note="Rates differ")
         self.assertEqual(fig.batteryplot_meta["comparison"], "contextual")
+
+    def test_retention_requires_explicit_reference_cycle(self):
+        row = {**BASE, "series": "A", "cycle": "10", "retention_pct": "94", "retention_basis": "after formation", "rate": "1 C"}
+        with self.assertRaisesRegex(DataContractError, "reference_cycle"):
+            cycle_retention([row])
+
+    def test_retention_rejects_changing_reference_within_one_series(self):
+        rows = [
+            {**BASE, "series": "A", "cycle": "10", "reference_cycle": "1", "retention_pct": "94", "retention_basis": "after formation", "rate": "1 C"},
+            {**BASE, "series": "A", "cycle": "20", "reference_cycle": "3", "retention_pct": "90", "retention_basis": "after formation", "rate": "1 C"},
+        ]
+        with self.assertRaisesRegex(DataContractError, "different reference_cycle"):
+            cycle_retention(rows)
 
     def test_unverified_numeric_values_are_blocked(self):
         row = {**BASE, "evidence_state": "NV", "label": "A", "value": "123",

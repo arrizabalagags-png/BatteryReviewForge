@@ -61,9 +61,11 @@ New to figure making? Start with the [plain-language figure router](skills/batte
 
 For figures that look too generic or over-decorated, use the [visual finishing guide](skills/battery-review-figure/references/VISUAL_FINISH.md). It turns “less AI-looking” into concrete checks for panel hierarchy, real data and source details, consistent type and color, final-size readability, and transparent AI-use records.
 
-The [figure showcase recipes](skills/battery-review-figure/references/SHOWCASE_RECIPES.md) cover ten scientific layouts, from cycling and ToF-SIMS to spectra and original cell architecture. Browse the [editable examples](docs/assets/gallery/README.md) and finish exported SVGs with the [beginner Inkscape guide](skills/battery-review-figure/references/SVG_HANDOFF.md); [Inkscape](https://inkscape.org/) is free and open source.
+**Figure grammar first:** the [battery figure grammar](skills/battery-review-figure/references/BATTERY_FIGURE_GRAMMAR.md) now separates 49 experiment/figure types and records two panel pairings supported by at least three independent primary papers. [Panel evidence](skills/battery-review-figure/references/PANEL_EVIDENCE.json), [publisher profiles](skills/battery-review-figure/references/JOURNAL_FIGURE_SPEC.json), and the [PDF font audit](skills/battery-review-figure/scripts/audit_pdf_fonts.py) make the basis inspectable. The 51 local PDFs yielded 297 automated caption candidates; 31 panels in five papers have been visually checked in the current curated seed. The broader corpus is not yet a fully audited template library.
 
-The gallery's [six-panel editorial composition](docs/assets/gallery/editorial-assembly-demo.svg) shows how a larger performance panel can anchor several smaller evidence panels. Its independent synthetic CSV inputs are a layout demonstration, not one connected experiment or proof of a mechanism; [source code and provenance](docs/assets/gallery/render_editorial.py) are included.
+The older [layout recipes](skills/battery-review-figure/references/SHOWCASE_RECIPES.md) are ideas, not default battery figure grammar. The [editable gallery assets](docs/assets/gallery/README.md), including the CE, full-cell, EIS, matrix and six-panel prototypes, are **synthetic test/tutorial materials with known shortcomings**. Do not treat them as publication-ready examples. Exported SVGs can be adjusted with the [beginner Inkscape guide](skills/battery-review-figure/references/SVG_HANDOFF.md); [Inkscape](https://inkscape.org/) is free and open source.
+
+The [six-panel composition](docs/assets/gallery/editorial-assembly-demo.svg) is retained only as a rejected layout exercise. Its independent synthetic CSV inputs do not represent one experiment or a mechanism; [source code and provenance](docs/assets/gallery/render_editorial.py) remain for regression and critique.
 
 ![Six original figure style choices, shown with invented data](skills/battery-review-figure/assets/style-preview.svg)
 
@@ -112,7 +114,7 @@ codex plugin add battery-review-forge@battery-review-forge
 
 Start a new Codex task after installation so its skills are loaded. The package is also available as standalone skills: clone the repository and copy **all** skill folders using the commands below. The `$...` examples assume standalone installation; plugin skill names may be qualified by the plugin. See the [official skill documentation](https://learn.chatgpt.com/docs/build-skills) and [plugin packaging guide](https://developers.openai.com/plugins/build/plugins) for current distribution options.
 
-For an offline standalone install, download the [v0.7.1 ZIP package](https://github.com/arrizabalagags-png/BatteryReviewForge/releases/download/v0.7.1/BatteryReviewForge-v0.7.1.zip), extract it, and run `install.ps1` on Windows or `sh install.sh` on macOS/Linux from the extracted folder. The installer copies the 13 skill folders into your user Codex skills directory by default; `-Agent KimiCode` / `-Agent DeepSeekHarness` or `--agent kimi` / `--agent dsh` select their official directories. It stops if those folders already exist; review existing copies before using `-Overwrite` or `--overwrite`. WorkBuddy uses [separate import ZIPs](docs/COMPATIBILITY.md). Python plotting and assembly dependencies are installed separately only when those functions are used.
+For an offline standalone install, download the [v0.7.2 ZIP package](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-v0.7.2.zip), extract it, and run `install.ps1` on Windows or `sh install.sh` on macOS/Linux from the extracted folder. The installer copies the 13 skill folders into your user Codex skills directory by default; `-Agent KimiCode` / `-Agent DeepSeekHarness` or `--agent kimi` / `--agent dsh` select their official directories. It stops if those folders already exist; review existing copies before using `-Overwrite` or `--overwrite`. WorkBuddy uses [separate import ZIPs](docs/COMPATIBILITY.md). Python plotting and assembly dependencies are installed separately only when those functions are used.
 
 **macOS / Linux**
 
@@ -183,7 +185,7 @@ BatteryReviewForge 是面向电池领域 Review 和 Perspective 的 **模块化 
 
 如果图“有 AI 味”或像套模板，可用[图件精修说明](skills/battery-review-figure/references/VISUAL_FINISH.md)逐项处理主次、装饰、字、色、证据与最终尺寸。精修保留原始数据、作者责任和目标期刊需要的 AI 使用说明。
 
-想找更具体的画法，可看[十类图件布局配方](skills/battery-review-figure/references/SHOWCASE_RECIPES.md)和[可编辑样图](docs/assets/gallery/README.md)。导出 SVG 后，按[小白 Inkscape 微调指南](skills/battery-review-figure/references/SVG_HANDOFF.md)改字、线和位置；[Inkscape 官网](https://inkscape.org/)可免费下载。
+想找更具体的画法，先看[电池图型语法](skills/battery-review-figure/references/BATTERY_FIGURE_GRAMMAR.md)、[逐面板来源](skills/battery-review-figure/references/PANEL_EVIDENCE.json)和[期刊尺寸配置](skills/battery-review-figure/references/JOURNAL_FIGURE_SPEC.json)。旧版[布局配方](skills/battery-review-figure/references/SHOWCASE_RECIPES.md)与[可编辑图片](docs/assets/gallery/README.md)属于虚构教程/测试素材，CE、全电池、EIS、矩阵和六面板图有待修订，不能当成投稿样图或默认模板。导出 SVG 后，按[小白 Inkscape 微调指南](skills/battery-review-figure/references/SVG_HANDOFF.md)改字、线和位置；[Inkscape 官网](https://inkscape.org/)可免费下载。
 
 作者已有一组图时，使用独立的 [`battery-figure-assemble` 拼图技能](skills/battery-figure-assemble/references/COMPOSITION.md)：先看[白话排版速查](skills/battery-figure-assemble/references/LAYOUT_RECIPES.md)选网格，再盘点素材、按毫米拼版，检查面板外框与实际绘图区的对齐、有效分辨率、裁剪记录、版权状态和投稿尺寸下的可读性。工具会输出拼图 PDF/PNG、逐面板检查图、对齐叠加图、最终 PDF 字号审计与 QA 记录。
 
@@ -222,7 +224,7 @@ BatteryReviewForge 是面向电池领域 Review 和 Perspective 的 **模块化 
 
 可以先运行上方两条 `codex plugin` 命令安装整个插件，然后在新任务里调用各 skill；也可以克隆仓库，将 `skills` 下的**全部文件夹**复制到本机 `~/.codex/skills`（Windows 为用户目录下的 `.codex\skills`）。单项任务直接调用相应 skill：
 
-不想用命令克隆仓库时，可下载 [v0.7.1 完整 ZIP 安装包](https://github.com/arrizabalagags-png/BatteryReviewForge/releases/download/v0.7.1/BatteryReviewForge-v0.7.1.zip)，解压后在该目录运行 Windows 的 `install.ps1`，或 macOS/Linux 的 `sh install.sh`。默认装入 Codex；Kimi Code 和 DeepSeek Harness 的参数见[逐步教程](docs/COMPATIBILITY.md)。WorkBuddy 请下载[专用技能包合集](https://github.com/arrizabalagags-png/BatteryReviewForge/releases/download/v0.7.1/BatteryReviewForge-WorkBuddy-v0.7.1.zip)，解压后逐个导入需要的技能。安装脚本只复制文件；若已有同名技能会先停下，确认后再用 `-Overwrite` / `--overwrite` 更新。画图和拼图的 Python 依赖按需安装。
+不想用命令克隆仓库时，可下载 [v0.7.2 完整 ZIP 安装包](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-v0.7.2.zip)，解压后在该目录运行 Windows 的 `install.ps1`，或 macOS/Linux 的 `sh install.sh`。默认装入 Codex；Kimi Code 和 DeepSeek Harness 的参数见[逐步教程](docs/COMPATIBILITY.md)。WorkBuddy 请下载[专用技能包合集](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-WorkBuddy-v0.7.2.zip)，解压后逐个导入需要的技能。安装脚本只复制文件；若已有同名技能会先停下，确认后再用 `-Overwrite` / `--overwrite` 更新。画图和拼图的 Python 依赖按需安装。
 
 ```text
 用 $battery-review-plan 规划一篇水系锌电池综述：先核查相近综述，

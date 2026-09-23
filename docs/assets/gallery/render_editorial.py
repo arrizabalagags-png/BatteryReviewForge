@@ -134,11 +134,20 @@ def draw() -> None:
     fig.savefig(output.with_suffix(".png"), dpi=180, facecolor="white")
     fig.savefig(output.with_suffix(".svg"), facecolor="white")
     fig.savefig(output.with_suffix(".pdf"), facecolor="white")
+    # The before/after website illustration uses crops of these exact six
+    # panels, so it does not imply that unrelated figures were assembled.
+    fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
+    for letter, axis in zip("abcdef", (ax_a, ax_b, ax_c, ax_d, ax_e, ax_f)):
+        bounds = axis.get_tightbbox(renderer).transformed(fig.dpi_scale_trans.inverted())
+        fig.savefig(HERE / f"editorial-panel-{letter}.png", dpi=180,
+                    bbox_inches=bounds.expanded(1.05, 1.08), facecolor="white")
     svg = output.with_suffix(".svg")
     svg.write_text("\n".join(line.rstrip() for line in svg.read_text(encoding="utf-8").splitlines()) + "\n", encoding="utf-8")
     plt.close(fig)
     metadata = {
-        "status": "synthetic composition example; not experimental data or one connected study",
+        "status": "synthetic test-only layout exercise; not experimental data or one connected study",
+        "showcase_eligible": False,
         "panels": {
             "a": "generic battery stack schematic; original geometry",
             "b": "raman-waterfall-synthetic.csv; formulations A and B only; intensities offset",
@@ -148,6 +157,7 @@ def draw() -> None:
             "f": "full-cell-cycling-synthetic.csv",
         },
         "purpose": "Demonstrate panel hierarchy, grouping and a full-width performance endpoint; no causal interpretation is licensed.",
+        "panel_previews": [f"editorial-panel-{letter}.png" for letter in "abcdef"],
     }
     output.with_suffix(".layout.json").write_text(json.dumps(metadata, indent=2), encoding="utf-8")
     print("Wrote", output.name, "PNG/SVG/PDF and layout metadata")

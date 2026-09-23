@@ -5,6 +5,7 @@
 *.pptx
 *.xlsx
 *.zip
+!docs/downloads/*.zip
 .env
 .env.*
 __pycache__/

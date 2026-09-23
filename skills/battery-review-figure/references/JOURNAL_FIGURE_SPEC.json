@@ -1,0 +1,58 @@
+{
+  "about": "Publisher guidance checked 2026-09-23. These are profiles, not universal rules; verify the current instructions for the exact target journal and article type.",
+  "journal_neutral": {
+    "source": "Project working default, not a publisher requirement",
+    "single_column_mm": 89,
+    "double_column_mm": 180,
+    "font": "resolved sans serif; record the actual font",
+    "body_pt": [6, 7],
+    "panel_letter_pt": 8,
+    "background": "white",
+    "axes": "near black, units shown, no decorative grid by default",
+    "preferred_master": ["SVG", "PDF"],
+    "review_raster_dpi": 300,
+    "notes": "Choose a final physical size first. A journal-neutral preview makes no claim of publisher compliance."
+  },
+  "nature": {
+    "source": "https://research-figure-guide.nature.com/figures/building-and-exporting-figure-panels/",
+    "spec_source": "https://research-figure-guide.nature.com/figures/preparing-figures-our-specifications/",
+    "single_column_mm": 89,
+    "double_column_mm": 183,
+    "max_height_mm": 170,
+    "font": ["Arial", "Helvetica"],
+    "body_pt": [5, 7],
+    "panel_letter": "8 pt bold upright lowercase",
+    "editable_text": true,
+    "embed_font": true,
+    "matplotlib_pdf_fonttype": 42,
+    "avoid": ["background gridlines", "coloured text", "drop shadows", "decorative icons"]
+  },
+  "acs_chemical_reviews": {
+    "source": "https://researcher-resources.acs.org/publish/author_guidelines?coden=chreay",
+    "journal_specific": true,
+    "single_column_max_mm": 84.6,
+    "double_column_max_mm": 177.8,
+    "font_preferred": ["Helvetica", "Arial"],
+    "minimum_letter_pt": 4.5,
+    "minimum_line_pt": 0.5,
+    "notes": "Numbers here are from Chemical Reviews guidelines; other ACS journals can differ."
+  },
+  "wiley_general": {
+    "source": "https://authorservices.wiley.com/asset/photos/electronic_artwork_guidelines.pdf",
+    "guidance_date": "2016-09-01",
+    "small_canvas_mm": 80,
+    "large_canvas_mm": 180,
+    "line_art_raster_dpi": [600, 1000],
+    "image_raster_dpi": 300,
+    "notes": "General artwork guide. Check the target Wiley journal for current overrides."
+  },
+  "rsc_advances": {
+    "source": "https://www.rsc.org/publishing/publish-with-us/publish-a-journal-article/rsc-advances",
+    "journal_specific": true,
+    "single_column_mm": 83,
+    "double_column_mm": 171,
+    "max_height_mm": 233,
+    "preferred_raster_dpi_min": 600,
+    "notes": "RSC Advances-specific guidance; do not present as a universal RSC rule."
+  }
+}

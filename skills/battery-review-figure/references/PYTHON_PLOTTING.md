@@ -31,7 +31,7 @@ The example data are invented and must never be used as literature evidence.
 
 | Function | Input shape | Scientific gate |
 | --- | --- | --- |
-| `cycle_retention(rows)` | One row per cycle and series | Requires cycle, retention %, verified source, and identical direct-comparison context |
+| `cycle_retention(rows)` | One row per cycle and series | Requires explicit `reference_cycle`, cycle, retention %, verified source, and identical direct-comparison context; never silently choose the denominator |
 | `rate_capability(rows)` | One row per test step and series | Preserves test order and recovery steps; requires matching step/rate sequences and capacity units |
 | `comparison_bars(rows, metric_label=...)` | One row per category | Starts at zero; refuses unlike declared test conditions and undefined uncertainty |
 | `conditions_matrix(rows, fields)` | One row per paper or case | Shows reported (`R`), `NR`, and `NV` as distinct states; never interprets blank as zero |

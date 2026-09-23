@@ -1,0 +1,18 @@
+{
+  "status": "synthetic test-only; rejected front-page prototype, no measured cell data",
+  "showcase_eligible": false,
+  "source": "render_frontpage.py",
+  "transformations": "Deterministic equations and seeded small noise; no outlier removal or smoothing",
+  "outputs": [
+    "evidence-matrix-frontpage.png",
+    "evidence-matrix-frontpage.svg",
+    "evidence-matrix-frontpage.pdf"
+  ],
+  "panels": {
+    "matrix": "invented reporting-coverage states for 12 fictitious examples"
+  },
+  "input_csv": [
+    "data/frontpage-evidence-matrix-synthetic.csv"
+  ],
+  "note": "Rows are fictitious labels, not real papers. Matrix demonstrates a visual grammar for a verified literature map."
+}

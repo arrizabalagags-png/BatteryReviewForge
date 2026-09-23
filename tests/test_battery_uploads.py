@@ -79,6 +79,12 @@ class UploadedBatteryPlotTests(unittest.TestCase):
         with self.assertRaisesRegex(DataContractError, "denominator"):
             coulombic_efficiency(rows)
 
+    def test_aurbach_is_not_a_cycle_by_cycle_ce_input(self):
+        row = {**BASE, "series": "A", "cycle": "1", "ce_pct": "99.5",
+               "ce_protocol": "modified Aurbach", "ce_definition": "protocol average"}
+        with self.assertRaisesRegex(DataContractError, "distinct protocol"):
+            coulombic_efficiency([row])
+
     def test_full_and_half_cell_cannot_be_mixed(self):
         rows = [{**BASE, "series": "A", "cycle": "1", "discharge_capacity": "145",
                  "capacity_basis": "cathode active mass", "capacity_unit": "mAh g-1"}]

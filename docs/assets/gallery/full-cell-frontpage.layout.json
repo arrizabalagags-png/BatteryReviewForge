@@ -1,0 +1,20 @@
+{
+  "status": "synthetic test-only; rejected front-page prototype, no measured cell data",
+  "showcase_eligible": false,
+  "source": "render_frontpage.py",
+  "transformations": "Deterministic equations and seeded small noise; no outlier removal or smoothing",
+  "outputs": [
+    "full-cell-frontpage.png",
+    "full-cell-frontpage.svg",
+    "full-cell-frontpage.pdf"
+  ],
+  "panels": {
+    "a": "500-cycle capacity; three invented formulations",
+    "b": "selected invented discharge profiles; formulation C"
+  },
+  "input_csv": [
+    "data/frontpage-full-cell-cycling-synthetic.csv",
+    "data/frontpage-full-cell-profiles-synthetic.csv"
+  ],
+  "note": "Capacity denominator is illustrative active-material mass; no chemistry, current, loading or temperature is asserted."
+}

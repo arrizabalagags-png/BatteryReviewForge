@@ -58,8 +58,19 @@ def cycle_retention(
     style: str = "forge",
 ):
     """Plot reported retention against cycle index; no smoothing or extrapolation."""
-    verified_rows(rows, ("series", "cycle", "retention_pct"))
+    verified_rows(rows, ("series", "cycle", "retention_pct", "reference_cycle"))
     comparable = comparison_guard(rows, CYCLE_CONTEXT, mode=mode, condition_note=condition_note)
+    for index, row in enumerate(rows, 1):
+        reference = number(row["reference_cycle"], "reference_cycle", index)
+        if reference < 0 or not reference.is_integer():
+            raise DataContractError(f"Row {index}: reference_cycle must be an explicit non-negative integer")
+    reference_by_series = {}
+    for row in rows:
+        series = str(row["series"])
+        reference = int(float(row["reference_cycle"]))
+        if series in reference_by_series and reference_by_series[series] != reference:
+            raise DataContractError(f"Series {series!r} uses different reference_cycle values; split or correct the data")
+        reference_by_series[series] = reference
     fig, ax = make_figure(width_mm, height_mm, style=style)
     colors = colors_for(style)
     for series_index, (name, group) in enumerate(_groups(rows).items()):
@@ -79,6 +90,7 @@ def cycle_retention(
     if not comparable:
         condition_banner(fig, condition_note or "")
     _meta(fig, "cycle_retention", rows, "direct" if comparable else "contextual")
+    fig.batteryplot_meta["reference_cycles"] = sorted({int(float(row["reference_cycle"])) for row in rows})
     return fig, ax
 
 

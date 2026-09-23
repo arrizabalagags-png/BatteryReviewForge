@@ -27,9 +27,9 @@
       <span>BatteryReviewForge</span>
     </a>
     <nav class="nav" aria-label="主导航 / Main navigation">
-      <a href="#tasks" data-t="navTask">选任务</a>
-      <a href="#examples" data-t="navExamples">看样图</a>
-      <a href="#start" data-t="navStart">开始使用</a>
+      <a href="start.html" data-t="navTask">跟着做</a>
+      <a href="#examples" data-t="navExamples">看进展</a>
+      <a href="#start" data-t="navStart">安装使用</a>
       <a href="#skills" data-t="navSkills">全部技能</a>
       <a class="nav-source" href="developers.html" data-t="navDevelopers">开发者 <span aria-hidden="true">↗</span></a>
     </nav>
@@ -38,24 +38,73 @@
   <main id="main">
     <section class="hero container" id="top" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="overline" data-t="heroOverline">为电池研究者公开的方法与工具</p>
-        <h1 id="hero-title"><span data-t="heroLine1">把时间还给研究。</span><br><span data-t="heroLine2">方法属于每个人。</span></h1>
-        <p class="hero-intro" data-t="heroIntro">画论文图、拼 Figure、整理综述。把手里的表格、图片或论文交给你常用的 AI 助手，先看预览，再一起改到满意。</p>
+        <p class="overline" data-t="heroOverline">BatteryReviewForge · 电池科研开放工具</p>
+        <h1 id="hero-title" data-t="heroLine1">把时间还给研究。</h1>
+        <p class="hero-intro" data-t="heroIntro">从实验数据到论文图，从零散图片到完整 Figure。还有电池综述的选题、写作和投稿。先告诉我们你手里有什么。</p>
         <div class="hero-actions">
-          <a class="button button-solid" href="#tasks"><span data-t="heroAction">看看我能做什么</span><span aria-hidden="true">↘</span></a>
-          <a class="text-link" href="#examples"><span data-t="heroSecondary">先看样图</span><span aria-hidden="true">↗</span></a>
+          <a class="button button-solid" href="start.html?material=data" data-t="heroData">我有数据</a>
+          <a class="button button-outline" href="start.html?material=images" data-t="heroImages">我有图片</a>
+          <a class="button button-outline" href="start.html?material=review" data-t="heroReview">我在写综述</a>
         </div>
-        <p class="hero-meta" data-t="heroMeta">免费使用 · 开放源码 · 和科研同行一起维护</p>
+        <p class="hero-meta"><span data-t="heroMeta">免费 · 开源 · 可复现</span> · <a href="#examples" data-t="heroSecondary">看看我们怎么把图做对 ↓</a></p>
       </div>
       <figure class="hero-plate">
-        <div class="plate-heading"><span>01 / 02 / 03</span><span data-t="heroPlateLabel">从原始表格，到能继续编辑的图</span></div>
-        <div class="hero-process"><div class="hero-raw"><span data-t="heroRawTitle">你给表格</span><div class="raw-grid" aria-hidden="true"><span>cycle</span><span>capacity</span><span>CE</span><span>1</span><span>154.2</span><span>99.2</span><span>100</span><span>149.8</span><span>99.5</span><span>300</span><span>139.6</span><span>99.7</span></div></div><span class="process-arrow" aria-hidden="true">→</span><div class="hero-raw hero-check"><span data-t="heroCheckTitle">先核对</span><strong data-t="heroCheckBody">列名 · 单位 · 电芯类型</strong></div></div>
-        <a href="assets/gallery/full-cell-demo.png" target="_blank" rel="noopener noreferrer" aria-label="查看全电池样图大图 / Open full-cell example"><img src="assets/gallery/full-cell-demo.png" alt="虚构数据生成的全电池电压与循环图 / Full-cell voltage and cycling figure made from synthetic data" width="2232" height="1152" fetchpriority="high"></a>
-        <figcaption><span data-t="heroPlateCaption">得到一张可核对、可调整的预览</span><span class="sample-tag" data-t="sampleTag">虚构演示数据</span></figcaption>
+        <div class="plate-heading"><span>01 / 02 / 03</span><span data-t="heroPlateLabel">画图之前，先核对科学表达</span></div>
+        <div class="hero-process"><div class="hero-raw"><span data-t="heroRawTitle">你给材料</span><div class="raw-grid" aria-hidden="true"><span data-t="heroGridFile">文件</span><span data-t="heroGridContent">内容</span><span data-t="heroGridState">状态</span><span>CSV</span><span data-t="heroGridCycle">循环数据</span><span data-t="heroGridRaw">原始</span><span>PNG</span><span data-t="heroGridImage">显微图</span><span data-t="heroGridRaw">原始</span><span>PDF</span><span data-t="heroGridPaper">论文</span><span data-t="heroGridReview">待核</span></div></div><span class="process-arrow" aria-hidden="true">→</span><div class="hero-raw hero-check"><span data-t="heroCheckTitle">先核对</span><strong data-t="heroCheckBody">数据 · 条件 · 来源</strong></div></div>
+        <div class="hero-checklist" role="img" aria-label="先识别电池测试，再选择图型，最后在论文尺寸检查"><div><span>01</span><strong data-t="heroCheck1">看清是什么测试</strong><small>Li∥Cu CE ≠ Aurbach CE</small></div><div><span>02</span><strong data-t="heroCheck2">只画数据支持的图</strong><small>source → panel → caption</small></div><div><span>03</span><strong data-t="heroCheck3">按投稿尺寸检查</strong><small>mm · font · SVG / PDF</small></div></div>
+        <figcaption><span data-t="heroPlateCaption">先把图的科学表达做对，再把它做美。</span><span class="sample-tag" data-t="sampleTag">工作流程示意</span></figcaption>
       </figure>
     </section>
 
     <div class="principle-bar"><div class="container"><strong data-t="principleLead">为什么做这个？</strong><span data-t="principleText">希望每个实验室都能少花时间挪图、调字、改格式，多花时间理解结果、提出新问题。</span></div></div>
+
+    <section class="section pain-section container" aria-labelledby="pain-title">
+      <p class="overline" data-t="painOverline">把重复劳动交出去</p>
+      <h2 id="pain-title" data-t="painTitle">科研已经够难了，别再把时间花在调字体上。</h2>
+      <div class="pain-grid">
+        <article><span>01</span><h3 data-t="painDataTitle">一份数据，画图重来好多遍</h3><p data-t="painDataText">列名、单位、条件先看清，再做一版可编辑的图。</p></article>
+        <article><span>02</span><h3 data-t="painPanelsTitle">单张图好看，拼一起却乱</h3><p data-t="painPanelsText">从主次和阅读顺序入手，再统一字号、留白和边界。</p></article>
+        <article><span>03</span><h3 data-t="painReviewTitle">综述写着写着，证据散了</h3><p data-t="painReviewText">把问题、文献、图件和投稿要求接成一条能回看的线。</p></article>
+      </div>
+      <p class="pain-conclusion" data-t="painConclusion">工具处理重复劳动；科学判断，始终在研究者手里。</p>
+    </section>
+
+    <section class="section examples-section" id="examples" aria-labelledby="examples-title">
+      <div class="container">
+        <div class="section-head"><div><p class="overline" data-t="examplesOverline">图型在认真校对</p><h2 id="examples-title" data-t="examplesTitle">把科学做对，把图做好。</h2></div><p data-t="examplesIntro">我们正在按真实电池论文逐张核对画法。现有图片是软件教程，暂不作为投稿样图推荐。</p></div>
+        <div class="gallery-progress"><div><span>01</span><strong data-t="galleryProgress1">库伦效率，先分清测试协议</strong><p data-t="galleryProgress1Text">逐圈 Li∥Cu 和 Aurbach 各有自己的数据与画法。</p></div><div><span>02</span><strong data-t="galleryProgress2">全电池，曲线要能对上来源</strong><p data-t="galleryProgress2Text">循环曲线和选定圈电压图，必须来自对应电芯与条件。</p></div><div><span>03</span><strong data-t="galleryProgress3">尺寸、字体和拼版一起检查</strong><p data-t="galleryProgress3Text">按目标期刊的毫米尺寸检查，而不是只看大屏幕。</p></div></div>
+        <a class="inline-link" href="start.html?material=data"><span data-t="galleryStart">拿我的数据试一试</span> ↗</a>
+        <details class="gallery-review"><summary data-t="galleryReviewSummary">查看旧版虚构教程图（图型校对中）</summary><p data-t="galleryReviewNote">这些图用于认识文件格式与操作步骤。里面有已知的图型问题，不能直接拿去投稿，也不会作为新图的默认模板。</p>
+        <div class="gallery-feature">
+          <figure class="gallery-item gallery-primary"><a href="assets/gallery/full-cell-frontpage.png" target="_blank" rel="noopener noreferrer"><img src="assets/gallery/full-cell-frontpage.png" alt="虚构数据的全电池 500 圈循环和电压曲线 / Synthetic 500-cycle full-cell and voltage figure" loading="lazy" decoding="async"></a><figcaption><b data-t="galleryFull">全电池长循环</b><span data-t="galleryFullDesc">500 圈容量与选定圈数的放电曲线</span></figcaption></figure>
+          <figure class="gallery-item"><a href="assets/gallery/ce-frontpage.png" target="_blank" rel="noopener noreferrer"><img src="assets/gallery/ce-frontpage.png" alt="虚构 Li||Cu 库伦效率曲线和后期分布 / Synthetic Li||Cu Coulombic efficiency traces and distribution" loading="lazy" decoding="async"></a><figcaption><b data-t="galleryCE">库伦效率</b><span data-t="galleryCEDesc">形成阶段、长循环与后期波动</span></figcaption></figure>
+          <figure class="gallery-item"><a href="assets/gallery/editorial-assembly-demo.png" target="_blank" rel="noopener noreferrer"><img src="assets/gallery/editorial-assembly-demo.png" alt="独立虚构样例的六面板排版测试，不是同一次实验 / Six-panel layout test from independent synthetic examples" width="2340" height="1475" loading="lazy" decoding="async"></a><figcaption><b data-t="galleryAssemble">六张独立样图的排版练习</b><span data-t="galleryAssembleDesc">只看对齐和留白，不解读科学关系</span></figcaption></figure>
+          <figure class="gallery-item gallery-wide"><a href="assets/gallery/tofsims-demo.png" target="_blank" rel="noopener noreferrer"><img src="assets/gallery/tofsims-demo.png" alt="虚构 ToF-SIMS 离子分布及溅射时间曲线 / Synthetic ToF-SIMS ion maps and sputter-time profiles" width="2232" height="1152" loading="lazy" decoding="async"></a><figcaption><b data-t="galleryTOF">ToF-SIMS 离子图与剖面</b><span data-t="galleryTOFDesc">不同离子通道独立标尺，溅射时间不是深度</span></figcaption></figure>
+        </div>
+        <details class="gallery-more"><summary data-t="galleryMore">看看更多样图</summary>
+        <div class="gallery-index" aria-label="更多样图 / More examples">
+          <a href="assets/gallery/symmetric-demo.png" target="_blank" rel="noopener noreferrer"><img src="assets/gallery/symmetric-demo.png" alt="虚构数据的对称电池电压曲线 / Symmetric-cell voltage plot with synthetic data" width="2232" height="1152" loading="lazy" decoding="async"><span data-t="gallerySym">对称电池</span><span aria-hidden="true">↗</span></a>
+          <a href="assets/gallery/eis-frontpage.png" target="_blank" rel="noopener noreferrer"><img src="assets/gallery/eis-frontpage.png" alt="虚构 EIS 复阻抗与高频局部图 / Synthetic EIS Nyquist plot and high-frequency detail" loading="lazy" decoding="async"><span data-t="galleryEIS">EIS 阻抗图</span><span aria-hidden="true">↗</span></a>
+          <a href="assets/gallery/solvation-evidence-demo.png" target="_blank" rel="noopener noreferrer"><img src="assets/gallery/solvation-evidence-demo.png" alt="虚构 Raman 与 RDF 样图 / Synthetic Raman and RDF figure" width="2232" height="1152" loading="lazy" decoding="async"><span data-t="gallerySpectra">Raman 与 RDF</span><span aria-hidden="true">↗</span></a>
+          <a href="assets/gallery/evidence-matrix-frontpage.png" target="_blank" rel="noopener noreferrer"><img src="assets/gallery/evidence-matrix-frontpage.png" alt="虚构文献字段覆盖矩阵 / Synthetic literature reporting coverage matrix" loading="lazy" decoding="async"><span data-t="galleryMatrix">文献证据矩阵</span><span aria-hidden="true">↗</span></a>
+        </div>
+        </details>
+        <p class="gallery-note"><span class="note-rule" aria-hidden="true"></span><span data-t="galleryNote">所有样图用虚构数据或原创示意制作。</span> <a href="disclaimer.html" data-t="galleryDisclaimer">查看详细说明 ↗</a></p>
+        <p class="gallery-caveat" data-t="galleryEditorialCaveat">其中六面板组合图把几组独立虚构数据放在一起演示排版，不代表同一次实验或已证实的因果关系。</p>
+        <div class="gallery-files"><span data-t="galleryFiles">想接着修改？下载可编辑 SVG：</span><a href="assets/gallery/full-cell-frontpage.svg" target="_blank" rel="noopener noreferrer">SVG · <span data-t="galleryFileChart">全电池</span></a><a href="assets/gallery/ce-frontpage.svg" target="_blank" rel="noopener noreferrer">SVG · <span data-t="galleryCE">库伦效率</span></a><a href="assets/gallery/editorial-assembly-demo.svg" target="_blank" rel="noopener noreferrer">SVG · <span data-t="galleryFileAssembly">拼版</span></a><a href="assets/gallery/tofsims-demo.svg" target="_blank" rel="noopener noreferrer">SVG · ToF-SIMS</a></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="section compare-section container" aria-labelledby="compare-title">
+      <details class="gallery-review"><summary id="compare-title" data-t="compareTitle">看看六张虚构图片如何排在一起（版式练习）</summary><p data-t="compareIntro">左右使用同一组虚构源文件，只展示排版过程；这些图来自独立样例，不能当成一条实验或机制证据链。</p>
+      <div class="compare-grid">
+        <figure class="compare-before"><div class="compare-label"><span>BEFORE</span><strong data-t="compareBefore">未排版的六张分图</strong></div><div class="scattered-panels" aria-hidden="true"><img src="assets/gallery/editorial-panel-a.png" alt=""><img src="assets/gallery/editorial-panel-b.png" alt=""><img src="assets/gallery/editorial-panel-c.png" alt=""><img src="assets/gallery/editorial-panel-d.png" alt=""><img src="assets/gallery/editorial-panel-e.png" alt=""><img src="assets/gallery/editorial-panel-f.png" alt=""></div><figcaption data-t="compareBeforeCaption">内容齐了，但主次和顺序还没安排</figcaption></figure>
+        <figure class="compare-after"><div class="compare-label"><span>AFTER</span><strong data-t="compareAfter">组合预览</strong></div><img src="assets/gallery/editorial-assembly-demo.png" alt="独立虚构数据组合的六面板排版预览 / Six-panel layout preview combining independent synthetic examples" loading="lazy" decoding="async"><figcaption data-t="compareAfterCaption">比较字母、间距和对齐；科学内容仍待重做</figcaption></figure>
+      </div>
+      <p class="compare-foot" data-t="compareFoot">真正投稿前，还要逐张核对来源、实际绘图区、字号和比例尺。</p>
+      </details>
+    </section>
 
     <section class="section container" id="tasks" aria-labelledby="tasks-title">
       <div class="section-head">
@@ -63,43 +112,20 @@
         <p data-t="tasksIntro">点一张卡片就能看到第一步。不知道该选什么也没关系。</p>
       </div>
       <div class="task-list">
-        <a class="task-row" href="guide.html#data"><span class="task-input" data-t="task1Input">有一份实验数据</span><strong data-t="task1Title">把表格画成论文图</strong><span class="task-description" data-t="task1Desc">库伦效率、全电池、半电池、对称电池等</span><span class="task-arrow" aria-hidden="true">↗</span></a>
-        <a class="task-row" href="guide.html#assemble"><span class="task-input" data-t="task2Input">手里有图片</span><strong data-t="task2Title">拼图，或画一张示意图</strong><span class="task-description" data-t="task2Desc">现成面板拼版；想法和草图也能画成原创示意</span><span class="task-arrow" aria-hidden="true">↗</span></a>
-        <a class="task-row" href="guide.html#review"><span class="task-input" data-t="task4Input">手里有论文或题目</span><strong data-t="task4Title">一步步写好电池综述</strong><span class="task-description" data-t="task4Desc">从选题、文献、写作到投稿返修</span><span class="task-arrow" aria-hidden="true">↗</span></a>
-        <a class="task-row task-help" href="guide.html#unsure"><span class="task-input" data-t="taskHelpInput">还说不清楚</span><strong data-t="taskHelpTitle">帮我看看，从哪开始</strong><span class="task-description" data-t="taskHelpDesc">先盘点你有的材料，再给一个简单的下一步</span><span class="task-arrow" aria-hidden="true">↗</span></a>
-      </div>
-    </section>
-
-    <section class="section examples-section" id="examples" aria-labelledby="examples-title">
-      <div class="container">
-        <div class="section-head"><div><p class="overline" data-t="examplesOverline">三种常见起点</p><h2 id="examples-title" data-t="examplesTitle">看看材料怎样变成图。</h2></div><p data-t="examplesIntro">表格、现成图片、复杂实验结果，都可以先做一版。点开看细节。</p></div>
-        <div class="gallery-feature">
-          <figure class="gallery-item gallery-primary"><a href="assets/gallery/full-cell-demo.png" target="_blank" rel="noopener noreferrer"><img src="assets/gallery/full-cell-demo.png" alt="虚构数据的全电池循环图 / Full-cell cycling figure with synthetic data" width="2232" height="1152" loading="lazy" decoding="async"></a><figcaption><b data-t="galleryFull">表格 → 全电池曲线</b><span data-t="galleryFullDesc">电压和循环表现放进同一张图</span></figcaption></figure>
-          <figure class="gallery-item"><a href="assets/gallery/editorial-assembly-demo.png" target="_blank" rel="noopener noreferrer"><img src="assets/gallery/editorial-assembly-demo.png" alt="虚构数据组合的六面板电池图：电芯示意、Raman、RDF、库伦效率、对称电池与全电池 / Six-panel battery composition made from synthetic example data" width="2340" height="1475" loading="lazy" decoding="async"></a><figcaption><b data-t="galleryAssemble">多类证据 → 有主次的组合图</b><span data-t="galleryAssembleDesc">结构、谱学、电池表现，按阅读顺序排好</span></figcaption></figure>
-          <figure class="gallery-item"><a href="assets/gallery/tofsims-demo.png" target="_blank" rel="noopener noreferrer"><img src="assets/gallery/tofsims-demo.png" alt="虚构 ToF-SIMS 离子分布及深度剖析样图 / Synthetic ToF-SIMS ion maps and sputter-time profiles" width="2232" height="1152" loading="lazy" decoding="async"></a><figcaption><b data-t="galleryTOF">复杂证据 → ToF-SIMS 图</b><span data-t="galleryTOFDesc">离子成像、叠加与溅射时间曲线</span></figcaption></figure>
-        </div>
-        <details class="gallery-more"><summary data-t="galleryMore">看看更多样图</summary>
-        <div class="gallery-index" aria-label="更多样图 / More examples">
-          <a href="assets/gallery/cell-architecture-demo.png" target="_blank" rel="noopener noreferrer"><img src="assets/gallery/cell-architecture-demo.png" alt="原创电芯分层示意图 / Original cell architecture schematic" width="2232" height="1296" loading="lazy" decoding="async"><span data-t="galleryCell">电芯结构示意</span><span aria-hidden="true">↗</span></a>
-          <a href="assets/gallery/solvation-evidence-demo.png" target="_blank" rel="noopener noreferrer"><img src="assets/gallery/solvation-evidence-demo.png" alt="虚构 Raman 与 RDF 样图 / Synthetic Raman and RDF figure" width="2232" height="1152" loading="lazy" decoding="async"><span data-t="gallerySpectra">Raman 与 RDF</span><span aria-hidden="true">↗</span></a>
-          <a href="assets/gallery/ce-demo.png" target="_blank" rel="noopener noreferrer"><img src="assets/gallery/ce-demo.png" alt="虚构数据的库伦效率曲线 / Coulombic efficiency example with synthetic data" width="2232" height="1152" loading="lazy" decoding="async"><span data-t="galleryCE">库伦效率</span><span aria-hidden="true">↗</span></a>
-          <a href="assets/gallery/symmetric-demo.png" target="_blank" rel="noopener noreferrer"><img src="assets/gallery/symmetric-demo.png" alt="虚构数据的对称电池电压曲线 / Symmetric-cell voltage plot with synthetic data" width="2232" height="1152" loading="lazy" decoding="async"><span data-t="gallerySym">对称电池</span><span aria-hidden="true">↗</span></a>
-          <a href="assets/gallery/operando-xrd-demo.png" target="_blank" rel="noopener noreferrer"><img src="assets/gallery/operando-xrd-demo.png" alt="虚构原位 XRD 状态图和选定谱线 / Synthetic operando XRD map and selected patterns" width="2232" height="1152" loading="lazy" decoding="async"><span data-t="galleryXRD">原位 XRD 状态图</span><span aria-hidden="true">↗</span></a>
-          <a href="assets/gallery/style-preview.png" target="_blank" rel="noopener noreferrer"><img src="assets/gallery/style-preview.png" alt="六种原创绘图风格预览 / Six original figure styles" width="2232" height="1296" loading="lazy" decoding="async"><span data-t="galleryStyle">六种绘图风格</span><span aria-hidden="true">↗</span></a>
-        </div>
-        </details>
-        <p class="gallery-note"><span class="note-rule" aria-hidden="true"></span><span data-t="galleryNote">所有样图用虚构数据或原创示意制作。</span> <a href="disclaimer.html" data-t="galleryDisclaimer">查看详细说明 ↗</a></p>
-        <p class="gallery-caveat" data-t="galleryEditorialCaveat">其中六面板组合图把几组独立虚构数据放在一起演示排版，不代表同一次实验或已证实的因果关系。</p>
-        <div class="gallery-files"><span data-t="galleryFiles">想接着修改？下载可编辑 SVG：</span><a href="assets/gallery/tofsims-demo.svg" target="_blank" rel="noopener noreferrer">SVG · ToF-SIMS</a><a href="assets/gallery/cell-architecture-demo.svg" target="_blank" rel="noopener noreferrer">SVG · <span data-t="galleryFileCell">电芯示意</span></a><a href="assets/gallery/editorial-assembly-demo.svg" target="_blank" rel="noopener noreferrer">SVG · <span data-t="galleryFileAssembly">拼版示例</span></a><a href="assets/gallery/full-cell-demo.svg" target="_blank" rel="noopener noreferrer">SVG · <span data-t="galleryFileChart">全电池曲线</span></a></div>
+        <a class="task-row" href="start.html?material=data"><span class="task-input" data-t="task1Input">有一份实验数据</span><strong data-t="task1Title">把表格画成论文图</strong><span class="task-description" data-t="task1Desc">库伦效率、全电池、半电池、对称电池等</span><span class="task-arrow" aria-hidden="true">↗</span></a>
+        <a class="task-row" href="start.html?material=images"><span class="task-input" data-t="task2Input">手里有图片</span><strong data-t="task2Title">拼图，或画一张示意图</strong><span class="task-description" data-t="task2Desc">现成面板拼版；想法和草图也能画成原创示意</span><span class="task-arrow" aria-hidden="true">↗</span></a>
+        <a class="task-row" href="start.html?material=review"><span class="task-input" data-t="task4Input">手里有论文或题目</span><strong data-t="task4Title">一步步写好电池综述</strong><span class="task-description" data-t="task4Desc">从选题、文献、写作到投稿返修</span><span class="task-arrow" aria-hidden="true">↗</span></a>
+        <a class="task-row task-help" href="start.html"><span class="task-input" data-t="taskHelpInput">还说不清楚</span><strong data-t="taskHelpTitle">帮我看看，从哪开始</strong><span class="task-description" data-t="taskHelpDesc">先盘点你有的材料，再给一个简单的下一步</span><span class="task-arrow" aria-hidden="true">↗</span></a>
       </div>
     </section>
 
     <section class="confidence-section" id="peace-of-mind" aria-labelledby="confidence-title"><div class="container">
-      <div class="confidence-head"><p class="overline" data-t="confidenceOverline">用得明白，才用得放心</p><h2 id="confidence-title" data-t="confidenceTitle">先把你关心的三件事说清楚。</h2></div>
+      <div class="confidence-head"><p class="overline" data-t="confidenceOverline">漂亮很重要，可信更重要</p><h2 id="confidence-title" data-t="confidenceTitle">科研数据，不该为了好看偷偷改变。</h2></div>
       <div class="confidence-grid">
-        <article><span aria-hidden="true">01</span><h3 data-t="confidenceDataTitle">你的数据，不会变成项目的数据</h3><p data-t="confidenceDataText">项目公开的是工具和自有资源。你提供的原始数据与图片仍由原权利人决定怎么用。</p></article>
-        <article><span aria-hidden="true">02</span><h3 data-t="confidenceMarkTitle">图上不强加项目水印</h3><p data-t="confidenceMarkText">随包绘图和拼图脚本不在论文图上放项目 Logo；必要的单位和比较限制说明会保留。</p></article>
-        <article><span aria-hidden="true">03</span><h3 data-t="confidenceSiteTitle">这个网站没有文件上传入口</h3><p data-t="confidenceSiteText">网站负责说明和下载。把材料交给 AI 软件时，请先看该软件的数据设置。</p></article>
+        <article><span aria-hidden="true">01</span><h3 data-t="confidenceDataTitle">原始文件先留好</h3><p data-t="confidenceDataText">新图输出到项目工作区，原始表格和图片单独保留；需要覆盖时由你决定。</p></article>
+        <article><span aria-hidden="true">02</span><h3 data-t="confidenceMarkTitle">不悄悄删异常点</h3><p data-t="confidenceMarkText">平滑、剔除、归一化若影响结果，应先说清楚并记在处理记录里。</p></article>
+        <article><span aria-hidden="true">03</span><h3 data-t="confidenceSiteTitle">缺的条件不靠猜</h3><p data-t="confidenceSiteText">单位、电芯类型、倍率等缺失时先标出来，能确定的部分先做预览。</p></article>
+        <article><span aria-hidden="true">04</span><h3 data-t="confidenceTraceTitle">图和来源能对上</h3><p data-t="confidenceTraceText">把数据文件、绘图步骤、参数和版本放在一起，后面改图找得到来路。</p></article>
       </div>
       <a class="inline-link" href="#api-help"><span data-t="confidenceMore">再看看数据、标记和投稿的常见问题</span> ↗</a>
     </div></section>
@@ -117,7 +143,7 @@
     <section class="section start-section container" id="start" aria-labelledby="start-title">
       <div class="section-head"><div><p class="overline" data-t="startOverline">从这里开始</p><h2 id="start-title" data-t="startTitle">拿着手头的材料，就能试。</h2></div><p data-t="startIntro">第一次不用记技能名称。下载、安装，然后把论文、表格或图片交给你常用的 AI 软件。</p></div>
       <ol class="steps">
-        <li><span class="step-no">01</span><div><h3 data-t="step1Title">下载文件，解压到电脑上</h3><p data-t="step1Text">下载的是 ZIP 压缩包。解压后，你会看到安装文件和 13 个单项技能。</p><a class="button button-solid download" href="https://github.com/arrizabalagags-png/BatteryReviewForge/releases/download/v0.7.1/BatteryReviewForge-v0.7.1.zip"><span data-t="download">下载完整技能包</span><span aria-hidden="true">↓</span></a></div></li>
+        <li><span class="step-no">01</span><div><h3 data-t="step1Title">下载文件，解压到电脑上</h3><p data-t="step1Text">下载的是 ZIP 压缩包。解压后，你会看到安装文件和 13 个单项技能。</p><a class="button button-solid download" href="https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-v0.7.2.zip"><span data-t="download">下载完整技能包</span><span aria-hidden="true">↓</span></a></div></li>
         <li><span class="step-no">02</span><div><h3 data-t="step2Title">按你用的软件安装</h3><p data-t="step2Text">下面点开 Codex、Kimi Code 或 WorkBuddy，就能看到对应步骤。我们没有单独的账号，也不用你交出密码。</p><a class="inline-link" href="#platforms"><span data-t="step2Link">找到我的软件</span> ↗</a></div></li>
         <li><span class="step-no">03</span><div><h3 data-t="step3Title">发材料，说一句你想做什么</h3><p data-t="step3Text">比如发一份循环数据，让它先看列名和单位；或发几张现成图片，让它帮你拼齐。下面有一句话可以直接复制。</p></div></li>
       </ol>
@@ -131,7 +157,7 @@
         <div class="platform-picker">
           <details class="platform-card" id="platform-codex"><summary><span><strong>Codex</strong><small data-t="codexSummary">已经在 Codex 里做科研</small></span><span class="platform-arrow" aria-hidden="true">↘</span></summary><div class="platform-body"><p class="platform-test" data-t="codexTest">安装和基本调用已在我们的 Windows 电脑上试过。</p><ol><li data-t="codexStep1">下载上面的完整技能包，解压。</li><li data-t="codexStep2">打开解压后的文件夹，点地址栏，输入 powershell，按回车。</li><li data-t="codexStep3">在弹出的窗口粘贴下面这行，按回车。安装成功后，新开一个 Codex 任务。</li></ol><div class="command-row"><code>powershell -NoProfile -File .\install.ps1</code><button type="button" class="copy-button" data-copy="powershell -NoProfile -File .\install.ps1" data-t="copy">复制命令</button></div><details class="platform-extra"><summary data-t="codexMore">用 Mac/Linux，或已经装过旧版？</summary><p data-t="codexMac">Mac/Linux：在解压目录的终端运行下面这行。</p><div class="command-row"><code>sh install.sh</code><button type="button" class="copy-button" data-copy="sh install.sh" data-t="copy">复制命令</button></div><p data-t="codexExisting">提示“同名技能已存在”时，先确认旧版不需要保留。想用新版覆盖它，在同一窗口运行：</p><div class="command-row"><code>powershell -NoProfile -File .\install.ps1 -Overwrite</code><button type="button" class="copy-button" data-copy="powershell -NoProfile -File .\install.ps1 -Overwrite" data-t="copy">复制命令</button></div></details></div></details>
           <details class="platform-card" id="platform-kimi"><summary><span><strong>Kimi Code</strong><small data-t="kimiSummary">用 Kimi 的代码助手</small></span><span class="platform-arrow" aria-hidden="true">↘</span></summary><div class="platform-body"><p class="platform-test" data-t="kimiTest">安装位置按官方文档核过；完整画图任务还没在客户端测试。</p><ol><li data-t="kimiStep1">下载并解压上面的完整技能包。</li><li data-t="kimiStep2">在解压后的文件夹打开命令窗口，复制与你电脑系统对应的命令。</li><li data-t="kimiStep3">重开 Kimi Code，发一份表格，说“先帮我检查数据，再画图”。</li></ol><div class="command-row"><span>Windows</span><code>powershell -NoProfile -File .\install.ps1 -Agent KimiCode</code><button type="button" class="copy-button" data-copy="powershell -NoProfile -File .\install.ps1 -Agent KimiCode" data-t="copy">复制命令</button></div><div class="command-row"><span>Mac / Linux</span><code>sh install.sh --agent kimi</code><button type="button" class="copy-button" data-copy="sh install.sh --agent kimi" data-t="copy">复制命令</button></div><a class="platform-doc" href="https://www.kimi.com/code/docs/en/kimi-code-cli/customization/skills.html" target="_blank" rel="noopener noreferrer"><span data-t="officialDocs">看软件官方说明</span> ↗</a></div></details>
-          <details class="platform-card" id="platform-workbuddy"><summary><span><strong>WorkBuddy</strong><small data-t="workbuddySummary">喜欢在软件界面里点选导入</small></span><span class="platform-arrow" aria-hidden="true">↘</span></summary><div class="platform-body"><p class="platform-test" data-t="workbuddyTest">导入入口按官方文档核过；完整画图任务还没在客户端测试。</p><ol><li data-t="workbuddyStep1">下载 WorkBuddy 专用包，并解压。里面每个小 ZIP 对应一个技能。</li><li data-t="workbuddyStep2">在 WorkBuddy 点“技能 → 添加技能 → 上传技能”。</li><li data-t="workbuddyStep3">有数据要画图，选文件名含 battery-review-figure 的小 ZIP；有现成图要拼版，选文件名含 battery-figure-assemble 的小 ZIP。一次传一个。</li></ol><div class="platform-links"><a class="button button-solid" href="https://github.com/arrizabalagags-png/BatteryReviewForge/releases/download/v0.7.1/BatteryReviewForge-WorkBuddy-v0.7.1.zip"><span data-t="workbuddyDownload">下载 WorkBuddy 专用包</span> ↓</a><a class="platform-doc" href="https://open.workbuddy.cn/en/docs/skill" target="_blank" rel="noopener noreferrer"><span data-t="officialDocs">看软件官方说明</span> ↗</a></div></div></details>
+          <details class="platform-card" id="platform-workbuddy"><summary><span><strong>WorkBuddy</strong><small data-t="workbuddySummary">喜欢在软件界面里点选导入</small></span><span class="platform-arrow" aria-hidden="true">↘</span></summary><div class="platform-body"><p class="platform-test" data-t="workbuddyTest">导入入口按官方文档核过；完整画图任务还没在客户端测试。</p><ol><li data-t="workbuddyStep1">下载 WorkBuddy 专用包，并解压。里面每个小 ZIP 对应一个技能。</li><li data-t="workbuddyStep2">在 WorkBuddy 点“技能 → 添加技能 → 上传技能”。</li><li data-t="workbuddyStep3">有数据要画图，选文件名含 battery-review-figure 的小 ZIP；有现成图要拼版，选文件名含 battery-figure-assemble 的小 ZIP。一次传一个。</li></ol><div class="platform-links"><a class="button button-solid" href="https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-WorkBuddy-v0.7.2.zip"><span data-t="workbuddyDownload">下载 WorkBuddy 专用包</span> ↓</a><a class="platform-doc" href="https://open.workbuddy.cn/en/docs/skill" target="_blank" rel="noopener noreferrer"><span data-t="officialDocs">看软件官方说明</span> ↗</a></div></div></details>
           <details class="platform-card" id="platform-deepseek"><summary><span><strong>DeepSeek Harness</strong><small data-t="deepseekSummary">用 DeepSeek 的开发者工具</small></span><span class="platform-arrow" aria-hidden="true">↘</span></summary><div class="platform-body"><p class="platform-test" data-t="deepseekTest">文件放置方法按官方文档核过；完整任务还没在客户端测试。</p><ol><li data-t="deepseekStep1">下载并解压上面的完整技能包。</li><li data-t="deepseekStep2">在解压后的文件夹打开命令窗口，复制与你电脑系统对应的命令。</li><li data-t="deepseekStep3">确认 Harness 的技能功能已启用，重开会话，用一份小数据试画。</li></ol><div class="command-row"><span>Windows</span><code>powershell -NoProfile -File .\install.ps1 -Agent DeepSeekHarness</code><button type="button" class="copy-button" data-copy="powershell -NoProfile -File .\install.ps1 -Agent DeepSeekHarness" data-t="copy">复制命令</button></div><div class="command-row"><span>Mac / Linux</span><code>sh install.sh --agent dsh</code><button type="button" class="copy-button" data-copy="sh install.sh --agent dsh" data-t="copy">复制命令</button></div><a class="platform-doc" href="developers.html#compat"><span data-t="devTechnicalDocs">查看开发者文档</span> ↗</a></div></details>
           <details class="platform-card" id="platform-doubao"><summary><span><strong>豆包</strong><small data-t="doubaoSummary">平时用豆包看文件、聊天</small></span><span class="platform-arrow" aria-hidden="true">↘</span></summary><div class="platform-body"><p class="platform-test" data-t="doubaoTest">目前没找到我们能核实的第三方技能包导入办法。</p><p data-t="doubaoText">你可以先把表格和本项目的绘图说明发给豆包，请它帮你整理画图方案。这相当于照着说明讨论，还不能算技能已经安装，也不能保证它运行随包附的脚本。</p><a class="platform-doc" href="guide.html#data"><span data-t="doubaoGuide">打开绘图说明</span> ↗</a></div></details>
         </div>
@@ -142,6 +168,8 @@
     <section class="section container faq-section" id="api-help" aria-labelledby="faq-title">
       <div class="section-head"><div><p class="overline" data-t="faqOverline">新手常问</p><h2 id="faq-title" data-t="faqTitle">第一次用？这里有答案。</h2></div></div>
       <div class="faq-list">
+        <details><summary data-t="faq3Q">我不会写 Python，还能用吗？</summary><p data-t="faq3A">可以先用选题、文献和写作技能。要让工具在你的电脑上从数据出图，某些功能需要安装 Python 依赖；先把任务交给 AI 助手，让它按步骤帮你检查环境。</p></details>
+        <details><summary data-t="faqSkillQ">我不知道该用哪个技能，怎么办？</summary><p data-t="faqSkillA">不用背名字。点“我有数据 / 图片 / 综述”走三步引导，或把材料交给助手，让它先说清看到了什么、建议从哪一步开始。</p></details>
         <details><summary data-t="faqDataQ">我的实验数据和生成的图，归谁？</summary><p data-t="faqDataA">你的原始数据和原图不会因为使用本项目就转给我们；我们也不要求你把成图权利转给项目。若用了他人的素材或 AI 软件，公开和投稿前还要核对素材授权、软件条款和期刊要求。</p></details>
         <details><summary data-t="faqUploadQ">我的未发表数据会被这个网站收走吗？</summary><p data-t="faqUploadA">不会通过本网站上传：这里没有收文件的表单或项目后台。随包 Python 绘图脚本读写你指定的文件。若你把材料交给 Codex、Kimi 等 AI 软件，数据如何处理取决于那个软件和你账户的设置；敏感材料先确认课题组与平台规则。</p></details>
         <details><summary data-t="faqMarkQ">画出来的图会有水印或隐藏标记吗？</summary><p data-t="faqMarkA">随包绘图和拼图脚本不强制在图面加 BatteryReviewForge 标志或水印。必要的单位、条件限制和来源说明应保留。SVG/PDF 可能含创建者、日期等文件信息；单独的溯源 JSON 可能含数据路径。若用第三方图像服务，也要查看它的导出规则。</p></details>
@@ -150,9 +178,8 @@
         <details><summary data-t="faqPublishQ">这张图可以直接放进论文投稿吗？</summary><p data-t="faqPublishA">可以把成图当作投稿图件的起点。交稿前请用原始数据核对数值、单位和图注，确认他人素材的使用权，并按目标期刊当时的规定处理图件格式及 AI 辅助说明。</p></details>
         <details><summary data-t="faq1Q">API Key 是什么？我一定要有吗？</summary><p data-t="faq1A">它是某些 Agent 连接模型服务时使用的密钥。是否需要 Key，取决于你用的软件和登录方式。先照该软件的官方步骤完成账号或模型设置，再安装本项目技能。</p></details>
         <details><summary data-t="faq2Q">需要把密钥粘到网页或聊天框吗？</summary><p data-t="faq2A">不要。这是静态介绍网站，没有填写密钥的表单。密钥只应放在你所用软件的官方设置位置，不要粘到聊天、截图或公开仓库里。</p></details>
-        <details><summary data-t="faq3Q">我不会写 Python，还能用吗？</summary><p data-t="faq3A">可以先用综述规划、文献整理和写作技能。要从数据生成图或拼版时，需要按相应技能说明安装 Python 依赖；你可以把数据和任务交给 Agent，让它检查并解释步骤。</p></details>
         <details><summary data-t="faq4Q">能直接把论文图发给它重画吗？</summary><p data-t="faq4A">可以请它分析构图、配色和表达方式，再用你有权使用的原始数据重新制作。不要把别人的成图直接当作自己的素材发布；数值、来源和授权都要核对。</p></details>
-        <details><summary data-t="faqModelQ">换一个模型，画出来会一样吗？</summary><p data-t="faqModelA">复杂拼图、示意图和图意判断会受模型看图和推理能力影响。确定的表格数值应由绘图脚本从原文件读取；无论用哪个模型，成图都要和原始数据核对。</p></details>
+        <details><summary data-t="faqModelQ">换一个模型，画出来会一样吗？</summary><p data-t="faqModelA">复杂拼图、示意图和图意判断会受模型看图和推理能力影响。模型影响“怎么设计”，不应该改变“数据是什么”；成图仍要和原始数据核对。</p></details>
       </div>
     </section>
 

@@ -26,7 +26,7 @@ def main(output: Path) -> None:
     output.mkdir(parents=True, exist_ok=True)
     cycle = [
         context(source_id=f"SYNTHETIC-{series}", series=series, cycle=str(cycle_number),
-                retention_pct=str(value), retention_basis="initial discharge capacity", rate="1 C")
+                retention_pct=str(value), retention_basis="initial discharge capacity", reference_cycle="0", rate="1 C")
         for series, values in (("Material A", (100, 91, 82, 75)), ("Material B", (100, 87, 76, 65)))
         for cycle_number, value in zip((0, 100, 200, 300), values)
     ]

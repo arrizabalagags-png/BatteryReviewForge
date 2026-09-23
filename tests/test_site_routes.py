@@ -6,10 +6,11 @@ import json
 import re
 import unittest
 from urllib.parse import urlsplit, unquote
+from zipfile import ZipFile
 
 
 ROOT = Path(__file__).resolve().parents[1] / "docs"
-PAGES = ("index.html", "guide.html", "disclaimer.html", "developers.html")
+PAGES = ("index.html", "start.html", "guide.html", "disclaimer.html", "developers.html")
 
 
 class PageParser(HTMLParser):
@@ -45,9 +46,9 @@ class SiteRoutesTest(unittest.TestCase):
     def test_beginner_tasks_stay_on_site(self):
         self.assertEqual(
             self.pages["index.html"].task_links,
-            ["guide.html#data", "guide.html#assemble", "guide.html#review", "guide.html#unsure"],
+            ["start.html?material=data", "start.html?material=images", "start.html?material=review", "start.html"],
         )
-        for name in ("index.html", "guide.html", "disclaimer.html"):
+        for name in ("index.html", "start.html", "guide.html", "disclaimer.html"):
             for link in self.pages[name].links:
                 if "github.com/" in link:
                     self.assertIn("/releases/download/", link, f"{name}: {link}")
@@ -86,6 +87,15 @@ class SiteRoutesTest(unittest.TestCase):
         self.assertIn('<details class="skill-details">', home)
         self.assertIn('href="guide.html#unsure"', home)
         self.assertIn('<details class="gallery-more">', home)
+        wizard = (ROOT / "start.html").read_text(encoding="utf-8")
+        self.assertIn('data-step="1"', wizard)
+        self.assertIn('data-step="2"', wizard)
+        self.assertIn('data-step="3"', wizard)
+        self.assertIn('id="wizard-prompt"', wizard)
+        script = (ROOT / "start.js").read_text(encoding="utf-8")
+        for task in ("cycling", "ce", "other", "assemble", "schematic", "plan", "draft"):
+            self.assertIn(f'id: "{task}"', script)
+        self.assertNotRegex(script, r"\b(?:fetch|XMLHttpRequest|sendBeacon)\s*\(")
 
     def test_editorial_gallery_example_discloses_synthetic_sources(self):
         gallery = ROOT / "assets" / "gallery"
@@ -95,6 +105,36 @@ class SiteRoutesTest(unittest.TestCase):
         for filename in ("editorial-assembly-demo.png", "editorial-assembly-demo.svg", "editorial-assembly-demo.pdf"):
             self.assertTrue((gallery / filename).is_file())
         self.assertIn('data-t="galleryEditorialCaveat"', (ROOT / "index.html").read_text(encoding="utf-8"))
+
+    def test_synthetic_tutorial_figures_are_not_featured_as_validated_samples(self):
+        gallery = ROOT / "assets" / "gallery"
+        for stem in ("full-cell-frontpage", "ce-frontpage", "eis-frontpage", "evidence-matrix-frontpage"):
+            metadata = json.loads((gallery / f"{stem}.layout.json").read_text(encoding="utf-8"))
+            self.assertIn("synthetic", metadata["status"])
+            for item in metadata["input_csv"]:
+                self.assertTrue((gallery / item).is_file(), item)
+            for suffix in (".png", ".svg", ".pdf"):
+                self.assertTrue((gallery / f"{stem}{suffix}").is_file())
+        home = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertIn('class="gallery-review"', home)
+        self.assertLess(home.index('class="gallery-review"'), home.index('class="gallery-feature"'))
+        self.assertNotIn('class="hero-plate"><a href="assets/gallery/', home)
+        self.assertIn('data-t="galleryReviewNote"', home)
+        self.assertEqual(home.count('class="gallery-item'), 4)
+        for stem in ("full-cell-frontpage", "ce-frontpage", "editorial-assembly-demo", "tofsims-demo"):
+            self.assertIn(f"assets/gallery/{stem}.png", home)
+
+    def test_homepage_downloads_match_current_plugin(self):
+        repo = ROOT.parent
+        version = json.loads((repo / ".codex-plugin" / "plugin.json").read_text(encoding="utf-8"))["version"]
+        self.assertEqual(version, json.loads((repo / "plugin.json").read_text(encoding="utf-8"))["version"])
+        home = (ROOT / "index.html").read_text(encoding="utf-8")
+        for basename in (f"BatteryReviewForge-v{version}.zip", f"BatteryReviewForge-WorkBuddy-v{version}.zip"):
+            self.assertIn(f"/downloads/{basename}", home)
+            self.assertTrue((ROOT / "downloads" / basename).is_file())
+        with ZipFile(ROOT / "downloads" / f"BatteryReviewForge-v{version}.zip") as archive:
+            self.assertEqual(len([name for name in archive.namelist() if name.endswith("/SKILL.md")]), 13)
+            self.assertIn("skills/battery-review-figure/references/BATTERY_FIGURE_GRAMMAR.json", archive.namelist())
 
 
 if __name__ == "__main__":

@@ -70,7 +70,7 @@ python skills/battery-review-figure/scripts/plot_uploaded.py plot --data my_data
 | 对称电池电压 | `symmetric_cell_voltage` | `series, time_h, voltage_mv` | 两侧电极、正负极性、电流密度、每半周期面积容量、外加压力（若相关）、失效判据 |
 | 充放电曲线 | `voltage_capacity` | `series, cycle, direction, capacity, voltage_v` | `charge/discharge` 方向、选取圈数、容量分母、电压范围 |
 | EIS Nyquist | `nyquist` | `series, z_real_ohm, minus_z_imag_ohm` | 频率范围、SOC/循环状态、扰动幅值和拟合方式（如有） |
-| 循环保持率 | `cycle_retention` | `series, cycle, retention_pct` | 初始圈数和保持率分母 |
+| 循环保持率 | `cycle_retention` | `series, cycle, retention_pct, reference_cycle` | 明确写出作为 100% 的参考圈；没有就先画原始容量，不能擅自算保持率 |
 | 倍率性能 | `rate_capability` | `series, step, rate_label, capacity` | 实际测试顺序、恢复步骤、容量单位与分母 |
 | ToF-SIMS 离子图 | `tofsims_map` | `sample_id, fragment, x_um, y_um, signal` | 像素坐标必须来自仪器标定；选择一个样品及碎片；提供离子极性、取样状态、信号单位、归一化方式 |
 | ToF-SIMS 深度曲线 | `tofsims_depth` | `sample_id, fragment, sputter_time_s, signal` | 同一组碎片须有相同时间网格；横轴保持溅射时间，除非有独立坑深校准 |
