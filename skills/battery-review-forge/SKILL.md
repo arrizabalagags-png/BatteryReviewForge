@@ -9,7 +9,7 @@ Coordinate a battery Review or Perspective across stages while keeping the curre
 
 ## Route the request
 
-Identify the chemistry or device class, article type (narrative/critical Review, scoping review, systematic review, Perspective), target readership and venue if known, current manuscript state, accessible sources, and requested deliverable. Infer these from supplied files first. Ask only for missing decisions that block useful work. Read [codex-operations.md](references/codex-operations.md) for multi-session or multi-agent work.
+The author does not need to know a skill name or choose an internal mode. Read the supplied draft, papers, tables, images, or project folder first. Identify the chemistry or device class, article type (narrative/critical Review, scoping review, systematic review, Perspective), target readership and venue if known, current manuscript state, accessible sources, and requested deliverable. Infer these from what is actually available. Choose the specialist internally, describe the next action in ordinary language, and ask only for a missing decision that blocks useful work. Do not turn intake into a questionnaire. Read [codex-operations.md](references/codex-operations.md) for multi-session or multi-agent work.
 
 If the request is about **installing or using this suite in an agent host**, identify the exact product first and read [AGENT_COMPATIBILITY.md](references/AGENT_COMPATIBILITY.md). A host's login and API setup is separate from this skill. Do not assume another host has Codex's plugin commands, skill paths, or tool access.
 
@@ -31,6 +31,8 @@ If the request is about **installing or using this suite in an agent host**, ide
 For a full-project request, load each specialist only as the work reaches its stage. Do not read every skill or create every template at intake. If a specialist is unavailable, follow the shared rules below and state the missing capability only if it affects the result.
 
 For an unclear figure request, use the [plain-language figure router](../battery-review-figure/references/FIGURE_ROUTER.md) before loading a plotting or assembly specialist. Choose by whether the author has raw data, a new schematic brief, finished panels, or a combination; do not decide from file extension alone.
+
+When the user says only “help me with this”, start from the materials: say briefly what you found, do the first verifiable piece of work, then show what was produced and any one decision needed next. If no material is attached, ask for the smallest useful item (for example a draft section, data table, or three panels) and offer a copyable example sentence. Keep internal skill names out of the author's required input.
 
 ## Shared rules
 
