@@ -19,11 +19,17 @@ class Links(HTMLParser):
         super().__init__()
         self.ids = set()
         self.links = []
+        self.buttons_without_type = []
+        self.images_without_size = []
 
     def handle_starttag(self, tag, attrs):
         values = dict(attrs)
         if values.get("id"):
             self.ids.add(values["id"])
+        if tag == "button" and values.get("type") != "button":
+            self.buttons_without_type.append(values)
+        if tag == "img" and (not values.get("width") or not values.get("height")):
+            self.images_without_size.append(values)
         for key in ("href", "src"):
             if values.get(key):
                 self.links.append(values[key])
@@ -59,10 +65,12 @@ class ProductSiteTest(unittest.TestCase):
         self.assertIn("把时间还给<br>研究", home)
         self.assertIn('href="start.html"', home)
         self.assertIn('href="gallery.html"', home)
-        self.assertEqual(home.count('class="gallery-card'), 6)
+        self.assertEqual(home.count('class="gallery-card'), 5)
         self.assertNotIn("assets/gallery/", home)
         self.assertNotIn("wizard-prompt", home)
         self.assertNotIn("先让助手看一眼", home)
+        self.assertIn("同一研究的六面板 Figure", home)
+        self.assertIn("ToF-SIMS", home)
 
     def test_onboarding_has_deterministic_steps_and_real_downloads(self):
         html = (DOCS / "start.html").read_text(encoding="utf-8")
@@ -72,6 +80,11 @@ class ProductSiteTest(unittest.TestCase):
         self.assertIn("goToStep", js)
         self.assertIn("popstate", js)
         self.assertNotIn("history.back()", js)
+        self.assertIn('preferredClient', js)
+        self.assertIn('preferredOS', js)
+        self.assertIn('compatibility = {', js)
+        self.assertIn('document.execCommand("copy")', js)
+        self.assertIn('state.client === "workbuddy" ? ["client","install","test"]', js)
         self.assertIn("demo_full_cell.csv", html)
         self.assertTrue((DOCS / "assets/showcase/assembly-demo.zip").is_file())
         with ZipFile(DOCS / "assets/showcase/assembly-demo.zip") as z:
@@ -85,8 +98,14 @@ class ProductSiteTest(unittest.TestCase):
         self.assertIn('fetch("search-index.json")', js)
         self.assertNotIn("sendBeacon", js)
         self.assertNotIn("XMLHttpRequest", js)
+        self.assertIn('region.inert = true', js)
+        self.assertIn('搜索内容加载失败，请重试', js)
         for name in PAGES:
             self.assertNotIn('type="file"', (DOCS / name).read_text(encoding="utf-8"))
+            self.assertNotIn('client=codex&amp;os=windows', (DOCS / name).read_text(encoding="utf-8"))
+            self.assertNotIn('client=codex&os=windows', (DOCS / name).read_text(encoding="utf-8"))
+            self.assertEqual(self.pages[name].buttons_without_type, [], name)
+            self.assertEqual(self.pages[name].images_without_size, [], name)
 
     def test_showcase_has_sources_and_final_exports(self):
         for name in SAMPLES:

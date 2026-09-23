@@ -1,10 +1,10 @@
 # 我用哪个 Agent？怎么装？
 
-先选自己**已经在用**的软件。BatteryReviewForge 是一组 `SKILL.md` 指令、Python 脚本和原创图形资源；它本身没有网站账号、模型 API，也不会收取密钥。下面的“兼容”分为**官方格式存在**和**本项目实机跑过**，两者不能混为一谈。核对日期：2026-09-23。
+先选自己**已经在用**的软件。BatteryReviewForge 是一组 `SKILL.md` 指令、Python 脚本和原创图形资源；它本身没有网站账号、模型 API，也不会收取密钥。下面的“兼容”分为**官方格式存在**和**本项目实机跑过**，两者不能混为一谈。核对日期：2026-09-24。
 
 | 软件 | 现在能做什么 | 本项目验证状态 |
 | --- | --- | --- |
-| **Codex** | 装完整插件，或复制 13 个独立技能 | **本机已验证** |
+| **Codex** | 装完整插件，或复制 13 个独立技能 | **Windows 本机已验证；macOS/Linux 完整任务待实测** |
 | **Kimi Code CLI** | 把 13 个技能复制到官方扫描目录 | 官方技能格式与路径已确认；本项目完整任务待实机验收 |
 | **DeepSeek Harness** | 把 13 个技能复制到官方扫描目录 | 官方本地技能机制已确认；本项目完整任务待实机验收 |
 | **WorkBuddy** | 在技能界面上传针对 WorkBuddy 制作的单个技能 ZIP | 官方导入入口与格式已确认；本项目客户端导入待实机验收 |
@@ -26,7 +26,7 @@
 
 ## 第 2 步：安装技能
 
-下载并解压 [完整技能安装包](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-v0.8.0.zip)。看到 `skills/`、`install.ps1` 和 `install.sh` 三项后，再按自己的软件做以下一步。
+下载并解压 [完整技能安装包](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-v0.8.1.zip)。看到 `skills/`、`install.ps1` 和 `install.sh` 三项后，再按自己的软件做以下一步。
 
 ### Codex：最省事
 
@@ -49,7 +49,7 @@ codex plugin add battery-review-forge@battery-review-forge
 
 ### WorkBuddy：按技能逐个导入
 
-下载 [WorkBuddy 技能包合集](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-WorkBuddy-v0.8.0.zip)，**先解压合集**。里面有 13 个独立 ZIP，每个 ZIP 对应一个技能：已有图片拼版选 `battery-figure-assemble`，上传数据画图选 `battery-review-figure`。在 WorkBuddy **技能 → 添加技能 → 上传技能** 中选所需的单个 ZIP。不要直接上传“合集 ZIP”或 Codex 的“完整技能 ZIP”。如果任务跨多个阶段，可继续安装相关技能；总协调技能引用其他技能时要确保它们也已导入。WorkBuddy 的开放平台要求 `description_zh`、`description_en`、版本与作者，专用 ZIP 会补齐这些字段。[官方导入说明](https://free-plat-test.qcloudcdn.com/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)、[包结构](https://open.workbuddy.cn/en/docs/skill)。
+下载 [WorkBuddy 技能包合集](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-WorkBuddy-v0.8.1.zip)，**先解压合集**。里面有 13 个独立 ZIP，每个 ZIP 对应一个技能：已有图片拼版选 `battery-figure-assemble`，上传数据画图选 `battery-review-figure`。在 WorkBuddy **技能 → 添加技能 → 上传技能** 中选所需的单个 ZIP。不要直接上传“合集 ZIP”或 Codex 的“完整技能 ZIP”。如果任务跨多个阶段，可继续安装相关技能；总协调技能引用其他技能时要确保它们也已导入。WorkBuddy 的开放平台要求 `description_zh`、`description_en`、版本与作者，专用 ZIP 会补齐这些字段。[官方导入说明](https://free-plat-test.qcloudcdn.com/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)、[包结构](https://open.workbuddy.cn/en/docs/skill)。
 
 ### 豆包：先不要照搬其他软件的目录
 
