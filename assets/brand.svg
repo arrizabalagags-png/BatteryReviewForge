@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 240" role="img" aria-labelledby="title desc">
+  <title id="title">BatteryReviewForge</title>
+  <desc id="desc">An outlined battery with a copper spark beside the BatteryReviewForge wordmark.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101c31"/>
+      <stop offset="1" stop-color="#172c3f"/>
+    </linearGradient>
+    <linearGradient id="energy" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6ee7d2"/>
+      <stop offset="1" stop-color="#26b5c2"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="240" rx="30" fill="url(#background)"/>
+  <rect x="47" y="46" width="150" height="148" rx="32" fill="#203b50" stroke="#43677b" stroke-width="2"/>
+  <rect x="74" y="75" width="90" height="90" rx="15" fill="none" stroke="url(#energy)" stroke-width="7"/>
+  <rect x="166" y="109" width="12" height="22" rx="4" fill="#6ee7d2"/>
+  <path d="M111 89 L90 127 H113 L103 152 L149 111 H123 L135 89 Z" fill="#f5b35e"/>
+  <path d="M217 47 V193" stroke="#36576c" stroke-width="2"/>
+  <text x="251" y="111" fill="#f3f7fa" font-family="Segoe UI, Arial, sans-serif" font-size="48" font-weight="700" letter-spacing="-1.2">BatteryReviewForge</text>
+  <text x="254" y="153" fill="#a9c4d0" font-family="Segoe UI, Arial, sans-serif" font-size="23" letter-spacing="1.1">EVIDENCE-FIRST BATTERY REVIEWS</text>
+  <circle cx="869" cy="65" r="5" fill="#6ee7d2"/>
+  <circle cx="890" cy="65" r="5" fill="#f5b35e"/>
+  <circle cx="911" cy="65" r="5" fill="#83a4b5"/>
+</svg>
