@@ -62,10 +62,10 @@ class ProductSiteTest(unittest.TestCase):
 
     def test_home_is_product_route_not_prompt_router(self):
         home = (DOCS / "index.html").read_text(encoding="utf-8")
-        self.assertIn("把时间还给<br>研究", home)
+        self.assertIn("少花时间排图。<br>多花时间想问题。", home)
         self.assertIn('href="start.html"', home)
         self.assertIn('href="gallery.html"', home)
-        self.assertEqual(home.count('class="gallery-card'), 5)
+        self.assertEqual(home.count('class="gallery-card'), 3)
         self.assertNotIn("assets/gallery/", home)
         self.assertNotIn("wizard-prompt", home)
         self.assertNotIn("先让助手看一眼", home)
@@ -88,7 +88,9 @@ class ProductSiteTest(unittest.TestCase):
         self.assertIn("demo_full_cell.csv", html)
         self.assertTrue((DOCS / "assets/showcase/assembly-demo.zip").is_file())
         with ZipFile(DOCS / "assets/showcase/assembly-demo.zip") as z:
-            self.assertEqual(len([n for n in z.namelist() if n.endswith(".png")]), 6)
+            self.assertEqual(len([n for n in z.namelist() if n.startswith("panel-") and n.endswith(".png")]), 6)
+            self.assertIn("figure_manifest.json", z.namelist())
+            self.assertIn("assembled-example.qa.json", z.namelist())
 
     def test_search_is_local_and_beginner_first(self):
         index = json.loads((DOCS / "search-index.json").read_text(encoding="utf-8"))
@@ -118,6 +120,9 @@ class ProductSiteTest(unittest.TestCase):
                 self.assertTrue((source / part).is_file(), f"{name}: {part}")
             for part in ("figure.svg", "figure.pdf", "figure.png", "metadata.json"):
                 self.assertTrue((public / part).is_file(), f"{name}: {part}")
+            alignment = json.loads((source / "alignment.json").read_text(encoding="utf-8"))
+            self.assertFalse(alignment["failures"], name)
+            self.assertTrue((public / "alignment.json").is_file(), name)
             for item in metadata["source_files"]:
                 self.assertTrue((source / item).resolve().is_file(), f"{name}: {item}")
 

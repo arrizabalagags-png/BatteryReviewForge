@@ -11,6 +11,8 @@ import argparse
 import csv
 import json
 import shutil
+import subprocess
+import sys
 from zipfile import ZIP_DEFLATED, ZipFile
 from pathlib import Path
 
@@ -18,6 +20,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
+from matplotlib.transforms import Bbox
 import numpy as np
 
 
@@ -342,7 +345,7 @@ def figure(name: str):
         plot_tofsims(axes, fig)
     elif name == "integrated_study":
         fig = plt.figure(figsize=(180 / 25.4, 157 / 25.4), layout="constrained")
-        grid = fig.add_gridspec(3, 2, width_ratios=[1.35, 1], height_ratios=[1, .9, 1.07])
+        grid = fig.add_gridspec(3, 2, width_ratios=[1.35, 1], height_ratios=[1, .61, 1.07])
         axes = [fig.add_subplot(grid[i, j]) for i in range(3) for j in range(2)]
         plot_ce(axes[0], axes[1])
         sym = csv_read(ROOT / "li_li" / "data.csv")
@@ -357,7 +360,62 @@ def figure(name: str):
         raise ValueError(name)
     for letter, ax in zip("abcdef", axes):
         axis(ax, letter)
+    if name in {"integrated_study", "tof_sims"}:
+        # Constrained layout can center an equal-aspect image inside a taller
+        # grid cell. Freeze the final layout, then match the *rendered axes*.
+        fig.canvas.draw()
+        fig.set_layout_engine(None)
+        if name == "integrated_study":
+            source = axes[3].get_position()
+            target = axes[2].get_position()
+            axes[2].set_position([target.x0, source.y0, target.width, source.height])
+        else:
+            source = axes[1].get_position()
+            target = axes[2].get_position()
+            axes[3].set_position([source.x0, target.y0, source.width, target.height])
+        fig.canvas.draw()
     return fig
+
+
+def ruler_audit(name: str, fig) -> dict:
+    """Check rendered plot edges in physical units before publishing samples."""
+    fig.canvas.draw()
+    ax = fig.axes
+    rows = {"full_cell": [(0, 1)], "li_cu_ce": [(0, 1)],
+            "li_li": [(0, 1)], "operando_xrd": [(0, 1)],
+            "integrated_study": [(0, 1), (2, 3), (4, 5)],
+            "tof_sims": [(0, 1), (2, 3)]}.get(name, [])
+    columns = {"integrated_study": [(0, 2), (2, 4), (1, 3), (3, 5)],
+               "tof_sims": [(0, 2), (1, 3)]}.get(name, [])
+    bounds = [axis.get_position().bounds for axis in ax]
+    width_mm, height_mm = fig.get_size_inches() * 25.4
+    checks = []
+    for direction, pairs, edges in (("row", rows, ("top", "bottom", "height")),
+                                    ("column", columns, ("left", "right", "width"))):
+        for first, second in pairs:
+            a, b = bounds[first], bounds[second]
+            if direction == "row":
+                values = ((a[1] + a[3], b[1] + b[3], height_mm),
+                          (a[1], b[1], height_mm), (a[3], b[3], height_mm))
+            else:
+                values = ((a[0], b[0], width_mm),
+                          (a[0] + a[2], b[0] + b[2], width_mm),
+                          (a[2], b[2], width_mm))
+            for edge, (av, bv, scale) in zip(edges, values):
+                delta_pt = abs(av - bv) * scale * 72 / 25.4
+                checks.append({"panels": ["abcdef"[first], "abcdef"[second]],
+                               "direction": direction, "edge": edge,
+                               "delta_pt": round(float(delta_pt), 3), "pass": bool(delta_pt <= 1.5)})
+    failures = [c for c in checks if not c["pass"]]
+    return {"figure": name, "tolerance_pt": 1.5,
+            "status": "fix_before_publish" if failures else ("pass" if checks else "independent_panels"),
+            "checks": checks, "failures": failures,
+            "plot_rectangles_mm": [
+                {"panel": "abcdef"[i], "left": round(x * width_mm, 3),
+                 "top": round((1 - y - h) * height_mm, 3),
+                 "width": round(w * width_mm, 3), "height": round(h * height_mm, 3)}
+                for i, (x, y, w, h) in enumerate(bounds[:6])],
+            "note": "Measured after final Matplotlib draw. Colorbars are excluded."}
 
 
 def source_names(name: str) -> list[str]:
@@ -371,6 +429,11 @@ def source_names(name: str) -> list[str]:
 def render(name: str) -> None:
     destination = ROOT / name
     fig = figure(name)
+    ruler = ruler_audit(name, fig)
+    (destination / "alignment.json").write_text(json.dumps(ruler, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    if ruler["failures"]:
+        plt.close(fig)
+        raise ValueError(f"{name}: rendered panel edges exceed 1.5 pt: {ruler['failures']}")
     for suffix in ("svg", "pdf", "png"):
         fig.savefig(destination / f"figure.{suffix}", dpi=300, facecolor="white")
     svg = destination / "figure.svg"
@@ -383,7 +446,7 @@ def render(name: str) -> None:
 def publish(name: str) -> None:
     target = SITE / name
     target.mkdir(parents=True, exist_ok=True)
-    for filename in ("figure.svg", "figure.pdf", "figure.png", "metadata.json", *source_names(name)):
+    for filename in ("figure.svg", "figure.pdf", "figure.png", "metadata.json", "alignment.json", *source_names(name)):
         if filename.startswith("../"):
             continue
         source = ROOT / name / filename
@@ -392,23 +455,72 @@ def publish(name: str) -> None:
 
 
 def assembly_demo() -> None:
-    """Export six independent panels from one synthetic study for the novice exercise."""
+    """Export six aligned panels and a strict, reproducible assembly example."""
     out = ROOT / "assembly_demo"
     out.mkdir(exist_ok=True)
     fig = figure("integrated_study")
     fig.canvas.draw()
     renderer = fig.canvas.get_renderer()
     axes = fig.axes
-    for letter, ax in zip("abcdef", axes):
-        bbox = ax.get_tightbbox(renderer).transformed(fig.dpi_scale_trans.inverted()).expanded(1.04, 1.06)
-        fig.savefig(out / f"panel-{letter}.png", dpi=220, bbox_inches=bbox, facecolor="white")
+    figw, figh = fig.get_size_inches()
+    tight = [ax.get_tightbbox(renderer).transformed(fig.dpi_scale_trans.inverted()) for ax in axes[:6]]
+    pad = .045  # inches; all crop boundaries remain shared by row or column
+    x_ranges = [(min(tight[i].x0 for i in ids) - pad,
+                 max(tight[i].x1 for i in ids) + pad) for ids in ((0, 2, 4), (1, 3, 5))]
+    y_ranges = [(min(tight[i].y0 for i in ids) - pad,
+                 max(tight[i].y1 for i in ids) + pad) for ids in ((0, 1), (2, 3), (4, 5))]
+    widths = [high - low for low, high in x_ranges]
+    scale_mm_per_in = (180 - 8 - 2) / sum(widths)
+    rows_mm = [(high - low) * scale_mm_per_in for low, high in y_ranges]
+    roles = ("Li||Cu cycling CE", "Li||Cu voltage profiles",
+             "Li||Li symmetric cycling", "EIS Nyquist",
+             "full-cell cycling", "selected full-cell voltage profiles")
+    panels = []
+    for i, (letter, ax) in enumerate(zip("abcdef", axes[:6])):
+        row, col = divmod(i, 2)
+        xlo, xhi = x_ranges[col]
+        ylo, yhi = y_ranges[row]
+        crop = Bbox.from_extents(xlo, ylo, xhi, yhi)
+        fig.savefig(out / f"panel-{letter}.png", dpi=400, bbox_inches=crop,
+                    pad_inches=0, facecolor="white")
+        box = ax.get_position().bounds
+        left = (box[0] * figw - xlo) / (xhi - xlo)
+        right = ((box[0] + box[2]) * figw - xlo) / (xhi - xlo)
+        top = (yhi - (box[1] + box[3]) * figh) / (yhi - ylo)
+        bottom = (yhi - box[1] * figh) / (yhi - ylo)
+        panels.append({"label": letter, "path": f"panel-{letter}.png",
+                       "row": row, "col": col, "role": roles[i],
+                       "source_id": "SYNTHETIC-DEMO-SHARED-STUDY",
+                       "rights_status": "original", "alignment_intent": "compare",
+                       "alignment_group": "shared-axes-ruler",
+                       "plot_box_fraction": [round(v, 7) for v in (left, top, right, bottom)]})
     plt.close(fig)
-    manifest = {"data_status": "synthetic_demo", "source": "integrated_study", "panels": list("abcdef"), "instruction": "Assemble in reading order a–f; do not add panel subtitles or alter source data."}
-    (out / "README.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    manifest = {"version": 1, "figure_id": "Synthetic assembly exercise",
+                "claim": "A shared synthetic A/B study illustrates six electrochemical panel roles; no experimental claim.",
+                "width_mm": 180, "margin_mm": 4, "gutter_mm": 2,
+                "label_band_mm": 0, "draw_labels": False,
+                "row_heights_mm": [round(v, 5) for v in rows_mm],
+                "col_weights": [round(v, 6) for v in widths],
+                "dpi": 300, "min_effective_dpi": 300, "panels": panels}
+    manifest_path = out / "figure_manifest.json"
+    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    script = ROOT.parents[1] / "skills" / "battery-figure-assemble" / "scripts" / "compose_figure.py"
+    subprocess.run([sys.executable, str(script), "compose", "--manifest", str(manifest_path),
+                    "--out", str(out / "assembled-example"), "--strict"], check=True)
+    shutil.copy2(out / "assembled-example.png", SITE / "assembly-example.png")
+    shutil.copy2(out / "assembled-example.pdf", SITE / "assembly-example.pdf")
+    readme = {"data_status": "synthetic_demo", "source": "integrated_study",
+              "panels": list("abcdef"), "instruction": "Assemble a–f without panel subtitles or data changes.",
+              "ready_manifest": "figure_manifest.json",
+              "alignment_report": "assembled-example.qa.json",
+              "note": "Panel crops use common column x-rulers and row y-rulers; measured plot boxes are recorded in the manifest."}
+    (out / "README.json").write_text(json.dumps(readme, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     archive = SITE / "assembly-demo.zip"
     archive.parent.mkdir(parents=True, exist_ok=True)
     with ZipFile(archive, "w", ZIP_DEFLATED) as z:
         for file in sorted(out.iterdir()):
+            if file.suffix not in {".png", ".pdf", ".json"} or file.name.endswith(".alignment.png"):
+                continue
             z.write(file, file.name)
 
 

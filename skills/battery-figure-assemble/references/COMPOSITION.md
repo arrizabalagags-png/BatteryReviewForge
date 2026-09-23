@@ -19,7 +19,7 @@ python skills/battery-figure-assemble/scripts/compose_figure.py compose \
   --manifest path/to/figure_manifest.json --out path/to/Fig3 --strict
 ```
 
-`--strict` blocks output when the tool detects low effective raster DPI, excessive white margins, underfilled slots, unclear rights or declared plot-area misalignment. Without it, the tool produces an explicit review draft and reports each warning. Geometry checks do not certify scientific interpretation, copyright permission, font embedding or the target journal's current technical requirements.
+`--strict` blocks output when the tool detects low effective raster DPI, excessive white margins, underfilled slots, unclear rights, missing alignment intent, or measured plot-area misalignment. Without it, the tool produces an explicit review draft and reports each warning. Geometry checks do not certify scientific interpretation, copyright permission, font embedding or the target journal's current technical requirements.
 
 For a self-contained synthetic check:
 
@@ -49,13 +49,16 @@ Paths are relative to the manifest. The author keeps the unaltered source files 
   "panels": [
     {"label": "a", "path": "sources/overview.pdf", "row": 0, "col": 0,
      "colspan": 2, "role": "system and cell boundary", "source_id": "original:overview",
-     "rights_status": "original"},
+     "rights_status": "original", "alignment_intent": "independent",
+     "alignment_reason": "Schematic has no quantitative axes"},
     {"label": "b", "path": "sources/cycle.png", "row": 1, "col": 0,
      "role": "primary measured trend", "source_id": "doi:example",
-     "rights_status": "permission_granted", "permission_record": "permissions/fig3b.pdf"},
+     "rights_status": "permission_granted", "permission_record": "permissions/fig3b.pdf",
+     "alignment_intent": "independent", "alignment_reason": "Only quantitative plot in this plate"},
     {"label": "c", "path": "sources/conditions.svg", "row": 1, "col": 1,
      "role": "test-condition boundary", "source_id": "original:conditions",
-     "rights_status": "original"}
+     "rights_status": "original", "alignment_intent": "independent",
+     "alignment_reason": "Condition diagram has no plotted axes"}
   ]
 }
 ```
@@ -66,7 +69,11 @@ The composer does not create figure titles or subtitles. Keep that behavior when
 
 ### Align the actual plot areas
 
-Equal frames do not guarantee equal chart axes. For comparable panels, add an `alignment_group` and `plot_box_fraction: [left, top, right, bottom]` to **every** member. These fractions describe the actual plotted axes rectangle inside the placed source after any explicit crop. The auditor compares top/bottom edges for same-row peers and left/right edges for same-column peers at a 1.5 pt tolerance. An absent plot box or measured drift is a warning and blocks `--strict`; adjust source canvas or grid and rerun. The alignment overlay uses red for slots, blue for placed art and green for declared plot boxes.
+Equal frames do not guarantee equal chart axes. Declare `alignment_intent` for **every** panel in a multi-panel figure. Use `compare` for panels whose plotted areas should align and `independent` only with a concrete `alignment_reason` (for example, a schematic beside a plot). For every comparable panel, add the same `alignment_group` and a **measured** `plot_box_fraction: [left, top, right, bottom]`. These fractions describe the actual plotted axes rectangle inside the placed source after any explicit crop. Do not guess them from the outer image size.
+
+At final physical size, the coordinate-ruler audit checks same-row plot-area top, bottom and height; same-column left, right and width. The default tolerance is 1.5 pt (about 0.53 mm). The JSON records each edge and its measured difference. The diagnostic overlay marks slots red, placed art blue, approximate visible content cyan, actual declared plot boxes green, and millimetre ticks along the top and left. Cyan is a white-background estimate, **not** a verified scientific plot boundary. If a comparable source has no measurable plot box, `--strict` blocks; regenerate or measure the real axes rectangle. If there are only scientifically independent panels, the report says visual review is still required; it does not claim their content edges were proved equal.
+
+For a Matplotlib source, measure `ax.get_position()` **after** the final draw/layout pass or use the selected plotting backend's final axes bounds. For an imported PDF/SVG or image, inspect the final rendered panel with a ruler and record the true axes edges. Do not infer boundaries from legends or outer white margins. Move axes or rerender sources on a shared canvas instead of stretching or blindly cropping data. Re-run the ruler after any change to text, legend, aspect ratio, export or panel slot. A deliberate unequal width needs a panel-specific explanation; never increase the global tolerance to hide it.
 
 ### Crop only with a scientific reason
 
@@ -86,7 +93,7 @@ Some PDF text scanners report oversized text boxes when an SVG-to-PDF export enc
 
 ## 中文速用
 
-先用 `inventory` 对作者提供的图片、PDF、SVG 生成素材清单与联系页，逐张看内容、空白边、轴标签、比例尺和权限。再按整图论断为各面板安排证据职责，使用毫米单位的 JSON 网格写清宽度、行高、栏宽、间距和面板顺序。`compose` 会输出 PDF、PNG、各面板检查图、对齐叠加图及 QA JSON。图片不拉伸；裁剪必须显式记录原因。可比图在 manifest 中填写 `alignment_group` 与 `plot_box_fraction`，检查的是实际绘图区，而不只是外框。最终仍需在投稿尺寸逐张检查，并核对电池测试条件、引用和图片复用许可。
+先用 `inventory` 对作者提供的图片、PDF、SVG 生成素材清单与联系页，逐张看内容、空白边、轴标签、比例尺和权限。再按整图论断为各面板安排证据职责，使用毫米单位的 JSON 网格写清宽度、行高、栏宽、间距和面板顺序。`compose` 会输出 PDF、PNG、各面板检查图、带毫米刻度的对齐叠加图及 QA JSON。每张面板都要声明 `alignment_intent`：要互相比坐标轴的用 `compare`，并填写同一 `alignment_group` 和真实量出的 `plot_box_fraction`；示意图等不比较坐标轴的用 `independent`，写明原因。严格模式不会把漏填的面板当作“已对齐”。图片不拉伸；裁剪必须显式记录原因。最终仍需在投稿尺寸逐张检查，并核对电池测试条件、引用和图片复用许可。
 
 ## Related open-source practice
 

@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "figure_id": "Synthetic assembly exercise",
+  "claim": "A shared synthetic A/B study illustrates six electrochemical panel roles; no experimental claim.",
+  "width_mm": 180,
+  "margin_mm": 4,
+  "gutter_mm": 2,
+  "label_band_mm": 0,
+  "draw_labels": false,
+  "row_heights_mm": [
+    54.59138,
+    32.82284,
+    57.51006
+  ],
+  "col_weights": [
+    4.073944,
+    3.025916
+  ],
+  "dpi": 300,
+  "min_effective_dpi": 300,
+  "panels": [
+    {
+      "label": "a",
+      "path": "panel-a.png",
+      "row": 0,
+      "col": 0,
+      "role": "Li||Cu cycling CE",
+      "source_id": "SYNTHETIC-DEMO-SHARED-STUDY",
+      "rights_status": "original",
+      "alignment_intent": "compare",
+      "alignment_group": "shared-axes-ruler",
+      "plot_box_fraction": [
+        0.1162472,
+        0.089426,
+        0.9717718,
+        0.8273712
+      ]
+    },
+    {
+      "label": "b",
+      "path": "panel-b.png",
+      "row": 0,
+      "col": 1,
+      "role": "Li||Cu voltage profiles",
+      "source_id": "SYNTHETIC-DEMO-SHARED-STUDY",
+      "rights_status": "original",
+      "alignment_intent": "compare",
+      "alignment_group": "shared-axes-ruler",
+      "plot_box_fraction": [
+        0.1294374,
+        0.089426,
+        0.9826491,
+        0.8273712
+      ]
+    },
+    {
+      "label": "c",
+      "path": "panel-c.png",
+      "row": 1,
+      "col": 0,
+      "role": "Li||Li symmetric cycling",
+      "source_id": "SYNTHETIC-DEMO-SHARED-STUDY",
+      "rights_status": "original",
+      "alignment_intent": "compare",
+      "alignment_group": "shared-axes-ruler",
+      "plot_box_fraction": [
+        0.1162472,
+        0.1283279,
+        0.9717718,
+        0.7726403
+      ]
+    },
+    {
+      "label": "d",
+      "path": "panel-d.png",
+      "row": 1,
+      "col": 1,
+      "role": "EIS Nyquist",
+      "source_id": "SYNTHETIC-DEMO-SHARED-STUDY",
+      "rights_status": "original",
+      "alignment_intent": "compare",
+      "alignment_group": "shared-axes-ruler",
+      "plot_box_fraction": [
+        0.1294374,
+        0.1283279,
+        0.9826491,
+        0.7726403
+      ]
+    },
+    {
+      "label": "e",
+      "path": "panel-e.png",
+      "row": 2,
+      "col": 0,
+      "role": "full-cell cycling",
+      "source_id": "SYNTHETIC-DEMO-SHARED-STUDY",
+      "rights_status": "original",
+      "alignment_intent": "compare",
+      "alignment_group": "shared-axes-ruler",
+      "plot_box_fraction": [
+        0.1162472,
+        0.0866038,
+        0.9717718,
+        0.8361323
+      ]
+    },
+    {
+      "label": "f",
+      "path": "panel-f.png",
+      "row": 2,
+      "col": 1,
+      "role": "selected full-cell voltage profiles",
+      "source_id": "SYNTHETIC-DEMO-SHARED-STUDY",
+      "rights_status": "original",
+      "alignment_intent": "compare",
+      "alignment_group": "shared-axes-ruler",
+      "plot_box_fraction": [
+        0.1294374,
+        0.0866038,
+        0.9826491,
+        0.8361323
+      ]
+    }
+  ]
+}

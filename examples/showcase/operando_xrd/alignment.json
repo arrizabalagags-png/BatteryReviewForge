@@ -1,0 +1,62 @@
+{
+  "figure": "operando_xrd",
+  "tolerance_pt": 1.5,
+  "status": "pass",
+  "checks": [
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "direction": "row",
+      "edge": "top",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "direction": "row",
+      "edge": "bottom",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "direction": "row",
+      "edge": "height",
+      "delta_pt": 0.0,
+      "pass": true
+    }
+  ],
+  "failures": [],
+  "plot_rectangles_mm": [
+    {
+      "panel": "a",
+      "left": 12.117,
+      "top": 6.536,
+      "width": 102.515,
+      "height": 83.632
+    },
+    {
+      "panel": "b",
+      "left": 139.513,
+      "top": 6.536,
+      "width": 39.429,
+      "height": 83.632
+    },
+    {
+      "panel": "c",
+      "left": 117.195,
+      "top": 12.472,
+      "width": 3.588,
+      "height": 71.76
+    }
+  ],
+  "note": "Measured after final Matplotlib draw. Colorbars are excluded."
+}

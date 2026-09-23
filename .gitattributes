@@ -7,3 +7,10 @@
 *.svg text eol=lf
 *.py text eol=lf
 *.txt text eol=lf
+*.pdf -text -diff
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.tif -text
+*.tiff -text
+*.zip -text

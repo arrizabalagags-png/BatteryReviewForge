@@ -70,13 +70,16 @@ def make_demo(root: Path) -> Path:
             {"label": "a", "path": "sources/demo_schematic.pdf", "row": 0, "col": 0,
              "colspan": 2, "role": "synthetic overview", "source_id": "SYNTHETIC-ONLY",
              "rights_status": "original", "crop_box_fraction": [0.015, 0.04, 0.985, 0.78],
+             "alignment_intent": "independent", "alignment_reason": "Overview schematic has no plotted axes",
              "crop_reason": "Remove only authored PDF page whitespace; retain all lettering and blocks"},
             {"label": "b", "path": "sources/demo_trend.png", "row": 1, "col": 0,
              "role": "synthetic trend", "source_id": "SYNTHETIC-ONLY",
-             "rights_status": "original"},
+             "rights_status": "original", "alignment_intent": "independent",
+             "alignment_reason": "Trend and adjacent reporting matrix use different coordinate systems"},
             {"label": "c", "path": "sources/demo_matrix.svg", "row": 1, "col": 1,
              "role": "synthetic reporting matrix", "source_id": "SYNTHETIC-ONLY",
-             "rights_status": "original"},
+             "rights_status": "original", "alignment_intent": "independent",
+             "alignment_reason": "Categorical matrix is not an axes comparison with the trend"},
         ],
     }
     manifest_path = root / "demo_manifest.json"

@@ -1,0 +1,719 @@
+{
+  "figure_id": "Synthetic assembly exercise",
+  "claim": "A shared synthetic A/B study illustrates six electrochemical panel roles; no experimental claim.",
+  "status": "geometry_pass_visual_review_required",
+  "width_mm": 180.0,
+  "height_mm": 156.92428,
+  "dpi": 300,
+  "warnings": [],
+  "panels": [
+    {
+      "label": "a",
+      "role": "Li||Cu cycling CE",
+      "source_id": "SYNTHETIC-DEMO-SHARED-STUDY",
+      "rights_status": "original",
+      "source_path": "panel-a.png",
+      "license": null,
+      "credit": null,
+      "permission_record": null,
+      "sha256": "8c57599eaa411eaca362d5bc7a0a14965e89a7588ae077043281b2467e0af03e",
+      "format": "png",
+      "kind": "raster",
+      "slot_mm": [
+        4.0,
+        4.0,
+        97.54706149135335,
+        54.59138
+      ],
+      "placed_mm": [
+        4.0,
+        4.0196,
+        97.5471,
+        54.5521
+      ],
+      "visible_content_estimate_mm": [
+        5.4632,
+        5.4925,
+        93.6452,
+        50.4607
+      ],
+      "white_inset_fraction_candidate": [
+        0.015,
+        0.027,
+        0.025,
+        0.048
+      ],
+      "plot_rect_mm": [
+        15.33957276659765,
+        8.898015560621191,
+        83.45391076356547,
+        40.25646130466684
+      ],
+      "effective_dpi": 424.2,
+      "fill_fraction": 0.999,
+      "crop_px": null,
+      "crop_box_fraction": null,
+      "crop_reason": null,
+      "alignment_group": "shared-axes-ruler",
+      "alignment_intent": "compare",
+      "alignment_reason": null
+    },
+    {
+      "label": "b",
+      "role": "Li||Cu voltage profiles",
+      "source_id": "SYNTHETIC-DEMO-SHARED-STUDY",
+      "rights_status": "original",
+      "source_path": "panel-b.png",
+      "license": null,
+      "credit": null,
+      "permission_record": null,
+      "sha256": "d52bde558d1337eef4452c8c69817970b2a58ba3ff74e2be3c0f674a896ed005",
+      "format": "png",
+      "kind": "raster",
+      "slot_mm": [
+        103.54706149135335,
+        4.0,
+        72.45293850864665,
+        54.59138
+      ],
+      "placed_mm": [
+        103.5471,
+        4.0211,
+        72.4529,
+        54.5493
+      ],
+      "visible_content_estimate_mm": [
+        104.6339,
+        5.112,
+        70.2794,
+        51.8764
+      ],
+      "white_inset_fraction_candidate": [
+        0.015,
+        0.02,
+        0.015,
+        0.029
+      ],
+      "plot_rect_mm": [
+        112.92518147427245,
+        8.899174530370315,
+        61.81769483495788,
+        40.25437823032869
+      ],
+      "effective_dpi": 424.2,
+      "fill_fraction": 0.999,
+      "crop_px": null,
+      "crop_box_fraction": null,
+      "crop_reason": null,
+      "alignment_group": "shared-axes-ruler",
+      "alignment_intent": "compare",
+      "alignment_reason": null
+    },
+    {
+      "label": "c",
+      "role": "Li||Li symmetric cycling",
+      "source_id": "SYNTHETIC-DEMO-SHARED-STUDY",
+      "rights_status": "original",
+      "source_path": "panel-c.png",
+      "license": null,
+      "credit": null,
+      "permission_record": null,
+      "sha256": "b3ee2d70885c9f8526fd20611f16b23e65fbe0922ac2085f946662c54f33a593",
+      "format": "png",
+      "kind": "raster",
+      "slot_mm": [
+        4.0,
+        60.59138,
+        97.54706149135335,
+        32.82284
+      ],
+      "placed_mm": [
+        4.0,
+        60.5953,
+        97.5471,
+        32.8151
+      ],
+      "visible_content_estimate_mm": [
+        6.4387,
+        61.9079,
+        94.1329,
+        30.6821
+      ],
+      "white_inset_fraction_candidate": [
+        0.025,
+        0.04,
+        0.01,
+        0.025
+      ],
+      "plot_rect_mm": [
+        15.33957276659765,
+        64.80634474282407,
+        83.45391076356547,
+        21.14317259284096
+      ],
+      "effective_dpi": 424.2,
+      "fill_fraction": 1.0,
+      "crop_px": null,
+      "crop_box_fraction": null,
+      "crop_reason": null,
+      "alignment_group": "shared-axes-ruler",
+      "alignment_intent": "compare",
+      "alignment_reason": null
+    },
+    {
+      "label": "d",
+      "role": "EIS Nyquist",
+      "source_id": "SYNTHETIC-DEMO-SHARED-STUDY",
+      "rights_status": "original",
+      "source_path": "panel-d.png",
+      "license": null,
+      "credit": null,
+      "permission_record": null,
+      "sha256": "4e7c463a11c78cc3f1d31be5bee832d4fe8feaa9c9240d0e9ba56dd874881bf1",
+      "format": "png",
+      "kind": "raster",
+      "slot_mm": [
+        103.54706149135335,
+        60.59138,
+        72.45293850864665,
+        32.82284
+      ],
+      "placed_mm": [
+        103.5471,
+        60.5961,
+        72.4529,
+        32.8134
+      ],
+      "visible_content_estimate_mm": [
+        105.8656,
+        61.5477,
+        69.0477,
+        31.1399
+      ],
+      "white_inset_fraction_candidate": [
+        0.032,
+        0.029,
+        0.015,
+        0.022
+      ],
+      "plot_rect_mm": [
+        112.92518147427245,
+        64.80697584953685,
+        61.81769483495788,
+        21.14207853740668
+      ],
+      "effective_dpi": 424.2,
+      "fill_fraction": 1.0,
+      "crop_px": null,
+      "crop_box_fraction": null,
+      "crop_reason": null,
+      "alignment_group": "shared-axes-ruler",
+      "alignment_intent": "compare",
+      "alignment_reason": null
+    },
+    {
+      "label": "e",
+      "role": "full-cell cycling",
+      "source_id": "SYNTHETIC-DEMO-SHARED-STUDY",
+      "rights_status": "original",
+      "source_path": "panel-e.png",
+      "license": null,
+      "credit": null,
+      "permission_record": null,
+      "sha256": "e1a70a2ac3ff4ac07c490988d72bfb56475097b5b814749fe8d2c8905877e592",
+      "format": "png",
+      "kind": "raster",
+      "slot_mm": [
+        4.0,
+        95.41422,
+        97.54706149135335,
+        57.51006
+      ],
+      "placed_mm": [
+        4.0,
+        95.4261,
+        97.5471,
+        57.4863
+      ],
+      "visible_content_estimate_mm": [
+        5.9509,
+        96.8633,
+        93.6452,
+        53.4623
+      ],
+      "white_inset_fraction_candidate": [
+        0.02,
+        0.025,
+        0.02,
+        0.045
+      ],
+      "plot_rect_mm": [
+        15.33957276659765,
+        100.40463295885566,
+        83.45391076356547,
+        43.087618521707164
+      ],
+      "effective_dpi": 424.2,
+      "fill_fraction": 1.0,
+      "crop_px": null,
+      "crop_box_fraction": null,
+      "crop_reason": null,
+      "alignment_group": "shared-axes-ruler",
+      "alignment_intent": "compare",
+      "alignment_reason": null
+    },
+    {
+      "label": "f",
+      "role": "selected full-cell voltage profiles",
+      "source_id": "SYNTHETIC-DEMO-SHARED-STUDY",
+      "rights_status": "original",
+      "source_path": "panel-f.png",
+      "license": null,
+      "credit": null,
+      "permission_record": null,
+      "sha256": "4ef28bad92fac6916ff67dee78552b0666ddb135f0392bfc922a86d32fa80599",
+      "format": "png",
+      "kind": "raster",
+      "slot_mm": [
+        103.54706149135335,
+        95.41422,
+        72.45293850864665,
+        57.51006
+      ],
+      "placed_mm": [
+        103.5471,
+        95.4276,
+        72.4529,
+        57.4833
+      ],
+      "visible_content_estimate_mm": [
+        105.2135,
+        96.4048,
+        69.6997,
+        54.9541
+      ],
+      "white_inset_fraction_candidate": [
+        0.023,
+        0.017,
+        0.015,
+        0.027
+      ],
+      "plot_rect_mm": [
+        112.92518147427245,
+        100.40586266117697,
+        61.81769483495788,
+        43.085388948875234
+      ],
+      "effective_dpi": 424.2,
+      "fill_fraction": 1.0,
+      "crop_px": null,
+      "crop_box_fraction": null,
+      "crop_reason": null,
+      "alignment_group": "shared-axes-ruler",
+      "alignment_intent": "compare",
+      "alignment_reason": null
+    }
+  ],
+  "alignment_audit": {
+    "status": "geometry_pass_visual_review_required",
+    "tolerance_pt": 1.5,
+    "tolerance_mm": 0.5292,
+    "checks": [
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "a",
+          "b"
+        ],
+        "direction": "row",
+        "edge": "top",
+        "first_mm": 8.898,
+        "second_mm": 8.8992,
+        "delta_mm": 0.0012,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "a",
+          "b"
+        ],
+        "direction": "row",
+        "edge": "bottom",
+        "first_mm": 49.1545,
+        "second_mm": 49.1536,
+        "delta_mm": 0.0009,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "a",
+          "b"
+        ],
+        "direction": "row",
+        "edge": "height",
+        "first_mm": 40.2565,
+        "second_mm": 40.2544,
+        "delta_mm": 0.0021,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "a",
+          "c"
+        ],
+        "direction": "column",
+        "edge": "left",
+        "first_mm": 15.3396,
+        "second_mm": 15.3396,
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "a",
+          "c"
+        ],
+        "direction": "column",
+        "edge": "right",
+        "first_mm": 98.7935,
+        "second_mm": 98.7935,
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "a",
+          "c"
+        ],
+        "direction": "column",
+        "edge": "width",
+        "first_mm": 83.4539,
+        "second_mm": 83.4539,
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "a",
+          "e"
+        ],
+        "direction": "column",
+        "edge": "left",
+        "first_mm": 15.3396,
+        "second_mm": 15.3396,
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "a",
+          "e"
+        ],
+        "direction": "column",
+        "edge": "right",
+        "first_mm": 98.7935,
+        "second_mm": 98.7935,
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "a",
+          "e"
+        ],
+        "direction": "column",
+        "edge": "width",
+        "first_mm": 83.4539,
+        "second_mm": 83.4539,
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "b",
+          "d"
+        ],
+        "direction": "column",
+        "edge": "left",
+        "first_mm": 112.9252,
+        "second_mm": 112.9252,
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "b",
+          "d"
+        ],
+        "direction": "column",
+        "edge": "right",
+        "first_mm": 174.7429,
+        "second_mm": 174.7429,
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "b",
+          "d"
+        ],
+        "direction": "column",
+        "edge": "width",
+        "first_mm": 61.8177,
+        "second_mm": 61.8177,
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "b",
+          "f"
+        ],
+        "direction": "column",
+        "edge": "left",
+        "first_mm": 112.9252,
+        "second_mm": 112.9252,
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "b",
+          "f"
+        ],
+        "direction": "column",
+        "edge": "right",
+        "first_mm": 174.7429,
+        "second_mm": 174.7429,
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "b",
+          "f"
+        ],
+        "direction": "column",
+        "edge": "width",
+        "first_mm": 61.8177,
+        "second_mm": 61.8177,
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "c",
+          "d"
+        ],
+        "direction": "row",
+        "edge": "top",
+        "first_mm": 64.8063,
+        "second_mm": 64.807,
+        "delta_mm": 0.0006,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "c",
+          "d"
+        ],
+        "direction": "row",
+        "edge": "bottom",
+        "first_mm": 85.9495,
+        "second_mm": 85.9491,
+        "delta_mm": 0.0005,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "c",
+          "d"
+        ],
+        "direction": "row",
+        "edge": "height",
+        "first_mm": 21.1432,
+        "second_mm": 21.1421,
+        "delta_mm": 0.0011,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "c",
+          "e"
+        ],
+        "direction": "column",
+        "edge": "left",
+        "first_mm": 15.3396,
+        "second_mm": 15.3396,
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "c",
+          "e"
+        ],
+        "direction": "column",
+        "edge": "right",
+        "first_mm": 98.7935,
+        "second_mm": 98.7935,
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "c",
+          "e"
+        ],
+        "direction": "column",
+        "edge": "width",
+        "first_mm": 83.4539,
+        "second_mm": 83.4539,
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "d",
+          "f"
+        ],
+        "direction": "column",
+        "edge": "left",
+        "first_mm": 112.9252,
+        "second_mm": 112.9252,
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "d",
+          "f"
+        ],
+        "direction": "column",
+        "edge": "right",
+        "first_mm": 174.7429,
+        "second_mm": 174.7429,
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "d",
+          "f"
+        ],
+        "direction": "column",
+        "edge": "width",
+        "first_mm": 61.8177,
+        "second_mm": 61.8177,
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "e",
+          "f"
+        ],
+        "direction": "row",
+        "edge": "top",
+        "first_mm": 100.4046,
+        "second_mm": 100.4059,
+        "delta_mm": 0.0012,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "e",
+          "f"
+        ],
+        "direction": "row",
+        "edge": "bottom",
+        "first_mm": 143.4923,
+        "second_mm": 143.4913,
+        "delta_mm": 0.001,
+        "pass": true
+      },
+      {
+        "group": "shared-axes-ruler",
+        "panels": [
+          "e",
+          "f"
+        ],
+        "direction": "row",
+        "edge": "height",
+        "first_mm": 43.0876,
+        "second_mm": 43.0854,
+        "delta_mm": 0.0022,
+        "pass": true
+      }
+    ],
+    "issues": []
+  },
+  "font_audit": {
+    "method": "pdfplumber extractable glyphs in final composed PDF",
+    "threshold_pt": 6.0,
+    "panels": [
+      {
+        "label": "a",
+        "source_kind": "raster",
+        "status": "raster_text_unmeasurable"
+      },
+      {
+        "label": "b",
+        "source_kind": "raster",
+        "status": "raster_text_unmeasurable"
+      },
+      {
+        "label": "c",
+        "source_kind": "raster",
+        "status": "raster_text_unmeasurable"
+      },
+      {
+        "label": "d",
+        "source_kind": "raster",
+        "status": "raster_text_unmeasurable"
+      },
+      {
+        "label": "e",
+        "source_kind": "raster",
+        "status": "raster_text_unmeasurable"
+      },
+      {
+        "label": "f",
+        "source_kind": "raster",
+        "status": "raster_text_unmeasurable"
+      }
+    ],
+    "limitations": "Raster or outlined text cannot be measured. PDF transforms can make extracted sizes misleading; inspect rendered glyphs at final size."
+  },
+  "outputs": {
+    "pdf": "C:\\Users\\郭硕\\Documents\\ChatGPT\\AI取代人类计划\\BatteryReviewForge\\examples\\showcase\\assembly_demo\\assembled-example.pdf",
+    "png": "C:\\Users\\郭硕\\Documents\\ChatGPT\\AI取代人类计划\\BatteryReviewForge\\examples\\showcase\\assembly_demo\\assembled-example.png",
+    "panel_checks": "C:\\Users\\郭硕\\Documents\\ChatGPT\\AI取代人类计划\\BatteryReviewForge\\examples\\showcase\\assembly_demo\\assembled-example_panel_checks",
+    "alignment_overlay": "C:\\Users\\郭硕\\Documents\\ChatGPT\\AI取代人类计划\\BatteryReviewForge\\examples\\showcase\\assembly_demo\\assembled-example.alignment.png"
+  }
+}

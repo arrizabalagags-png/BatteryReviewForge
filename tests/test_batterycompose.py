@@ -8,7 +8,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageDraw
 from pypdf import PdfReader
 from reportlab.pdfgen import canvas
 
@@ -21,7 +21,9 @@ def fixture(root: Path) -> dict:
     sources = root / "sources"
     sources.mkdir()
     for name in ("a.png", "b.png"):
-        Image.new("RGB", (1200, 700), "#F7F8F8").save(sources / name)
+        image = Image.new("RGB", (1200, 700), "white")
+        ImageDraw.Draw(image).rectangle((60, 35, 1140, 665), outline="#243447", width=4)
+        image.save(sources / name)
     pdf = canvas.Canvas(str(sources / "vector.pdf"), pagesize=(600, 350))
     pdf.setFont("Helvetica", 16)
     pdf.drawString(30, 180, "VECTOR_SOURCE_TEXT")
@@ -134,11 +136,43 @@ class ComposeTests(unittest.TestCase):
             root = Path(temp)
             manifest = fixture(root)
             for panel in manifest["panels"]:
+                panel["alignment_intent"] = "compare"
                 panel["alignment_group"] = "cycling-pair"
             manifest["panels"][0]["plot_box_fraction"] = [0.05, 0.1, 0.95, 0.9]
             manifest["panels"][1]["plot_box_fraction"] = [0.05, 0.25, 0.95, 0.9]
-            with self.assertRaisesRegex(ComposeError, "plot-area rows differ"):
+            with self.assertRaisesRegex(ComposeError, "plot-area row top differs"):
                 compose(manifest, root / "misaligned", strict=True)
+
+    def test_missing_ruler_intent_cannot_silently_pass_strict(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            with self.assertRaisesRegex(ComposeError, "alignment_intent is required"):
+                compose(fixture(root), root / "missing-ruler", strict=True)
+
+    def test_comparable_panels_need_measured_plot_boxes(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            manifest = fixture(root)
+            for panel in manifest["panels"]:
+                panel["alignment_intent"] = "compare"
+                panel["alignment_group"] = "paired-cycling"
+            with self.assertRaisesRegex(ComposeError, "measured plot_box_fraction"):
+                compose(manifest, root / "unmeasured", strict=True)
+
+    def test_ruler_records_final_size_edge_deltas_and_overlay(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            manifest = fixture(root)
+            for panel in manifest["panels"]:
+                panel["alignment_intent"] = "compare"
+                panel["alignment_group"] = "paired-cycling"
+                panel["plot_box_fraction"] = [0.08, 0.12, 0.92, 0.88]
+            report = compose(manifest, root / "aligned", strict=True)
+            audit = report["alignment_audit"]
+            self.assertEqual(audit["status"], "geometry_pass_visual_review_required")
+            self.assertEqual({check["edge"] for check in audit["checks"]}, {"top", "bottom", "height"})
+            self.assertTrue(all(check["pass"] for check in audit["checks"]))
+            self.assertTrue((root / "aligned.alignment.png").exists())
 
 
 if __name__ == "__main__":

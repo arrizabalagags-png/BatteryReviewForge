@@ -1,0 +1,263 @@
+{
+  "figure": "integrated_study",
+  "tolerance_pt": 1.5,
+  "status": "pass",
+  "checks": [
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "direction": "row",
+      "edge": "top",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "direction": "row",
+      "edge": "bottom",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "direction": "row",
+      "edge": "height",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "c",
+        "d"
+      ],
+      "direction": "row",
+      "edge": "top",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "c",
+        "d"
+      ],
+      "direction": "row",
+      "edge": "bottom",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "c",
+        "d"
+      ],
+      "direction": "row",
+      "edge": "height",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "e",
+        "f"
+      ],
+      "direction": "row",
+      "edge": "top",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "e",
+        "f"
+      ],
+      "direction": "row",
+      "edge": "bottom",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "e",
+        "f"
+      ],
+      "direction": "row",
+      "edge": "height",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "c"
+      ],
+      "direction": "column",
+      "edge": "left",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "c"
+      ],
+      "direction": "column",
+      "edge": "right",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "c"
+      ],
+      "direction": "column",
+      "edge": "width",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "c",
+        "e"
+      ],
+      "direction": "column",
+      "edge": "left",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "c",
+        "e"
+      ],
+      "direction": "column",
+      "edge": "right",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "c",
+        "e"
+      ],
+      "direction": "column",
+      "edge": "width",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "b",
+        "d"
+      ],
+      "direction": "column",
+      "edge": "left",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "b",
+        "d"
+      ],
+      "direction": "column",
+      "edge": "right",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "b",
+        "d"
+      ],
+      "direction": "column",
+      "edge": "width",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "d",
+        "f"
+      ],
+      "direction": "column",
+      "edge": "left",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "d",
+        "f"
+      ],
+      "direction": "column",
+      "edge": "right",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "d",
+        "f"
+      ],
+      "direction": "column",
+      "edge": "width",
+      "delta_pt": 0.0,
+      "pass": true
+    }
+  ],
+  "failures": [],
+  "plot_rectangles_mm": [
+    {
+      "panel": "a",
+      "left": 11.944,
+      "top": 5.098,
+      "width": 88.528,
+      "height": 42.735
+    },
+    {
+      "panel": "b",
+      "left": 113.173,
+      "top": 5.098,
+      "width": 65.576,
+      "height": 42.735
+    },
+    {
+      "panel": "c",
+      "left": 11.944,
+      "top": 64.075,
+      "width": 88.528,
+      "height": 22.434
+    },
+    {
+      "panel": "d",
+      "left": 113.173,
+      "top": 64.075,
+      "width": 65.576,
+      "height": 22.434
+    },
+    {
+      "panel": "e",
+      "left": 11.944,
+      "top": 101.361,
+      "width": 88.528,
+      "height": 45.726
+    },
+    {
+      "panel": "f",
+      "left": 113.173,
+      "top": 101.361,
+      "width": 65.576,
+      "height": 45.726
+    }
+  ],
+  "note": "Measured after final Matplotlib draw. Colorbars are excluded."
+}

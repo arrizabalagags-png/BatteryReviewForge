@@ -50,9 +50,26 @@ def _plot_rect(panel: dict, placed: list[float]) -> list[float] | None:
             (right - left) * width, (bottom - top) * height]
 
 
-def _alignment_issues(panels: list[dict], tolerance_mm: float = 1.5 / PT_PER_MM) -> list[str]:
-    issues = []
+def _alignment_audit(panels: list[dict], tolerance_mm: float = 1.5 / PT_PER_MM) -> dict:
+    """Measure final-size plot rectangles, never just equal outer grid cells.
+
+    A mixed-content panel may be independent, but the author must say why.
+    This prevents a missing group from silently turning a comparison into PASS.
+    """
+    issues: list[str] = []
+    checks: list[dict] = []
     groups: dict[str, list[dict]] = {}
+    if len(panels) > 1:
+        for panel in panels:
+            intent = panel.get("alignment_intent")
+            if intent not in {"compare", "independent"}:
+                issues.append(f"Panel {panel['label']}: alignment_intent is required (compare or independent)")
+            elif intent == "independent" and not panel.get("alignment_reason"):
+                issues.append(f"Panel {panel['label']}: independent panel needs alignment_reason")
+            elif intent == "compare" and not panel.get("alignment_group"):
+                issues.append(f"Panel {panel['label']}: comparable panel needs alignment_group")
+            elif intent == "compare" and panel.get("plot_rect_mm") is None:
+                issues.append(f"Panel {panel['label']}: comparable panel needs measured plot_box_fraction")
     for panel in panels:
         if panel.get("alignment_group"):
             groups.setdefault(str(panel["alignment_group"]), []).append(panel)
@@ -63,21 +80,40 @@ def _alignment_issues(panels: list[dict], tolerance_mm: float = 1.5 / PT_PER_MM)
         if any(member["plot_rect_mm"] is None for member in members):
             issues.append(f"Alignment group {name} needs plot_box_fraction on every panel")
             continue
+        group_check_count = len(checks)
         for i, first in enumerate(members):
             for second in members[i + 1:]:
                 a, b = first["plot_rect_mm"], second["plot_rect_mm"]
                 a_slot, b_slot = first["slot_mm"], second["slot_mm"]
                 same_row = abs(a_slot[1] - b_slot[1]) < 1e-6 and abs(a_slot[3] - b_slot[3]) < 1e-6
                 same_col = abs(a_slot[0] - b_slot[0]) < 1e-6 and abs(a_slot[2] - b_slot[2]) < 1e-6
-                if same_row:
-                    delta = max(abs(a[1] - b[1]), abs(a[1] + a[3] - b[1] - b[3]))
-                    if delta > tolerance_mm:
-                        issues.append(f"Group {name}: panels {first['label']}/{second['label']} plot-area rows differ by {delta:.2f} mm")
-                if same_col:
-                    delta = max(abs(a[0] - b[0]), abs(a[0] + a[2] - b[0] - b[2]))
-                    if delta > tolerance_mm:
-                        issues.append(f"Group {name}: panels {first['label']}/{second['label']} plot-area columns differ by {delta:.2f} mm")
-    return issues
+                for direction, comparable, edge_names, values in (
+                    ("row", same_row, ("top", "bottom", "height"),
+                     ((a[1], b[1]), (a[1] + a[3], b[1] + b[3]), (a[3], b[3]))),
+                    ("column", same_col, ("left", "right", "width"),
+                     ((a[0], b[0]), (a[0] + a[2], b[0] + b[2]), (a[2], b[2]))),
+                ):
+                    if not comparable:
+                        continue
+                    for edge, (first_value, second_value) in zip(edge_names, values):
+                        delta = abs(first_value - second_value)
+                        checks.append({"group": name, "panels": [first["label"], second["label"]],
+                                       "direction": direction, "edge": edge,
+                                       "first_mm": round(first_value, 4),
+                                       "second_mm": round(second_value, 4),
+                                       "delta_mm": round(delta, 4),
+                                       "pass": delta <= tolerance_mm})
+                        if delta > tolerance_mm:
+                            issues.append(f"Group {name}: panels {first['label']}/{second['label']} plot-area {direction} {edge} differs by {delta:.2f} mm")
+        if len(checks) == group_check_count:
+            issues.append(f"Group {name}: no members share a row or column; declare a meaningful comparison or independent reasons")
+    if len(panels) > 1 and not groups and not issues:
+        # Mixed content can be valid, but it has no common plot ruler.
+        status = "independent_panels_visual_review_required"
+    else:
+        status = "fix_before_delivery" if issues else "geometry_pass_visual_review_required"
+    return {"status": status, "tolerance_pt": 1.5,
+            "tolerance_mm": round(tolerance_mm, 4), "checks": checks, "issues": issues}
 
 
 def compose(manifest: dict, stem: str | Path, *, strict: bool = False) -> dict:
@@ -125,10 +161,13 @@ def compose(manifest: dict, stem: str | Path, *, strict: bool = False) -> dict:
                 "fill_fraction": round(fill, 3), "crop_px": panel.get("crop_px"),
                 "crop_box_fraction": panel.get("crop_box_fraction"),
                 "crop_reason": panel.get("crop_reason"),
-                "alignment_group": panel.get("alignment_group")}
+                "alignment_group": panel.get("alignment_group"),
+                "alignment_intent": panel.get("alignment_intent"),
+                "alignment_reason": panel.get("alignment_reason")}
         prepared.append((panel, asset, placed, info))
     infos = [item[3] for item in prepared]
-    warnings.extend(_alignment_issues(infos))
+    alignment_audit = _alignment_audit(infos)
+    warnings.extend(alignment_audit["issues"])
     if strict and warnings:
         raise ComposeError("Strict assembly blocked: " + "; ".join(warnings))
     stem = Path(stem)
@@ -182,13 +221,35 @@ def compose(manifest: dict, stem: str | Path, *, strict: bool = False) -> dict:
     scale_px = layout["dpi"] / 25.4
     for info in infos:
         for key, color in (("slot_mm", "#BF4F43"), ("placed_mm", "#2B6AAB"),
+                           ("visible_content_estimate_mm", "#20A6A0"),
                            ("plot_rect_mm", "#2E8B57")):
             rect = info.get(key)
             if rect is None:
                 continue
             x, y, width, height = rect
+            if width <= 0 or height <= 0:
+                continue
             box = tuple(round(v * scale_px) for v in (x, y, x + width, y + height))
             overlay_draw.rectangle(box, outline=color, width=3)
+            if key == "plot_rect_mm":
+                # Coordinate rulers expose the final plotted edge in millimetres.
+                for px, py, horizontal in ((box[0], box[1], False), (box[2], box[1], False),
+                                           (box[0], box[1], True), (box[0], box[3], True)):
+                    if horizontal:
+                        overlay_draw.line((0, py, overlay.width, py), fill="#2E8B5788", width=1)
+                    else:
+                        overlay_draw.line((px, 0, px, overlay.height), fill="#2E8B5788", width=1)
+    # Physical millimetre ticks, longer every 5 mm, on the diagnostic overlay.
+    for mm in range(0, int(layout["width_mm"]) + 1):
+        px = round(mm * scale_px)
+        overlay_draw.line((px, 0, px, 16 if mm % 5 == 0 else 7), fill="#405469", width=1)
+        if mm % 10 == 0:
+            overlay_draw.text((px + 2, 17), str(mm), fill="#405469")
+    for mm in range(0, int(layout["height_mm"]) + 1):
+        py = round(mm * scale_px)
+        overlay_draw.line((0, py, 16 if mm % 5 == 0 else 7, py), fill="#405469", width=1)
+        if mm % 10 == 0:
+            overlay_draw.text((18, py + 2), str(mm), fill="#405469")
     overlay_path = stem.with_suffix(".alignment.png")
     overlay.save(overlay_path)
     crop_dir = stem.parent / f"{stem.name}_panel_checks"
@@ -205,6 +266,7 @@ def compose(manifest: dict, stem: str | Path, *, strict: bool = False) -> dict:
               "status": "review_required" if warnings else "geometry_pass_visual_review_required",
               "width_mm": layout["width_mm"], "height_mm": layout["height_mm"],
               "dpi": layout["dpi"], "warnings": warnings, "panels": infos,
+              "alignment_audit": alignment_audit,
               "font_audit": font_audit,
               "outputs": {"pdf": str(pdf_path), "png": str(png_path),
                           "panel_checks": str(crop_dir),

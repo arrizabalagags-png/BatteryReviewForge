@@ -1,0 +1,24 @@
+{
+  "figure": "eis",
+  "tolerance_pt": 1.5,
+  "status": "independent_panels",
+  "checks": [],
+  "failures": [],
+  "plot_rectangles_mm": [
+    {
+      "panel": "a",
+      "left": 22.583,
+      "top": 5.391,
+      "width": 149.267,
+      "height": 51.065
+    },
+    {
+      "panel": "b",
+      "left": 17.333,
+      "top": 69.249,
+      "width": 159.769,
+      "height": 38.809
+    }
+  ],
+  "note": "Measured after final Matplotlib draw. Colorbars are excluded."
+}

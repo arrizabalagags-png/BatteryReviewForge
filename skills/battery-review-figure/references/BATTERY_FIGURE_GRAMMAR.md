@@ -4,6 +4,8 @@
 
 机器可读清单在 [BATTERY_FIGURE_GRAMMAR.json](BATTERY_FIGURE_GRAMMAR.json)，逐面板来源在 [PANEL_EVIDENCE.json](PANEL_EVIDENCE.json)，期刊尺寸在 [JOURNAL_FIGURE_SPEC.json](JOURNAL_FIGURE_SPEC.json)。`status=evidence_backed` 表示图型在本轮读过的论文中有实例，**不表示每一种搭配都已验证**。目前只有 JSON 中的两种 `default_option` 达到了三个独立 primary paper 的门槛。其它推荐先当可选方案，不能替用户发明面板。
 
+原位 XRD、ToF-SIMS、原位阻抗和空间图等复杂图的逐图阅读与实际绘制限制见 [高信息量电池图笔记](ADVANCED_FIGURE_ATLAS.md)。它记录论文 Figure/Panel 和我们从中得到的画法原则；不把他人的论文图作为可直接复制的模板。
+
 ## 先分清这四件事
 
 | 用户给的材料 | 先问清或读取 | 合理的第一版 | 不能自行推断 |

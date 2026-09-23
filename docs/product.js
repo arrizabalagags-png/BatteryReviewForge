@@ -100,6 +100,7 @@ async function loadSearchIndex() {
 }
 function openSearch(source) {
   if (searchPanel.classList.contains("open")) return;
+  closeMenu();
   opener = source || document.activeElement;
   searchPanel.classList.add("open");
   document.body.classList.add("modal-open");

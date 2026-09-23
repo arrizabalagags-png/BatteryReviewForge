@@ -4,7 +4,7 @@ const order = ["client", "os", "install", "test"];
 const clients = {codex:"Codex", kimi:"Kimi Code", workbuddy:"WorkBuddy", dsh:"DeepSeek Harness"};
 const systems = {windows:"Windows", macos:"macOS", linux:"Linux"};
 const tasks = {full:"全电池长循环", ce:"Li‖Cu CE", assembly:"六图拼版"};
-const version = "0.8.1";
+const version = document.body.dataset.version;
 const mainZip = "downloads/BatteryReviewForge-v" + version + ".zip";
 const wbZip = "downloads/BatteryReviewForge-WorkBuddy-v" + version + ".zip";
 // Beta means the install path is documented, not that a complete plot was tested.

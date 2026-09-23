@@ -11,9 +11,8 @@ DOCS = ROOT / "docs"
 VERSION = json.loads((ROOT / ".codex-plugin" / "plugin.json").read_text(encoding="utf-8"))["version"]
 GITHUB = "https://github.com/arrizabalagags-png/BatteryReviewForge"
 NAV = [
-    ("开始使用", "start.html"), ("功能", "features.html"), ("样图库", "gallery.html"),
-    ("学习", "learn.html"), ("社区", "community.html"),
-    ("参与贡献", "contribute.html"), ("支持项目", "support.html"),
+    ("开始使用", "start.html"), ("能做什么", "features.html"),
+    ("样图库", "gallery.html"), ("使用帮助", "learn.html"),
 ]
 SHOWCASE = [
     ("full_cell", "NMC811‖Li 全电池长循环", "循环容量与选定圈数电压曲线，来自同一套演示状态。"),
@@ -34,8 +33,8 @@ IMAGE_SIZE = {
 def header() -> str:
     links = "".join(f'<a href="{url}">{label}</a>' for label, url in NAV)
     return f'''<a class="skip" href="#main">跳到正文</a><header class="topbar"><div class="wrap nav">
-<a class="brand" href="index.html" aria-label="BatteryReviewForge 首页"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>BatteryReviewForge</a><button class="menu-toggle" type="button" aria-label="打开菜单" aria-expanded="false">☰</button>
-<nav class="navlinks" aria-label="主导航">{links}</nav><button class="search-trigger" type="button" data-open-search>⌕　搜索：CE、拼图、安装…</button>
+<a class="brand" href="index.html" aria-label="BatteryReviewForge 首页">BatteryReviewForge</a><button class="menu-toggle" type="button" aria-label="打开菜单" aria-expanded="false">菜单</button>
+<nav class="navlinks" aria-label="主导航">{links}</nav><button class="search-trigger" type="button" data-open-search aria-label="搜索网站">搜索 <span aria-hidden="true">⌕</span></button>
 </div></header>'''
 
 
@@ -49,10 +48,10 @@ def footer() -> str:
 
 def shell(title: str, description: str, body: str, extra_js: str = "") -> str:
     return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="{escape(description, quote=True)}"><title>{escape(title)} · BatteryReviewForge</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="product.css"><link rel="stylesheet" href="product-polish.css"></head><body>
+<meta name="description" content="{escape(description, quote=True)}"><title>{escape(title)} · BatteryReviewForge</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="product.css?v={VERSION}"></head><body data-version="{VERSION}">
 {header()}<main id="main">{body}</main>{footer()}
 <div class="search-panel" role="dialog" aria-label="站内搜索" aria-modal="true"><div class="search-box"><button class="search-close" type="button" aria-label="关闭搜索">×</button><label for="site-search-input">搜索站内内容</label><input id="site-search-input" type="search" placeholder="试试：库伦效率、EIS、拼图、安装"><div id="search-status" role="status" aria-live="polite"></div><div id="search-results" aria-live="polite"></div></div></div>
-<script src="product.js" defer></script>{extra_js}</body></html>'''
+<script src="product.js?v={VERSION}" defer></script>{extra_js}</body></html>'''
 
 
 def page_head(kicker: str, title: str, intro: str) -> str:
@@ -68,40 +67,25 @@ def gallery_card(item, wide=False) -> str:
 <div class="gallery-caption"><div><span class="synthetic">Synthetic demo · 非实验数据</span><h3>{title}</h3><p>{description}</p></div><div class="gallery-links"><a href="{stem}{data_file}">CSV</a><a href="{stem}figure.svg">SVG</a><a href="{stem}figure.pdf">PDF</a><a href="{stem}metadata.json">数据说明</a></div></div></article>'''
 
 
-def feature_visual(kind: str) -> str:
-    """Small original vector illustrations; never imply experimental data."""
-    common = 'viewBox="0 0 220 92" aria-hidden="true" focusable="false"'
-    if kind == "data":
-        return f'''<svg {common}><g fill="none" stroke="#315d83" stroke-width="1.7"><rect x="9" y="13" width="69" height="64"/><path d="M9 29h69M9 45h69M9 61h69M32 13v64M55 13v64"/><path d="M95 45h25m-7-7 7 7-7 7"/><path d="M135 67h75M135 67V16"/></g><path d="M139 55c14-3 22-24 35-23 12 1 17 18 32-13" fill="none" stroke="#147f79" stroke-width="3"/><circle cx="174" cy="32" r="3.5" fill="#aa405f"/></svg>'''
-    if kind == "panel":
-        return f'''<svg {common}><g fill="none" stroke="#315d83" stroke-width="1.7"><rect x="11" y="15" width="39" height="24" transform="rotate(-9 30 27)"/><rect x="53" y="5" width="39" height="24" transform="rotate(8 73 17)"/><rect x="15" y="49" width="39" height="24" transform="rotate(6 35 61)"/><rect x="58" y="50" width="39" height="24" transform="rotate(-7 77 62)"/><path d="M103 45h22m-7-7 7 7-7 7"/><rect x="140" y="10" width="66" height="67"/><path d="M173 10v67M140 43h66"/></g><rect x="146" y="16" width="21" height="21" fill="#dcece9"/><rect x="179" y="49" width="21" height="21" fill="#e5eaf0"/><circle cx="76" cy="62" r="3" fill="#aa405f"/></svg>'''
-    return f'''<svg {common}><g fill="#fff" stroke="#315d83" stroke-width="1.7"><path d="M17 20h51v58H17z"/><path d="M25 13h51v58H25z"/><path d="M33 6h51v58H33z"/><path d="M145 7h61v72h-61z"/></g><g stroke="#147f79" stroke-width="2"><path d="M43 22h31M43 31h24M43 40h31M156 25h38M156 36h38M156 47h28M156 59h38"/></g><path d="M95 45h30m-7-7 7 7-7 7" fill="none" stroke="#315d83" stroke-width="1.7"/><circle cx="172" cy="67" r="4" fill="#aa405f"/></svg>'''
-
-
 def homepage() -> str:
     by_slug = {item[0]: item for item in SHOWCASE}
     picks = "".join(f'<div class="home-pick home-pick-{slug}" id="home-{slug}">{gallery_card(by_slug[slug])}</div>'
-                    for slug in ("integrated_study", "full_cell", "operando_xrd", "li_cu_ce", "tof_sims"))
-    return f'''<div class="wrap hero"><div class="hero-copy"><div class="eyebrow">FREE &amp; OPEN SOURCE · FOR BATTERY RESEARCH</div><h1>把时间还给<br>研究。</h1><p>把电池实验数据变成论文图，把零散 panel 变成完整 Figure。<br>也把综述从选题、文献到投稿串成清楚的工作流。</p>
-<div class="hero-actions"><a class="btn teal" href="start.html">开始使用 <span aria-hidden="true">→</span></a><a class="btn secondary" href="gallery.html">看看样图</a></div><p class="hero-meta">v{VERSION} · MIT License · <a href="{GITHUB}">GitHub</a> · 无需单独注册</p></div>
-<div class="hero-stage" aria-label="由项目实际生成的电池科研样图预览"><div class="stage-rule"></div>
-<div class="stage-sheet stage-ce"><img src="assets/showcase/li_cu_ce/figure.png" alt="" width="2125" height="1039" decoding="async"></div>
-<div class="stage-sheet stage-xrd"><img src="assets/showcase/operando_xrd/figure.png" alt="" width="2125" height="1157" decoding="async"></div>
-<div class="stage-sheet stage-main"><img src="assets/showcase/integrated_study/figure.png" alt="同一套虚构演示数据生成的六面板电池研究组合图" width="2125" height="1854" fetchpriority="high"></div>
-<div class="stage-sheet stage-tof"><img src="assets/showcase/tof_sims/figure.png" alt="" width="2125" height="1948" decoding="async"></div>
-<span class="stage-badge stage-badge-left">CSV → SVG / PDF</span><span class="stage-badge stage-badge-right">演示数据可下载</span><span class="stage-disclaimer">Synthetic demo · 非实验数据</span></div></div>
-<section class="section"><div class="wrap"><div class="section-head"><div class="eyebrow">能做什么</div><h2>你做研究。重复的事交给它。</h2></div><div class="feature-grid">
-<div class="feature-item"><div class="feature-art">{feature_visual("data")}</div><h3>数据 → 论文图</h3><p>Excel、CSV、测试数据进去。CE、长循环、倍率、EIS、Li‖Li 等标准图出来。</p><a class="text-link" href="gallery.html#full_cell">看看数据出图 →</a></div>
-<div class="feature-item"><div class="feature-art">{feature_visual("panel")}</div><h3>散图 → 完整 Figure</h3><p>给它几张现成 panel，统一字号、边界、间距和阅读顺序。</p><a class="text-link" href="start.html?task=assembly">试试拼图 →</a></div>
-<div class="feature-item"><div class="feature-art">{feature_visual("review")}</div><h3>题目 → 综述工作流</h3><p>文献、证据、写作、绘图、投稿、返修，不必每一步都从头理。</p><a class="text-link" href="features.html#review">看看综述流程 →</a></div></div></div></section>
-<section class="section soft"><div class="wrap"><div class="section-head"><div><div class="eyebrow">作品集</div><h2>看它做出来什么。</h2><p class="section-intro">所有演示图都由随项目提供的数据实际生成。输入数据、SVG 和 PDF 都能下载，方便你自己复现。</p></div></div><div class="home-showcase">{picks}</div><p class="more-figures">EIS、Li‖Li 等更多图型 <a class="text-link" href="gallery.html">进入完整样图库 →</a></p></div></section>
-<section class="section"><div class="wrap"><div class="section-head"><div class="eyebrow">第一次用</div><h2>照着三步，先做出一张。</h2></div><div class="steps"><div class="step"><h3>选你正在用的软件</h3><p>Codex、Kimi Code、WorkBuddy 或 DeepSeek Harness。</p></div><div class="step"><h3>安装 BatteryReviewForge</h3><p>页面会显示当前软件对应的步骤。</p></div><div class="step"><h3>跑一份演示数据</h3><p>从全电池、Li‖Cu CE 或六图拼版开始。</p></div></div><p class="section-action"><a class="btn" href="start.html">带我开始 →</a></p></div></section>
-<section class="section trust-section"><div class="wrap"><div class="eyebrow">我们怎样对待数据</div><h2>科研数据，不靠“美化”变好看。</h2><div class="trust-grid"><p>原始文件保留</p><p>异常点不偷偷删</p><p>缺失条件不乱猜</p><p>图与来源可追溯</p></div></div></section>
-<section class="section soft"><div class="wrap"><div class="eyebrow">一起维护</div><h2>一个工具，大家一起把它做得更好。</h2><div class="community-grid"><div><h3>电池研究者</h3><p>帮我们核对图型规则和测试条件。</p></div><div><h3>开发者 / 设计者</h3><p>补绘图、排版、网站和文档。</p></div><div><h3>第一次使用的人</h3><p>一句“我这里看不懂”，也很有价值。</p></div></div><p><a class="text-link" href="contribute.html">参与贡献 →</a>　<a class="text-link" href="roadmap.html">查看 Roadmap →</a></p><div class="support-line">BatteryReviewForge 将保持免费开源。如果它替你省了些时间，也可以<a href="support.html">支持项目继续维护 →</a></div></div></section>'''
+                    for slug in ("integrated_study", "tof_sims", "operando_xrd"))
+    return f'''<section class="hero-section"><div class="wrap hero"><div class="hero-copy"><p class="eyebrow">面向电池研究者的免费开源工具</p><h1>少花时间排图。<br>多花时间想问题。</h1><p class="hero-lead">把实验数据或现成图片交给你使用的 Agent，就能开始画论文图、拼组合图。写综述时，也有从选题到返修的逐步帮助。</p>
+<div class="hero-actions"><a class="btn" href="start.html">开始使用</a><a class="quiet-link" href="gallery.html">先看样图 <span aria-hidden="true">→</span></a></div><p class="hero-meta">不用在本站注册。先用附带的演示文件试一遍。</p></div>
+<figure class="hero-figure"><a href="assets/showcase/full_cell/figure.svg" aria-label="放大全电池长循环演示图"><img src="assets/showcase/full_cell/figure.png" alt="全电池长循环与对应电压曲线；由明确标记的虚构演示数据生成" width="2125" height="1039" fetchpriority="high"></a><figcaption><span>从数据到可编辑论文图</span><span>示例为虚构数据 · <a href="gallery.html#full_cell">查看数据与说明</a></span></figcaption></figure></div></section>
+<section class="section"><div class="wrap"><div class="section-head"><p class="eyebrow">你手里有什么？</p><h2>从现在这一步开始。</h2><p class="section-intro">不用先弄懂所有技能。选你最熟悉的材料，照着页面做第一件事。</p></div><div class="feature-grid">
+<article class="feature-item"><span class="feature-number">01</span><h3>有实验数据</h3><p>核对列名、单位和测试条件，再画长循环、库伦效率、阻抗等论文图。</p><a class="text-link" href="start.html?task=full">试着画一张 <span aria-hidden="true">→</span></a></article>
+<article class="feature-item"><span class="feature-number">02</span><h3>有几张现成图</h3><p>按最终投稿尺寸拼在一起，检查字母、绘图区边界、间距和清晰度。</p><a class="text-link" href="start.html?task=assembly">试着拼一张 <span aria-hidden="true">→</span></a></article>
+<article class="feature-item"><span class="feature-number">03</span><h3>准备写综述</h3><p>从选题、查证、写作到投稿和返修，按阶段找到合适的帮助。</p><a class="text-link" href="features.html#review">看写作流程 <span aria-hidden="true">→</span></a></article></div></div></section>
+<section class="section soft"><div class="wrap"><div class="section-head"><p class="eyebrow">样图库</p><h2>看看实际能做成什么样。</h2><p class="section-intro">图、演示数据和可编辑文件放在一起。每张样图都写明是虚构演示，不会冒充实验结果。</p></div><div class="home-showcase">{picks}</div><p class="section-action"><a class="quiet-link" href="gallery.html">查看所有样图 <span aria-hidden="true">→</span></a></p></div></section>
+<section class="section"><div class="wrap start-invitation"><div><p class="eyebrow">第一次用</p><h2>跟着做，先画出一张。</h2><p>选择你使用的软件，下载演示文件，再把页面给你的任务句交给它。遇到不会的步骤，旁边就有说明。</p><a class="btn" href="start.html">带我开始</a></div><ol class="simple-steps"><li><strong>选软件</strong><span>先选你现在用的 Agent</span></li><li><strong>安装</strong><span>只看适合当前软件的步骤</span></li><li><strong>试一张</strong><span>用附带的演示数据验证</span></li></ol></div></section>
+<section class="section soft"><div class="wrap trust-copy"><p class="eyebrow">放心使用</p><h2>你的数据，始终由你决定怎么用。</h2><p>本站不接收实验文件，也不索取 API Key。绘图脚本不会加项目水印；原始数据保持不变。在线 Agent 的文件处理方式，请以你所用软件的设置为准。</p><a class="quiet-link" href="disclaimer.html">了解数据与责任说明 <span aria-hidden="true">→</span></a></div></section>
+<section class="section"><div class="wrap closing"><p class="eyebrow">大家一起维护</p><h2>让做研究的人，把时间留给研究。</h2><p>BatteryReviewForge 由郭硕、姜金龙合作维护。欢迎研究者、学生、设计者和开发者指出问题，帮下一位使用者少走弯路。</p><div class="hero-actions"><a class="btn secondary" href="contribute.html">参与改进</a><a class="quiet-link" href="community.html">看看社区 <span aria-hidden="true">→</span></a></div></div></section>'''
 
 
 def start() -> str:
-    return f'''<div class="start-head"><div class="wrap"><div class="eyebrow">开始使用</div><h1>第一次安装，到第一张图。</h1></div></div>
+    return f'''<div class="start-head"><div class="wrap"><div class="eyebrow">开始使用</div><h1>几步装好，先画一张。</h1></div></div>
 <div class="wrap wizard"><nav class="progress" aria-label="安装进度"><button type="button" data-progress-step="client">1 选软件</button><span aria-hidden="true">›</span><button type="button" data-progress-step="os">2 选系统</button><span data-progress-sep="os" aria-hidden="true">›</span><button type="button" data-progress-step="install">3 安装</button><span aria-hidden="true">›</span><button type="button" data-progress-step="test">4 试运行</button></nav>
 <p class="task-hint" id="task-hint" hidden></p>
 <section data-wizard-step="client"><h2>你现在用哪个软件？</h2><p>选你已经在用的。项目本身无需单独注册。</p><button type="button" class="resume-choice" id="resume-choice" hidden></button><div class="choices">
@@ -114,8 +98,8 @@ def start() -> str:
 <section data-wizard-step="test" hidden><h2>用演示文件，画出第一张图。</h2><p>这些是明确标记的虚构演示数据。下载、交给你的 Agent，再复制任务句。</p><div class="demo-list">
 <article class="demo" id="full-cell-demo" data-demo="full"><span class="pill">最简单</span><h3>全电池长循环</h3><p>循环容量和对应的电压曲线。</p><a href="assets/showcase/full_cell/data.csv" download>下载 demo_full_cell.csv ↓</a><a href="assets/showcase/full_cell/voltage_profiles.csv" download>下载电压曲线数据 ↓</a><button type="button" class="ghost" data-copy="#demo-full">复制任务句</button></article>
 <article class="demo" id="ce-demo" data-demo="ce"><span class="pill">进阶</span><h3>Li‖Cu CE</h3><p>逐圈库伦效率和对应电化学过程。</p><a href="assets/showcase/li_cu_ce/data.csv" download>下载 demo_li_cu_ce.csv ↓</a><a href="assets/showcase/li_cu_ce/profiles.csv" download>下载曲线数据 ↓</a><button type="button" class="ghost" data-copy="#demo-ce">复制任务句</button></article>
-<article class="demo" id="assembly" data-demo="assembly"><span class="pill">拼图</span><h3>六张图 → Figure</h3><p>六个独立 panel 拼成对齐的组合图。</p><a href="assets/showcase/assembly-demo.zip" download>下载 6 张 panel ↓</a><button type="button" class="ghost" data-copy="#demo-assemble">复制任务句</button></article></div>
-<div hidden><span id="demo-full">请用 BatteryReviewForge 读取我上传的演示全电池 CSV，核对列名和单位，把长循环和选定圈数电压曲线画成可编辑 SVG。数据是 synthetic demo，不要当作实验结果。</span><span id="demo-ce">请用 BatteryReviewForge 读取我上传的 Li||Cu 演示 CSV，识别逐圈 CE 协议并画 CE 与代表性曲线。保留异常点，输出可编辑 SVG；不要把它当 Aurbach CE。</span><span id="demo-assemble">请用 battery-figure-assemble 将我上传的 6 张演示 panel 拼成 Figure。先检查内容与尺寸，再统一字母、间距和边界；不要给每张图加副标题。</span></div>
+<article class="demo" id="assembly" data-demo="assembly"><span class="pill">拼图</span><h3>六张图拼成组合图</h3><p>六张独立图，按实际绘图区对齐。</p><a href="assets/showcase/assembly-example.png">先看拼好后的图 ↗</a><a href="assets/showcase/assembly-demo.zip" download>下载 6 张图和排版文件 ↓</a><button type="button" class="ghost" data-copy="#demo-assemble">复制任务句</button></article></div>
+<div hidden><span id="demo-full">请用 BatteryReviewForge 读取我上传的演示全电池 CSV，核对列名和单位，把长循环和选定圈数电压曲线画成可编辑 SVG。数据是 synthetic demo，不要当作实验结果。</span><span id="demo-ce">请用 BatteryReviewForge 读取我上传的 Li||Cu 演示 CSV，识别逐圈 CE 协议并画 CE 与代表性曲线。保留异常点，输出可编辑 SVG；不要把它当 Aurbach CE。</span><span id="demo-assemble">请用 battery-figure-assemble 将这 6 张演示图按附带的 figure_manifest.json 拼成组合图。运行严格对齐检查，核对毫米尺上的真实绘图区边界，再给我 PDF 和预览图。不要给每张图加副标题。</span></div>
 <p class="notice">这一步会在你自己的 Agent 中运行。本站只提供下载和说明，不接收你上传的数据；Agent 如何处理文件取决于你所使用的软件设置。<a href="disclaimer.html">了解更多</a></p><div class="wizard-actions"><button type="button" class="ghost" data-wizard-back>← 上一步</button><a class="btn secondary" href="learn.html">不会？看一步步教程 →</a></div></section></div>'''
 
 
@@ -130,7 +114,7 @@ def gallery() -> str:
 
 
 def learn() -> str:
-    return page_head('学习', '不会也没关系，从一件小事开始。', '不用先理解 13 个技能。先选一个你想完成的任务。') + '''<section class="page-block"><div class="wrap row-list"><div class="row" id="install"><h3>先装上</h3><p>选软件、选系统、下载对应包，跟着四步上手页操作。</p><a class="text-link" href="start.html">开始 →</a></div><div class="row"><h3>我的数据怎么画</h3><p>上传表格后，让技能先核对列名、单位、电芯和测试条件，再做预览。</p><a class="text-link" href="start.html?task=full">用演示数据试 →</a></div><div class="row"><h3>CE 与 Aurbach 的区别</h3><p>逐圈 CE 是按 cycle 的效率；Aurbach 是另一套镀锂/剥锂协议，不能混画。</p><a class="text-link" href="developers.html#grammar">看规则 →</a></div><div class="row" id="svg"><h3>SVG 怎么手动微调</h3><p>用免费 Inkscape 打开 SVG，检查字号、线条、裁切、特殊符号，再导出 PDF。</p><a class="text-link" href="https://inkscape.org/">到 Inkscape 官网 ↗</a></div><div class="row" id="review"><h3>综述从哪开始</h3><p>先定核心问题和边界，再建文献证据表；写作、投稿和返修接在后面。</p><a class="text-link" href="guide.html#review">看简明指南 →</a></div></div></section><section class="page-block soft" id="compatibility"><div class="wrap prose"><h2>不同软件，目前验证到哪一步？</h2><p>Codex 的 Windows 本机安装与试用已验证；Codex 其他系统的安装脚本、Kimi Code 和 DeepSeek Harness 的技能目录已核对，完整任务仍待更多实机测试。WorkBuddy 有专用 ZIP，客户端导入待验收。豆包暂不提供未经核实的一键安装入口。</p><p><a class="text-link" href="COMPATIBILITY.md">看完整适配说明 →</a></p></div></section>'''
+    return page_head('学习', '不会也没关系，从一件小事开始。', '不用先理解 13 个技能。先选一个你想完成的任务。') + '''<section class="page-block"><div class="wrap row-list"><div class="row" id="install"><h3>先装上</h3><p>选软件、选系统、下载对应包，跟着四步上手页操作。</p><a class="text-link" href="start.html">开始 →</a></div><div class="row"><h3>我的数据怎么画</h3><p>把表格交给你使用的 Agent，让技能先核对列名、单位、电芯和测试条件，再做预览。</p><a class="text-link" href="start.html?task=full">用演示数据试 →</a></div><div class="row"><h3>CE 与 Aurbach 的区别</h3><p>逐圈 CE 是按 cycle 的效率；Aurbach 是另一套镀锂/剥锂协议，不能混画。</p><a class="text-link" href="developers.html#grammar">看规则 →</a></div><div class="row" id="svg"><h3>SVG 怎么手动微调</h3><p>用免费 Inkscape 打开 SVG，检查字号、线条、裁切、特殊符号，再导出 PDF。</p><a class="text-link" href="https://inkscape.org/">到 Inkscape 官网 ↗</a></div><div class="row" id="review"><h3>综述从哪开始</h3><p>先定核心问题和边界，再建文献证据表；写作、投稿和返修接在后面。</p><a class="text-link" href="guide.html#review">看简明指南 →</a></div></div></section><section class="page-block soft" id="compatibility"><div class="wrap prose"><h2>不同软件，目前验证到哪一步？</h2><p>Codex 的 Windows 本机安装与试用已验证；Codex 其他系统的安装脚本、Kimi Code 和 DeepSeek Harness 的技能目录已核对，完整任务仍待更多实机测试。WorkBuddy 有专用 ZIP，客户端导入待验收。豆包暂不提供未经核实的一键安装入口。</p><p><a class="text-link" href="COMPATIBILITY.md">看完整适配说明 →</a></p></div></section>'''
 
 
 def community() -> str:
@@ -155,11 +139,11 @@ def support() -> str:
 
 
 def roadmap() -> str:
-    return page_head('路线图', '现在做什么，哪些仍需验证。', '把进度和限制放在这里，方便使用者和贡献者按需查阅。') + '''<section class="page-block"><div class="wrap row-list"><div class="row"><h3>已交付</h3><p>13 个独立技能、图型语法、安装包、七类数据先行的 synthetic demo、可下载 SVG/PDF/CSV。</p><span class="pill">当前</span></div><div class="row"><h3>正在验证</h3><p>更多仪器导出文件、复杂拼版、不同 Agent 的完整任务链、期刊最终尺寸与字体。</p><span class="pill">进行中</span></div><div class="row"><h3>后续方向</h3><p>有来源的真实公开示例、社区提交模板、更多 battery figure grammar 条目。</p><span class="pill">计划</span></div></div></section><section class="page-block soft"><div class="wrap prose"><h2>已知限制</h2><ul><li>示例图均为清晰标记的 synthetic demo，不能作为论文实验数据。</li><li>不同 Agent 的文件执行能力不同，能读技能不等于已经实测成图。</li><li>未知列名、测试条件或容量保持率参考圈数时，技能需要用户补充或仅画已知量。</li><li>SVG 编辑、PDF 字体嵌入和最终投稿尺寸仍需作者复核。</li></ul><p>早期样图仅保留在历史与测试材料中，不再作为首页作品。</p><p><a class="text-link" href="UX_BUG_AUDIT_0.8.1.md">查看这一版的验收记录 →</a></p></div></section>'''
+    return page_head('路线图', '现在做什么，哪些仍需验证。', '把进度和限制放在这里，方便使用者和贡献者按需查阅。') + '''<section class="page-block"><div class="wrap row-list"><div class="row"><h3>已交付</h3><p>13 个独立技能、图型语法、安装包、七类数据先行的 synthetic demo、可下载 SVG/PDF/CSV。</p><span class="pill">当前</span></div><div class="row"><h3>正在验证</h3><p>更多仪器导出文件、复杂拼版、不同 Agent 的完整任务链、期刊最终尺寸与字体。</p><span class="pill">进行中</span></div><div class="row"><h3>后续方向</h3><p>有来源的真实公开示例、社区提交模板、更多 battery figure grammar 条目。</p><span class="pill">计划</span></div></div></section><section class="page-block soft"><div class="wrap prose"><h2>已知限制</h2><ul><li>示例图均为清晰标记的 synthetic demo，不能作为论文实验数据。</li><li>不同 Agent 的文件执行能力不同，能读技能不等于已经实测成图。</li><li>未知列名、测试条件或容量保持率参考圈数时，技能需要用户补充或仅画已知量。</li><li>SVG 编辑、PDF 字体嵌入和最终投稿尺寸仍需作者复核。</li></ul><p>早期样图仅保留在历史与测试材料中，不再作为首页作品。</p><p><a class="text-link" href="UX_QA_0.8.2.md">查看这一版的验收记录 →</a></p></div></section>'''
 
 
 def developers() -> str:
-    return page_head('开发者', '源码、数据和规则都在这里。', '普通使用请先走“开始使用”。这里提供可复现脚本和贡献入口。') + f'''<section class="page-block"><div class="wrap row-list"><div class="row"><h3>仓库源码</h3><p>技能、Python 绘图、安装器与网站。</p><a class="text-link" href="{GITHUB}">打开 GitHub ↗</a></div><div class="row" id="grammar"><h3>图型规则</h3><p>电池图的实验协议、变量、常见 panel 搭配与证据。</p><a class="text-link" href="{GITHUB}/blob/main/skills/battery-review-figure/references/BATTERY_FIGURE_GRAMMAR.md">阅读 Grammar ↗</a></div><div class="row"><h3>Showcase 生成</h3><p>从 CSV 到 SVG/PDF，包含固定随机种子、测试条件和来源说明。</p><a class="text-link" href="{GITHUB}/tree/main/examples/showcase">查看脚本 ↗</a></div><div class="row"><h3>反馈与提交</h3><p>用角色模板提 issue；修改后附输入、输出和复现步骤。</p><a class="text-link" href="contribute.html">参与贡献 →</a></div></div></section>'''
+    return page_head('开发者', '源码、数据和规则都在这里。', '普通使用请先走“开始使用”。这里提供可复现脚本和贡献入口。') + f'''<section class="page-block"><div class="wrap row-list"><div class="row"><h3>仓库源码</h3><p>技能、Python 绘图、安装器与网站。</p><a class="text-link" href="{GITHUB}">打开 GitHub ↗</a></div><div class="row" id="grammar"><h3>图型规则</h3><p>电池图的实验协议、变量、常见 panel 搭配与证据。</p><a class="text-link" href="{GITHUB}/blob/main/skills/battery-review-figure/references/BATTERY_FIGURE_GRAMMAR.md">阅读 Grammar ↗</a></div><div class="row"><h3>复杂图的证据</h3><p>逐 Figure/Panel 记录 ToF-SIMS、原位 XRD 与电化学图的来源和绘图约束。</p><a class="text-link" href="{GITHUB}/blob/main/skills/battery-review-figure/references/ADVANCED_FIGURE_ATLAS.md">查看论文笔记 ↗</a></div><div class="row"><h3>网站设计约定</h3><p>标题、字号、留白、手机排版和新手文字如何决定。</p><a class="text-link" href="PRODUCT_DESIGN_GUIDE.md">查看设计原则 →</a></div><div class="row"><h3>Showcase 生成</h3><p>从 CSV 到 SVG/PDF，包含固定随机种子、测试条件和来源说明。</p><a class="text-link" href="{GITHUB}/tree/main/examples/showcase">查看脚本 ↗</a></div><div class="row"><h3>反馈与提交</h3><p>用角色模板提 issue；修改后附输入、输出和复现步骤。</p><a class="text-link" href="contribute.html">参与贡献 →</a></div></div></section>'''
 
 
 def guide() -> str:
@@ -210,7 +194,7 @@ def main() -> None:
     (DOCS / "contributors.json").write_text(json.dumps(contributors, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (DOCS / "search-index.json").write_text(json.dumps([{"group": g, "title": t, "url": u, "keywords": k, "description": t} for g,t,u,k in SEARCH], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     for name, (title, description, body) in PAGES.items():
-        js = '<script src="start.js" defer></script>' if name == "start.html" else ""
+        js = f'<script src="start.js?v={VERSION}" defer></script>' if name == "start.html" else ""
         (DOCS / name).write_text(shell(title, description, body, js) + "\n", encoding="utf-8")
     print(f"Built {len(PAGES)} pages, search index and contributors for v{VERSION}")
 

@@ -1,0 +1,173 @@
+{
+  "figure": "tof_sims",
+  "tolerance_pt": 1.5,
+  "status": "pass",
+  "checks": [
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "direction": "row",
+      "edge": "top",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "direction": "row",
+      "edge": "bottom",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "direction": "row",
+      "edge": "height",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "c",
+        "d"
+      ],
+      "direction": "row",
+      "edge": "top",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "c",
+        "d"
+      ],
+      "direction": "row",
+      "edge": "bottom",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "c",
+        "d"
+      ],
+      "direction": "row",
+      "edge": "height",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "c"
+      ],
+      "direction": "column",
+      "edge": "left",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "c"
+      ],
+      "direction": "column",
+      "edge": "right",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "c"
+      ],
+      "direction": "column",
+      "edge": "width",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "b",
+        "d"
+      ],
+      "direction": "column",
+      "edge": "left",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "b",
+        "d"
+      ],
+      "direction": "column",
+      "edge": "right",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "b",
+        "d"
+      ],
+      "direction": "column",
+      "edge": "width",
+      "delta_pt": 0.0,
+      "pass": true
+    }
+  ],
+  "failures": [],
+  "plot_rectangles_mm": [
+    {
+      "panel": "a",
+      "left": 28.842,
+      "top": 5.254,
+      "width": 47.116,
+      "height": 47.116
+    },
+    {
+      "panel": "b",
+      "left": 118.511,
+      "top": 5.254,
+      "width": 47.116,
+      "height": 47.116
+    },
+    {
+      "panel": "c",
+      "left": 28.842,
+      "top": 65.457,
+      "width": 47.116,
+      "height": 47.116
+    },
+    {
+      "panel": "d",
+      "left": 118.511,
+      "top": 65.457,
+      "width": 47.116,
+      "height": 47.116
+    },
+    {
+      "panel": "e",
+      "left": 16.311,
+      "top": 125.129,
+      "width": 149.316,
+      "height": 32.039
+    },
+    {
+      "panel": "f",
+      "left": 90.818,
+      "top": 5.254,
+      "width": 2.356,
+      "height": 47.116
+    }
+  ],
+  "note": "Measured after final Matplotlib draw. Colorbars are excluded."
+}

@@ -9,5 +9,8 @@
     "e",
     "f"
   ],
-  "instruction": "Assemble in reading order a–f; do not add panel subtitles or alter source data."
+  "instruction": "Assemble a–f without panel subtitles or data changes.",
+  "ready_manifest": "figure_manifest.json",
+  "alignment_report": "assembled-example.qa.json",
+  "note": "Panel crops use common column x-rulers and row y-rulers; measured plot boxes are recorded in the manifest."
 }

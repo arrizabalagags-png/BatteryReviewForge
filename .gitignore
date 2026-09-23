@@ -3,6 +3,10 @@
 !docs/assets/gallery/*.pdf
 !docs/assets/showcase/*/figure.pdf
 !examples/showcase/*/figure.pdf
+!docs/assets/showcase/assembly-example.pdf
+!examples/showcase/assembly_demo/assembled-example.pdf
+examples/showcase/assembly_demo/assembled-example_panel_checks/
+examples/showcase/assembly_demo/assembled-example.alignment.png
 *.docx
 *.pptx
 *.xlsx
