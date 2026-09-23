@@ -161,6 +161,16 @@ h2 { margin-bottom: 0; color: var(--ink); font-size: clamp(34px, 4.2vw, 55px); f
 .platform-foot { display: flex; flex-wrap: wrap; gap: 8px 14px; margin: 20px 0 0; color: var(--muted); font-size: 15px; }
 .platform-foot a { color: var(--blue-dark); font-weight: 650; text-underline-offset: 4px; }
 
+.confidence-section { padding-block: clamp(58px, 6vw, 80px); background: var(--wash); }
+.confidence-head h2 { max-width: 850px; margin-bottom: 30px; font-size: clamp(31px, 3.8vw, 47px); }
+.confidence-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+.confidence-grid article { padding: 22px 28px 14px 0; }
+.confidence-grid article + article { padding-left: 28px; border-left: 1px solid var(--line); }
+.confidence-grid article > span { color: var(--blue); font-size: 14px; font-weight: 740; letter-spacing: .06em; }
+.confidence-grid h3 { margin: 12px 0 9px; color: var(--ink); font-size: 22px; line-height: 1.4; }
+.confidence-grid p { max-width: 360px; margin-bottom: 0; color: var(--muted); font-size: 17px; }
+.confidence-section .inline-link { display: inline-block; margin-top: 28px; }
+
 .faq-section .section-head { margin-bottom: 29px; }
 .faq-list { max-width: 990px; border-top: 1px solid var(--ink); }
 .faq-list details { border-bottom: 1px solid var(--line); }
@@ -207,6 +217,7 @@ html[lang="en"] .credits-roman { display: none; }
 .legal-grid section { padding: 30px 0 42px; border-bottom: 1px solid var(--line); }
 .legal-grid h2 { margin-bottom: 14px; font-size: 27px; letter-spacing: -.04em; }
 .legal-grid p { max-width: 540px; margin: 0; color: var(--muted); font-size: 18px; }
+.legal-more { display: inline-block; margin-top: 12px; color: var(--blue-dark); font-size: 16px; font-weight: 670; text-underline-offset: 4px; }
 .legal-links { display: flex; flex-wrap: wrap; gap: 20px 32px; margin-top: 43px; }
 .legal-links a { color: var(--blue-dark); font-size: 18px; font-weight: 670; text-underline-offset: 5px; }
 
@@ -301,6 +312,9 @@ html[lang="en"] .credits-roman { display: none; }
   .skill-columns { gap: 46px 32px; }
   .svg-section { grid-template-columns: 1fr; gap: 38px; }
   .legal-grid { gap: 0 32px; }
+  .confidence-grid { grid-template-columns: 1fr; }
+  .confidence-grid article, .confidence-grid article + article { padding: 19px 0 22px; border-left: 0; border-bottom: 1px solid var(--line); }
+  .confidence-grid p { max-width: 650px; }
   .guide-path-grid { grid-template-columns: 1fr; }
   .guide-example { max-width: 650px; }
   .help-grid { grid-template-columns: 1fr; gap: 12px; }

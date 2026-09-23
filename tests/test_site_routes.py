@@ -71,6 +71,14 @@ class SiteRoutesTest(unittest.TestCase):
         for name, page in self.pages.items():
             self.assertFalse(page.translations - translated, f"{name}: untranslated keys {page.translations - translated}")
 
+    def test_site_claim_about_no_file_intake_remains_true(self):
+        for name in PAGES:
+            html = (ROOT / name).read_text(encoding="utf-8")
+            self.assertNotIn("<form", html.lower(), name)
+            self.assertNotRegex(html, r"<input\b[^>]*\btype=[\"']file[\"']", name)
+        script = (ROOT / "site.js").read_text(encoding="utf-8")
+        self.assertNotRegex(script, r"\b(?:fetch|XMLHttpRequest|sendBeacon)\s*\(")
+
 
 if __name__ == "__main__":
     unittest.main()

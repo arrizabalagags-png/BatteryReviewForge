@@ -43,6 +43,8 @@ For cross-study plots, use like-for-like denominators and cell/test conditions. 
 
 When handing an SVG to a beginner, offer the [short Inkscape editing guide](references/SVG_HANDOFF.md) and its [official download site](https://inkscape.org/). Check whether the SVG contains embedded raster panels before promising that every mark is editable.
 
+When an author asks about data ownership, privacy, or marks, answer from the actual handoff: the project license covers its code, not a transfer of the author's input data or artwork. Keep inputs and outputs in the author's chosen workspace; do not copy unpublished material into this public repository or an issue. The bundled Python plotting script does not impose a visible project logo or watermark, but an SVG/PDF can include ordinary exporter metadata and `.provenance.json` can contain the input path. Point these out before sharing files, and check the selected Agent's own data controls before claiming a workflow is private or entirely local. Do not remove scientifically required condition/limitation labels or journal-required attribution to make an image look unmarked.
+
 ## Four release checks
 
 1. **Science:** every number, arrow, maturity label, “absent” cell, and causal connector has a source trace and appropriate uncertainty or caveat. Check half/full, coin/pouch, charge/discharge, cycle index, normalization, electrolyte, loading, pressure, and temperature as relevant.
