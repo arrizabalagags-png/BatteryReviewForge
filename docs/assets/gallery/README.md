@@ -4,6 +4,8 @@ These figures are original, editable design examples distributed under the repos
 
 Run `python docs/assets/gallery/render_gallery.py` from the repository to regenerate the eleven PNG plates, their PDF/SVG versions, source CSVs, layout manifests and visual contact sheet. The script requires NumPy and Matplotlib; it uses Arial where installed and DejaVu Sans for missing characters and other systems. The theme is read from the bundled `figure_theme.json` file. Text remains editable in SVG and PDF. The figures have no brand header, narrative subtitle or footer; scientific context belongs in the website caption, data files and source/provenance record.
 
+Run `python docs/assets/gallery/render_editorial.py` separately to regenerate the additional six-panel editorial composition. It combines independent **synthetic** example datasets into a layout exercise: generic cell stack → two spectral/structural panels → two electrochemical panels → full-width device-performance endpoint. This ordering demonstrates visual hierarchy only. The datasets are not one connected experiment and the arrangement does not establish a causal mechanism.
+
 | Figure | Content | Raster size |
 | --- | --- | --- |
 | `tofsims-demo` | Simulated ion maps, overlay and sputter-time traces | 2232 × 1152 |
@@ -12,6 +14,7 @@ Run `python docs/assets/gallery/render_gallery.py` from the repository to regene
 | `full-cell-demo` | Discharge profiles and capacity cycling | 2232 × 1152 |
 | `symmetric-demo` | Full trace and explicitly located time window | 2232 × 1152 |
 | `assembled-demo` | Cell geometry, cycling, individual synthetic replicates and voltage | 2232 × 1296 |
+| `editorial-assembly-demo` | Six-panel hierarchy exercise from independent synthetic example datasets | 2340 × 1475 |
 | `style-preview` | Identical example curves in six bundled palettes | 2232 × 1296 |
 | `lab-primitives` | Six idealized laboratory and cell elements | 2232 × 1296 |
 | `morphology-primitives` | Core–shell particles, rods, sheets and an open network | 2232 × 1296 |

@@ -114,6 +114,7 @@ h2 { margin-bottom: 0; color: var(--ink); font-size: clamp(34px, 4.2vw, 55px); f
 .gallery-more > summary:hover { color: var(--blue); }
 .gallery-note { display: flex; align-items: flex-start; flex-wrap: wrap; gap: 8px 14px; max-width: 910px; margin: 29px 0 0; color: var(--muted); font-size: 16px; line-height: 1.6; }
 .gallery-note a { color: var(--blue-dark); font-weight: 650; text-underline-offset: 4px; }
+.gallery-caveat { max-width: 910px; margin: 5px 0 0 39px; color: var(--muted); font-size: 14px; }
 .note-rule { display: block; width: 25px; height: 2px; flex: 0 0 25px; margin-top: 12px; background: var(--rose); }
 .gallery-files { display: flex; align-items: baseline; flex-wrap: wrap; gap: 7px 21px; margin-top: 15px; color: var(--muted); font-size: 15px; }
 .gallery-files a { color: var(--blue-dark); font-weight: 650; text-underline-offset: 4px; }

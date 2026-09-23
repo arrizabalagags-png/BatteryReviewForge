@@ -2,6 +2,7 @@
 
 from html.parser import HTMLParser
 from pathlib import Path
+import json
 import re
 import unittest
 from urllib.parse import urlsplit, unquote
@@ -85,6 +86,15 @@ class SiteRoutesTest(unittest.TestCase):
         self.assertIn('<details class="skill-details">', home)
         self.assertIn('href="guide.html#unsure"', home)
         self.assertIn('<details class="gallery-more">', home)
+
+    def test_editorial_gallery_example_discloses_synthetic_sources(self):
+        gallery = ROOT / "assets" / "gallery"
+        metadata = json.loads((gallery / "editorial-assembly-demo.layout.json").read_text(encoding="utf-8"))
+        self.assertIn("synthetic", metadata["status"])
+        self.assertEqual(set(metadata["panels"]), set("abcdef"))
+        for filename in ("editorial-assembly-demo.png", "editorial-assembly-demo.svg", "editorial-assembly-demo.pdf"):
+            self.assertTrue((gallery / filename).is_file())
+        self.assertIn('data-t="galleryEditorialCaveat"', (ROOT / "index.html").read_text(encoding="utf-8"))
 
 
 if __name__ == "__main__":

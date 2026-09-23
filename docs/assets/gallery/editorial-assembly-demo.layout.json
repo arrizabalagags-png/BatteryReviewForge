@@ -1,0 +1,12 @@
+{
+  "status": "synthetic composition example; not experimental data or one connected study",
+  "panels": {
+    "a": "generic battery stack schematic; original geometry",
+    "b": "raman-waterfall-synthetic.csv; formulations A and B only; intensities offset",
+    "c": "rdf-synthetic.csv",
+    "d": "ce-synthetic.csv",
+    "e": "symmetric-synthetic.csv",
+    "f": "full-cell-cycling-synthetic.csv"
+  },
+  "purpose": "Demonstrate panel hierarchy, grouping and a full-width performance endpoint; no causal interpretation is licensed."
+}
