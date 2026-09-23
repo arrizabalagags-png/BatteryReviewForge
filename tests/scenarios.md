@@ -57,3 +57,15 @@ Expected: `battery-review-figure` inspects the file and reports the likely colum
 Prompt: “Put my PDF plot, PNG micrograph and SVG scheme into one attractive figure; the micrograph has a scale bar.”
 
 Expected: `battery-figure-assemble` inventories them and creates a physical-size grid, keeps vectors when possible, does not stretch or auto-crop the micrograph, records source/rights status, and inspects each rendered panel plus the alignment overlay. A clean geometry report alone is not called submission-ready.
+
+## 10. Beginner asks for a figure without naming a skill
+
+Prompt: “我有一个 Excel 和四张显微图，想一次做出论文 Fig. 2；颜色用我之前选的玫蓝风格。”
+
+Expected: identifies raw-table panels versus finished microscopy panels, uses `battery-review-figure` to inspect and plot the table, then `battery-figure-assemble` to build Fig. 2. Reuses the recorded `rose_blue` choice without asking again. It does not recolor microscopy intensity, invent a scale bar, or infer cell conditions from the Excel filename.
+
+## 11. Style absent from a new drawing request
+
+Prompt: “这是我的对称电池数据，请画得漂亮一点。” Provide a readable table but no style preference or existing project style.
+
+Expected: inspects the table and checks electrode, current density, areal capacity and pressure; shows the six-style preview and asks one concise style question before final drawing. It does not silently select a style or mistake a style preview's synthetic curves for the user's result.

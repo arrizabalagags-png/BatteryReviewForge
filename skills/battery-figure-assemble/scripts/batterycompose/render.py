@@ -13,6 +13,7 @@ from reportlab.lib.utils import ImageReader
 from reportlab.pdfgen import canvas
 
 from .assets import load_asset, preview_loaded, white_inset_fraction
+from .fonts import audit_fonts
 from .layout import ComposeError, resolve_layout
 
 
@@ -199,10 +200,12 @@ def compose(manifest: dict, stem: str | Path, *, strict: bool = False) -> dict:
         scale_px = layout["dpi"] / 25.4
         box = tuple(round(v * scale_px) for v in (x, y, x + width, y + height))
         preview.crop(box).save(crop_dir / f"panel_{panel['label']}.png")
+    font_audit = audit_fonts(pdf_path, infos)
     report = {"figure_id": layout["figure_id"], "claim": layout["claim"],
               "status": "review_required" if warnings else "geometry_pass_visual_review_required",
               "width_mm": layout["width_mm"], "height_mm": layout["height_mm"],
               "dpi": layout["dpi"], "warnings": warnings, "panels": infos,
+              "font_audit": font_audit,
               "outputs": {"pdf": str(pdf_path), "png": str(png_path),
                           "panel_checks": str(crop_dir),
                           "alignment_overlay": str(overlay_path)}}

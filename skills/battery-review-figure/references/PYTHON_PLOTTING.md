@@ -13,7 +13,7 @@ sys.path.insert(0, str(Path("<installed-skill>/scripts").resolve()))
 from batteryplot import read_csv, cycle_retention, save_bundle
 
 rows = read_csv("data/cycle_retention.csv")
-fig, ax = cycle_retention(rows)
+fig, ax = cycle_retention(rows, style="journal_minimal")
 save_bundle(fig, "figures/cycle_retention", claim="A specific, source-supported conclusion",
             source_data="data/cycle_retention.csv",
             caption_notes="Define cells, conditions, normalization and uncertainty here.", close=True)
@@ -55,9 +55,9 @@ These are deliberately strict defaults. Supply each field for every quantitative
 
 For solid-state, lithium-sulfur, aqueous zinc, sodium-ion, flow batteries and full-cell energy comparisons, add claim-specific conditions to the figure ledger and caption: pressure, sulfur loading, E/S, N/P, depth of discharge, zinc excess, areal capacity, power basis, stack boundary, etc. The fixed API cannot know every chemistry's decisive factor. A paper with a different normalization or cell boundary should be separated even if the listed defaults happen to match. Do not fabricate a numeric value to satisfy a field; use a conditions matrix when values are `NR` or `NV`.
 
-The specialized chart functions additionally check the fields defined beside them in `batteryplot/battery_charts.py`. Their input files retain row order: a backwards time/capacity axis is a data issue to review, not something to hide by automatic sorting. For CE, distinguish full-cell discharge/charge from metal stripping/plating definitions. For full-cell capacity, name whether mass refers to cathode, anode, both active materials or a complete cell. A symmetric-cell voltage trace does not measure a full cell's energy density.
+The specialized chart functions additionally check the fields defined beside them in `batteryplot/battery_charts.py`. For a **direct comparison of multiple series or source IDs**, every chart-specific condition field must be declared in every row and match; if a field was not reported, use a conditions matrix or a `contextual` plot with an explicit limitation note. A matching declaration is a screening result, not independent verification. Their input files retain row order: a backwards time/capacity axis is a data issue to review, not something to hide by automatic sorting. For CE, distinguish full-cell discharge/charge from metal stripping/plating definitions. For full-cell capacity, name whether mass refers to cathode, anode, both active materials or a complete cell. A symmetric-cell voltage trace does not measure a full cell's energy density.
 
-`cycle_retention` and `rate_capability` accept `mode="contextual", condition_note="..."` for descriptive overlays under different conditions. A warning is printed on the figure and written to provenance. The author must still state the differences in the caption. `comparison_bars` intentionally has no contextual override.
+`cycle_retention`, `rate_capability` and the specialized charts accept `mode="contextual", condition_note="..."` for descriptive overlays with different or insufficiently known conditions. A limitation banner is printed on the figure and the contextual state is written to provenance. The author must still state the limits in the caption. `comparison_bars` intentionally has no contextual override.
 
 ## Plot package and delivery contract
 
@@ -75,6 +75,8 @@ figures/fig03_cycle/
 ```
 
 The PDF and SVG are vector masters with editable text where supported. PNG/TIFF uses at least 300 dpi; DPI does not apply to pure vector marks. The default canvas is 89 mm wide. Change `width_mm`/`height_mm` for the target journal and inspect the exported figure at that final size. The sidecar records the claim, data path, source IDs, row count, comparison mode and caption notes. It says `requires_human_review` because the package cannot determine whether a paper's numbers, statistics, licenses or journal rules are correct.
+
+All chart helpers accept a `style` code from [STYLE_PRESETS.md](STYLE_PRESETS.md). When using the author-upload CLI, `style` is required in its mapping JSON so the choice is recorded in the provenance sidecar. Programmatic calls retain `forge` as a backward-compatible default; manuscript-facing scripts should pass the selected style explicitly. Original editable SVG templates use the same presets through `scripts/render_template.py`.
 
 Before release, check the exported figure, caption and source data together: all requested observations remain; `n` and error-bar definition are supplied when relevant; legends, symbols, scales, axes, type and line widths are readable; raster inserts have adequate effective resolution; and every reused visual has a recorded license/permission. For multi-panel figures, check final rendered alignment and collisions after layout, not just Python source. Verify the target journal's current author guide for exact dimensions and formats.
 

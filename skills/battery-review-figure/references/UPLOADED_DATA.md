@@ -18,6 +18,8 @@ python skills/battery-review-figure/scripts/plot_uploaded.py inspect --data my_d
 
 若工作簿只有一张表，可省略 `--sheet`。脚本显示列名、前三行和可能的图型；候选只说明列形状相符，不代表数据、单位或实验条件正确。准备一份 JSON 映射后再画：
 
+画最终图前，看[六种风格预览](STYLE_PRESETS.md)并让作者选一套；如果整篇稿件已选过，就沿用。命令行也可列出风格：`python skills/battery-review-figure/scripts/plot_uploaded.py styles`。没有选择时继续查列和条件，绘图命令会明确报错而不会猜默认风格。
+
 ```bash
 python skills/battery-review-figure/scripts/plot_uploaded.py plot --data my_data.xlsx --metadata my_figure.json --out figures/Fig2a
 ```
@@ -31,6 +33,7 @@ python skills/battery-review-figure/scripts/plot_uploaded.py plot --data my_data
 ```json
 {
   "kind": "coulombic_efficiency",
+  "style": "rose_blue",
   "claim": "A 与 B 的库伦效率变化",
   "caption_notes": "说明电芯、分子/分母、测试倍率、温度、圈数和异常点。",
   "columns": {
@@ -70,7 +73,7 @@ python skills/battery-review-figure/scripts/plot_uploaded.py plot --data my_data
 | 循环保持率 | `cycle_retention` | `series, cycle, retention_pct` | 初始圈数和保持率分母 |
 | 倍率性能 | `rate_capability` | `series, step, rate_label, capacity` | 实际测试顺序、恢复步骤、容量单位与分母 |
 
-标准字段的详细条件见 [绘图库说明](PYTHON_PLOTTING.md)。一个样品的原始曲线可以先做核查草图；要把多个样品画在同一坐标里做直接比较，还要让相关测试条件相同。条件不同可以用 `mode: "contextual"` 加明确的 `condition_note`，让读者看到边界；不能据此给不同电芯直接排优劣。
+标准字段的详细条件见 [绘图库说明](PYTHON_PLOTTING.md)。一个样品的原始曲线可以先做核查草图；要把多个样品画在同一坐标里做直接比较，还要让相关测试条件相同。多条样品曲线或跨不同 `source_id` 时，图型列出的相关条件即使在每份材料中都未填写，也不能当成“相同”；直接比较会被拦下。条件不同或信息不足时，可用 `mode: "contextual"` 加明确的 `condition_note` 展示背景，但不能据此给不同电芯直接排优劣。
 
 仪器导出的多行表头、混合单位或带公式但无缓存值的工作簿，需要先另存为“第一行是唯一列名、每行一个观测”的表格；保留原始文件和转换说明。脚本不会悄悄跳过表头或把空格当零。
 
@@ -81,3 +84,4 @@ python skills/battery-review-figure/scripts/plot_uploaded.py plot --data my_data
 ## When this is used in English
 
 Run `inspect` on the uploaded table, map source columns and scientific metadata in JSON, then run `plot`. The file extension determines how to read the table; the data columns and declared cell/test conditions determine the chart. No private reference assets or paper data are bundled.
+Ask once for a named style before final plotting, or reuse the manuscript's recorded choice. `plot` requires `style` in the mapping JSON; use the `styles` command or [preview](STYLE_PRESETS.md) to see options.

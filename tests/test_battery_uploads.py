@@ -68,6 +68,23 @@ class UploadedBatteryPlotTests(unittest.TestCase):
         with self.assertRaisesRegex(DataContractError, "conditions differ"):
             symmetric_voltage(rows)
 
+    def test_cross_source_ce_with_unknown_protocol_is_not_direct(self):
+        rows = [
+            {**BASE, "source_id": f"synthetic:{name}", "series": name,
+             "cycle": "1", "ce_pct": "99", "ce_definition": "discharge/charge"}
+            for name in ("A", "B")
+        ]
+        with self.assertRaisesRegex(DataContractError, "conditions not declared"):
+            coulombic_efficiency(rows)
+        same_paper_rows = [{**row, "source_id": "synthetic:same-paper"} for row in rows]
+        with self.assertRaisesRegex(DataContractError, "conditions not declared"):
+            coulombic_efficiency(same_paper_rows)
+        fig, _ = coulombic_efficiency(
+            rows, mode="contextual", condition_note="CE protocols not fully documented"
+        )
+        self.assertEqual(fig.batteryplot_meta["comparison"], "contextual")
+        plt.close(fig)
+
     def test_csv_xlsx_inspect_and_plot_cli(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
@@ -82,6 +99,7 @@ class UploadedBatteryPlotTests(unittest.TestCase):
             self.assertEqual(inspect_table(rows)["row_count"], 2)
             config = {
                 "kind": "coulombic_efficiency", "claim": "Synthetic CE example",
+                "style": "rose_blue",
                 "caption_notes": "Synthetic, not real evidence.",
                 "columns": {"series": "sample", "cycle": "cycle_no", "ce_pct": "eff"},
                 "common": {**BASE, "ce_definition": "discharge/charge"},
@@ -98,6 +116,8 @@ class UploadedBatteryPlotTests(unittest.TestCase):
             self.assertTrue((root / "ce_plot.png").exists())
             self.assertEqual(json.loads((root / "ce_plot.provenance.json").read_text(encoding="utf-8"))["chart"],
                              "coulombic_efficiency")
+            self.assertEqual(json.loads((root / "ce_plot.provenance.json").read_text(encoding="utf-8"))["style"],
+                             "rose_blue")
             workbook = Workbook()
             sheet = workbook.active
             sheet.title = "Test"

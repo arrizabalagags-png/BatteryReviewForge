@@ -1,5 +1,6 @@
 # Manuscript data and local outputs do not belong in the public skill package.
 *.pdf
+!docs/assets/gallery/*.pdf
 *.docx
 *.pptx
 *.xlsx

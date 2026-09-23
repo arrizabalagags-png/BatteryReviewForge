@@ -11,6 +11,8 @@ Coordinate a battery Review or Perspective across stages while keeping the curre
 
 Identify the chemistry or device class, article type (narrative/critical Review, scoping review, systematic review, Perspective), target readership and venue if known, current manuscript state, accessible sources, and requested deliverable. Infer these from supplied files first. Ask only for missing decisions that block useful work. Read [codex-operations.md](references/codex-operations.md) for multi-session or multi-agent work.
 
+If the request is about **installing or using this suite in an agent host**, identify the exact product first and read [AGENT_COMPATIBILITY.md](references/AGENT_COMPATIBILITY.md). A host's login and API setup is separate from this skill. Do not assume another host has Codex's plugin commands, skill paths, or tool access.
+
 | Stage | Specialist skill |
 | --- | --- |
 | Angle, scope, competing Reviews, outline | `battery-review-plan` |
@@ -27,6 +29,8 @@ Identify the chemistry or device class, article type (narrative/critical Review,
 | Editor/reviewer response and revision | `battery-review-response` |
 
 For a full-project request, load each specialist only as the work reaches its stage. Do not read every skill or create every template at intake. If a specialist is unavailable, follow the shared rules below and state the missing capability only if it affects the result.
+
+For an unclear figure request, use the [plain-language figure router](../battery-review-figure/references/FIGURE_ROUTER.md) before loading a plotting or assembly specialist. Choose by whether the author has raw data, a new schematic brief, finished panels, or a combination; do not decide from file extension alone.
 
 ## Shared rules
 

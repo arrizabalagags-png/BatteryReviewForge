@@ -28,11 +28,12 @@ def require_fields(rows: list[dict], fields: tuple[str, ...]) -> None:
 
 
 def verified_rows(rows: list[dict], fields: tuple[str, ...]) -> None:
+    """Require an author-declared verification state; do not certify its truth."""
     require_fields(rows, ("source_id", "evidence_state") + fields)
     for index, row in enumerate(rows, 1):
         if row["evidence_state"] != "verified":
             raise DataContractError(
-                f"Row {index}: evidence_state={row['evidence_state']!r}; quantitative plots need verified values"
+                f"Row {index}: evidence_state={row['evidence_state']!r}; quantitative plots need author-checked values marked verified"
             )
 
 
@@ -74,9 +75,9 @@ def comparison_guard(
     }
     if differences and mode == "direct":
         raise DataContractError(f"Direct comparison blocked: conditions differ: {differences}")
-    if differences and (not condition_note or not condition_note.strip()):
-        raise DataContractError("Contextual comparison of unlike conditions requires condition_note")
-    return not differences
+    if mode == "contextual" and (not condition_note or not condition_note.strip()):
+        raise DataContractError("Contextual comparison requires condition_note describing its limits")
+    return mode == "direct" and not differences
 
 
 def source_ids(rows: list[dict]) -> list[str]:

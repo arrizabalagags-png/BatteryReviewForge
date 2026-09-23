@@ -37,7 +37,7 @@ class BatteryPlotTests(unittest.TestCase):
     def test_unverified_numeric_values_are_blocked(self):
         row = {**BASE, "evidence_state": "NV", "label": "A", "value": "123",
                "metric_unit": "mAh g-1", "metric_basis": "active mass", "rate": "1 C"}
-        with self.assertRaisesRegex(DataContractError, "verified values"):
+        with self.assertRaisesRegex(DataContractError, "author-checked values"):
             comparison_bars([row], metric_label="Capacity")
 
     def test_missing_context_and_partial_uncertainty_are_blocked(self):

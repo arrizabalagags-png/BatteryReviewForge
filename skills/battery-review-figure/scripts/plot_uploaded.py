@@ -12,11 +12,13 @@ from batteryplot import (
     nyquist, rate_capability, save_bundle, symmetric_voltage, voltage_capacity,
 )
 from batteryplot.ingest import PLOT_COLUMNS, apply_mapping, inspect_table, read_table
+from batteryplot.style import PRESETS
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
+    sub.add_parser("styles", help="List named palette/style choices before plotting")
     inspect_cmd = sub.add_parser("inspect", help="Show sheets/columns and candidate plot families")
     inspect_cmd.add_argument("--data", type=Path, required=True)
     inspect_cmd.add_argument("--sheet")
@@ -26,19 +28,28 @@ def main() -> None:
     plot_cmd.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
     try:
+        if args.command == "styles":
+            print(json.dumps({name: {key: preset[key] for key in ("label_zh", "label_en", "purpose", "swatches")}
+                              for name, preset in PRESETS.items()}, ensure_ascii=False, indent=2))
+            return
         if args.command == "inspect":
             rows = read_table(args.data, sheet=args.sheet)
             print(json.dumps(inspect_table(rows), ensure_ascii=False, indent=2))
             return
         config = json.loads(args.metadata.read_text(encoding="utf-8"))
         kind = config.get("kind")
+        style = config.get("style")
+        if not style:
+            raise DataContractError("Missing style; ask the author to choose one shown by 'styles' and record it in metadata")
+        if style not in PRESETS:
+            raise DataContractError(f"Unknown style {style!r}; choose one of {', '.join(PRESETS)}")
         if kind not in PLOT_COLUMNS:
             raise DataContractError(f"Unknown plot kind {kind!r}; choose one of {', '.join(PLOT_COLUMNS)}")
         rows = apply_mapping(read_table(args.data, sheet=config.get("sheet")),
                              config.get("columns", {}), config.get("common", {}))
         if not any(set(option) <= set(rows[0]) for option in PLOT_COLUMNS[kind]):
             raise DataContractError(f"Mapped table lacks core columns for {kind}")
-        options = {key: config[key] for key in ("mode", "condition_note", "width_mm", "height_mm") if key in config}
+        options = {key: config[key] for key in ("mode", "condition_note", "width_mm", "height_mm", "style") if key in config}
         if kind in {"full_cell_cycling", "half_cell_cycling"}:
             fig, _ = cycling_capacity(rows, cell_configuration=kind.split("_")[0], **options)
         elif kind == "coulombic_efficiency":

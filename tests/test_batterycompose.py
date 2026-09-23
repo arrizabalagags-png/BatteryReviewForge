@@ -80,6 +80,10 @@ class ComposeTests(unittest.TestCase):
             self.assertEqual(report["panels"][0]["kind"], "raster")
             self.assertGreater(report["panels"][0]["effective_dpi"], 300)
             self.assertEqual(report["panels"][1]["kind"], "vector")
+            font_panels = report["font_audit"]["panels"]
+            self.assertEqual(font_panels[0]["status"], "raster_text_unmeasurable")
+            self.assertEqual(font_panels[1]["status"], "review_small_text")
+            self.assertLess(font_panels[1]["min_pt"], 6)
             page = PdfReader(root / "out.pdf").pages[0]
             self.assertIn("VECTOR_SOURCE_TEXT", page.extract_text())
             self.assertAlmostEqual(float(page.mediabox.width) / 72 * 25.4, 180, places=3)

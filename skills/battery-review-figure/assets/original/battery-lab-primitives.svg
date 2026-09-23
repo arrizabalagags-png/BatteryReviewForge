@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="770" viewBox="0 0 1200 770" role="img" aria-label="Original editable battery laboratory and cell-format icon sheet">
+  <rect width="1200" height="770" fill="#ffffff"/>
+  <style>
+    text{font-family:Arial,Helvetica,sans-serif;fill:#26343D}
+    .title{font-size:31px;font-weight:700}.label{font-size:22px;font-weight:700}.note{font-size:15px;fill:#66747C}
+    .card{stroke:#D8E0E4;stroke-width:2}.edge{stroke:#26343D;stroke-width:3;stroke-linejoin:round;stroke-linecap:round}
+  </style>
+  <text x="42" y="55" class="title">Battery lab primitives</text>
+  <text x="42" y="86" class="note">Copy and edit individual groups. Generic layout icons; verify the actual instrument and cell configuration.</text>
+  <g id="electrolyte-prep" transform="translate(42 126)">
+    <rect width="350" height="280" rx="18" fill="#EAF2F7" class="card"/>
+    <text x="20" y="41" class="label">Electrolyte prep</text>
+    <path d="M139 96 H212 L224 218 Q224 231 211 231 H140 Q127 231 127 218 Z" fill="#ffffff" class="edge"/>
+    <path d="M136 174 H215 L219 217 Q220 225 210 225 H141 Q131 225 132 217 Z" fill="#348678" opacity=".64"/>
+    <path d="M155 84 H197 M175 74 V94" fill="none" class="edge"/>
+    <g transform="rotate(-31 223 111)">
+      <rect x="209" y="64" width="27" height="90" rx="7" fill="#205C85"/>
+      <rect x="213" y="145" width="19" height="32" rx="4" fill="#D8E0E4"/>
+      <path d="M219 177 L226 177 L223 194 Z" fill="#26343D"/>
+    </g>
+    <circle cx="187" cy="150" r="6" fill="#205C85"/><circle cx="164" cy="195" r="5" fill="#205C85"/>
+    <text x="20" y="258" class="note">Record salt, solvent, diluent and water.</text>
+  </g>
+  <g id="layered-cell" transform="translate(425 126)">
+    <rect width="350" height="280" rx="18" fill="#E9F4F0" class="card"/>
+    <text x="20" y="41" class="label">Layered cell</text>
+    <path d="M55 101 L260 101 L287 124 L82 124 Z" fill="#205C85"/>
+    <path d="M82 124 L287 124 L287 146 L82 146 Z" fill="#174A69"/>
+    <path d="M55 152 L260 152 L287 175 L82 175 Z" fill="#ffffff" stroke="#A8B9C3" stroke-width="3"/>
+    <path d="M82 175 L287 175 L287 190 L82 190 Z" fill="#D8E0E4"/>
+    <path d="M55 197 L260 197 L287 220 L82 220 Z" fill="#348678"/>
+    <path d="M82 220 L287 220 L287 238 L82 238 Z" fill="#286B60"/>
+    <text x="20" y="258" class="note">Name both electrodes and separator.</text>
+  </g>
+  <g id="coin-cell" transform="translate(808 126)">
+    <rect width="350" height="280" rx="18" fill="#F2EFF6" class="card"/>
+    <text x="20" y="41" class="label">Coin cell</text>
+    <ellipse cx="174" cy="112" rx="101" ry="31" fill="#D8E0E4" class="edge"/>
+    <path d="M73 112 V151 Q174 205 275 151 V112" fill="#B8C5CF" class="edge"/>
+    <ellipse cx="174" cy="152" rx="101" ry="31" fill="#EAF2F7" class="edge"/>
+    <ellipse cx="174" cy="163" rx="75" ry="21" fill="#8B6F9E" opacity=".9"/>
+    <ellipse cx="174" cy="184" rx="78" ry="20" fill="#ffffff" stroke="#A8B9C3" stroke-width="3"/>
+    <ellipse cx="174" cy="205" rx="76" ry="20" fill="#348678" opacity=".9"/>
+    <text x="20" y="258" class="note">Shown exploded; layer order is illustrative.</text>
+  </g>
+  <g id="pouch-cell" transform="translate(42 439)">
+    <rect width="350" height="280" rx="18" fill="#F8EFEC" class="card"/>
+    <text x="20" y="41" class="label">Pouch cell</text>
+    <rect x="85" y="91" width="180" height="131" rx="13" fill="#D8E0E4" class="edge"/>
+    <rect x="96" y="102" width="158" height="109" rx="7" fill="#ffffff" stroke="#A8B9C3" stroke-width="2"/>
+    <path d="M96 141 H254" stroke="#205C85" stroke-width="12"/>
+    <path d="M96 161 H254" stroke="#ffffff" stroke-width="12"/>
+    <path d="M96 181 H254" stroke="#348678" stroke-width="12"/>
+    <rect x="112" y="65" width="26" height="26" fill="#205C85"/>
+    <rect x="212" y="65" width="26" height="26" fill="#348678"/>
+    <text x="20" y="258" class="note">Mark tab polarity and active loading.</text>
+  </g>
+  <g id="three-electrode" transform="translate(425 439)">
+    <rect width="350" height="280" rx="18" fill="#EAF2F7" class="card"/>
+    <text x="20" y="41" class="label">Three-electrode</text>
+    <path d="M92 95 V210 Q92 231 113 231 H241 Q262 231 262 210 V95" fill="#ffffff" class="edge"/>
+    <path d="M98 171 H256 V209 Q256 225 240 225 H114 Q98 225 98 209 Z" fill="#ADC6EE" opacity=".7"/>
+    <path d="M126 73 V201 M176 73 V188 M226 73 V201" fill="none" stroke="#26343D" stroke-width="6"/>
+    <rect x="116" y="183" width="20" height="26" rx="3" fill="#205C85"/>
+    <rect x="170" y="171" width="12" height="26" rx="3" fill="#8B6F9E"/>
+    <rect x="216" y="183" width="20" height="26" rx="3" fill="#348678"/>
+    <text x="111" y="69" class="note">WE</text><text x="163" y="69" class="note">RE</text><text x="214" y="69" class="note">CE</text>
+    <text x="20" y="258" class="note">Identify WE, RE, CE and electrolyte.</text>
+  </g>
+  <g id="cycler-trace" transform="translate(808 439)">
+    <rect width="350" height="280" rx="18" fill="#E9F4F0" class="card"/>
+    <text x="20" y="41" class="label">Cycler + trace</text>
+    <rect x="37" y="100" width="126" height="112" rx="12" fill="#ffffff" class="edge"/>
+    <rect x="51" y="115" width="98" height="48" rx="4" fill="#EAF2F7" stroke="#205C85" stroke-width="2"/>
+    <path d="M59 151 L79 139 L96 147 L117 128 L142 133" fill="none" stroke="#205C85" stroke-width="4"/>
+    <circle cx="68" cy="190" r="8" fill="#348678"/><circle cx="95" cy="190" r="8" fill="#B45A48"/>
+    <path d="M163 169 C188 169 190 108 223 108 H277" fill="none" stroke="#205C85" stroke-width="3"/>
+    <path d="M163 184 C191 184 201 216 223 216 H277" fill="none" stroke="#348678" stroke-width="3"/>
+    <rect x="264" y="99" width="47" height="122" rx="10" fill="#D8E0E4" class="edge"/>
+    <rect x="272" y="108" width="31" height="104" rx="4" fill="#ffffff"/>
+    <text x="20" y="258" class="note">Trace requires raw data and test protocol.</text>
+  </g>
+</svg>

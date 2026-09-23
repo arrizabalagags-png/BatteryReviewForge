@@ -7,7 +7,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw
 from reportlab.pdfgen import canvas
 
 
@@ -40,8 +40,6 @@ def make_demo(root: Path) -> Path:
     draw.line((145, 210, 380, 250, 610, 325, 835, 370, 1060, 402), fill="#205C85", width=9, joint="curve")
     for x, y in ((145, 210), (380, 250), (610, 325), (835, 370), (1060, 402)):
         draw.ellipse((x - 10, y - 10, x + 10, y + 10), fill="#205C85")
-    font = ImageFont.load_default()
-    draw.text((125, 610), "SYNTHETIC DEMO - cycle trend; no research values", fill="#26343D", font=font)
     image.save(sources / "demo_trend.png", dpi=(600, 600))
 
     svg = sources / "demo_matrix.svg"

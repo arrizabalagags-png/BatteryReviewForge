@@ -5,7 +5,11 @@ description: Assemble supplied PNG, TIFF, PDF, and SVG panels into aligned, sour
 
 # Assemble battery manuscript figures
 
-Use this specialist when an author supplies several finished plots, microscopy images, spectra, diagrams, or exported panels and asks for a coherent manuscript figure. For drawing a new quantitative panel from data, use `battery-review-figure` first. Read [the composition guide](references/COMPOSITION.md) for the manifest and CLI only when assembling or auditing files.
+Use this specialist when an author supplies several finished plots, microscopy images, spectra, diagrams, or exported panels and asks for a coherent manuscript figure. For drawing a new quantitative panel from data, use `battery-review-figure` first. Read [the composition guide](references/COMPOSITION.md) for the manifest and CLI only when assembling or auditing files. When panel order or grid choice is unclear, use the [plain-language layout recipes](references/LAYOUT_RECIPES.md) before writing the manifest.
+
+If the task is only to place existing panels, preserve their data encoding and ask for a style choice only when the author wants a redesign and no manuscript style is recorded. If editable panels need a shared palette, route their regeneration to `battery-review-figure` and its [style choices](../battery-review-figure/references/STYLE_PRESETS.md) before assembly. Do not recolor microscopy, spectra intensity, heatmaps or published panels merely to make them match a decorative palette.
+
+For an author request to make the composite look less generic or less AI-made, apply the figure skill's [visual finishing guide](../battery-review-figure/references/VISUAL_FINISH.md) to hierarchy, typography and decoration. Keep the supplied panels' scientific content and provenance intact; visual polish never authorizes changing data or hiding AI assistance.
 
 ## Figure contract before layout
 

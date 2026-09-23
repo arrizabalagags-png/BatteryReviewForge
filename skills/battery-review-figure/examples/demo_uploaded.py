@@ -19,6 +19,7 @@ def write_case(output: Path, kind: str, rows: list[dict], common: dict) -> None:
     mapping = output / f"{kind}.json"
     mapping.write_text(json.dumps({
         "kind": kind,
+        "style": "forge",
         "claim": "SYNTHETIC DEMO ONLY — no scientific claim",
         "caption_notes": "Invented values for testing; never cite as experiment or literature.",
         "columns": {}, "common": common,
@@ -38,10 +39,12 @@ def main(output: Path) -> None:
     write_case(output, "coulombic_efficiency",
                [{"series": series, "cycle": cycle,
                  "ce_pct": round(98.5 + offset + 1.2 * (1 - 1 / (cycle + 1)), 3)}
-                for series, offset in (("Reference", 0), ("Example", 0.45))
-                for cycle in range(1, 11)],
+               for series, offset in (("Reference", 0), ("Example", 0.45))
+               for cycle in range(1, 11)],
                {**common, "cell_configuration": "half cell",
-                "ce_definition": "discharge capacity / charge capacity"})
+                "ce_definition": "discharge capacity / charge capacity",
+                "current_density_ma_cm2": "1", "areal_capacity_mah_cm2": "1",
+                "cutoff_rule": "synthetic fixed cutoff", "ce_protocol": "invented cycling protocol"})
     for kind, cell in (("full_cell_cycling", "full cell"), ("half_cell_cycling", "half cell")):
         write_case(output, kind,
                    [{"series": series, "cycle": cycle,
@@ -50,7 +53,9 @@ def main(output: Path) -> None:
                     for cycle in range(0, 251, 25)],
                    {**common, "cell_configuration": cell,
                     "capacity_basis": "cathode active mass" if cell == "full cell" else "working-electrode active mass",
-                    "capacity_unit": "mAh g-1"})
+                    "capacity_unit": "mAh g-1", "np_ratio": "1.1" if cell == "full cell" else "not applicable",
+                    "cell_format": "synthetic coin cell", "formation_protocol": "invented three cycles",
+                    "pressure_mpa": "0.1"})
     write_case(output, "symmetric_cell_voltage",
                [{"series": series, "time_h": round(i * 0.5, 2),
                  "voltage_mv": (1 if i % 4 < 2 else -1) * amplitude}
@@ -58,7 +63,8 @@ def main(output: Path) -> None:
                 for i in range(41)],
                {**common, "cell_configuration": "Li|Li symmetric cell",
                 "current_density_ma_cm2": "1", "areal_capacity_mah_cm2": "1",
-                "pressure_mpa": "0.1"})
+                "pressure_mpa": "0.1", "separator": "synthetic separator",
+                "failure_rule": "invented cutoff", "cell_format": "synthetic coin cell"})
     write_case(output, "voltage_capacity",
                [{"series": "Example", "cycle": cycle, "direction": direction,
                  "capacity": capacity, "voltage_v": round(voltage, 3)}
@@ -77,7 +83,8 @@ def main(output: Path) -> None:
                 for series, center, radius in (("Reference", 5, 36), ("Example", 5, 24))
                 for i in range(11)],
                {**common, "cell_configuration": "full cell",
-                "cell_state": "before cycling", "frequency_range_hz": "1e5-0.1"})
+                "cell_state": "before cycling", "frequency_range_hz": "1e5-0.1",
+                "perturbation_mv": "10", "pressure_mpa": "0.1"})
 
 
 if __name__ == "__main__":

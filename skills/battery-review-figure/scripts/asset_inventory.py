@@ -9,7 +9,7 @@ from collections import Counter
 from pathlib import Path
 
 
-SUPPORTED = {".png", ".jpg", ".jpeg", ".tif", ".tiff", ".svg", ".pdf",
+SUPPORTED = {".png", ".jpg", ".jpeg", ".tif", ".tiff", ".hdr", ".svg", ".pdf",
              ".pptx", ".ppt", ".ai", ".eps", ".psd", ".vsdx", ".zip"}
 
 

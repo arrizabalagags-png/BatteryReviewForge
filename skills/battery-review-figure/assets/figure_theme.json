@@ -1,6 +1,6 @@
 {
   "name": "BatteryReviewForge original figure theme",
-  "version": 1,
+  "version": 2,
   "background": "#FFFFFF",
   "ink": "#26343D",
   "muted_ink": "#66747C",
@@ -17,6 +17,92 @@
     "teal": "#E9F4F0",
     "rust": "#F8EFEC",
     "purple": "#F2EFF6"
+  },
+  "presets": {
+    "forge": {
+      "label_zh": "深海蓝绿",
+      "label_en": "Forge blue and teal",
+      "purpose": "Balanced battery review figures and multi-panel sets.",
+      "series": ["#205C85", "#348678", "#B45A48", "#8B6F9E", "#776B58"],
+      "swatches": ["#205C85", "#348678", "#B45A48", "#8B6F9E", "#776B58"],
+      "line_pt": 1.5,
+      "roles": {
+        "reference_or_baseline": "#205C85", "new_or_intervention": "#348678",
+        "limitation_or_failure": "#B45A48", "mechanism_or_model": "#8B6F9E",
+        "neutral_context": "#776B58"
+      },
+      "pastels": {"blue": "#EAF2F7", "teal": "#E9F4F0", "rust": "#F8EFEC", "purple": "#F2EFF6"}
+    },
+    "rose_blue": {
+      "label_zh": "玫蓝渐层",
+      "label_en": "Rose and blue",
+      "purpose": "Two-family contrasts and gentle matrix figures.",
+      "series": ["#C11155", "#465AB0", "#DD579A", "#6B94DE", "#775474"],
+      "swatches": ["#C11155", "#DD579A", "#F0B4D2", "#F9ECF2", "#ADC6EE", "#6B94DE", "#465AB0"],
+      "line_pt": 1.5,
+      "roles": {
+        "reference_or_baseline": "#465AB0", "new_or_intervention": "#C11155",
+        "limitation_or_failure": "#A74E6B", "mechanism_or_model": "#775474",
+        "neutral_context": "#6A6D80"
+      },
+      "pastels": {"blue": "#EAF0FC", "teal": "#ECF1FA", "rust": "#FAEEF3", "purple": "#F4EAF5"}
+    },
+    "peach_ice": {
+      "label_zh": "珊瑚冰蓝",
+      "label_en": "Peach and ice",
+      "purpose": "Soft presentation or review figures with a clear warm/cool split.",
+      "series": ["#D45F66", "#357FA7", "#D66F70", "#5293BA", "#866778"],
+      "swatches": ["#FF8887", "#FFD6D6", "#F4F4F4", "#C0E8F2", "#81BBE0"],
+      "line_pt": 1.5,
+      "roles": {
+        "reference_or_baseline": "#357FA7", "new_or_intervention": "#D45F66",
+        "limitation_or_failure": "#AA505B", "mechanism_or_model": "#866778",
+        "neutral_context": "#6E7580"
+      },
+      "pastels": {"blue": "#EAF6FA", "teal": "#E6F4F7", "rust": "#FFF0EF", "purple": "#F7EDF2"}
+    },
+    "thermal_balance": {
+      "label_zh": "暖冷对照",
+      "label_en": "Warm and cool",
+      "purpose": "Strong intervention-versus-control contrasts and temperature narratives.",
+      "series": ["#CB001C", "#3D6EB4", "#F26121", "#3F91C0", "#A36F27"],
+      "swatches": ["#CB001C", "#F26121", "#FCB84D", "#FFF2C7", "#A6DCED", "#5BA7D9", "#3D6EB4"],
+      "line_pt": 1.5,
+      "roles": {
+        "reference_or_baseline": "#3D6EB4", "new_or_intervention": "#CB001C",
+        "limitation_or_failure": "#B84824", "mechanism_or_model": "#A36F27",
+        "neutral_context": "#69717C"
+      },
+      "pastels": {"blue": "#E8F4F9", "teal": "#E9F5F5", "rust": "#FFF0E8", "purple": "#FFF6E0"}
+    },
+    "journal_minimal": {
+      "label_zh": "期刊极简",
+      "label_en": "Journal minimal",
+      "purpose": "Quiet final-size manuscript plots with restrained accents.",
+      "series": ["#174C78", "#417E6D", "#A55353", "#756991", "#6F7478"],
+      "swatches": ["#174C78", "#417E6D", "#A55353", "#756991", "#6F7478"],
+      "line_pt": 1.3,
+      "roles": {
+        "reference_or_baseline": "#174C78", "new_or_intervention": "#417E6D",
+        "limitation_or_failure": "#A55353", "mechanism_or_model": "#756991",
+        "neutral_context": "#6F7478"
+      },
+      "pastels": {"blue": "#EEF3F6", "teal": "#EEF5F2", "rust": "#F7F1F0", "purple": "#F3F1F6"}
+    },
+    "crisp_contrast": {
+      "label_zh": "清晰对比",
+      "label_en": "Crisp contrast",
+      "purpose": "Distinct series and bolder quantitative comparisons.",
+      "series": ["#174F8A", "#34866E", "#B4574A", "#8870A2", "#B07C28"],
+      "swatches": ["#174F8A", "#34866E", "#B4574A", "#8870A2", "#B07C28"],
+      "line_pt": 1.7,
+      "roles": {
+        "reference_or_baseline": "#174F8A", "new_or_intervention": "#34866E",
+        "limitation_or_failure": "#B4574A", "mechanism_or_model": "#8870A2",
+        "neutral_context": "#667079"
+      },
+      "pastels": {"blue": "#EBF2F8", "teal": "#EAF5F0", "rust": "#F8EEEC", "purple": "#F2EFF7"}
+    }
   },
   "rules": [
     "Keep one semantic role per color within a figure; define the mapping in the caption.",

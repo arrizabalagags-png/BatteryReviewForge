@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections import defaultdict
 
 from .data import DataContractError, comparison_guard, number, verified_rows
-from .style import COLORS, LINESTYLES, MARKERS, condition_banner, make_figure
+from .style import COLORS, LINESTYLES, MARKERS, colors_for, condition_banner, make_figure
 
 
 COMMON = ("chemistry", "cell_configuration", "temperature_c")
@@ -18,12 +18,17 @@ EIS = COMMON + ("cell_state", "frequency_range_hz")
 
 def _context(rows: list[dict], required: tuple[str, ...], optional: tuple[str, ...],
              mode: str, condition_note: str | None) -> bool:
-    """Compare declared conditions; optional fields cannot silently change within a panel."""
+    """Compare declared conditions; unknown cross-source fields prevent a direct claim."""
     comparable = comparison_guard(rows, required, mode=mode, condition_note=condition_note)
     differences = {}
+    missing = []
+    compared_series = len({str(row["series"]).strip() for row in rows}) > 1
+    comparison_scope = compared_series or len({str(row["source_id"]).strip() for row in rows}) > 1
     for field in optional:
         values = [str(row.get(field, "")).strip() for row in rows]
         if not any(values):
+            if comparison_scope:
+                missing.append(field)
             continue
         if any(not value or value.upper() in {"NR", "NV"} for value in values):
             raise DataContractError(f"{field} is only partly known; resolve it or split the figure")
@@ -33,7 +38,14 @@ def _context(rows: list[dict], required: tuple[str, ...], optional: tuple[str, .
         raise DataContractError(f"Direct comparison blocked: declared conditions differ: {differences}")
     if differences and not condition_note:
         raise DataContractError("Contextual comparison of unlike conditions requires condition_note")
-    return comparable and not differences
+    if missing and mode == "direct":
+        raise DataContractError(
+            f"Direct multi-series or cross-source comparison blocked: conditions not declared: {missing}; "
+            "supply them or use contextual mode with a clear condition_note"
+        )
+    if missing and not condition_note:
+        raise DataContractError("Contextual plot with unknown conditions requires condition_note")
+    return comparable and not differences and not missing
 
 
 def _series(rows: list[dict]) -> dict[str, list[tuple[int, dict]]]:
@@ -52,6 +64,7 @@ def _meta(fig, chart: str, rows: list[dict], comparable: bool, *, note: str = ""
         "comparison": "direct" if comparable else "contextual",
         "row_count": len(rows),
         "calculation_note": note,
+        "style": fig.batteryplot_style,
     }
 
 
@@ -69,6 +82,7 @@ def _ordered_xy(group: list[tuple[int, dict]], xfield: str, yfield: str, series:
 def cycling_capacity(
     rows: list[dict], *, cell_configuration: str, mode: str = "direct",
     condition_note: str | None = None, width_mm: float = 89, height_mm: float = 65,
+    style: str = "forge",
 ):
     """Plot measured discharge capacity against cycle for a declared cell type."""
     if cell_configuration not in {"full", "half"}:
@@ -83,12 +97,13 @@ def cycling_capacity(
     units = {str(row["capacity_unit"]).strip() for row in rows}
     if len(units) != 1:
         raise DataContractError("Capacity units differ")
-    fig, ax = make_figure(width_mm, height_mm)
+    fig, ax = make_figure(width_mm, height_mm, style=style)
+    colors = colors_for(style)
     for i, (name, group) in enumerate(_series(rows).items()):
         xs, ys = _ordered_xy(group, "cycle", "discharge_capacity", name)
         if min(xs) < 0 or min(ys) < 0:
             raise DataContractError("Cycle and discharge capacity must be non-negative")
-        ax.plot(xs, ys, color=COLORS[i], linestyle=LINESTYLES[i],
+        ax.plot(xs, ys, color=colors[i], linestyle=LINESTYLES[i], linewidth=fig.batteryplot_linewidth,
                 marker=MARKERS[i], markersize=2.7,
                 markevery=max(1, len(xs) // 30), label=name)
     ax.set(xlabel="Cycle number", ylabel=f"Discharge capacity ({next(iter(units))})")
@@ -104,6 +119,7 @@ def cycling_capacity(
 def coulombic_efficiency(
     rows: list[dict], *, mode: str = "direct", condition_note: str | None = None,
     width_mm: float = 89, height_mm: float = 65,
+    style: str = "forge",
 ):
     """Plot CE as supplied or calculate an explicitly defined numerator/denominator ratio."""
     verified_rows(rows, ("series", "cycle"))
@@ -129,12 +145,13 @@ def coulombic_efficiency(
         if not 0 <= value <= 200:
             raise DataContractError(f"Row {index}: CE {value:g}% needs source review; no value is clipped")
         prepared.append({**row, "ce_pct": value})
-    fig, ax = make_figure(width_mm, height_mm)
+    fig, ax = make_figure(width_mm, height_mm, style=style)
+    colors = colors_for(style)
     for i, (name, group) in enumerate(_series(prepared).items()):
         xs, ys = _ordered_xy(group, "cycle", "ce_pct", name)
         if min(xs) < 0:
             raise DataContractError("Cycle number must be non-negative")
-        ax.plot(xs, ys, color=COLORS[i], linestyle=LINESTYLES[i],
+        ax.plot(xs, ys, color=colors[i], linestyle=LINESTYLES[i], linewidth=fig.batteryplot_linewidth,
                 marker=MARKERS[i], markersize=2.7,
                 markevery=max(1, len(xs) // 30), label=name)
     ax.set(xlabel="Cycle number", ylabel="Coulombic efficiency (%)")
@@ -155,6 +172,7 @@ def coulombic_efficiency(
 def symmetric_voltage(
     rows: list[dict], *, mode: str = "direct", condition_note: str | None = None,
     width_mm: float = 89, height_mm: float = 65,
+    style: str = "forge",
 ):
     """Plot signed two-electrode voltage versus elapsed time, without smoothing."""
     verified_rows(rows, ("series", "time_h", "voltage_mv"))
@@ -163,12 +181,14 @@ def symmetric_voltage(
     comparable = _context(rows, SYMMETRIC,
                           ("pressure_mpa", "electrolyte_ul_mg", "separator", "failure_rule",
                            "cell_format"), mode, condition_note)
-    fig, ax = make_figure(width_mm, height_mm)
+    fig, ax = make_figure(width_mm, height_mm, style=style)
+    colors = colors_for(style)
     for i, (name, group) in enumerate(_series(rows).items()):
         xs, ys = _ordered_xy(group, "time_h", "voltage_mv", name, unique_x=False)
         if min(xs) < 0:
             raise DataContractError("Elapsed time must be non-negative")
-        ax.plot(xs, ys, color=COLORS[i], linestyle=LINESTYLES[i], linewidth=1, label=name)
+        ax.plot(xs, ys, color=colors[i], linestyle=LINESTYLES[i],
+                linewidth=fig.batteryplot_linewidth, label=name)
     ax.axhline(0, color="#8A969C", linewidth=0.65)
     ax.set(xlabel="Elapsed time (h)", ylabel="Cell voltage (mV)")
     ax.set_xlim(left=0)
@@ -182,6 +202,7 @@ def symmetric_voltage(
 def voltage_capacity(
     rows: list[dict], *, mode: str = "direct", condition_note: str | None = None,
     width_mm: float = 89, height_mm: float = 65,
+    style: str = "forge",
 ):
     """Plot charge/discharge voltage profiles; preserve direction and cycle labels."""
     verified_rows(rows, ("series", "cycle", "direction", "capacity", "voltage_v"))
@@ -200,15 +221,16 @@ def voltage_capacity(
     names = list(dict.fromkeys(key[0] for key in traces))
     if len(names) > len(COLORS):
         raise DataContractError("Too many series for the palette")
-    fig, ax = make_figure(width_mm, height_mm)
+    fig, ax = make_figure(width_mm, height_mm, style=style)
+    colors = colors_for(style)
     for (name, cycle, direction), group in traces.items():
         xs, ys = _ordered_xy(group, "capacity", "voltage_v", f"{name} cycle {cycle} {direction}", unique_x=False)
         if min(xs) < 0:
             raise DataContractError("Capacity must be non-negative")
         i = names.index(name)
-        ax.plot(xs, ys, color=COLORS[i],
+        ax.plot(xs, ys, color=colors[i],
                 linestyle="-" if direction == "discharge" else "--",
-                linewidth=1.35, label=f"{name} · cycle {cycle} · {direction}")
+                linewidth=fig.batteryplot_linewidth, label=f"{name} · cycle {cycle} · {direction}")
     ax.set(xlabel=f"Capacity ({rows[0]['capacity_unit']})", ylabel="Voltage (V)")
     ax.set_xlim(left=0)
     ax.legend(frameon=False, fontsize=5.5)
@@ -221,17 +243,20 @@ def voltage_capacity(
 def nyquist(
     rows: list[dict], *, mode: str = "direct", condition_note: str | None = None,
     width_mm: float = 89, height_mm: float = 65,
+    style: str = "forge",
 ):
     """Plot Nyquist data with an explicitly positive -Im(Z) column."""
     verified_rows(rows, ("series", "z_real_ohm", "minus_z_imag_ohm"))
     comparable = _context(rows, EIS,
                           ("perturbation_mv", "electrolyte_ul_mg", "pressure_mpa"),
                           mode, condition_note)
-    fig, ax = make_figure(width_mm, height_mm)
+    fig, ax = make_figure(width_mm, height_mm, style=style)
+    colors = colors_for(style)
     for i, (name, group) in enumerate(_series(rows).items()):
         xs = [number(row["z_real_ohm"], "z_real_ohm", index) for index, row in group]
         ys = [number(row["minus_z_imag_ohm"], "minus_z_imag_ohm", index) for index, row in group]
-        ax.plot(xs, ys, color=COLORS[i], marker=MARKERS[i], linestyle=LINESTYLES[i],
+        ax.plot(xs, ys, color=colors[i], marker=MARKERS[i], linestyle=LINESTYLES[i],
+                linewidth=fig.batteryplot_linewidth,
                 markersize=2.6, label=name)
     ax.set(xlabel="Re(Z) (Ω)", ylabel="−Im(Z) (Ω)")
     ax.set_aspect("equal", adjustable="datalim")

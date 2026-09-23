@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="490" viewBox="0 0 1200 490" role="img" aria-label="Original editable generic battery material morphology primitives">
+  <rect width="1200" height="490" fill="#ffffff"/>
+  <style>
+    text{font-family:Arial,Helvetica,sans-serif;fill:#26343D}.title{font-size:31px;font-weight:700}.label{font-size:22px;font-weight:700}.note{font-size:15px;fill:#66747C}.card{stroke:#D8E0E4;stroke-width:2}
+  </style>
+  <text x="42" y="55" class="title">Generic morphology primitives</text>
+  <text x="42" y="86" class="note">Shape language only. Do not use these icons as evidence for particle size, porosity, crystal structure or mechanism.</text>
+  <g id="particles" transform="translate(42 126)">
+    <rect width="260" height="310" rx="18" fill="#EAF2F7" class="card"/>
+    <text x="18" y="38" class="label">Particles</text>
+    <g fill="#205C85" stroke="#ffffff" stroke-width="3">
+      <circle cx="99" cy="103" r="28"/><circle cx="153" cy="101" r="25"/><circle cx="204" cy="119" r="20"/>
+      <circle cx="75" cy="158" r="24"/><circle cx="128" cy="162" r="31"/><circle cx="184" cy="172" r="27"/>
+      <circle cx="96" cy="218" r="25"/><circle cx="151" cy="227" r="28"/><circle cx="207" cy="215" r="18"/>
+    </g>
+    <text x="18" y="282" class="note">Use a measured scale separately.</text>
+  </g>
+  <g id="rods" transform="translate(328 126)">
+    <rect width="260" height="310" rx="18" fill="#E9F4F0" class="card"/>
+    <text x="18" y="38" class="label">Rods / fibers</text>
+    <g fill="#348678">
+      <rect x="58" y="87" width="145" height="24" rx="12" transform="rotate(18 130 99)"/>
+      <rect x="54" y="139" width="152" height="21" rx="10" transform="rotate(-16 130 150)"/>
+      <rect x="70" y="188" width="140" height="19" rx="9" transform="rotate(27 140 198)"/>
+      <rect x="50" y="232" width="150" height="18" rx="9" transform="rotate(-10 125 241)"/>
+    </g>
+    <text x="18" y="282" class="note">Aspect ratios are illustrative.</text>
+  </g>
+  <g id="sheets" transform="translate(614 126)">
+    <rect width="260" height="310" rx="18" fill="#F2EFF6" class="card"/>
+    <text x="18" y="38" class="label">Sheets</text>
+    <path d="M32 122 L180 92 L231 125 L82 157 Z" fill="#8B6F9E" opacity=".52" stroke="#6B557D" stroke-width="2"/>
+    <path d="M32 158 L180 128 L231 161 L82 193 Z" fill="#8B6F9E" opacity=".7" stroke="#6B557D" stroke-width="2"/>
+    <path d="M32 194 L180 164 L231 197 L82 229 Z" fill="#8B6F9E" opacity=".9" stroke="#6B557D" stroke-width="2"/>
+    <text x="18" y="282" class="note">Layer spacing is illustrative.</text>
+  </g>
+  <g id="porous-network" transform="translate(900 126)">
+    <rect width="260" height="310" rx="18" fill="#F8EFEC" class="card"/>
+    <text x="18" y="38" class="label">Network</text>
+    <g fill="none" stroke="#B45A48" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M54 128 L108 88 L171 111 L213 158 L165 214 L91 222 L48 174 Z"/>
+      <path d="M108 88 L126 154 L54 128 M171 111 L126 154 L213 158 M126 154 L91 222 M126 154 L165 214"/>
+    </g>
+    <g fill="#B45A48" stroke="#ffffff" stroke-width="3">
+      <circle cx="54" cy="128" r="12"/><circle cx="108" cy="88" r="12"/><circle cx="171" cy="111" r="12"/>
+      <circle cx="213" cy="158" r="12"/><circle cx="165" cy="214" r="12"/><circle cx="91" cy="222" r="12"/><circle cx="48" cy="174" r="12"/><circle cx="126" cy="154" r="12"/>
+    </g>
+    <text x="18" y="282" class="note">No pore-size or connectivity claim.</text>
+  </g>
+</svg>

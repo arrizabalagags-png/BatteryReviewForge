@@ -6,8 +6,13 @@ This skill ships a small **original** and editable resource set:
 - [cell-boundaries.svg](../assets/original/cell-boundaries.svg): a full/half/symmetric cell boundary diagram. It is a layout starter, not a description of any actual experiment.
 - [review-wheel.svg](../assets/original/review-wheel.svg): a four-part circular Review graphic. Replace the question, categories and source claims; the colored areas do not encode amounts.
 - [electrolyte-evidence-chain.svg](../assets/original/electrolyte-evidence-chain.svg): a formulation–solvation–interphase–cell-result layout, with inference links explicitly dashed.
+- [battery-lab-primitives.svg](../assets/original/battery-lab-primitives.svg): six original, editable icons for generic electrolyte preparation, cell formats and testing equipment.
+- [battery-morphology-primitives.svg](../assets/original/battery-morphology-primitives.svg): particles, rods, sheets and network shapes that make no measurement claim.
+- [style-preview.svg](../assets/style-preview.svg) and [STYLE_PRESETS.md](STYLE_PRESETS.md): six selectable figure color systems; the three user-supplied warm/cool palettes use stronger line colors at final size.
 
 These files are MIT-licensed as part of BatteryReviewForge. Keep the scientific caption and source IDs outside the template; filling a placeholder does not validate a mechanism or comparison.
+
+The [pattern atlas](ASSET_PATTERN_ATLAS.md) classifies local-reference ideas into battery cell structures, laboratory steps, generic morphologies, arrows and decorative textures. It explains which classes were redrawn and which should stay outside evidence figures. Run `scripts/render_template.py` to recolor an original SVG after the author chooses a style; the script never ingests or recolors third-party packs.
 
 ## Bring your own reference material
 
