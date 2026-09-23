@@ -22,7 +22,7 @@ sys.path.insert(0, str(SCRIPTS))
 
 from batteryplot import (  # noqa: E402
     DataContractError, coulombic_efficiency, cycling_capacity, inspect_table,
-    read_table, symmetric_voltage,
+    read_table, symmetric_voltage, tofsims_map, tofsims_depth,
 )
 
 
@@ -35,6 +35,36 @@ BASE = {
 
 
 class UploadedBatteryPlotTests(unittest.TestCase):
+    def test_tofsims_requires_complete_calibrated_map(self):
+        common={"source_id":"test:ion-map","evidence_state":"verified",
+                "sample_id":"Li-cycled","fragment":"LiF2-","signal_unit":"counts",
+                "normalization":"none","ion_polarity":"negative",
+                "measurement_state":"cycled, transferred under inert atmosphere"}
+        rows=[{**common,"x_um":x,"y_um":y,"signal":v}
+              for x,y,v in [(0,0,3),(1,0,5),(0,1,4),(1,1,6)]]
+        fig,ax=tofsims_map(rows,sample_id="Li-cycled",fragment="LiF2-")
+        self.assertEqual(fig.batteryplot_meta["chart"],"tofsims_map")
+        self.assertEqual(ax.images[0].get_array().shape,(2,2))
+        plt.close(fig)
+        with self.assertRaisesRegex(DataContractError,"Incomplete or duplicate"):
+            tofsims_map(rows[:-1],sample_id="Li-cycled",fragment="LiF2-")
+
+    def test_tofsims_depth_preserves_sputter_time(self):
+        common={"source_id":"test:ion-depth","evidence_state":"verified",
+                "sample_id":"Li-cycled","signal_unit":"a.u.",
+                "normalization":"per-fragment maximum","ion_polarity":"negative",
+                "measurement_state":"cycled, transferred under inert atmosphere"}
+        rows=[{**common,"fragment":fragment,"sputter_time_s":time,"signal":signal}
+              for fragment,values in [("LiF2-",[(0,.2),(30,.8)]),("C2HO-",[(0,.9),(30,.3)])]
+              for time,signal in values]
+        fig,ax=tofsims_depth(rows,sample_id="Li-cycled")
+        self.assertEqual(list(ax.lines[0].get_xdata()),[0.0,30.0])
+        self.assertIn("Sputter time",ax.get_xlabel())
+        plt.close(fig)
+        rows[-1]["sputter_time_s"]=20
+        with self.assertRaisesRegex(DataContractError,"different sputter-time grids"):
+            tofsims_depth(rows,sample_id="Li-cycled")
+
     def test_ce_ratio_is_explicit_and_never_clipped(self):
         rows = [
             {**BASE, "series": "A", "cycle": str(cycle), "ce_definition": "discharge/charge",

@@ -8,6 +8,7 @@ from .battery_charts import (
 from .data import DataContractError, read_csv
 from .export import save_bundle
 from .ingest import read_table, inspect_table
+from .tofsims import tofsims_depth, tofsims_map
 
 __all__ = [
     "DataContractError",
@@ -24,4 +25,6 @@ __all__ = [
     "save_bundle",
     "symmetric_voltage",
     "voltage_capacity",
+    "tofsims_map",
+    "tofsims_depth",
 ]

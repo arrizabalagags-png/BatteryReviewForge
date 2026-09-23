@@ -10,6 +10,7 @@ from pathlib import Path
 from batteryplot import (
     DataContractError, coulombic_efficiency, cycling_capacity, cycle_retention,
     nyquist, rate_capability, save_bundle, symmetric_voltage, voltage_capacity,
+    tofsims_map, tofsims_depth,
 )
 from batteryplot.ingest import PLOT_COLUMNS, apply_mapping, inspect_table, read_table
 from batteryplot.style import PRESETS
@@ -50,7 +51,15 @@ def main() -> None:
         if not any(set(option) <= set(rows[0]) for option in PLOT_COLUMNS[kind]):
             raise DataContractError(f"Mapped table lacks core columns for {kind}")
         options = {key: config[key] for key in ("mode", "condition_note", "width_mm", "height_mm", "style") if key in config}
-        if kind in {"full_cell_cycling", "half_cell_cycling"}:
+        if kind in {"tofsims_map", "tofsims_depth"}:
+            if "sample_id" not in config or (kind == "tofsims_map" and "fragment" not in config):
+                raise DataContractError("ToF-SIMS metadata needs sample_id and map plots also need fragment")
+            tof_options = {key: config[key] for key in ("width_mm", "height_mm", "style") if key in config}
+            if kind == "tofsims_map":
+                fig, _ = tofsims_map(rows, sample_id=config["sample_id"], fragment=config["fragment"], **tof_options)
+            else:
+                fig, _ = tofsims_depth(rows, sample_id=config["sample_id"], **tof_options)
+        elif kind in {"full_cell_cycling", "half_cell_cycling"}:
             fig, _ = cycling_capacity(rows, cell_configuration=kind.split("_")[0], **options)
         elif kind == "coulombic_efficiency":
             fig, _ = coulombic_efficiency(rows, **options)

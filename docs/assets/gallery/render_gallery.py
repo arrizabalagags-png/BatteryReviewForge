@@ -16,20 +16,22 @@ import matplotlib.pyplot as plt
 from matplotlib import patches
 from matplotlib.lines import Line2D
 from matplotlib.path import Path as MplPath
+from matplotlib.transforms import Bbox
+from matplotlib.colors import LinearSegmentedColormap
 
 HERE = Path(__file__).resolve().parent
 DATA = HERE / "data"
 DATA.mkdir(exist_ok=True)
 ROOT = HERE.parents[2]
 THEME = json.loads((ROOT / "skills/battery-review-figure/assets/figure_theme.json").read_text(encoding="utf-8"))
-INK = "#24323D"
-MUTED = "#65717C"
-LIGHT = "#DFE5E8"
-BLUE = "#315D88"
-ROSE = "#B85B75"
-TEAL = "#3D8179"
-PALE_BLUE = "#E4EDF3"
-PALE_ROSE = "#F3E5EA"
+INK = "#202B3F"
+MUTED = "#59677A"
+LIGHT = "#DDE3EA"
+BLUE = "#2858A5"
+ROSE = "#D04E78"
+TEAL = "#16877F"
+PALE_BLUE = "#E4ECF8"
+PALE_ROSE = "#F8E6ED"
 WHITE = "#FFFFFF"
 
 plt.rcParams.update({
@@ -53,18 +55,8 @@ def line(fig, x1, y1, x2, y2, color=LIGHT, lw=.7):
 
 
 def plate(title, subtitle, number, kind="SYNTHETIC DATA", height=8):
-    fig = plt.figure(figsize=(12, height))
-    fig.text(.055, .953, "BATTERY REVIEW FORGE", fontsize=9, color=MUTED, weight="bold", va="top")
-    fig.text(.945, .953, f"{kind}  /  {number:02d}", fontsize=9, color=MUTED, ha="right", va="top")
-    fig.text(.055, .893, title, fontsize=24, weight="bold", va="top")
-    fig.text(.055, .837, subtitle, fontsize=11, color=MUTED, va="top")
-    line(fig, .055, .796, .945, .796)
-    line(fig, .055, .076, .945, .076)
-    footer = ("Illustrative data only · Not experimental results" if kind == "SYNTHETIC DATA"
-              else "Original schematic · Idealized geometry, not to scale")
-    fig.text(.055, .048, footer, fontsize=9, color=MUTED, va="center")
-    fig.text(.945, .048, "Editable vector artwork", fontsize=9, color=MUTED, ha="right", va="center")
-    return fig
+    """Create a journal figure canvas. Story/title/conditions live in its caption."""
+    return plt.figure(figsize=(12, height))
 
 
 def save(fig, name, comparable=()):
@@ -79,23 +71,27 @@ def save(fig, name, comparable=()):
         boxes = [fig.axes[i].get_position() for i in group]
         assert max(b.y1 for b in boxes)-min(b.y1 for b in boxes) < 1e-6
         assert max(b.height for b in boxes)-min(b.height for b in boxes) < 1e-6
+    # Gallery plates have no brand header, narrative subtitle or footer. Trim the
+    # old poster bands; keep a consistent publication-size outer white margin.
+    crop = Bbox.from_bounds(.42, fig.get_figheight()*.09, 11.16, fig.get_figheight()*.72)
     (HERE / f"{name}.layout.json").write_text(json.dumps({"canvas_inches":list(fig.get_size_inches()),
+        "crop_inches":[round(v,4) for v in crop.bounds], "data_status":"synthetic_demo",
         "axes":geometry,"comparable_groups":comparable}, indent=2), encoding="utf-8")
-    fig.savefig(HERE / f"{name}.png", dpi=200)
+    fig.savefig(HERE / f"{name}.png", dpi=200, bbox_inches=crop)
     svg_path = HERE / f"{name}.svg"
-    fig.savefig(svg_path)
+    fig.savefig(svg_path, bbox_inches=crop)
     # Matplotlib writes trailing spaces in multiline SVG path attributes.
     # Strip them so the regenerated source remains clean in Git.
     svg_text = svg_path.read_text(encoding="utf-8")
     svg_path.write_bytes(("\n".join(line.rstrip() for line in svg_text.splitlines()) + "\n").encode("utf-8"))
-    fig.savefig(HERE / f"{name}.pdf", metadata={"Title":name, "Author":"BatteryReviewForge contributors",
-        "Subject":"Original schematic or synthetic demonstration data; not experimental evidence"})
+    fig.savefig(HERE / f"{name}.pdf", bbox_inches=crop,
+        metadata={"Title":name, "Author":"BatteryReviewForge contributors",
+                  "Subject":"Original schematic or synthetic demonstration data; not experimental evidence"})
     plt.close(fig)
 
 
 def panel(ax, letter, title):
-    ax.text(-.13, 1.09, letter, transform=ax.transAxes, weight="bold", fontsize=14, va="bottom")
-    ax.text(0, 1.09, title, transform=ax.transAxes, fontsize=12, weight="bold", va="bottom")
+    ax.text(-.13, 1.08, letter, transform=ax.transAxes, weight="bold", fontsize=14, va="bottom")
 
 
 def csv_out(name, header, rows):
@@ -138,7 +134,6 @@ def draw_ce():
     right.set(xlim=(10,308),ylim=(98.85,100.05),xticks=[50,100,150,200,250,300],yticks=[99,99.5,100],xlabel="Cycle number",ylabel="Coulombic efficiency (%)")
     for ax in (left,right):
         ax.axhline(100,color=LIGHT,lw=.8,zorder=0)
-    fig.text(.11,.122,"Li ∥ Cu · Fixed plating capacity: 1.0 mAh cm⁻² · Current density: 0.5 mA cm⁻²",fontsize=10,color=MUTED)
     csv_out("ce-synthetic.csv",["cycle","electrolyte_A_CE_percent","electrolyte_B_CE_percent"],zip(n,a,b))
     save(fig,"ce-demo",[(0,1)])
 
@@ -170,7 +165,6 @@ def draw_full_cell():
     right.set(xlim=(-8,310),ylim=(110,162),xticks=[0,100,200,300],yticks=[120,140,160],xlabel="Cycle number",ylabel="Discharge capacity (mAh g⁻¹)")
     right.text(180,149,"Electrolyte A",color=BLUE,fontsize=10)
     right.text(173,120,"Electrolyte B",color=ROSE,fontsize=10)
-    fig.text(.11,.122,"LiFePO₄ ∥ graphite · Capacity normalized to cathode active mass · Illustrative 0.5 C protocol",fontsize=10,color=MUTED)
     csv_out("full-cell-cycling-synthetic.csv",["cycle","electrolyte_A_mAh_g","electrolyte_B_mAh_g"],zip(n,a,b))
     csv_out("discharge-profiles-synthetic.csv",["cycle","specific_capacity_mAh_g","cell_voltage_V"],profiles)
     save(fig,"full-cell-demo",[(0,1)])
@@ -204,7 +198,6 @@ def draw_symmetric():
     right.plot(t[mask],b[mask],color=ROSE,lw=1.4,ls=(0,(4,2)))
     left.set(xlim=(-3,243),ylim=(-92,92),xticks=[0,60,120,180,240],yticks=[-80,-40,0,40,80],xlabel="Time (h)",ylabel="Cell voltage (mV)")
     right.set(xlim=(199.8,208.2),ylim=(-92,92),xticks=[200,204,208],yticks=[-80,-40,0,40,80],xlabel="Time (h)",ylabel="Cell voltage (mV)")
-    fig.text(.11,.122,"Li ∥ Li · Current density: 0.5 mA cm⁻² · Half-cycle capacity: 1.0 mAh cm⁻²",fontsize=10,color=MUTED)
     csv_out("symmetric-synthetic.csv",["time_h","electrolyte_A_mV","electrolyte_B_mV"],zip(t,a,b))
     save(fig,"symmetric-demo",[(0,1)])
 
@@ -281,7 +274,6 @@ def draw_assembled():
     d.set(xlim=(-.02,1.04),ylim=(-.17,.20),xticks=[0,.5,1],yticks=[-.1,0,.1,.2],xlabel="Areal capacity (mAh cm⁻²)",ylabel="Cell voltage (V)")
     d.text(.32,-.105,"Plating",color=BLUE,fontsize=9)
     d.text(.28,.09,"Stripping",color=ROSE,fontsize=9)
-    fig.text(.11,.112,"All numerical panels are independent synthetic examples. No combined experimental claim is intended.",fontsize=9,color=MUTED)
     csv_out("replicate-CE-synthetic.csv",["electrolyte","synthetic_cell","mean_CE_percent"],[(name,i+1,v) for name,vals in [("A",va),("B",vb)] for i,v in enumerate(vals)])
     csv_out("plating-stripping-synthetic.csv",["branch","areal_capacity_mAh_cm2","cell_voltage_V"],[("plating",x,y) for x,y in zip(q,vp)]+[("stripping",x,y) for x,y in zip(qs,vs)])
     save(fig,"assembled-demo",[(2,3)])
@@ -422,13 +414,74 @@ def draw_morphology():
         morphology(ax,kind)
         fig.text(x,.752-row*.34,chr(97+i),fontsize=13,weight="bold")
         fig.text(x+.03,.752-row*.34,title,fontsize=12,weight="bold")
-        fig.text(x,.46-row*.342,caption,fontsize=9,color=MUTED)
     save(fig,"morphology-primitives")
 
 
+def draw_tofsims():
+    """Original simulated ion maps and sputter-time traces, never a micrograph."""
+    rng = np.random.default_rng(118)
+    grid = np.linspace(0, 100, 150)
+    xx, yy = np.meshgrid(grid, grid)
+    def spot(x, y, sx, sy):
+        return np.exp(-.5 * (((xx-x)/sx)**2 + ((yy-y)/sy)**2))
+    grain = rng.normal(0, .035, xx.shape)
+    lif = (.13 + .74*spot(28,67,14,18) + .78*spot(73,34,19,13)
+           + .32*spot(71,80,10,11) + .075*np.sin(xx*.22)*np.cos(yy*.15) + grain)
+    organic = (.10 + .72*spot(69,69,17,19) + .76*spot(28,27,18,14)
+               + .32*spot(33,76,8,11) + .07*np.cos(xx*.18)*np.sin(yy*.17) - grain*.5)
+    lif = np.clip(lif/lif.max(), 0, 1)
+    organic = np.clip(organic/organic.max(), 0, 1)
+    rgb = np.stack([np.clip(organic*.95 + lif*.09,0,1),
+                    np.clip(lif*.78 + organic*.18,0,1),
+                    np.clip(lif*.95 + organic*.30,0,1)], axis=2)
+    blue_cmap = LinearSegmentedColormap.from_list("ion-blue", ["#071622", "#0E426B", "#39BFD1", "#ECFAFB"])
+    pink_cmap = LinearSegmentedColormap.from_list("ion-rose", ["#120F25", "#67265C", "#D9519B", "#FCEAF4"])
+    fig = plate("ToF-SIMS", "", 8, height=8)
+    for i,(signal,cmap,identity) in enumerate([(lif,blue_cmap,"LiF₂⁻"),
+                                                (organic,pink_cmap,"C₂HO⁻"),
+                                                (rgb,None,"Overlay")]):
+        ax = fig.add_axes([.095+i*.294,.43,.25,.33])
+        ax.imshow(signal,origin="lower",extent=(0,100,0,100),cmap=cmap,vmin=0,vmax=1,
+                  interpolation="nearest")
+        ax.set(xlim=(0,100),ylim=(0,100),xticks=[],yticks=[])
+        for spine in ax.spines.values(): spine.set_visible(False)
+        ax.text(-.09,1.065,chr(97+i),transform=ax.transAxes,fontsize=14,
+                fontweight="bold",color=INK,va="bottom")
+        ax.text(.035,1.065,identity,transform=ax.transAxes,fontsize=11,
+                fontweight="bold",color=INK,va="bottom")
+        ax.plot([8,28],[9,9],color="white",lw=2.5,solid_capstyle="butt")
+        ax.text(8,13,"20 μm",color="white",fontsize=8,weight="bold")
+    t=np.linspace(0,240,241)
+    f = .16+.79*np.exp(-((t-88)/59)**2)+.014*np.sin(t*.17)
+    o = .10+.85*np.exp(-t/68)+.012*np.sin(t*.23+.8)
+    li = .08+.78*(1-np.exp(-t/93))+.015*np.cos(t*.13)
+    f=np.clip(f,0,1);o=np.clip(o,0,1);li=np.clip(li,0,1)
+    ax=fig.add_axes([.12,.17,.77,.20])
+    ax.text(-.065,1.08,"d",transform=ax.transAxes,weight="bold",fontsize=14,va="bottom")
+    for y,c,label,ls in [(f,"#00AAB6","LiF₂⁻","-"),(o,"#C53E86","C₂HO⁻","--"),
+                          (li,"#5066AE","⁷Li⁻","-.")]:
+        ax.plot(t,y,color=c,lw=2.1,label=label,ls=ls)
+    ax.set(xlim=(0,240),ylim=(0,1.08),xticks=[0,60,120,180,240],yticks=[0,.5,1],
+           xlabel="Sputter time (s)",ylabel="Normalized ion signal (a.u.)")
+    ax.legend(loc="upper right",ncol=3,bbox_to_anchor=(1.01,1.20),fontsize=9.5,
+              handlelength=2.3,columnspacing=2)
+    csv_out("tofsims-depth-synthetic.csv",["sputter_time_s","LiF2_minus_relative_signal",
+        "C2HO_minus_relative_signal","Li7_minus_relative_signal"],zip(t,f,o,li))
+    with (DATA/"tofsims-maps-synthetic.csv").open("w",newline="",encoding="utf-8") as handle:
+        writer=csv.writer(handle)
+        writer.writerow(["x_um","y_um","LiF2_minus_relative_signal","C2HO_minus_relative_signal"])
+        for row in range(len(grid)):
+            for col in range(len(grid)):
+                writer.writerow([round(xx[row,col],4),round(yy[row,col],4),
+                                 round(lif[row,col],5),round(organic[row,col],5)])
+    save(fig,"tofsims-demo",[(0,1,2)])
+
+
 def contact_sheet():
-    names=["style-preview","lab-primitives","morphology-primitives","assembled-demo","ce-demo","full-cell-demo","symmetric-demo"]
-    fig,axes=plt.subplots(4,2,figsize=(12,17),facecolor="#E9EDF0")
+    names=["cell-architecture-demo","tofsims-demo","operando-xrd-demo","solvation-evidence-demo",
+           "assembled-demo","ce-demo","full-cell-demo","symmetric-demo",
+           "style-preview","lab-primitives","morphology-primitives"]
+    fig,axes=plt.subplots(6,2,figsize=(12,24),facecolor="#E9EDF0")
     for ax in axes.flat: ax.axis("off")
     for ax,name in zip(axes.flat,names):
         ax.imshow(plt.imread(HERE/f"{name}.png"));ax.set_title(name,fontsize=10,color=INK,pad=5)
@@ -439,5 +492,7 @@ def contact_sheet():
 
 if __name__=="__main__":
     draw_ce();draw_full_cell();draw_symmetric();draw_assembled()
-    draw_styles();draw_lab();draw_morphology();contact_sheet()
-    print("Rendered seven original plates, editable SVG/PDF versions, source CSVs and contact sheet.")
+    draw_styles();draw_lab();draw_morphology();draw_tofsims()
+    from render_showcases import render_all
+    render_all();contact_sheet()
+    print("Rendered eleven original publication plates, editable SVG/PDF, source CSVs and contact sheet.")

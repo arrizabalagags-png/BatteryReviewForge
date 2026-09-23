@@ -11,6 +11,8 @@ If the task is only to place existing panels, preserve their data encoding and a
 
 For an author request to make the composite look less generic or less AI-made, apply the figure skill's [visual finishing guide](../battery-review-figure/references/VISUAL_FINISH.md) to hierarchy, typography and decoration. Keep the supplied panels' scientific content and provenance intact; visual polish never authorizes changing data or hiding AI assistance.
 
+**Manuscript plate default:** assemble the scientific panels, not a promotional poster. Do not add a project logo, figure-level title, explanatory subtitle, numbered decorative heading, footer, or tagline to the artwork. Use consistent `a`, `b`, `c` labels; keep axes, units, sample/fragment names, scale bars and the minimum in-figure legend needed to identify marks. Put the figure's argument, protocols, sample preparation, data/demo status and caveats in the caption or adjacent provenance file. Retain an author-supplied heading only when it identifies a condition that cannot be read otherwise. Before export, scan the full canvas specifically for redundant panel subtitles and remove them one by one.
+
 ## Figure contract before layout
 
 Write one sentence stating the whole figure's claim. For each candidate panel, record its distinct evidence role, source file and source ID, test conditions, intended letter, copyright/permission state, and whether it contains existing labels, scale bars or legends. Remove redundant panels or move them to another figure before shrinking everything to fit. Preserve the author's approved panel order where it supports the argument.

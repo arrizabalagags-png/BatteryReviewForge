@@ -72,10 +72,18 @@ python skills/battery-review-figure/scripts/plot_uploaded.py plot --data my_data
 | EIS Nyquist | `nyquist` | `series, z_real_ohm, minus_z_imag_ohm` | 频率范围、SOC/循环状态、扰动幅值和拟合方式（如有） |
 | 循环保持率 | `cycle_retention` | `series, cycle, retention_pct` | 初始圈数和保持率分母 |
 | 倍率性能 | `rate_capability` | `series, step, rate_label, capacity` | 实际测试顺序、恢复步骤、容量单位与分母 |
+| ToF-SIMS 离子图 | `tofsims_map` | `sample_id, fragment, x_um, y_um, signal` | 像素坐标必须来自仪器标定；选择一个样品及碎片；提供离子极性、取样状态、信号单位、归一化方式 |
+| ToF-SIMS 深度曲线 | `tofsims_depth` | `sample_id, fragment, sputter_time_s, signal` | 同一组碎片须有相同时间网格；横轴保持溅射时间，除非有独立坑深校准 |
 
 标准字段的详细条件见 [绘图库说明](PYTHON_PLOTTING.md)。一个样品的原始曲线可以先做核查草图；要把多个样品画在同一坐标里做直接比较，还要让相关测试条件相同。多条样品曲线或跨不同 `source_id` 时，图型列出的相关条件即使在每份材料中都未填写，也不能当成“相同”；直接比较会被拦下。条件不同或信息不足时，可用 `mode: "contextual"` 加明确的 `condition_note` 展示背景，但不能据此给不同电芯直接排优劣。
 
 仪器导出的多行表头、混合单位或带公式但无缓存值的工作簿，需要先另存为“第一行是唯一列名、每行一个观测”的表格；保留原始文件和转换说明。脚本不会悄悄跳过表头或把空格当零。
+
+## ToF-SIMS 文件怎么交
+
+导出 CSV/XLSX 后先用 `inspect` 看列。二维成像数据一行一个像素，提供 `x_um, y_um, signal, fragment, sample_id`；深度曲线一行一个时间点和碎片，提供 `sputter_time_s, signal, fragment, sample_id`。两者都需要 `source_id, evidence_state=verified, signal_unit, normalization, ion_polarity, measurement_state`，可放在表格列，也可把每行相同的值写在映射 JSON 的 `common` 中。`x_um/y_um` 应来自仪器或作者的像素尺度标定；不接受按图片宽度猜微米。映射 JSON 还需显式写 `kind`、`style`、`sample_id`；离子图另需 `fragment`。输出仍是 PDF/SVG/PNG 和来源记录。
+
+画廊里的 [ToF-SIMS 样图](../../../docs/assets/gallery/tofsims-demo.png) 是**完全虚构的数学示例**。其中的色斑不代表显微观察，曲线也不代表某种电解液；其 CSV 在画廊 `data/` 内。真实数据中不要把不同碎片的相对信号直接写成组分百分比，也不要把溅射秒数改标纳米而没有单独测得的坑深标定。[电池界面 ToF-SIMS 方法研究](https://www.nature.com/articles/s42004-025-01426-0) 讨论了溅射引起的形貌和层混合问题；[正极界面的成像与深度剖析实例](https://www.nature.com/articles/ncomms14589) 展示了化学图与时间剖面的互补用途。
 
 ## 交图前 30 秒检查
 

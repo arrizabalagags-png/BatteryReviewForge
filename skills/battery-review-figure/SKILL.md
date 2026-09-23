@@ -19,11 +19,15 @@ Before **final drawing or recoloring**, ask the author one short style question 
 
 When the chart family is unclear or a Review needs a planned figure set, use [the battery figure atlas](references/BATTERY_FIGURE_ATLAS.md) to choose the evidence role, axes, conditions and display type. Read only the relevant entries; it separates what the upload script can draw directly from figures needing raw spectra, image calibration, modelling details or a newly drawn schematic.
 
+For a striking yet submission-ready composition, read only the matching entry in [the showcase recipes](references/SHOWCASE_RECIPES.md). It covers common performance plots, ToF-SIMS, spectra, diffraction, architecture diagrams and evidence matrices. Keep the figure itself to panel letters, axes, legends and scientifically necessary direct labels; place the story and demonstration disclosure outside the plate.
+
 For illustrations based on author-supplied visual packs, read [the asset pattern atlas](references/ASSET_PATTERN_ATLAS.md) to distinguish useful battery components from decorative textures and unrelated subjects. Use original geometry and verified labels; do not move a licensed icon or an outdated mechanism into the public resource library by changing its color.
 
 When the author asks for a more polished, less generic, or “less AI-looking” figure, use the [visual finishing guide](references/VISUAL_FINISH.md) before final drawing. Keep the request about editorial clarity and scientific fidelity: remove unhelpful effects and template clutter, show the source of every scientific detail, and preserve any journal-required AI-use disclosure. Render, inspect at final size, revise, and recheck rather than declaring the first preview finished.
 
 ## Plan the figure
+
+For a manuscript multi-panel figure, default to **letters + data labels**, with the scientific story in the caption. Do not inject a brand header, figure-level title, narrative subtitle, bottom disclaimer or per-panel headline into the figure. Keep titles only when they identify an otherwise ambiguous sample, condition, fragment or state; prefer direct labels and a shared legend. For website demonstrations, put “synthetic example” beside the image and in metadata, while leaving the reusable publication plate clean.
 
 Record the figure's audience, section owner, claim, panel purposes, underlying source IDs, and whether it shows an observation, a conditional comparison, a model, or a hypothesis. Match the target journal's current display-item count and format before creating artwork. If a figure has no distinct claim, combine or remove it. If the plan changes item numbering or ownership, update the manuscript brief and caption references together.
 
@@ -36,6 +40,8 @@ For cross-study plots, use like-for-like denominators and cell/test conditions. 
 3. When conditions differ, use `conditions_matrix` or an explicitly contextual line plot with a visible note. Do not use `comparison_bars` to rank unlike test conditions. Keep `NR`, `NV`, and zero distinct.
 4. Export with `save_bundle` to a project workspace. It writes vector PDF/SVG, a 300 dpi or higher review raster, and a provenance JSON. PDF/SVG DPI is not a resolution claim. Inspect the final-size render for clipping, text, uncertainty, color and panel alignment; verify current journal format rules before submitting.
 5. Put code, input data, output figures, caption and figure ledger entry together in the manuscript workspace. Preserve source permissions for adapted artwork. No automated style or geometry check can certify the scientific interpretation.
+
+When handing an SVG to a beginner, offer the [short Inkscape editing guide](references/SVG_HANDOFF.md) and its [official download site](https://inkscape.org/). Check whether the SVG contains embedded raster panels before promising that every mark is editable.
 
 ## Four release checks
 

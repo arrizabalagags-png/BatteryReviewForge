@@ -17,6 +17,8 @@ PLOT_COLUMNS = {
     "nyquist": (("series", "z_real_ohm", "minus_z_imag_ohm"),),
     "cycle_retention": (("series", "cycle", "retention_pct"),),
     "rate_capability": (("series", "step", "rate_label", "capacity"),),
+    "tofsims_map": (("sample_id", "fragment", "x_um", "y_um", "signal"),),
+    "tofsims_depth": (("sample_id", "fragment", "sputter_time_s", "signal"),),
 }
 
 ALIASES = {

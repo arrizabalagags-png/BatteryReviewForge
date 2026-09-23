@@ -14,7 +14,7 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS = ROOT / "skills"
-VERSION = "0.4.0"
+VERSION = "0.5.0"
 AUTHOR = "郭硕、姜金龙｜上海理工大学能源材料科学研究院"
 
 ZH = {

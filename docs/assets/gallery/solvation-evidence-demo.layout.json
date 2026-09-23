@@ -1,0 +1,37 @@
+{
+  "canvas_inches": [
+    12.0,
+    8.0
+  ],
+  "crop_inches": [
+    0.42,
+    0.72,
+    11.16,
+    5.76
+  ],
+  "data_status": "synthetic_demo",
+  "axes": [
+    {
+      "bounds_in": [
+        1.26,
+        1.68,
+        5.52,
+        4.16
+      ]
+    },
+    {
+      "bounds_in": [
+        7.86,
+        1.68,
+        3.0,
+        4.16
+      ]
+    }
+  ],
+  "comparable_groups": [
+    [
+      0,
+      1
+    ]
+  ]
+}

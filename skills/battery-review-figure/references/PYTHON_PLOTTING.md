@@ -40,6 +40,8 @@ The example data are invented and must never be used as literature evidence.
 | `symmetric_voltage(rows)` | Signed mV vs elapsed hours | Requires symmetric cell configuration, current density, areal capacity and pressure; retains polarity and failure region |
 | `voltage_capacity(rows)` | Charge/discharge profile points | Keeps cycle and direction separate, requires voltage and capacity units/basis |
 | `nyquist(rows)` | Real impedance and explicit positive negative-imaginary column | Requires cell state and frequency range; does not silently flip raw impedance sign |
+| `tofsims_map(rows, sample_id=..., fragment=...)` | One calibrated x/y coordinate and ion signal per pixel | Requires a complete regular grid and explicit fragment, polarity, normalization and state |
+| `tofsims_depth(rows, sample_id=...)` | One sputter-time point per fragment and sample | Preserves supplied signal and time; rejects mismatched time grids; never invents depth or composition |
 
 All quantitative rows require `source_id` and `evidence_state=verified`. A source ID is a DOI, stable paper ID or locally resolvable bibliography key. This is an author-supplied declaration; inspect the actual source and DOI with the claim/citation skills. Required numeric fields must be finite. Keep the raw input unchanged; calculate normalization in a separate, documented step.
 
