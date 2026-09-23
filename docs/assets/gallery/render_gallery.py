@@ -7,8 +7,10 @@ Requires numpy and matplotlib. The exported SVGs retain editable text.
 """
 
 from pathlib import Path
+from datetime import datetime, timezone
 import csv
 import json
+import re
 import numpy as np
 import matplotlib
 matplotlib.use("Agg")
@@ -46,6 +48,7 @@ plt.rcParams.update({
     "legend.frameon": False, "legend.fontsize": 10,
     "lines.solid_capstyle": "round", "lines.solid_joinstyle": "round",
     "svg.fonttype": "none", "pdf.fonttype": 42,
+    "svg.hashsalt": "BatteryReviewForge-gallery-v1",
     "figure.facecolor": WHITE, "savefig.facecolor": WHITE,
 })
 
@@ -79,14 +82,22 @@ def save(fig, name, comparable=()):
         "axes":geometry,"comparable_groups":comparable}, indent=2), encoding="utf-8")
     fig.savefig(HERE / f"{name}.png", dpi=200, bbox_inches=crop)
     svg_path = HERE / f"{name}.svg"
-    fig.savefig(svg_path, bbox_inches=crop)
+    fig.savefig(svg_path, bbox_inches=crop,
+                metadata={"Date":"2026-09-23", "Creator":"BatteryReviewForge contributors"})
     # Matplotlib writes trailing spaces in multiline SVG path attributes.
     # Strip them so the regenerated source remains clean in Git.
     svg_text = svg_path.read_text(encoding="utf-8")
+    # Matplotlib's clip-path ids for artist objects can include process-specific
+    # hashes. Give them stable document-local ids so repeated builds are equal.
+    for index, old_id in enumerate(re.findall(r'<clipPath id="(p[0-9a-f]+)"', svg_text), 1):
+        new_id = f"brfclip{index}"
+        svg_text = svg_text.replace(f'id="{old_id}"', f'id="{new_id}"')
+        svg_text = svg_text.replace(f'url(#{old_id})', f'url(#{new_id})')
     svg_path.write_bytes(("\n".join(line.rstrip() for line in svg_text.splitlines()) + "\n").encode("utf-8"))
     fig.savefig(HERE / f"{name}.pdf", bbox_inches=crop,
         metadata={"Title":name, "Author":"BatteryReviewForge contributors",
-                  "Subject":"Original schematic or synthetic demonstration data; not experimental evidence"})
+                  "Subject":"Original schematic or synthetic demonstration data; not experimental evidence",
+                  "CreationDate":datetime(2026,9,23,tzinfo=timezone.utc)})
     plt.close(fig)
 
 
@@ -245,7 +256,6 @@ def draw_assembled():
     fig=plate("Lithium plating and stripping", "One aligned composition: cell geometry, cycling, repeatability and voltage.",4,height=9)
     a=blank_ax(fig,[.10,.465,.335,.277])
     a.text(-.13,1.08,"a",transform=a.transAxes,weight="bold",fontsize=14)
-    a.text(0,1.08,"Two-electrode geometry",transform=a.transAxes,weight="bold",fontsize=12)
     cell_cross_section(a)
     b=fig.add_axes([.585,.477,.315,.255])
     c=fig.add_axes([.11,.18,.325,.19])
@@ -263,7 +273,7 @@ def draw_assembled():
         c.scatter(i+np.array([-.13,-.04,.05,.14]),values,s=24,facecolors=WHITE,edgecolors=color,linewidths=1,marker=mark,zorder=3)
         c.plot([i-.23,i+.23],[values.mean()]*2,color=color,lw=1.5)
     c.set(xlim=(-.6,1.6),ylim=(98.8,100),xticks=[0,1],xticklabels=["Electrolyte A","Electrolyte B"],yticks=[99,99.5,100],ylabel="Mean CE, cycles 50–100 (%)")
-    c.text(.99,.96,"n = 4 synthetic cells / group\nLine: group mean",transform=c.transAxes,ha="right",va="top",fontsize=8.5,color=MUTED)
+    c.text(.99,.96,"n = 4 cells / group\nLine: group mean",transform=c.transAxes,ha="right",va="top",fontsize=8.5,color=MUTED)
     q=np.linspace(0,1,250)
     vp=-.035-.11*np.exp(-q/.012)+.008*q
     qs=np.linspace(0,.997,250)

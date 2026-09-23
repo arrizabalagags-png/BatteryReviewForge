@@ -85,7 +85,7 @@ const english = {
   step2Link: "New to API keys? Start here",
   step3Title: "Upload a file and describe the job",
   step3Text: "Bring a table, several finished panels, or a batch of papers. You can copy the example message below.",
-  download: "Download skill pack v0.5.0",
+  download: "Download skill pack v0.5.1",
   codexInstallTitle: "Codex: install after extracting",
   codexInstallHint: "Run once",
   copy: "Copy",
