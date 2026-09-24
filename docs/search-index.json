@@ -1,177 +1,242 @@
 [
   {
     "group": "开始做",
+    "title": "我有 Excel 想画论文图",
+    "url": "start.html?task=full",
+    "keywords": "excel xlsx csv 表格 数据 画图 怎么画 全电池",
+    "description": "下载一份演示包，照着两步画出第一张可编辑图。",
+    "cta": "开始画图"
+  },
+  {
+    "group": "了解",
+    "title": "已经会用 Origin 为什么还要试",
+    "url": "why.html",
+    "keywords": "为什么 有什么用 值得吗 origin originpro 省时间 重复劳动",
+    "description": "看看它能帮你省掉哪些重复步骤，也看看什么时候继续用 Origin 更快。",
+    "cta": "了解原因"
+  },
+  {
+    "group": "开始做",
     "title": "安装 BatteryReviewForge",
     "url": "start.html",
     "keywords": "安装 download codex kimi workbuddy windows mac linux",
-    "description": "安装 BatteryReviewForge"
+    "description": "打开安装 BatteryReviewForge的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "开始做",
     "title": "用 Li‖Cu 数据画 CE",
     "url": "start.html?task=ce",
     "keywords": "库伦效率 库仑效率 CE li||cu",
-    "description": "用 Li‖Cu 数据画 CE"
+    "description": "打开用 Li‖Cu 数据画 CE的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "开始做",
     "title": "六张图拼成 Figure",
     "url": "start.html?task=assembly",
     "keywords": "拼图 拼版 panel assembly",
-    "description": "六张图拼成 Figure"
+    "description": "下载六张演示图，按真实绘图区边界拼整齐。",
+    "cta": "开始拼图"
   },
   {
     "group": "样图",
     "title": "Li‖Cu 逐圈 CE 样图",
     "url": "gallery.html#li_cu_ce",
     "keywords": "库伦效率 库仑效率 CE Aurbach",
-    "description": "Li‖Cu 逐圈 CE 样图"
+    "description": "打开Li‖Cu 逐圈 CE 样图的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "样图",
     "title": "全电池长循环样图",
     "url": "gallery.html#full_cell",
     "keywords": "全电池 full cell cycling",
-    "description": "全电池长循环样图"
+    "description": "打开全电池长循环样图的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "样图",
     "title": "EIS Nyquist 样图",
     "url": "gallery.html#eis",
     "keywords": "阻抗 EIS Nyquist",
-    "description": "EIS Nyquist 样图"
+    "description": "打开EIS Nyquist 样图的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "样图",
     "title": "Li‖Li 对称电池样图",
     "url": "gallery.html#li_li",
     "keywords": "对称电池 li||li symmetric cell",
-    "description": "Li‖Li 对称电池样图"
+    "description": "打开Li‖Li 对称电池样图的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "样图",
     "title": "Operando XRD 样图",
     "url": "gallery.html#operando_xrd",
     "keywords": "xrd diffraction",
-    "description": "Operando XRD 样图"
+    "description": "打开Operando XRD 样图的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "样图",
     "title": "ToF-SIMS 样图",
     "url": "gallery.html#tof_sims",
     "keywords": "tof sims depth map",
-    "description": "ToF-SIMS 样图"
+    "description": "打开ToF-SIMS 样图的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "样图",
     "title": "同一数据六套配色",
     "url": "gallery.html#style_presets",
     "keywords": "配色 风格 style preset 同一数据",
-    "description": "同一数据六套配色"
+    "description": "打开同一数据六套配色的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "样图",
     "title": "十类图能力展示",
     "url": "gallery.html#capability_spread",
     "keywords": "capability ten panel 十面板 总图",
-    "description": "十类图能力展示"
+    "description": "打开十类图能力展示的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "样图",
     "title": "软包温度热图",
     "url": "gallery.html#pouch_thermal",
     "keywords": "pouch thermal 热图 温度 软包",
-    "description": "软包温度热图"
+    "description": "打开软包温度热图的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "样图",
     "title": "文献性能散点",
     "url": "gallery.html#literature_benchmark",
     "keywords": "benchmark literature scatter 文献 性能 散点",
-    "description": "文献性能散点"
+    "description": "打开文献性能散点的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "样图",
     "title": "倍率性能",
     "url": "gallery.html#rate_capability",
     "keywords": "rate capability 倍率",
-    "description": "倍率性能"
+    "description": "打开倍率性能的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "样图",
     "title": "充放电曲线",
     "url": "gallery.html#gcd_profiles",
     "keywords": "gcd voltage profile 充放电",
-    "description": "充放电曲线"
+    "description": "打开充放电曲线的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "样图",
     "title": "报告完整度矩阵",
     "url": "gallery.html#reporting_matrix",
     "keywords": "reporting matrix heatmap NR NV 文献矩阵",
-    "description": "报告完整度矩阵"
+    "description": "打开报告完整度矩阵的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "学习",
     "title": "CE 与 Aurbach CE 的区别",
-    "url": "learn.html",
+    "url": "learn.html#ce",
     "keywords": "库伦效率 库仑效率 CE aurbach",
-    "description": "CE 与 Aurbach CE 的区别"
+    "description": "打开CE 与 Aurbach CE 的区别的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "学习",
     "title": "Inkscape 微调 SVG",
     "url": "learn.html#svg",
     "keywords": "svg inkscape 字号 排版",
-    "description": "Inkscape 微调 SVG"
+    "description": "打开Inkscape 微调 SVG的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "学习",
     "title": "兼容哪些 AI 软件",
     "url": "learn.html#compatibility",
     "keywords": "codex kimi workbuddy deepseek 豆包",
-    "description": "兼容哪些 AI 软件"
+    "description": "打开兼容哪些 AI 软件的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "学习",
     "title": "模型怎么选与费用",
     "url": "models.html",
     "keywords": "模型 model 省钱 推荐 费用 API 会员 Luna Sol Astra Kimi DeepSeek",
-    "description": "模型怎么选与费用"
+    "description": "分清会员额度和自填 API Key，再决定要不要换模型。",
+    "cta": "看费用"
+  },
+  {
+    "group": "学习",
+    "title": "软件安装遇到问题",
+    "url": "learn.html#install",
+    "keywords": "不会 小白 看不懂 怎么装 安装 打不开 没反应",
+    "description": "不会安装或打开后没反应，从这里一步步排查。",
+    "cta": "看帮助"
+  },
+  {
+    "group": "学习",
+    "title": "时间对比怎么测",
+    "url": "benchmark.html",
+    "keywords": "时间 节省 benchmark 测试",
+    "description": "真实计时还在建立；先看统一的测试方法。",
+    "cta": "看计划"
   },
   {
     "group": "功能",
     "title": "电池数据出图",
     "url": "features.html",
     "keywords": "CE EIS 全电池 画图",
-    "description": "电池数据出图"
+    "description": "打开电池数据出图的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "功能",
     "title": "图片拼版",
     "url": "features.html",
     "keywords": "拼图 拼版 figure",
-    "description": "图片拼版"
+    "description": "打开图片拼版的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "社区",
     "title": "路线图与已知限制",
     "url": "roadmap.html",
     "keywords": "roadmap 版本 已知问题",
-    "description": "路线图与已知限制"
+    "description": "打开路线图与已知限制的说明与下一步。",
+    "cta": "打开"
+  },
+  {
+    "group": "社区",
+    "title": "大家分享的配色和布局",
+    "url": "community.html",
+    "keywords": "社区 配色 布局 模板 commons 投稿 共享",
+    "description": "看看有作者、许可和固定版本的配色与布局，也可以提交自己的办法。",
+    "cta": "看资源"
   },
   {
     "group": "社区",
     "title": "参与贡献",
     "url": "contribute.html",
     "keywords": "contribute issue",
-    "description": "参与贡献"
+    "description": "打开参与贡献的说明与下一步。",
+    "cta": "打开"
   },
   {
     "group": "开发者",
     "title": "battery-review-figure 规则",
     "url": "developers.html#grammar",
     "keywords": "库伦效率 CE Aurbach figure grammar",
-    "description": "battery-review-figure 规则"
+    "description": "打开battery-review-figure 规则的说明与下一步。",
+    "cta": "打开"
   }
 ]

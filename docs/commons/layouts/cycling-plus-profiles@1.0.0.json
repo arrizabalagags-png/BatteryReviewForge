@@ -1,0 +1,23 @@
+{
+  "id": "cycling-plus-profiles",
+  "version": "1.0.0",
+  "name": "Cycling plus selected voltage profiles",
+  "author": "BatteryReviewForge maintainers",
+  "description": "A two-panel battery figure with long-term cycling and its corresponding voltage profiles.",
+  "description_zh": "左侧放长循环，右侧放同一实验的选定圈数电压曲线。",
+  "license": "CC0-1.0",
+  "created_at": "2026-09-24",
+  "updated_at": "2026-09-24",
+  "category": "layout",
+  "tags": ["full-cell", "electrochemistry"],
+  "status": "community",
+  "source": "original BatteryReviewForge community starter",
+  "permissions": {"public_display": true, "registry": true, "automated_testing": true, "model_training": false},
+  "panel_count": 2,
+  "roles": ["long-term cycling", "selected voltage profiles from the same experiment"],
+  "layout": {"columns_fraction": [0.63, 0.37], "gutter_mm": 4, "panel_letters": ["a", "b"]},
+  "recommended_use": "Full-cell performance when paired profiles exist and share the same sample and conditions.",
+  "minimum_width_mm": 160,
+  "minimum_font_pt": 6,
+  "scientific_review": "not_reviewed"
+}

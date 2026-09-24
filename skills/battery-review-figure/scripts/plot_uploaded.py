@@ -13,7 +13,7 @@ from batteryplot import (
     tofsims_map, tofsims_depth,
 )
 from batteryplot.ingest import PLOT_COLUMNS, apply_mapping, inspect_table, read_table
-from batteryplot.style import PRESETS
+from batteryplot.style import PRESETS, register_community_style
 
 
 def main() -> None:
@@ -42,6 +42,13 @@ def main() -> None:
         style = config.get("style")
         if not style:
             raise DataContractError("Missing style; ask the author to choose one shown by 'styles' and record it in metadata")
+        community_provenance = None
+        if style.startswith("community:"):
+            if not config.get("community_style_lock"):
+                raise DataContractError("Community style requires an explicitly selected local lock file")
+            pin, community_provenance = register_community_style(config["community_style_lock"])
+            if pin != style:
+                raise DataContractError("Style name and community lock select different versions")
         if style not in PRESETS:
             raise DataContractError(f"Unknown style {style!r}; choose one of {', '.join(PRESETS)}")
         if kind not in PLOT_COLUMNS:
@@ -74,6 +81,8 @@ def main() -> None:
         else:
             fig, _ = rate_capability(rows, **options)
         fig.batteryplot_meta["source_sha256"] = hashlib.sha256(args.data.read_bytes()).hexdigest()
+        if community_provenance:
+            fig.batteryplot_meta["community_style"] = community_provenance
         files = save_bundle(fig, args.out, claim=config["claim"], source_data=str(args.data),
                             caption_notes=config["caption_notes"], close=True)
         print(json.dumps({"kind": kind, "files": [str(path) for path in files]}, ensure_ascii=False, indent=2))

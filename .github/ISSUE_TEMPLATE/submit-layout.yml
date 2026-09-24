@@ -1,0 +1,40 @@
+name: 提交社区布局
+description: 分享一种原创的论文 Figure 排版方法
+title: "[Commons layout] "
+body:
+  - type: markdown
+    attributes:
+      value: "此 Issue 公开可见。请用占位示意或明确授权的样图；不要上传未发表结果、论文原图或合作者材料。"
+  - type: input
+    id: name
+    attributes: {label: 布局名称, placeholder: "例：Cycling plus profiles"}
+    validations: {required: true}
+  - type: input
+    id: author
+    attributes: {label: 希望署名的作者或团队}
+    validations: {required: true}
+  - type: textarea
+    id: panels
+    attributes: {label: 面板数量和每格的证据作用, placeholder: "a 长循环；b 同一实验的电压曲线"}
+    validations: {required: true}
+  - type: textarea
+    id: geometry
+    attributes: {label: 宽度、间距和适用情境, placeholder: "例：183 mm 双栏，a:b=63:37，间距 4 mm"}
+    validations: {required: true}
+  - type: dropdown
+    id: license
+    attributes: {label: 资源许可, options: ["CC0-1.0", "CC-BY-4.0"]}
+    validations: {required: true}
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: 公开与权利
+      options:
+        - label: 我有权提交此布局，理解本 Issue 会公开显示
+          required: true
+        - label: 我允许按所选许可收入 Battery Commons 公共资源库
+          required: true
+        - label: 我允许做自动化预览与检查
+          required: false
+        - label: 我另外允许未来用于模型训练（默认不选；不选也可提交）
+          required: false

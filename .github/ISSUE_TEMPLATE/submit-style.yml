@@ -1,0 +1,40 @@
+name: 提交社区配色
+description: 分享一套原创、可公开的电池科研绘图配色
+title: "[Commons style] "
+body:
+  - type: markdown
+    attributes:
+      value: "此 Issue 公开可见。请不要上传未发表实验数据、论文原图、个人信息或无许可的素材。"
+  - type: input
+    id: name
+    attributes: {label: 配色名称, placeholder: "例：Ocean Electrolyte"}
+    validations: {required: true}
+  - type: input
+    id: author
+    attributes: {label: 希望署名的作者或团队}
+    validations: {required: true}
+  - type: textarea
+    id: colors
+    attributes: {label: 2–8 个 HEX 颜色, placeholder: "#165777, #2F786A, ..."}
+    validations: {required: true}
+  - type: textarea
+    id: use
+    attributes: {label: 适合的图和曲线数量, placeholder: "例：2–4 条长循环曲线；白底"}
+    validations: {required: true}
+  - type: dropdown
+    id: license
+    attributes: {label: 资源许可, options: ["CC0-1.0", "CC-BY-4.0"]}
+    validations: {required: true}
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: 公开与权利
+      options:
+        - label: 我有权提交这套配色，理解本 Issue 会公开显示
+          required: true
+        - label: 我允许按所选许可收入 Battery Commons 公共资源库
+          required: true
+        - label: 我允许用这套配色做自动化预览与检查
+          required: false
+        - label: 我另外允许未来用于模型训练（默认不选；不选也可提交）
+          required: false

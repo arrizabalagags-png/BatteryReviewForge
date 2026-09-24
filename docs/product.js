@@ -21,59 +21,103 @@ const searchInput = document.querySelector("#site-search-input");
 const searchResults = document.querySelector("#search-results");
 const searchStatus = document.querySelector("#search-status");
 const pageRegions = [...document.querySelectorAll("header, main, footer")];
-const groups = ["开始做","样图","学习","功能","社区","开发者"];
-const synonyms = [
-  ["库伦效率","库仑效率","coulombic efficiency","ce"],
-  ["阻抗","eis","nyquist"],
-  ["对称电池","li||li","symmetric cell"],
-  ["拼图","拼版","panel assembly"],
-  ["全电池","full cell","cycling"],
-  ["热图","软包温度","thermal","pouch"],
-  ["文献散点","基准比较","benchmark","literature scatter"],
-  ["倍率","rate capability","rate"],
-  ["充放电","gcd","voltage profile"],
-  ["报告矩阵","reporting matrix","matrix"]
+const groups = ["开始做","了解","样图","学习","功能","社区","开发者"];
+const concepts = {
+  data:["excel","xlsx","csv","表格","数据","画图","怎么画"],
+  assembly:["拼图","拼版","排版","组合图","figure","六张图","十张图","怎么拼"],
+  value:["为什么","有啥用","有什么用","值得","origin","originpro","省时间"],
+  cost:["多少钱","价格","贵不贵","费用","额度","token","模型","省钱"],
+  install:["不会","小白","看不懂","怎么装","安装","打不开","没反应"],
+  ce:["库伦效率","库仑效率","coulombic efficiency","ce","aurbach"],
+  eis:["阻抗","eis","nyquist"],
+  symmetric:["对称电池","li||li","symmetric cell"],
+  thermal:["热图","软包温度","thermal","pouch"],
+  rate:["倍率","rate capability"],
+  xrd:["xrd","衍射"],
+  sims:["tof-sims","tofsims","深度分布"]
+};
+const intentDestinations = {
+  data:"start.html?task=full", assembly:"start.html?task=assembly", value:"why.html",
+  cost:"models.html", install:"learn.html#install", ce:"start.html?task=ce",
+  eis:"gallery.html#eis", symmetric:"gallery.html#li_li", thermal:"gallery.html#pouch_thermal",
+  rate:"gallery.html#rate_capability", xrd:"gallery.html#operando_xrd", sims:"gallery.html#tof_sims"
+};
+const popular = [
+  ["我有 Excel","start.html?task=full"],["我要拼 Figure","start.html?task=assembly"],
+  ["为什么用它","why.html"],["模型和费用","models.html"],["我不会安装","learn.html#install"]
 ];
 let searchIndex = null;
 let searchLoad = null;
 let searchError = false;
 let opener = null;
+let activeResult = -1;
 
-function expandTerm(term) {
-  const lower = term.trim().toLowerCase();
-  const found = synonyms.find(row => row.some(word => word.toLowerCase() === lower));
-  return found || [lower];
+function normalized(value) {
+  return value.toLowerCase().normalize("NFKC").replace(/[，。？！?！、,.;；：:]/g," ").replace(/\s+/g," ").trim();
 }
-function matchesTerm(item,needles) {
-  const hay = (item.title + " " + item.keywords + " " + item.description).toLowerCase();
-  return needles.some(term => /^[a-z0-9]{1,3}$/.test(term) ?
-    new RegExp("\\b" + term + "\\b").test(hay) : hay.includes(term));
+function containsForm(haystack, form) {
+  const word = normalized(form);
+  if (/^[a-z0-9]{1,3}$/.test(word)) return new RegExp("(^|[^a-z0-9])" + word + "($|[^a-z0-9])").test(haystack);
+  return haystack.includes(word);
+}
+function queryParts(query) {
+  const clean = normalized(query).replace(/我的|我想|怎么|如何|可以|能不能|有一个|一份|一些|请问|帮我|一下|吗/g," ").trim();
+  const words = clean.match(/[a-z0-9|+-]+|[\u3400-\u9fff]{2,}/g) || [];
+  const found = Object.entries(concepts).filter(([,forms]) => forms.some(form => containsForm(normalized(query), form)));
+  return {words, concepts:found.map(([name]) => name), query:normalized(query)};
+}
+function scoreItem(item, parts) {
+  const title = normalized(item.title), keywords = normalized(item.keywords), description = normalized(item.description);
+  let score = 0;
+  for (const concept of parts.concepts) {
+    const matchedForms = concepts[concept].filter(form => containsForm(parts.query, form));
+    if (item.url === intentDestinations[concept]) score += 30;
+    if (matchedForms.some(form => title.includes(normalized(form)))) score += 8;
+    else if (matchedForms.some(form => keywords.includes(normalized(form)))) score += 4;
+  }
+  for (const word of parts.words) {
+    if (word.length < 2) continue;
+    if (title.includes(word)) score += 7;
+    else if (keywords.includes(word)) score += 3;
+    else if (description.includes(word)) score += 1;
+  }
+  if (score > 0 && item.group === "开始做") score += 2;
+  return score;
+}
+function resultLink(item) {
+  const link = document.createElement("a");
+  link.href = item.url;
+  link.className = "search-result";
+  const title = document.createElement("strong"); title.textContent = item.title;
+  const description = document.createElement("span"); description.textContent = item.description || "看看下一步怎么做。";
+  const action = document.createElement("em"); action.textContent = (item.cta || "打开") + " →";
+  link.append(title,description,action);
+  return link;
 }
 function renderSearch() {
-  const term = searchInput.value.trim().toLowerCase();
+  const term = normalized(searchInput.value);
   searchResults.replaceChildren();
+  activeResult = -1;
   if (!searchIndex) return;
-  if (!term) { searchStatus.textContent = "输入一个词，看看下一步能做什么。"; return; }
-  searchStatus.textContent = "";
-  const needles = expandTerm(term).map(word => word.toLowerCase());
-  const matches = searchIndex.filter(item => matchesTerm(item,needles));
-  for (const group of groups) {
-    const rows = matches.filter(item => item.group === group);
-    if (!rows.length) continue;
-    const section = document.createElement("section");
-    section.className = "search-group";
-    const heading = document.createElement("h3");
-    heading.textContent = group;
-    section.append(heading);
-    rows.forEach(item => {
-      const link = document.createElement("a");
-      link.href = item.url;
-      link.textContent = item.title;
-      section.append(link);
-    });
+  if (!term) {
+    searchStatus.textContent = "常用入口";
+    const section = document.createElement("section"); section.className = "search-group";
+    popular.forEach(([title,url]) => section.append(resultLink({title,url,description:"点开看看，从这里继续。",cta:"开始"})));
     searchResults.append(section);
+    return;
   }
-  if (!matches.length) searchStatus.textContent = "没有找到。试试“CE”、“拼图”或“安装”。";
+  searchStatus.textContent = "";
+  const parts = queryParts(term);
+  const matches = searchIndex.map(item => ({item,score:scoreItem(item,parts)}))
+    .filter(row => row.score > 0).sort((a,b) => b.score-a.score || groups.indexOf(a.item.group)-groups.indexOf(b.item.group)).slice(0,8);
+  if (!matches.length) { searchStatus.textContent = "没找到合适的入口。试试“Excel 怎么画”“六张图怎么拼”或“安装”。"; return; }
+  const section = document.createElement("section"); section.className = "search-group";
+  matches.forEach(({item},index) => {
+    const link = resultLink(item);
+    if (index === 0) link.classList.add("best-result");
+    section.append(link);
+  });
+  searchResults.append(section);
 }
 async function loadSearchIndex() {
   if (searchIndex) { renderSearch(); return; }
@@ -124,7 +168,7 @@ document.querySelectorAll("[data-open-search]").forEach(button => button.addEven
 document.querySelector(".search-close")?.addEventListener("click",closeSearch);
 searchPanel?.addEventListener("click",event => {
   if (event.target === searchPanel) closeSearch();
-  if (event.target.closest(".search-group a")) closeSearch();
+  if (event.target.closest(".search-result")) closeSearch();
 });
 searchInput?.addEventListener("input",() => {
   if (!searchIndex && !searchError) return;
@@ -136,6 +180,17 @@ document.addEventListener("keydown",event => {
   if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
     event.preventDefault();
     openSearch(document.querySelector("[data-open-search]"));
+  }
+  if (searchPanel?.classList.contains("open") && ["ArrowDown","ArrowUp","Enter"].includes(event.key)) {
+    const links = [...searchResults.querySelectorAll(".search-result")];
+    if (event.key === "Enter" && document.activeElement === searchInput && links.length) {
+      event.preventDefault(); (links[Math.max(activeResult,0)]).click(); return;
+    }
+    if (["ArrowDown","ArrowUp"].includes(event.key) && links.length) {
+      event.preventDefault();
+      activeResult = event.key === "ArrowDown" ? (activeResult+1) % links.length : (activeResult-1+links.length) % links.length;
+      links[activeResult].focus(); return;
+    }
   }
   if (event.key !== "Tab" || !searchPanel?.classList.contains("open")) return;
   const focusable = [...searchPanel.querySelectorAll('a[href], button:not([disabled]), input:not([disabled])')]

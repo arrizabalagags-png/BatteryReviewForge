@@ -1,0 +1,31 @@
+{
+  "id": "ocean-electrolyte",
+  "version": "1.0.0",
+  "name": "Ocean Electrolyte",
+  "author": "BatteryReviewForge maintainers",
+  "description": "A restrained blue and green palette for two to four electrochemical traces.",
+  "description_zh": "深蓝、青绿和暖棕，适合白底下的两到四条电化学曲线。",
+  "license": "CC0-1.0",
+  "created_at": "2026-09-24",
+  "updated_at": "2026-09-24",
+  "category": "style",
+  "tags": ["electrochemistry", "light-background"],
+  "status": "community",
+  "source": "original BatteryReviewForge community starter",
+  "permissions": {"public_display": true, "registry": true, "automated_testing": true, "model_training": false},
+  "background": "#FFFFFF",
+  "recommended_series_count": 4,
+  "colorblind_status": "automated_screen_only",
+  "print_status": "not_tested",
+  "dark_background_support": false,
+  "series": ["#165777", "#2F786A", "#A75A43", "#765F91"],
+  "line_pt": 1.5,
+  "roles": {
+    "reference_or_baseline": "#165777",
+    "new_or_intervention": "#2F786A",
+    "limitation_or_failure": "#A75A43",
+    "mechanism_or_model": "#765F91",
+    "neutral_context": "#606B72"
+  },
+  "pastels": {"blue": "#EAF2F6", "teal": "#EAF3F0", "rust": "#F7F0EB", "purple": "#F2EFF5"}
+}

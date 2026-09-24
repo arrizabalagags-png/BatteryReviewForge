@@ -1,6 +1,6 @@
 "use strict";
 
-const order = ["entry", "setup", "client", "os", "install", "test"];
+const order = ["entry", "diagnosis", "setup", "client", "os", "install", "test"];
 const clients = {codex:"Codex", kimi:"Kimi Code", workbuddy:"WorkBuddy", dsh:"DeepSeek Harness"};
 const systems = {windows:"Windows", macos:"macOS", linux:"Linux"};
 const tasks = {full:"全电池长循环", ce:"Li‖Cu CE", assembly:"六图拼版"};
@@ -40,7 +40,7 @@ function spec() {
     compatibility[state.client]?.[state.os] || null;
 }
 function route() {
-  return state.client === "workbuddy" ? ["entry","setup","client","install","test"] : order;
+  return state.client === "workbuddy" ? ["entry","diagnosis","setup","client","install","test"] : order;
 }
 function readURL() {
   const query = new URLSearchParams(location.search);
@@ -63,7 +63,7 @@ function writeURL(replace=false) {
 }
 function goToStep(step,replace=false) {
   if (!order.includes(step)) return;
-  if (!["entry","setup","client"].includes(step) && !state.client) step = "client";
+  if (!["entry","diagnosis","setup","client"].includes(step) && !state.client) step = "client";
   if (state.client === "workbuddy" && step === "os") step = "install";
   if (state.client && state.client !== "workbuddy" && ["install","test"].includes(step) && !state.os) step = "os";
   if (step === "test" && !spec()) step = "install";
@@ -109,17 +109,17 @@ function renderInstall() {
     addStep("在 WorkBuddy 打开“技能 → 添加技能 → 上传技能”，选一个单技能 ZIP。实验数据出图选 battery-review-figure，拼图选 battery-figure-assemble。");
     commandBlock.hidden = true;
   } else {
-    instruction.textContent = "先下载，再解压，最后复制安装命令。";
+    instruction.textContent = "下载并解压安装包，按下面的步骤安装。";
     addStep("下载完整技能安装包。",mainZip);
     if (state.os === "windows") {
       addStep("右键下载的 ZIP，选“全部解压”。");
-      addStep("打开解压后的文件夹，点顶部地址栏，输入 powershell 并按回车。");
-      addStep("把下面这一行复制到 PowerShell，按回车；完成后新开一个 Agent 会话。");
+      addStep("打开解压后的文件夹，点顶部地址栏，输入 powershell 并按回车；会出现蓝色或黑色窗口。");
+      addStep("点“复制命令”，在窗口里右键粘贴并按回车。看到安装完成后，新开一个 AI 软件任务。");
       command.textContent = ".\\install.ps1" + spec().agent;
     } else {
       addStep("双击 ZIP 解压，找到含 install.sh 的文件夹。");
       addStep("打开终端，输入 cd 和空格，把解压后的文件夹拖进终端，按回车。");
-      addStep("复制下面这一行到终端，按回车；完成后新开一个 Agent 会话。");
+      addStep("复制下面这一行到终端，按回车；完成后新开一个 AI 软件任务。");
       command.textContent = "sh install.sh" + spec().agent;
     }
     commandBlock.hidden = false;
@@ -128,21 +128,12 @@ function renderInstall() {
 }
 function render() {
   document.querySelectorAll("[data-wizard-step]").forEach(panel => { panel.hidden = panel.dataset.wizardStep !== state.step; });
-  const workbuddy = state.client === "workbuddy";
-  const visibleSteps = route().filter(step => step !== "setup");
-  const displayStep = state.step === "setup" ? "entry" : state.step;
-  const label = {entry:"看看软件",client:"选软件",os:"选系统",install:"安装技能",test:"试运行"}[displayStep];
-  document.querySelector("#mobile-progress").textContent = "第 " + (visibleSteps.indexOf(displayStep) + 1) + " 步 / 共 " + visibleSteps.length + " 步 · " + label;
-  document.querySelector('[data-progress-step="os"]').hidden = workbuddy;
-  document.querySelector('[data-progress-sep="os"]').hidden = workbuddy;
-  document.querySelectorAll("[data-progress-step]").forEach(button => {
-    const step = button.dataset.progressStep;
-    const current = step === state.step || (state.step === "setup" && step === "entry");
-    button.classList.toggle("current",current);
-    if (current) button.setAttribute("aria-current","step"); else button.removeAttribute("aria-current");
-    button.disabled = route().indexOf(step) > route().indexOf(state.step);
-    if (workbuddy) button.textContent = step === "entry" ? "1 看看软件" : step === "client" ? "2 选软件" : step === "install" ? "3 导入" : step === "test" ? "4 试运行" : button.textContent;
-    else button.textContent = step === "entry" ? "1 看看软件" : step === "client" ? "2 选软件" : step === "os" ? "3 选系统" : step === "install" ? "4 安装技能" : "5 试运行";
+  const stage = state.step === "test" ? "try" : state.step === "install" ? "install" : "prepare";
+  const stages = {prepare:[1,"准备 AI 软件"],install:[2,"安装 BatteryReviewForge"],try:[3,"画第一张图"]};
+  document.querySelector("#mobile-progress").textContent = "第 " + stages[stage][0] + " 步 / 共 3 步 · " + stages[stage][1];
+  document.querySelectorAll("[data-stage]").forEach(item => {
+    item.classList.toggle("current",item.dataset.stage === stage);
+    if (item.dataset.stage === stage) item.setAttribute("aria-current","step"); else item.removeAttribute("aria-current");
   });
   document.querySelectorAll("[data-choice-client]").forEach(button => button.classList.toggle("selected",button.dataset.choiceClient === state.client));
   document.querySelectorAll("[data-choice-os]").forEach(button => button.classList.toggle("selected",button.dataset.choiceOs === state.os));
@@ -165,7 +156,10 @@ function selectClient(client) {
   else goToStep("os");
 }
 document.querySelectorAll("[data-entry]").forEach(button => button.addEventListener("click",() => {
-  goToStep(button.dataset.entry === "yes" ? "client" : "setup");
+  goToStep(button.dataset.entry === "yes" ? "client" : button.dataset.entry === "unsure" ? "diagnosis" : "setup");
+}));
+document.querySelectorAll("[data-diagnosis]").forEach(button => button.addEventListener("click",() => {
+  goToStep(button.dataset.diagnosis === "found" ? "client" : "setup");
 }));
 document.querySelectorAll("[data-choice-client]").forEach(button => button.addEventListener("click",() => selectClient(button.dataset.choiceClient)));
 document.querySelectorAll("[data-choice-os]").forEach(button => button.addEventListener("click",() => {
@@ -179,13 +173,10 @@ document.querySelector("#resume-choice").addEventListener("click",() => {
   state.os = state.client === "workbuddy" ? "" : getSaved("preferredOS");
   goToStep("install");
 });
-document.querySelectorAll("[data-progress-step]").forEach(button => button.addEventListener("click",() => {
-  if (!button.disabled) goToStep(button.dataset.progressStep);
-}));
 document.querySelectorAll("[data-wizard-next]").forEach(button => button.addEventListener("click",() => goToStep(button.dataset.wizardNext)));
 document.querySelectorAll("[data-wizard-back]").forEach(button => button.addEventListener("click",() => {
   const current = route().indexOf(state.step);
-  if (current > 0) goToStep(state.step === "client" ? "entry" : route()[current-1]);
+  if (current > 0) goToStep(state.step === "client" ? "entry" : state.step === "setup" ? "entry" : route()[current-1]);
 }));
 async function copyText(text) {
   if (navigator.clipboard?.writeText) {

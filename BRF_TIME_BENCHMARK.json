@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "status": "protocol_only_no_participant_results",
+  "tasks": [
+    {"id": "full_cell", "input": "fixed paired synthetic cycling and voltage-profile CSVs", "required_output": ["SVG", "PDF", "source and settings record"]},
+    {"id": "li_cu_ce", "input": "fixed paired synthetic cycle-CE and voltage-profile CSVs", "required_output": ["SVG", "PDF", "protocol and conditions record"]},
+    {"id": "six_panel", "input": "fixed six-panel source set", "required_output": ["assembled PDF", "alignment report"]},
+    {"id": "ten_panel", "input": "fixed ten-panel source set", "required_output": ["assembled PDF", "alignment report"]}
+  ],
+  "workflows": ["manual_gui", "origin_power_user_template_or_batch", "battery_review_forge"],
+  "groups": {"beginner_minimum": 5, "origin_experienced_minimum": 5},
+  "metrics": ["active_human_seconds", "machine_unattended_seconds", "elapsed_seconds", "manual_action_count", "revision_count", "qa_failure_count", "reproducibility_outputs"],
+  "analysis": "report median and interquartile range by task, workflow, and experience group; retain failures; no efficiency claim before observations",
+  "observations": []
+}

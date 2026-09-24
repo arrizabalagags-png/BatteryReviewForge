@@ -1,0 +1,34 @@
+name: Battery Commons registry check
+on:
+  pull_request:
+    paths:
+      - 'community/**'
+      - 'scripts/build_community_registry.py'
+      - 'docs/commons/**'
+  push:
+    branches: [main]
+    paths:
+      - 'community/**'
+      - 'scripts/build_community_registry.py'
+      - 'docs/commons/**'
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate JSON, license, contrast and simulated vision; regenerate previews
+        run: python scripts/build_community_registry.py
+      - name: Confirm published catalog and previews are committed
+        run: |
+          git add -N community/catalog.json community/styles community/layouts docs/commons
+          git diff --exit-code -- community/catalog.json community/styles community/layouts docs/commons
+      - name: Reject edits to existing versions
+        if: github.event_name == 'pull_request'
+        env:
+          BRF_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: python scripts/check_community_immutability.py

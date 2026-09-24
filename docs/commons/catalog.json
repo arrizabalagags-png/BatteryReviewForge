@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-24",
+  "execution_policy": "JSON and SVG only; never execute remote code",
+  "assets": [
+    {
+      "id": "ocean-electrolyte",
+      "version": "1.0.0",
+      "name": "Ocean Electrolyte",
+      "author": "BatteryReviewForge maintainers",
+      "description": "A restrained blue and green palette for two to four electrochemical traces.",
+      "description_zh": "深蓝、青绿和暖棕，适合白底下的两到四条电化学曲线。",
+      "license": "CC0-1.0",
+      "category": "style",
+      "tags": [
+        "electrochemistry",
+        "light-background"
+      ],
+      "status": "community",
+      "source_url": "https://arrizabalagags-png.github.io/BatteryReviewForge/commons/styles/ocean-electrolyte@1.0.0.json",
+      "preview_url": "commons/styles/ocean-electrolyte@1.0.0.svg",
+      "sha256": "facb2f311cadc4ae0d00cac6b129d3cab50b89bfbcfa2f1f98108a3450db5cac",
+      "quality": {
+        "format_checked": true,
+        "color_screen": "automated_only",
+        "scientific_review": "not_claimed"
+      }
+    },
+    {
+      "id": "cycling-plus-profiles",
+      "version": "1.0.0",
+      "name": "Cycling plus selected voltage profiles",
+      "author": "BatteryReviewForge maintainers",
+      "description": "A two-panel battery figure with long-term cycling and its corresponding voltage profiles.",
+      "description_zh": "左侧放长循环，右侧放同一实验的选定圈数电压曲线。",
+      "license": "CC0-1.0",
+      "category": "layout",
+      "tags": [
+        "full-cell",
+        "electrochemistry"
+      ],
+      "status": "community",
+      "source_url": "https://arrizabalagags-png.github.io/BatteryReviewForge/commons/layouts/cycling-plus-profiles@1.0.0.json",
+      "preview_url": "commons/layouts/cycling-plus-profiles@1.0.0.svg",
+      "sha256": "a278eb212a68c2e12a05204469e9667919a63fc4e5e5e8971fe6b5520c7e13fe",
+      "quality": {
+        "format_checked": true,
+        "color_screen": "not_applicable",
+        "scientific_review": "not_claimed"
+      }
+    }
+  ]
+}

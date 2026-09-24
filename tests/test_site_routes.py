@@ -9,7 +9,7 @@ from zipfile import ZipFile
 
 REPO = Path(__file__).resolve().parents[1]
 DOCS = REPO / "docs"
-PAGES = ("index.html", "start.html", "features.html", "gallery.html", "learn.html", "models.html",
+PAGES = ("index.html", "start.html", "why.html", "features.html", "gallery.html", "learn.html", "models.html", "compatibility.html", "benchmark.html",
          "community.html", "contribute.html", "support.html", "roadmap.html",
          "developers.html", "guide.html", "disclaimer.html")
 SAMPLES = ("full_cell", "li_cu_ce", "li_li", "eis", "operando_xrd", "tof_sims", "integrated_study",
@@ -84,11 +84,15 @@ class ProductSiteTest(unittest.TestCase):
         self.assertIn("ToF-SIMS 空间与深度分布", home)
         self.assertNotIn("准备写综述", home)
         self.assertNotIn("写综述时", home)
+        commons = (DOCS / "community.html").read_text(encoding="utf-8")
+        self.assertIn("Battery Commons", commons)
+        self.assertIn("ocean-electrolyte@1.0.0.svg", commons)
+        self.assertIn("初步收录到人工复核", commons)
 
     def test_onboarding_has_deterministic_steps_and_real_downloads(self):
         html = (DOCS / "start.html").read_text(encoding="utf-8")
         js = (DOCS / "start.js").read_text(encoding="utf-8")
-        for step in ("client", "os", "install", "test"):
+        for step in ("diagnosis", "client", "os", "install", "test"):
             self.assertIn(f'data-wizard-step="{step}"', html)
         self.assertIn("goToStep", js)
         self.assertIn("popstate", js)
@@ -97,9 +101,17 @@ class ProductSiteTest(unittest.TestCase):
         self.assertIn('preferredOS', js)
         self.assertIn('compatibility = {', js)
         self.assertIn('document.execCommand("copy")', js)
-        self.assertIn('state.client === "workbuddy" ? ["entry","setup","client","install","test"]', js)
-        self.assertIn("demo_full_cell.csv", html)
+        self.assertIn('state.client === "workbuddy" ? ["entry","diagnosis","setup","client","install","test"]', js)
+        self.assertEqual(html.count('data-stage="'), 3)
+        self.assertIn("帮我看看", html)
+        self.assertIn('data-diagnosis="found"', html)
+        self.assertIn("BRF-demo-full-cell.zip", html)
         self.assertIn('href="models.html"', html)
+        for name, expected in (("full-cell", "cycling.csv"), ("li-cu-ce", "ce.csv")):
+            with ZipFile(DOCS / "assets/showcase" / f"BRF-demo-{name}.zip") as z:
+                self.assertIn(f"BRF-demo-{name}/{expected}", z.namelist())
+                self.assertIn(f"BRF-demo-{name}/voltage_profiles.csv", z.namelist())
+                self.assertIn(f"BRF-demo-{name}/README.txt", z.namelist())
         self.assertTrue((DOCS / "assets/showcase/assembly-demo.zip").is_file())
         with ZipFile(DOCS / "assets/showcase/assembly-demo.zip") as z:
             self.assertEqual(len([n for n in z.namelist() if n.startswith("panel-") and n.endswith(".png")]), 6)
@@ -123,6 +135,10 @@ class ProductSiteTest(unittest.TestCase):
         self.assertTrue(any("库伦效率" in item["keywords"] for item in index))
         js = (DOCS / "product.js").read_text(encoding="utf-8")
         self.assertIn('fetch("search-index.json")', js)
+        self.assertIn('intentDestinations', js)
+        self.assertIn('ArrowDown', js)
+        self.assertIn('"why.html"', js)
+        self.assertTrue(any(item["url"] == "why.html" for item in index))
         self.assertNotIn("sendBeacon", js)
         self.assertNotIn("XMLHttpRequest", js)
         self.assertIn('region.inert = true', js)

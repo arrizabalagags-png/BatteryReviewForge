@@ -13,6 +13,7 @@ examples/showcase/assembly_demo/assembled-example.alignment.png
 *.zip
 !docs/downloads/*.zip
 !docs/assets/showcase/assembly-demo.zip
+!docs/assets/showcase/BRF-demo-*.zip
 .env
 .env.*
 __pycache__/
