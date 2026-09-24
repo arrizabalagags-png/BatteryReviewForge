@@ -1,0 +1,55 @@
+{
+  "figure": "rate_capability",
+  "tolerance_pt": 1.5,
+  "status": "pass",
+  "checks": [
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "direction": "row",
+      "edge": "top",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "direction": "row",
+      "edge": "bottom",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "direction": "row",
+      "edge": "height",
+      "delta_pt": 0.0,
+      "pass": true
+    }
+  ],
+  "failures": [],
+  "plot_rectangles_mm": [
+    {
+      "panel": "a",
+      "left": 11.944,
+      "top": 6.259,
+      "width": 93.969,
+      "height": 75.829
+    },
+    {
+      "panel": "b",
+      "left": 116.296,
+      "top": 6.259,
+      "width": 62.646,
+      "height": 75.829
+    }
+  ],
+  "note": "Measured after final Matplotlib draw. Colorbars are excluded."
+}

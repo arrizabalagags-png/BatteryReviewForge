@@ -19,7 +19,8 @@ from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.colors import LinearSegmentedColormap
+from matplotlib.colors import LinearSegmentedColormap, ListedColormap, BoundaryNorm
+from matplotlib.patches import Rectangle, Patch
 from matplotlib.transforms import Bbox
 import numpy as np
 
@@ -27,7 +28,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parent
 SITE = ROOT.parents[1] / "docs" / "assets" / "showcase"
 SEED = 20260923
-VERSION = "1.0"
+VERSION = "1.1"
 COLORS = {"A": "#31577d", "B": "#bc4566", "C": "#00857f"}
 INK = "#172c40"
 MUTED = "#526476"
@@ -39,6 +40,12 @@ GRAMMAR = {
     "operando_xrd": "operando_xrd + matched_voltage_trace",
     "tof_sims": "tof_sims_map + same-model_sputter_profile",
     "integrated_study": "same_synthetic_study_cross_validation",
+    "rate_capability": "rate_capability + selected_rate_profiles",
+    "gcd_profiles": "charge_discharge_voltage_capacity_profiles",
+    "pouch_thermal": "pouch_surface_temperature + linked_line_and_time",
+    "literature_benchmark": "source_linked_comparable_literature_scatter",
+    "reporting_matrix": "categorical_reporting_audit",
+    "capability_spread": "ten_panel_capability_spread",
 }
 CONDITIONS = {
     "full_cell": "Illustrative NMC811||Li; 0.5 C; 2.8–4.3 V; 25 °C; cathode 3 mAh cm−2. These are invented settings, not a test report.",
@@ -48,6 +55,27 @@ CONDITIONS = {
     "operando_xrd": "Illustrative angle-by-SOC model with moving and splitting Gaussian peaks; no phase assignment or acquired diffraction.",
     "tof_sims": "Illustrative 20 × 20 µm ion maps at 30 s sputter time; arbitrary intensity, common 0–0.65 display scale; time is not depth.",
     "integrated_study": "One invented A/B electrolyte comparison reuses the source files and identities above; panels do not establish a real mechanism.",
+    "rate_capability": "Illustrative NMC811||Li; 0.2/0.5/1/2/5/0.2 C in ten-cycle stages; 2.8–4.3 V; 25 °C. Recovery stage is simulated, not measured.",
+    "gcd_profiles": "Illustrative NMC811||Li at 0.5 C, 2.8–4.3 V, 25 °C; cycles 1/100/300/500 share the full-cell capacity state.",
+    "pouch_thermal": "Illustrative 100 × 70 mm pouch surface at 2 C and 25 °C ambient; modelled 0–30 min temperature, not an IR measurement.",
+    "literature_benchmark": "48 invented Li–S-like records, each at 0.2 C, 25 °C and cycle 100, with one consistent mAh g−1 sulfur basis; IDs are synthetic, never citations.",
+    "reporting_matrix": "18 invented study IDs with seven reporting fields; status categories are examples, not an audit of real papers.",
+    "capability_spread": "Ten independently labelled synthetic capability panels; shared styles do not imply one experiment across unlike cell and measurement types.",
+}
+VARIABLES = {
+    "full_cell": {"x": "cycle number", "y": "discharge capacity (mAh g−1)", "linked": "voltage (V) vs specific capacity (mAh g−1) at declared cycles"},
+    "li_cu_ce": {"x": "cycle number", "y": "cycle-by-cycle CE (%)", "linked": "plating/stripping voltage (V) vs capacity (mAh cm−2)"},
+    "li_li": {"x": "time (h)", "y": "symmetric-cell voltage (mV)", "linked": "zoom uses the same time series"},
+    "eis": {"x": "Z′ (Ω)", "y": "−Z″ (Ω)", "linked": "frequency (Hz) and phase (°) from one circuit model"},
+    "operando_xrd": {"x": "state of charge (%)", "y": "2θ (°)", "linked": "model intensity (a.u.) and voltage (V) on the same SOC axis"},
+    "tof_sims": {"x": "lateral position (µm)", "y": "lateral position (µm)", "linked": "ion intensity (a.u.) and sputter time (s), not calibrated depth"},
+    "rate_capability": {"x": "cycle number", "y": "discharge capacity (mAh g−1)", "linked": "selected voltage (V) versus capacity (mAh g−1) at measured stages"},
+    "gcd_profiles": {"x": "specific capacity (mAh g−1)", "y": "voltage (V)", "linked": "cycle state shared with full-cell demo"},
+    "pouch_thermal": {"x": "pouch width (mm)", "y": "pouch height (mm)", "linked": "temperature (°C), same-map line profile, Tmax versus time (min)"},
+    "literature_benchmark": {"x": "sulfur loading (mg cm−2)", "y": "capacity at cycle 100 (mAh g−1)", "linked": "48 invented comparable records; category by symbol"},
+    "reporting_matrix": {"x": "reporting field", "y": "synthetic study ID", "linked": "reported/partial/NR/NV/NA categorical status"},
+    "integrated_study": {"x": "experiment-specific axes", "y": "experiment-specific units", "linked": "six panels from same A/B synthetic study"},
+    "capability_spread": {"x": "experiment-specific axes", "y": "experiment-specific units", "linked": "ten panels from explicitly separate demonstration sources"},
 }
 
 
@@ -187,7 +215,136 @@ def generate_integrated() -> None:
     csv_write(path / "data_index.csv", ["sample", "test", "source_csv"], ((sample, test, source) for sample in ("A", "B") for test, source in (("LiCu CE", "../li_cu_ce/data.csv"), ("LiLi", "../li_li/data.csv"), ("EIS", "../eis/data.csv"), ("full cell", "../full_cell/data.csv"))))
 
 
-GENERATORS = {"full_cell": generate_full_cell, "li_cu_ce": generate_li_cu, "li_li": generate_li_li, "eis": generate_eis, "operando_xrd": generate_xrd, "tof_sims": generate_tofsims, "integrated_study": generate_integrated}
+def generate_rate() -> None:
+    path = ROOT / "rate_capability"
+    rng = np.random.default_rng(SEED + 8)
+    stages = [(0.2, 10), (0.5, 10), (1.0, 10), (2.0, 10), (5.0, 10), (0.2, 10)]
+    rows, profiles = [], []
+    cycle = 0
+    for stage, (rate, count) in enumerate(stages):
+        for offset in range(count):
+            cycle += 1
+            for sample, base, sensitivity in (("A", 185, 13.5), ("B", 181, 18.5)):
+                loss = sensitivity * np.log1p(rate / .2) + .038 * cycle
+                recovery = 1.2 if stage == 5 else 0.0
+                q = base - loss - 1.6 * np.exp(-offset / 1.8) + recovery + rng.normal(0, .26)
+                rows.append((cycle, sample, stage + 1, rate, round(float(q), 5)))
+                if sample == "A" and cycle in (7, 27, 47, 57):
+                    for fraction in np.linspace(0, 1, 160):
+                        voltage = 4.23 - .66 * fraction - .38 * fraction ** 7 - .025 * np.log1p(rate)
+                        profiles.append((cycle, rate, round(float(fraction * q), 6), round(float(voltage), 6), round(float(q), 6)))
+    csv_write(path / "data.csv", ["cycle", "sample", "stage", "discharge_rate_C", "capacity_mAh_g"], rows)
+    csv_write(path / "voltage_profiles.csv", ["cycle", "rate_C", "capacity_mAh_g", "voltage_V", "cycling_endpoint_mAh_g"], profiles)
+
+
+def generate_gcd() -> None:
+    path = ROOT / "gcd_profiles"
+    cycling = csv_read(ROOT / "full_cell" / "data.csv")
+    rows = []
+    for cycle in (1, 100, 300, 500):
+        endpoint = float(cycling[cycle - 1]["A_mAh_g"])
+        for direction in ("charge", "discharge"):
+            for fraction in np.linspace(0, 1, 180):
+                capacity = fraction * endpoint
+                if direction == "discharge":
+                    voltage = 4.26 - .69 * fraction - .37 * fraction ** 7 - .002 * cycle / 500
+                else:
+                    voltage = 3.01 + .62 * fraction + .63 * (1 - np.exp(-fraction / .16)) + .015 * cycle / 500
+                rows.append((cycle, direction, round(float(capacity), 6), round(float(voltage), 6), round(endpoint, 6)))
+    csv_write(path / "data.csv", ["cycle", "direction", "capacity_mAh_g", "voltage_V", "cycling_endpoint_mAh_g"], rows)
+
+
+def thermal_field(xx: np.ndarray, yy: np.ndarray, minute: float) -> np.ndarray:
+    """Bounded illustrative thermal field; tabs and geometry are separate metadata."""
+    rise = 1 - np.exp(-minute / 9.0)
+    center = 9.6 * np.exp(-((xx - 52) / 25) ** 2 - ((yy - 35) / 20) ** 2)
+    tab = 3.2 * np.exp(-((xx - 18) / 17) ** 2 - ((yy - 65) / 16) ** 2)
+    return 25 + rise * (5.5 + center + tab + .40 * np.sin(xx / 15) * np.cos(yy / 12))
+
+
+def generate_thermal() -> None:
+    path = ROOT / "pouch_thermal"
+    xs, ys = np.linspace(0, 100, 101), np.linspace(0, 70, 71)
+    xx, yy = np.meshgrid(xs, ys)
+    final = thermal_field(xx, yy, 30)
+    csv_write(path / "data.csv", ["time_min", "x_mm", "y_mm", "surface_temperature_C"],
+              ((30, round(float(x), 3), round(float(y), 3), round(float(t), 5))
+               for x, y, t in zip(xx.ravel(), yy.ravel(), final.ravel())))
+    csv_write(path / "line_profile.csv", ["time_min", "path", "distance_mm", "surface_temperature_C"],
+              ((30, "y=35 mm", round(float(x), 3), round(float(t), 5)) for x, t in zip(xs, final[35, :])))
+    history = []
+    for minute in np.linspace(0, 30, 61):
+        field = thermal_field(xx, yy, minute)
+        history.append((round(float(minute), 3), round(float(field.max()), 5),
+                        round(float(field.min()), 5), round(float(field.mean()), 5)))
+    csv_write(path / "history.csv", ["time_min", "Tmax_C", "Tmin_C", "Tmean_C"], history)
+    (path / "geometry.json").write_text(json.dumps({"pouch_width_mm": 100, "pouch_height_mm": 70,
+        "tabs": [{"name": "+", "x_mm": [12, 25], "y_mm": [70, 76]},
+                 {"name": "−", "x_mm": [75, 88], "y_mm": [70, 76]}],
+        "surface_model": "illustrative bounded heat field; not a measured thermogram",
+        "colorbar_range_C": [25, 45]}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def generate_benchmark() -> None:
+    path = ROOT / "literature_benchmark"
+    rng = np.random.default_rng(SEED + 9)
+    rows = []
+    for i in range(48):
+        family = ("Porous carbon", "Polar host", "Catalytic host")[i % 3]
+        cluster = i // 3
+        loading = (1.0 + .07 * cluster) if cluster < 9 else (2.0 + .23 * (cluster - 9))
+        loading += rng.normal(0, .11)
+        es = np.clip(20 - 2.0 * loading + rng.normal(0, 2.2), 4.5, 22)
+        family_offset = {"Porous carbon": -90, "Polar host": 0, "Catalytic host": 85}[family]
+        capacity = 1250 - 62 * loading + 7.0 * es + family_offset + rng.normal(0, 65)
+        rows.append((f"SIM-{i + 1:03d}", family, round(float(loading), 4),
+                     round(float(es), 4), round(float(capacity), 3), 0.2, 100, 25))
+    csv_write(path / "data.csv", ["synthetic_id", "host_family", "sulfur_loading_mg_cm2",
+        "electrolyte_to_sulfur_uL_mg", "capacity_mAh_g_sulfur", "discharge_rate_C",
+        "cycle", "temperature_C"], rows)
+
+
+REPORT_FIELDS = ("Loading", "E/S", "Rate", "Temp.", "CE protocol", "N/P", "Cell format")
+REPORT_STATUS = ("R", "P", "NR", "NV", "NA")
+
+
+def generate_matrix() -> None:
+    path = ROOT / "reporting_matrix"
+    rng = np.random.default_rng(SEED + 10)
+    rows = []
+    for i in range(18):
+        paper = f"SIM-{i + 1:03d}"
+        for col, field in enumerate(REPORT_FIELDS):
+            status = rng.choice(REPORT_STATUS, p=[.48, .18, .20, .10, .04])
+            if field == "Cell format":
+                status = "R" if i % 3 else "P"
+            rows.append((paper, field, str(status)))
+    csv_write(path / "data.csv", ["synthetic_id", "field", "status"], rows)
+    (path / "status_key.json").write_text(json.dumps({
+        "R": "Reported", "P": "Partially reported", "NR": "Not reported",
+        "NV": "Not verifiable from supplied source", "NA": "Not applicable by stated review rule",
+        "warning": "Synthetic IDs are not DOIs or real papers; missing does not mean zero"},
+        indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def generate_capability() -> None:
+    path = ROOT / "capability_spread"
+    path.mkdir(exist_ok=True)
+    members = ["integrated_study", "pouch_thermal", "full_cell", "li_cu_ce", "eis",
+               "literature_benchmark", "li_li", "rate_capability", "gcd_profiles", "reporting_matrix"]
+    csv_write(path / "data_index.csv", ["panel", "source_folder", "evidence_state"],
+              zip("abcdefghij", members, ["synthetic_demo"] * len(members)))
+    (path / "sources.json").write_text(json.dumps({"members": members,
+        "interpretation": "Ten capabilities; unrelated panels are not one experimental study",
+        "status": "synthetic_demo"}, indent=2) + "\n", encoding="utf-8")
+
+
+GENERATORS = {"full_cell": generate_full_cell, "li_cu_ce": generate_li_cu, "li_li": generate_li_li,
+              "eis": generate_eis, "operando_xrd": generate_xrd, "tof_sims": generate_tofsims,
+              "rate_capability": generate_rate, "gcd_profiles": generate_gcd,
+              "pouch_thermal": generate_thermal, "literature_benchmark": generate_benchmark,
+              "reporting_matrix": generate_matrix, "integrated_study": generate_integrated,
+              "capability_spread": generate_capability}
 
 
 def configure() -> None:
@@ -321,8 +478,214 @@ def plot_tofsims(axes, fig) -> None:
     ax.legend(frameon=False, loc="upper right", ncol=3, handlelength=1.2)
 
 
+def plot_rate(ax1, ax2) -> None:
+    rows = csv_read(ROOT / "rate_capability" / "data.csv")
+    for sample in "AB":
+        r = [row for row in rows if row["sample"] == sample]
+        ax1.plot(arr(r, "cycle"), arr(r, "capacity_mAh_g"), color=COLORS[sample],
+                 marker="o", ms=2, lw=.8, label=f"Electrolyte {sample}")
+    for boundary in (10.5, 20.5, 30.5, 40.5, 50.5):
+        ax1.axvline(boundary, color="#ccd4dc", lw=.5)
+    for x, label in zip((5.5, 15.5, 25.5, 35.5, 45.5, 55.5),
+                        ("0.2 C", "0.5 C", "1 C", "2 C", "5 C", "0.2 C")):
+        ax1.text(x, 182, label, ha="center", va="top", fontsize=5.7, color=MUTED)
+    ax1.set(xlabel="Cycle number", ylabel="Discharge capacity (mAh g$^{-1}$)",
+            xlim=(0, 61), ylim=(105, 185))
+    ax1.legend(frameon=False, loc="lower left")
+    profiles = csv_read(ROOT / "rate_capability" / "voltage_profiles.csv")
+    for cycle, shade in ((7, "#a2bacd"), (27, "#668aa8"), (47, COLORS["A"]), (57, COLORS["C"])):
+        r = [row for row in profiles if int(row["cycle"]) == cycle]
+        ax2.plot(arr(r, "capacity_mAh_g"), arr(r, "voltage_V"), color=shade, lw=.9,
+                 label=f"{r[0]['rate_C']} C · cycle {cycle}")
+    ax2.set(xlabel="Specific capacity (mAh g$^{-1}$)", ylabel="Voltage (V)",
+            xlim=(0, 185), ylim=(2.9, 4.35))
+    ax2.legend(frameon=False, loc="lower left", fontsize=5.4, handlelength=1.1)
+
+
+def plot_gcd(ax, compact=False) -> None:
+    rows = csv_read(ROOT / "gcd_profiles" / "data.csv")
+    shades = {1: "#b6cadd", 100: "#88abc8", 300: "#5d83a4", 500: COLORS["A"]}
+    for cycle in ((300,) if compact else (1, 100, 300, 500)):
+        for direction in ("discharge", "charge"):
+            r = [row for row in rows if int(row["cycle"]) == cycle and row["direction"] == direction]
+            ax.plot(arr(r, "capacity_mAh_g"), arr(r, "voltage_V"), color=shades[cycle],
+                    lw=.9, ls="-" if direction == "discharge" else (0, (3, 2)),
+                    label=f"Cycle {cycle}" if direction == "discharge" else None)
+    ax.set(xlabel="Specific capacity (mAh g$^{-1}$)", ylabel="Voltage (V)",
+           xlim=(0, 190), ylim=(2.85, 4.37))
+    if compact:
+        ax.text(.98, .04, "Cycle 300 · solid/discharge · dashed/charge",
+                transform=ax.transAxes, ha="right", va="bottom", fontsize=4.5, color=MUTED)
+    else:
+        ax.legend(frameon=False, loc="lower left", ncol=2, fontsize=5.7)
+        ax.text(.98, .04, "solid: discharge    dashed: charge", transform=ax.transAxes,
+                ha="right", va="bottom", fontsize=5.5, color=MUTED)
+
+
+def plot_thermal(axes, fig) -> None:
+    map_ax, line_ax, history_ax = axes
+    rows = csv_read(ROOT / "pouch_thermal" / "data.csv")
+    image = arr(rows, "surface_temperature_C").reshape(71, 101)
+    cmap = LinearSegmentedColormap.from_list("pouch_heat", ["#e9f3f5", "#a8cfd4", "#e9c2a9", "#bb5870", "#6b2948"])
+    im = map_ax.imshow(image, origin="lower", extent=(0, 100, 0, 70), cmap=cmap,
+                       vmin=25, vmax=45, interpolation="nearest", aspect="equal")
+    map_ax.add_patch(Rectangle((0, 0), 100, 70, fill=False, edgecolor=INK, lw=.9))
+    for x, sign in ((12, "+"), (75, "−")):
+        map_ax.add_patch(Rectangle((x, 70), 13, 5, facecolor="#b9c4cb", edgecolor=INK, lw=.6))
+        map_ax.text(x + 6.5, 72.5, sign, ha="center", va="center", fontsize=6, color=INK)
+    map_ax.axhline(35, color="white", lw=.7, ls=(0, (4, 2)))
+    map_ax.set(xlabel="Pouch width (mm)", ylabel="Pouch height (mm)",
+               xlim=(0, 100), ylim=(0, 76))
+    bar = fig.colorbar(im, ax=map_ax, fraction=.036, pad=.028)
+    bar.ax.set_ylabel("Surface temperature (°C)", fontsize=6)
+    bar.ax.tick_params(labelsize=5.5, width=.5)
+    line = csv_read(ROOT / "pouch_thermal" / "line_profile.csv")
+    line_ax.plot(arr(line, "distance_mm"), arr(line, "surface_temperature_C"),
+                 color=COLORS["B"], lw=1.0)
+    line_ax.set(xlabel="Position across pouch (mm)", ylabel="Temperature (°C)",
+                xlim=(0, 100), ylim=(25, 44))
+    history = csv_read(ROOT / "pouch_thermal" / "history.csv")
+    history_ax.plot(arr(history, "time_min"), arr(history, "Tmax_C"),
+                    color=COLORS["B"], lw=.95, label="Maximum")
+    history_ax.plot(arr(history, "time_min"), arr(history, "Tmean_C"),
+                    color=COLORS["A"], lw=.95, label="Surface mean")
+    history_ax.set(xlabel="Time (min)", ylabel="Temperature (°C)",
+                   xlim=(0, 30), ylim=(24, 44))
+    history_ax.legend(frameon=False, loc="lower right", fontsize=5.7)
+
+
+def plot_benchmark(ax, fig, compact=False) -> None:
+    rows = csv_read(ROOT / "literature_benchmark" / "data.csv")
+    shapes = {"Porous carbon": "o", "Polar host": "s", "Catalytic host": "^"}
+    for family, marker in shapes.items():
+        r = [row for row in rows if row["host_family"] == family]
+        tone = {"Porous carbon": COLORS["A"], "Polar host": COLORS["C"],
+                "Catalytic host": COLORS["B"]}[family]
+        points = ax.scatter(arr(r, "sulfur_loading_mg_cm2"), arr(r, "capacity_mAh_g_sulfur"),
+            c=tone if compact else arr(r, "electrolyte_to_sulfur_uL_mg"),
+            cmap=None if compact else "viridis", vmin=None if compact else 4,
+            vmax=None if compact else 22,
+            s=15 if compact else 25, marker=marker, edgecolor=INK, linewidth=.25, label=family)
+    ax.set(xlabel="Sulfur loading (mg cm$^{-2}$)",
+           ylabel="Capacity at cycle 100 (mAh g$^{-1}_{S}$)", xlim=(.6, 4.1), ylim=(700, 1550))
+    ax.legend(frameon=False, loc="lower left", fontsize=5.5, handletextpad=.2)
+    if not compact:
+        bar = fig.colorbar(points, ax=ax, fraction=.035, pad=.02)
+        bar.ax.set_ylabel("E/S (µL mg$^{-1}$)", fontsize=6)
+        bar.ax.tick_params(labelsize=5.5)
+
+
+def plot_matrix(ax, compact=False) -> None:
+    rows = csv_read(ROOT / "reporting_matrix" / "data.csv")
+    labels = [f"SIM-{i:03d}" for i in range(1, 11 if compact else 19)]
+    lookup = {(r["synthetic_id"], r["field"]): r["status"] for r in rows}
+    values = np.array([[REPORT_STATUS.index(lookup[(paper, field)]) for field in REPORT_FIELDS]
+                       for paper in labels])
+    palette = ["#267d77", "#9cc8c2", "#e4e7e9", "#8b94a4", "#ffffff"]
+    cmap = ListedColormap(palette)
+    ax.imshow(values, cmap=cmap, norm=BoundaryNorm(np.arange(-.5, 5.5), 5),
+              aspect="auto", interpolation="nearest")
+    ax.set_xticks(range(len(REPORT_FIELDS)), REPORT_FIELDS, rotation=45, ha="right")
+    ax.set_yticks(range(len(labels)), labels, fontsize=4.2 if compact else 5.2)
+    ax.set_xticks(np.arange(-.5, 7, 1), minor=True)
+    ax.set_yticks(np.arange(-.5, len(labels), 1), minor=True)
+    ax.grid(which="minor", color="white", lw=.55)
+    ax.tick_params(which="minor", bottom=False, left=False)
+    ax.tick_params(which="major", length=0)
+    ax.set_xlabel("Reported test information")
+    if not compact:
+        patches = [Patch(facecolor=c, edgecolor=INK if k == "NA" else "none", lw=.35,
+                         label=k) for k, c in zip(REPORT_STATUS, palette)]
+        ax.legend(handles=patches, frameon=False, ncol=5, bbox_to_anchor=(0, 1.01),
+                  loc="lower left", fontsize=5.7, handlelength=.9, columnspacing=.7)
+
+
+def capability_figure():
+    """One editorial figure of ten *capabilities*, never a synthetic experiment."""
+    configure()
+    fig = plt.figure(figsize=(300 / 25.4, 226 / 25.4))
+    grid = fig.add_gridspec(3, 4, left=.075, right=.965, bottom=.085, top=.965,
+                           wspace=.43, hspace=.47, height_ratios=[1.25, 1, 1])
+    mini = grid[0, :2].subgridspec(2, 2, wspace=.42, hspace=.48)
+    nested = [fig.add_subplot(mini[i, j]) for i in range(2) for j in range(2)]
+    ce = csv_read(ROOT / "li_cu_ce" / "data.csv")
+    full = csv_read(ROOT / "full_cell" / "data.csv")
+    for sample in "AB":
+        nested[0].plot(arr(ce, "cycle"), arr(ce, f"{sample}_ce_pct"), color=COLORS[sample], lw=.72)
+        nested[1].plot(arr(full, "cycle"), arr(full, f"{sample}_mAh_g"), color=COLORS[sample], lw=.72)
+    nested[0].set(xlabel="Cycle", ylabel="Li‖Cu CE (%)", xlim=(0, 300), ylim=(97, 100))
+    nested[1].set(xlabel="Cycle", ylabel="Full cell (mAh g$^{-1}$)", xlim=(0, 500), ylim=(130, 190))
+    sym = csv_read(ROOT / "li_li" / "data.csv")
+    for sample in "AB":
+        r = [row for row in sym if row["sample"] == sample and 101 <= float(row["time_h"]) <= 105]
+        nested[2].plot(arr(r, "time_h"), arr(r, "voltage_mV"), color=COLORS[sample], lw=.75)
+    nested[2].set(xlabel="Time (h)", ylabel="Li‖Li (mV)", xlim=(101, 105), ylim=(-70, 70))
+    eis = csv_read(ROOT / "eis" / "data.csv")
+    for sample in "AB":
+        r = [row for row in eis if row["sample"] == sample]
+        nested[3].plot(arr(r, "Zreal_ohm"), -arr(r, "Zimag_ohm"),
+                       color=COLORS[sample], lw=.7, marker="o", ms=1.4, markevery=7)
+    nested[3].set(xlabel="Z′ (Ω)", ylabel="−Z″ (Ω)", xlim=(0, 75), ylim=(0, 31))
+    nested[3].set_aspect("equal", adjustable="datalim")
+    for ax in nested:
+        ax.spines[["top", "right"]].set_visible(False)
+        ax.tick_params(direction="out", length=1.8, width=.45, labelsize=5)
+        ax.xaxis.label.set_size(5.3); ax.yaxis.label.set_size(5.3)
+    nested[0].text(-.20, 1.20, "a", transform=nested[0].transAxes,
+                   fontsize=8, fontweight="bold", color=INK)
+    therm = fig.add_subplot(grid[0, 2:])
+    data = csv_read(ROOT / "pouch_thermal" / "data.csv")
+    image = arr(data, "surface_temperature_C").reshape(71, 101)
+    cmap = LinearSegmentedColormap.from_list("pouch_spread", ["#e9f3f5", "#a8cfd4", "#e9c2a9", "#bb5870", "#6b2948"])
+    im = therm.imshow(image, origin="lower", extent=(0, 100, 0, 70),
+                      cmap=cmap, vmin=25, vmax=45, interpolation="nearest", aspect="equal")
+    therm.add_patch(Rectangle((0, 0), 100, 70, fill=False, edgecolor=INK, lw=.9))
+    for x in (12, 75):
+        therm.add_patch(Rectangle((x, 70), 13, 5, facecolor="#b9c4cb", edgecolor=INK, lw=.6))
+    therm.set(xlabel="Pouch width (mm)", ylabel="Pouch height (mm)", xlim=(0, 100), ylim=(0, 76))
+    axis(therm, "b")
+    cb = fig.colorbar(im, ax=therm, fraction=.033, pad=.025)
+    cb.ax.set_ylabel("°C", fontsize=6); cb.ax.tick_params(labelsize=5)
+    cells = [fig.add_subplot(grid[1, i]) for i in range(4)] + [fig.add_subplot(grid[2, i]) for i in range(4)]
+    # c: full cell; d: Li||Cu CE; e: circuit-based Nyquist; f: 48 synthetic records.
+    for sample in "AB":
+        cells[0].plot(arr(full, "cycle"), arr(full, f"{sample}_mAh_g"), color=COLORS[sample], lw=.8, label=sample)
+        cells[1].plot(arr(ce, "cycle"), arr(ce, f"{sample}_ce_pct"), color=COLORS[sample], lw=.75, label=sample)
+        r = [row for row in eis if row["sample"] == sample]
+        cells[2].plot(arr(r, "Zreal_ohm"), -arr(r, "Zimag_ohm"), color=COLORS[sample], lw=.7,
+                      marker="o", ms=1.7, markevery=7, label=sample)
+    cells[0].set(xlabel="Cycle number", ylabel="Capacity (mAh g$^{-1}$)", xlim=(0, 500), ylim=(130, 190))
+    cells[1].set(xlabel="Cycle number", ylabel="Li‖Cu CE (%)", xlim=(0, 300), ylim=(96.5, 100.2))
+    cells[2].set(xlabel="Z′ (Ω)", ylabel="−Z″ (Ω)", xlim=(0, 76), ylim=(0, 60))
+    cells[2].set_aspect("equal", adjustable="datalim")
+    plot_benchmark(cells[3], fig, compact=True)
+    for sample in "AB":
+        r = [row for row in sym if row["sample"] == sample and 101 <= float(row["time_h"]) <= 108]
+        cells[4].plot(arr(r, "time_h"), arr(r, "voltage_mV"), color=COLORS[sample], lw=.7)
+    cells[4].set(xlabel="Time (h)", ylabel="Li‖Li voltage (mV)", xlim=(101, 108), ylim=(-75, 75))
+    rate = csv_read(ROOT / "rate_capability" / "data.csv")
+    for sample in "AB":
+        r = [row for row in rate if row["sample"] == sample]
+        cells[5].plot(arr(r, "cycle"), arr(r, "capacity_mAh_g"), color=COLORS[sample],
+                      marker="o", ms=1.7, lw=.65)
+    for boundary in (10.5, 20.5, 30.5, 40.5, 50.5):
+        cells[5].axvline(boundary, color="#d5dce1", lw=.4)
+    cells[5].set(xlabel="Cycle number", ylabel="Capacity (mAh g$^{-1}$)", xlim=(0, 61), ylim=(105, 185))
+    plot_gcd(cells[6], compact=True)
+    plot_matrix(cells[7], compact=True)
+    for letter, ax in zip("cdefghij", cells):
+        axis(ax, letter)
+    for ax in cells:
+        ax.tick_params(labelsize=5.2)
+        ax.xaxis.label.set_size(5.8); ax.yaxis.label.set_size(5.8)
+    fig._capability_axes = {"a": nested, "b": therm, **{letter: ax for letter, ax in zip("cdefghij", cells)}}
+    return fig
+
+
 def figure(name: str):
     configure()
+    if name == "capability_spread":
+        return capability_figure()
     if name == "full_cell":
         fig, axes = plt.subplots(1, 2, figsize=(180 / 25.4, 88 / 25.4), gridspec_kw={"width_ratios": [1.55, 1]}, layout="constrained")
         plot_full(*axes)
@@ -343,6 +706,27 @@ def figure(name: str):
         grid = fig.add_gridspec(3, 2, height_ratios=[1, 1, .68])
         axes = [fig.add_subplot(grid[i, j]) for i in range(2) for j in range(2)] + [fig.add_subplot(grid[2, :])]
         plot_tofsims(axes, fig)
+    elif name == "rate_capability":
+        fig, axes = plt.subplots(1, 2, figsize=(180 / 25.4, 92 / 25.4),
+                                 gridspec_kw={"width_ratios": [1.5, 1]}, layout="constrained")
+        plot_rate(*axes)
+    elif name == "gcd_profiles":
+        fig, ax = plt.subplots(figsize=(180 / 25.4, 100 / 25.4), layout="constrained")
+        plot_gcd(ax)
+        axes = [ax]
+    elif name == "pouch_thermal":
+        fig = plt.figure(figsize=(180 / 25.4, 110 / 25.4), layout="constrained")
+        grid = fig.add_gridspec(2, 2, width_ratios=[1.35, 1], height_ratios=[1.35, .75])
+        axes = [fig.add_subplot(grid[0, 0]), fig.add_subplot(grid[0, 1]), fig.add_subplot(grid[1, :])]
+        plot_thermal(axes, fig)
+    elif name == "literature_benchmark":
+        fig, ax = plt.subplots(figsize=(180 / 25.4, 105 / 25.4), layout="constrained")
+        plot_benchmark(ax, fig)
+        axes = [ax]
+    elif name == "reporting_matrix":
+        fig, ax = plt.subplots(figsize=(180 / 25.4, 122 / 25.4), layout="constrained")
+        plot_matrix(ax)
+        axes = [ax]
     elif name == "integrated_study":
         fig = plt.figure(figsize=(180 / 25.4, 157 / 25.4), layout="constrained")
         grid = fig.add_gridspec(3, 2, width_ratios=[1.35, 1], height_ratios=[1, .61, 1.07])
@@ -358,9 +742,9 @@ def figure(name: str):
         # The shared A/B identity is explicit; no cross-test causality is inferred.
     else:
         raise ValueError(name)
-    for letter, ax in zip("abcdef", axes):
+    for letter, ax in zip("abcdefghijklmnopqrstuvwxyz", axes):
         axis(ax, letter)
-    if name in {"integrated_study", "tof_sims"}:
+    if name in {"integrated_study", "tof_sims", "pouch_thermal"}:
         # Constrained layout can center an equal-aspect image inside a taller
         # grid cell. Freeze the final layout, then match the *rendered axes*.
         fig.canvas.draw()
@@ -369,10 +753,14 @@ def figure(name: str):
             source = axes[3].get_position()
             target = axes[2].get_position()
             axes[2].set_position([target.x0, source.y0, target.width, source.height])
-        else:
+        elif name == "tof_sims":
             source = axes[1].get_position()
             target = axes[2].get_position()
             axes[3].set_position([source.x0, target.y0, source.width, target.height])
+        else:
+            target = axes[0].get_position()
+            source = axes[1].get_position()
+            axes[1].set_position([source.x0, target.y0, source.width, target.height])
         fig.canvas.draw()
     return fig
 
@@ -380,9 +768,44 @@ def figure(name: str):
 def ruler_audit(name: str, fig) -> dict:
     """Check rendered plot edges in physical units before publishing samples."""
     fig.canvas.draw()
+    if name == "capability_spread":
+        width_mm, height_mm = fig.get_size_inches() * 25.4
+        rects = {letter: obj.get_position().bounds for letter, obj in fig._capability_axes.items()
+                 if letter != "a"}
+        rects["a"] = fig._capability_axes["a"][0].get_subplotspec().get_topmost_subplotspec().get_position(fig).bounds
+        comparisons = []
+        for row in ("cdef", "ghij"):
+            comparisons += [(row[0], other, "row") for other in row[1:]]
+        comparisons += [(upper, lower, "column") for upper, lower in zip("cdef", "ghij")]
+        checks = []
+        for first, second, direction in comparisons:
+            a, b = rects[first], rects[second]
+            if direction == "row":
+                fields = (("top", a[1] + a[3], b[1] + b[3], height_mm),
+                          ("bottom", a[1], b[1], height_mm), ("height", a[3], b[3], height_mm))
+            else:
+                fields = (("left", a[0], b[0], width_mm),
+                          ("right", a[0] + a[2], b[0] + b[2], width_mm),
+                          ("width", a[2], b[2], width_mm))
+            for edge, av, bv, scale in fields:
+                delta = abs(av - bv) * scale * 72 / 25.4
+                checks.append({"panels": [first, second], "direction": direction,
+                               "edge": edge, "delta_pt": round(float(delta), 4),
+                               "pass": bool(delta <= 1.5)})
+        failures = [item for item in checks if not item["pass"]]
+        return {"figure": name, "tolerance_pt": 1.5,
+                "status": "fix_before_publish" if failures else "pass",
+                "checks": checks, "failures": failures,
+                "plot_rectangles_mm": [
+                    {"panel": letter, "left": round(box[0] * width_mm, 3),
+                     "top": round((1 - box[1] - box[3]) * height_mm, 3),
+                     "width": round(box[2] * width_mm, 3),
+                     "height": round(box[3] * height_mm, 3)} for letter, box in rects.items()],
+                "note": "Mid and lower rows measured after final draw. Nested panel a and equal-aspect thermal b are independent hero panels."}
     ax = fig.axes
     rows = {"full_cell": [(0, 1)], "li_cu_ce": [(0, 1)],
             "li_li": [(0, 1)], "operando_xrd": [(0, 1)],
+            "rate_capability": [(0, 1)], "pouch_thermal": [(0, 1)],
             "integrated_study": [(0, 1), (2, 3), (4, 5)],
             "tof_sims": [(0, 1), (2, 3)]}.get(name, [])
     columns = {"integrated_study": [(0, 2), (2, 4), (1, 3), (3, 5)],
@@ -407,14 +830,15 @@ def ruler_audit(name: str, fig) -> dict:
                                "direction": direction, "edge": edge,
                                "delta_pt": round(float(delta_pt), 3), "pass": bool(delta_pt <= 1.5)})
     failures = [c for c in checks if not c["pass"]]
+    letters = "abcdefghijklmnopqrstuvwxyz"
     return {"figure": name, "tolerance_pt": 1.5,
             "status": "fix_before_publish" if failures else ("pass" if checks else "independent_panels"),
             "checks": checks, "failures": failures,
             "plot_rectangles_mm": [
-                {"panel": "abcdef"[i], "left": round(x * width_mm, 3),
+                {"panel": letters[i], "left": round(x * width_mm, 3),
                  "top": round((1 - y - h) * height_mm, 3),
                  "width": round(w * width_mm, 3), "height": round(h * height_mm, 3)}
-                for i, (x, y, w, h) in enumerate(bounds[:6])],
+                for i, (x, y, w, h) in enumerate(bounds[:len(letters)])],
             "note": "Measured after final Matplotlib draw. Colorbars are excluded."}
 
 
@@ -423,6 +847,12 @@ def source_names(name: str) -> list[str]:
         return ["data_index.csv", "sources.json", "../li_cu_ce/data.csv", "../li_cu_ce/profiles.csv", "../li_li/data.csv", "../eis/data.csv", "../full_cell/data.csv", "../full_cell/voltage_profiles.csv"]
     if name == "eis":
         return ["data.csv", "model.json"]
+    if name == "pouch_thermal":
+        return ["data.csv", "line_profile.csv", "history.csv", "geometry.json"]
+    if name == "reporting_matrix":
+        return ["data.csv", "status_key.json"]
+    if name == "capability_spread":
+        return ["data_index.csv", "sources.json"]
     return sorted(p.name for p in (ROOT / name).glob("*.csv"))
 
 
@@ -439,7 +869,7 @@ def render(name: str) -> None:
     svg = destination / "figure.svg"
     svg.write_text("\n".join(line.rstrip() for line in svg.read_text(encoding="utf-8").splitlines()) + "\n", encoding="utf-8")
     plt.close(fig)
-    meta = {"data_status": "synthetic_demo", "not_experimental_data": True, "random_seed": SEED, "generator_version": VERSION, "figure_grammar_id": GRAMMAR[name], "journal_preset": "journal_neutral_180mm", "test_conditions": CONDITIONS[name], "source_files": source_names(name), "creator": "BatteryReviewForge original code", "review": {"science": "models and data-to-panel links inspected; no experimental interpretation", "display": "internal PNG and final-size inspection completed; independent author review remains required"}}
+    meta = {"data_status": "synthetic_demo", "not_experimental_data": True, "random_seed": SEED, "generator_version": VERSION, "figure_grammar_id": GRAMMAR[name], "journal_preset": "journal_neutral_180mm", "variables_and_units": VARIABLES[name], "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.", "test_conditions": CONDITIONS[name], "source_files": source_names(name), "creator": "BatteryReviewForge original code", "review": {"science": "models and data-to-panel links inspected; no experimental interpretation", "display": "internal PNG and final-size inspection completed; independent author review remains required"}}
     (destination / "metadata.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 

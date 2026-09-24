@@ -25,7 +25,7 @@ For illustrations based on author-supplied visual packs, read [the asset pattern
 
 When the author asks for a more polished, less generic, or “less AI-looking” figure, use the [visual finishing guide](references/VISUAL_FINISH.md) before final drawing. Keep the request about editorial clarity and scientific fidelity: remove unhelpful effects and template clutter, show the source of every scientific detail, and preserve any journal-required AI-use disclosure. Render, inspect at final size, revise, and recheck rather than declaring the first preview finished.
 
-For a homepage example or demo gallery, apply the [showcase gate](references/SHOWCASE_QA.md). Existing synthetic CE, full-cell, EIS, matrix and six-panel composite drawings are `test` materials, not homepage showcase templates. Do not restyle them into a claim of publication readiness. A new featured example needs source-backed grammar, final-size/font QA and recorded human review.
+For a homepage example or demo gallery, apply the [showcase gate](references/SHOWCASE_QA.md), then the matching [reproducible figure specification](references/SHOWCASE_SPEC.md) and [plot QA checklist](references/PLOT_QA_CHECKLIST.md). The current `examples/showcase` files are synthetic workflow demonstrations, not publication evidence or automatic templates for author data. Earlier test drawings remain test materials. A new featured example needs source-backed grammar, final-size/font QA and recorded human review.
 
 ## Plan the figure
 

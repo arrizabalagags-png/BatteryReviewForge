@@ -2,9 +2,15 @@
   "data_status": "synthetic_demo",
   "not_experimental_data": true,
   "random_seed": 20260923,
-  "generator_version": "1.0",
+  "generator_version": "1.1",
   "figure_grammar_id": "nyquist + bode (optional model demonstration)",
   "journal_preset": "journal_neutral_180mm",
+  "variables_and_units": {
+    "x": "Z′ (Ω)",
+    "y": "−Z″ (Ω)",
+    "linked": "frequency (Hz) and phase (°) from one circuit model"
+  },
+  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
   "test_conditions": "Illustrative two-electrode model; 100 kHz–10 mHz; Rs + (Rct||CPE) + semi-infinite Warburg. Values have no fitted experimental interpretation.",
   "source_files": [
     "data.csv",

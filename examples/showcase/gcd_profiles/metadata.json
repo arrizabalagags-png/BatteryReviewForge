@@ -1,0 +1,23 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260923,
+  "generator_version": "1.1",
+  "figure_grammar_id": "charge_discharge_voltage_capacity_profiles",
+  "journal_preset": "journal_neutral_180mm",
+  "variables_and_units": {
+    "x": "specific capacity (mAh g−1)",
+    "y": "voltage (V)",
+    "linked": "cycle state shared with full-cell demo"
+  },
+  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
+  "test_conditions": "Illustrative NMC811||Li at 0.5 C, 2.8–4.3 V, 25 °C; cycles 1/100/300/500 share the full-cell capacity state.",
+  "source_files": [
+    "data.csv"
+  ],
+  "creator": "BatteryReviewForge original code",
+  "review": {
+    "science": "models and data-to-panel links inspected; no experimental interpretation",
+    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+  }
+}

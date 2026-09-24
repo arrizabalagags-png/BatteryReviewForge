@@ -1,0 +1,24 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260923,
+  "generator_version": "1.1",
+  "figure_grammar_id": "rate_capability + selected_rate_profiles",
+  "journal_preset": "journal_neutral_180mm",
+  "variables_and_units": {
+    "x": "cycle number",
+    "y": "discharge capacity (mAh g−1)",
+    "linked": "selected voltage (V) versus capacity (mAh g−1) at measured stages"
+  },
+  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
+  "test_conditions": "Illustrative NMC811||Li; 0.2/0.5/1/2/5/0.2 C in ten-cycle stages; 2.8–4.3 V; 25 °C. Recovery stage is simulated, not measured.",
+  "source_files": [
+    "data.csv",
+    "voltage_profiles.csv"
+  ],
+  "creator": "BatteryReviewForge original code",
+  "review": {
+    "science": "models and data-to-panel links inspected; no experimental interpretation",
+    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+  }
+}

@@ -15,18 +15,28 @@ NAV = [
     ("样图库", "gallery.html"), ("使用帮助", "learn.html"),
 ]
 SHOWCASE = [
+    ("capability_spread", "一张图看十种绘图能力", "十类图按信息主次排在一页；每一格都能打开对应样图和数据。"),
+    ("integrated_study", "同一研究的六面板图", "电解液 A/B 在 CE、对称电池、阻抗与全电池中保持一致。"),
+    ("pouch_thermal", "软包电池表面温度", "软包轮廓、极耳、统一色标、同一温度场的截线和时间变化。"),
+    ("literature_benchmark", "文献数据对照散点", "48 条虚构记录在相同测试基准下展示；示例编号不是论文引文。"),
     ("full_cell", "NMC811‖Li 全电池长循环", "循环容量与选定圈数电压曲线，来自同一套演示状态。"),
+    ("eis", "EIS Nyquist 与相位", "由声明的等效电路生成频率与复阻抗数据。"),
     ("li_cu_ce", "Li‖Cu 逐圈库伦效率", "逐圈 CE 与对应容量过程；保留后期波动。"),
+    ("li_li", "Li‖Li 对称电池", "长时间极化变化与同一时间段的局部波形。"),
+    ("rate_capability", "倍率性能与对应电压曲线", "阶梯倍率、返回低倍率以及同一阶段的电压曲线。"),
+    ("gcd_profiles", "选定圈数充放电曲线", "第 1、100、300、500 圈与全电池长循环使用同一容量状态。"),
+    ("reporting_matrix", "文献报告完整度矩阵", "用不同状态区分已报告、部分报告、未报告和未核实。"),
     ("operando_xrd", "Operando XRD", "峰位、峰强随 SOC 变化，并与电压使用同一 SOC 轴。"),
     ("tof_sims", "ToF-SIMS 空间与深度分布", "同一界面模型生成离子图与深度趋势。"),
-    ("eis", "EIS Nyquist 与相位", "由声明的等效电路生成频率与复阻抗数据。"),
-    ("integrated_study", "同一研究的六面板 Figure", "电解液 A/B 在 CE、对称电池、阻抗与全电池中保持一致。"),
 ]
 IMAGE_SIZE = {
     "full_cell": (2125, 1039), "li_cu_ce": (2125, 1039),
     "li_li": (2125, 1039), "eis": (2125, 1393),
     "operando_xrd": (2125, 1157), "tof_sims": (2125, 1948),
-    "integrated_study": (2125, 1854),
+    "integrated_study": (2125, 1854), "capability_spread": (3543, 2669),
+    "pouch_thermal": (2125, 1299), "literature_benchmark": (2125, 1240),
+    "rate_capability": (2125, 1086), "gcd_profiles": (2125, 1181),
+    "reporting_matrix": (2125, 1440),
 }
 
 
@@ -61,7 +71,7 @@ def page_head(kicker: str, title: str, intro: str) -> str:
 def gallery_card(item, wide=False) -> str:
     slug, title, description = item
     stem = f"assets/showcase/{slug}/"
-    data_file = "data_index.csv" if slug == "integrated_study" else "data.csv"
+    data_file = "data_index.csv" if slug in {"integrated_study", "capability_spread"} else "data.csv"
     width, height = IMAGE_SIZE[slug]
     return f'''<article class="gallery-card{' wide' if wide else ''}"><a class="gallery-image" href="{stem}figure.svg" aria-label="查看{title}的 SVG"><img src="{stem}figure.png" alt="{title}：虚构演示数据生成的科研图" width="{width}" height="{height}" loading="lazy" decoding="async"></a>
 <div class="gallery-caption"><div><span class="synthetic">Synthetic demo · 非实验数据</span><h3>{title}</h3><p>{description}</p></div><div class="gallery-links"><a href="{stem}{data_file}">CSV</a><a href="{stem}figure.svg">SVG</a><a href="{stem}figure.pdf">PDF</a><a href="{stem}metadata.json">数据说明</a></div></div></article>'''
@@ -70,14 +80,14 @@ def gallery_card(item, wide=False) -> str:
 def homepage() -> str:
     by_slug = {item[0]: item for item in SHOWCASE}
     picks = "".join(f'<div class="home-pick home-pick-{slug}" id="home-{slug}">{gallery_card(by_slug[slug])}</div>'
-                    for slug in ("integrated_study", "tof_sims", "operando_xrd"))
-    return f'''<section class="hero-section"><div class="wrap hero"><div class="hero-copy"><p class="eyebrow">面向电池研究者的免费开源工具</p><h1>少花时间排图。<br>多花时间想问题。</h1><p class="hero-lead">把实验数据或现成图片交给你使用的 Agent，就能开始画论文图、拼组合图。写综述时，也有从选题到返修的逐步帮助。</p>
+                    for slug in ("integrated_study", "pouch_thermal", "literature_benchmark", "full_cell", "eis"))
+    return f'''<section class="hero-section"><div class="wrap hero"><div class="hero-copy"><p class="eyebrow">免费开源 · 给电池研究者</p><h1>把电池数据，<br>画成论文图。</h1><p class="hero-lead">有表格，就画数据图；有几张现成图，就拼成整齐的 Figure。先看样例，再拿自己的文件试。</p>
 <div class="hero-actions"><a class="btn" href="start.html">开始使用</a><a class="quiet-link" href="gallery.html">先看样图 <span aria-hidden="true">→</span></a></div><p class="hero-meta">不用在本站注册。先用附带的演示文件试一遍。</p></div>
-<figure class="hero-figure"><a href="assets/showcase/full_cell/figure.svg" aria-label="放大全电池长循环演示图"><img src="assets/showcase/full_cell/figure.png" alt="全电池长循环与对应电压曲线；由明确标记的虚构演示数据生成" width="2125" height="1039" fetchpriority="high"></a><figcaption><span>从数据到可编辑论文图</span><span>示例为虚构数据 · <a href="gallery.html#full_cell">查看数据与说明</a></span></figcaption></figure></div></section>
+<figure class="hero-figure"><a class="hero-media-desktop" href="gallery.html#capability_spread" aria-label="查看十类绘图样例与数据"><img src="assets/showcase/capability_spread/figure.png" alt="十面板能力展示：电化学曲线、软包温度、文献散点和报告矩阵；均为虚构演示数据" width="3543" height="2669" fetchpriority="high"></a><a class="hero-media-mobile" href="gallery.html#pouch_thermal" aria-label="查看软包温度样例与数据"><img src="assets/showcase/pouch_thermal/figure.png" alt="软包电池表面温度图和配套截线；虚构演示数据" width="2125" height="1299"></a><figcaption><span>图和数据，点开就能看</span><span>虚构演示 · 非实验数据 · <a href="gallery.html#capability_spread">看全部样图</a></span></figcaption></figure></div></section>
 <section class="section"><div class="wrap"><div class="section-head"><p class="eyebrow">你手里有什么？</p><h2>从现在这一步开始。</h2><p class="section-intro">不用先弄懂所有技能。选你最熟悉的材料，照着页面做第一件事。</p></div><div class="feature-grid">
 <article class="feature-item"><span class="feature-number">01</span><h3>有实验数据</h3><p>核对列名、单位和测试条件，再画长循环、库伦效率、阻抗等论文图。</p><a class="text-link" href="start.html?task=full">试着画一张 <span aria-hidden="true">→</span></a></article>
 <article class="feature-item"><span class="feature-number">02</span><h3>有几张现成图</h3><p>按最终投稿尺寸拼在一起，检查字母、绘图区边界、间距和清晰度。</p><a class="text-link" href="start.html?task=assembly">试着拼一张 <span aria-hidden="true">→</span></a></article>
-<article class="feature-item"><span class="feature-number">03</span><h3>准备写综述</h3><p>从选题、查证、写作到投稿和返修，按阶段找到合适的帮助。</p><a class="text-link" href="features.html#review">看写作流程 <span aria-hidden="true">→</span></a></article></div></div></section>
+<article class="feature-item"><span class="feature-number">03</span><h3>先看效果</h3><p>打开样图，看原始演示数据、SVG 和 PDF，再用附带文件跟着做。</p><a class="text-link" href="gallery.html">打开样图库 <span aria-hidden="true">→</span></a></article></div></div></section>
 <section class="section soft"><div class="wrap"><div class="section-head"><p class="eyebrow">样图库</p><h2>看看实际能做成什么样。</h2><p class="section-intro">图、演示数据和可编辑文件放在一起。每张样图都写明是虚构演示，不会冒充实验结果。</p></div><div class="home-showcase">{picks}</div><p class="section-action"><a class="quiet-link" href="gallery.html">查看所有样图 <span aria-hidden="true">→</span></a></p></div></section>
 <section class="section"><div class="wrap start-invitation"><div><p class="eyebrow">第一次用</p><h2>跟着做，先画出一张。</h2><p>选择你使用的软件，下载演示文件，再把页面给你的任务句交给它。遇到不会的步骤，旁边就有说明。</p><a class="btn" href="start.html">带我开始</a></div><ol class="simple-steps"><li><strong>选软件</strong><span>先选你现在用的 Agent</span></li><li><strong>安装</strong><span>只看适合当前软件的步骤</span></li><li><strong>试一张</strong><span>用附带的演示数据验证</span></li></ol></div></section>
 <section class="section soft"><div class="wrap trust-copy"><p class="eyebrow">放心使用</p><h2>你的数据，始终由你决定怎么用。</h2><p>本站不接收实验文件，也不索取 API Key。绘图脚本不会加项目水印；原始数据保持不变。在线 Agent 的文件处理方式，请以你所用软件的设置为准。</p><a class="quiet-link" href="disclaimer.html">了解数据与责任说明 <span aria-hidden="true">→</span></a></div></section>
@@ -108,9 +118,12 @@ def features() -> str:
 
 
 def gallery() -> str:
-    cards = "".join(f'<div id="{item[0]}">{gallery_card(item)}</div>' for item in SHOWCASE)
-    extra = gallery_card(("li_li", "Li‖Li 对称电池", "长时间极化变化与局部 plating/stripping 波形。"))
-    return page_head('样图库', '图可以放大看，数据可以下载。', '每张都是由公开脚本生成的 synthetic demo，供练习与检验流程；不是任何真实论文的实验结果。') + f'''<section class="section"><div class="wrap"><div class="gallery-grid">{cards}<div id="li_li">{extra}</div></div></div></section><section class="page-block soft"><div class="wrap prose"><h2>想自己改一遍？</h2><p>每个示例都保留 CSV、生成脚本、SVG、PDF 和元数据。打开数据说明可以看到模型、测试条件和源文件。下载 SVG 后可用免费的 Inkscape 手动调字和位置。</p><a class="text-link" href="learn.html#svg">学习 SVG 微调 →</a></div></section>'''
+    slots = []
+    for item in SHOWCASE:
+        css_class = "gallery-slot gallery-slot-wide" if item[0] == "capability_spread" else "gallery-slot"
+        slots.append(f'<div class="{css_class}" id="{item[0]}">{gallery_card(item)}</div>')
+    cards = "".join(slots)
+    return page_head('样图库', '图可以放大看，数据可以下载。', '每张图都由公开脚本和虚构演示数据生成。点开 SVG 看细节，下载 CSV 自己试；这里没有真实实验结果。') + f'''<section class="section"><div class="wrap"><div class="gallery-grid">{cards}</div></div></section><section class="page-block soft"><div class="wrap prose"><h2>想自己改一遍？</h2><p>每个示例都保留 CSV、生成脚本、SVG、PDF 和元数据。打开数据说明可以看到变量、单位、测试条件和源文件。下载 SVG 后可用免费的 Inkscape 手动调字和位置。</p><a class="text-link" href="learn.html#svg">学习 SVG 微调 →</a></div></section>'''
 
 
 def learn() -> str:
@@ -139,7 +152,7 @@ def support() -> str:
 
 
 def roadmap() -> str:
-    return page_head('路线图', '现在做什么，哪些仍需验证。', '把进度和限制放在这里，方便使用者和贡献者按需查阅。') + '''<section class="page-block"><div class="wrap row-list"><div class="row"><h3>已交付</h3><p>13 个独立技能、图型语法、安装包、七类数据先行的 synthetic demo、可下载 SVG/PDF/CSV。</p><span class="pill">当前</span></div><div class="row"><h3>正在验证</h3><p>更多仪器导出文件、复杂拼版、不同 Agent 的完整任务链、期刊最终尺寸与字体。</p><span class="pill">进行中</span></div><div class="row"><h3>后续方向</h3><p>有来源的真实公开示例、社区提交模板、更多 battery figure grammar 条目。</p><span class="pill">计划</span></div></div></section><section class="page-block soft"><div class="wrap prose"><h2>已知限制</h2><ul><li>示例图均为清晰标记的 synthetic demo，不能作为论文实验数据。</li><li>不同 Agent 的文件执行能力不同，能读技能不等于已经实测成图。</li><li>未知列名、测试条件或容量保持率参考圈数时，技能需要用户补充或仅画已知量。</li><li>SVG 编辑、PDF 字体嵌入和最终投稿尺寸仍需作者复核。</li></ul><p>早期样图仅保留在历史与测试材料中，不再作为首页作品。</p><p><a class="text-link" href="UX_QA_0.8.2.md">查看这一版的验收记录 →</a></p></div></section>'''
+    return page_head('路线图', '现在做什么，哪些仍需验证。', '把进度和限制放在这里，方便使用者和贡献者按需查阅。') + '''<section class="page-block"><div class="wrap row-list"><div class="row"><h3>已交付</h3><p>13 个独立技能、图型语法、安装包、13 类数据先行的 synthetic demo、可下载 SVG/PDF/CSV。</p><span class="pill">当前</span></div><div class="row"><h3>正在验证</h3><p>更多仪器导出文件、复杂拼版、不同 Agent 的完整任务链、期刊最终尺寸与字体。</p><span class="pill">进行中</span></div><div class="row"><h3>后续方向</h3><p>有来源的真实公开示例、社区提交模板、更多 battery figure grammar 条目。</p><span class="pill">计划</span></div></div></section><section class="page-block soft"><div class="wrap prose"><h2>已知限制</h2><ul><li>示例图均为清晰标记的 synthetic demo，不能作为论文实验数据。</li><li>不同 Agent 的文件执行能力不同，能读技能不等于已经实测成图。</li><li>未知列名、测试条件或容量保持率参考圈数时，技能需要用户补充或仅画已知量。</li><li>SVG 编辑、PDF 字体嵌入和最终投稿尺寸仍需作者复核。</li></ul><p>早期样图仅保留在历史与测试材料中，不再作为首页作品。</p><p><a class="text-link" href="BUG_AUDIT_v0.8.3.md">查看这一版的验收记录 →</a></p></div></section>'''
 
 
 def developers() -> str:
@@ -177,6 +190,12 @@ SEARCH = [
     ("样图", "Li‖Li 对称电池样图", "gallery.html#li_li", "对称电池 li||li symmetric cell"),
     ("样图", "Operando XRD 样图", "gallery.html#operando_xrd", "xrd diffraction"),
     ("样图", "ToF-SIMS 样图", "gallery.html#tof_sims", "tof sims depth map"),
+    ("样图", "十面板能力展示", "gallery.html#capability_spread", "capability ten panel 十面板 总图"),
+    ("样图", "软包温度热图", "gallery.html#pouch_thermal", "pouch thermal 热图 温度 软包"),
+    ("样图", "文献性能散点", "gallery.html#literature_benchmark", "benchmark literature scatter 文献 性能 散点"),
+    ("样图", "倍率性能", "gallery.html#rate_capability", "rate capability 倍率"),
+    ("样图", "充放电曲线", "gallery.html#gcd_profiles", "gcd voltage profile 充放电"),
+    ("样图", "报告完整度矩阵", "gallery.html#reporting_matrix", "reporting matrix heatmap NR NV 文献矩阵"),
     ("学习", "CE 与 Aurbach CE 的区别", "learn.html", "库伦效率 库仑效率 CE aurbach"),
     ("学习", "Inkscape 微调 SVG", "learn.html#svg", "svg inkscape 字号 排版"),
     ("学习", "兼容哪些 Agent", "learn.html#compatibility", "codex kimi workbuddy deepseek 豆包"),

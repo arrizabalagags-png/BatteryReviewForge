@@ -1,0 +1,24 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260923,
+  "generator_version": "1.1",
+  "figure_grammar_id": "categorical_reporting_audit",
+  "journal_preset": "journal_neutral_180mm",
+  "variables_and_units": {
+    "x": "reporting field",
+    "y": "synthetic study ID",
+    "linked": "reported/partial/NR/NV/NA categorical status"
+  },
+  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
+  "test_conditions": "18 invented study IDs with seven reporting fields; status categories are examples, not an audit of real papers.",
+  "source_files": [
+    "data.csv",
+    "status_key.json"
+  ],
+  "creator": "BatteryReviewForge original code",
+  "review": {
+    "science": "models and data-to-panel links inspected; no experimental interpretation",
+    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+  }
+}

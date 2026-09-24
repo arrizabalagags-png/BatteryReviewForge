@@ -2,9 +2,15 @@
   "data_status": "synthetic_demo",
   "not_experimental_data": true,
   "random_seed": 20260923,
-  "generator_version": "1.0",
+  "generator_version": "1.1",
   "figure_grammar_id": "li_li_symmetric + linked_zoom",
   "journal_preset": "journal_neutral_180mm",
+  "variables_and_units": {
+    "x": "time (h)",
+    "y": "symmetric-cell voltage (mV)",
+    "linked": "zoom uses the same time series"
+  },
+  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
   "test_conditions": "Illustrative Li||Li; ±1 mA cm−2; 1 mAh cm−2 per half-cycle; no rest; 25 °C.",
   "source_files": [
     "data.csv"

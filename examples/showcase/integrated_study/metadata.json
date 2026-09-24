@@ -2,9 +2,15 @@
   "data_status": "synthetic_demo",
   "not_experimental_data": true,
   "random_seed": 20260923,
-  "generator_version": "1.0",
+  "generator_version": "1.1",
   "figure_grammar_id": "same_synthetic_study_cross_validation",
   "journal_preset": "journal_neutral_180mm",
+  "variables_and_units": {
+    "x": "experiment-specific axes",
+    "y": "experiment-specific units",
+    "linked": "six panels from same A/B synthetic study"
+  },
+  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
   "test_conditions": "One invented A/B electrolyte comparison reuses the source files and identities above; panels do not establish a real mechanism.",
   "source_files": [
     "data_index.csv",

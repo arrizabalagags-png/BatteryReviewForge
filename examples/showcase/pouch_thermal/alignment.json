@@ -1,0 +1,69 @@
+{
+  "figure": "pouch_thermal",
+  "tolerance_pt": 1.5,
+  "status": "pass",
+  "checks": [
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "direction": "row",
+      "edge": "top",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "direction": "row",
+      "edge": "bottom",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "direction": "row",
+      "edge": "height",
+      "delta_pt": 0.0,
+      "pass": true
+    }
+  ],
+  "failures": [],
+  "plot_rectangles_mm": [
+    {
+      "panel": "a",
+      "left": 17.224,
+      "top": 7.069,
+      "width": 67.076,
+      "height": 50.978
+    },
+    {
+      "panel": "b",
+      "left": 127.494,
+      "top": 7.069,
+      "width": 49.686,
+      "height": 50.978
+    },
+    {
+      "panel": "c",
+      "left": 17.224,
+      "top": 72.102,
+      "width": 159.955,
+      "height": 30.066
+    },
+    {
+      "panel": "d",
+      "left": 102.877,
+      "top": 8.41,
+      "width": 2.415,
+      "height": 48.295
+    }
+  ],
+  "note": "Measured after final Matplotlib draw. Colorbars are excluded."
+}

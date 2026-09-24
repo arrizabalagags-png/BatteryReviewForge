@@ -1,0 +1,24 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260923,
+  "generator_version": "1.1",
+  "figure_grammar_id": "ten_panel_capability_spread",
+  "journal_preset": "journal_neutral_180mm",
+  "variables_and_units": {
+    "x": "experiment-specific axes",
+    "y": "experiment-specific units",
+    "linked": "ten panels from explicitly separate demonstration sources"
+  },
+  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
+  "test_conditions": "Ten independently labelled synthetic capability panels; shared styles do not imply one experiment across unlike cell and measurement types.",
+  "source_files": [
+    "data_index.csv",
+    "sources.json"
+  ],
+  "creator": "BatteryReviewForge original code",
+  "review": {
+    "science": "models and data-to-panel links inspected; no experimental interpretation",
+    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+  }
+}

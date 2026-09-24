@@ -27,7 +27,12 @@ const synonyms = [
   ["阻抗","eis","nyquist"],
   ["对称电池","li||li","symmetric cell"],
   ["拼图","拼版","panel assembly"],
-  ["全电池","full cell","cycling"]
+  ["全电池","full cell","cycling"],
+  ["热图","软包温度","thermal","pouch"],
+  ["文献散点","基准比较","benchmark","literature scatter"],
+  ["倍率","rate capability","rate"],
+  ["充放电","gcd","voltage profile"],
+  ["报告矩阵","reporting matrix","matrix"]
 ];
 let searchIndex = null;
 let searchLoad = null;

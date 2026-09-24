@@ -2,9 +2,15 @@
   "data_status": "synthetic_demo",
   "not_experimental_data": true,
   "random_seed": 20260923,
-  "generator_version": "1.0",
+  "generator_version": "1.1",
   "figure_grammar_id": "operando_xrd + matched_voltage_trace",
   "journal_preset": "journal_neutral_180mm",
+  "variables_and_units": {
+    "x": "state of charge (%)",
+    "y": "2θ (°)",
+    "linked": "model intensity (a.u.) and voltage (V) on the same SOC axis"
+  },
+  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
   "test_conditions": "Illustrative angle-by-SOC model with moving and splitting Gaussian peaks; no phase assignment or acquired diffraction.",
   "source_files": [
     "data.csv",

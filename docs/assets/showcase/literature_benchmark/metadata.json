@@ -1,0 +1,23 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260923,
+  "generator_version": "1.1",
+  "figure_grammar_id": "source_linked_comparable_literature_scatter",
+  "journal_preset": "journal_neutral_180mm",
+  "variables_and_units": {
+    "x": "sulfur loading (mg cm−2)",
+    "y": "capacity at cycle 100 (mAh g−1)",
+    "linked": "48 invented comparable records; category by symbol"
+  },
+  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
+  "test_conditions": "48 invented Li–S-like records, each at 0.2 C, 25 °C and cycle 100, with one consistent mAh g−1 sulfur basis; IDs are synthetic, never citations.",
+  "source_files": [
+    "data.csv"
+  ],
+  "creator": "BatteryReviewForge original code",
+  "review": {
+    "science": "models and data-to-panel links inspected; no experimental interpretation",
+    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+  }
+}

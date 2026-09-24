@@ -1,0 +1,26 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260923,
+  "generator_version": "1.1",
+  "figure_grammar_id": "pouch_surface_temperature + linked_line_and_time",
+  "journal_preset": "journal_neutral_180mm",
+  "variables_and_units": {
+    "x": "pouch width (mm)",
+    "y": "pouch height (mm)",
+    "linked": "temperature (°C), same-map line profile, Tmax versus time (min)"
+  },
+  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
+  "test_conditions": "Illustrative 100 × 70 mm pouch surface at 2 C and 25 °C ambient; modelled 0–30 min temperature, not an IR measurement.",
+  "source_files": [
+    "data.csv",
+    "line_profile.csv",
+    "history.csv",
+    "geometry.json"
+  ],
+  "creator": "BatteryReviewForge original code",
+  "review": {
+    "science": "models and data-to-panel links inspected; no experimental interpretation",
+    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+  }
+}

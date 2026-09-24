@@ -26,7 +26,7 @@
 
 ## 第 2 步：安装技能
 
-下载并解压 [完整技能安装包](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-v0.8.2.zip)。看到 `skills/`、`install.ps1` 和 `install.sh` 三项后，再按自己的软件做以下一步。
+下载并解压 [完整技能安装包](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-v0.8.3.zip)。看到 `skills/`、`install.ps1` 和 `install.sh` 三项后，再按自己的软件做以下一步。
 
 ### Codex：最省事
 
@@ -49,7 +49,7 @@ codex plugin add battery-review-forge@battery-review-forge
 
 ### WorkBuddy：按技能逐个导入
 
-下载 [WorkBuddy 技能包合集](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-WorkBuddy-v0.8.2.zip)，**先解压合集**。里面有 13 个独立 ZIP，每个 ZIP 对应一个技能：已有图片拼版选 `battery-figure-assemble`，上传数据画图选 `battery-review-figure`。在 WorkBuddy **技能 → 添加技能 → 上传技能** 中选所需的单个 ZIP。不要直接上传“合集 ZIP”或 Codex 的“完整技能 ZIP”。如果任务跨多个阶段，可继续安装相关技能；总协调技能引用其他技能时要确保它们也已导入。WorkBuddy 的开放平台要求 `description_zh`、`description_en`、版本与作者，专用 ZIP 会补齐这些字段。[官方导入说明](https://free-plat-test.qcloudcdn.com/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)、[包结构](https://open.workbuddy.cn/en/docs/skill)。
+下载 [WorkBuddy 技能包合集](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-WorkBuddy-v0.8.3.zip)，**先解压合集**。里面有 13 个独立 ZIP，每个 ZIP 对应一个技能：已有图片拼版选 `battery-figure-assemble`，上传数据画图选 `battery-review-figure`。在 WorkBuddy **技能 → 添加技能 → 上传技能** 中选所需的单个 ZIP。不要直接上传“合集 ZIP”或 Codex 的“完整技能 ZIP”。如果任务跨多个阶段，可继续安装相关技能；总协调技能引用其他技能时要确保它们也已导入。WorkBuddy 的开放平台要求 `description_zh`、`description_en`、版本与作者，专用 ZIP 会补齐这些字段。[官方导入说明](https://free-plat-test.qcloudcdn.com/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)、[包结构](https://open.workbuddy.cn/en/docs/skill)。
 
 ### 豆包：先不要照搬其他软件的目录
 

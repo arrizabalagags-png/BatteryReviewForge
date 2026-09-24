@@ -1,0 +1,33 @@
+{
+  "pouch_width_mm": 100,
+  "pouch_height_mm": 70,
+  "tabs": [
+    {
+      "name": "+",
+      "x_mm": [
+        12,
+        25
+      ],
+      "y_mm": [
+        70,
+        76
+      ]
+    },
+    {
+      "name": "−",
+      "x_mm": [
+        75,
+        88
+      ],
+      "y_mm": [
+        70,
+        76
+      ]
+    }
+  ],
+  "surface_model": "illustrative bounded heat field; not a measured thermogram",
+  "colorbar_range_C": [
+    25,
+    45
+  ]
+}
