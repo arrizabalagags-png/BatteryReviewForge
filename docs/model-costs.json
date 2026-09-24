@@ -1,0 +1,17 @@
+{
+  "checked_on": "2026-09-24",
+  "method": "Illustrative uncached API text-token estimate only; input_tokens/1000000*input_price + output_tokens/1000000*output_price. GPT-6 Standard short-context prices assume each API request has at most 272000 input tokens even if cumulative workload tokens are higher. No exchange conversion, image/tool fees, taxes, retries or subscription charges.",
+  "workloads": {
+    "single": {"label": "一张标准图", "input_tokens": 30000, "output_tokens": 8000},
+    "ten_basic": {"label": "十面板 一轮", "input_tokens": 150000, "output_tokens": 30000},
+    "ten_revision": {"label": "十面板 多轮", "input_tokens": 400000, "output_tokens": 80000}
+  },
+  "models": [
+    {"label": "GPT-6 Luna · Standard", "currency": "USD", "symbol": "$", "input_per_million": 0.10, "output_per_million": 0.50, "source": "https://developers.openai.com/api/docs/pricing"},
+    {"label": "GPT-6 Sol · Standard", "currency": "USD", "symbol": "$", "input_per_million": 2.00, "output_per_million": 10.00, "source": "https://developers.openai.com/api/docs/pricing"},
+    {"label": "GPT-6 Astra · Standard", "currency": "USD", "symbol": "$", "input_per_million": 10.00, "output_per_million": 50.00, "source": "https://developers.openai.com/api/docs/pricing"},
+    {"label": "Kimi K3 · API", "currency": "CNY", "symbol": "¥", "input_per_million": 20.00, "output_per_million": 100.00, "source": "https://platform.kimi.com/"},
+    {"label": "DeepSeek V4.1 Flash · 高峰", "currency": "CNY", "symbol": "¥", "input_per_million": 2.00, "output_per_million": 8.00, "source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/"},
+    {"label": "DeepSeek V4.1 Flash · 低谷", "currency": "CNY", "symbol": "¥", "input_per_million": 1.00, "output_per_million": 4.00, "source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/"}
+  ]
+}

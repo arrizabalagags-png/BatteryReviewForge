@@ -9,7 +9,7 @@ from zipfile import ZipFile
 
 REPO = Path(__file__).resolve().parents[1]
 DOCS = REPO / "docs"
-PAGES = ("index.html", "start.html", "features.html", "gallery.html", "learn.html",
+PAGES = ("index.html", "start.html", "features.html", "gallery.html", "learn.html", "models.html",
          "community.html", "contribute.html", "support.html", "roadmap.html",
          "developers.html", "guide.html", "disclaimer.html")
 SAMPLES = ("full_cell", "li_cu_ce", "li_li", "eis", "operando_xrd", "tof_sims", "integrated_study",
@@ -69,7 +69,10 @@ class ProductSiteTest(unittest.TestCase):
 
     def test_home_is_product_route_not_prompt_router(self):
         home = (DOCS / "index.html").read_text(encoding="utf-8")
-        self.assertIn("把电池数据，<br>画成论文图。", home)
+        self.assertIn("<h1>少花时间排图<br>多花时间想问题</h1>", home)
+        self.assertIn("有数据就能画 有图片就能拼", home)
+        self.assertIn("把电池数据画成论文图", home)
+        self.assertIn("<h2>把时间还给研究<br>方法属于每个人</h2>", home)
         self.assertIn('href="start.html"', home)
         self.assertIn('href="gallery.html"', home)
         self.assertEqual(home.count('class="gallery-card'), 5)
@@ -96,11 +99,23 @@ class ProductSiteTest(unittest.TestCase):
         self.assertIn('document.execCommand("copy")', js)
         self.assertIn('state.client === "workbuddy" ? ["entry","setup","client","install","test"]', js)
         self.assertIn("demo_full_cell.csv", html)
+        self.assertIn('href="models.html"', html)
         self.assertTrue((DOCS / "assets/showcase/assembly-demo.zip").is_file())
         with ZipFile(DOCS / "assets/showcase/assembly-demo.zip") as z:
             self.assertEqual(len([n for n in z.namelist() if n.startswith("panel-") and n.endswith(".png")]), 6)
             self.assertIn("figure_manifest.json", z.namelist())
             self.assertIn("assembled-example.qa.json", z.namelist())
+
+    def test_model_costs_are_labeled_assumptions(self):
+        data = json.loads((DOCS / "model-costs.json").read_text(encoding="utf-8"))
+        self.assertIn("Illustrative", data["method"])
+        self.assertEqual(data["workloads"]["single"]["input_tokens"], 30000)
+        self.assertEqual(data["workloads"]["ten_basic"]["output_tokens"], 30000)
+        self.assertTrue(all(row["source"].startswith("https://") for row in data["models"]))
+        html = (DOCS / "models.html").read_text(encoding="utf-8")
+        self.assertIn("还没有跨模型实测成绩", html)
+        self.assertIn("我用会员", html)
+        self.assertIn("我自填 API Key", html)
 
     def test_search_is_local_and_beginner_first(self):
         index = json.loads((DOCS / "search-index.json").read_text(encoding="utf-8"))
