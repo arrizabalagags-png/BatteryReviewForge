@@ -13,7 +13,7 @@ PAGES = ("index.html", "start.html", "features.html", "gallery.html", "learn.htm
          "community.html", "contribute.html", "support.html", "roadmap.html",
          "developers.html", "guide.html", "disclaimer.html")
 SAMPLES = ("full_cell", "li_cu_ce", "li_li", "eis", "operando_xrd", "tof_sims", "integrated_study",
-           "rate_capability", "gcd_profiles", "pouch_thermal", "literature_benchmark", "reporting_matrix", "capability_spread")
+           "rate_capability", "gcd_profiles", "pouch_thermal", "literature_benchmark", "reporting_matrix", "capability_spread", "style_presets")
 
 
 class Links(HTMLParser):
@@ -73,12 +73,12 @@ class ProductSiteTest(unittest.TestCase):
         self.assertIn('href="start.html"', home)
         self.assertIn('href="gallery.html"', home)
         self.assertEqual(home.count('class="gallery-card'), 5)
-        self.assertNotIn("assets/gallery/", home)
+        self.assertIn('src="assets/gallery/style-preview.png"', home)
         self.assertNotIn("wizard-prompt", home)
         self.assertNotIn("先让助手看一眼", home)
         self.assertIn("同一研究的六面板图", home)
         self.assertIn("软包电池表面温度", home)
-        self.assertIn("文献数据对照散点", home)
+        self.assertIn("ToF-SIMS 空间与深度分布", home)
         self.assertNotIn("准备写综述", home)
         self.assertNotIn("写综述时", home)
 
@@ -94,7 +94,7 @@ class ProductSiteTest(unittest.TestCase):
         self.assertIn('preferredOS', js)
         self.assertIn('compatibility = {', js)
         self.assertIn('document.execCommand("copy")', js)
-        self.assertIn('state.client === "workbuddy" ? ["client","install","test"]', js)
+        self.assertIn('state.client === "workbuddy" ? ["entry","setup","client","install","test"]', js)
         self.assertIn("demo_full_cell.csv", html)
         self.assertTrue((DOCS / "assets/showcase/assembly-demo.zip").is_file())
         with ZipFile(DOCS / "assets/showcase/assembly-demo.zip") as z:

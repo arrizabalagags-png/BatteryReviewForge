@@ -5,7 +5,67 @@
   "checks": [
     {
       "panels": [
-        "c",
+        "a",
+        "b"
+      ],
+      "direction": "row",
+      "edge": "top",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "direction": "row",
+      "edge": "bottom",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "direction": "row",
+      "edge": "height",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "c"
+      ],
+      "direction": "row",
+      "edge": "top",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "c"
+      ],
+      "direction": "row",
+      "edge": "bottom",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "c"
+      ],
+      "direction": "row",
+      "edge": "height",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
         "d"
       ],
       "direction": "row",
@@ -15,7 +75,7 @@
     },
     {
       "panels": [
-        "c",
+        "a",
         "d"
       ],
       "direction": "row",
@@ -25,7 +85,7 @@
     },
     {
       "panels": [
-        "c",
+        "a",
         "d"
       ],
       "direction": "row",
@@ -35,7 +95,7 @@
     },
     {
       "panels": [
-        "c",
+        "a",
         "e"
       ],
       "direction": "row",
@@ -45,7 +105,7 @@
     },
     {
       "panels": [
-        "c",
+        "a",
         "e"
       ],
       "direction": "row",
@@ -55,7 +115,7 @@
     },
     {
       "panels": [
-        "c",
+        "a",
         "e"
       ],
       "direction": "row",
@@ -65,8 +125,8 @@
     },
     {
       "panels": [
-        "c",
-        "f"
+        "f",
+        "g"
       ],
       "direction": "row",
       "edge": "top",
@@ -75,8 +135,8 @@
     },
     {
       "panels": [
-        "c",
-        "f"
+        "f",
+        "g"
       ],
       "direction": "row",
       "edge": "bottom",
@@ -85,8 +145,8 @@
     },
     {
       "panels": [
-        "c",
-        "f"
+        "f",
+        "g"
       ],
       "direction": "row",
       "edge": "height",
@@ -95,7 +155,7 @@
     },
     {
       "panels": [
-        "g",
+        "f",
         "h"
       ],
       "direction": "row",
@@ -105,7 +165,7 @@
     },
     {
       "panels": [
-        "g",
+        "f",
         "h"
       ],
       "direction": "row",
@@ -115,7 +175,7 @@
     },
     {
       "panels": [
-        "g",
+        "f",
         "h"
       ],
       "direction": "row",
@@ -125,7 +185,7 @@
     },
     {
       "panels": [
-        "g",
+        "f",
         "i"
       ],
       "direction": "row",
@@ -135,7 +195,7 @@
     },
     {
       "panels": [
-        "g",
+        "f",
         "i"
       ],
       "direction": "row",
@@ -145,7 +205,7 @@
     },
     {
       "panels": [
-        "g",
+        "f",
         "i"
       ],
       "direction": "row",
@@ -155,7 +215,7 @@
     },
     {
       "panels": [
-        "g",
+        "f",
         "j"
       ],
       "direction": "row",
@@ -165,7 +225,7 @@
     },
     {
       "panels": [
-        "g",
+        "f",
         "j"
       ],
       "direction": "row",
@@ -175,7 +235,7 @@
     },
     {
       "panels": [
-        "g",
+        "f",
         "j"
       ],
       "direction": "row",
@@ -185,7 +245,37 @@
     },
     {
       "panels": [
-        "c",
+        "a",
+        "f"
+      ],
+      "direction": "column",
+      "edge": "left",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "f"
+      ],
+      "direction": "column",
+      "edge": "right",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "f"
+      ],
+      "direction": "column",
+      "edge": "width",
+      "delta_pt": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "b",
         "g"
       ],
       "direction": "column",
@@ -195,7 +285,7 @@
     },
     {
       "panels": [
-        "c",
+        "b",
         "g"
       ],
       "direction": "column",
@@ -205,7 +295,7 @@
     },
     {
       "panels": [
-        "c",
+        "b",
         "g"
       ],
       "direction": "column",
@@ -215,7 +305,7 @@
     },
     {
       "panels": [
-        "d",
+        "c",
         "h"
       ],
       "direction": "column",
@@ -225,7 +315,7 @@
     },
     {
       "panels": [
-        "d",
+        "c",
         "h"
       ],
       "direction": "column",
@@ -235,7 +325,7 @@
     },
     {
       "panels": [
-        "d",
+        "c",
         "h"
       ],
       "direction": "column",
@@ -245,7 +335,7 @@
     },
     {
       "panels": [
-        "e",
+        "d",
         "i"
       ],
       "direction": "column",
@@ -255,7 +345,7 @@
     },
     {
       "panels": [
-        "e",
+        "d",
         "i"
       ],
       "direction": "column",
@@ -265,7 +355,7 @@
     },
     {
       "panels": [
-        "e",
+        "d",
         "i"
       ],
       "direction": "column",
@@ -275,7 +365,7 @@
     },
     {
       "panels": [
-        "f",
+        "e",
         "j"
       ],
       "direction": "column",
@@ -285,7 +375,7 @@
     },
     {
       "panels": [
-        "f",
+        "e",
         "j"
       ],
       "direction": "column",
@@ -295,7 +385,7 @@
     },
     {
       "panels": [
-        "f",
+        "e",
         "j"
       ],
       "direction": "column",
@@ -307,75 +397,75 @@
   "failures": [],
   "plot_rectangles_mm": [
     {
+      "panel": "a",
+      "left": 20.4,
+      "top": 8.52,
+      "width": 37.172,
+      "height": 44.798
+    },
+    {
       "panel": "b",
-      "left": 205.751,
-      "top": 7.91,
-      "width": 76.635,
-      "height": 58.243
+      "left": 79.132,
+      "top": 8.52,
+      "width": 37.172,
+      "height": 44.798
     },
     {
       "panel": "c",
-      "left": 22.5,
-      "top": 89.877,
-      "width": 50.473,
-      "height": 46.594
+      "left": 137.864,
+      "top": 8.52,
+      "width": 37.172,
+      "height": 44.798
     },
     {
       "panel": "d",
-      "left": 94.676,
-      "top": 89.877,
-      "width": 50.473,
-      "height": 46.594
+      "left": 196.596,
+      "top": 8.52,
+      "width": 37.172,
+      "height": 44.798
     },
     {
       "panel": "e",
-      "left": 166.852,
-      "top": 89.877,
-      "width": 50.473,
-      "height": 46.594
+      "left": 255.328,
+      "top": 8.52,
+      "width": 37.172,
+      "height": 44.798
     },
     {
       "panel": "f",
-      "left": 239.027,
-      "top": 89.877,
-      "width": 50.473,
-      "height": 46.594
+      "left": 20.4,
+      "top": 76.612,
+      "width": 37.172,
+      "height": 44.798
     },
     {
       "panel": "g",
-      "left": 22.5,
-      "top": 160.196,
-      "width": 50.473,
-      "height": 46.594
+      "left": 79.132,
+      "top": 76.612,
+      "width": 37.172,
+      "height": 44.798
     },
     {
       "panel": "h",
-      "left": 94.676,
-      "top": 160.196,
-      "width": 50.473,
-      "height": 46.594
+      "left": 137.864,
+      "top": 76.612,
+      "width": 37.172,
+      "height": 44.798
     },
     {
       "panel": "i",
-      "left": 166.852,
-      "top": 160.196,
-      "width": 50.473,
-      "height": 46.594
+      "left": 196.596,
+      "top": 76.612,
+      "width": 37.172,
+      "height": 44.798
     },
     {
       "panel": "j",
-      "left": 239.027,
-      "top": 160.196,
-      "width": 50.473,
-      "height": 46.594
-    },
-    {
-      "panel": "a",
-      "left": 22.5,
-      "top": 7.91,
-      "width": 122.648,
-      "height": 58.243
+      "left": 255.328,
+      "top": 76.612,
+      "width": 37.172,
+      "height": 44.798
     }
   ],
-  "note": "Mid and lower rows measured after final draw. Nested panel a and equal-aspect thermal b are independent hero panels."
+  "note": "All ten plot rectangles measured after final draw on one 2-by-5 physical-size grid."
 }

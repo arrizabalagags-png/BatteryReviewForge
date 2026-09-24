@@ -1,6 +1,6 @@
 "use strict";
 
-const order = ["client", "os", "install", "test"];
+const order = ["entry", "setup", "client", "os", "install", "test"];
 const clients = {codex:"Codex", kimi:"Kimi Code", workbuddy:"WorkBuddy", dsh:"DeepSeek Harness"};
 const systems = {windows:"Windows", macos:"macOS", linux:"Linux"};
 const tasks = {full:"全电池长循环", ce:"Li‖Cu CE", assembly:"六图拼版"};
@@ -26,7 +26,7 @@ const compatibility = {
   },
   workbuddy:{import:{level:"beta",status:"界面导入方法已核对；完整任务待客户端实测"}}
 };
-const state = {task:"",client:"",os:"",step:"client"};
+const state = {task:"",client:"",os:"",step:"entry"};
 
 function getSaved(key) {
   try { return localStorage.getItem(key) || ""; } catch { return ""; }
@@ -40,15 +40,15 @@ function spec() {
     compatibility[state.client]?.[state.os] || null;
 }
 function route() {
-  return state.client === "workbuddy" ? ["client","install","test"] : order;
+  return state.client === "workbuddy" ? ["entry","setup","client","install","test"] : order;
 }
 function readURL() {
   const query = new URLSearchParams(location.search);
   state.task = tasks[query.get("task")] ? query.get("task") : (location.hash === "#assembly" ? "assembly" : "");
   state.client = clients[query.get("client")] ? query.get("client") : "";
   state.os = state.client && state.client !== "workbuddy" && systems[query.get("os")] ? query.get("os") : "";
-  state.step = order.includes(query.get("step")) ? query.get("step") : "client";
-  if (!state.client) state.step = "client";
+  state.step = order.includes(query.get("step")) ? query.get("step") : "entry";
+  if (!state.client && ["os","install","test"].includes(state.step)) state.step = "client";
   else if (state.client === "workbuddy" && state.step === "os") state.step = "install";
   else if (state.client !== "workbuddy" && !state.os && ["install","test"].includes(state.step)) state.step = "os";
   if (state.step === "test" && !spec()) state.step = "install";
@@ -63,7 +63,7 @@ function writeURL(replace=false) {
 }
 function goToStep(step,replace=false) {
   if (!order.includes(step)) return;
-  if (step !== "client" && !state.client) step = "client";
+  if (!["entry","setup","client"].includes(step) && !state.client) step = "client";
   if (state.client === "workbuddy" && step === "os") step = "install";
   if (state.client && state.client !== "workbuddy" && ["install","test"].includes(step) && !state.os) step = "os";
   if (step === "test" && !spec()) step = "install";
@@ -129,15 +129,20 @@ function renderInstall() {
 function render() {
   document.querySelectorAll("[data-wizard-step]").forEach(panel => { panel.hidden = panel.dataset.wizardStep !== state.step; });
   const workbuddy = state.client === "workbuddy";
+  const visibleSteps = route().filter(step => step !== "setup");
+  const displayStep = state.step === "setup" ? "entry" : state.step;
+  const label = {entry:"看看软件",client:"选软件",os:"选系统",install:"安装技能",test:"试运行"}[displayStep];
+  document.querySelector("#mobile-progress").textContent = "第 " + (visibleSteps.indexOf(displayStep) + 1) + " 步 / 共 " + visibleSteps.length + " 步 · " + label;
   document.querySelector('[data-progress-step="os"]').hidden = workbuddy;
   document.querySelector('[data-progress-sep="os"]').hidden = workbuddy;
   document.querySelectorAll("[data-progress-step]").forEach(button => {
     const step = button.dataset.progressStep;
-    button.classList.toggle("current",step === state.step);
-    if (step === state.step) button.setAttribute("aria-current","step"); else button.removeAttribute("aria-current");
+    const current = step === state.step || (state.step === "setup" && step === "entry");
+    button.classList.toggle("current",current);
+    if (current) button.setAttribute("aria-current","step"); else button.removeAttribute("aria-current");
     button.disabled = route().indexOf(step) > route().indexOf(state.step);
-    if (workbuddy) button.textContent = step === "client" ? "1 选软件" : step === "install" ? "2 导入" : step === "test" ? "3 试运行" : button.textContent;
-    else button.textContent = step === "client" ? "1 选软件" : step === "os" ? "2 选系统" : step === "install" ? "3 安装" : "4 试运行";
+    if (workbuddy) button.textContent = step === "entry" ? "1 看看软件" : step === "client" ? "2 选软件" : step === "install" ? "3 导入" : step === "test" ? "4 试运行" : button.textContent;
+    else button.textContent = step === "entry" ? "1 看看软件" : step === "client" ? "2 选软件" : step === "os" ? "3 选系统" : step === "install" ? "4 安装技能" : "5 试运行";
   });
   document.querySelectorAll("[data-choice-client]").forEach(button => button.classList.toggle("selected",button.dataset.choiceClient === state.client));
   document.querySelectorAll("[data-choice-os]").forEach(button => button.classList.toggle("selected",button.dataset.choiceOs === state.os));
@@ -159,6 +164,9 @@ function selectClient(client) {
   if (client === "workbuddy") { state.os = ""; goToStep("install"); }
   else goToStep("os");
 }
+document.querySelectorAll("[data-entry]").forEach(button => button.addEventListener("click",() => {
+  goToStep(button.dataset.entry === "yes" ? "client" : "setup");
+}));
 document.querySelectorAll("[data-choice-client]").forEach(button => button.addEventListener("click",() => selectClient(button.dataset.choiceClient)));
 document.querySelectorAll("[data-choice-os]").forEach(button => button.addEventListener("click",() => {
   if (!systems[button.dataset.choiceOs]) return;
@@ -177,7 +185,7 @@ document.querySelectorAll("[data-progress-step]").forEach(button => button.addEv
 document.querySelectorAll("[data-wizard-next]").forEach(button => button.addEventListener("click",() => goToStep(button.dataset.wizardNext)));
 document.querySelectorAll("[data-wizard-back]").forEach(button => button.addEventListener("click",() => {
   const current = route().indexOf(state.step);
-  if (current > 0) goToStep(route()[current-1]);
+  if (current > 0) goToStep(state.step === "client" ? "entry" : route()[current-1]);
 }));
 async function copyText(text) {
   if (navigator.clipboard?.writeText) {

@@ -27,6 +27,60 @@ def _fit(source_w: float, source_h: float, slot: list[float]) -> list[float]:
     return [x + (width - actual_w) / 2, y + (height - actual_h) / 2, actual_w, actual_h]
 
 
+def _fraction_rect(fraction: list[float], placed: list[float]) -> list[float]:
+    left, top, right, bottom = map(float, fraction)
+    x, y, width, height = placed
+    return [x + left * width, y + top * height,
+            (right - left) * width, (bottom - top) * height]
+
+
+def _auto_rows(manifest: dict) -> dict:
+    """Opt-in row sizing from the supplied panels' actual page/image aspect ratios.
+
+    Spanning rows need editorial choice, so their heights remain explicit.
+    This never crops or stretches an input.
+    """
+    if manifest.get("layout_mode") != "editorial_pack" or manifest.get("row_heights_mm") != "auto":
+        return manifest
+    weights = manifest.get("col_weights")
+    panels = manifest.get("panels")
+    if not isinstance(weights, list) or not isinstance(panels, list) or not panels:
+        raise ComposeError("editorial_pack auto rows need col_weights and panels")
+    if any(p.get("rowspan", 1) != 1 for p in panels):
+        raise ComposeError("editorial_pack auto rows cannot contain row-spanning panels; set row heights explicitly")
+    width = float(manifest["width_mm"])
+    margin = float(manifest.get("margin_mm", 3))
+    gutter = float(manifest.get("gutter_mm", 2))
+    label = float(manifest.get("label_band_mm", 4))
+    usable = width - 2 * margin - gutter * (len(weights) - 1)
+    col_widths = [usable * float(w) / sum(map(float, weights)) for w in weights]
+    base = Path(manifest.get("_manifest_path", "manifest.json")).resolve().parent
+    heights = [0.0] * (1 + max(int(p["row"]) for p in panels))
+    for panel in panels:
+        path = Path(panel["path"])
+        path = (path if path.is_absolute() else base / path).resolve()
+        asset = load_asset({**panel, "resolved_path": str(path)})
+        if asset["kind"] == "raster":
+            source_w, source_h = asset["image"].size
+        else:
+            box = asset["pdf_page"].cropbox
+            source_w, source_h = float(box.width), float(box.height)
+        col, span = int(panel["col"]), int(panel.get("colspan", 1))
+        slot_w = sum(col_widths[col:col + span]) + gutter * (span - 1)
+        if panel.get("content_box_fraction"):
+            l, t, r, b = map(float, panel["content_box_fraction"])
+            source_w *= r - l
+            source_h *= b - t
+        desired = slot_w * source_h / source_w + label
+        if panel.get("compound_panel"):
+            desired = max(desired, 55)
+        heights[int(panel["row"])] = max(heights[int(panel["row"])], desired)
+    if any(h <= label for h in heights):
+        raise ComposeError("editorial_pack auto rows need at least one panel in every row")
+    return {**manifest, "row_heights_mm": [round(h, 3) for h in heights],
+            "auto_row_heights_mm": [round(h, 3) for h in heights]}
+
+
 def _top_to_pdf(rect: list[float], page_height_mm: float) -> tuple[float, float, float, float]:
     x, y, width, height = rect
     return (x * PT_PER_MM, (page_height_mm - y - height) * PT_PER_MM,
@@ -118,7 +172,7 @@ def _alignment_audit(panels: list[dict], tolerance_mm: float = 1.5 / PT_PER_MM) 
 
 def compose(manifest: dict, stem: str | Path, *, strict: bool = False) -> dict:
     """Produce PDF, PNG, and JSON. In strict mode, review warnings block output."""
-    layout = resolve_layout(manifest)
+    layout = resolve_layout(_auto_rows(manifest))
     prepared = []
     warnings = []
     for panel in layout["panels"]:
@@ -142,9 +196,18 @@ def compose(manifest: dict, stem: str | Path, *, strict: bool = False) -> dict:
         visible = [placed[0] + insets[0] * placed[2], placed[1] + insets[1] * placed[3],
                    (1 - insets[0] - insets[2]) * placed[2],
                    (1 - insets[1] - insets[3]) * placed[3]]
+        measured_content = (_fraction_rect(panel["content_box_fraction"], placed)
+                            if panel.get("content_box_fraction") else None)
+        content = measured_content or visible
+        content_basis = "declared" if measured_content else "white_edge_estimate"
         fill = (placed[2] * placed[3]) / (panel["art_mm"][2] * panel["art_mm"][3])
+        slot_fill = (content[2] * content[3]) / (panel["art_mm"][2] * panel["art_mm"][3])
         if fill < 0.65:
             warnings.append(f"Panel {panel['label']}: artwork fills only {fill:.0%} of its slot; inspect whitespace or redesign the grid")
+        if layout.get("layout_mode") == "editorial_pack" and slot_fill < .78 and not panel.get("whitespace_reason"):
+            warnings.append(f"Panel {panel['label']}: visible content fills only {slot_fill:.0%} of its slot; rerender native plots at slot size or record a scientific whitespace_reason")
+        if panel.get("compound_panel") and panel["art_mm"][2] < 70:
+            warnings.append(f"Panel {panel['label']}: compound panel is under 70 mm wide; split/rerender its children or allocate a hero slot")
         if panel["rights_status"] in {"pending", "unknown"}:
             warnings.append(f"Panel {panel['label']}: reuse rights are {panel['rights_status']}")
         info = {"label": panel["label"], "role": panel["role"], "source_id": panel["source_id"],
@@ -155,10 +218,15 @@ def compose(manifest: dict, stem: str | Path, *, strict: bool = False) -> dict:
                 "kind": asset["kind"], "slot_mm": panel["slot_mm"],
                 "placed_mm": [round(v, 4) for v in placed],
                 "visible_content_estimate_mm": [round(v, 4) for v in visible],
+                "content_bbox_mm": [round(v, 4) for v in content],
+                "content_bbox_basis": content_basis,
                 "white_inset_fraction_candidate": insets,
                 "plot_rect_mm": _plot_rect(panel, placed),
                 "effective_dpi": round(effective_dpi, 1) if effective_dpi is not None else None,
                 "fill_fraction": round(fill, 3), "crop_px": panel.get("crop_px"),
+                "slot_fill_ratio": round(slot_fill, 3),
+                "compound_panel": panel.get("compound_panel", False),
+                "whitespace_reason": panel.get("whitespace_reason"),
                 "crop_box_fraction": panel.get("crop_box_fraction"),
                 "crop_reason": panel.get("crop_reason"),
                 "alignment_group": panel.get("alignment_group"),
@@ -166,6 +234,40 @@ def compose(manifest: dict, stem: str | Path, *, strict: bool = False) -> dict:
                 "alignment_reason": panel.get("alignment_reason")}
         prepared.append((panel, asset, placed, info))
     infos = [item[3] for item in prepared]
+    gap_measurements = []
+    for index, first in enumerate(infos):
+        for second in infos[index + 1:]:
+            a, b = first["content_bbox_mm"], second["content_bbox_mm"]
+            sa, sb = first["slot_mm"], second["slot_mm"]
+            same_row = abs(sa[1] - sb[1]) < 1e-6
+            between_in_row = any(abs(other["slot_mm"][1] - sa[1]) < 1e-6 and
+                                 sa[0] < other["slot_mm"][0] < sb[0]
+                                 for other in infos if other is not first and other is not second)
+            if same_row and sa[0] < sb[0] and not between_in_row:
+                gap_measurements.append({"panels": [first["label"], second["label"]],
+                                         "direction": "horizontal", "interpanel_gap_mm": round(b[0] - a[0] - a[2], 3)})
+            same_column = abs(sa[0] - sb[0]) < 1e-6
+            between_in_column = any(abs(other["slot_mm"][0] - sa[0]) < 1e-6 and
+                                    sa[1] < other["slot_mm"][1] < sb[1]
+                                    for other in infos if other is not first and other is not second)
+            if same_column and sa[1] < sb[1] and not between_in_column:
+                gap_measurements.append({"panels": [first["label"], second["label"]],
+                                         "direction": "vertical", "interpanel_gap_mm": round(b[1] - a[1] - a[3], 3)})
+    if infos:
+        x0 = min(p["content_bbox_mm"][0] for p in infos)
+        y0 = min(p["content_bbox_mm"][1] for p in infos)
+        x1 = max(p["content_bbox_mm"][0] + p["content_bbox_mm"][2] for p in infos)
+        y1 = max(p["content_bbox_mm"][1] + p["content_bbox_mm"][3] for p in infos)
+        outer_whitespace_ratio = round(1 - (x1 - x0) * (y1 - y0) /
+                                       (layout["width_mm"] * layout["height_mm"]), 3)
+    else:
+        outer_whitespace_ratio = 1.0
+    if layout.get("layout_mode") == "editorial_pack":
+        for gap in gap_measurements:
+            if gap["interpanel_gap_mm"] > 4 and not all(
+                next(p for p in infos if p["label"] == letter).get("whitespace_reason")
+                for letter in gap["panels"]):
+                warnings.append(f"Panels {'/'.join(gap['panels'])}: visible gap is {gap['interpanel_gap_mm']:.1f} mm; review editorial packing")
     alignment_audit = _alignment_audit(infos)
     warnings.extend(alignment_audit["issues"])
     if strict and warnings:
@@ -266,6 +368,11 @@ def compose(manifest: dict, stem: str | Path, *, strict: bool = False) -> dict:
               "status": "review_required" if warnings else "geometry_pass_visual_review_required",
               "width_mm": layout["width_mm"], "height_mm": layout["height_mm"],
               "dpi": layout["dpi"], "warnings": warnings, "panels": infos,
+              "output_purpose": layout.get("output_purpose", "manuscript"),
+              "layout_mode": layout.get("layout_mode", "fixed"),
+              "auto_row_heights_mm": layout.get("auto_row_heights_mm"),
+              "interpanel_gaps": gap_measurements,
+              "outer_whitespace_ratio": outer_whitespace_ratio,
               "alignment_audit": alignment_audit,
               "font_audit": font_audit,
               "outputs": {"pdf": str(pdf_path), "png": str(png_path),

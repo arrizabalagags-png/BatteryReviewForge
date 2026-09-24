@@ -174,6 +174,26 @@ class ComposeTests(unittest.TestCase):
             self.assertTrue(all(check["pass"] for check in audit["checks"]))
             self.assertTrue((root / "aligned.alignment.png").exists())
 
+    def test_editorial_pack_sizes_rows_and_reports_visible_content(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            manifest = fixture(root)
+            manifest.update({"layout_mode": "editorial_pack", "output_purpose": "showcase",
+                             "row_heights_mm": "auto"})
+            for panel in manifest["panels"]:
+                panel["alignment_intent"] = "compare"
+                panel["alignment_group"] = "pair"
+                panel["plot_box_fraction"] = [0.08, 0.1, 0.92, 0.9]
+                panel["content_box_fraction"] = [0.005, 0.005, 0.995, 0.995]
+            report = compose(manifest, root / "packed", strict=True)
+            self.assertEqual(report["output_purpose"], "showcase")
+            self.assertEqual(report["layout_mode"], "editorial_pack")
+            self.assertEqual(len(report["auto_row_heights_mm"]), 1)
+            self.assertGreater(report["panels"][0]["slot_fill_ratio"], .78)
+            self.assertEqual(report["panels"][0]["content_bbox_basis"], "declared")
+            self.assertTrue(report["interpanel_gaps"])
+            self.assertLess(report["outer_whitespace_ratio"], .5)
+
 
 if __name__ == "__main__":
     unittest.main()

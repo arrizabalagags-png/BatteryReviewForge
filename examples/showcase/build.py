@@ -28,7 +28,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parent
 SITE = ROOT.parents[1] / "docs" / "assets" / "showcase"
 SEED = 20260923
-VERSION = "1.1"
+VERSION = "1.2"
 COLORS = {"A": "#31577d", "B": "#bc4566", "C": "#00857f"}
 INK = "#172c40"
 MUTED = "#526476"
@@ -46,6 +46,7 @@ GRAMMAR = {
     "literature_benchmark": "source_linked_comparable_literature_scatter",
     "reporting_matrix": "categorical_reporting_audit",
     "capability_spread": "ten_panel_capability_spread",
+    "style_presets": "same_full_cell_data_six_style_choices",
 }
 CONDITIONS = {
     "full_cell": "Illustrative NMC811||Li; 0.5 C; 2.8–4.3 V; 25 °C; cathode 3 mAh cm−2. These are invented settings, not a test report.",
@@ -61,6 +62,7 @@ CONDITIONS = {
     "literature_benchmark": "48 invented Li–S-like records, each at 0.2 C, 25 °C and cycle 100, with one consistent mAh g−1 sulfur basis; IDs are synthetic, never citations.",
     "reporting_matrix": "18 invented study IDs with seven reporting fields; status categories are examples, not an audit of real papers.",
     "capability_spread": "Ten independently labelled synthetic capability panels; shared styles do not imply one experiment across unlike cell and measurement types.",
+    "style_presets": "Six presentations of the same synthetic full-cell cycling CSV, with identical axes and values. Colours are selectable house presets, not journal endorsements.",
 }
 VARIABLES = {
     "full_cell": {"x": "cycle number", "y": "discharge capacity (mAh g−1)", "linked": "voltage (V) vs specific capacity (mAh g−1) at declared cycles"},
@@ -76,6 +78,7 @@ VARIABLES = {
     "reporting_matrix": {"x": "reporting field", "y": "synthetic study ID", "linked": "reported/partial/NR/NV/NA categorical status"},
     "integrated_study": {"x": "experiment-specific axes", "y": "experiment-specific units", "linked": "six panels from same A/B synthetic study"},
     "capability_spread": {"x": "experiment-specific axes", "y": "experiment-specific units", "linked": "ten panels from explicitly separate demonstration sources"},
+    "style_presets": {"x": "cycle number", "y": "discharge capacity (mAh g−1)", "linked": "same synthetic A/B series and axis limits in all six presets"},
 }
 
 
@@ -330,8 +333,8 @@ def generate_matrix() -> None:
 def generate_capability() -> None:
     path = ROOT / "capability_spread"
     path.mkdir(exist_ok=True)
-    members = ["integrated_study", "pouch_thermal", "full_cell", "li_cu_ce", "eis",
-               "literature_benchmark", "li_li", "rate_capability", "gcd_profiles", "reporting_matrix"]
+    members = ["operando_xrd", "full_cell", "li_cu_ce", "eis", "literature_benchmark",
+               "pouch_thermal", "li_li", "rate_capability", "gcd_profiles", "reporting_matrix"]
     csv_write(path / "data_index.csv", ["panel", "source_folder", "evidence_state"],
               zip("abcdefghij", members, ["synthetic_demo"] * len(members)))
     (path / "sources.json").write_text(json.dumps({"members": members,
@@ -339,12 +342,23 @@ def generate_capability() -> None:
         "status": "synthetic_demo"}, indent=2) + "\n", encoding="utf-8")
 
 
+def generate_styles() -> None:
+    path = ROOT / "style_presets"
+    path.mkdir(exist_ok=True)
+    shutil.copy2(ROOT / "full_cell" / "data.csv", path / "data.csv")
+    (path / "source.json").write_text(json.dumps({
+        "source": "../full_cell/data.csv", "dataset": "same synthetic A/B full-cell cycling",
+        "xlim": [0, 500], "ylim": [130, 190],
+        "meaning": "Only colour and strokes vary; values and scales do not."},
+        indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
 GENERATORS = {"full_cell": generate_full_cell, "li_cu_ce": generate_li_cu, "li_li": generate_li_li,
               "eis": generate_eis, "operando_xrd": generate_xrd, "tof_sims": generate_tofsims,
               "rate_capability": generate_rate, "gcd_profiles": generate_gcd,
               "pouch_thermal": generate_thermal, "literature_benchmark": generate_benchmark,
               "reporting_matrix": generate_matrix, "integrated_study": generate_integrated,
-              "capability_spread": generate_capability}
+              "capability_spread": generate_capability, "style_presets": generate_styles}
 
 
 def configure() -> None:
@@ -450,17 +464,21 @@ def plot_tofsims(axes, fig) -> None:
     depth = csv_read(ROOT / "tof_sims" / "depth.csv")
     map_palettes = [LinearSegmentedColormap.from_list("F_map", ["#fff9fb", "#edabc0", COLORS["B"]]), LinearSegmentedColormap.from_list("Li_map", ["#f7fcfb", "#9fd6d0", COLORS["C"]]), LinearSegmentedColormap.from_list("S_map", ["#f8fbfd", "#9fb9ce", COLORS["A"]])]
     channels = {}
-    for ax, species, cmap, label in zip(axes[:3], ("F-", "Li+", "S-"), map_palettes, (r"F$^{-}$", r"Li$^{+}$", r"S$^{-}$")):
+    for index, (ax, species, cmap, label) in enumerate(zip(axes[:3], ("F-", "Li+", "S-"), map_palettes, (r"F$^{-}$", r"Li$^{+}$", r"S$^{-}$"))):
         r = [row for row in maps if row["species"] == species]
         side = int(np.sqrt(len(r)))
         img = arr(r, "normalized_intensity").reshape(side, side)
         channels[species] = img
         image = ax.imshow(img, origin="lower", extent=(0, 20, 0, 20), cmap=cmap, vmin=0, vmax=.65, interpolation="nearest")
         ax.set(xlabel="x (µm)", ylabel="y (µm)", xlim=(0, 20), ylim=(0, 20))
+        if index:
+            ax.set_ylabel("")
+            ax.set_yticks([])
         ax.text(.96, .94, label, transform=ax.transAxes, ha="right", va="top", color=INK, fontsize=7, weight="bold", bbox={"facecolor": "white", "edgecolor": "none", "alpha": .88, "pad": 1.4})
-        bar = fig.colorbar(image, ax=ax, fraction=.047, pad=.018)
-        bar.ax.tick_params(labelsize=5.1, width=.5)
-        bar.ax.set_ylabel("Norm. intensity", fontsize=5.5)
+        cax = fig.add_axes([(.07, .29, .51)[index] + .185, .54, .006, .36])
+        bar = fig.colorbar(image, cax=cax)
+        bar.ax.set_yticks([])
+    fig.text(.07, .445, "Ion-map intensity: normalized 0–0.65; common numeric range", fontsize=6, color=MUTED)
     f = np.clip(channels["F-"] / .65, 0, 1)
     li = np.clip(channels["Li+"] / .65, 0, 1)
     s = np.clip(channels["S-"] / .65, 0, 1)
@@ -468,6 +486,8 @@ def plot_tofsims(axes, fig) -> None:
     overlay = axes[3]
     overlay.imshow(np.clip(rgb, 0, 1), origin="lower", extent=(0, 20, 0, 20), interpolation="nearest")
     overlay.set(xlabel="x (µm)", ylabel="y (µm)", xlim=(0, 20), ylim=(0, 20))
+    overlay.set_ylabel("")
+    overlay.set_yticks([])
     overlay.text(.96, .94, "Overlay", transform=overlay.transAxes, ha="right", va="top", color=INK, fontsize=7, weight="bold", bbox={"facecolor": "white", "edgecolor": "none", "alpha": .88, "pad": 1.4})
     ax = axes[4]
     for species, color, label in (("F-", COLORS["B"], r"F$^{-}$"), ("Li+", COLORS["C"], r"Li$^{+}$"), ("S-", COLORS["A"], r"S$^{-}$")):
@@ -600,92 +620,85 @@ def plot_matrix(ax, compact=False) -> None:
                   loc="lower left", fontsize=5.7, handlelength=.9, columnspacing=.7)
 
 
-def capability_figure():
-    """One editorial figure of ten *capabilities*, never a synthetic experiment."""
+def compact_capability_figure():
+    """Ten independent capabilities on one shared physical-size ruler."""
     configure()
-    fig = plt.figure(figsize=(300 / 25.4, 226 / 25.4))
-    grid = fig.add_gridspec(3, 4, left=.075, right=.965, bottom=.085, top=.965,
-                           wspace=.43, hspace=.47, height_ratios=[1.25, 1, 1])
-    mini = grid[0, :2].subgridspec(2, 2, wspace=.42, hspace=.48)
-    nested = [fig.add_subplot(mini[i, j]) for i in range(2) for j in range(2)]
-    ce = csv_read(ROOT / "li_cu_ce" / "data.csv")
+    fig = plt.figure(figsize=(300 / 25.4, 142 / 25.4))
+    grid = fig.add_gridspec(2, 5, left=.068, right=.975, bottom=.145, top=.94,
+                           wspace=.58, hspace=.52)
+    axes = [fig.add_subplot(grid[i, j]) for i in range(2) for j in range(5)]
+    xrd = csv_read(ROOT / "operando_xrd" / "data.csv")
+    soc = sorted({float(row["soc_fraction"]) for row in xrd})
+    angle = sorted({float(row["two_theta_deg"]) for row in xrd})
+    intensity = arr(xrd, "intensity_au").reshape(len(soc), len(angle))
+    axes[0].imshow(intensity.T, origin="lower", aspect="auto", extent=(0, 100, min(angle), max(angle)), cmap="magma", rasterized=True)
+    axes[0].set(xlabel="SOC (%)", ylabel=r"2θ (°)")
     full = csv_read(ROOT / "full_cell" / "data.csv")
-    for sample in "AB":
-        nested[0].plot(arr(ce, "cycle"), arr(ce, f"{sample}_ce_pct"), color=COLORS[sample], lw=.72)
-        nested[1].plot(arr(full, "cycle"), arr(full, f"{sample}_mAh_g"), color=COLORS[sample], lw=.72)
-    nested[0].set(xlabel="Cycle", ylabel="Li‖Cu CE (%)", xlim=(0, 300), ylim=(97, 100))
-    nested[1].set(xlabel="Cycle", ylabel="Full cell (mAh g$^{-1}$)", xlim=(0, 500), ylim=(130, 190))
-    sym = csv_read(ROOT / "li_li" / "data.csv")
-    for sample in "AB":
-        r = [row for row in sym if row["sample"] == sample and 101 <= float(row["time_h"]) <= 105]
-        nested[2].plot(arr(r, "time_h"), arr(r, "voltage_mV"), color=COLORS[sample], lw=.75)
-    nested[2].set(xlabel="Time (h)", ylabel="Li‖Li (mV)", xlim=(101, 105), ylim=(-70, 70))
+    ce = csv_read(ROOT / "li_cu_ce" / "data.csv")
     eis = csv_read(ROOT / "eis" / "data.csv")
     for sample in "AB":
+        axes[1].plot(arr(full, "cycle"), arr(full, f"{sample}_mAh_g"), color=COLORS[sample], lw=.8)
+        axes[2].plot(arr(ce, "cycle"), arr(ce, f"{sample}_ce_pct"), color=COLORS[sample], lw=.75)
         r = [row for row in eis if row["sample"] == sample]
-        nested[3].plot(arr(r, "Zreal_ohm"), -arr(r, "Zimag_ohm"),
-                       color=COLORS[sample], lw=.7, marker="o", ms=1.4, markevery=7)
-    nested[3].set(xlabel="Z′ (Ω)", ylabel="−Z″ (Ω)", xlim=(0, 75), ylim=(0, 31))
-    nested[3].set_aspect("equal", adjustable="datalim")
-    for ax in nested:
-        ax.spines[["top", "right"]].set_visible(False)
-        ax.tick_params(direction="out", length=1.8, width=.45, labelsize=5)
-        ax.xaxis.label.set_size(5.3); ax.yaxis.label.set_size(5.3)
-    nested[0].text(-.20, 1.20, "a", transform=nested[0].transAxes,
-                   fontsize=8, fontweight="bold", color=INK)
-    therm = fig.add_subplot(grid[0, 2:])
-    data = csv_read(ROOT / "pouch_thermal" / "data.csv")
-    image = arr(data, "surface_temperature_C").reshape(71, 101)
-    cmap = LinearSegmentedColormap.from_list("pouch_spread", ["#e9f3f5", "#a8cfd4", "#e9c2a9", "#bb5870", "#6b2948"])
-    im = therm.imshow(image, origin="lower", extent=(0, 100, 0, 70),
-                      cmap=cmap, vmin=25, vmax=45, interpolation="nearest", aspect="equal")
-    therm.add_patch(Rectangle((0, 0), 100, 70, fill=False, edgecolor=INK, lw=.9))
-    for x in (12, 75):
-        therm.add_patch(Rectangle((x, 70), 13, 5, facecolor="#b9c4cb", edgecolor=INK, lw=.6))
-    therm.set(xlabel="Pouch width (mm)", ylabel="Pouch height (mm)", xlim=(0, 100), ylim=(0, 76))
-    axis(therm, "b")
-    cb = fig.colorbar(im, ax=therm, fraction=.033, pad=.025)
-    cb.ax.set_ylabel("°C", fontsize=6); cb.ax.tick_params(labelsize=5)
-    cells = [fig.add_subplot(grid[1, i]) for i in range(4)] + [fig.add_subplot(grid[2, i]) for i in range(4)]
-    # c: full cell; d: Li||Cu CE; e: circuit-based Nyquist; f: 48 synthetic records.
-    for sample in "AB":
-        cells[0].plot(arr(full, "cycle"), arr(full, f"{sample}_mAh_g"), color=COLORS[sample], lw=.8, label=sample)
-        cells[1].plot(arr(ce, "cycle"), arr(ce, f"{sample}_ce_pct"), color=COLORS[sample], lw=.75, label=sample)
-        r = [row for row in eis if row["sample"] == sample]
-        cells[2].plot(arr(r, "Zreal_ohm"), -arr(r, "Zimag_ohm"), color=COLORS[sample], lw=.7,
-                      marker="o", ms=1.7, markevery=7, label=sample)
-    cells[0].set(xlabel="Cycle number", ylabel="Capacity (mAh g$^{-1}$)", xlim=(0, 500), ylim=(130, 190))
-    cells[1].set(xlabel="Cycle number", ylabel="Li‖Cu CE (%)", xlim=(0, 300), ylim=(96.5, 100.2))
-    cells[2].set(xlabel="Z′ (Ω)", ylabel="−Z″ (Ω)", xlim=(0, 76), ylim=(0, 60))
-    cells[2].set_aspect("equal", adjustable="datalim")
-    plot_benchmark(cells[3], fig, compact=True)
+        axes[3].plot(arr(r, "Zreal_ohm"), -arr(r, "Zimag_ohm"), color=COLORS[sample], lw=.65)
+    axes[1].set(xlabel="Cycle number", ylabel="Capacity (mAh g$^{-1}$)", xlim=(0, 500), ylim=(130, 190))
+    axes[2].set(xlabel="Cycle number", ylabel="Li‖Cu CE (%)", xlim=(0, 300), ylim=(96.5, 100.2))
+    axes[3].set(xlabel="Z′ (Ω)", ylabel="−Z″ (Ω)", xlim=(0, 76), ylim=(0, 60))
+    plot_benchmark(axes[4], fig, compact=True)
+    history = csv_read(ROOT / "pouch_thermal" / "history.csv")
+    axes[5].plot(arr(history, "time_min"), arr(history, "Tmax_C"), color=COLORS["B"], lw=.8)
+    axes[5].plot(arr(history, "time_min"), arr(history, "Tmean_C"), color=COLORS["A"], lw=.8)
+    axes[5].set(xlabel="Time (min)", ylabel="Temperature (°C)")
+    sym = csv_read(ROOT / "li_li" / "data.csv")
     for sample in "AB":
         r = [row for row in sym if row["sample"] == sample and 101 <= float(row["time_h"]) <= 108]
-        cells[4].plot(arr(r, "time_h"), arr(r, "voltage_mV"), color=COLORS[sample], lw=.7)
-    cells[4].set(xlabel="Time (h)", ylabel="Li‖Li voltage (mV)", xlim=(101, 108), ylim=(-75, 75))
+        axes[6].plot(arr(r, "time_h"), arr(r, "voltage_mV"), color=COLORS[sample], lw=.65)
+    axes[6].set(xlabel="Time (h)", ylabel="Li‖Li voltage (mV)", xlim=(101, 108), ylim=(-75, 75))
     rate = csv_read(ROOT / "rate_capability" / "data.csv")
     for sample in "AB":
         r = [row for row in rate if row["sample"] == sample]
-        cells[5].plot(arr(r, "cycle"), arr(r, "capacity_mAh_g"), color=COLORS[sample],
-                      marker="o", ms=1.7, lw=.65)
-    for boundary in (10.5, 20.5, 30.5, 40.5, 50.5):
-        cells[5].axvline(boundary, color="#d5dce1", lw=.4)
-    cells[5].set(xlabel="Cycle number", ylabel="Capacity (mAh g$^{-1}$)", xlim=(0, 61), ylim=(105, 185))
-    plot_gcd(cells[6], compact=True)
-    plot_matrix(cells[7], compact=True)
-    for letter, ax in zip("cdefghij", cells):
+        axes[7].plot(arr(r, "cycle"), arr(r, "capacity_mAh_g"), color=COLORS[sample], lw=.65, marker="o", ms=1.5)
+    axes[7].set(xlabel="Cycle number", ylabel="Capacity (mAh g$^{-1}$)", xlim=(0, 61), ylim=(105, 185))
+    plot_gcd(axes[8], compact=True)
+    plot_matrix(axes[9], compact=True)
+    for letter, ax in zip("abcdefghij", axes):
         axis(ax, letter)
-    for ax in cells:
         ax.tick_params(labelsize=5.2)
-        ax.xaxis.label.set_size(5.8); ax.yaxis.label.set_size(5.8)
-    fig._capability_axes = {"a": nested, "b": therm, **{letter: ax for letter, ax in zip("cdefghij", cells)}}
+        ax.xaxis.label.set_size(5.8)
+        ax.yaxis.label.set_size(5.8)
+    fig._capability_axes = dict(zip("abcdefghij", axes))
+    return fig
+
+
+def style_presets_figure():
+    """Same CSV and scales across six selectable visual treatments."""
+    configure()
+    themes = json.loads((ROOT.parents[1] / "skills" / "battery-review-figure" / "assets" / "figure_theme.json").read_text(encoding="utf-8"))["presets"]
+    rows = csv_read(ROOT / "style_presets" / "data.csv")
+    n = arr(rows, "cycle")
+    fig, axes = plt.subplots(2, 3, figsize=(270 / 25.4, 133 / 25.4))
+    fig.subplots_adjust(left=.072, right=.983, bottom=.12, top=.9, wspace=.36, hspace=.62)
+    for ax, (key, theme) in zip(axes.flat, themes.items()):
+        first, second = theme["series"][:2]
+        for sample, colour, line in (("A", first, "-"), ("B", second, "--")):
+            ax.plot(n, arr(rows, f"{sample}_mAh_g"), color=colour, lw=.9, ls=line, label=sample)
+        ax.set(xlim=(0, 500), ylim=(130, 190), xlabel="Cycle number", ylabel="Capacity (mAh g$^{-1}$)")
+        ax.spines[["top", "right"]].set_visible(False)
+        ax.grid(False)
+        ax.tick_params(direction="out", length=2, width=.55, labelsize=5.8)
+        ax.set_title(theme["label_en"], fontsize=9, fontweight="bold", loc="left", pad=12, color=INK)
+        ax.plot([0, 1], [1.07, 1.07], transform=ax.transAxes, color=first, lw=4, clip_on=False)
+        ax.plot([.52, 1], [1.07, 1.07], transform=ax.transAxes, color=second, lw=4, clip_on=False)
+        ax.legend(frameon=False, loc="upper right", ncol=2, fontsize=6)
     return fig
 
 
 def figure(name: str):
     configure()
     if name == "capability_spread":
-        return capability_figure()
+        return compact_capability_figure()
+    if name == "style_presets":
+        return style_presets_figure()
     if name == "full_cell":
         fig, axes = plt.subplots(1, 2, figsize=(180 / 25.4, 88 / 25.4), gridspec_kw={"width_ratios": [1.55, 1]}, layout="constrained")
         plot_full(*axes)
@@ -702,9 +715,9 @@ def figure(name: str):
         fig, axes = plt.subplots(1, 2, figsize=(180 / 25.4, 98 / 25.4), gridspec_kw={"width_ratios": [1.95, .75]}, layout="constrained")
         plot_xrd(*axes, fig)
     elif name == "tof_sims":
-        fig = plt.figure(figsize=(180 / 25.4, 165 / 25.4), layout="constrained")
-        grid = fig.add_gridspec(3, 2, height_ratios=[1, 1, .68])
-        axes = [fig.add_subplot(grid[i, j]) for i in range(2) for j in range(2)] + [fig.add_subplot(grid[2, :])]
+        fig = plt.figure(figsize=(180 / 25.4, 91 / 25.4))
+        axes = [fig.add_axes([x, .54, .18, .36]) for x in (.07, .29, .51, .73)]
+        axes.append(fig.add_axes([.07, .13, .845, .29]))
         plot_tofsims(axes, fig)
     elif name == "rate_capability":
         fig, axes = plt.subplots(1, 2, figsize=(180 / 25.4, 92 / 25.4),
@@ -715,9 +728,9 @@ def figure(name: str):
         plot_gcd(ax)
         axes = [ax]
     elif name == "pouch_thermal":
-        fig = plt.figure(figsize=(180 / 25.4, 110 / 25.4), layout="constrained")
-        grid = fig.add_gridspec(2, 2, width_ratios=[1.35, 1], height_ratios=[1.35, .75])
-        axes = [fig.add_subplot(grid[0, 0]), fig.add_subplot(grid[0, 1]), fig.add_subplot(grid[1, :])]
+        fig = plt.figure(figsize=(180 / 25.4, 101 / 25.4))
+        axes = [fig.add_axes([.105, .49, .36, .40]), fig.add_axes([.61, .49, .32, .40]),
+                fig.add_axes([.105, .12, .825, .23])]
         plot_thermal(axes, fig)
     elif name == "literature_benchmark":
         fig, ax = plt.subplots(figsize=(180 / 25.4, 105 / 25.4), layout="constrained")
@@ -744,23 +757,14 @@ def figure(name: str):
         raise ValueError(name)
     for letter, ax in zip("abcdefghijklmnopqrstuvwxyz", axes):
         axis(ax, letter)
-    if name in {"integrated_study", "tof_sims", "pouch_thermal"}:
+    if name == "integrated_study":
         # Constrained layout can center an equal-aspect image inside a taller
         # grid cell. Freeze the final layout, then match the *rendered axes*.
         fig.canvas.draw()
         fig.set_layout_engine(None)
-        if name == "integrated_study":
-            source = axes[3].get_position()
-            target = axes[2].get_position()
-            axes[2].set_position([target.x0, source.y0, target.width, source.height])
-        elif name == "tof_sims":
-            source = axes[1].get_position()
-            target = axes[2].get_position()
-            axes[3].set_position([source.x0, target.y0, source.width, target.height])
-        else:
-            target = axes[0].get_position()
-            source = axes[1].get_position()
-            axes[1].set_position([source.x0, target.y0, source.width, target.height])
+        source = axes[3].get_position()
+        target = axes[2].get_position()
+        axes[2].set_position([target.x0, source.y0, target.width, source.height])
         fig.canvas.draw()
     return fig
 
@@ -770,13 +774,11 @@ def ruler_audit(name: str, fig) -> dict:
     fig.canvas.draw()
     if name == "capability_spread":
         width_mm, height_mm = fig.get_size_inches() * 25.4
-        rects = {letter: obj.get_position().bounds for letter, obj in fig._capability_axes.items()
-                 if letter != "a"}
-        rects["a"] = fig._capability_axes["a"][0].get_subplotspec().get_topmost_subplotspec().get_position(fig).bounds
+        rects = {letter: obj.get_position().bounds for letter, obj in fig._capability_axes.items()}
         comparisons = []
-        for row in ("cdef", "ghij"):
+        for row in ("abcde", "fghij"):
             comparisons += [(row[0], other, "row") for other in row[1:]]
-        comparisons += [(upper, lower, "column") for upper, lower in zip("cdef", "ghij")]
+        comparisons += [(upper, lower, "column") for upper, lower in zip("abcde", "fghij")]
         checks = []
         for first, second, direction in comparisons:
             a, b = rects[first], rects[second]
@@ -801,15 +803,14 @@ def ruler_audit(name: str, fig) -> dict:
                      "top": round((1 - box[1] - box[3]) * height_mm, 3),
                      "width": round(box[2] * width_mm, 3),
                      "height": round(box[3] * height_mm, 3)} for letter, box in rects.items()],
-                "note": "Mid and lower rows measured after final draw. Nested panel a and equal-aspect thermal b are independent hero panels."}
+                "note": "All ten plot rectangles measured after final draw on one 2-by-5 physical-size grid."}
     ax = fig.axes
     rows = {"full_cell": [(0, 1)], "li_cu_ce": [(0, 1)],
             "li_li": [(0, 1)], "operando_xrd": [(0, 1)],
-            "rate_capability": [(0, 1)], "pouch_thermal": [(0, 1)],
+            "rate_capability": [(0, 1)],
             "integrated_study": [(0, 1), (2, 3), (4, 5)],
-            "tof_sims": [(0, 1), (2, 3)]}.get(name, [])
-    columns = {"integrated_study": [(0, 2), (2, 4), (1, 3), (3, 5)],
-               "tof_sims": [(0, 2), (1, 3)]}.get(name, [])
+            "tof_sims": [(0, 1), (1, 2), (2, 3)]}.get(name, [])
+    columns = {"integrated_study": [(0, 2), (2, 4), (1, 3), (3, 5)]}.get(name, [])
     bounds = [axis.get_position().bounds for axis in ax]
     width_mm, height_mm = fig.get_size_inches() * 25.4
     checks = []
@@ -843,6 +844,8 @@ def ruler_audit(name: str, fig) -> dict:
 
 
 def source_names(name: str) -> list[str]:
+    if name == "style_presets":
+        return ["data.csv", "source.json"]
     if name == "integrated_study":
         return ["data_index.csv", "sources.json", "../li_cu_ce/data.csv", "../li_cu_ce/profiles.csv", "../li_li/data.csv", "../eis/data.csv", "../full_cell/data.csv", "../full_cell/voltage_profiles.csv"]
     if name == "eis":
@@ -866,10 +869,26 @@ def render(name: str) -> None:
         raise ValueError(f"{name}: rendered panel edges exceed 1.5 pt: {ruler['failures']}")
     for suffix in ("svg", "pdf", "png"):
         fig.savefig(destination / f"figure.{suffix}", dpi=300, facecolor="white")
+    if name == "style_presets":
+        themes = json.loads((ROOT.parents[1] / "skills" / "battery-review-figure" / "assets" / "figure_theme.json").read_text(encoding="utf-8"))["presets"]
+        for ax, (key, theme) in zip(fig.axes, themes.items()):
+            one = plt.figure(figsize=(112 / 25.4, 65 / 25.4))
+            target = one.add_axes([.12, .17, .82, .65])
+            for original in ax.lines[:2]:
+                target.plot(original.get_xdata(), original.get_ydata(), color=original.get_color(),
+                            lw=.95, ls=original.get_linestyle(), label=original.get_label())
+            target.set(xlim=(0, 500), ylim=(130, 190), xlabel="Cycle number", ylabel="Capacity (mAh g$^{-1}$)")
+            target.spines[["top", "right"]].set_visible(False)
+            target.grid(False)
+            target.tick_params(direction="out", length=2, width=.55, labelsize=6)
+            target.legend(frameon=False, loc="upper right", ncol=2, fontsize=6)
+            for suffix in ("svg", "pdf", "png"):
+                one.savefig(destination / f"style_{key}.{suffix}", dpi=300, facecolor="white")
+            plt.close(one)
     svg = destination / "figure.svg"
     svg.write_text("\n".join(line.rstrip() for line in svg.read_text(encoding="utf-8").splitlines()) + "\n", encoding="utf-8")
     plt.close(fig)
-    meta = {"data_status": "synthetic_demo", "not_experimental_data": True, "random_seed": SEED, "generator_version": VERSION, "figure_grammar_id": GRAMMAR[name], "journal_preset": "journal_neutral_180mm", "variables_and_units": VARIABLES[name], "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.", "test_conditions": CONDITIONS[name], "source_files": source_names(name), "creator": "BatteryReviewForge original code", "review": {"science": "models and data-to-panel links inspected; no experimental interpretation", "display": "internal PNG and final-size inspection completed; independent author review remains required"}}
+    meta = {"data_status": "synthetic_demo", "not_experimental_data": True, "random_seed": SEED, "generator_version": VERSION, "figure_grammar_id": GRAMMAR[name], "journal_preset": "six selectable presets" if name == "style_presets" else "journal_neutral_180mm", "variables_and_units": VARIABLES[name], "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.", "test_conditions": CONDITIONS[name], "source_files": source_names(name), "creator": "BatteryReviewForge original code", "review": {"science": "models and data-to-panel links inspected; no experimental interpretation", "display": "internal PNG and final-size inspection completed; independent author review remains required"}}
     (destination / "metadata.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
@@ -882,6 +901,10 @@ def publish(name: str) -> None:
         source = ROOT / name / filename
         if source.exists():
             shutil.copy2(source, target / source.name)
+    if name == "style_presets":
+        for source in (ROOT / name).glob("style_*.*"):
+            if source.suffix in {".svg", ".pdf", ".png"}:
+                shutil.copy2(source, target / source.name)
 
 
 def assembly_demo() -> None:

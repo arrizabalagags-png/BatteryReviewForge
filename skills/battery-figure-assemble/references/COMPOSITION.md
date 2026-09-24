@@ -39,6 +39,8 @@ Paths are relative to the manifest. The author keeps the unaltered source files 
   "figure_id": "Fig. 3",
   "claim": "One bounded conclusion supported by all three panels.",
   "width_mm": 180,
+  "output_purpose": "manuscript",
+  "layout_mode": "editorial_pack",
   "margin_mm": 4,
   "gutter_mm": 2.5,
   "label_band_mm": 4.5,
@@ -64,6 +66,14 @@ Paths are relative to the manifest. The author keeps the unaltered source files 
 ```
 
 Rows have explicit heights in millimetres. Column weights divide the available width after outer margins and gutters. `rowspan` and `colspan` may make a hero or a wide comparison panel. Every grid cell must be occupied exactly once unless `allow_empty_cells: true` and `empty_cell_reason` are supplied. The rendered figure height follows the row heights plus vertical gutters and margins. Panels use `contain`: no stretching, hidden automatic trim or implicit crop. Panel letters are placed in a consistent strip outside the artwork; set global `draw_labels: false` only when the sources already carry a coherent label system.
+
+### Pack the content, not only the page frames
+
+Set `output_purpose` to `manuscript` for a paper figure or `showcase` for a website demonstration. This documents the audience; neither option changes the data. `layout_mode: editorial_pack` adds visible-content checks. For panels that each occupy a single row, `row_heights_mm: "auto"` sizes each row from its widest source aspect ratio at its allocated column width. Row-spanning panels still require explicit heights. The final PDF never stretches an image.
+
+For a measured source use `content_box_fraction: [left, top, right, bottom]` to identify the actual nonblank content and `plot_box_fraction` separately for the quantitative axes. The report records `content_bbox_mm`, `slot_fill_ratio`, `interpanel_gaps` in millimetres, `outer_whitespace_ratio`, and whether the content box is declared or a white-edge estimate. In editorial mode, content filling less than 78% of its slot or a related visible gap above 4 mm triggers a review warning unless a specific `whitespace_reason` explains the choice. These are review thresholds, not universal journal requirements. Raster white pixels are never silently cropped; a white region may contain meaningful axes, a scale bar or deliberately blank image area.
+
+Set `compound_panel: true` when a supplied file itself contains several subplots. A compound smaller than 70 mm wide is flagged. Give it a larger slot or, when editable data/source exists, split and rerender each subplot at its final slot size. Do not enlarge a raster or trim a published figure just to satisfy a fill ratio. For manuscript panels, prefer 2–3 mm outer margins/gutters when the target journal allows; a larger showcase margin can be intentional. The author still inspects every panel at final physical size. **A geometry pass never proves that the layout reads well.**
 
 The composer does not create figure titles or subtitles. Keep that behavior when making a manifest or manually editing the PDF: a panel letter is enough when its axes, direct labels and the figure caption explain the content. Do not fill an apparently empty label band with headings. A source panel's existing title can be removed only from an editable source and only after checking that it does not carry the condition or sample identity; record the change in the panel ledger.
 

@@ -51,6 +51,10 @@ def resolve_layout(manifest: dict) -> dict:
         if not isinstance(manifest.get(key), str) or not manifest[key].strip():
             raise ComposeError(f"{key} is required")
     width = _positive(manifest.get("width_mm"), "width_mm")
+    if manifest.get("output_purpose", "manuscript") not in {"manuscript", "showcase"}:
+        raise ComposeError("output_purpose must be manuscript or showcase")
+    if manifest.get("layout_mode", "fixed") not in {"fixed", "editorial_pack"}:
+        raise ComposeError("layout_mode must be fixed or editorial_pack")
     margin = _nonnegative(manifest.get("margin_mm", 4), "margin_mm")
     gutter = _nonnegative(manifest.get("gutter_mm", 2), "gutter_mm")
     label_band = _nonnegative(manifest.get("label_band_mm", 4), "label_band_mm")
@@ -154,6 +158,19 @@ def resolve_layout(manifest: dict) -> dict:
                 raise ComposeError(f"Panel {letter}: crop_box_fraction outside the source")
             if not panel.get("crop_reason"):
                 raise ComposeError(f"Panel {letter}: vector crop needs crop_reason")
+        for field in ("content_box_fraction", "plot_box_fraction"):
+            fraction = panel.get(field)
+            if fraction is not None:
+                if not isinstance(fraction, list) or len(fraction) != 4:
+                    raise ComposeError(f"Panel {letter}: {field} needs [left, top, right, bottom]")
+                try:
+                    left, top, right, bottom = map(float, fraction)
+                except (TypeError, ValueError) as exc:
+                    raise ComposeError(f"Panel {letter}: invalid {field}") from exc
+                if not (0 <= left < right <= 1 and 0 <= top < bottom <= 1):
+                    raise ComposeError(f"Panel {letter}: {field} outside the source")
+        if type(panel.get("compound_panel", False)) is not bool:
+            raise ComposeError(f"Panel {letter}: compound_panel must be true or false")
         resolved.append({**panel, "resolved_path": str(source),
                          "slot_mm": [x, y, w, h],
                          "art_mm": [x, y + label_band, w, h - label_band]})

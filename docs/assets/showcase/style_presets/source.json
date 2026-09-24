@@ -1,0 +1,13 @@
+{
+  "source": "../full_cell/data.csv",
+  "dataset": "same synthetic A/B full-cell cycling",
+  "xlim": [
+    0,
+    500
+  ],
+  "ylim": [
+    130,
+    190
+  ],
+  "meaning": "Only colour and strokes vary; values and scales do not."
+}

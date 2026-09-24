@@ -64,10 +64,17 @@
   },
   {
     "group": "样图",
-    "title": "十面板能力展示",
+    "title": "同一数据六套配色",
+    "url": "gallery.html#style_presets",
+    "keywords": "配色 风格 style preset 同一数据",
+    "description": "同一数据六套配色"
+  },
+  {
+    "group": "样图",
+    "title": "十类图能力展示",
     "url": "gallery.html#capability_spread",
     "keywords": "capability ten panel 十面板 总图",
-    "description": "十面板能力展示"
+    "description": "十类图能力展示"
   },
   {
     "group": "样图",
@@ -120,10 +127,10 @@
   },
   {
     "group": "学习",
-    "title": "兼容哪些 Agent",
+    "title": "兼容哪些 AI 软件",
     "url": "learn.html#compatibility",
     "keywords": "codex kimi workbuddy deepseek 豆包",
-    "description": "兼容哪些 Agent"
+    "description": "兼容哪些 AI 软件"
   },
   {
     "group": "功能",
@@ -138,13 +145,6 @@
     "url": "features.html",
     "keywords": "拼图 拼版 figure",
     "description": "图片拼版"
-  },
-  {
-    "group": "功能",
-    "title": "综述写作",
-    "url": "features.html#review",
-    "keywords": "综述 review 写作 投稿 审稿",
-    "description": "综述写作"
   },
   {
     "group": "社区",

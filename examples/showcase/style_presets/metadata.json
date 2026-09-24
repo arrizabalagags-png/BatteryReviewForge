@@ -1,0 +1,24 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260923,
+  "generator_version": "1.2",
+  "figure_grammar_id": "same_full_cell_data_six_style_choices",
+  "journal_preset": "six selectable presets",
+  "variables_and_units": {
+    "x": "cycle number",
+    "y": "discharge capacity (mAh g−1)",
+    "linked": "same synthetic A/B series and axis limits in all six presets"
+  },
+  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
+  "test_conditions": "Six presentations of the same synthetic full-cell cycling CSV, with identical axes and values. Colours are selectable house presets, not journal endorsements.",
+  "source_files": [
+    "data.csv",
+    "source.json"
+  ],
+  "creator": "BatteryReviewForge original code",
+  "review": {
+    "science": "models and data-to-panel links inspected; no experimental interpretation",
+    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+  }
+}
