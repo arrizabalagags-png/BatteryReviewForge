@@ -90,6 +90,12 @@ def main() -> None:
     with ZipFile(collection, "w", ZIP_DEFLATED) as target:
         for archive in archives:
             target.write(archive, archive.name)
+    starter = collection.parent / f"BatteryReviewForge-WorkBuddy-Starter-v{VERSION}.zip"
+    with ZipFile(starter, "w", ZIP_DEFLATED) as target:
+        for archive in archives:
+            if archive.name.startswith(("battery-review-figure-", "battery-figure-assemble-")):
+                target.write(archive, archive.name)
+        target.writestr("先读我.txt", "这是绘图与拼图的两个技能包。先解压本套装，再分别导入两个 ZIP。\n必须保留两个技能：拼图会引用绘图技能中的共享规则。\n官方支持本地技能导入；本版 BRF 客户端导入到成图仍待实机验收。\n请检查软件能否读取两者的相对引用，再检查依赖并运行小示例。\n教程：https://arrizabalagags-png.github.io/BatteryReviewForge/install-workbuddy.html\n")
     print(f"Built {len(archives)} WorkBuddy-format skill archives and {collection}")
 
 

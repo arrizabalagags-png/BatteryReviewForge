@@ -1,0 +1,70 @@
+{
+  "recipe": "gitt_pulse",
+  "status": "optional_variant",
+  "style": "forge",
+  "alignment": {
+    "status": "pass",
+    "tolerance_mm": 0.3,
+    "checks": [
+      {
+        "panels": [
+          "a",
+          "b"
+        ],
+        "edge": "left",
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "panels": [
+          "a",
+          "b"
+        ],
+        "edge": "right",
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "panels": [
+          "a",
+          "b"
+        ],
+        "edge": "width",
+        "delta_mm": 0.0,
+        "pass": true
+      }
+    ],
+    "failures": [],
+    "plot_rectangles_mm": [
+      {
+        "panel": "a",
+        "left": 19.0,
+        "right": 166.0,
+        "top": 8.999999999999998,
+        "bottom": 57.0,
+        "width": 147.0,
+        "height": 48.0
+      },
+      {
+        "panel": "b",
+        "left": 19.0,
+        "right": 166.0,
+        "top": 75.99999999999999,
+        "bottom": 103.0,
+        "width": 147.0,
+        "height": 27.0
+      }
+    ]
+  },
+  "requested_font": "Arial/Helvetica",
+  "actual_font": "Arial",
+  "resolved_font_path": "arial.ttf",
+  "transformations": [
+    "Voltage and measured/supplied current share acquisition time; no diffusion coefficient inferred"
+  ],
+  "test_conditions": "Invented charging pulse schedule: 0.1 mA for 6 min, 24 min rest, 12 pulses, 25 °C. Relaxation model only; no diffusion coefficient or equilibrium claim.",
+  "data_status": "synthetic_demo",
+  "source_files": [
+    "data.csv"
+  ]
+}

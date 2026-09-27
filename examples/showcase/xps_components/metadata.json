@@ -1,0 +1,35 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "figure_grammar_id": "optional:xps_components",
+  "source_files": [
+    "data.csv"
+  ],
+  "test_conditions": "Invented C 1s-like binding-energy window, counts and 3 Gaussian components with known baseline. No compound identity, measured composition or fitting quality claim.",
+  "variables_and_units": [
+    "binding_energy_eV",
+    "intensity_counts",
+    "background_counts",
+    "component_1",
+    "component_2",
+    "component_3"
+  ],
+  "render_options": {
+    "component_labels": [
+      "Component 1",
+      "Component 2",
+      "Component 3"
+    ],
+    "fit_method": "Analytic invented components; no optimizer",
+    "charge_reference": "Synthetic energy axis; no measured calibration"
+  },
+  "reference": {
+    "doi": "10.1038/s41467-024-47522-y",
+    "panel": "Fig. 5a–d",
+    "observation": "XPS spectra and component fits; our labels remain generic because no chemical assignment is evidenced",
+    "review_scope": "publisher text/caption; no numerical data or original artwork copied",
+    "default_template": false
+  },
+  "reproduce": "python render_specialist.py --recipe xps_components --input-folder xps_components --output-dir brf-output --style forge",
+  "creator": "BatteryReviewForge original synthetic model and drawing"
+}

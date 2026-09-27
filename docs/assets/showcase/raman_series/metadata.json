@@ -1,0 +1,30 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "figure_grammar_id": "optional:raman_series",
+  "source_files": [
+    "data.csv"
+  ],
+  "test_conditions": "Invented electrolyte-like Raman windows, A–D; unnormalized counts preserved, display offset 340 counts per series. No molecular assignment or concentration inference.",
+  "variables_and_units": [
+    "sample",
+    "wavenumber_cm_1",
+    "intensity_counts"
+  ],
+  "render_options": {
+    "display_offset_counts": 340,
+    "zoom_wavenumber_cm_1": [
+      718,
+      762
+    ]
+  },
+  "reference": {
+    "doi": "10.1038/s41467-024-47522-y",
+    "panel": "Fig. 3a,f",
+    "observation": "Raman spectra across electrolytes/states; offsets and zoom are disclosed optional display choices",
+    "review_scope": "publisher text/caption; no numerical data or original artwork copied",
+    "default_template": false
+  },
+  "reproduce": "python render_specialist.py --recipe raman_series --input-folder raman_series --output-dir brf-output --style forge",
+  "creator": "BatteryReviewForge original synthetic model and drawing"
+}

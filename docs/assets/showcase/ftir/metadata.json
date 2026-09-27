@@ -1,0 +1,32 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "figure_grammar_id": "optional:ftir",
+  "source_files": [
+    "data.csv"
+  ],
+  "test_conditions": "Synthetic A/B/C electrolyte-like transmittance, 715-925 cm^-1. Gaussian troughs are visual examples only; no chemical assignment, measured transmittance or paper peak position.",
+  "variables_and_units": [
+    "sample",
+    "wavenumber_cm_1",
+    "transmittance_percent"
+  ],
+  "render_options": {
+    "zoom_wavenumber_cm_1": [
+      790,
+      855
+    ],
+    "wavenumber_direction": "descending"
+  },
+  "reference": {
+    "doi": "10.1002/aenm.202101775",
+    "journal": "Advanced Energy Materials",
+    "year": 2021,
+    "figure_panel": "Figure 1c",
+    "observation": "Overlaid FTIR transmittance spectra; this demo does not reuse measured peaks or assignments.",
+    "review_scope": "Original PDF figure and caption visually checked; no numerical values or artwork copied",
+    "default_template": false
+  },
+  "reproduce": "python render_specialist.py --recipe ftir --input-folder ftir --output-dir brf-output --style forge",
+  "creator": "BatteryReviewForge original synthetic analytic demonstration"
+}

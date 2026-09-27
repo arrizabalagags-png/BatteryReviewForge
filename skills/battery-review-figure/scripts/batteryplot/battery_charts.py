@@ -108,7 +108,10 @@ def cycling_capacity(
                 markevery=max(1, len(xs) // 30), label=name)
     ax.set(xlabel="Cycle number", ylabel=f"Discharge capacity ({next(iter(units))})")
     ax.set_xlim(left=0)
-    ax.set_ylim(bottom=0)
+    # Autoscale uses data span, which can be tiny for almost-constant capacity.
+    # Recompute headroom against the displayed zero-based range; retain all data.
+    peak = max(float(line.get_ydata().max()) for line in ax.lines)
+    ax.set_ylim(0, peak * 1.06 if peak > 0 else 1)
     ax.legend(frameon=False)
     if not comparable:
         condition_banner(fig, condition_note or "")

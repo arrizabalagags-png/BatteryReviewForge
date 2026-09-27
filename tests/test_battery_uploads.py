@@ -35,6 +35,14 @@ BASE = {
 
 
 class UploadedBatteryPlotTests(unittest.TestCase):
+    def test_nearly_constant_capacity_keeps_marker_headroom(self):
+        rows=[{**BASE, 'series':'A', 'cycle':i+1, 'discharge_capacity':q,
+               'capacity_basis':'cathode active mass', 'capacity_unit':'mAh/g'} for i,q in enumerate((150,149,148))]
+        fig, ax=cycling_capacity(rows,cell_configuration='half')
+        self.assertGreater(ax.get_ylim()[1]-150,5)
+        self.assertEqual(list(ax.lines[0].get_ydata()),[150,149,148])
+        plt.close(fig)
+
     def test_tofsims_requires_complete_calibrated_map(self):
         common={"source_id":"test:ion-map","evidence_state":"verified",
                 "sample_id":"Li-cycled","fragment":"LiF2-","signal_unit":"counts",

@@ -1,0 +1,42 @@
+name: Battery Commons 使用反馈
+description: 告诉维护者社区配色或布局实际用起来怎么样
+title: "[Commons feedback] "
+body:
+  - type: markdown
+    attributes:
+      value: "反馈是公开可见的。请不要上传实验原始数据、未发表图件或个人信息。"
+  - type: input
+    id: asset_id
+    attributes: {label: 资源编号, placeholder: "例如 ocean-electrolyte"}
+    validations: {required: true}
+  - type: input
+    id: version
+    attributes: {label: 资源版本, placeholder: "例如 1.0.0"}
+    validations: {required: true}
+  - type: dropdown
+    id: usage
+    attributes:
+      label: 你实际用过这项资源吗
+      options: ["实际用过", "只看过预览"]
+    validations: {required: true}
+  - type: checkboxes
+    id: feedback
+    attributes:
+      label: 哪些地方做得好或需要调整
+      options:
+        - label: 配色清楚
+        - label: 多条曲线容易区分
+        - label: 打印效果好
+        - label: 布局清楚
+        - label: 排版太拥挤
+        - label: 颜色太淡
+        - label: 颜色太艳
+        - label: 标签看起来太小
+        - label: 其他
+  - type: textarea
+    id: details
+    attributes:
+      label: 补充说明
+      description: "请描述图件尺寸、使用场景和你遇到的具体情况；不要附实验数据。"
+      placeholder: "例如：在 89 mm 单栏宽度下，蓝色和青色图例不太容易区分。"
+    validations: {required: false}

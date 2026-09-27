@@ -1,0 +1,31 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "figure_grammar_id": "optional:msd",
+  "source_files": [
+    "data.csv"
+  ],
+  "test_conditions": "Synthetic Li+-like mean-square displacement at 25 and -70 °C over 0-50 ps. No simulation box, ensemble, uncertainty or diffusion coefficient claim.",
+  "variables_and_units": [
+    "temperature_C",
+    "electrolyte",
+    "time_ps",
+    "msd_A2"
+  ],
+  "render_options": {
+    "simulated_species": "Li+",
+    "simulation_method": "Invented analytic trajectories; not molecular dynamics",
+    "diffusion_fit": false
+  },
+  "reference": {
+    "doi": "10.1002/anie.201900266",
+    "journal": "Angewandte Chemie International Edition",
+    "year": 2019,
+    "figure_panel": "Figure 3c,d",
+    "observation": "Two-temperature Li+ MSD comparison; synthetic slopes have no measured diffusion meaning.",
+    "review_scope": "Original PDF figure and caption visually checked; no numerical values or artwork copied",
+    "default_template": false
+  },
+  "reproduce": "python render_specialist.py --recipe msd --input-folder msd --output-dir brf-output --style forge",
+  "creator": "BatteryReviewForge original synthetic analytic demonstration"
+}

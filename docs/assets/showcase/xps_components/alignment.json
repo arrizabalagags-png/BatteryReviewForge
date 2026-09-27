@@ -1,0 +1,54 @@
+{
+  "status": "pass",
+  "tolerance_mm": 0.3,
+  "checks": [
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "edge": "left",
+      "delta_mm": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "edge": "right",
+      "delta_mm": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "edge": "width",
+      "delta_mm": 0.0,
+      "pass": true
+    }
+  ],
+  "failures": [],
+  "plot_rectangles_mm": [
+    {
+      "panel": "a",
+      "left": 19.0,
+      "right": 166.0,
+      "top": 8.999999999999998,
+      "bottom": 57.0,
+      "width": 147.0,
+      "height": 48.0
+    },
+    {
+      "panel": "b",
+      "left": 19.0,
+      "right": 166.0,
+      "top": 75.99999999999999,
+      "bottom": 103.0,
+      "width": 147.0,
+      "height": 27.0
+    }
+  ]
+}

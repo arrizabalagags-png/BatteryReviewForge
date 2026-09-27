@@ -1,15 +1,15 @@
-# 我用哪个 Agent？怎么装？
+# 软件适配记录（技术资料）
 
-先看看电脑上有没有可读取本地文件夹和技能的 AI 软件。没有或不确定时，先走网站的[开始使用](https://arrizabalagags-png.github.io/BatteryReviewForge/start.html)入口；它会带你到[官方 Codex 页面](https://openai.com/codex/)了解软件，再返回选择自己实际使用的工具。BatteryReviewForge 是一组 `SKILL.md` 指令、Python 脚本和原创图形资源；它本身没有网站账号、模型 API，也不会收取密钥。下面的“兼容”分为**官方格式存在**和**本项目实机跑过**，两者不能混为一谈。核对日期：2026-09-24。
+普通使用者请走[开始使用](https://arrizabalagags-png.github.io/BatteryReviewForge/start.html)或[WorkBuddy 分步教程](https://arrizabalagags-png.github.io/BatteryReviewForge/install-workbuddy.html)。教程区分国内可选路线与已能正常使用 Codex 的路线，不要求更换熟悉的软件。BatteryReviewForge 是 `SKILL.md` 指令、Python 脚本和原创图形资源；没有独立账户、模型 API 或密钥输入框。核对日期：2026-09-27。
 
-当前的 ZIP 安装过程在部分软件与系统中仍需打开命令行；本项目没有把这些路径包装成“全程点按钮”。若你完全不会使用命令行，先用网页演示文件和样图了解工作方式，再按自己软件的帮助文档或请熟悉电脑的同事协助安装。
+必须分别记录：文件已复制（copied）、新会话发现技能（discovered）、依赖环境可用（runtime_ready）、真实导出成功（smoke_test_passed）。网页点击“继续”、脚本复制和包结构测试都不能替代原生客户端完整验收。本轮在临时目录测试包内容、冲突备份和 Python 导出；没有重新完成原生客户端登录、导入、发现到出图的全流程。
 
 | 软件 | 现在能做什么 | 本项目验证状态 |
 | --- | --- | --- |
-| **Codex** | 装完整插件，或复制 13 个独立技能 | **Windows 本机已验证；macOS/Linux 完整任务待实测** |
+| **Codex** | 使用插件，或请 Codex 检查固定官方仓库后安装独立技能 | 有历史 Windows 使用记录；v0.8.7 新安装与其他系统完整任务待实测 |
 | **Kimi Code CLI** | 把 13 个技能复制到官方扫描目录 | 官方技能格式与路径已确认；本项目完整任务待实机验收 |
 | **DeepSeek Harness** | 把 13 个技能复制到官方扫描目录 | 官方本地技能机制已确认；本项目完整任务待实机验收 |
-| **WorkBuddy** | 在技能界面上传针对 WorkBuddy 制作的单个技能 ZIP | 官方导入入口与格式已确认；本项目客户端导入待实机验收 |
+| **WorkBuddy** | 绘图与拼图入门套装仅含 2 个独立技能 ZIP | 官方入口与包内共享引用已检查；客户端导入、发现、运行仍待实测 |
 | **豆包桌面工作任务** | 可先用内置 Skills 和普通文件问答 | 尚无已核实的第三方 `SKILL.md` 导入步骤；目前不声称可一键安装 |
 
 ## 第 1 步：先登录你自己的 Agent
@@ -20,7 +20,7 @@
 
 **DeepSeek Harness**：在软件的 **Settings → Models** 中配置 DeepSeek 或你自己使用的模型提供方。只在该软件自己的设置页输入 Key。[官方模型设置说明](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/guide/providers.md)。
 
-**WorkBuddy**：先安装并登录 WorkBuddy。日常使用以它的账号和额度为准；只有你主动接入其他模型提供方时，才按该提供方的官方说明在 WorkBuddy 设置模型 Key。[WorkBuddy 技能说明](https://free-plat-test.qcloudcdn.com/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)、[腾讯 TokenHub 接入示例](https://cloud.tencent.com/document/product/1823/131902)。
+**WorkBuddy**：从 [WorkBuddy 官方产品页](https://www.workbuddy.cn/work/)下载，按客户端提示登录，再回到客户端。[官方技能说明](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)。账号、额度和额外模型费用以该软件的官方账户说明为准。
 
 **豆包**：使用豆包官方账号与客户端。桌面版支持“工作任务”和内置 Skills，但目前没有核实到可供本项目采用的第三方技能包导入规范。[官方下载页](https://www.doubao.com/download/desktop)。
 
@@ -28,9 +28,11 @@
 
 ## 第 2 步：安装技能
 
-下载并解压 [完整技能安装包](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-v0.8.6.zip)。看到 `skills/`、`install.ps1` 和 `install.sh` 三项后，再按自己的软件做以下一步。
+下载并解压 [完整技能安装包](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-v0.8.7.zip)。看到 `skills/`、`install.ps1` 和 `install.sh` 三项后，再按自己的软件做以下一步。
 
-### Codex：最省事
+### Codex：先确认目录与已有安装
+
+上手页提供固定指向 `https://github.com/arrizabalagags-png/BatteryReviewForge` 的自然语言安装请求。必须先核对当前宿主版本、插件和同名技能，再安装。它目前是待原生客户端完整验证的辅助路线，不能写成已独立通过三次。
 
 已会用终端：
 
@@ -39,7 +41,7 @@ codex plugin marketplace add arrizabalagags-png/BatteryReviewForge
 codex plugin add battery-review-forge@battery-review-forge
 ```
 
-下载 ZIP 的 Windows 用户：在解压目录打开 PowerShell，运行 `./install.ps1`。macOS/Linux 用户运行 `sh install.sh`。它们默认安装到 Codex 的用户技能目录。同名技能已存在时会停下，避免不知情覆盖。
+下载 ZIP 的 Windows 用户：在解压目录打开 PowerShell，运行 `./install.ps1`。macOS/Linux 用户运行 `sh install.sh`。当前安装器保留 `$CODEX_HOME/skills` 或 `~/.codex/skills` 默认值，同时检查共享 `~/.agents/skills` 中的同名副本。当前宿主若扫描其他目录，先查明再显式指定目标，不可把历史路径当作永久保证。重复安装会停止。主动使用覆盖参数时先移动旧目录到 `.brf-install-backups`，再放入完整新版；不会合并遗留文件。恢复步骤见[更新与恢复](https://arrizabalagags-png.github.io/BatteryReviewForge/maintenance.html)。
 
 ### Kimi Code CLI：复制到 Kimi 的技能目录
 
@@ -51,7 +53,7 @@ codex plugin add battery-review-forge@battery-review-forge
 
 ### WorkBuddy：按技能逐个导入
 
-下载 [WorkBuddy 技能包合集](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-WorkBuddy-v0.8.6.zip)，**先解压合集**。里面有 13 个独立 ZIP，每个 ZIP 对应一个技能：已有图片拼版选 `battery-figure-assemble`，上传数据画图选 `battery-review-figure`。在 WorkBuddy **技能 → 添加技能 → 上传技能** 中选所需的单个 ZIP。不要直接上传“合集 ZIP”或 Codex 的“完整技能 ZIP”。如果任务跨多个阶段，可继续安装相关技能；总协调技能引用其他技能时要确保它们也已导入。WorkBuddy 的开放平台要求 `description_zh`、`description_en`、版本与作者，专用 ZIP 会补齐这些字段。[官方导入说明](https://free-plat-test.qcloudcdn.com/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)、[包结构](https://open.workbuddy.cn/en/docs/skill)。
+下载 [WorkBuddy 绘图与拼图套装](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-WorkBuddy-Starter-v0.8.7.zip)，先解压，按 `先读我.txt` 分别导入绘图与拼图 ZIP。套装保留共享规则；包内字段与引用通过自动检查，但不能由此推断宿主已正确扫描依赖。按[官方技能入口](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)操作后，新开任务检查实际路径、Python 依赖，再生成 PNG/SVG。原有 13 技能合集仍供完整综述流程使用，不要求初学者逐个挑选。
 
 ### 豆包：先不要照搬其他软件的目录
 

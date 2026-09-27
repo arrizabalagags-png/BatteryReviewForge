@@ -1,0 +1,31 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "figure_grammar_id": "optional:cyclic_voltammetry",
+  "source_files": [
+    "data.csv"
+  ],
+  "test_conditions": "Invented intercalation half-cell response at 25 °C, 2.8–4.4 V vs Li/Li+; 0.1, 0.2, 0.5, 1 mV/s. Analytic visual model, not measured kinetics.",
+  "variables_and_units": [
+    "scan_rate_mV_s",
+    "sequence",
+    "voltage_V",
+    "current_mA"
+  ],
+  "render_options": {
+    "reference_electrode": "Li/Li+",
+    "zoom_voltage_V": [
+      3.45,
+      4.15
+    ]
+  },
+  "reference": {
+    "doi": "10.1038/s41467-023-40374-y",
+    "panel": "Fig. 2a–d and Supplementary Fig. 9",
+    "observation": "CV retains reference electrode and scan-rate identity; zoom is an optional editorial view",
+    "review_scope": "publisher text/caption; no numerical data or original artwork copied",
+    "default_template": false
+  },
+  "reproduce": "python render_specialist.py --recipe cyclic_voltammetry --input-folder cyclic_voltammetry --output-dir brf-output --style forge",
+  "creator": "BatteryReviewForge original synthetic model and drawing"
+}

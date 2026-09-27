@@ -1,0 +1,27 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "figure_grammar_id": "optional:ionic_conductivity",
+  "source_files": [
+    "data.csv"
+  ],
+  "test_conditions": "Invented A/B/C electrolyte conductivity; Arrhenius model over −20 to 80 °C. Geometry/contact uncertainties absent because this is not an impedance measurement.",
+  "variables_and_units": [
+    "sample",
+    "temperature_C",
+    "conductivity_mS_cm"
+  ],
+  "render_options": {
+    "arrhenius_expression": "ln(sigma_S_cm) vs 1000/T_K",
+    "fit": false
+  },
+  "reference": {
+    "doi": "10.1038/s41467-024-45372-2",
+    "panel": "ionic transport figure, panels c,f",
+    "observation": "Conductivity and Arrhenius expression; no activation energy inferred in this demo",
+    "review_scope": "publisher text/caption; no numerical data or original artwork copied",
+    "default_template": false
+  },
+  "reproduce": "python render_specialist.py --recipe ionic_conductivity --input-folder ionic_conductivity --output-dir brf-output --style forge",
+  "creator": "BatteryReviewForge original synthetic model and drawing"
+}

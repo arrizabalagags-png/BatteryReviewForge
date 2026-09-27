@@ -1,38 +1,119 @@
 {
   "figure": "pouch_thermal",
-  "tolerance_pt": 1.5,
-  "status": "independent_panels",
-  "checks": [],
+  "status": "pass",
+  "tolerance_mm": 0.3,
+  "checks": [
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "edge": "top",
+      "delta_mm": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "edge": "bottom",
+      "delta_mm": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "edge": "height",
+      "delta_mm": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "colorbar"
+      ],
+      "edge": "top",
+      "delta_mm": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "colorbar"
+      ],
+      "edge": "bottom",
+      "delta_mm": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "colorbar"
+      ],
+      "edge": "height",
+      "delta_mm": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "c"
+      ],
+      "edge": "left",
+      "delta_mm": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "b",
+        "c"
+      ],
+      "edge": "right",
+      "delta_mm": 0.0,
+      "pass": true
+    }
+  ],
   "failures": [],
   "plot_rectangles_mm": [
     {
       "panel": "a",
-      "left": 26.395,
-      "top": 11.11,
-      "width": 53.158,
-      "height": 40.4
+      "left": 18.0,
+      "right": 78.0,
+      "top": 7.999999999999999,
+      "bottom": 53.60000000000001,
+      "width": 60.00000000000001,
+      "height": 45.60000000000001
     },
     {
       "panel": "b",
-      "left": 109.8,
-      "top": 11.11,
-      "width": 57.6,
-      "height": 40.4
+      "left": 113.0,
+      "right": 166.0,
+      "top": 7.999999999999999,
+      "bottom": 53.60000000000001,
+      "width": 53.000000000000014,
+      "height": 45.60000000000001
     },
     {
       "panel": "c",
-      "left": 18.9,
-      "top": 65.65,
-      "width": 148.5,
-      "height": 23.23
+      "left": 18.0,
+      "right": 166.0,
+      "top": 74.0,
+      "bottom": 97.0,
+      "width": 148.0,
+      "height": 22.999999999999996
     },
     {
-      "panel": "d",
-      "left": 81.367,
-      "top": 11.11,
-      "width": 2.02,
-      "height": 40.4
+      "panel": "colorbar",
+      "left": 82.0,
+      "right": 84.39999999999999,
+      "top": 7.999999999999999,
+      "bottom": 53.60000000000001,
+      "width": 2.3999999999999955,
+      "height": 45.60000000000001
     }
   ],
-  "note": "Measured after final Matplotlib draw. Colorbars are excluded."
+  "note": "Actual plot boxes after draw; a separate colorbar never steals panel space."
 }

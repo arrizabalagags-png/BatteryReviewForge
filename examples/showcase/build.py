@@ -26,6 +26,7 @@ import numpy as np
 
 
 ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT.parents[1] / 'skills' / 'battery-review-figure' / 'scripts'))
 SITE = ROOT.parents[1] / "docs" / "assets" / "showcase"
 SEED = 20260923
 VERSION = "1.2"
@@ -542,7 +543,7 @@ def plot_gcd(ax, compact=False) -> None:
                 ha="right", va="bottom", fontsize=5.5, color=MUTED)
 
 
-def plot_thermal(axes, fig) -> None:
+def plot_thermal(axes, fig, colorbar_ax) -> None:
     map_ax, line_ax, history_ax = axes
     rows = csv_read(ROOT / "pouch_thermal" / "data.csv")
     image = arr(rows, "surface_temperature_C").reshape(71, 101)
@@ -556,7 +557,7 @@ def plot_thermal(axes, fig) -> None:
     map_ax.axhline(35, color="white", lw=.7, ls=(0, (4, 2)))
     map_ax.set(xlabel="Pouch width (mm)", ylabel="Pouch height (mm)",
                xlim=(0, 100), ylim=(0, 76))
-    bar = fig.colorbar(im, ax=map_ax, fraction=.036, pad=.028)
+    bar = fig.colorbar(im, cax=colorbar_ax)
     bar.ax.set_ylabel("Surface temperature (°C)", fontsize=6)
     bar.ax.tick_params(labelsize=5.5, width=.5)
     line = csv_read(ROOT / "pouch_thermal" / "line_profile.csv")
@@ -728,10 +729,12 @@ def figure(name: str):
         plot_gcd(ax)
         axes = [ax]
     elif name == "pouch_thermal":
-        fig = plt.figure(figsize=(180 / 25.4, 101 / 25.4))
-        axes = [fig.add_axes([.105, .49, .36, .40]), fig.add_axes([.61, .49, .32, .40]),
-                fig.add_axes([.105, .12, .825, .23])]
-        plot_thermal(axes, fig)
+        from batteryplot.layout import pouch_layout
+        fig = plt.figure(figsize=(180 / 25.4, 106 / 25.4))
+        named, relations = pouch_layout(fig)
+        axes = [named[key] for key in 'abc']
+        fig._alignment_contract = (named, relations)
+        plot_thermal(axes, fig, named['colorbar'])
     elif name == "literature_benchmark":
         fig, ax = plt.subplots(figsize=(180 / 25.4, 105 / 25.4), layout="constrained")
         plot_benchmark(ax, fig)
@@ -757,6 +760,12 @@ def figure(name: str):
         raise ValueError(name)
     for letter, ax in zip("abcdefghijklmnopqrstuvwxyz", axes):
         axis(ax, letter)
+        if name == 'pouch_thermal':
+            # Letters use the same physical inset even when panel widths differ.
+            ax.texts[-1].remove()
+            box = ax.get_position()
+            fig.text(box.x0 - 8/180, box.y1 + 2/106, letter,
+                     fontsize=8, fontweight='bold', ha='left', va='bottom', color=INK)
     if name == "integrated_study":
         # Constrained layout can center an equal-aspect image inside a taller
         # grid cell. Freeze the final layout, then match the *rendered axes*.
@@ -772,6 +781,11 @@ def figure(name: str):
 def ruler_audit(name: str, fig) -> dict:
     """Check rendered plot edges in physical units before publishing samples."""
     fig.canvas.draw()
+    if hasattr(fig, '_alignment_contract'):
+        from batteryplot.layout import measure_layout
+        named, relations = fig._alignment_contract
+        return {'figure': name, **measure_layout(fig, named, relations),
+                'note': 'Actual plot boxes after draw; a separate colorbar never steals panel space.'}
     if name == "capability_spread":
         width_mm, height_mm = fig.get_size_inches() * 25.4
         rects = {letter: obj.get_position().bounds for letter, obj in fig._capability_axes.items()}

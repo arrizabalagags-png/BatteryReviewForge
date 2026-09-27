@@ -1,0 +1,26 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "figure_grammar_id": "optional:differential_capacity",
+  "source_files": [
+    "data.csv"
+  ],
+  "test_conditions": "Invented charge-only curves, 25 °C, 0.1 C, specific capacity per cathode active mass. The derivative is computed from these same CSV values without smoothing.",
+  "variables_and_units": [
+    "cycle",
+    "voltage_V",
+    "capacity_mAh_g"
+  ],
+  "render_options": {
+    "branch": "charge"
+  },
+  "reference": {
+    "doi": "10.1038/s41598-025-88019-y",
+    "panel": "Fig. 6a–f",
+    "observation": "Voltage profiles paired with differential capacity; demo uses an explicitly selected charge branch",
+    "review_scope": "publisher text/caption; no numerical data or original artwork copied",
+    "default_template": false
+  },
+  "reproduce": "python render_specialist.py --recipe differential_capacity --input-folder differential_capacity --output-dir brf-output --style forge",
+  "creator": "BatteryReviewForge original synthetic model and drawing"
+}

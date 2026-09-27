@@ -1,0 +1,34 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "figure_grammar_id": "optional:lsv",
+  "source_files": [
+    "data.csv"
+  ],
+  "test_conditions": "Synthetic Li||Al-like oxidative sweep at nominal 25 °C and 0.1 mV/s; all current densities and turn-up positions invented. No onset or stability-window determination.",
+  "variables_and_units": [
+    "electrolyte",
+    "voltage_V",
+    "current_density_uA_cm2"
+  ],
+  "render_options": {
+    "working_electrode": "Al, synthetic illustration only",
+    "counter_reference_electrode": "Li metal, synthetic illustration only",
+    "scan_rate_mV_s": 0.1,
+    "zoom_voltage_V": [
+      4.0,
+      4.9
+    ]
+  },
+  "reference": {
+    "doi": "10.1016/j.cej.2022.139398",
+    "journal": "Chemical Engineering Journal",
+    "year": 2023,
+    "figure_panel": "Fig. 1a",
+    "observation": "Shared-axis electrolyte LSV traces; synthetic current/voltage values are not published results.",
+    "review_scope": "Original PDF figure and caption visually checked; no numerical values or artwork copied",
+    "default_template": false
+  },
+  "reproduce": "python render_specialist.py --recipe lsv --input-folder lsv --output-dir brf-output --style forge",
+  "creator": "BatteryReviewForge original synthetic analytic demonstration"
+}

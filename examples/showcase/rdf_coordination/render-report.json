@@ -1,0 +1,80 @@
+{
+  "recipe": "rdf_coordination",
+  "status": "optional_variant",
+  "style": "forge",
+  "alignment": {
+    "status": "pass",
+    "tolerance_mm": 0.3,
+    "checks": [
+      {
+        "panels": [
+          "a",
+          "b"
+        ],
+        "edge": "top",
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "panels": [
+          "a",
+          "b"
+        ],
+        "edge": "bottom",
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "panels": [
+          "a",
+          "b"
+        ],
+        "edge": "height",
+        "delta_mm": 0.0,
+        "pass": true
+      }
+    ],
+    "failures": [],
+    "plot_rectangles_mm": [
+      {
+        "panel": "a",
+        "left": 19.0,
+        "right": 81.0,
+        "top": 10.0,
+        "bottom": 70.0,
+        "width": 62.0,
+        "height": 59.99999999999999
+      },
+      {
+        "panel": "b",
+        "left": 107.0,
+        "right": 169.0,
+        "top": 10.0,
+        "bottom": 70.0,
+        "width": 62.0,
+        "height": 59.99999999999999
+      }
+    ]
+  },
+  "requested_font": "Arial/Helvetica",
+  "actual_font": "Arial",
+  "resolved_font_path": "arial.ttf",
+  "transformations": [
+    "Supplied cumulative coordination checked against 4πρ∫r²g(r)dr using declared pair number densities; no species assignment inferred"
+  ],
+  "calculations": {},
+  "test_conditions": "Synthetic pair-distribution curves at nominal 25 °C: short-range exclusion and far-field g(r) approaching 1. Pair densities are invented and in Å^-3; CN is 4πρ∫r²g(r)dr from 0.5 Å. Not an MD trajectory or quantitative solvation shell.",
+  "data_status": "synthetic_demo",
+  "source_files": [
+    "data.csv"
+  ],
+  "reference": {
+    "doi": "10.1016/j.cej.2022.139398",
+    "journal": "Chemical Engineering Journal",
+    "year": 2023,
+    "figure_panel": "Fig. 1d-f",
+    "observation": "RDF and cumulative coordination on distinct axes; synthetic curves are not MD results.",
+    "review_scope": "Original PDF figure and caption visually checked; no numerical values or artwork copied",
+    "default_template": false
+  }
+}

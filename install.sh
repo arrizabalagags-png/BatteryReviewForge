@@ -22,6 +22,11 @@ case "$agent" in
     dsh) target_root="${DSH_HOME:-$HOME/.dsh}/skills" ;;
     *) echo "Unknown agent: $agent. Choose codex, kimi, or dsh." >&2; exit 2 ;;
 esac
+if [ "$agent" = codex ]; then
+    for shared in "$HOME/.agents/skills"/battery-*; do
+        [ ! -e "$shared/SKILL.md" ] || { echo 'Battery skills exist in .agents/skills. Check host discovery before adding duplicates in .codex/skills.' >&2; exit 1; }
+    done
+fi
 
 if [ ! -d "$source_root" ]; then
     echo "The skills folder is missing. Extract the complete release ZIP first." >&2
@@ -44,8 +49,19 @@ if [ "$count" -eq 0 ]; then
 fi
 
 mkdir -p "$target_root"
+[ ! -L "$target_root" ] || { echo 'Target is a symbolic link; review it manually.' >&2; exit 1; }
+backup_root="$(dirname "$target_root")/.brf-install-backups/$(date +%Y%m%d-%H%M%S)-$$"
 for skill_path in "$source_root"/*; do
     [ -d "$skill_path" ] || continue
+    skill_name=${skill_path##*/}
+    case "$skill_name" in battery-*) ;; *) echo 'Unexpected skill name.' >&2; exit 1 ;; esac
+    [ ! -L "$target_root/$skill_name" ] || { echo 'Existing skill is a symbolic link; review it manually.' >&2; exit 1; }
+    if [ -e "$target_root/$skill_name" ]; then
+        mkdir -p "$backup_root"
+        mv "$target_root/$skill_name" "$backup_root/$skill_name"
+    fi
     cp -R "$skill_path" "$target_root/"
 done
 echo "Copied $count BatteryReviewForge skills for $agent to $target_root. Start a new agent task and check that the skills appear."
+[ ! -d "$backup_root" ] || echo "Previous skills preserved at $backup_root. Keep until the new version is checked."
+echo 'Only copied is checked. Check discovery, dependencies and PNG/SVG export next.'

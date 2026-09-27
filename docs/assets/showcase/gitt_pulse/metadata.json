@@ -1,0 +1,28 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "figure_grammar_id": "optional:gitt_pulse",
+  "source_files": [
+    "data.csv"
+  ],
+  "test_conditions": "Invented charging pulse schedule: 0.1 mA for 6 min, 24 min rest, 12 pulses, 25 °C. Relaxation model only; no diffusion coefficient or equilibrium claim.",
+  "variables_and_units": [
+    "time_min",
+    "voltage_V",
+    "current_mA"
+  ],
+  "render_options": {
+    "pulse_min": 6,
+    "rest_min": 24,
+    "diffusion_calculation": false
+  },
+  "reference": {
+    "doi": "10.1038/s43246-025-00866-4",
+    "panel": "Fig. 6a,b",
+    "observation": "Pulse potential and complete GITT trace; our current panel exposes the declared schedule, not a diffusion fit",
+    "review_scope": "publisher text/caption; no numerical data or original artwork copied",
+    "default_template": false
+  },
+  "reproduce": "python render_specialist.py --recipe gitt_pulse --input-folder gitt_pulse --output-dir brf-output --style forge",
+  "creator": "BatteryReviewForge original synthetic model and drawing"
+}

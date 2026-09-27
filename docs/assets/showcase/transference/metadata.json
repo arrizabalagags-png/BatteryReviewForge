@@ -1,0 +1,45 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "figure_grammar_id": "optional:transference",
+  "source_files": [
+    "data.csv",
+    "eis.csv"
+  ],
+  "test_conditions": "Synthetic polarization transients and before/after EIS for A/B at nominal 25 °C, 10 mV. Explicit resistance parameters match invented semicircle diameters; tLi+ is not an Isteady/Iinitial ratio.",
+  "variables_and_units": [
+    "electrolyte",
+    "time_s",
+    "current_mA"
+  ],
+  "render_options": {
+    "calculation_method": "Bruce-Vincent style, supplied ΔV/I0/Iss/R0/Rss only",
+    "known_parameters": {
+      "A": {
+        "polarization_voltage_V": 0.01,
+        "initial_current_mA": 0.04,
+        "steady_current_mA": 0.03,
+        "initial_resistance_ohm": 65,
+        "steady_resistance_ohm": 79.3
+      },
+      "B": {
+        "polarization_voltage_V": 0.01,
+        "initial_current_mA": 0.05,
+        "steady_current_mA": 0.02,
+        "initial_resistance_ohm": 85,
+        "steady_resistance_ohm": 103.7
+      }
+    }
+  },
+  "reference": {
+    "doi": "10.1002/aenm.202101775",
+    "journal": "Advanced Energy Materials",
+    "year": 2021,
+    "figure_panel": "Figure 6c",
+    "observation": "Current polarization paired with before/after EIS; synthetic known parameters only.",
+    "review_scope": "Original PDF figure and caption visually checked; no numerical values or artwork copied",
+    "default_template": false
+  },
+  "reproduce": "python render_specialist.py --recipe transference --input-folder transference --output-dir brf-output --style forge",
+  "creator": "BatteryReviewForge original synthetic analytic demonstration"
+}

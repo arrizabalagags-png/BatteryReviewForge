@@ -1,0 +1,70 @@
+{
+  "recipe": "raman_series",
+  "status": "optional_variant",
+  "style": "forge",
+  "alignment": {
+    "status": "pass",
+    "tolerance_mm": 0.3,
+    "checks": [
+      {
+        "panels": [
+          "a",
+          "b"
+        ],
+        "edge": "top",
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "panels": [
+          "a",
+          "b"
+        ],
+        "edge": "bottom",
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "panels": [
+          "a",
+          "b"
+        ],
+        "edge": "height",
+        "delta_mm": 0.0,
+        "pass": true
+      }
+    ],
+    "failures": [],
+    "plot_rectangles_mm": [
+      {
+        "panel": "a",
+        "left": 19.0,
+        "right": 81.0,
+        "top": 10.0,
+        "bottom": 70.0,
+        "width": 62.0,
+        "height": 59.99999999999999
+      },
+      {
+        "panel": "b",
+        "left": 107.0,
+        "right": 169.0,
+        "top": 10.0,
+        "bottom": 70.0,
+        "width": 62.0,
+        "height": 59.99999999999999
+      }
+    ]
+  },
+  "requested_font": "Arial/Helvetica",
+  "actual_font": "Arial",
+  "resolved_font_path": "arial.ttf",
+  "transformations": [
+    "Only visual offsets i*340 counts, stored original counts unchanged; b shares spectra and offsets"
+  ],
+  "test_conditions": "Invented electrolyte-like Raman windows, A–D; unnormalized counts preserved, display offset 340 counts per series. No molecular assignment or concentration inference.",
+  "data_status": "synthetic_demo",
+  "source_files": [
+    "data.csv"
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "recipe": "nmr",
+  "status": "optional_variant",
+  "style": "forge",
+  "alignment": {
+    "status": "pass",
+    "tolerance_mm": 0.3,
+    "checks": [
+      {
+        "panels": [
+          "a",
+          "b"
+        ],
+        "edge": "top",
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "panels": [
+          "a",
+          "b"
+        ],
+        "edge": "bottom",
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "panels": [
+          "a",
+          "b"
+        ],
+        "edge": "height",
+        "delta_mm": 0.0,
+        "pass": true
+      }
+    ],
+    "failures": [],
+    "plot_rectangles_mm": [
+      {
+        "panel": "a",
+        "left": 19.0,
+        "right": 81.0,
+        "top": 10.0,
+        "bottom": 70.0,
+        "width": 62.0,
+        "height": 59.99999999999999
+      },
+      {
+        "panel": "b",
+        "left": 107.0,
+        "right": 169.0,
+        "top": 10.0,
+        "bottom": 70.0,
+        "width": 62.0,
+        "height": 59.99999999999999
+      }
+    ]
+  },
+  "requested_font": "Arial/Helvetica",
+  "actual_font": "Arial",
+  "resolved_font_path": "arial.ttf",
+  "transformations": [
+    "Visual offset index*1.2 a.u.; original intensity preserved; no integration or concentration inference"
+  ],
+  "calculations": {},
+  "test_conditions": "Synthetic 7Li-like spectra A-D with invented positions and widths. No pulse sequence, concentration, integration or molecular assignment implied.",
+  "data_status": "synthetic_demo",
+  "source_files": [
+    "data.csv"
+  ],
+  "reference": {
+    "doi": "10.1016/j.cej.2022.139398",
+    "journal": "Chemical Engineering Journal",
+    "year": 2023,
+    "figure_panel": "Fig. 1b",
+    "observation": "Vertically offset 7Li NMR comparison; synthetic shifts are not the published shifts.",
+    "review_scope": "Original PDF figure and caption visually checked; no numerical values or artwork copied",
+    "default_template": false
+  }
+}

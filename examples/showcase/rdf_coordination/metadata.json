@@ -1,0 +1,36 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "figure_grammar_id": "optional:rdf_coordination",
+  "source_files": [
+    "data.csv"
+  ],
+  "test_conditions": "Synthetic pair-distribution curves at nominal 25 °C: short-range exclusion and far-field g(r) approaching 1. Pair densities are invented and in Å^-3; CN is 4πρ∫r²g(r)dr from 0.5 Å. Not an MD trajectory or quantitative solvation shell.",
+  "variables_and_units": [
+    "pair",
+    "distance_A",
+    "g_r",
+    "coordination_number"
+  ],
+  "render_options": {
+    "species_definition": "Invented Li-O (solvent), Li-O (anion), Li-F (diluent) pair labels",
+    "coordination_source": "Numerical trapezoidal integration of the synthetic g(r) grid from 0.5 Å using stated pair densities",
+    "pair_number_density_A3": {
+      "Li-O (solvent)": 0.025,
+      "Li-O (anion)": 0.012,
+      "Li-F (diluent)": 0.007
+    },
+    "coordination_cutoff_A": 3.4
+  },
+  "reference": {
+    "doi": "10.1016/j.cej.2022.139398",
+    "journal": "Chemical Engineering Journal",
+    "year": 2023,
+    "figure_panel": "Fig. 1d-f",
+    "observation": "RDF and cumulative coordination on distinct axes; synthetic curves are not MD results.",
+    "review_scope": "Original PDF figure and caption visually checked; no numerical values or artwork copied",
+    "default_template": false
+  },
+  "reproduce": "python render_specialist.py --recipe rdf_coordination --input-folder rdf_coordination --output-dir brf-output --style forge",
+  "creator": "BatteryReviewForge original synthetic analytic demonstration"
+}

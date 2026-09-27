@@ -34,7 +34,7 @@ body:
           required: true
         - label: 我允许按所选许可收入 Battery Commons 公共资源库
           required: true
-        - label: 我允许做自动化预览与检查
-          required: false
+        - label: 我允许项目自动生成预览并做格式与可读性检查；这不等于允许模型训练
+          required: true
         - label: 我另外允许未来用于模型训练（默认不选；不选也可提交）
           required: false
