@@ -28,7 +28,7 @@
 
 ## 第 2 步：安装技能
 
-下载并解压 [完整技能安装包](https://dazi.gsarrizabalaga.xyz/downloads/BatteryReviewForge-v0.9.1.zip)。看到 `skills/`、`install.ps1` 和 `install.sh` 三项后，再按自己的软件做以下一步。
+下载并解压 [完整技能安装包](https://dazi.gsarrizabalaga.xyz/downloads/BatteryReviewForge-v0.9.2.zip)。看到 `skills/`、`install.ps1` 和 `install.sh` 三项后，再按自己的软件做以下一步。
 
 ### Codex：先确认目录与已有安装
 
@@ -53,7 +53,7 @@ codex plugin add battery-review-forge@battery-review-forge
 
 ### WorkBuddy：按技能逐个导入
 
-下载 [WorkBuddy 绘图与拼图套装](https://dazi.gsarrizabalaga.xyz/downloads/BatteryReviewForge-WorkBuddy-Starter-v0.9.1.zip)，先解压，按 `先读我.txt` 分别导入绘图与拼图 ZIP。套装保留共享规则；包内字段与引用通过自动检查，但不能由此推断宿主已正确扫描依赖。按[官方技能入口](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)操作后，新开任务检查实际路径、Python 依赖，再生成 PNG/SVG。15 技能合集仍供完整综述流程使用，不要求初学者逐个挑选。
+下载 [WorkBuddy 绘图与拼图套装](https://dazi.gsarrizabalaga.xyz/downloads/BatteryReviewForge-WorkBuddy-Starter-v0.9.2.zip)，先解压，按 `先读我.txt` 分别导入绘图与拼图 ZIP。套装保留共享规则；包内字段与引用通过自动检查，但不能由此推断宿主已正确扫描依赖。按[官方技能入口](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)操作后，新开任务检查实际路径、Python 依赖，再生成 PNG/SVG。15 技能合集仍供完整综述流程使用，不要求初学者逐个挑选。
 
 ### 豆包：先不要照搬其他软件的目录
 

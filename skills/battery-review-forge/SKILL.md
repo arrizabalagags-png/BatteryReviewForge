@@ -5,6 +5,10 @@ description: Coordinate a multi-stage battery Review or Perspective project acro
 
 # Battery Review Forge
 
+<!-- execution-contract -->
+For multi-step work or resuming after interruption, use [the execution and recovery guide](references/EXECUTION.md). Save verified inputs, user choices, pending conditions, outputs and the next action in the project's `TASK_STATE.json`; check file hashes before resuming. Start with guided execution when tool/vision capabilities are unverified; allow adaptive planning after a successful pilot. All modes retain the same scientific and output checks. For a one-step edit, keep the existing record and proceed directly.
+<!-- /execution-contract -->
+
 Coordinate a battery Review or Perspective across stages while keeping the current plan, evidence, and revision decisions inspectable. For a single-stage task, use the corresponding specialist skill. Do not apply this workflow to analysis of a new primary experimental paper. Respond in the user's language unless asked otherwise.
 
 For a new experiment, route the research question and controls to `battery-experiment-plan`, the raw instrument table to `battery-data-prepare`, and the confirmed numeric data to `battery-review-figure`. These are separate steps of an experimental project; this Review coordinator does not make the author's lab protocol decisions.

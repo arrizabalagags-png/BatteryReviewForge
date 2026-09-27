@@ -5,6 +5,10 @@ description: Turn a battery research question into a testable variable/control m
 
 # Plan battery experiments
 
+<!-- execution-contract -->
+For multi-step work or resuming after interruption, use [the execution and recovery guide](references/EXECUTION.md). Save verified inputs, user choices, pending conditions, outputs and the next action in the project's `TASK_STATE.json`; check file hashes before resuming. Start with guided execution when tool/vision capabilities are unverified; allow adaptive planning after a successful pilot. All modes retain the same scientific and output checks. For a one-step edit, keep the existing record and proceed directly.
+<!-- /execution-contract -->
+
 Use this when the author needs to decide **what to compare and what evidence would answer the question**. Start with the precise claim, cell chemistry and failure mode or mechanism being tested. Read the author's proposal, existing data and relevant primary protocols before adopting any parameter. If the project is a Review-only task with no new experiment, route to `battery-review-plan` instead.
 
 Produce a plan using [the compact experiment-plan template](assets/EXPERIMENT_PLAN.md). Define one primary response variable, a controlled comparison, and the known confounders. For battery work, explicitly record electrode identity/area/loading, cell type and stack, electrolyte and amount, N/P or lithium excess where relevant, formation history, SOC, temperature, pressure, current density or C-rate, voltage/capacity cutoffs, rest periods, batch and replicate identity. Distinguish what is held constant from what cannot be matched. Do not promise that a comparison is causal while these differ unexplained.

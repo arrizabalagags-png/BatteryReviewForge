@@ -5,6 +5,10 @@ description: Verify whether cited sources support specific claims, numbers, mech
 
 # Battery claim and citation check
 
+<!-- execution-contract -->
+For multi-step work or resuming after interruption, use [the execution and recovery guide](references/EXECUTION.md). Save verified inputs, user choices, pending conditions, outputs and the next action in the project's `TASK_STATE.json`; check file hashes before resuming. Start with guided execution when tool/vision capabilities are unverified; allow adaptive planning after a successful pilot. All modes retain the same scientific and output checks. For a one-step edit, keep the existing record and proceed directly.
+<!-- /execution-contract -->
+
 Use this when a draft, table, caption, or bibliography needs source-level verification. Work from the actual cited paper or authorized full text when possible. A title, abstract, or another Review is insufficient for detailed quantitative or mechanistic claims. If the source is inaccessible, say what remains unverified instead of filling it from memory.
 
 ## One claim, one traceable check

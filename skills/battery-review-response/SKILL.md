@@ -5,6 +5,10 @@ description: Draft and verify point-by-point responses to editor and reviewer co
 
 # Reviewer response and resubmission
 
+<!-- execution-contract -->
+For multi-step work or resuming after interruption, use [the execution and recovery guide](references/EXECUTION.md). Save verified inputs, user choices, pending conditions, outputs and the next action in the project's `TASK_STATE.json`; check file hashes before resuming. Start with guided execution when tool/vision capabilities are unverified; allow adaptive planning after a successful pilot. All modes retain the same scientific and output checks. For a one-step edit, keep the existing record and proceed directly.
+<!-- /execution-contract -->
+
 Use this for received peer-review comments or manuscript revision after review. Use [RESPONSE_MATRIX.md](assets/templates/RESPONSE_MATRIX.md) only if the project lacks a better format. For a new independent referee report, use `battery-reviewer` and keep it separate from response drafting.
 
 ## Received reviews: point-by-point map

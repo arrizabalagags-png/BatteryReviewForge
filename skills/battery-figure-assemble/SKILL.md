@@ -5,6 +5,10 @@ description: Assemble supplied PNG, TIFF, PDF, and SVG panels into aligned, sour
 
 # Assemble battery manuscript figures
 
+<!-- execution-contract -->
+For multi-step work or resuming after interruption, use [the execution and recovery guide](references/EXECUTION.md). Save verified inputs, user choices, pending conditions, outputs and the next action in the project's `TASK_STATE.json`; check file hashes before resuming. Start with guided execution when tool/vision capabilities are unverified; allow adaptive planning after a successful pilot. All modes retain the same scientific and output checks. For a one-step edit, keep the existing record and proceed directly.
+<!-- /execution-contract -->
+
 Use this specialist when an author supplies several finished plots, microscopy images, spectra, diagrams, or exported panels and asks for a coherent manuscript figure. For drawing a new quantitative panel from data, use `battery-review-figure` first. Read [the composition guide](references/COMPOSITION.md) for the manifest and CLI only when assembling or auditing files. For heterogeneous or crowded panels, use [the Figure Director guide](references/EDITORIAL_COMPOSITION.md) to decide evidence hierarchy and preview candidate compositions before writing the manifest; use [layout recipes](references/LAYOUT_RECIPES.md) for the physical grid after that decision.
 
 An author can simply say “put these pictures together”. Start with “I’ll look at what you have first”; inventory the supplied files and make a contact sheet. Answer in four short parts: what I found, what I can make, what is missing, and the next preview. For a complex figure, show compact classic, evidence-story, and emphasis layouts with one recommended option; for two like-for-like panels, one clear option is enough. If the materials support a sensible provisional composition, build and show it; ask only about a decision that changes scientific meaning, such as incompatible scale bars or an ambiguous comparison. Explain remaining issues with the affected panel letter and a plain next action.

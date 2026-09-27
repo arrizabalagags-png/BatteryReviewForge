@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "replace-with-project-task",
+  "objective": "",
+  "skill_id": "",
+  "mode": "guided",
+  "status": "in_progress",
+  "updated_at": "",
+  "user_choices": {},
+  "inputs": [],
+  "scientific_context": {"units": {}, "column_mapping": {}, "protocol": null, "conditions": {}, "reference_cycle": null, "evidence_refs": []},
+  "completed_steps": [],
+  "outputs": [],
+  "checks": [],
+  "pending_questions": [],
+  "next_action": "Inspect the inputs and record only verified facts."
+}

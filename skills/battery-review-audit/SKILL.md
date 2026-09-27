@@ -5,6 +5,10 @@ description: Audit a near-complete battery Review or Perspective before submissi
 
 # Whole-manuscript battery Review audit
 
+<!-- execution-contract -->
+For multi-step work or resuming after interruption, use [the execution and recovery guide](references/EXECUTION.md). Save verified inputs, user choices, pending conditions, outputs and the next action in the project's `TASK_STATE.json`; check file hashes before resuming. Start with guided execution when tool/vision capabilities are unverified; allow adaptive planning after a successful pilot. All modes retain the same scientific and output checks. For a one-step edit, keep the existing record and proceed directly.
+<!-- /execution-contract -->
+
 Use this when the user asks whether a draft is scientifically and structurally ready. Identify the manuscript version, current project brief, source access, target venue if any, and requested depth. An audit is a check of the supplied artifact, not an independent referee persona or a language-only edit.
 
 ## Inspect in decision order

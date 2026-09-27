@@ -5,6 +5,10 @@ description: Draft or restructure the argument and sections of a battery Review 
 
 # Drafting and restructuring a battery Review
 
+<!-- execution-contract -->
+For multi-step work or resuming after interruption, use [the execution and recovery guide](references/EXECUTION.md). Save verified inputs, user choices, pending conditions, outputs and the next action in the project's `TASK_STATE.json`; check file hashes before resuming. Start with guided execution when tool/vision capabilities are unverified; allow adaptive planning after a successful pilot. All modes retain the same scientific and output checks. For a one-step edit, keep the existing record and proceed directly.
+<!-- /execution-contract -->
+
 Use this for a new section, abstract, conclusion, or substantive restructure of a Review. Follow the user's requested file format and target journal. Preserve valid existing text, citations, and author decisions; do not replace the whole draft for a local problem. For existing prose needing only language work, use `battery-review-polish`.
 
 ## Section construction

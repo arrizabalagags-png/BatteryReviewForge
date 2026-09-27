@@ -1,5 +1,12 @@
 # 更新记录 / Changelog
 
+## v0.9.2 — 2026-09-27
+
+- All 15 skills now include capability-based execution, bounded repair, coverage tracking and a compact recovery record.
+- Every standalone skill, including WorkBuddy import ZIPs, contains a state template and read-only file/hash/check validator.
+- Adaptive planning is permitted after a successful pilot; all models retain the same scientific requirements and actual output checks.
+- Native-client and cross-model outcomes remain explicitly unverified. The website separately documents the simpler onboarding and dated official price references.
+
 ## v0.9.0 — 2026-09-27
 
 - 网站品牌采用“电研搭子 · VoltPeer”；开源仓库、插件标识与技能名保持兼容。顶部增加中文/英文选择，作者单位逐人标明。

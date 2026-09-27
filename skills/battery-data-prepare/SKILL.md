@@ -5,6 +5,10 @@ description: Inspect author-owned battery instrument CSV exports, map columns an
 
 # Prepare battery test data
 
+<!-- execution-contract -->
+For multi-step work or resuming after interruption, use [the execution and recovery guide](references/EXECUTION.md). Save verified inputs, user choices, pending conditions, outputs and the next action in the project's `TASK_STATE.json`; check file hashes before resuming. Start with guided execution when tool/vision capabilities are unverified; allow adaptive planning after a successful pilot. All modes retain the same scientific and output checks. For a one-step edit, keep the existing record and proceed directly.
+<!-- /execution-contract -->
+
 Use this before plotting when the author brings raw cycling, impedance, spectroscopy or other instrument tables. Start by inventorying files and reading a few rows; an extension or instrument filename does not identify the experiment, voltage reference, capacity basis or units. Keep the raw export untouched in the author's workspace. Do not upload unpublished data to a public repository or issue.
 
 For a plain CSV, run `python scripts/prepare_csv.py inspect --input RAW.csv`. It reports headers, row count, blanks and whether values are parseable as numbers; it does **not** assign scientific meanings. Ask the author to confirm the mapping, units and protocol where they are ambiguous. Then make a mapping JSON following [the exact schema and example](references/MAPPING_CONTRACT.md) and run `python scripts/prepare_csv.py prepare --input RAW.csv --mapping MAP.json --output-dir NEW_DIRECTORY`. The helper refuses an existing output directory, preserves row order and cell values, and writes `mapped.csv` plus a machine-readable record of hashes, mapping, units and every explicitly excluded row. It never converts units or drops a bad value on its own. For Excel or proprietary formats, inspect/export with a suitable available reader and document the export step before using this CSV helper.
