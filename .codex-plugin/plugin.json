@@ -1,6 +1,6 @@
 {
   "name": "battery-review-forge",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Evidence-first battery Review skills, six selectable figure styles, original SVG resources, and reproducible panel assembly.",
   "author": {
     "name": "Shuo Guo and Jinlong Jiang"
@@ -14,10 +14,10 @@
     "longDescription": "Plan, search, write and revise battery Reviews; plot uploaded battery data and assemble source-traceable figures.",
     "developerName": "Shuo Guo and Jinlong Jiang, Institute of Energy Materials Science, University of Shanghai for Science and Technology",
     "category": "Productivity",
-    "websiteURL": "https://battery-review-forge.candy-owl-4630.chatgpt.site/",
+    "websiteURL": "https://dazi.gsarrizabalaga.xyz/",
     "brandColor": "#205C85",
     "logo": "assets/brand.svg",
     "capabilities": [],
-    "defaultPrompt": "Help me plan and write an evidence-grounded battery review article."
+    "defaultPrompt": "Help me identify my battery research task and input materials, then use the appropriate skill for data preparation, plotting, figure assembly, or review writing. Ask only for information needed to proceed."
   }
 }

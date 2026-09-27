@@ -11,7 +11,7 @@
 
 ## 从哪里开始
 
-[跟着上手页做](https://battery-review-forge.candy-owl-4630.chatgpt.site/start.html) · [样图库](https://battery-review-forge.candy-owl-4630.chatgpt.site/gallery.html)
+[跟着上手页做](https://dazi.gsarrizabalaga.xyz/start.html) · [样图库](https://dazi.gsarrizabalaga.xyz/gallery.html)
 
 WorkBuddy 用户先解压 Starter，再分别导入里面的两个技能 ZIP。完整合集也需先解压，不能把外层合集直接当单技能导入。
 

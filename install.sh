@@ -22,12 +22,6 @@ case "$agent" in
     dsh) target_root="${DSH_HOME:-$HOME/.dsh}/skills" ;;
     *) echo "Unknown agent: $agent. Choose codex, kimi, or dsh." >&2; exit 2 ;;
 esac
-if [ "$agent" = codex ]; then
-    for shared in "$HOME/.agents/skills"/battery-*; do
-        [ ! -e "$shared/SKILL.md" ] || { echo 'Battery skills exist in .agents/skills. Check host discovery before adding duplicates in .codex/skills.' >&2; exit 1; }
-    done
-fi
-
 if [ ! -d "$source_root" ]; then
     echo "The skills folder is missing. Extract the complete release ZIP first." >&2
     exit 1
@@ -38,8 +32,16 @@ for skill_path in "$source_root"/*; do
     [ -d "$skill_path" ] || continue
     count=$((count + 1))
     skill_name=${skill_path##*/}
+    case "$skill_name" in battery-*) ;; *) echo "Unexpected skill name: $skill_name" >&2; exit 1 ;; esac
+    [ -f "$skill_path/SKILL.md" ] || { echo "Missing SKILL.md: $skill_path" >&2; exit 1; }
+    [ ! -L "$skill_path" ] || { echo "Source skill is a link: $skill_path" >&2; exit 1; }
+    if [ "$agent" = codex ] && [ -e "$HOME/.agents/skills/$skill_name/SKILL.md" ]; then
+        echo "Same-name skill exists: $HOME/.agents/skills/$skill_name. Check discovery and update that installation instead of adding a duplicate." >&2
+        exit 1
+    fi
+    [ ! -L "$target_root/$skill_name" ] || { echo "Existing skill is a link: $target_root/$skill_name" >&2; exit 1; }
     if [ -e "$target_root/$skill_name" ] && [ "$overwrite" -ne 1 ]; then
-        echo "Skill $skill_name already exists. Review it first, then rerun with --overwrite." >&2
+        echo "Skill $target_root/$skill_name already exists. Review it first, then rerun with --overwrite." >&2
         exit 1
     fi
 done

@@ -1,14 +1,14 @@
 # 软件适配记录（技术资料）
 
-普通使用者请走[开始使用](https://arrizabalagags-png.github.io/BatteryReviewForge/start.html)或[WorkBuddy 分步教程](https://arrizabalagags-png.github.io/BatteryReviewForge/install-workbuddy.html)。教程区分国内可选路线与已能正常使用 Codex 的路线，不要求更换熟悉的软件。BatteryReviewForge 是 `SKILL.md` 指令、Python 脚本和原创图形资源；没有独立账户、模型 API 或密钥输入框。核对日期：2026-09-27。
+普通使用者请走[开始使用](https://dazi.gsarrizabalaga.xyz/start.html)或[WorkBuddy 分步教程](https://dazi.gsarrizabalaga.xyz/install-workbuddy.html)。教程区分国内可选路线与已能正常使用 Codex 的路线，不要求更换熟悉的软件。BatteryReviewForge 是 `SKILL.md` 指令、Python 脚本和原创图形资源；没有独立账户、模型 API 或密钥输入框。核对日期：2026-09-27。
 
 必须分别记录：文件已复制（copied）、新会话发现技能（discovered）、依赖环境可用（runtime_ready）、真实导出成功（smoke_test_passed）。网页点击“继续”、脚本复制和包结构测试都不能替代原生客户端完整验收。本轮在临时目录测试包内容、冲突备份和 Python 导出；没有重新完成原生客户端登录、导入、发现到出图的全流程。
 
 | 软件 | 现在能做什么 | 本项目验证状态 |
 | --- | --- | --- |
 | **Codex** | 使用插件，或请 Codex 检查固定官方仓库后安装独立技能 | 有历史 Windows 使用记录；v0.8.7 新安装与其他系统完整任务待实测 |
-| **Kimi Code CLI** | 把 13 个技能复制到官方扫描目录 | 官方技能格式与路径已确认；本项目完整任务待实机验收 |
-| **DeepSeek Harness** | 把 13 个技能复制到官方扫描目录 | 官方本地技能机制已确认；本项目完整任务待实机验收 |
+| **Kimi Code CLI** | 把 15 个技能复制到官方扫描目录 | 官方技能格式与路径已确认；本项目完整任务待实机验收 |
+| **DeepSeek Harness** | 把 15 个技能复制到官方扫描目录 | 官方本地技能机制已确认；本项目完整任务待实机验收 |
 | **WorkBuddy** | 绘图与拼图入门套装仅含 2 个独立技能 ZIP | 官方入口与包内共享引用已检查；客户端导入、发现、运行仍待实测 |
 | **豆包桌面工作任务** | 可先用内置 Skills 和普通文件问答 | 尚无已核实的第三方 `SKILL.md` 导入步骤；目前不声称可一键安装 |
 
@@ -28,7 +28,7 @@
 
 ## 第 2 步：安装技能
 
-下载并解压 [完整技能安装包](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-v0.8.7.zip)。看到 `skills/`、`install.ps1` 和 `install.sh` 三项后，再按自己的软件做以下一步。
+下载并解压 [完整技能安装包](https://dazi.gsarrizabalaga.xyz/downloads/BatteryReviewForge-v0.9.1.zip)。看到 `skills/`、`install.ps1` 和 `install.sh` 三项后，再按自己的软件做以下一步。
 
 ### Codex：先确认目录与已有安装
 
@@ -41,7 +41,7 @@ codex plugin marketplace add arrizabalagags-png/BatteryReviewForge
 codex plugin add battery-review-forge@battery-review-forge
 ```
 
-下载 ZIP 的 Windows 用户：在解压目录打开 PowerShell，运行 `./install.ps1`。macOS/Linux 用户运行 `sh install.sh`。当前安装器保留 `$CODEX_HOME/skills` 或 `~/.codex/skills` 默认值，同时检查共享 `~/.agents/skills` 中的同名副本。当前宿主若扫描其他目录，先查明再显式指定目标，不可把历史路径当作永久保证。重复安装会停止。主动使用覆盖参数时先移动旧目录到 `.brf-install-backups`，再放入完整新版；不会合并遗留文件。恢复步骤见[更新与恢复](https://arrizabalagags-png.github.io/BatteryReviewForge/maintenance.html)。
+下载 ZIP 的 Windows 用户：在解压目录打开 PowerShell，运行 `./install.ps1`。macOS/Linux 用户运行 `sh install.sh`。当前安装器保留 `$CODEX_HOME/skills` 或 `~/.codex/skills` 默认值，同时检查共享 `~/.agents/skills` 中的同名副本。当前宿主若扫描其他目录，先查明再显式指定目标，不可把历史路径当作永久保证。重复安装会停止。主动使用覆盖参数时先移动旧目录到 `.brf-install-backups`，再放入完整新版；不会合并遗留文件。恢复步骤见[更新与恢复](https://dazi.gsarrizabalaga.xyz/maintenance.html)。
 
 ### Kimi Code CLI：复制到 Kimi 的技能目录
 
@@ -53,7 +53,7 @@ codex plugin add battery-review-forge@battery-review-forge
 
 ### WorkBuddy：按技能逐个导入
 
-下载 [WorkBuddy 绘图与拼图套装](https://arrizabalagags-png.github.io/BatteryReviewForge/downloads/BatteryReviewForge-WorkBuddy-Starter-v0.8.7.zip)，先解压，按 `先读我.txt` 分别导入绘图与拼图 ZIP。套装保留共享规则；包内字段与引用通过自动检查，但不能由此推断宿主已正确扫描依赖。按[官方技能入口](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)操作后，新开任务检查实际路径、Python 依赖，再生成 PNG/SVG。原有 13 技能合集仍供完整综述流程使用，不要求初学者逐个挑选。
+下载 [WorkBuddy 绘图与拼图套装](https://dazi.gsarrizabalaga.xyz/downloads/BatteryReviewForge-WorkBuddy-Starter-v0.9.1.zip)，先解压，按 `先读我.txt` 分别导入绘图与拼图 ZIP。套装保留共享规则；包内字段与引用通过自动检查，但不能由此推断宿主已正确扫描依赖。按[官方技能入口](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)操作后，新开任务检查实际路径、Python 依赖，再生成 PNG/SVG。15 技能合集仍供完整综述流程使用，不要求初学者逐个挑选。
 
 ### 豆包：先不要照搬其他软件的目录
 
@@ -76,3 +76,7 @@ codex plugin add battery-review-forge@battery-review-forge
 ## 关于其他 Agent
 
 Claude Code 未列为当前维护的安装入口，也未在本项目做兼容验证。我们只报告自己能核实和测试的产品行为，不把对公司的态度写成技术结论。提出新宿主适配时，请给出官方技能规范、实际导入截图、最小样例和一次完整绘图/拼图结果。
+
+## v0.9.1 显示名称
+
+客户端支持展示配置时，绘图显示为「VoltPeer · 科研绘图」，拼图显示为「VoltPeer · Figure 拼版」。技术 ID 不变。WorkBuddy、Kimi 等客户端可能仍显示 `battery-review-figure`；请用这个技术名称查找，不要以是否显示中文判断安装成功。完整映射见 [SKILL_NAMES.json](SKILL_NAMES.json)。v0.8.7 的历史验证范围保持原样；v0.9.1 的原生客户端完整出图验收仍待完成。

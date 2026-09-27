@@ -1,4 +1,4 @@
-# Install standalone skills from an extracted release ZIP into a supported host.
+﻿# Install standalone skills from an extracted release ZIP into a supported host.
 param(
     [ValidateSet('Codex', 'KimiCode', 'DeepSeekHarness')]
     [string]$Agent = 'Codex',
@@ -9,6 +9,18 @@ param(
 $ErrorActionPreference = 'Stop'
 $packageRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 $sourceRoot = Join-Path $packageRoot 'skills'
+if (-not (Test-Path -LiteralPath $sourceRoot -PathType Container)) {
+    throw 'The skills folder is missing. Extract the complete release ZIP first.'
+}
+
+$skillFolders = @(Get-ChildItem -LiteralPath $sourceRoot -Directory)
+if ($skillFolders.Count -eq 0) { throw 'No skill folders were found in this package.' }
+
+foreach ($skillFolder in $skillFolders) {
+    if (-not $skillFolder.Name.StartsWith('battery-') -or -not (Test-Path -LiteralPath (Join-Path $skillFolder.FullName 'SKILL.md') -PathType Leaf)) { throw "Invalid skill folder: $($skillFolder.FullName)" }
+    if ($skillFolder.Attributes -band [IO.FileAttributes]::ReparsePoint) { throw "Source skill is a link: $($skillFolder.FullName)" }
+}
+
 if ([string]::IsNullOrWhiteSpace($TargetRoot)) {
     $relativeRoots = @{
         Codex = '.codex\skills'
@@ -30,27 +42,24 @@ if ([string]::IsNullOrWhiteSpace($TargetRoot)) {
         $sharedConflicts = @(Get-ChildItem -LiteralPath $sourceRoot -Directory | Where-Object {
             Test-Path -LiteralPath (Join-Path $sharedSkills $_.Name)
         })
-        if ($sharedConflicts.Count -gt 0) { throw 'BRF skills also exist under .agents/skills. Check the host discovery path before choosing -TargetRoot; do not install duplicates.' }
+        if ($sharedConflicts.Count -gt 0) { throw ("Same-name skills exist: " + (($sharedConflicts | ForEach-Object { Join-Path $sharedSkills $_.Name }) -join ', ') + '. Review discovery before adding duplicates.') }
     }
 } else {
     $targetRoot = $TargetRoot
 }
 
-if (-not (Test-Path -LiteralPath $sourceRoot -PathType Container)) {
-    throw 'The skills folder is missing. Extract the complete release ZIP first.'
-}
-
-$skillFolders = @(Get-ChildItem -LiteralPath $sourceRoot -Directory)
-if ($skillFolders.Count -eq 0) { throw 'No skill folders were found in this package.' }
-
 $conflicts = @($skillFolders | Where-Object {
     Test-Path -LiteralPath (Join-Path $targetRoot $_.Name)
 })
 if ($conflicts.Count -gt 0 -and -not $Overwrite) {
-    $names = ($conflicts | ForEach-Object Name) -join ', '
+    $names = ($conflicts | ForEach-Object { Join-Path $targetRoot $_.Name }) -join ', '
     throw "These skills already exist: $names. Review them first, then rerun with -Overwrite to update."
 }
 
+foreach ($existingSkill in $conflicts) {
+    $existingPath = Join-Path $targetRoot $existingSkill.Name
+    if ((Get-Item -LiteralPath $existingPath).Attributes -band [IO.FileAttributes]::ReparsePoint) { throw "Existing skill is a link: $existingPath" }
+}
 New-Item -ItemType Directory -Force -Path $targetRoot | Out-Null
 $resolvedTarget = (Resolve-Path -LiteralPath $targetRoot).Path
 if ((Get-Item -LiteralPath $resolvedTarget).Attributes -band [IO.FileAttributes]::ReparsePoint) {

@@ -1,0 +1,110 @@
+{
+  "brand": "电研搭子 · VoltPeer",
+  "skills": [
+    {
+      "id": "battery-data-prepare",
+      "task_zh": "数据整理",
+      "task_en": "Prepare data",
+      "display_name": "VoltPeer · 数据整理",
+      "legacy_display_name": null
+    },
+    {
+      "id": "battery-experiment-plan",
+      "task_zh": "实验规划",
+      "task_en": "Plan experiments",
+      "display_name": "VoltPeer · 实验规划",
+      "legacy_display_name": null
+    },
+    {
+      "id": "battery-review-forge",
+      "task_zh": "综述项目统筹",
+      "task_en": "Coordinate a review",
+      "display_name": "VoltPeer · 综述项目统筹",
+      "legacy_display_name": "Battery Review Forge"
+    },
+    {
+      "id": "battery-review-plan",
+      "task_zh": "综述规划",
+      "task_en": "Plan a review",
+      "display_name": "VoltPeer · 综述规划",
+      "legacy_display_name": "Battery Review · Plan"
+    },
+    {
+      "id": "battery-literature-map",
+      "task_zh": "文献与证据地图",
+      "task_en": "Map literature and evidence",
+      "display_name": "VoltPeer · 文献与证据地图",
+      "legacy_display_name": "Battery Review · Literature"
+    },
+    {
+      "id": "battery-claim-check",
+      "task_zh": "论点与引文核查",
+      "task_en": "Check claims and citations",
+      "display_name": "VoltPeer · 论点与引文核查",
+      "legacy_display_name": "Battery Review · Claim Check"
+    },
+    {
+      "id": "battery-metrics-audit",
+      "task_zh": "电池指标核查",
+      "task_en": "Audit battery metrics",
+      "display_name": "VoltPeer · 电池指标核查",
+      "legacy_display_name": "Battery Review · Metrics"
+    },
+    {
+      "id": "battery-review-write",
+      "task_zh": "综述写作",
+      "task_en": "Write a review",
+      "display_name": "VoltPeer · 综述写作",
+      "legacy_display_name": "Battery Review · Write"
+    },
+    {
+      "id": "battery-review-figure",
+      "task_zh": "科研绘图",
+      "task_en": "Scientific figures",
+      "display_name": "VoltPeer · 科研绘图",
+      "legacy_display_name": "Battery Review · Figure"
+    },
+    {
+      "id": "battery-figure-assemble",
+      "task_zh": "Figure 拼版",
+      "task_en": "Assemble figures",
+      "display_name": "VoltPeer · Figure 拼版",
+      "legacy_display_name": "Battery Review · Assemble Figures"
+    },
+    {
+      "id": "battery-review-polish",
+      "task_zh": "文字润色",
+      "task_en": "Polish writing",
+      "display_name": "VoltPeer · 文字润色",
+      "legacy_display_name": "Battery Review · Polish"
+    },
+    {
+      "id": "battery-review-audit",
+      "task_zh": "整稿审查",
+      "task_en": "Audit a manuscript",
+      "display_name": "VoltPeer · 整稿审查",
+      "legacy_display_name": "Battery Review · Audit"
+    },
+    {
+      "id": "battery-reviewer",
+      "task_zh": "模拟同行评审",
+      "task_en": "Review a manuscript",
+      "display_name": "VoltPeer · 模拟同行评审",
+      "legacy_display_name": "Battery Review · Referee"
+    },
+    {
+      "id": "battery-review-submission",
+      "task_zh": "投稿准备",
+      "task_en": "Prepare submission",
+      "display_name": "VoltPeer · 投稿准备",
+      "legacy_display_name": "Battery Review · Submit"
+    },
+    {
+      "id": "battery-review-response",
+      "task_zh": "返修回复",
+      "task_en": "Respond to reviewers",
+      "display_name": "VoltPeer · 返修回复",
+      "legacy_display_name": "Battery Review · Response"
+    }
+  ]
+}
