@@ -19,8 +19,8 @@ jobs:
     steps:
       - name: Download and verify static site bundle
         env:
-          SITE_ASSET_URL: https://github.com/arrizabalagags-png/BatteryReviewForge/releases/download/website-v0.9.1/site-dist.zip
-          EXPECTED_SHA256: 757e1790c17b7b7c73289bf86eeb7dc4624764cac9663bb5b9212b3039eae9ba
+          SITE_ASSET_URL: https://github.com/arrizabalagags-png/BatteryReviewForge/releases/download/website-v0.9.2/site-dist.zip
+          EXPECTED_SHA256: 44f40e9652d387ebd655d3e1ad4f5cc64abbf77153ed065662cc425fa62200b6
         run: |
           set -euo pipefail
           curl --fail --silent --show-error --location "$SITE_ASSET_URL" --output site-dist.zip
