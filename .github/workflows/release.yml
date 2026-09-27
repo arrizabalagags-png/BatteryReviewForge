@@ -1,0 +1,25 @@
+name: Publish checked skill release
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check existing distribution and version
+        run: python3 scripts/verify_distribution.py
+      - name: Publish versioned archives
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION=$(python3 -c 'import json; print(json.load(open(".codex-plugin/plugin.json"))["version"])')
+          TAG="v$VERSION"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release already exists; refusing to replace published assets."
+            exit 1
+          fi
+          gh release create "$TAG" --verify-tag --title "BatteryReviewForge $TAG" --notes-file docs/RELEASE_v0.9.0.md docs/downloads/*-v"$VERSION".zip outputs/distribution-sha256.txt
