@@ -14,7 +14,7 @@ Date: 2026-09-27. The website is maintained separately; no new website developme
 - Full Python suite: **78 tests passed**, including data interpretation guardrails, new protocols, plotting, layout, community records and installer backups.
 - Initial package test caught missing ZIPs for four new sample groups. The bundles were generated; all four installation/package tests then passed, followed by the full 78-test run.
 - ZIP extracted into a fresh temporary directory; its bundled `render_specialist.py` successfully generated Aurbach PNG/SVG/PDF/provenance from the saved demo CSV and metadata.
-- `git diff --check` passed. New skills have valid skill frontmatter and local references.
+- Tracked source checks passed. The newly staged Matplotlib SVG exports contain generated path-line trailing spaces, with no rendering impact; a completely clean whitespace check over all exported artifacts is not claimed. New skills have valid skill frontmatter and local references.
 - The original author payment image and private website files are absent from the downloadable scientific package.
 
 ## Practical limits
