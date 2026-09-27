@@ -1,0 +1,37 @@
+name: Deploy verified website artifact to GitHub Pages
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download and verify static site bundle
+        env:
+          SITE_ASSET_URL: https://github.com/arrizabalagags-png/BatteryReviewForge/releases/download/website-v0.9.1/site-dist.zip
+          EXPECTED_SHA256: 757e1790c17b7b7c73289bf86eeb7dc4624764cac9663bb5b9212b3039eae9ba
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error --location "$SITE_ASSET_URL" --output site-dist.zip
+          printf '%s  %s\n' "$EXPECTED_SHA256" site-dist.zip | sha256sum --check --strict
+          mkdir _site
+          unzip -q site-dist.zip -d _site
+          test -s _site/index.html
+          test -f _site/.nojekyll
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
