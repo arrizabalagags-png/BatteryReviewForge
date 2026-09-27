@@ -14,10 +14,11 @@ import numpy as np
 from .layout import axes_mm, measure_layout
 from .style import colors_for
 from .corpus import CORPUS_RECIPES, render_corpus
+from .electrochem import ELECTROCHEM_RECIPES, render_electrochem
 
 BASE_RECIPES = ('cyclic_voltammetry', 'differential_capacity', 'gitt_pulse',
                 'ionic_conductivity', 'xps_components', 'raman_series')
-RECIPES = BASE_RECIPES + CORPUS_RECIPES
+RECIPES = BASE_RECIPES + CORPUS_RECIPES + ELECTROCHEM_RECIPES
 
 
 def read_numeric(folder, name, fields):
@@ -58,6 +59,8 @@ def render_recipe(recipe, folder, *, style='forge'):
         raise ValueError('Unknown specialist recipe')
     if recipe in CORPUS_RECIPES:
         return render_corpus(recipe, folder, style=style)
+    if recipe in ELECTROCHEM_RECIPES:
+        return render_electrochem(recipe, folder, style=style)
     folder = Path(folder)
     meta = json.loads((folder / 'metadata.json').read_text(encoding='utf-8'))
     if not meta.get('test_conditions') or not meta.get('source_files'):

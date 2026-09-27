@@ -7,6 +7,8 @@ description: Coordinate a multi-stage battery Review or Perspective project acro
 
 Coordinate a battery Review or Perspective across stages while keeping the current plan, evidence, and revision decisions inspectable. For a single-stage task, use the corresponding specialist skill. Do not apply this workflow to analysis of a new primary experimental paper. Respond in the user's language unless asked otherwise.
 
+For a new experiment, route the research question and controls to `battery-experiment-plan`, the raw instrument table to `battery-data-prepare`, and the confirmed numeric data to `battery-review-figure`. These are separate steps of an experimental project; this Review coordinator does not make the author's lab protocol decisions.
+
 ## Route the request
 
 The author does not need to know a skill name or choose an internal mode. Read the supplied draft, papers, tables, images, or project folder first. Identify the chemistry or device class, article type (narrative/critical Review, scoping review, systematic review, Perspective), target readership and venue if known, current manuscript state, accessible sources, and requested deliverable. Infer these from what is actually available. Choose the specialist internally, describe the next action in ordinary language, and ask only for a missing decision that blocks useful work. Do not turn intake into a questionnaire. Read [codex-operations.md](references/codex-operations.md) for multi-session or multi-agent work.
@@ -15,6 +17,8 @@ If the request is about **installing or using this suite in an agent host**, ide
 
 | Stage | Specialist skill |
 | --- | --- |
+| Inspect or normalize raw instrument exports with explicit units | `battery-data-prepare` |
+| Plan variables, controls and evidence for a battery research question | `battery-experiment-plan` |
 | Angle, scope, competing Reviews, outline | `battery-review-plan` |
 | Search, screening, source-state inventory | `battery-literature-map` |
 | Claim-to-source and citation verification | `battery-claim-check` |

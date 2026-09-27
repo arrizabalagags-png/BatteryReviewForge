@@ -1,0 +1,35 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "figure_grammar_id": "optional:chronoamperometry",
+  "source_files": [
+    "data.csv"
+  ],
+  "test_conditions": "Synthetic constant-potential current transients at −0.05 V vs an invented Li reference. No measured nucleation, passivation, deposited charge or stability.",
+  "variables_and_units": [
+    "sample",
+    "time_s",
+    "current_density_mA_cm2"
+  ],
+  "render_options": {
+    "cell_configuration": "Invented Li||Cu-like cell",
+    "reference_electrode": "Li metal, synthetic only",
+    "current_sign_convention": "cathodic current plotted negative",
+    "applied_potential_V": -0.05,
+    "zoom_time_s": [
+      0,
+      180
+    ]
+  },
+  "reference": {
+    "doi": "10.1038/s41467-022-32139-w",
+    "journal": "Nature Communications",
+    "year": 2022,
+    "figure_panel": "Fig. 2a",
+    "observation": "Potentiostatic current-time transients can be displayed without fitting a nucleation model.",
+    "review_scope": "Paper text/figure checked; display idea only, no numerical values or artwork copied",
+    "default_template": false
+  },
+  "reproduce": "python render_specialist.py --recipe chronoamperometry --input-folder chronoamperometry --output-dir brf-output --style forge",
+  "creator": "BatteryReviewForge original synthetic analytic demonstration"
+}

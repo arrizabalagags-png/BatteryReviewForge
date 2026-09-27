@@ -31,6 +31,8 @@ When the author asks for a more polished, less generic, or “less AI-looking”
 
 For a homepage example or demo gallery, apply the [showcase gate](references/SHOWCASE_QA.md), then the matching [reproducible figure specification](references/SHOWCASE_SPEC.md) and [plot QA checklist](references/PLOT_QA_CHECKLIST.md). The current `examples/showcase` files are synthetic workflow demonstrations, not publication evidence or automatic templates for author data. Earlier test drawings remain test materials. A new featured example needs source-backed grammar, final-size/font QA and recorded human review.
 
+For staged Aurbach-like protocol traces, signed frequency-resolved EIS components, potentiostatic chronoamperometry, or open-circuit relaxation, use the explicit input contracts in [four optional electrochemistry recipes](references/ELECTROCHEM_RECIPES.md). These render author-supplied measurements; they do not calculate Aurbach CE, fit impedance/nucleation models or derive capacity loss from voltage decay.
+
 ## Plan the figure
 
 For a manuscript multi-panel figure, default to **letters + data labels**, with the scientific story in the caption. Do not inject a brand header, figure-level title, narrative subtitle, bottom disclaimer or per-panel headline into the figure. Keep titles only when they identify an otherwise ambiguous sample, condition, fragment or state; prefer direct labels and a shared legend. For website demonstrations, put “synthetic example” beside the image and in metadata, while leaving the reusable publication plate clean. When this skill regenerates a panel at the request of `battery-figure-assemble`, accept its target dimensions, required marks and color identities, then return the editable panel plus provenance for another assembly pass.

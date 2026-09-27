@@ -1,0 +1,35 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "figure_grammar_id": "optional:ocv_rest",
+  "source_files": [
+    "data.csv"
+  ],
+  "test_conditions": "Synthetic open-circuit voltage relaxation for 48 h at nominal 25 °C. No actual capacity or self-discharge rate can be inferred from these voltages.",
+  "variables_and_units": [
+    "sample",
+    "time_h",
+    "voltage_V"
+  ],
+  "render_options": {
+    "cell_configuration": "Invented full cells A/B",
+    "initial_state": "Invented fully charged rest start",
+    "rest_condition": "Open circuit, no load; no recovered capacity measurement",
+    "temperature_C": 25,
+    "zoom_time_h": [
+      0,
+      8
+    ]
+  },
+  "reference": {
+    "doi": "10.1038/s41467-022-29837-w",
+    "journal": "Nature Communications",
+    "year": 2022,
+    "figure_panel": "Fig. 1a,b",
+    "observation": "Voltage relaxation after charge is time-resolved; voltage drop alone does not measure capacity lost.",
+    "review_scope": "Paper text/figure checked; display idea only, no numerical values or artwork copied",
+    "default_template": false
+  },
+  "reproduce": "python render_specialist.py --recipe ocv_rest --input-folder ocv_rest --output-dir brf-output --style forge",
+  "creator": "BatteryReviewForge original synthetic analytic demonstration"
+}

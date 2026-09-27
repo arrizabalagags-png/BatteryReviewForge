@@ -18,6 +18,8 @@ VERSION = json.loads((ROOT / ".codex-plugin" / "plugin.json").read_text(encoding
 AUTHOR = "郭硕、姜金龙｜上海理工大学能源材料科学研究院"
 
 ZH = {
+    "battery-data-prepare": "核对原始数据的列名、单位和分组，保留原文件与整理记录。",
+    "battery-experiment-plan": "把电池研究问题拆成变量、对照和待确认的测试条件。",
     "battery-claim-check": "逐条核对综述中的引用、数字与原文证据。",
     "battery-figure-assemble": "把已有图片和图表对齐、拼版，并检查成图清晰度。",
     "battery-literature-map": "检索和筛选电池文献，记录哪些论文真的读过。",

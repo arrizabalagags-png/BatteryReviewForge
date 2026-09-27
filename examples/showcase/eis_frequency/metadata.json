@@ -1,0 +1,33 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "figure_grammar_id": "optional:eis_frequency",
+  "source_files": [
+    "data.csv"
+  ],
+  "test_conditions": "Invented R_s+(R_ct||C) complex impedance at 25 °C, 10 mV, 100 kHz–0.01 Hz. Parameters not fitted to experimental data; no circuit assignment to a real cell.",
+  "variables_and_units": [
+    "sample",
+    "frequency_Hz",
+    "z_real_ohm",
+    "z_imag_ohm"
+  ],
+  "render_options": {
+    "cell_configuration": "Invented two-electrode cell",
+    "measurement_state": "Invented same rest state",
+    "temperature_C": 25,
+    "perturbation_mV": 10,
+    "frequency_direction": "descending"
+  },
+  "reference": {
+    "doi": "10.1038/s41467-022-29596-8",
+    "journal": "Nature Communications",
+    "year": 2022,
+    "figure_panel": "Fig. 2e",
+    "observation": "Frequency-resolved Bode view accompanies impedance spectra; real and signed imaginary components are displayed here as a distinct optional view.",
+    "review_scope": "Paper text/figure checked; display idea only, no numerical values or artwork copied",
+    "default_template": false
+  },
+  "reproduce": "python render_specialist.py --recipe eis_frequency --input-folder eis_frequency --output-dir brf-output --style forge",
+  "creator": "BatteryReviewForge original synthetic analytic demonstration"
+}

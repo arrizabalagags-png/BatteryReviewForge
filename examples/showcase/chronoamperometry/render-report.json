@@ -1,0 +1,80 @@
+{
+  "recipe": "chronoamperometry",
+  "status": "optional_variant",
+  "style": "forge",
+  "alignment": {
+    "status": "pass",
+    "tolerance_mm": 0.3,
+    "checks": [
+      {
+        "panels": [
+          "a",
+          "b"
+        ],
+        "edge": "top",
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "panels": [
+          "a",
+          "b"
+        ],
+        "edge": "bottom",
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "panels": [
+          "a",
+          "b"
+        ],
+        "edge": "height",
+        "delta_mm": 0.0,
+        "pass": true
+      }
+    ],
+    "failures": [],
+    "plot_rectangles_mm": [
+      {
+        "panel": "a",
+        "left": 19.0,
+        "right": 81.0,
+        "top": 10.0,
+        "bottom": 70.0,
+        "width": 62.0,
+        "height": 59.99999999999999
+      },
+      {
+        "panel": "b",
+        "left": 107.0,
+        "right": 169.0,
+        "top": 10.0,
+        "bottom": 70.0,
+        "width": 62.0,
+        "height": 59.99999999999999
+      }
+    ]
+  },
+  "requested_font": "Arial/Helvetica",
+  "actual_font": "Arial",
+  "resolved_font_path": "arial.ttf",
+  "transformations": [
+    "Full and zoom views use same supplied potentiostatic current; no charge integration or nucleation fit"
+  ],
+  "calculations": {},
+  "test_conditions": "Synthetic constant-potential current transients at −0.05 V vs an invented Li reference. No measured nucleation, passivation, deposited charge or stability.",
+  "data_status": "synthetic_demo",
+  "source_files": [
+    "data.csv"
+  ],
+  "reference": {
+    "doi": "10.1038/s41467-022-32139-w",
+    "journal": "Nature Communications",
+    "year": 2022,
+    "figure_panel": "Fig. 2a",
+    "observation": "Potentiostatic current-time transients can be displayed without fitting a nucleation model.",
+    "review_scope": "Paper text/figure checked; display idea only, no numerical values or artwork copied",
+    "default_template": false
+  }
+}

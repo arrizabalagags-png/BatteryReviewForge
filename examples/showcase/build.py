@@ -382,7 +382,7 @@ def plot_full(ax1, ax2, compact=False) -> None:
     n = arr(rows, "cycle")
     for sample in "AB":
         ax1.plot(n, arr(rows, f"{sample}_mAh_g"), color=COLORS[sample], lw=.95, label=f"Electrolyte {sample}")
-    ax1.set(xlabel="Cycle number", ylabel="Discharge capacity (mAh g$^{-1}$)", xlim=(0, 505), ylim=(130, 190))
+    ax1.set(xlabel="Cycle number", ylabel="Discharge capacity (mAh g$^{-1}$)", xlim=(0, 505), ylim=(145, 188))
     ax1.legend(frameon=False, loc="lower left", handlelength=1.7)
     profiles = csv_read(ROOT / "full_cell" / "voltage_profiles.csv")
     for cycle, color in ((1, "#c6d7e6"), (100, "#92b4d0"), (300, "#6389aa"), (500, COLORS["A"])):
@@ -396,7 +396,7 @@ def plot_ce(ax1, ax2) -> None:
     rows = csv_read(ROOT / "li_cu_ce" / "data.csv")
     n = arr(rows, "cycle")
     for sample in "AB":
-        ax1.plot(n, arr(rows, f"{sample}_ce_pct"), color=COLORS[sample], lw=.75, marker="o", ms=1.45, markevery=5, label=f"Electrolyte {sample}")
+        ax1.plot(n, arr(rows, f"{sample}_ce_pct"), color=COLORS[sample], lw=.8, marker="o", ms=1.8, markevery=20, label=f"Electrolyte {sample}")
     ax1.set(xlabel="Cycle number", ylabel="Coulombic efficiency (%)", xlim=(0, 305), ylim=(96.5, 100.25))
     ax1.legend(frameon=False, loc="lower right", handlelength=1.4)
     profiles = csv_read(ROOT / "li_cu_ce" / "profiles.csv")
@@ -415,9 +415,9 @@ def plot_symmetric(ax1, ax2) -> None:
         ax1.plot(arr(r, "time_h"), arr(r, "voltage_mV"), color=COLORS[sample], lw=.5, label=f"Electrolyte {sample}")
         z = [row for row in r if 101 <= float(row["time_h"]) <= 108]
         ax2.plot(arr(z, "time_h"), arr(z, "voltage_mV"), color=COLORS[sample], lw=.75)
-    ax1.set(xlabel="Time (h)", ylabel="Cell voltage (mV)", xlim=(0, 200), ylim=(-90, 90))
-    ax2.set(xlabel="Time (h)", ylabel="Cell voltage (mV)", xlim=(101, 108), ylim=(-75, 75))
-    ax1.legend(frameon=False, loc="upper right", handlelength=1.4)
+    ax1.set(xlabel="Time (h)", ylabel="Cell voltage (mV)", xlim=(0, 200), ylim=(-70, 70))
+    ax2.set(xlabel="Time (h)", ylabel="Cell voltage (mV)", xlim=(101, 108), ylim=(-65, 65))
+    ax1.legend(frameon=False, loc="upper left", handlelength=1.4)
     ax1.axvspan(101, 108, color="#dce8ee", zorder=-3)
 
 
@@ -428,9 +428,9 @@ def plot_eis(ax1, ax2) -> None:
         zr, zi, freq = arr(r, "Zreal_ohm"), arr(r, "Zimag_ohm"), arr(r, "frequency_Hz")
         ax1.plot(zr, -zi, color=COLORS[sample], lw=.65, marker="o", ms=2.0, markevery=5, label=f"Model {sample}")
         ax2.semilogx(freq, np.degrees(np.arctan2(-zi, zr)), color=COLORS[sample], lw=.95, label=f"Model {sample}")
-    ax1.set(xlabel="Z′ (Ω)", ylabel="−Z″ (Ω)", xlim=(0, 76), ylim=(0, 26))
+    ax1.set(xlabel="Z′ (Ω)", ylabel="−Z″ (Ω)", xlim=(0, 63), ylim=(0, 21))
     ax1.set_aspect("equal", adjustable="box")
-    ax2.set(xlabel="Frequency (Hz)", ylabel="Phase magnitude (°)", xlim=(.01, 1e5), ylim=(0, 85))
+    ax2.set(xlabel="Frequency (Hz)", ylabel="Phase magnitude (°)", xlim=(.01, 1e5), ylim=(0, 50))
     ax1.legend(frameon=False, loc="upper right", handlelength=1.4)
 
 
@@ -478,8 +478,8 @@ def plot_tofsims(axes, fig) -> None:
         ax.text(.96, .94, label, transform=ax.transAxes, ha="right", va="top", color=INK, fontsize=7, weight="bold", bbox={"facecolor": "white", "edgecolor": "none", "alpha": .88, "pad": 1.4})
         cax = fig.add_axes([(.07, .29, .51)[index] + .185, .54, .006, .36])
         bar = fig.colorbar(image, cax=cax)
-        bar.ax.set_yticks([])
-    fig.text(.07, .445, "Ion-map intensity: normalized 0–0.65; common numeric range", fontsize=6, color=MUTED)
+        bar.ax.set_yticks([0, .65])
+        bar.ax.tick_params(labelsize=5, length=1.8, width=.45, pad=1)
     f = np.clip(channels["F-"] / .65, 0, 1)
     li = np.clip(channels["Li+"] / .65, 0, 1)
     s = np.clip(channels["S-"] / .65, 0, 1)
@@ -495,7 +495,7 @@ def plot_tofsims(axes, fig) -> None:
         r = [row for row in depth if row["species"] == species]
         ax.plot(arr(r, "sputter_time_s"), arr(r, "mean_normalized_intensity"), color=color, lw=1, label=label)
     ax.axvline(30, color=MUTED, lw=.55, ls=(0, (2, 2)))
-    ax.set(xlabel="Sputter time (s)", ylabel="Mean normalized intensity", xlim=(0, 180), ylim=(0, .9))
+    ax.set(xlabel="Sputter time (s)", ylabel="Mean normalized intensity", xlim=(0, 180), ylim=(0, .48))
     ax.legend(frameon=False, loc="upper right", ncol=3, handlelength=1.2)
 
 
@@ -710,7 +710,12 @@ def figure(name: str):
         fig, axes = plt.subplots(1, 2, figsize=(180 / 25.4, 88 / 25.4), gridspec_kw={"width_ratios": [1.55, 1]}, layout="constrained")
         plot_symmetric(*axes)
     elif name == "eis":
-        fig, axes = plt.subplots(2, 1, figsize=(180 / 25.4, 118 / 25.4), gridspec_kw={"height_ratios": [1, .76]}, layout="constrained")
+        from batteryplot.layout import axes_mm
+        fig = plt.figure(figsize=(180 / 25.4, 118 / 25.4))
+        named = {'a': axes_mm(fig, left=19, top=6, width=150, height=50),
+                 'b': axes_mm(fig, left=19, top=72, width=150, height=34)}
+        axes = [named['a'], named['b']]
+        fig._alignment_contract = (named, [('a', 'b', edge) for edge in ('left', 'right', 'width')])
         plot_eis(*axes)
     elif name == "operando_xrd":
         fig, axes = plt.subplots(1, 2, figsize=(180 / 25.4, 98 / 25.4), gridspec_kw={"width_ratios": [1.95, .75]}, layout="constrained")

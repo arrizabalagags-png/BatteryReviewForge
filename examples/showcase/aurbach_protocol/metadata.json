@@ -1,0 +1,40 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "figure_grammar_id": "optional:aurbach_protocol",
+  "source_files": [
+    "data.csv"
+  ],
+  "test_conditions": "Synthetic stage-resolved Li||Cu-like voltage/current sequence at nominal 25 °C. Times, capacities, currents, voltages and signs are invented; no exact experimental Aurbach protocol or CE value.",
+  "variables_and_units": [
+    "stage",
+    "time_h",
+    "voltage_V",
+    "current_density_mA_cm2"
+  ],
+  "render_options": {
+    "protocol_name": "Invented modified Aurbach-like sequence, display only",
+    "cell_configuration": "Synthetic Li||Cu-like cell",
+    "current_sign_convention": "negative=plating, positive=stripping; invented for this demo",
+    "capacity_schedule_mAh_cm2": "Invented signed-current trace: formation and reservoir 1 each; three partial cycles about 0.083 per half-step; final strip 1. These are demonstration integrals, not an Aurbach CE dataset",
+    "cutoff_description": "Synthetic end-of-strip voltage rise; no measured cutoff applied",
+    "stage_sequence": [
+      "formation plate",
+      "formation strip",
+      "reservoir plate",
+      "partial cycles",
+      "final strip"
+    ]
+  },
+  "reference": {
+    "doi": "10.1038/s41467-025-66197-7",
+    "journal": "Nature Communications",
+    "year": 2025,
+    "figure_panel": "Fig. 4b / Methods",
+    "observation": "Reported modified Aurbach protocol separates formation, reservoir, partial cycling and final strip; this plot does not calculate CE.",
+    "review_scope": "Paper text/figure checked; display idea only, no numerical values or artwork copied",
+    "default_template": false
+  },
+  "reproduce": "python render_specialist.py --recipe aurbach_protocol --input-folder aurbach_protocol --output-dir brf-output --style forge",
+  "creator": "BatteryReviewForge original synthetic analytic demonstration"
+}

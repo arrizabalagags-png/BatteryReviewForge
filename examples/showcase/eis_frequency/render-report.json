@@ -1,0 +1,80 @@
+{
+  "recipe": "eis_frequency",
+  "status": "optional_variant",
+  "style": "forge",
+  "alignment": {
+    "status": "pass",
+    "tolerance_mm": 0.3,
+    "checks": [
+      {
+        "panels": [
+          "a",
+          "b"
+        ],
+        "edge": "top",
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "panels": [
+          "a",
+          "b"
+        ],
+        "edge": "bottom",
+        "delta_mm": 0.0,
+        "pass": true
+      },
+      {
+        "panels": [
+          "a",
+          "b"
+        ],
+        "edge": "height",
+        "delta_mm": 0.0,
+        "pass": true
+      }
+    ],
+    "failures": [],
+    "plot_rectangles_mm": [
+      {
+        "panel": "a",
+        "left": 19.0,
+        "right": 81.0,
+        "top": 10.0,
+        "bottom": 70.0,
+        "width": 62.0,
+        "height": 59.99999999999999
+      },
+      {
+        "panel": "b",
+        "left": 107.0,
+        "right": 169.0,
+        "top": 10.0,
+        "bottom": 70.0,
+        "width": 62.0,
+        "height": 59.99999999999999
+      }
+    ]
+  },
+  "requested_font": "Arial/Helvetica",
+  "actual_font": "Arial",
+  "resolved_font_path": "arial.ttf",
+  "transformations": [
+    "Signed supplied Z imaginary component displayed as −Z''; no equivalent circuit, fit or phase inferred"
+  ],
+  "calculations": {},
+  "test_conditions": "Invented R_s+(R_ct||C) complex impedance at 25 °C, 10 mV, 100 kHz–0.01 Hz. Parameters not fitted to experimental data; no circuit assignment to a real cell.",
+  "data_status": "synthetic_demo",
+  "source_files": [
+    "data.csv"
+  ],
+  "reference": {
+    "doi": "10.1038/s41467-022-29596-8",
+    "journal": "Nature Communications",
+    "year": 2022,
+    "figure_panel": "Fig. 2e",
+    "observation": "Frequency-resolved Bode view accompanies impedance spectra; real and signed imaginary components are displayed here as a distinct optional view.",
+    "review_scope": "Paper text/figure checked; display idea only, no numerical values or artwork copied",
+    "default_template": false
+  }
+}

@@ -32,7 +32,9 @@ def main() -> None:
     with ZipFile(OUTPUT) as archive:
         names = set(archive.namelist())
         assert {"install.ps1", "install.sh", "skills/battery-review-figure/SKILL.md"} <= names
-        assert len([name for name in names if name.startswith("skills/") and name.endswith("/SKILL.md")]) == 13
+        expected = {f"skills/{folder.name}/SKILL.md" for folder in (ROOT / "skills").iterdir() if (folder / "SKILL.md").is_file()}
+        packaged = {name for name in names if name.startswith("skills/") and name.endswith("/SKILL.md")}
+        assert packaged == expected, "Every source skill must be included exactly once"
     print(f"Built {OUTPUT} ({OUTPUT.stat().st_size:,} bytes)")
 
 

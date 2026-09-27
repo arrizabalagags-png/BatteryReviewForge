@@ -1,7 +1,7 @@
-"""Render an explicit-input optional battery recipe, including corpus grammars.
+"""Render an explicit-input optional battery recipe, including electrochemistry.
 
 Scientific choices come from input CSV and metadata, never downloaded paper
-curves. The six corpus grammars are optional variants, not default templates.
+curves. Corpus and electrochemistry grammars are optional variants, not defaults.
 """
 import argparse
 import hashlib
