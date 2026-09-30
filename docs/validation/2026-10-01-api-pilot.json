@@ -3893,24 +3893,40 @@
   ],
   "privacy": "No API key, account balance, private absolute path or raw transcript is included. Raw runs remain only in private local workspaces.",
   "late_distribution_documentation_fix": {
-    "reason": "Deduplicate each bare shared-guide path before global replacement in a single synchronization pass.",
+    "reason": "Deduplicate each bare shared-guide path before global replacement, and require all truly missing mandatory inputs in short stop guidance.",
     "changed_skill_files": [
+      "battery-claim-check/references/EXECUTION.md",
+      "battery-data-prepare/references/EXECUTION.md",
+      "battery-experiment-plan/references/EXECUTION.md",
+      "battery-figure-assemble/references/EXECUTION.md",
       "battery-figure-assemble/references/shared/battery-review-figure/references/CORPUS_RECIPES.md",
       "battery-figure-assemble/references/shared/battery-review-figure/references/PYTHON_PLOTTING.md",
       "battery-figure-assemble/references/shared/battery-review-figure/references/STYLE_PRESETS.md",
       "battery-figure-assemble/references/shared/battery-review-figure/references/UPLOADED_DATA.md",
-      "battery-review-figure/references/shared/battery-figure-assemble/references/COMPOSITION.md"
+      "battery-literature-map/references/EXECUTION.md",
+      "battery-metrics-audit/references/EXECUTION.md",
+      "battery-review-audit/references/EXECUTION.md",
+      "battery-review-figure/references/EXECUTION.md",
+      "battery-review-figure/references/UPLOADED_DATA.md",
+      "battery-review-figure/references/shared/battery-figure-assemble/references/COMPOSITION.md",
+      "battery-review-forge/references/EXECUTION.md",
+      "battery-review-plan/references/EXECUTION.md",
+      "battery-review-polish/references/EXECUTION.md",
+      "battery-review-response/references/EXECUTION.md",
+      "battery-review-submission/references/EXECUTION.md",
+      "battery-review-write/references/EXECUTION.md",
+      "battery-reviewer/references/EXECUTION.md"
     ],
     "added_skill_files": [],
     "removed_skill_files": [],
-    "current_skill_tree_sha256": "4f283de6aa8509f247bf353739382d6d7e95103954f355c5b18f67e27947f474",
+    "current_skill_tree_sha256": "bf61d9c2422ed1a65aba922c83443a2aac5bd62f6e88fa2bffa42deb0acb5615",
     "current_actor_skill_trees_byte_exact_with_final_pilot": {
       "battery-review-figure": false,
-      "battery-claim-check": true
+      "battery-claim-check": false
     },
     "python_scripts_changed_since_final_pilot": false,
     "original_frozen_trial_preserved": true,
-    "current_complete_tree_model_behavior": "NOT_RUN: late shared-guide documentation correction changes the frozen tree",
+    "current_complete_tree_model_behavior": "NOT_RUN: late shared-guide and missing-input reply corrections change the frozen tree",
     "focused_sync_regression": "PASS: repeated same path in one document; second synchronization is byte-idempotent; 1 test / 0.121 s",
     "scope": "Engineering checks do not transfer the previous frozen-tree pilot to this modified installation tree."
   }

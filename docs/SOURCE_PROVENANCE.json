@@ -1,10 +1,10 @@
 {
-  "source_commit": "6acca6972e40fbf043f10e49e263bb534ebec621",
+  "source_commit": "95aaf209f78a3b1472493352cea92be46fa55ee5",
   "source_worktree_dirty": true,
-  "source_tracked_diff_sha256": "47b2115b4190cc0a6f6e3ca8385a81769a25cb9cec9b763316c670b89b23ab0d",
+  "source_tracked_diff_sha256": "2b45e746c633360d42ebcc9f47084b677ada7ed75a0393cdb604248427edbef6",
   "source_identity_origin": "actual_repository_HEAD_and_worktree",
   "skill_tree": {
-    "sha256": "4f283de6aa8509f247bf353739382d6d7e95103954f355c5b18f67e27947f474",
+    "sha256": "bf61d9c2422ed1a65aba922c83443a2aac5bd62f6e88fa2bffa42deb0acb5615",
     "files": [
       {
         "path": "battery-claim-check/agents/openai.yaml",
@@ -28,8 +28,8 @@
       },
       {
         "path": "battery-claim-check/references/EXECUTION.md",
-        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac",
-        "bytes": 6850
+        "sha256": "d01e6e3618ad956e7fd2bb8ce1823dac5c28789bd64288acb817658a7af8e1f1",
+        "bytes": 7395
       },
       {
         "path": "battery-claim-check/scripts/check_task_state.py",
@@ -58,8 +58,8 @@
       },
       {
         "path": "battery-data-prepare/references/EXECUTION.md",
-        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac",
-        "bytes": 6850
+        "sha256": "d01e6e3618ad956e7fd2bb8ce1823dac5c28789bd64288acb817658a7af8e1f1",
+        "bytes": 7395
       },
       {
         "path": "battery-data-prepare/references/MAPPING_CONTRACT.md",
@@ -103,8 +103,8 @@
       },
       {
         "path": "battery-experiment-plan/references/EXECUTION.md",
-        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac",
-        "bytes": 6850
+        "sha256": "d01e6e3618ad956e7fd2bb8ce1823dac5c28789bd64288acb817658a7af8e1f1",
+        "bytes": 7395
       },
       {
         "path": "battery-experiment-plan/scripts/check_task_state.py",
@@ -148,8 +148,8 @@
       },
       {
         "path": "battery-figure-assemble/references/EXECUTION.md",
-        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac",
-        "bytes": 6850
+        "sha256": "d01e6e3618ad956e7fd2bb8ce1823dac5c28789bd64288acb817658a7af8e1f1",
+        "bytes": 7395
       },
       {
         "path": "battery-figure-assemble/references/LAYOUT_RECIPES.md",
@@ -273,8 +273,8 @@
       },
       {
         "path": "battery-figure-assemble/references/shared/battery-review-figure/references/UPLOADED_DATA.md",
-        "sha256": "fd03c3788ab1abb55414bbe9be5841bd47f7b40e1d182285ee92cb8b5b7cb3fb",
-        "bytes": 13208
+        "sha256": "3afa85b3948ffd71c32c60064aa1b5b1b4e3e9a33a144bc2d9e5c9124dcf6c01",
+        "bytes": 13949
       },
       {
         "path": "battery-figure-assemble/references/shared/battery-review-figure/references/VISUAL_FINISH.md",
@@ -383,8 +383,8 @@
       },
       {
         "path": "battery-literature-map/references/EXECUTION.md",
-        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac",
-        "bytes": 6850
+        "sha256": "d01e6e3618ad956e7fd2bb8ce1823dac5c28789bd64288acb817658a7af8e1f1",
+        "bytes": 7395
       },
       {
         "path": "battery-literature-map/scripts/check_task_state.py",
@@ -418,8 +418,8 @@
       },
       {
         "path": "battery-metrics-audit/references/EXECUTION.md",
-        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac",
-        "bytes": 6850
+        "sha256": "d01e6e3618ad956e7fd2bb8ce1823dac5c28789bd64288acb817658a7af8e1f1",
+        "bytes": 7395
       },
       {
         "path": "battery-metrics-audit/scripts/check_task_state.py",
@@ -448,8 +448,8 @@
       },
       {
         "path": "battery-review-audit/references/EXECUTION.md",
-        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac",
-        "bytes": 6850
+        "sha256": "d01e6e3618ad956e7fd2bb8ce1823dac5c28789bd64288acb817658a7af8e1f1",
+        "bytes": 7395
       },
       {
         "path": "battery-review-audit/scripts/check_task_state.py",
@@ -583,8 +583,8 @@
       },
       {
         "path": "battery-review-figure/references/EXECUTION.md",
-        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac",
-        "bytes": 6850
+        "sha256": "d01e6e3618ad956e7fd2bb8ce1823dac5c28789bd64288acb817658a7af8e1f1",
+        "bytes": 7395
       },
       {
         "path": "battery-review-figure/references/FIGURE_ROUTER.md",
@@ -668,8 +668,8 @@
       },
       {
         "path": "battery-review-figure/references/UPLOADED_DATA.md",
-        "sha256": "a8b6fac59e6c6d10d08a8840fc9d2312d419c87d81ba86bf94274a25d8c40699",
-        "bytes": 12819
+        "sha256": "cd7c3a61637b3472f0253e2d590eeade87262197209c9b6f8cf015b5596c4823",
+        "bytes": 13560
       },
       {
         "path": "battery-review-figure/references/VISUAL_FINISH.md",
@@ -853,8 +853,8 @@
       },
       {
         "path": "battery-review-forge/references/EXECUTION.md",
-        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac",
-        "bytes": 6850
+        "sha256": "d01e6e3618ad956e7fd2bb8ce1823dac5c28789bd64288acb817658a7af8e1f1",
+        "bytes": 7395
       },
       {
         "path": "battery-review-forge/references/shared/battery-review-figure/assets/style-preview.svg",
@@ -898,8 +898,8 @@
       },
       {
         "path": "battery-review-plan/references/EXECUTION.md",
-        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac",
-        "bytes": 6850
+        "sha256": "d01e6e3618ad956e7fd2bb8ce1823dac5c28789bd64288acb817658a7af8e1f1",
+        "bytes": 7395
       },
       {
         "path": "battery-review-plan/scripts/check_task_state.py",
@@ -928,8 +928,8 @@
       },
       {
         "path": "battery-review-polish/references/EXECUTION.md",
-        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac",
-        "bytes": 6850
+        "sha256": "d01e6e3618ad956e7fd2bb8ce1823dac5c28789bd64288acb817658a7af8e1f1",
+        "bytes": 7395
       },
       {
         "path": "battery-review-polish/scripts/check_task_state.py",
@@ -963,8 +963,8 @@
       },
       {
         "path": "battery-review-response/references/EXECUTION.md",
-        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac",
-        "bytes": 6850
+        "sha256": "d01e6e3618ad956e7fd2bb8ce1823dac5c28789bd64288acb817658a7af8e1f1",
+        "bytes": 7395
       },
       {
         "path": "battery-review-response/scripts/check_task_state.py",
@@ -998,8 +998,8 @@
       },
       {
         "path": "battery-review-submission/references/EXECUTION.md",
-        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac",
-        "bytes": 6850
+        "sha256": "d01e6e3618ad956e7fd2bb8ce1823dac5c28789bd64288acb817658a7af8e1f1",
+        "bytes": 7395
       },
       {
         "path": "battery-review-submission/scripts/check_task_state.py",
@@ -1028,8 +1028,8 @@
       },
       {
         "path": "battery-review-write/references/EXECUTION.md",
-        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac",
-        "bytes": 6850
+        "sha256": "d01e6e3618ad956e7fd2bb8ce1823dac5c28789bd64288acb817658a7af8e1f1",
+        "bytes": 7395
       },
       {
         "path": "battery-review-write/scripts/check_task_state.py",
@@ -1058,8 +1058,8 @@
       },
       {
         "path": "battery-reviewer/references/EXECUTION.md",
-        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac",
-        "bytes": 6850
+        "sha256": "d01e6e3618ad956e7fd2bb8ce1823dac5c28789bd64288acb817658a7af8e1f1",
+        "bytes": 7395
       },
       {
         "path": "battery-reviewer/scripts/check_task_state.py",

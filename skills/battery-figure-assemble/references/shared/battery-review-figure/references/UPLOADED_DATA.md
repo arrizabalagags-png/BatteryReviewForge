@@ -52,6 +52,8 @@ python <installed-battery-review-figure>/scripts/plot_uploaded.py plot --data my
 - 声明确实不适用才用 `NA`，不能把未知值填成 `NA`；`NR`/`NV`规则保持。按真实金属沉积/剥离或全电池充放电测试写 CE 定义；Aurbach 协议平均值不是逐圈 CE 输入。
 - 用原值画图，保留高于100%的异常并提示回查。超出程序有效范围时停止核查，不能裁剪成可画范围。补齐这些字段只满足输入核查，不认证真实实验或来源。
 
+必需信息同时缺失时，列出当前图型和比较范围真正缺少的项，要求全部补齐并核查后再出图；不能写“任一项补齐即可”。`direct` 比较缺少可比性条件时停止直接排名；只有作者明确改成允许的语境展示并能满足该模式的核心合同，才可走 `contextual` 路线，不能用它绕过来源、CE 定义、单位或基本条件。
+
 下面的占位示例只说明字段写法，不能直接运行；每个占位值须换成真实文件与作者核查的信息。不要复制出示例实验参数，也不要未经核查填 `verified`。A/B 多样品直接比较还需要上面的相关协议字段。
 
 ```json
@@ -119,3 +121,4 @@ python <installed-battery-review-figure>/scripts/plot_uploaded.py plot --data my
 Run `inspect` on the uploaded table, map source columns and scientific metadata in JSON, then run `plot`. The file extension determines how to read the table; the data columns and declared cell/test conditions determine the chart. No private reference assets or paper data are bundled.
 Ask once for a named style before final plotting, or reuse the manuscript's recorded choice. `plot` requires `style` in the mapping JSON; use the `styles` command or [preview](STYLE_PRESETS.md) to see options.
 If the author has already chosen a style, reuse it without rerunning `styles` or asking again. An empty `inspect` candidate list is not an unsupported-task verdict: confirm the known chart's scientific fields and map the actual headers. Read only references relevant to this task. Use the same strict CE/source/condition rules above; final result and requested provenance narratives follow the user's language.
+When several required items are missing, request all genuinely missing items for this chart and comparison scope; never say that any single item is sufficient. A contextual presentation requires the author's explicit change of scope and its own valid core inputs; it cannot bypass provenance, units, CE definition or basic conditions.
