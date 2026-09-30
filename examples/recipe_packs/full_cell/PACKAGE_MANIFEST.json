@@ -1,6 +1,6 @@
 {
   "resource_id": "full_cell",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "files": [
     {
       "path": "AGENT_GUIDE.md",
@@ -40,7 +40,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "5f63eca7c27c5c5b1f37d31b7f2365aa2d918b9ae5dc5f7a79acb5e3a855ea13"
+      "sha256": "10ee894198616bbbba20cea6d6bce32cc5777c1bfd45fd642f1777b929fb634e"
     },
     {
       "path": "reference/figure.png",
@@ -96,7 +96,7 @@
     },
     {
       "path": "VERSION.json",
-      "sha256": "a585481c5b180268ac953c70e27642e4f58cf8d0729abb11b4c9e95b6f07fdfc"
+      "sha256": "a817e9121f455ea0bd8b33edae99ea96088157133541eb02ac20000f20c50c93"
     }
   ]
 }

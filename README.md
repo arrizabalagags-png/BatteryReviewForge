@@ -8,11 +8,12 @@
 
 ## 开始使用
 
-- **第一次用：** 按[安装指南](docs/COMPATIBILITY.md#deepseek-harness-桌面端主线)选择工作区、安装技能，再跑一个演示。
-- **已经会装：** [直接下载 v0.10.0 Beta 完整包](https://github.com/arrizabalagags-png/BatteryReviewForge/raw/refs/heads/codex/public-skills/docs/downloads/BatteryReviewForge-v0.10.0.zip)，或在下方按任务选单个 Skill。
+- **第一次画图：** [下载绘图 Starter](https://github.com/arrizabalagags-png/BatteryReviewForge/raw/refs/heads/codex/public-skills/docs/downloads/starter/VoltPeer-Plot-Starter-v0.10.1.zip)，解压后让 AI 读 `AGENT_GUIDE.md`；固定程序先跑 Demo，再换自己的数据。
+- **其他科研任务：** 按[安装指南](docs/COMPATIBILITY.md#deepseek-harness-桌面端主线)选工作区、安装所需技能。
+- **已经会装：** [直接下载 v0.10.1 Beta 完整包](https://github.com/arrizabalagags-png/BatteryReviewForge/raw/refs/heads/codex/public-skills/docs/downloads/BatteryReviewForge-v0.10.1.zip)，或在下方按任务选单个 Skill。
 - **准备开发：** 查看技能源码、[固定行为评估方案](docs/EVAL.md)和[可复现绘图包](examples/recipe_packs/README.md)。
 
-当前新版是 **v0.10.0 Beta**，维护在 `codex/public-skills`。本地代码与分发包检查、真实模型行为、原生客户端发现分别记录；没有完成的验收不会标成 Stable。项目网站：[dazi.gsarrizabalaga.xyz](https://dazi.gsarrizabalaga.xyz/)；GitHub 同步不会自动更新上海 ECS 正式站。
+当前新版是 **v0.10.1 Beta**，维护在 `codex/public-skills`。本地代码与分发包检查、真实模型行为、原生客户端发现分别记录；没有完成的验收不会标成 Stable。项目网站：[dazi.gsarrizabalaga.xyz](https://dazi.gsarrizabalaga.xyz/)；GitHub 同步不会自动更新上海 ECS 正式站。
 
 ## 数据与结果
 
@@ -20,7 +21,7 @@
 
 社区配色与布局通过 [Battery Commons](https://dazi.gsarrizabalaga.xyz/community.html) 按需使用，锁定版本和校验值。贡献需要作者与许可，模型训练授权单独选择且默认关闭。网站开发源码另存私有工程；本仓库公开技能、安装器、科研脚本、原创合成示例和社区数据。
 
-**An open toolkit for battery research:** data preparation, reproducible plotting, Figure assembly, evidence checks and Review writing. Start with DeepSeek Harness, or use another supported host. Skills are independently installable. The current v0.10.0 candidate is Beta; engineering checks, API behavior and native desktop validation are reported separately.
+**An open toolkit for battery research:** data preparation, reproducible plotting, Figure assembly, evidence checks and Review writing. Start with DeepSeek Harness, or use another supported host. Skills are independently installable. The current v0.10.1 candidate is Beta; engineering checks, API behavior and native desktop validation are reported separately.
 
 **作者：** [郭硕（Shuo Guo）、姜金龙（Jinlong Jiang）](AUTHORS.md) · 上海理工大学能源材料科学研究院
 **代码许可：** [MIT](LICENSE)

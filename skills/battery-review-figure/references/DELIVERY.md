@@ -2,6 +2,8 @@
 
 安装技能和项目虚拟环境后，使用实际发现的技能路径运行。路径可含中文和空格，要加引号。metadata 的列映射、单位、条件、style、claim 和 caption_notes 必须先核对；UTF-8 BOM 可读取。
 
+默认沿用 metadata.style。用户明确指定/改变配色时，可在 deliver.py 或 plot_uploaded.py plot 命令加 `--style 配色ID`；它只改变本次显示，原映射 JSON 不修改，图件来源记录保留 metadata_style、cli_style、effective_style 与是否明确改色。不能凭空改变科学字段或数据。Plot Starter 的 demo/plot 使用同一参数和同一实现。
+
 ```text
 python "<installed-battery-review-figure>/scripts/deliver.py" --data "我的数据.csv" --metadata "映射.json" --out "结果/全电池循环"
 ```

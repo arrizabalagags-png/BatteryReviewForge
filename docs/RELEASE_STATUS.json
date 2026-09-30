@@ -1,12 +1,12 @@
 {
-  "version": "0.10.0",
+  "version": "0.10.1",
   "channel": "beta",
   "checked_at": "2026-10-01",
   "host": "DeepSeek Harness desktop",
-  "local_engineering_checks": "Historical full regression 129 tests / 257.400 s; later focused recipe/eval, fonts, uploaded metadata and contract-sync checks recorded separately; current archive gate required.",
+  "local_engineering_checks": "0.10.1 Starter: 13 focused tests in two batches (11/227.107 s; 2/19.538 s), actual isolated venv setup and 10 chart routes; three existing recipe ZIP demos passed. Historical full regression remains 129 tests/257.400 s; not rerun for this narrower change.",
   "final_regression_record": "validation/2026-09-30-frame-final-regression.json",
-  "distribution_record": "validation/2026-10-01-distribution.json",
-  "actual_archive_gate": "PASS: 36 downloads / 62 extracted Skill reference-and-AST checks / 30 canonical demo schema checks",
+  "distribution_record": "validation/2026-10-01-release-distribution.json",
+  "actual_archive_gate": "PASS: 37 current downloads / 63 extracted Skill reference-and-AST checks / 30 canonical demo schema checks",
   "desktop_discovery_to_delivery": "NOT_RUN",
   "flash_model_evaluation": "NOT_RUN: full 69-case suite; limited direct-API pilot PARTIAL",
   "pro_model_evaluation": "NOT_RUN: full 69-case suite; limited direct-API pilot PARTIAL",
@@ -24,6 +24,7 @@
     "confirmed_token_estimated_cny": 0.67786444,
     "uncertain_request_reserved_cny": 0.415863,
     "controlled_cost_upper_bound_cny": 1.09372744,
-    "current_full_tree_behavior": "NOT_RUN: late shared-guide and missing-input reply corrections change the frozen tree"
-  }
+    "current_full_tree_behavior": "NOT_RUN: 0.10.1 Starter and fixed-program guide change the frozen tree"
+  },
+  "starter_engineering_record": "validation/2026-10-01-plot-starter.json"
 }

@@ -18,6 +18,7 @@ VERSION = json.loads((ROOT / ".codex-plugin" / "plugin.json").read_text(encoding
 OUTPUT = ROOT / "docs" / "downloads" / f"BatteryReviewForge-v{VERSION}.zip"
 TOP_LEVEL = ["README.md", "AUTHORS.md", "LICENSE", "CITATION.cff", "install.ps1", "install.sh"]
 PUBLIC_DOCS = ["docs/COMPATIBILITY.md", "docs/SKILL_NAMES.json", "docs/EVAL.md",
+               "docs/RELEASE_v0.10.1.md",
                "docs/SKILLS_QA_2026-09-30.md", "docs/RELEASE_STATUS.json",
                "docs/validation/FIGURE_FEEDBACK_2026-09-30.md",
                "docs/validation/2026-09-30-frame-final-regression.json",
@@ -26,7 +27,10 @@ PUBLIC_DOCS = ["docs/COMPATIBILITY.md", "docs/SKILL_NAMES.json", "docs/EVAL.md",
                "docs/validation/2026-09-30-recipe-eval-followup.json",
                "docs/validation/2026-09-30-recipe-font-followup.json",
                "docs/validation/2026-09-30-upload-metadata-followup.json",
-               "docs/validation/2026-10-01-api-pilot.json",
+               "docs/validation/2026-10-01-api-pilot.json", "docs/validation/2026-10-01-plot-starter.json",
+               "docs/validation/2026-10-01-luna-starter-agent.json",
+               "docs/validation/2026-10-01-luna-starter-agent-route-fix.json",
+               "docs/validation/2026-10-01-flash-starter-route-fix.json",
                "docs/DEMO_METADATA_SCHEMA.json", "scripts/check_demo_metadata.py",
                "scripts/check_skill_dependencies.py", "scripts/diagnose_install.py", "scripts/check_skill_distribution.py",
                "scripts/workflow_eval.py", "scripts/eval_provenance.py", "scripts/runtime_contract/cli_runtime.py", "docs/SOURCE_PROVENANCE.json"]

@@ -23,7 +23,7 @@ METADATA_FIELDS = frozenset({
 })
 
 
-def render_from_metadata(data: Path, metadata: Path):
+def render_from_metadata(data: Path, metadata: Path, *, style_override: str | None = None):
     """Validate author mappings and render; journal/export choices are separate."""
     config = json.loads(metadata.read_text(encoding="utf-8-sig"))
     if not isinstance(config, dict):
@@ -41,7 +41,9 @@ def render_from_metadata(data: Path, metadata: Path):
             + "; ".join(hints)
         )
     kind = config.get("kind")
-    style = config.get("style")
+    metadata_style = config.get("style")
+    style = metadata_style if style_override is None else style_override
+    config["style"] = style
     if not style:
         raise DataContractError("Missing style; ask the author to choose one shown by 'styles' and record it in metadata")
     community_provenance = None
@@ -78,6 +80,10 @@ def render_from_metadata(data: Path, metadata: Path):
     if not config.get("claim") or not config.get("caption_notes"):
         raise DataContractError("Metadata needs claim and caption_notes; preserve unknown scientific information explicitly")
     fig.batteryplot_meta["source_sha256"] = hashlib.sha256(data.read_bytes()).hexdigest()
+    fig.batteryplot_meta["style_selection"] = {
+        "metadata_style": metadata_style, "cli_style": style_override, "effective_style": style,
+        "explicit_change": style_override is not None and style_override != metadata_style,
+    }
     if community_provenance:
         fig.batteryplot_meta["community_style"] = community_provenance
     return fig, config
@@ -95,6 +101,7 @@ def main() -> None:
     plot_cmd.add_argument("--metadata", type=Path, required=True)
     plot_cmd.add_argument("--out", type=Path, required=True)
     plot_cmd.add_argument("--dpi", type=int, default=300, help="Raster preview DPI; a journal claim requires verified requirements")
+    plot_cmd.add_argument("--style", help="Explicit author-selected palette change; omitted preserves metadata.style, input JSON is unchanged")
     args = parser.parse_args()
     try:
         if args.command == "styles":
@@ -105,7 +112,7 @@ def main() -> None:
             rows = read_table(args.data, sheet=args.sheet)
             print(json.dumps(inspect_table(rows), ensure_ascii=False, indent=2))
             return
-        fig, config = render_from_metadata(args.data, args.metadata)
+        fig, config = render_from_metadata(args.data, args.metadata, style_override=args.style)
         files = save_bundle(fig, args.out, claim=config["claim"], source_data=str(args.data),
                             caption_notes=config["caption_notes"], dpi=args.dpi, close=True)
         print(json.dumps({"kind": config["kind"], "files": [str(path) for path in files]}, ensure_ascii=False, indent=2))

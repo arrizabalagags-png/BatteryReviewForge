@@ -19,6 +19,7 @@ def main():
     parser.add_argument('--journal', default='journal_neutral', help='Stored profile ID or path to an author-verified JSON profile')
     parser.add_argument('--content-class', choices=('line_art', 'image', 'mixed'), default='line_art')
     parser.add_argument('--dpi', type=int)
+    parser.add_argument('--style', help='Explicit author-selected palette; omitted preserves metadata.style, recorded without changing input JSON')
     parser.add_argument('--png-dpi', type=int)
     parser.add_argument('--tiff-dpi', type=int)
     parser.add_argument('--formats', nargs='+', choices=('pdf', 'svg', 'png', 'tiff'), default=['pdf', 'svg', 'png', 'tiff'])
@@ -37,7 +38,7 @@ def main():
         per_format = {key: value for key, value in {'png': args.png_dpi, 'tiff': args.tiff_dpi}.items() if value is not None}
         specification = resolve_specification(profile, content_class=args.content_class, requested_dpi=args.dpi, dpi_by_format=per_format)
         with tempfile.TemporaryDirectory(prefix='voltpeer-plot-') as temp:
-            fig, config = render_from_metadata(args.data, args.metadata)
+            fig, config = render_from_metadata(args.data, args.metadata, style_override=args.style)
             files = save_bundle(fig, Path(temp) / 'figure', claim=config['claim'], source_data=str(args.data),
                 caption_notes=config['caption_notes'], dpi=specification['dpi'], dpi_by_format=per_format,
                 formats=tuple(args.formats), specification=specification, close=True)

@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-01",
+  "status": "PASS",
+  "model": "gpt-6-luna",
+  "execution": "Actual Codex collaboration agent; independent output verification by root",
+  "package_sha256": "392b58b6a211c35f88a0148c95d07b9accb5b6eeb000640883466d96d3ab466a",
+  "package_bytes": 580632,
+  "scope": "Short-route updated 0.10.1 Starter",
+  "runtime_environment": "Previous isolated Python 3.12.14 Starter venv used for identical Python sources; no new pip setup in this trial",
+  "data": "Independent author-declared synthetic acceptance CSV; no actual experimental claim",
+  "input_sha256": "ecc7d1a94c0a8a40d8c29100f0508d039eccbea5e5eb55eff9210911bdcd4ab4",
+  "input_rows": 48,
+  "author_mapping": "Created by Luna from task inputs; not prefilled",
+  "curves": [
+    {
+      "series": "A",
+      "points": 24,
+      "raw_xy_exact": true,
+      "linestyle": "-",
+      "marker": null,
+      "color": "#d45f66"
+    },
+    {
+      "series": "B",
+      "points": 24,
+      "raw_xy_exact": true,
+      "linestyle": "-",
+      "marker": null,
+      "color": "#357fa7"
+    }
+  ],
+  "anomaly_100_5_retained": true,
+  "four_spines": true,
+  "formats": {
+    "figure.pdf": {
+      "bytes": 23222,
+      "sha256": "e8911183f7078f1dc5446d84bb8d3a6b3653a839b199d694b93cefd5fdbf092a"
+    },
+    "figure.png": {
+      "bytes": 41539,
+      "sha256": "7028009616574a5e823010efb685cfa1926be7ace4ebb1b7f9d3eaa6f1f02326"
+    },
+    "figure.svg": {
+      "bytes": 11334,
+      "sha256": "23fbded5e0da2ac3b08e8ec0d5472d1312387a3e976fffa13e18bdbadcd8dd6e"
+    }
+  },
+  "png_size": [
+    1051,
+    767
+  ],
+  "png_dpi": [
+    299.9994,
+    299.9994
+  ],
+  "pdf_size_mm": [
+    89,
+    65
+  ],
+  "pdf_fonts": "Embedded non-Type3 fonts",
+  "model_visual_preview": "Actually opened by Luna and root",
+  "model_final_delivery": "Short Chinese clickable PNG/SVG/PDF links and 100.5% note",
+  "billing": "Not exposed for this Codex agent; neither zero nor a paid DeepSeek API run",
+  "native_host_skill_discovery": "NOT_TESTED",
+  "all_task_generalization": "NOT_CLAIMED",
+  "missing_author_conditions": {
+    "status": "STOPPED_WITH_SHORT_MISSING_LIST",
+    "figures_created": false,
+    "scope": "Actual Luna inspect in another CSV-only project; no copied author or demo metadata",
+    "independent_gate": "No figure PNG/PDF or mapping JSON in that project"
+  }
+}

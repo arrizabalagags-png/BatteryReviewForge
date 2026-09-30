@@ -1,6 +1,6 @@
 {
   "resource_id": "li_li",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "files": [
     {
       "path": "AGENT_GUIDE.md",
@@ -36,7 +36,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "641ced35789dc727ed097377b7fd5501e931682781c30600140277aae07e973c"
+      "sha256": "e5dabf0c226d727f645d39020bbdf37098cfb57c92bf16a51ffeb8da5b0fab5f"
     },
     {
       "path": "reference/figure.png",
@@ -92,7 +92,7 @@
     },
     {
       "path": "VERSION.json",
-      "sha256": "806b55bce1a44ff40f44340432004fe5d82d1d45387b05ed3f95037c5e521184"
+      "sha256": "8cc1fa4377e88e1718fa453de2d3e93b2973dbce9a2d1c1bdfc9a2c4c4f055ce"
     }
   ]
 }

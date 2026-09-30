@@ -1,8 +1,24 @@
 # 软件适配与实际验证状态
 
-默认路线是 **DeepSeek Harness 官方桌面端 + 项目工作区技能**。技术 ID 保持 `battery-review-figure`、`battery-figure-assemble` 等；显示名支持情况不能替代技能发现检查。文档核对于 2026-10-01；本次为 **Beta**。有限Flash/Pro直连API pilot已实际执行，独立评分为PARTIAL_API_PILOT；完整69项固定行为EVAL及原生桌面发现到结果链路仍待实跑。[去敏结果和用量](validation/2026-10-01-api-pilot.json)。
+默认路线是 **DeepSeek Harness 官方桌面端 + 项目工作区技能**。技术 ID 保持 `battery-review-figure`、`battery-figure-assemble` 等；显示名支持情况不能替代技能发现检查。文档核对于 2026-10-01；本次为 **Beta**。完整69项固定行为EVAL及原生桌面发现到结果链路仍待实跑。此前有限Flash/Pro直连API pilot保留为历史 PARTIAL_API_PILOT，[去敏结果和用量](validation/2026-10-01-api-pilot.json)。
+
+## 0.10.1 固定绘图 Starter 实测
+
+冻结 ZIP：580,632 bytes，SHA-256 `392b58b6a211c35f88a0148c95d07b9accb5b6eeb000640883466d96d3ab466a`。普通上传优先 inspect → 作者确认映射 → 固定 plot → check；不先加载整套论文策划文档。
+
+| 实测入口 | 已完成 | 边界 |
+| --- | --- | --- |
+| DeepSeek Flash 直连 API + 受限文件/固定程序工具 | 独立识别非标准列名、建立作者映射，13请求/15工具后导出 PNG/SVG/PDF；48值、异常、所选配色、实线无点四框和输出完整性通过 | 最终回复为反引号相对路径，缺可点击链接：交付表达 PARTIAL。不是原生 DSH 测试；模型没有视觉工具 |
+| Codex `gpt-6-luna` collaboration agent | 新包实际安装文件、inspect、重新映射、固定出图、check、打开 PNG；48值和格式独立评分通过。另一个只有CSV的工程缺项停止、未猜条件或出图 | 依赖使用之前已安装的相同隔离 Python 环境；原生客户端发现不在本次证据内；仅测试这个 CE 任务 |
+| Codex CLI 0.146.0 / ChatGPT 登录 / `gpt-6-luna` | 实际调用返回 HTTP 400 model not supported | 此 CLI/账户入口 MODEL_UNAVAILABLE，未运行模型任务；不能用另一入口成功掩盖此失败 |
+
+[Flash 独立评分与用量](validation/2026-10-01-flash-starter-route-fix.json) · [Luna 新包评分](validation/2026-10-01-luna-starter-agent-route-fix.json) · [Luna 首轮历史评分](validation/2026-10-01-luna-starter-agent.json)。测试表是工程作者声明的合成验收数据，不代表真实实验；100.5%异常原值保留。以上有限试次不替代全部图型的模型验证或原生宿主验收。
 
 ## DeepSeek Harness 桌面端主线
+
+第一次画图可先下载 [v0.10.1 Beta 绘图 Starter](downloads/starter/VoltPeer-Plot-Starter-v0.10.1.zip)，解压后让 AI 读包内 `AGENT_GUIDE.md`。其中 `start.py setup` 仅安装隔离的 Python 环境，不需要 API key；一个固定 `batteryplot` 实现覆盖普通上传的10种图型。AI 负责识别图型、确认字段/科学条件和调用程序，不为每份数据重写绘图代码。Demo 与作者输入分开，其他任务按下面路线装单个 Skill。
+
+Starter 的 Codex 适配为项目 `.agents/skills`，DSH 为项目 `.dsh/skills`；共用标准 name/description frontmatter。路径适配和本地执行已测试，原生发现/真实模型表现仍分别记录。[Codex 官方本地目录](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills)。
 
 1. 从 [DeepSeek 官方下载页](https://www.deepseek.com/harness/)下载当前系统支持的桌面版，按官方安装步骤打开。
 2. 在设置中的 **DeepSeek 模型供应商** 保存自己在 DeepSeek 平台创建的 API key，具体入口按官方当前界面操作。模型费用以 [官方当前价格表](https://api-docs.deepseek.com/quick_start/pricing/)为准；本站和 Skill 不收取或提供模型 API key。无需把 key 发给作者或 AI。[官方快速开始](https://deepseek-harness.github.io/deepseek-harness/guide/quickstart)。

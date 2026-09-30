@@ -1,10 +1,10 @@
 {
-  "source_commit": "95aaf209f78a3b1472493352cea92be46fa55ee5",
+  "source_commit": "b46484fa4be83bcad1e26c8560a6ff570906c994",
   "source_worktree_dirty": true,
-  "source_tracked_diff_sha256": "2b45e746c633360d42ebcc9f47084b677ada7ed75a0393cdb604248427edbef6",
+  "source_tracked_diff_sha256": "672147f361f1a92df000aa673af29c0fb1c5c259073cf9fb9827635aad5d0306",
   "source_identity_origin": "actual_repository_HEAD_and_worktree",
   "skill_tree": {
-    "sha256": "bf61d9c2422ed1a65aba922c83443a2aac5bd62f6e88fa2bffa42deb0acb5615",
+    "sha256": "3e9111ee2208a46ded275b4a17925323ed9dd0c0e58ef9c339b5f91559c78aee",
     "files": [
       {
         "path": "battery-claim-check/agents/openai.yaml",
@@ -13,7 +13,7 @@
       },
       {
         "path": "battery-claim-check/assets/SKILL_RELEASE.json",
-        "sha256": "441b46fc81e0599966f4c2492edb5e64a320d49ceafb42adc9aa0b2ffc317cf1",
+        "sha256": "84f8dbef3a3ceb39be263d21b1f5043c0647bc0e10fc67d96f062aac355c8f7e",
         "bytes": 91
       },
       {
@@ -38,8 +38,8 @@
       },
       {
         "path": "battery-claim-check/SKILL.md",
-        "sha256": "cf917ce6729be2e569509029e9c6f01e8adb3c97d99577093788821a250b095d",
-        "bytes": 4964
+        "sha256": "73374e28e3a873fc7fb8d51fca0a63771b2e3954af07783e3a79a066742f1cf0",
+        "bytes": 5000
       },
       {
         "path": "battery-data-prepare/agents/openai.yaml",
@@ -48,7 +48,7 @@
       },
       {
         "path": "battery-data-prepare/assets/SKILL_RELEASE.json",
-        "sha256": "982a7dff1fb15156daba57afbe7ee59ef3f4072696e7bf189ccc6992536e9a0f",
+        "sha256": "9f253cc97544dcb57ae26fd477c97f6a016a28439f66952d2f43dd7713e8d16a",
         "bytes": 92
       },
       {
@@ -78,8 +78,8 @@
       },
       {
         "path": "battery-data-prepare/SKILL.md",
-        "sha256": "4808be235325c12631e7ac1edaa6e8d3516d85b72af902982dc726c0bef3bca5",
-        "bytes": 3527
+        "sha256": "76b9b60a442566eaf7b83b399383b85e3d4f5bd5d802bd7646345b2dab44f501",
+        "bytes": 3545
       },
       {
         "path": "battery-experiment-plan/agents/openai.yaml",
@@ -93,7 +93,7 @@
       },
       {
         "path": "battery-experiment-plan/assets/SKILL_RELEASE.json",
-        "sha256": "7d90c4d8fbdb54c6f245306919744a884013ab7e5f3c353524828d22cf60e546",
+        "sha256": "fabb69a31d90649305845036abb515f0bbea03286974a9f6fb014e1393fda238",
         "bytes": 95
       },
       {
@@ -113,8 +113,8 @@
       },
       {
         "path": "battery-experiment-plan/SKILL.md",
-        "sha256": "05771b7c7f188a4b135760d5fab094777c767cd4656812484b4ccc89ad57e35b",
-        "bytes": 3144
+        "sha256": "60d0a524a2b46ecfff7b667ce7b5efbc5efb48a93779a1c31f10fdd89913626e",
+        "bytes": 3162
       },
       {
         "path": "battery-figure-assemble/agents/openai.yaml",
@@ -123,7 +123,7 @@
       },
       {
         "path": "battery-figure-assemble/assets/SKILL_RELEASE.json",
-        "sha256": "4e6220431d9c6d612a39db5754bd9bdb0157138c000159abca1af30dc8300856",
+        "sha256": "2b01ba1f0c457c4675f7f26c7db16b2ff7d135cc954b54c913f5fd43a73fafcc",
         "bytes": 95
       },
       {
@@ -348,8 +348,8 @@
       },
       {
         "path": "battery-figure-assemble/SKILL.md",
-        "sha256": "35228ca60e884fb2d6c30600033ef094b7711e15912c26e536189577acd81207",
-        "bytes": 11566
+        "sha256": "7e3969a70fd1fa353f1bcdcff0dfc5ac223e1642a37010871a50ed9aaa9b4e61",
+        "bytes": 11613
       },
       {
         "path": "battery-literature-map/agents/openai.yaml",
@@ -358,7 +358,7 @@
       },
       {
         "path": "battery-literature-map/assets/SKILL_RELEASE.json",
-        "sha256": "8e41d91064f881062f93e385304610581c4d3eb997086f8b414c921fef32e4bd",
+        "sha256": "872f1b17faf88ff315885753a1a7faa1f07385ab1b78086335d5d246e2cc4235",
         "bytes": 94
       },
       {
@@ -393,8 +393,8 @@
       },
       {
         "path": "battery-literature-map/SKILL.md",
-        "sha256": "e3d0943c0349e1ce0d514357ddab36bd99c6b534ef8841680131340f1f7ebf65",
-        "bytes": 3735
+        "sha256": "d2beb84c4cf6384fd869dd6135643c15d0da89386fae262d947b0656a2372361",
+        "bytes": 3759
       },
       {
         "path": "battery-metrics-audit/agents/openai.yaml",
@@ -403,7 +403,7 @@
       },
       {
         "path": "battery-metrics-audit/assets/SKILL_RELEASE.json",
-        "sha256": "43fdb953bdbeecf125fcd8676d6c42198885dac6d5208b8db2031fa104f276de",
+        "sha256": "3b735bfa7de28c0b6d3f4d458f2103929267df7b63aadb665306ed93624885b5",
         "bytes": 93
       },
       {
@@ -428,8 +428,8 @@
       },
       {
         "path": "battery-metrics-audit/SKILL.md",
-        "sha256": "967ed12033cfe16bba9a749c057d45ee1ea0f0b6226525f184a645ebd8421015",
-        "bytes": 8237
+        "sha256": "9495bc9bb2e04b301e2cc1f89f4d20492584795f50e724bbe0d1987a0ba8f22d",
+        "bytes": 8295
       },
       {
         "path": "battery-review-audit/agents/openai.yaml",
@@ -438,7 +438,7 @@
       },
       {
         "path": "battery-review-audit/assets/SKILL_RELEASE.json",
-        "sha256": "969913d366013b5d28aca7bc26caa3954aea9a6b74833e632b4fa933e4acf5fb",
+        "sha256": "d3192ac785d63cf10c0a1db574b76c3befad751a829d00ef10c7ab6ba27c7977",
         "bytes": 92
       },
       {
@@ -458,8 +458,8 @@
       },
       {
         "path": "battery-review-audit/SKILL.md",
-        "sha256": "c8b12a1453fab45d4b95335d5801b661591dd51ec7dfa426ee1b1c4f20559121",
-        "bytes": 3183
+        "sha256": "8fbef67db034290c8b496451607f6310bcb6a2ef299dd95ec77da04db7d42bf8",
+        "bytes": 3205
       },
       {
         "path": "battery-review-figure/agents/openai.yaml",
@@ -503,7 +503,7 @@
       },
       {
         "path": "battery-review-figure/assets/SKILL_RELEASE.json",
-        "sha256": "c1d44fc0c174c05a15d117b16bbb1b4417dc6d88935625e33320e90ccd3957da",
+        "sha256": "74b3bef2ebfaaad5d3f5fa584242e7747f148b066c89bd23b7fcd06bb0673ce0",
         "bytes": 93
       },
       {
@@ -573,8 +573,8 @@
       },
       {
         "path": "battery-review-figure/references/DELIVERY.md",
-        "sha256": "b4c5fc898c55a503ae8499673474c1b46e70c7c94be638324a9fd86af36f0ccd",
-        "bytes": 2528
+        "sha256": "bcc7f57a08129ea311e761c103485625bf96d0fa232cb587f0e4db5ce2c44624",
+        "bytes": 2925
       },
       {
         "path": "battery-review-figure/references/ELECTROCHEM_RECIPES.md",
@@ -610,6 +610,11 @@
         "path": "battery-review-figure/references/PLOT_QA_CHECKLIST.md",
         "sha256": "02853cc20ab2db54c46a22d50995ad07437ea201a3d0f91f39b71d2affae0ce7",
         "bytes": 3102
+      },
+      {
+        "path": "battery-review-figure/references/PLOT_STARTER.md",
+        "sha256": "2bb891fe83fa031e87878780841d6d88c32b601df8b0b9dee060104a7343ac67",
+        "bytes": 4880
       },
       {
         "path": "battery-review-figure/references/PYTHON_PLOTTING.md",
@@ -778,8 +783,8 @@
       },
       {
         "path": "battery-review-figure/scripts/deliver.py",
-        "sha256": "7fff8d75bad8647cc2b449bf87e1195990206b3e2f8a237445248b54e4ec9880",
-        "bytes": 3367
+        "sha256": "559781fb4fbad219a448f88fa8dcb8089fa425c4829f3bd6b349ed1bb09af2bb",
+        "bytes": 3540
       },
       {
         "path": "battery-review-figure/scripts/delivery_contract.py",
@@ -793,8 +798,8 @@
       },
       {
         "path": "battery-review-figure/scripts/plot_uploaded.py",
-        "sha256": "68bbbf490a8b0e2c3779f7395be8416e1996ff7fc1d8d96525374bbc20bd367d",
-        "bytes": 6530
+        "sha256": "d9cf8d5848950daea87ed2018144750eb9b82cc8495f3923f3d960ee9b237eef",
+        "bytes": 7088
       },
       {
         "path": "battery-review-figure/scripts/preview_styles.py",
@@ -818,8 +823,8 @@
       },
       {
         "path": "battery-review-figure/SKILL.md",
-        "sha256": "391412c960aaeb0537ad749000d82dbd7a10e09dddb6b4083d0b59f5a0a4a2cc",
-        "bytes": 17416
+        "sha256": "bd29d1b314d4e2ed616199e524c52c767f6641a07da79b4c708e5363443bdc21",
+        "bytes": 21757
       },
       {
         "path": "battery-review-forge/agents/openai.yaml",
@@ -828,7 +833,7 @@
       },
       {
         "path": "battery-review-forge/assets/SKILL_RELEASE.json",
-        "sha256": "b82090f383fc12610172ea6f2e8c06cfe4abf742afd7f0ba1e9aea4bc0a82165",
+        "sha256": "a86a72c27f5ee1f0388634de0830196a0f3b43d66f1123a3b842d3bf8e780034",
         "bytes": 92
       },
       {
@@ -873,8 +878,8 @@
       },
       {
         "path": "battery-review-forge/SKILL.md",
-        "sha256": "65596803b4759161a4f629ed9dcc95a2b818bcbc6010300ff294e95e06be956e",
-        "bytes": 8299
+        "sha256": "f7faebb01445167c38044b788d1f7d50e79f95a7e5bcaab41ebb63e1b1b53f86",
+        "bytes": 8364
       },
       {
         "path": "battery-review-plan/agents/openai.yaml",
@@ -883,7 +888,7 @@
       },
       {
         "path": "battery-review-plan/assets/SKILL_RELEASE.json",
-        "sha256": "2ca387cc64ec554b875a49fb7080f1522c502355f2c73cad35eaaaf5a827217a",
+        "sha256": "513346e1a4d8a1eb179003d280435cb99e3f20bb2a589925be32535bfa17c8a0",
         "bytes": 91
       },
       {
@@ -908,8 +913,8 @@
       },
       {
         "path": "battery-review-plan/SKILL.md",
-        "sha256": "effb65258eb194c449668614600cf874bfda70be92d970ea443ce9ec919826f7",
-        "bytes": 4628
+        "sha256": "f0b1c246869e12559d4c74d620fe0bc37514e3905a9952c36caac335bfd4b2aa",
+        "bytes": 4674
       },
       {
         "path": "battery-review-polish/agents/openai.yaml",
@@ -918,7 +923,7 @@
       },
       {
         "path": "battery-review-polish/assets/SKILL_RELEASE.json",
-        "sha256": "a2ce177f954e45b0378c66637c6bcd64bd755682f8ca253edbe561068e24055a",
+        "sha256": "68d13c1c68701f72b1c985744751817079c3656accd31430e8bce1e418bc3eb3",
         "bytes": 93
       },
       {
@@ -938,8 +943,8 @@
       },
       {
         "path": "battery-review-polish/SKILL.md",
-        "sha256": "32edc5a934ddb36cb4849e4340ef4a39490d5f9d78a8e7558d8fea7e9f304da9",
-        "bytes": 2610
+        "sha256": "9923986804ecf8b362a7a1eb45f454d421df4400baf5e4c535964cade1791b18",
+        "bytes": 2632
       },
       {
         "path": "battery-review-response/agents/openai.yaml",
@@ -948,7 +953,7 @@
       },
       {
         "path": "battery-review-response/assets/SKILL_RELEASE.json",
-        "sha256": "85e5feaeeed2e3028c35402dd7ef3cfaef7d72cabb5b61345f29ffddc396524f",
+        "sha256": "d6bb099f0764e53d63ded0b8517005cba8ca7ffa4c644f274827852527a0e8ff",
         "bytes": 95
       },
       {
@@ -973,8 +978,8 @@
       },
       {
         "path": "battery-review-response/SKILL.md",
-        "sha256": "1e3e958eb9e0c8131efb74ccf821d1630f7b68064e4b0154e4c72c319f807286",
-        "bytes": 2789
+        "sha256": "7d29011cfbac46988355d9f02d8af1f08c36aaddf3ceacd60343f0ff476e06c9",
+        "bytes": 2813
       },
       {
         "path": "battery-review-submission/agents/openai.yaml",
@@ -983,7 +988,7 @@
       },
       {
         "path": "battery-review-submission/assets/SKILL_RELEASE.json",
-        "sha256": "e7d665cceefb1d059c220bc6c031016741086aab45f95166c48436407ae77723",
+        "sha256": "b1094e6cc1df2de83b68d1eca39594599242419b6707bdfa9c891d26a0462d9d",
         "bytes": 97
       },
       {
@@ -1008,8 +1013,8 @@
       },
       {
         "path": "battery-review-submission/SKILL.md",
-        "sha256": "8e5933f8dd6c66e224d1701970da2a077e9b1866d878ac7f5c16b080c36f5802",
-        "bytes": 3775
+        "sha256": "1359c1b79729a21f8cecabbc3d479606e0c6901dfc2097cef09830a96018288c",
+        "bytes": 3803
       },
       {
         "path": "battery-review-write/agents/openai.yaml",
@@ -1018,7 +1023,7 @@
       },
       {
         "path": "battery-review-write/assets/SKILL_RELEASE.json",
-        "sha256": "8ec4f85045a0627d4507f0ed5f2bbb9f6feeae0ba4721bd74ff6c887773d91ae",
+        "sha256": "9c7ae2f4fcd67a000951b04b683b4415df2c68d2c523f895e9765e320cfb8671",
         "bytes": 92
       },
       {
@@ -1038,8 +1043,8 @@
       },
       {
         "path": "battery-review-write/SKILL.md",
-        "sha256": "1e5f92e2b17fcfc479d8c41831df17cfd0a6cb21611840f107653a4bb7ae1d05",
-        "bytes": 3630
+        "sha256": "f6e9bd2c34bdada3436626c8bdd02a8107a1bf840c275548762cbf0de311e514",
+        "bytes": 3660
       },
       {
         "path": "battery-reviewer/agents/openai.yaml",
@@ -1048,7 +1053,7 @@
       },
       {
         "path": "battery-reviewer/assets/SKILL_RELEASE.json",
-        "sha256": "fc5f67a4461797ca397cabb6e933e6875a44f945788aaaf61baf46fca358068c",
+        "sha256": "d82c4bec3411c6f8854fca851d3195c0e027985fb2e3c2bc6dcc19351cf56b50",
         "bytes": 88
       },
       {
@@ -1068,8 +1073,8 @@
       },
       {
         "path": "battery-reviewer/SKILL.md",
-        "sha256": "c286ccbca9a56439a6c11dea4861b2bfaf850890c65a5f3faa8a2a1bc99f5e01",
-        "bytes": 3010
+        "sha256": "389193595975ca8cb1a65ecadad985ba8d000be6709ffee1940c78e929af726a",
+        "bytes": 3030
       }
     ]
   },

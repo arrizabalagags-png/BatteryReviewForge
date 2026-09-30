@@ -1,6 +1,6 @@
 {
   "resource_id": "operando_xrd",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "files": [
     {
       "path": "AGENT_GUIDE.md",
@@ -40,7 +40,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "c84689af71f3a5f5308d3ad93f85aa16f5db453b940d2e538b8322ab51a12d77"
+      "sha256": "7e48200efd8962c5a91cb37ffa6e205d6182d4d4ac91be3621282219190b90ec"
     },
     {
       "path": "reference/figure.png",
@@ -96,7 +96,7 @@
     },
     {
       "path": "VERSION.json",
-      "sha256": "f50446de655646db4669510f03073702335e11d8b78209926c1d585a69b9d731"
+      "sha256": "2ceb3ca22c75a8fbb5a562636e719fda2ee3fba45a40eae4bd1e7c1a3284f75d"
     }
   ]
 }

@@ -1,6 +1,6 @@
 # VoltPeer 可复现绘图包：li_li
 
-resource_id=`li_li`，候选版本0.10.0 / Beta。源码、演示、依赖、输入契约和接手说明均在本包，不要求完整仓库或全局Skill。
+resource_id=`li_li`，候选版本0.10.1 / Beta。源码、演示、依赖、输入契约和接手说明均在本包，不要求完整仓库或全局Skill。
 
 ## 先验证环境
 

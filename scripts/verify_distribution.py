@@ -154,6 +154,41 @@ def main() -> None:
             validate_metadata(reference)
             assert reference == json.loads((ROOT/'examples/showcase'/row['resource_id']/'metadata.json').read_text(encoding='utf-8'))
         report.append({'file':path.relative_to(downloads).as_posix(),'bytes':row['bytes'],'sha256':row['sha256']})
+    starter_index = json.loads((downloads/'starter/plot-starter.json').read_text(encoding='utf-8'))
+    assert starter_index['schema_version'] == 1 and len(starter_index['packs']) == 1
+    for row in starter_index['packs']:
+        assert row['resource_id'] == 'plot_starter' and row['version'] == version and row['channel'] == release['channel']
+        assert row['hosts'] == ['dsh','codex'] and row['scientific_runtime'] == 'batteryplot'
+        assert Path(row['file']).name == row['file']
+        path = downloads/'starter'/row['file']
+        assert path.stat().st_size == row['bytes'] and hashlib.sha256(path.read_bytes()).hexdigest() == row['sha256']
+        with TemporaryDirectory(prefix='voltpeer-starter-gate-') as directory, ZipFile(path) as archive:
+            target = Path(directory)
+            unpack(archive, target)
+            assert {p.name for p in target.iterdir()} == {'plot_starter'}
+            package = target/'plot_starter'
+            manifest = json.loads((package/'PACKAGE_MANIFEST.json').read_text(encoding='utf-8'))
+            assert manifest['version'] == version and manifest['resource_id'] == row['resource_id']
+            assert manifest['scientific_runtime'] == 'batteryplot' and manifest['api_key_for_install'] is False
+            declared = [item['path'] for item in manifest['files']]
+            actual = {p.relative_to(package).as_posix() for p in package.rglob('*') if p.is_file() and p.name != 'PACKAGE_MANIFEST.json'}
+            assert len(declared) == len(set(declared)) and set(declared) == actual
+            assert {'start.py','README.md','AGENT_GUIDE.md','INPUT_GUIDE.md','LICENSE','HOSTS.json','DEMO_INDEX.json'} <= actual
+            for item in manifest['files']:
+                checked = (package/item['path']).resolve()
+                assert checked.is_relative_to(package.resolve()) and checked.is_file()
+                assert hashlib.sha256(checked.read_bytes()).hexdigest() == item['sha256']
+            for name in ('start.py','README.md','AGENT_GUIDE.md','INPUT_GUIDE.md'):
+                assert same_source(package/name, ROOT/'examples/plot_starter'/name)
+            isolated_checks += inspect_skills(package/'skills', {'battery-review-figure'}, version)
+            assert len(list(package.rglob('batteryplot/__init__.py'))) == 1, 'Host adapters must not fork the scientific runtime'
+            demos = json.loads((package/'DEMO_INDEX.json').read_text(encoding='utf-8'))
+            assert set(demos) == set(row['plot_kinds']) and len(demos) == 10
+            for item in demos.values():
+                assert item['data_status'] == 'synthetic_demo' and item['author_data_fallback'] is False
+                for key in ('data','metadata'):
+                    assert (package/item[key]).resolve().is_relative_to(package.resolve()) and (package/item[key]).is_file()
+        report.append({'file':path.relative_to(downloads).as_posix(),'bytes':row['bytes'],'sha256':row['sha256']})
     demo_checks = []
     for metadata in sorted((ROOT/'examples/showcase').glob('*/metadata.json')):
         identity = metadata.parent.name
@@ -167,6 +202,7 @@ def main() -> None:
               "downloaded_skill_file_closure_and_body": "PASS", "downloaded_python_requirements_match_source": "PASS",
               "text_source_comparison": "CRLF/LF-normalized; ZIP manifests and archive hashes are byte-exact",
               "recipe_runtime_and_manifest_closure": "PASS",
+              "plot_starter_manifest_and_single_runtime_closure": "PASS",
               "demo_schema_source_site_zip_checks": demo_checks, "real_host_model_behavior": "NOT_RUN"}
     (outputs / "version-consistency.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     checksums = "".join(f"{r['sha256']}  {r['file']}\n" for r in report)
