@@ -1,39 +1,33 @@
 # 电研搭子 · VoltPeer
 
-**Open-source skill package: BatteryReviewForge.** 网站采用新名字，仓库、安装包和技能名称保持兼容。
+**面向电池科研的开源 AI 技能工具箱。** 整理数据、用可复现脚本画图、把已有面板拼成 Figure、核对文献证据，以及撰写和修改综述。
 
-![BatteryReviewForge wordmark](assets/brand.svg)
+![VoltPeer wordmark](assets/brand.svg)
 
-**第一次用？** 打开[上手页](https://dazi.gsarrizabalaga.xyz/start.html)：准备 AI 软件、安装 BatteryReviewForge、用演示包画第一张图。也可以先看[样图库](https://dazi.gsarrizabalaga.xyz/gallery.html)、[为什么用它](https://dazi.gsarrizabalaga.xyz/why.html)和[模型怎么选](https://dazi.gsarrizabalaga.xyz/models.html)。**New here?** Start with the [three-stage guide in English](https://dazi.gsarrizabalaga.xyz/start.html?lang=en), [gallery](https://dazi.gsarrizabalaga.xyz/gallery.html), or [Why page](https://dazi.gsarrizabalaga.xyz/why.html).
+15 个独立 Skill，可以只装一个处理眼前的任务，也可以让协调技能串联完整项目。主推 [DeepSeek Harness 桌面版](https://www.deepseek.com/harness/)；Codex、Kimi Code 和 WorkBuddy 的使用方式保留在[兼容说明](https://github.com/arrizabalagags-png/BatteryReviewForge/blob/codex/public-skills/docs/COMPATIBILITY.md)。VoltPeer 是独立开源项目，与这些客户端没有官方隶属关系。仓库与安装包保留 BatteryReviewForge 名称，保持兼容。
 
-**把重复画图、拼图、查证和改稿的工夫省下来，留给真正的科研思考。** 这是一个免费、开放、欢迎一起改的电池科研工具箱。你可以直接给 Codex 一份数据表、一堆待拼的图，或一篇正在写的综述；它会先识别材料与缺少的测试条件，再按对应的小技能完成工作。代码和空白模板可公开复用，论文原图和未授权素材不会混入公共库。
+## 开始使用
 
-**数据与成图：** 本仓库的开源许可不接管你的原始数据或图。随包绘图和拼图脚本不在图面强加项目水印；本站没有文件上传入口。若把材料交给在线 AI 软件，其处理方式取决于该软件和账户设置。SVG/PDF 的普通元信息及溯源 JSON 中的数据路径，分享前应检查。详见[数据与责任说明](https://dazi.gsarrizabalaga.xyz/disclaimer.html)。
+- **第一次用：** 按[安装指南](https://github.com/arrizabalagags-png/BatteryReviewForge/blob/codex/public-skills/docs/COMPATIBILITY.md#deepseek-harness-桌面端主线)选择工作区、安装技能，再跑一个演示。
+- **已经会装：** [直接下载 v0.10.0 Beta 完整包](https://github.com/arrizabalagags-png/BatteryReviewForge/raw/refs/heads/codex/public-skills/docs/downloads/BatteryReviewForge-v0.10.0.zip)，或在下方按任务选单个 Skill。
+- **准备开发：** 查看技能源码、[固定行为评估方案](https://github.com/arrizabalagags-png/BatteryReviewForge/blob/codex/public-skills/docs/EVAL.md)和[可复现绘图包](https://github.com/arrizabalagags-png/BatteryReviewForge/blob/codex/public-skills/examples/recipe_packs/README.md)。
 
-**想先试试？** 不用知道技能名称：把材料交给助手，说“先告诉我你看到了什么、能做什么、还缺什么，再建议一张预览；不要猜数值，也别改原始文件”。复杂拼图和示意图的初版质量会受模型看图与推理能力影响；确定的数值图由脚本读取文件生成，成图仍需与原始数据逐项核对。
+当前新版是 **v0.10.0 Beta**，维护在 `codex/public-skills`。本地代码与分发包检查、真实模型行为、原生客户端发现分别记录；没有完成的验收不会标成 Stable。项目网站：[dazi.gsarrizabalaga.xyz](https://dazi.gsarrizabalaga.xyz/)；GitHub 同步不会自动更新上海 ECS 正式站。
 
-**大家共享的办法：** [Battery Commons](https://dazi.gsarrizabalaga.xyz/community.html) 第一阶段提供经过格式检查的社区配色与布局。普通绘图仍使用随包稳定风格；只有你主动要求时，技能才查看社区目录，并锁定所选版本与校验值。公开投稿要有作者与许可，不会默认用于模型训练。
+## 数据与结果
 
-**Give Codex a battery data table, a folder of panels, or a draft Review.** The toolkit helps with repetitive plotting, assembly, evidence checks and writing so researchers can spend more time on the scientific question. It is free to use and improve together.
+图表由代码读取原始数值生成，保留单位、条件和来源记录；不静默覆盖旧结果。数据、论文和成图的权利仍属于作者，项目不强加图面水印。本站没有研究文件上传入口，API Key 只在使用的官方软件中配置。在线模型对材料的处理取决于所选软件和账户设置；对外分享前请核对画面及元信息。
 
-**Data and figures:** The repository's open-source license does not transfer your research data or artwork to the project. Bundled plotting and assembly scripts do not impose a project watermark. The website has no file-upload form; an online AI host handles material according to its own terms and account settings. Inspect ordinary SVG/PDF metadata and any paths in provenance JSON before sharing files. See the [data and responsibility notes](https://dazi.gsarrizabalaga.xyz/disclaimer.html).
+社区配色与布局通过 [Battery Commons](https://dazi.gsarrizabalaga.xyz/community.html) 按需使用，锁定版本和校验值。贡献需要作者与许可，模型训练授权单独选择且默认关闭。网站开发源码另存私有工程；本仓库公开技能、安装器、科研脚本、原创合成示例和社区数据。
 
-**First try:** Give the assistant your material and ask it to report what it found, what it can make, what is missing, and one suggested preview. Complex layout and schematic choices depend partly on the model's visual reasoning. Numeric plotting should read the source file through reproducible code; always compare the export with the original data.
+**An open toolkit for battery research:** data preparation, reproducible plotting, Figure assembly, evidence checks and Review writing. Start with DeepSeek Harness, or use another supported host. Skills are independently installable. The current v0.10.0 candidate is Beta; engineering checks, API behavior and native desktop validation are reported separately.
 
-**Shared methods:** The opt-in [Battery Commons registry](https://dazi.gsarrizabalaga.xyz/community.html) starts with versioned palettes and layouts. Built-in styles remain the default; a community asset is fetched only when requested, pinned by version and hash, and never executed as code. Contributions require authorship and a license. Model-training permission is separate and off by default.
+**作者：** [郭硕（Shuo Guo）、姜金龙（Jinlong Jiang）](AUTHORS.md) · 上海理工大学能源材料科学研究院
+**代码许可：** [MIT](LICENSE)
 
-**An open battery research toolkit for turning data, existing panels, and literature into traceable figures and evidence-led Reviews.**
+## 稳定基线的技能与技术说明
 
-English · [简体中文](#简体中文)
-
-**Open-source scope / 开源范围：** This repository publishes the skills, scientific plotting library, reproducible examples, installers and community data. New website development source is maintained privately. Earlier public website commits remain in history. 本次起，网站开发源码与技能仓库分开维护；已发布的旧版本历史仍可查阅。
-
-BatteryReviewForge is a modular set of Codex skills for battery researchers writing Reviews and Perspectives. Each skill has one job, so a request to polish a paragraph does not launch a submission workflow, and a figure audit does not silently rewrite the article. A small coordinator handles full projects. The repository contains a Codex plugin manifest at `.codex-plugin/plugin.json`, a portable `plugin.json`, and an original Python plotting library inside the figure skill. No MCP server or paid database is required.
-
-**Authors and collaboration:** [郭硕（Shuo Guo） and 姜金龙（Jinlong Jiang）](AUTHORS.md) · 上海理工大学能源材料科学研究院
-**License:** [MIT](LICENSE)
-
-维护记录：[20 个公开科研技能的学习与取舍](docs/RESEARCH_SKILL_REVIEW.md)。
+以下内容对应 `main` 中保留的 v0.9.2 基线。新版的安装、代码与验证记录请使用上方 v0.10.0 Beta 入口。
 
 ## Choose a skill
 
