@@ -146,6 +146,7 @@ def main() -> None:
                 assert same_source(package/name, source/name), (row['resource_id'], name)
             runtime = ROOT / 'examples/recipe_packs/_runtime/recipe_runtime.py'
             assert same_source(package/'src/recipe_runtime.py', runtime)
+            assert same_source(package/'src/font_coverage.py', runtime.parent/'font_coverage.py')
             assert same_source(package/'src/renderer.py', runtime.parent/f"render_{row['resource_id']}.py")
             for name in ('output_safety.py', 'delivery_contract.py', 'share_bundle.py', 'cli_runtime.py'):
                 assert same_source(package/'src'/name, ROOT/'scripts/runtime_contract'/name)

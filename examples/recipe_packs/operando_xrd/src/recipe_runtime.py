@@ -341,7 +341,7 @@ def curve_colors(cfg, identities):
 
 
 def finish(fig, axes, cfg, handles, texts, *, base_height=3.4):
-    import matplotlib.font_manager as fm
+    from font_coverage import install_font_guard
     font = number(cfg.get('style', {}).get('font_pt', 8), 'style.font_pt')
     if not 6 <= font <= 16:
         raise ContractError('style.font_pt需6–16 pt；更大字号请改项目副本布局后检查。')
@@ -366,6 +366,7 @@ def finish(fig, axes, cfg, handles, texts, *, base_height=3.4):
         ax.xaxis.label.set_size(font)
         ax.yaxis.label.set_size(font)
         ax.text(0, 1.03, chr(97 + i), transform=ax.transAxes, fontweight='bold', fontsize=font)
+    install_font_guard(fig)
     fig.canvas.draw()
     if legend is not None:
         box = legend.get_window_extent(fig.canvas.get_renderer())
@@ -388,15 +389,14 @@ def run(kind, render, argv=None):
         import matplotlib
         matplotlib.use('Agg')
         import matplotlib.pyplot as plt
-        import matplotlib.font_manager as fm
-        names = {f.name for f in fm.fontManager.ttflist}
-        cjk = next((n for n in ('Microsoft YaHei', 'Noto Sans CJK SC', 'SimHei', 'PingFang SC') if n in names), None)
-        visible = str(cfg.get('title', '')) + ''.join(cfg.get('labels', {}).values()) + ''.join(r['sample'] for t in tables.values() if t for r in t['rows'][:50])
-        if any('\u4e00' <= ch <= '\u9fff' for ch in visible) and cjk is None:
-            raise ContractError('中文标签需要本机CJK字体（如微软雅黑/Noto Sans CJK）；请在隔离环境中配置，不输出缺字图。')
         style = cfg.get('style', {})
         font = number(style.get('font_pt', 8), 'style.font_pt')
-        with plt.rc_context({'font.family': [cjk, 'DejaVu Sans'] if cjk else ['DejaVu Sans'], 'font.size': font, 'pdf.fonttype': 42, 'svg.fonttype': 'none', 'axes.spines.top': True, 'axes.spines.right': True, 'axes.spines.bottom': True, 'axes.spines.left': True, 'lines.linewidth': 1.1}):
+        requested_fonts = style.get('font_family', ['DejaVu Sans'])
+        if isinstance(requested_fonts, str):
+            requested_fonts = [requested_fonts]
+        if not isinstance(requested_fonts, list) or not requested_fonts or any(not isinstance(name, str) or not name.strip() for name in requested_fonts):
+            raise ContractError('style.font_family需非空字体名称或名称列表；不会静默忽略无效字体配置。')
+        with plt.rc_context({'font.family': requested_fonts, 'font.size': font, 'pdf.fonttype': 42, 'svg.fonttype': 'none', 'axes.spines.top': True, 'axes.spines.right': True, 'axes.spines.bottom': True, 'axes.spines.left': True, 'lines.linewidth': 1.1}):
             fig, checks = render(cfg, tables)
             frames, color_checks, assigned_colors = [], [], {}
             from matplotlib.colors import to_hex
@@ -441,7 +441,8 @@ def run(kind, render, argv=None):
                 record = {'schema_version': 1, 'resource_id': kind, 'pack_version': version['version'], 'data_status': cfg['data_status'], 'conditions': conditions,
                           'input_records': [{'file': t['path'].name, 'sha256': t['sha256'], 'rows': len(t['rows']), 'columns': t['columns']} for t in tables.values() if t],
                           'exact_data_artist_checks': checks, 'data_frame_checks': frames, 'data_color_checks': color_checks,
-                          'curve_color_assignments': assigned_colors, 'plotted_data_sha256': data_hash, 'unit_mapping': cfg['units'],
+                          'curve_color_assignments': assigned_colors, 'font_glyph_checks': fig.voltpeer_font_report,
+                          'plotted_data_sha256': data_hash, 'unit_mapping': cfg['units'],
                           'export': {'formats': formats, 'dpi_by_format': {f: dpis[f] if f in dpis else None for f in formats}, 'tiff_compression': 'tiff_lzw' if 'tiff' in formats else None},
                           'scientific_review': 'pending_author_review', 'material_questions': warnings, 'model_behavior_eval': 'NOT_RUN',
                           'generated_at': datetime.now(timezone.utc).isoformat(timespec='seconds'),

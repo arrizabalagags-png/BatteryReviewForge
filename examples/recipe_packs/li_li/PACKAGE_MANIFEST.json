@@ -4,7 +4,7 @@
   "files": [
     {
       "path": "AGENT_GUIDE.md",
-      "sha256": "193b3a29eb1b8f7752318aa85568b84a9e5968b124a0b34309f052aa18c9a931"
+      "sha256": "4488e84495ba1fc494619b06251e37da162df075ce0554e10f18d39bd02ba7d0"
     },
     {
       "path": "checks.py",
@@ -28,7 +28,7 @@
     },
     {
       "path": "input_contract.json",
-      "sha256": "9cd107b0acdf4fbdf5f12c433d031876fcb6e068b457a9c311e5e36847b339da"
+      "sha256": "292382a8827dd8ba323edc9b890611ba798b32c654fcfb93030012b745691874"
     },
     {
       "path": "LICENSE",
@@ -67,6 +67,10 @@
       "sha256": "e0548e2c0c61c72bfb859d3ef42f5288437dc207d2a7e68a890205ff9ee35524"
     },
     {
+      "path": "src/font_coverage.py",
+      "sha256": "d059fafc3850acbac892865b39fa1cf9ea8d8f6bf57361a17b9e8c4bbdbe2cde"
+    },
+    {
       "path": "src/output_safety.py",
       "sha256": "6f2b035179f83ae3fa25ea54a5d43c0cedf47ff5e0576daf979c3fb8fc0f11da"
     },
@@ -76,7 +80,7 @@
     },
     {
       "path": "src/recipe_runtime.py",
-      "sha256": "2f27ce356efd9a485ae12907fbf3265d7a9dd594e5eac12f1efcabd4f8b9f494"
+      "sha256": "533c87a6d8166dcb679d95dfbc13c817519e7603f649df0d539d4c768d498090"
     },
     {
       "path": "src/renderer.py",

@@ -4,8 +4,8 @@
   "archives": [
     {
       "file": "BatteryReviewForge-v0.10.0.zip",
-      "bytes": 896181,
-      "sha256": "0fee3b85e2e59702ad1cc02a62f356fb71bc83bb5c94d9c7a374300f44dcdac0"
+      "bytes": 899552,
+      "sha256": "423a0ba5f4d0827f595b63d410ea96aa639d057903306deaa862e14f8e4654f0"
     },
     {
       "file": "BatteryReviewForge-WorkBuddy-v0.10.0.zip",
@@ -169,18 +169,18 @@
     },
     {
       "file": "recipes/VoltPeer-full_cell-0.10.0.zip",
-      "bytes": 220158,
-      "sha256": "adcbb8f232b216f218d594220c8bc906ffa2cd5e320727f87f720d3fb87716ac"
+      "bytes": 223053,
+      "sha256": "5c2b4413f3650e08416c652bdf370592657f2253c993bd7ab739d35610cf7ba3"
     },
     {
       "file": "recipes/VoltPeer-li_li-0.10.0.zip",
-      "bytes": 273010,
-      "sha256": "43ce075559f65146fc95cc027c9539aae56d6181fed8540b0bc579607189ab84"
+      "bytes": 275904,
+      "sha256": "04c681f4503e167ff58dcf2b7ebdafa20dd7b0ca1633d12b663689ef9784ae41"
     },
     {
       "file": "recipes/VoltPeer-operando_xrd-0.10.0.zip",
-      "bytes": 156127,
-      "sha256": "56a1b7077342eba658bdf3f857d5e605c4b3ced2dad2e5bb3e535a87a73019ee"
+      "bytes": 159031,
+      "sha256": "1b4c9cff409b50ff7cd2584fec484b256156ea26c201631a9dcb314e1d2e745e"
     }
   ],
   "isolated_skill_checks": 62,
@@ -402,33 +402,114 @@
     }
   ],
   "real_host_model_behavior": "NOT_RUN",
-  "actual_packaged_eval_cli": {
-    "archive": "BatteryReviewForge-v0.10.0.zip",
-    "bytes": 896181,
-    "sha256": "0fee3b85e2e59702ad1cc02a62f356fb71bc83bb5c94d9c7a374300f44dcdac0",
-    "fixture_integrity": {
-      "fixture_integrity": "PASS",
-      "errors": [],
-      "base_cases": 65,
-      "evidence_conflict_cases": 4,
-      "total_cases": 69,
-      "model_behavior": "NOT_RUN"
+  "current_followup_record": "2026-09-30-recipe-font-followup.json",
+  "actual_recipe_zip_execution": [
+    {
+      "resource_id": "full_cell",
+      "version": "0.10.0",
+      "file": "VoltPeer-full_cell-0.10.0.zip",
+      "sha256": "5c2b4413f3650e08416c652bdf370592657f2253c993bd7ab739d35610cf7ba3",
+      "bytes": 223053,
+      "validation": "package_structure_checked; see local QA for extracted execution; model NOT_RUN",
+      "actual_extracted_execution": "PASS",
+      "elapsed_seconds": 5.703,
+      "formats": [
+        "pdf",
+        "png",
+        "svg",
+        "tiff"
+      ],
+      "input_sha256_unchanged": {
+        "cycling.csv": "85d6a89f681e27e0c1483b0a56ee0b41ef8f071418e3192666df49572906deef",
+        "profiles.csv": "b1c81edc874c20bd8bdf42bfe7ce4c7810c3c1769db52d22d1bcc591c1a191e1"
+      },
+      "actual_curve_identity_colors": {
+        "Demo sample A:capacity": "#1f77b4",
+        "Demo sample B:capacity": "#2ca02c",
+        "Demo sample A:profile:1": "#9467bd",
+        "Demo sample A:profile:20": "#8c564b",
+        "Demo sample A:profile:40": "#e377c2",
+        "Demo sample B:profile:1": "#7f7f7f",
+        "Demo sample B:profile:20": "#bcbd22",
+        "Demo sample B:profile:40": "#17becf",
+        "Demo sample A:CE": "#ff7f0e",
+        "Demo sample B:CE": "#d62728"
+      },
+      "data_axes_checked": 3,
+      "scientific_review": "pending_author_review",
+      "model_behavior": "NOT_RUN",
+      "font_glyph_checks": "PASS; all final recorded texts have actual-font cmap coverage and font file SHA-256"
     },
-    "actual_packaged_prepare": "PASS",
-    "schema_version": 2,
-    "source_identity_origin": "packaged_source_provenance; commit plus recorded worktree state",
-    "source_commit": "c61942f97baee6f93df62ac78e4c222ae82c73c2",
-    "source_worktree_dirty": true,
-    "frozen_installed_skill_files": 7,
-    "skill_tree_sha256": "2e1a0810bdb4f1ea43a19cc47a6199213a07f60329e340fb8f638b27559118ea",
-    "preparation_environment": {
-      "os": "Windows",
-      "os_release": "11",
-      "architecture": "AMD64",
-      "pointer_bits": 64,
-      "python": "3.12.14"
+    {
+      "resource_id": "li_li",
+      "version": "0.10.0",
+      "file": "VoltPeer-li_li-0.10.0.zip",
+      "sha256": "04c681f4503e167ff58dcf2b7ebdafa20dd7b0ca1633d12b663689ef9784ae41",
+      "bytes": 275904,
+      "validation": "package_structure_checked; see local QA for extracted execution; model NOT_RUN",
+      "actual_extracted_execution": "PASS",
+      "elapsed_seconds": 4.734,
+      "formats": [
+        "pdf",
+        "png",
+        "svg",
+        "tiff"
+      ],
+      "input_sha256_unchanged": {
+        "trace.csv": "8f72659e9cc37dccc2bc6d56185915746f2aa2185a7f06ed478488783114223a"
+      },
+      "actual_curve_identity_colors": {
+        "Demo sample A:signed_voltage": "#1f77b4",
+        "Demo sample B:signed_voltage": "#ff7f0e"
+      },
+      "data_axes_checked": 2,
+      "scientific_review": "pending_author_review",
+      "model_behavior": "NOT_RUN",
+      "font_glyph_checks": "PASS; all final recorded texts have actual-font cmap coverage and font file SHA-256"
     },
-    "real_model": "NOT_RUN"
+    {
+      "resource_id": "operando_xrd",
+      "version": "0.10.0",
+      "file": "VoltPeer-operando_xrd-0.10.0.zip",
+      "sha256": "1b4c9cff409b50ff7cd2584fec484b256156ea26c201631a9dcb314e1d2e745e",
+      "bytes": 159031,
+      "validation": "package_structure_checked; see local QA for extracted execution; model NOT_RUN",
+      "actual_extracted_execution": "PASS",
+      "elapsed_seconds": 5.329,
+      "formats": [
+        "pdf",
+        "png",
+        "svg",
+        "tiff"
+      ],
+      "input_sha256_unchanged": {
+        "diffraction.csv": "60778374374341eb5d68cd5c7aba805dd39d8c90c0ec05c79b8d51ed7df8bcd8",
+        "voltage.csv": "f5c81ffff0322235c1ea9fd1ed50d169f89eccb9925eb9fb0a6337b1bb1e35e1"
+      },
+      "actual_curve_identity_colors": {
+        "Demo sample A:measured_synchronized_voltage": "#1f77b4"
+      },
+      "data_axes_checked": 2,
+      "scientific_review": "pending_author_review",
+      "model_behavior": "NOT_RUN",
+      "font_glyph_checks": "PASS; all final recorded texts have actual-font cmap coverage and font file SHA-256"
+    }
+  ],
+  "recipe_final_text_cmap_guard_and_helper_source_closure": "PASS",
+  "full_package_followup_doc_and_eval_source_closure": {
+    "status": "PASS",
+    "sha256": "423a0ba5f4d0827f595b63d410ea96aa639d057903306deaa862e14f8e4654f0",
+    "checked_files": [
+      "docs/COMPATIBILITY.md",
+      "docs/validation/2026-09-30-recipe-font-followup.json",
+      "scripts/workflow_eval.py",
+      "scripts/eval_provenance.py",
+      "evals/workflow_cases.json",
+      "evals/evidence_conflict_cases.json",
+      "evals/fixtures/opposing_sources.md",
+      "evals/fixtures/opposing_retention.csv"
+    ],
+    "scope": "Current actual ZIP contents matched maintained source; not a new model execution or scoring claim"
   },
-  "recipe_eval_followup": "2026-09-30-recipe-eval-followup.json"
+  "previous_recipe_evidence_eval_followup": "2026-09-30-recipe-eval-followup.json"
 }

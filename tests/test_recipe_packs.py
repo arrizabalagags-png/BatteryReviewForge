@@ -257,6 +257,147 @@ class RecipePackTests(unittest.TestCase):
             self.assertTrue(all('N_P' not in row and 'E_C' not in row for row in record['conditions'].values()))
             self.assertEqual(file_hash(config_path.parent / '新循环.csv'), before)
 
+    def late_chinese_fixture(self, kind, folder):
+        config_path, cfg, _ = self.author_fixture(kind, folder)
+        cfg['labels'] = {}
+        cfg['style']['font_family'] = 'DejaVu Serif'
+        cfg['export']['formats'] = ['pdf', 'svg', 'png']
+        late = '晚出现中文组'
+        if kind == 'full_cell':
+            rows = [('First Latin group', c, 200 - c * .3) for c in range(1, 61)]
+            rows += [(late, c, 130 - c) for c in range(1, 4)]
+            csv_write(folder / '新循环.csv', ['group', 'cycle', 'capacity'], rows)
+            cfg['data'] = {'cycling': {'path': '新循环.csv', 'columns': {'sample': 'group', 'cycle': 'cycle', 'capacity': 'capacity'}}}
+        elif kind == 'li_li':
+            rows = [('First Latin group', t, (.1 if t % 2 else -.1)) for t in range(60)]
+            rows += [(late, t, (.2 if t % 2 else -.2)) for t in range(3)]
+            csv_write(folder / '新轨迹.csv', ['group', 'seconds', 'signed_V'], rows)
+            cfg['view'] = {}
+        else:
+            rows = [('First Latin group', angle, p, 300 + angle + p) for p in range(30) for angle in (20, 21)]
+            rows += [(late, angle, p, 500 + angle + p) for p in (0, 29) for angle in (20, 21)]
+            csv_write(folder / '新衍射.csv', ['group', 'angle', 'charge_progress', 'detector_counts'], rows)
+            cfg['data'].pop('voltage')
+        dump(config_path, cfg)
+        return config_path, cfg, late
+
+    def font_fault_command(self, kind, pack, config_path, output, missing):
+        # Fault injection happens only in the actually extracted ZIP process.
+        # Even an installed CJK font must fail if its actual cmap lacks the text.
+        program = """import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(sys.argv[1]) / 'src'))
+import font_coverage
+original = font_coverage.font_characters
+removed = {ord(char) for char in sys.argv[5]}
+font_coverage.font_characters = lambda path: original(path) - removed
+from recipe_runtime import run
+from renderer import render
+raise SystemExit(run(sys.argv[2], render, ['--config', sys.argv[3], '--out', sys.argv[4]]))
+"""
+        return subprocess.run([sys.executable, '-c', program, str(pack), kind, str(config_path), str(output), missing],
+                              cwd=pack, capture_output=True, text=True, encoding='utf-8')
+
+    def test_late_chinese_group_in_all_actual_zips_is_covered_and_preserves_requested_latin_font(self):
+        from pypdf import PdfReader
+        for kind, pack in self.packs.items():
+            with self.subTest(resource_id=kind):
+                config_path, cfg, late = self.late_chinese_fixture(kind, self.workspace / (kind + ' 第61行中文正例'))
+                raw = config_path.parent / next(iter(cfg['data'].values()))['path']
+                original = file_hash(raw)
+                output = self.workspace / (kind + ' 完整中文图件')
+                completed = self.command(pack, config_path, output)
+                self.assertEqual(completed.returncode, 0, completed.stderr + completed.stdout)
+                self.assertNotIn('missing from font', completed.stderr)
+                self.assertEqual(file_hash(raw), original)
+                svg = (output / 'results/figure.svg').read_text(encoding='utf-8')
+                self.assertIn(late, svg)
+                with (output / 'results/figure.pdf').open('rb') as pdf_file:
+                    self.assertIn(late, ''.join(page.extract_text() for page in PdfReader(pdf_file).pages))
+                record = json.loads((output / '.voltpeer/records/data_checks.json').read_text(encoding='utf-8'))
+                checks = record['font_glyph_checks']
+                late_checks = [row for row in checks if late in row['text']]
+                self.assertTrue(late_checks, checks)
+                self.assertTrue(all(row['status'] == 'PASS_GLYPH_COVERAGE_ONLY' for row in checks))
+                self.assertTrue(all({f'U+{ord(char):04X}' for char in late} <= set(row['required_codepoints']) for row in late_checks))
+                self.assertTrue(all(len(row['font_sha256']) == 64 and row['fallback_used'] for row in late_checks))
+                latin = [row for row in checks if 'Engineering input-shape' in row['text']]
+                self.assertTrue(latin)
+                self.assertTrue(all(row['actual_family'] == 'DejaVu Serif' and not row['fallback_used'] for row in latin))
+                self.assertTrue(any(row['text'].startswith(('Signed cell voltage', 'Discharge capacity', '2θ')) for row in checks))
+                self.assertEqual(record['input_records'][0]['rows'], 64 if kind == 'operando_xrd' else 63)
+                self.assertEqual(record['model_behavior_eval'], 'NOT_RUN')
+                self.assertEqual(record['scientific_review'], 'pending_author_review')
+
+    def test_late_chinese_cmap_failure_stops_all_actual_zips_even_with_cjk_font_names(self):
+        for kind, pack in self.packs.items():
+            with self.subTest(resource_id=kind):
+                config_path, cfg, late = self.late_chinese_fixture(kind, self.workspace / (kind + ' 第61行中文负例'))
+                raw = config_path.parent / next(iter(cfg['data'].values()))['path']
+                original = file_hash(raw)
+                output = self.workspace / (kind + ' 缺字不能生成')
+                failed = self.font_fault_command(kind, pack, config_path, output, late)
+                self.assertEqual(failed.returncode, 2, failed.stderr + failed.stdout)
+                self.assertIn('字形', failed.stderr)
+                self.assertNotIn('Traceback', failed.stderr)
+                self.assertFalse(output.exists())
+                self.assertEqual(file_hash(raw), original)
+
+    def test_actual_axis_unit_missing_glyph_stops_without_erasing_text(self):
+        pack = self.packs['li_li']
+        config_path, cfg, _ = self.late_chinese_fixture('li_li', self.workspace / '实际单位字形负例')
+        raw = config_path.parent / cfg['data']['trace']['path']
+        original = file_hash(raw)
+        output = self.workspace / 'V单位缺字不能生成'
+        failed = self.font_fault_command('li_li', pack, config_path, output, 'V')
+        self.assertEqual(failed.returncode, 2, failed.stderr + failed.stdout)
+        self.assertIn('U+0056', failed.stderr)
+        self.assertFalse(output.exists())
+        self.assertEqual(file_hash(raw), original)
+        self.assertEqual(json.loads(config_path.read_text(encoding='utf-8-sig'))['units']['voltage'], 'V')
+
+    def test_final_renderer_missing_glyph_warning_stops_actual_zip_delivery(self):
+        pack = self.packs['li_li']
+        config_path, cfg, _ = self.late_chinese_fixture('li_li', self.workspace / '最终渲染警告负例')
+        raw = config_path.parent / cfg['data']['trace']['path']
+        original = file_hash(raw)
+        output = self.workspace / '缺字警告不能交付'
+        program = """import sys
+from pathlib import Path
+import warnings
+from matplotlib.text import Text
+sys.path.insert(0, str(Path(sys.argv[1]) / 'src'))
+draw = Text.draw
+def missing_glyph(self, renderer):
+    warnings.warn('Glyph 65533 missing from font(s) Test renderer', UserWarning)
+    return draw(self, renderer)
+Text.draw = missing_glyph
+from recipe_runtime import run
+from renderer import render
+raise SystemExit(run('li_li', render, ['--config', sys.argv[2], '--out', sys.argv[3]]))
+"""
+        failed = subprocess.run([sys.executable, '-c', program, str(pack), str(config_path), str(output)],
+                                cwd=pack, capture_output=True, text=True, encoding='utf-8')
+        self.assertEqual(failed.returncode, 2, failed.stderr + failed.stdout)
+        self.assertIn('最终渲染', failed.stderr)
+        self.assertNotIn('Traceback', failed.stderr)
+        self.assertFalse(output.exists())
+        self.assertEqual(file_hash(raw), original)
+
+    def test_invalid_requested_font_family_stops_before_output(self):
+        pack = self.packs['li_li']
+        config_path, cfg, _ = self.author_fixture('li_li', self.workspace / '字体配置应停')
+        cfg['export']['formats'] = ['svg']
+        for index, font in enumerate(([], '', 12, ['DejaVu Sans', None])):
+            with self.subTest(font_family=font):
+                cfg['style']['font_family'] = font
+                dump(config_path, cfg)
+                output = self.workspace / ('字体无效' + str(index))
+                failed = self.command(pack, config_path, output)
+                self.assertEqual(failed.returncode, 2, failed.stderr + failed.stdout)
+                self.assertIn('style.font_family', failed.stderr)
+                self.assertFalse(output.exists())
+
     def test_xrd_duplicate_or_missing_grid_and_unsynchronized_voltage_stop(self):
         pack = self.packs['operando_xrd']
         config_path, config, _ = self.author_fixture('operando_xrd', self.workspace / 'XRD应停')

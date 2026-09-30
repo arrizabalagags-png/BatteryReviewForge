@@ -66,6 +66,8 @@ GUIDE = '''# 给助手的接手说明
 
 颜色按真实曲线身份分配：全电池每个样品的capacity、CE和每个cycle剖面分别计数；对称电池同一signed_voltage轨迹在全图和放大图同色；XRD色标表示强度，同步电压按样品身份区分。默认只有10种曲线色，超过时先停。可提供足够长的style.colors数组，或完整的style.curve_colors身份→颜色对象；两者不能同时给。身份见data_checks记录，不能按旧Demo样品盲套。重复/别名同色、透明色、白底对比不足2:1或sRGB距离小于0.10的颜色先停，请作者选互异颜色后复核。这是显示启发式，不宣称色盲无障碍认证；不得循环复用或自动改数据来减少曲线。
 
+字体按最终实际绘图文字的cmap覆盖逐段检查，包括标题、全部样品图例、数据轴/色标单位和刻度；不只检查前50行样品，也不以CJK字体名称代替字形验证。style.font_family可选非空名称或名称列表；可用且覆盖文字的指定字体优先保留，必要时使用本机覆盖该段文字的字体并在内部font_glyph_checks写明实际家族、字体文件SHA和fallback。全部候选仍缺字时停止，不输出缺字图，不删改原文字。字体没有随包复制，使用者需在本机安装合法可用字体；SVG文字编辑/换机打开还要核对当地字体，PDF嵌入与字形技术通过不等于视觉或科学审查。
+
 重复运行会新建带版本的Working目录。对外分享需作者确认权利、许可、姓名/课题/未公开图像；不要上传整个Working。包内src/share_bundle.py可按现有交付契约创建脱敏Share包，自动检查不代替人工审查。
 '''
 
@@ -76,7 +78,7 @@ def prepare_sources(version):
         (pack / 'src').mkdir(parents=True, exist_ok=True)
         (pack / 'demo').mkdir(exist_ok=True)
         (pack / 'reference').mkdir(exist_ok=True)
-        for name in ('recipe_runtime.py',):
+        for name in ('recipe_runtime.py', 'font_coverage.py'):
             shutil.copy2(PACKS / '_runtime' / name, pack / 'src' / name)
         shutil.copy2(PACKS / '_runtime' / f'render_{kind}.py', pack / 'src/renderer.py')
         for name in ('output_safety.py', 'delivery_contract.py', 'share_bundle.py', 'cli_runtime.py'):
@@ -115,6 +117,11 @@ def prepare_sources(version):
                    'units_note': {'full_cell': 'capacity mAh g^-1/mAh cm^-2/mAh; explicit mass/area/absolute basis; cycle=1; voltage=V; CE=% only when recorded', 'li_li': 'time h/s; signed voltage mV/V; explicit Li||Li or Na||Na and current/half-cycle areal-capacity/overlap area basis', 'operando_xrd': '2theta deg; progress %/fraction/h/s/cycle; intensity counts/a.u.; optional voltage V; no phase inference'}[kind],
                    'required_conditions': required_conditions, 'optional_conditions': ['N_P', 'E_C'] if kind == 'full_cell' else [], 'condition_policy': condition_policy,
                    'geometry': geometry,
+                   'fonts': {'requested': 'Optional style.font_family is a nonempty installed family name or nonempty list. Keep the requested face when it covers the actual text.',
+                             'coverage_scope': 'Every final visible title, sample legend/panel title, axis and colorbar unit, and tick label; actual cmap, not first-row sampling or family-name heuristics.',
+                             'fallback': 'Use a locally installed face covering the full text when necessary; record actual family, font file SHA and fallback. No font files are bundled.',
+                             'stop_on': 'No usable local font covers a visible text, invalid font_family, or final renderer warns of a missing glyph. Never delete/replace the text.',
+                             'scope': 'Glyph coverage and file checks only; not a visual, scientific, or journal approval. Editable SVG text needs the corresponding installed font on the viewing machine.'},
                    'curve_colors': {'default_palette_size': 10, 'identity_rule': {'full_cell': '<sample>:capacity / <sample>:CE / <sample>:profile:<cycle>', 'li_li': '<sample>:signed_voltage; full and zoom views share identity', 'operando_xrd': '<sample>:measured_synchronized_voltage; heatmap colormap describes intensity, not sample identity'}[kind],
                                     'custom': 'Use style.colors with enough unique opaque colours, or exact style.curve_colors mapping for all actual identities; do not provide both.',
                                     'stop_on': ['insufficient colours', 'duplicate or alias-equivalent colours', 'transparent colour', 'white-background contrast below 2:1', 'pairwise sRGB distance below 0.10'],
@@ -150,7 +157,7 @@ def package(output):
     for kind in IDS:
         pack = PACKS / kind
         files = [p for p in sorted(pack.rglob('*')) if p.is_file() and p.name != 'PACKAGE_MANIFEST.json' and '__pycache__' not in p.parts and p.suffix not in {'.pyc', '.pyo'}]
-        required = {'AGENT_GUIDE.md', 'input_contract.json', 'config.demo.json', 'config.real.example.json', 'src/plot.py', 'src/renderer.py', 'src/recipe_runtime.py', 'src/delivery_contract.py', 'src/output_safety.py', 'checks.py', 'requirements.txt', 'VERSION.json', 'reference/figure.png'}
+        required = {'AGENT_GUIDE.md', 'input_contract.json', 'config.demo.json', 'config.real.example.json', 'src/plot.py', 'src/renderer.py', 'src/recipe_runtime.py', 'src/font_coverage.py', 'src/delivery_contract.py', 'src/output_safety.py', 'checks.py', 'requirements.txt', 'VERSION.json', 'reference/figure.png'}
         names = {p.relative_to(pack).as_posix() for p in files}
         if not required <= names:
             raise RuntimeError(f'{kind} missing {required - names}')

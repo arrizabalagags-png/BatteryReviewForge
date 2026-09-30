@@ -5,7 +5,7 @@
 ## DeepSeek Harness 桌面端主线
 
 1. 从 [DeepSeek 官方下载页](https://www.deepseek.com/harness/)下载当前系统支持的桌面版，按官方安装步骤打开。
-2. 在桌面端 **设置 → 模型** 输入自己在 DeepSeek 平台创建的 API key 并保存。模型费用以 [官方当前价格表](https://api-docs.deepseek.com/quick_start/pricing/)为准；本站和 Skill 不收取或提供模型 API key。无需把 key 发给作者或 AI。[官方快速开始](https://deepseek-harness.github.io/deepseek-harness/guide/quickstart)。
+2. 在设置中的 **DeepSeek 模型供应商** 保存自己在 DeepSeek 平台创建的 API key，具体入口按官方当前界面操作。模型费用以 [官方当前价格表](https://api-docs.deepseek.com/quick_start/pricing/)为准；本站和 Skill 不收取或提供模型 API key。无需把 key 发给作者或 AI。[官方快速开始](https://deepseek-harness.github.io/deepseek-harness/guide/quickstart)。
 3. 在桌面端选一个研究项目文件夹作为工作区。完整技能包解压后，在包目录打开终端，运行下面与系统对应的命令。
 
 Windows：
@@ -34,8 +34,8 @@ sh install.sh --workspace "/path/to/research project"
 
 | 模型/模式 | 适合的工作 | 不能省略的检查 | 此包真实模型状态 |
 | --- | --- | --- | --- |
-| `deepseek-flash` / Guided | 先一份数据、一张试样；可在宿主提供视觉时检查图片 | 来源/单位/实验条件、实际脚本输出、视觉逐图复核 | 固定65项行为案例已建，模型实跑 NOT_RUN |
-| `deepseek-v4-pro` / Adaptive | 较复杂文字、证据核对和分阶段结构规划 | 同样的科学审查；当前 Pro 无视觉，PNG/显微图/最终Figure视觉待审 | 固定65项行为案例已建，模型实跑 NOT_RUN |
+| `deepseek-flash` / Guided | 先一份数据、一张试样；可在宿主提供视觉时检查图片 | 来源/单位/实验条件、实际脚本输出、视觉逐图复核 | 原65项加4项相反证据，共69项；模型实跑 NOT_RUN |
+| `deepseek-v4-pro` / Adaptive | 较复杂文字、证据核对和分阶段结构规划 | 同样的科学审查；当前 Pro 无视觉，PNG/显微图/最终Figure视觉待审 | 原65项加4项相反证据，共69项；模型实跑 NOT_RUN |
 
 当前 Flash 对应 V4.1 Flash 并有原生 Vision；仍服务的 V4 Pro 0813 不支持 Vision。[官方模型表](https://api-docs.deepseek.com/quick_start/pricing/)。能力会变化；每次真实验证记录精确 model ID、客户端版本和工具，不用价格或名称代替测量。无工具执行时可写脚本/方案，不能宣称已经导出。无视觉时可核对文字/几何指标，不能宣称看过图。
 
