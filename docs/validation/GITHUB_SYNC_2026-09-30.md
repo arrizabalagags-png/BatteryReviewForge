@@ -65,3 +65,9 @@ Git 暂存区另逐文件核对 **104 份 CSV 与本机原始字节完全一致*
 版本保持0.10.0 / Beta；真实桌面发现到交付、Flash/Pro行为和macOS实机仍NOT_RUN。本轮不创建tag、Release、PR或main合并。推送结果随后追加。
 
 本次10个暂存文件及完整包内成员按Git实际blob扫描 **255条目**，未发现规则覆盖的私钥、GitHub/API令牌、个人绝对路径、禁止目录或超过100 MB文件。代码/文档差异检查通过，未包含Web私有源码、二维码或原始个人运行日志。扫描记录只描述已检查规则，不替代人工内容核对。
+
+### schema 补充实际推送结果
+
+源码、schema测试、QA摘要和当前完整分发包提交：**`d96cbf571537ca09bbf5f048b9dd6afebbe1eb28`**（`Validate optional demo limitations and refresh beta package evidence`）。`git push origin HEAD:refs/heads/codex/public-skills` 成功；随后 `git ls-remote` 返回同一 SHA，核对时工作区干净。
+
+[schema补充与完整包提交](https://github.com/arrizabalagags-png/BatteryReviewForge/commit/d96cbf571537ca09bbf5f048b9dd6afebbe1eb28)。本段随后的日志保存提交不改变已核验下载包字节；网站固定引用以最终已核对公开HEAD为准。用户已恢复后续任务，继续开发；ECS状态在私有托管记录独立核对。
