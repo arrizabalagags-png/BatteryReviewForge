@@ -4,8 +4,8 @@
   "archives": [
     {
       "file": "BatteryReviewForge-v0.10.0.zip",
-      "bytes": 874061,
-      "sha256": "4019b9edcf5d5fb108acc39725331ddf5854aab532b6e83572dd8fc2b0c6a49a"
+      "bytes": 896181,
+      "sha256": "0fee3b85e2e59702ad1cc02a62f356fb71bc83bb5c94d9c7a374300f44dcdac0"
     },
     {
       "file": "BatteryReviewForge-WorkBuddy-v0.10.0.zip",
@@ -169,18 +169,18 @@
     },
     {
       "file": "recipes/VoltPeer-full_cell-0.10.0.zip",
-      "bytes": 218156,
-      "sha256": "1108d4ac32e082ed87537c422a404d0015971c9fc71aecf54ed7d37f2f6713b5"
+      "bytes": 220158,
+      "sha256": "adcbb8f232b216f218d594220c8bc906ffa2cd5e320727f87f720d3fb87716ac"
     },
     {
       "file": "recipes/VoltPeer-li_li-0.10.0.zip",
-      "bytes": 270802,
-      "sha256": "5434661d77204fdb22ac4b6411334c691ab85124d47ae0614a8eb45feb8bce83"
+      "bytes": 273010,
+      "sha256": "43ce075559f65146fc95cc027c9539aae56d6181fed8540b0bc579607189ab84"
     },
     {
       "file": "recipes/VoltPeer-operando_xrd-0.10.0.zip",
-      "bytes": 153821,
-      "sha256": "7240cf74c36bcefb4724b43663758b93cfdc1e486a5de51b9496b2682527bc15"
+      "bytes": 156127,
+      "sha256": "56a1b7077342eba658bdf3f857d5e605c4b3ced2dad2e5bb3e535a87a73019ee"
     }
   ],
   "isolated_skill_checks": 62,
@@ -402,11 +402,33 @@
     }
   ],
   "real_host_model_behavior": "NOT_RUN",
-  "schema_followup_record": "2026-09-30-schema-followup.json",
-  "full_package_current_schema_and_followup_summary": "PASS",
-  "unchanged_download_archives": 35,
-  "changed_download_archives": [
-    "BatteryReviewForge-v0.10.0.zip"
-  ],
-  "recipe_packages_regenerated": false
+  "actual_packaged_eval_cli": {
+    "archive": "BatteryReviewForge-v0.10.0.zip",
+    "bytes": 896181,
+    "sha256": "0fee3b85e2e59702ad1cc02a62f356fb71bc83bb5c94d9c7a374300f44dcdac0",
+    "fixture_integrity": {
+      "fixture_integrity": "PASS",
+      "errors": [],
+      "base_cases": 65,
+      "evidence_conflict_cases": 4,
+      "total_cases": 69,
+      "model_behavior": "NOT_RUN"
+    },
+    "actual_packaged_prepare": "PASS",
+    "schema_version": 2,
+    "source_identity_origin": "packaged_source_provenance; commit plus recorded worktree state",
+    "source_commit": "c61942f97baee6f93df62ac78e4c222ae82c73c2",
+    "source_worktree_dirty": true,
+    "frozen_installed_skill_files": 7,
+    "skill_tree_sha256": "2e1a0810bdb4f1ea43a19cc47a6199213a07f60329e340fb8f638b27559118ea",
+    "preparation_environment": {
+      "os": "Windows",
+      "os_release": "11",
+      "architecture": "AMD64",
+      "pointer_bits": 64,
+      "python": "3.12.14"
+    },
+    "real_model": "NOT_RUN"
+  },
+  "recipe_eval_followup": "2026-09-30-recipe-eval-followup.json"
 }

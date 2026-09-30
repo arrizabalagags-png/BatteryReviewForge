@@ -124,6 +124,10 @@ class RecipePackTests(unittest.TestCase):
                                     and c['style_check'] == 'solid_without_markers' for c in curves))
                 self.assertTrue(record['data_frame_checks'])
                 self.assertTrue(all(all(frame['spines'].values()) for frame in record['data_frame_checks']))
+                assigned = record['curve_color_assignments']
+                self.assertEqual(len(assigned), len(set(assigned.values())))
+                self.assertTrue(record['data_color_checks'])
+                self.assertTrue(all(row['color'] == assigned[row['color_identity']] for row in record['data_color_checks']))
                 if kind == 'full_cell':
                     self.assertEqual(max(c['y'][0] for c in plotted if ':capacity' in c['identity']), 447.5)
                     self.assertEqual(sorted(c['points'] for c in plotted if ':capacity' in c['identity']), [4, 7, 10])
@@ -175,6 +179,83 @@ class RecipePackTests(unittest.TestCase):
                 result = self.command(pack, config_path, self.workspace / (kind + ' 不可借演示条件'))
                 self.assertEqual(result.returncode, 2)
                 self.assertIn('演示', result.stderr)
+
+    def test_actual_curve_count_stops_short_duplicate_and_transparent_palettes(self):
+        for kind, pack in self.packs.items():
+            with self.subTest(resource_id=kind):
+                config_path, valid, _ = self.author_fixture(kind, self.workspace / (kind + ' 颜色应停'))
+                for index, colors in enumerate((['#1f77b4'], ['red', '#ff0000', '#123456', '#225c83', '#8c564b', '#9467bd'], ['#1f77b400'] * 6, ['#ffffff'] * 6)):
+                    bad = json.loads(json.dumps(valid))
+                    bad['style']['colors'] = colors
+                    dump(config_path, bad)
+                    output = self.workspace / (kind + f' 颜色不应生成{index}')
+                    result = self.command(pack, config_path, output)
+                    self.assertEqual(result.returncode, 2, result.stderr)
+                    self.assertIn('颜色', result.stderr)
+                    self.assertNotIn('Traceback', result.stderr)
+                    self.assertFalse(output.exists())
+
+    def test_eleven_real_groups_require_eleven_distinct_colours_and_keep_all_rows(self):
+        pack = self.packs['li_li']
+        config_path, cfg, _ = self.author_fixture('li_li', self.workspace / '十一组颜色')
+        rows = [(f'New specimen {index}', time, (-1 if time else 1) * (.1 + index * .02)) for index in range(11) for time in (0, 1, 3)]
+        csv_write(config_path.parent / '新轨迹.csv', ['group', 'seconds', 'signed_V'], rows)
+        cfg['labels'] = {}
+        cfg['export']['formats'] = ['svg']
+        dump(config_path, cfg)
+        failed_output = self.workspace / '默认十色不能静默循环'
+        result = self.command(pack, config_path, failed_output)
+        self.assertEqual(result.returncode, 2, result.stderr)
+        self.assertIn('11', result.stderr)
+        self.assertFalse(failed_output.exists())
+        cfg['style']['curve_colors'] = dict(zip((f'New specimen {index}:signed_voltage' for index in range(11)), ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf', '#000000']))
+        dump(config_path, cfg)
+        output = self.workspace / '十一真实颜色'
+        before = file_hash(config_path.parent / '新轨迹.csv')
+        result = self.command(pack, config_path, output)
+        self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
+        self.assertEqual(file_hash(config_path.parent / '新轨迹.csv'), before)
+        record = json.loads((output / '.voltpeer/records/data_checks.json').read_text(encoding='utf-8'))
+        self.assertEqual(len(record['curve_color_assignments']), 11)
+        self.assertEqual(len(set(record['curve_color_assignments'].values())), 11)
+        self.assertEqual(sum(row['points'] for row in record['exact_data_artist_checks']), len(rows))
+
+    def test_contracts_declare_runtime_units_and_resource_specific_conditions(self):
+        expected = {'full_cell': {'cycle': ['1'], 'capacity': ['mAh g^-1', 'mAh cm^-2', 'mAh'], 'voltage': ['V'], 'ce': ['%']},
+                    'li_li': {'time': ['h', 's'], 'voltage': ['V', 'mV']},
+                    'operando_xrd': {'two_theta': ['deg'], 'progress': ['%', 'fraction', 'h', 's', 'cycle'], 'intensity': ['counts', 'a.u.'], 'voltage': ['V']}}
+        for kind, pack in self.packs.items():
+            contract = json.loads((pack / 'input_contract.json').read_text(encoding='utf-8'))
+            self.assertEqual(contract['units_supported'], expected[kind])
+            self.assertNotIn('Any positive number', contract['geometry'])
+            self.assertEqual(contract['curve_colors']['default_palette_size'], 10)
+            if kind == 'full_cell':
+                self.assertEqual(contract['optional_conditions'], ['N_P', 'E_C'])
+                self.assertNotIn('N_P', contract['required_conditions'])
+            else:
+                self.assertNotIn('N_P', contract['required_conditions'])
+                self.assertNotIn('E_C', contract['required_conditions'])
+                self.assertEqual(contract['optional_conditions'], [])
+
+    def test_extracted_full_cell_area_absolute_units_and_omitted_optional_reporting(self):
+        pack = self.packs['full_cell']
+        config_path, valid, _ = self.author_fixture('full_cell', self.workspace / '容量单位与可选工况')
+        before = file_hash(config_path.parent / '新循环.csv')
+        for index, (unit, basis) in enumerate((('mAh cm^-2', 'Projected electrode area'), ('mAh', 'Absolute total cell capacity'))):
+            cfg = json.loads(json.dumps(valid))
+            cfg['units']['capacity'] = unit
+            cfg['conditions']['common']['capacity_basis'] = basis
+            cfg['conditions']['common'].pop('N_P')
+            cfg['conditions']['common'].pop('E_C')
+            cfg['export']['formats'] = ['svg']
+            dump(config_path, cfg)
+            output = self.workspace / f'实际ZIP其他容量单位{index}'
+            result = self.command(pack, config_path, output)
+            self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
+            record = json.loads((output / '.voltpeer/records/data_checks.json').read_text(encoding='utf-8'))
+            self.assertEqual(record['unit_mapping']['capacity'], unit)
+            self.assertTrue(all('N_P' not in row and 'E_C' not in row for row in record['conditions'].values()))
+            self.assertEqual(file_hash(config_path.parent / '新循环.csv'), before)
 
     def test_xrd_duplicate_or_missing_grid_and_unsynchronized_voltage_stop(self):
         pack = self.packs['operando_xrd']

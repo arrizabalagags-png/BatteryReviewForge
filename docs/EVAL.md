@@ -2,7 +2,7 @@
 
 本次适配为Beta。默认DeepSeek Harness桌面项目工作区，Flash短阶段、Pro文字/证据规划；科学检查不变。实际Flash/Pro行为和原生客户端全链路均未测试时，必须记NOT_RUN。
 
-固定行为任务和复核协议见[65项EVAL包](../evals/README.md)，包括13个流程Skill各自正常/缺信息/冲突/编造诱导/恢复场景。结构校验命令 `python scripts/workflow_eval.py validate`，只是冻结case和fixture完整性，不执行模型。实际试次需要请求全文、精确模型/宿主版本、调用记录、打开产物和独立评分证据。
+固定行为任务和复核协议见[69项EVAL包](../evals/README.md)：保留13个流程Skill各自正常/缺信息/作者选择冲突/编造诱导/恢复的65项，另加4项同一科学claim的实质相反证据任务，含NR/NV边界。结构校验命令 `python scripts/workflow_eval.py validate`，只是冻结case和fixture完整性，不执行模型。新试次保存完整安装Skill树的文件哈希/摘要、源提交与工作区修改状态、准备和实际执行OS/架构；只保存SKILL.md哈希不足。实际试次仍需要请求全文、精确模型/宿主版本、调用记录、打开产物和独立评分证据。
 
 软件测试运行 `python -m unittest discover -s tests -v`，覆盖数据科学约束、真实图件输出、中文空格/BOM路径、LZW TIFF及每格式DPI、SVG原生Cairo缺失、Working与Share分离、哈希失效恢复、安装更新与单包引用。单元和脚本测试PASS只对应测试定义的工程行为，不代表论文科学认证或未实跑模型。
 

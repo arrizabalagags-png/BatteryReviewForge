@@ -71,3 +71,27 @@ Git 暂存区另逐文件核对 **104 份 CSV 与本机原始字节完全一致*
 源码、schema测试、QA摘要和当前完整分发包提交：**`d96cbf571537ca09bbf5f048b9dd6afebbe1eb28`**（`Validate optional demo limitations and refresh beta package evidence`）。`git push origin HEAD:refs/heads/codex/public-skills` 成功；随后 `git ls-remote` 返回同一 SHA，核对时工作区干净。
 
 [schema补充与完整包提交](https://github.com/arrizabalagags-png/BatteryReviewForge/commit/d96cbf571537ca09bbf5f048b9dd6afebbe1eb28)。本段随后的日志保存提交不改变已核验下载包字节；网站固定引用以最终已核对公开HEAD为准。用户已恢复后续任务，继续开发；ECS状态在私有托管记录独立核对。
+
+## 完整绘图包与 EVAL 补修：第一批冻结快照
+
+在已推送 `c61942f97baee6f93df62ac78e4c222ae82c73c2` 的基础上，保存以下已完成修改：
+
+- 三个完整绘图包为不同连续曲线身份分配不同颜色；同一身份在全程图与放大图保持颜色一致。保留实线、无标记和四周框线规则。重名、透明、难以辨别或不足的颜色配置会停止并说明具体修正方法；当前颜色距离门槛是工程检查，不代表期刊认证或色觉障碍实测。
+- 全电池绘图契约支持质量、面积和绝对容量单位；未提供 N/P 或 E/C 时保留未知状态，不强制用户填写，也不推断数值。
+- 既有 65 个 workflow 用例文件保持原字节，新增 4 个明确标为合成材料的相反证据用例，总计 69 个。两个来源分别给出 +12 与 -7 个百分点的来源内效应；完整材料中的 NR 与缺少 Table S2 时的 NV 分开处理。
+- 新 RUN_RECORD 使用 schema 2，记录完整安装 Skill 树、源 Skill 树、源提交及工作区差异摘要、准备与执行的 OS/架构、固定任务与独立预期的摘要。历史 schema 1 记录保留原状，不补造运行信息。包内 `SOURCE_PROVENANCE.json` 如实记录打包时的 `c61942f` 与 dirty 状态，并非将后来提交伪称为打包时的干净源。
+
+实际定向验证 **14 tests PASS**：7 个绘图包用例 / 90.957 s，1 个实际解压全电池单位和可省略条件用例 / 6.852 s，6 个 EVAL/provenance 与续跑漂移检查 / 15.819 s。另实际解压运行 3 个 recipe ZIP，检查 PDF、PNG、SVG、LZW TIFF 以及输入 SHA 不变；完整 ZIP 内 CLI 的 69 case validate/prepare 和新运行记录准备通过。详细可公开证据见 `2026-09-30-recipe-eval-followup.json`。早前 **129 tests / 257.400 s** 是本补修前的完整回归，本批没有声称重新执行该回归。
+
+上传时再次实际执行分发门禁：**36 ZIP / 62 解压 Skill 引用与 AST / 30 canonical schema-source-site-ZIP PASS**。当前完整包与三个 recipe 为：
+
+| 包 | 字节数 | SHA-256 |
+| --- | ---: | --- |
+| `BatteryReviewForge-v0.10.0.zip` | 896,181 | `0fee3b85e2e59702ad1cc02a62f356fb71bc83bb5c94d9c7a374300f44dcdac0` |
+| `VoltPeer-full_cell-0.10.0.zip` | 220,158 | `adcbb8f232b216f218d594220c8bc906ffa2cd5e320727f87f720d3fb87716ac` |
+| `VoltPeer-li_li-0.10.0.zip` | 273,010 | `43ce075559f65146fc95cc027c9539aae56d6181fed8540b0bc579607189ab84` |
+| `VoltPeer-operando_xrd-0.10.0.zip` | 156,127 | `56a1b7077342eba658bdf3f857d5e605c4b3ced2dad2e5bb3e535a87a73019ee` |
+
+其余 32 个下载 ZIP 保持原大小和 SHA。所有包以 `docs/downloads/distribution-sha256.txt` 和 `2026-09-30-distribution.json` 为准；前文完整包、recipe 哈希仅为历史记录。
+
+本批仅公开绘图包运行时、契约、EVAL 工具、合成测试材料、分发和公开摘要；不包含私有网站、二维码、原始研究数据或个人原始日志。0.10.0 保持 Beta；真实 Harness 发现到交付、Flash/Pro 模型行为、macOS 实机仍 **NOT_RUN**，科学内容仍待作者审阅。后续中文标签与字体 cmap 小补修另行记录；本批没有把该未完成工作记为通过。未创建 tag、Release、PR 或 main 合并，未发布上海 ECS。

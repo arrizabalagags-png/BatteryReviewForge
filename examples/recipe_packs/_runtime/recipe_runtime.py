@@ -272,11 +272,13 @@ def values(rows, key):
     return [row[key] for row in rows]
 
 
-def line(ax, x, y, checks, *, identity, **kwargs):
+def line(ax, x, y, checks, *, identity, color_identity=None, **kwargs):
     import numpy as np
+    from matplotlib.colors import to_hex
     kwargs.setdefault('linestyle', '-')
     kwargs.setdefault('marker', None)
     artist, = ax.plot(x, y, **kwargs)
+    artist.set_gid('voltpeer-curve:' + (color_identity or identity))
     if not np.array_equal(artist.get_xdata(), np.asarray(x)) or not np.array_equal(artist.get_ydata(), np.asarray(y)):
         raise ContractError('绘图坐标与规范化原始记录不一致。')
     marker, line_style = artist.get_marker(), artist.get_linestyle()
@@ -284,12 +286,58 @@ def line(ax, x, y, checks, *, identity, **kwargs):
         raise ContractError('连续曲线需为无点实线；请核对项目副本的绘图样式。')
     checks.append({'identity': identity, 'points': len(x), 'x': list(x), 'y': list(y),
                    'check': 'exact_artist_array', 'line_style': line_style,
-                   'marker': marker, 'style_check': 'solid_without_markers'})
+                   'marker': marker, 'style_check': 'solid_without_markers',
+                   'color_identity': color_identity or identity, 'color': to_hex(artist.get_color())})
     return artist
 
 
 def label(cfg, sample):
     return '\n'.join(textwrap.wrap(cfg.get('labels', {}).get(sample, sample), width=36))
+
+
+def curve_colors(cfg, identities):
+    """Assign one opaque, distinguishable colour per actual curve identity.
+
+    A repeated view of the same raw trace uses the same identity. Different
+    quantities/cycles are different identities even when their sample is shared.
+    The finite default palette deliberately stops instead of silently cycling.
+    """
+    import matplotlib.pyplot as plt
+    from matplotlib.colors import to_rgba, to_hex
+    identities = list(dict.fromkeys(identities))
+    style = cfg.get('style', {})
+    named, palette = style.get('curve_colors'), style.get('colors')
+    if named is not None and palette is not None:
+        raise ContractError('style.colors与style.curve_colors只能选一种，避免颜色来源冲突。')
+    if named is not None:
+        if not isinstance(named, dict) or set(named) != set(identities):
+            raise ContractError('style.curve_colors必须逐一覆盖当前真实曲线身份，不得遗漏或沿用不存在的样品/圈数。')
+        raw = [named[identity] for identity in identities]
+    else:
+        if palette is None:
+            palette = list(plt.get_cmap('tab10').colors)
+        if not isinstance(palette, (list, tuple)) or not palette or len(palette) < len(identities):
+            count = len(palette) if isinstance(palette, (list, tuple)) else 0
+            raise ContractError(f'实际需要{len(identities)}种曲线颜色，只提供{count}种；请补齐style.colors或style.curve_colors，不会循环复用。')
+        raw = list(palette)
+    rgba = []
+    for value in raw:
+        try:
+            color = to_rgba(value)
+        except (ValueError, TypeError):
+            raise ContractError('曲线颜色需为Matplotlib可识别的颜色名、#RRGGBB或RGB数值。') from None
+        if color[3] != 1:
+            raise ContractError('曲线颜色必须不透明，透明色会隐藏或混淆真实记录。')
+        # This is an explicit project display gate, not a colour-vision claim.
+        linear = [v / 12.92 if v <= .04045 else ((v + .055) / 1.055) ** 2.4 for v in color[:3]]
+        luminance = sum(v * w for v, w in zip(linear, (.2126, .7152, .0722)))
+        if 1.05 / (luminance + .05) < 2:
+            raise ContractError('曲线颜色对白底对比不足2:1，请换深一些的颜色并复核图件。')
+        for previous in rgba:
+            if to_hex(color) == to_hex(previous) or math.dist(color[:3], previous[:3]) < .10:
+                raise ContractError('曲线颜色重复或过近（sRGB距离小于0.10），请提供互异颜色；不会静默换色。')
+        rgba.append(color)
+    return {identity: to_hex(color) for identity, color in zip(identities, rgba)}
 
 
 def finish(fig, axes, cfg, handles, texts, *, base_height=3.4):
@@ -308,7 +356,7 @@ def finish(fig, axes, cfg, handles, texts, *, base_height=3.4):
     gs.set_height_ratios([*([1] * (gs.nrows - 1)), legend_height / (base_height / (gs.nrows - 1))])
     legend_ax = fig.add_subplot(gs[-1, :])
     legend_ax.axis('off')
-    legend = legend_ax.legend(handles, texts, loc='center', ncol=min(3, max(1, len(texts))), frameon=False, fontsize=font * .9)
+    legend = legend_ax.legend(handles, texts, loc='center', ncol=min(3, max(1, len(texts))), frameon=False, fontsize=font * .9) if handles else None
     title = str(cfg.get('title') or 'Battery data')
     if cfg['data_status'] == 'synthetic_demo':
         title = 'SYNTHETIC DEMO — ' + title
@@ -319,10 +367,11 @@ def finish(fig, axes, cfg, handles, texts, *, base_height=3.4):
         ax.yaxis.label.set_size(font)
         ax.text(0, 1.03, chr(97 + i), transform=ax.transAxes, fontweight='bold', fontsize=font)
     fig.canvas.draw()
-    box = legend.get_window_extent(fig.canvas.get_renderer())
-    frame = fig.bbox
-    if box.x0 < frame.x0 or box.x1 > frame.x1 or box.y0 < frame.y0 or box.y1 > frame.y1:
-        raise ContractError('图例超出画布；增大style.width_mm、缩短经作者确认的显示名或修改项目副本布局。')
+    if legend is not None:
+        box = legend.get_window_extent(fig.canvas.get_renderer())
+        frame = fig.bbox
+        if box.x0 < frame.x0 or box.x1 > frame.x1 or box.y0 < frame.y0 or box.y1 > frame.y1:
+            raise ContractError('图例超出画布；增大style.width_mm、缩短经作者确认的显示名或修改项目副本布局。')
 
 
 def run(kind, render, argv=None):
@@ -349,7 +398,8 @@ def run(kind, render, argv=None):
         font = number(style.get('font_pt', 8), 'style.font_pt')
         with plt.rc_context({'font.family': [cjk, 'DejaVu Sans'] if cjk else ['DejaVu Sans'], 'font.size': font, 'pdf.fonttype': 42, 'svg.fonttype': 'none', 'axes.spines.top': True, 'axes.spines.right': True, 'axes.spines.bottom': True, 'axes.spines.left': True, 'lines.linewidth': 1.1}):
             fig, checks = render(cfg, tables)
-            frames = []
+            frames, color_checks, assigned_colors = [], [], {}
+            from matplotlib.colors import to_hex
             for index, ax in enumerate(fig.axes):
                 if not ax.axison or hasattr(ax, '_colorbar'):
                     continue
@@ -357,6 +407,21 @@ def run(kind, render, argv=None):
                 if not all(sides.values()):
                     raise ContractError('数据图需保留上下左右四条框线，请检查项目副本。')
                 frames.append({'axis_index': index, 'spines': sides})
+                for artist in ax.lines:
+                    gid = artist.get_gid() or ''
+                    if not gid.startswith('voltpeer-curve:'):
+                        raise ContractError('数据曲线缺少可追溯身份，请使用line助手并记录真实样品/物理量/圈数。')
+                    identity = gid.removeprefix('voltpeer-curve:')
+                    color = to_hex(artist.get_color())
+                    if artist.get_marker() not in (None, 'None', '', ' ') or artist.get_linestyle() != '-':
+                        raise ContractError('最终数据曲线需为无点实线，请检查项目副本。')
+                    if identity in assigned_colors and assigned_colors[identity] != color:
+                        raise ContractError('同一真实轨迹在不同视图中颜色不一致，请核对曲线身份。')
+                    assigned_colors[identity] = color
+                    color_checks.append({'axis_index': index, 'color_identity': identity, 'color': color,
+                                         'check': 'actual_line2d_identity_color'})
+            if len(set(assigned_colors.values())) != len(assigned_colors):
+                raise ContractError('不同真实曲线身份使用了同一种颜色，请补齐互异颜色后重新生成。')
             export = cfg.get('export', {})
             formats = export.get('formats', ['pdf', 'svg', 'png', 'tiff'])
             if not formats or len(set(formats)) != len(formats) or set(formats) - {'pdf', 'svg', 'png', 'tiff'}:
@@ -375,7 +440,8 @@ def run(kind, render, argv=None):
                 version = read_json(Path(__file__).resolve().parents[1] / 'VERSION.json')
                 record = {'schema_version': 1, 'resource_id': kind, 'pack_version': version['version'], 'data_status': cfg['data_status'], 'conditions': conditions,
                           'input_records': [{'file': t['path'].name, 'sha256': t['sha256'], 'rows': len(t['rows']), 'columns': t['columns']} for t in tables.values() if t],
-                          'exact_data_artist_checks': checks, 'data_frame_checks': frames, 'plotted_data_sha256': data_hash, 'unit_mapping': cfg['units'],
+                          'exact_data_artist_checks': checks, 'data_frame_checks': frames, 'data_color_checks': color_checks,
+                          'curve_color_assignments': assigned_colors, 'plotted_data_sha256': data_hash, 'unit_mapping': cfg['units'],
                           'export': {'formats': formats, 'dpi_by_format': {f: dpis[f] if f in dpis else None for f in formats}, 'tiff_compression': 'tiff_lzw' if 'tiff' in formats else None},
                           'scientific_review': 'pending_author_review', 'material_questions': warnings, 'model_behavior_eval': 'NOT_RUN',
                           'generated_at': datetime.now(timezone.utc).isoformat(timespec='seconds'),

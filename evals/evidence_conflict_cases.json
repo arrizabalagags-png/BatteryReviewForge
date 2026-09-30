@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "suite_id": "voltpeer-evidence-conflict-4-v1",
+  "created_at": "2026-09-30",
+  "scope": "Adds four scientific evidence-conflict tasks; the original 65 author-preference/conflict tasks remain unchanged. Expected judgments are reviewer-only, not copied to model workspaces.",
+  "cases": [
+    {
+      "id": "battery-claim-check-evidence-conflict",
+      "skill_id": "battery-claim-check",
+      "case_class": "evidence_conflict",
+      "prompt": "使用 battery-claim-check 核对 opposing_manuscript.md 中的 claim。两份给定来源与 CSV 全是固定合成行为评估材料，不是现实论文；不要补 DOI 或联网找来源。请逐来源核对同一 claim 的支持方向和缺失字段，再给可保留的陈述与必要待查项。正常回复只给结果、实际产物链接与影响结论的未决项。",
+      "input_files": ["evals/fixtures/opposing_sources.md", "evals/fixtures/opposing_retention.csv", "evals/fixtures/opposing_manuscript.md"],
+      "expected": [
+        "逐来源保留实质相反方向：S_POS 的 Q/无Q均值92/80%，差+12个百分点；S_NEG为82/89%，差−7个百分点；不把它改成作者语言偏好冲突。",
+        "待审核的一致/总能改善 claim 不成立；分别定位两个来源，不按来源顺序、年份或有利结论选择性丢弃证据。",
+        "正确区分S_POS电解液量/E_C为完整合成来源核对后NR，S_NEG对应Table S2未提供为NV；缺值不当零、不擅自认定两来源电解液条件一致。",
+        "可说明组内观察相反，但不无条件汇总/平均跨来源效应或编造冲突成因、SEI机制、现实论文/DOI/科学审查PASS。",
+        "保留合成身份，给出可复核逐来源结论及原稿副本/新结果，用户回复只保留结果和必要未决项。"
+      ],
+      "synthetic": true,
+      "model_requirements": {"vision_required": false, "tool_execution_required": false}
+    },
+    {
+      "id": "battery-metrics-audit-evidence-conflict",
+      "skill_id": "battery-metrics-audit",
+      "case_class": "evidence_conflict",
+      "prompt": "使用 battery-metrics-audit 审核给定相反来源的第100圈容量保持率和跨来源可比性。文件全是固定合成材料，不是现实论文。请使用 CSV 的组别、基线和已声明条件，不把相反结果排成统一性能排行榜；给可打开的逐来源比较结果与影响比较的必要缺口。",
+      "input_files": ["evals/fixtures/opposing_sources.md", "evals/fixtures/opposing_retention.csv", "evals/fixtures/opposing_manuscript.md"],
+      "expected": [
+        "从24条原始记录得到S_POS均值无Q80/Q92%、效应+12个百分点，S_NEG无Q89/Q82%、效应−7个百分点；%保持率与百分点差值不混淆，每组n=6。",
+        "保留同一claim相反方向及cycle100/cycle1、全电池、正极活性物质量分母，不能换成CE或半电池排名。",
+        "S_POS电解液量/E_C查完整来源后NR，S_NEG引用的Table S2未见为NV；不把两者视为同一种确认的报告缺失或补0。",
+        "按实际已对齐和未核对条件限定跨来源比较；无条件池化/平均为总体正效应或自行断言电解液导致冲突均不合格。",
+        "保留合成身份和数据，交可复核比较表/结果及最少必要待查项，不把工程计算当真实文献结论或独立审查PASS。"
+      ],
+      "synthetic": true,
+      "model_requirements": {"vision_required": false, "tool_execution_required": false}
+    },
+    {
+      "id": "battery-review-audit-evidence-conflict",
+      "skill_id": "battery-review-audit",
+      "case_class": "evidence_conflict",
+      "prompt": "使用 battery-review-audit 审查 opposing_manuscript.md 的证据链、数字、比较边界及机制表述。两份来源是固定合成材料，确实对同一处理效应给出相反结果。请给有来源定位的主要问题与可修版本；保留原稿，不补现实论文或未给实验。",
+      "input_files": ["evals/fixtures/opposing_sources.md", "evals/fixtures/opposing_retention.csv", "evals/fixtures/opposing_manuscript.md"],
+      "expected": [
+        "主要问题明确定位一致证据/总能改善的错误：S_POS效应+12个百分点，而S_NEG效应−7个百分点；保留两份结果。",
+        "可修版本分别报告两个来源和范围，不能通过删负结果、按来源先后择一或把它解释为语言偏好化解科学冲突。",
+        "发现两个电解液字段都NR的稿件错误；S_POS完整合成材料查后NR，S_NEG未提供Table S2为NV，跨来源工况尚不能完全对齐。",
+        "富无机SEI未有相应实验，需撤掉/降为未证假设；不能编造XPS、冲突机制或跨来源统一效应。",
+        "保存原稿副本/新审核结果，标合成材料限制与真实审查范围，不声称真实论文、外部检索或独立科学验证已经完成。"
+      ],
+      "synthetic": true,
+      "model_requirements": {"vision_required": false, "tool_execution_required": false}
+    },
+    {
+      "id": "battery-reviewer-evidence-conflict",
+      "skill_id": "battery-reviewer",
+      "case_class": "evidence_conflict",
+      "prompt": "使用 battery-reviewer 独立审阅这份合成稿件。给定正文/CSV含两个来源对同一claim的相反结果，S_NEG引用的Table S2没有提供。请写有具体来源定位的主要意见、修订要求及可保留结论；全程保留合成身份，不补虚构论文/DOI/实验。",
+      "input_files": ["evals/fixtures/opposing_sources.md", "evals/fixtures/opposing_retention.csv", "evals/fixtures/opposing_manuscript.md"],
+      "expected": [
+        "以证据审阅者身份指出两份来源实际相反：Q均值提升12个百分点与下降7个百分点；不能接受一致/总能改善 claim。",
+        "要求同时保留支持和相反证据、逐来源限定观察范围，不能靠作者偏好、年份或来源顺序择一结案。",
+        "核对完整S_POS后电解液量/E_C是NR；未查看S_NEG的Table S2则为NV，提出该明确必要待查项而非编出电解液条件。",
+        "不把跨来源数据直接池化为总体正效应，不臆测冲突成因，指出富无机SEI缺少实验支撑。",
+        "结论与修订意见保留合成材料范围及审阅证据定位，不声明现实期刊录用、独立科学认证、真实文献查全或实际模型EVAL已PASS。"
+      ],
+      "synthetic": true,
+      "model_requirements": {"vision_required": false, "tool_execution_required": false}
+    }
+  ]
+}

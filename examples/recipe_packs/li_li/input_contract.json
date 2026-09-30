@@ -1,5 +1,6 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "config_schema_version": 1,
   "resource_id": "li_li",
   "format": "UTF-8/BOM CSV long table; explicit JSON mapping; preserve raw file",
   "required_columns": {
@@ -10,9 +11,16 @@
     ]
   },
   "units_supported": {
-    "time": "h",
-    "voltage": "mV"
+    "time": [
+      "h",
+      "s"
+    ],
+    "voltage": [
+      "V",
+      "mV"
+    ]
   },
+  "units_optional": [],
   "units_note": "time h/s; signed voltage mV/V; explicit Li||Li or Na||Na and current/half-cycle areal-capacity/overlap area basis",
   "required_conditions": [
     "metal",
@@ -24,8 +32,22 @@
     "rest_protocol",
     "failure_rule"
   ],
-  "condition_policy": "Real config has nulls. Required unknown fields must stop; N/P and E/C may explicitly say not reported but never be guessed.",
-  "geometry": "Any positive number of groups; uneven lengths allowed per trace; XRD each group has its own complete unique coordinate grid. Auto ranges include new values. Long labels wrap; unreadable layouts must be revised.",
+  "optional_conditions": [],
+  "condition_policy": "Every required field must be confirmed per actual sample. metal is Li or Na and cell_configuration must be exactly Li||Li or Na||Na. Current density and half-cycle areal capacity must be positive; signed voltage and overlap-area basis are retained. No full-cell N/P or E/C condition is inherited.",
+  "geometry": "One or more Li/Na symmetric-cell samples; uneven strictly increasing nonnegative time records allowed, at least two points per sample. Zoom must lie within every sample trace and contain at least two points. Auto ranges retain signed voltage; layouts must be reviewed.",
+  "curve_colors": {
+    "default_palette_size": 10,
+    "identity_rule": "<sample>:signed_voltage; full and zoom views share identity",
+    "custom": "Use style.colors with enough unique opaque colours, or exact style.curve_colors mapping for all actual identities; do not provide both.",
+    "stop_on": [
+      "insufficient colours",
+      "duplicate or alias-equivalent colours",
+      "transparent colour",
+      "white-background contrast below 2:1",
+      "pairwise sRGB distance below 0.10"
+    ],
+    "scope": "Project display heuristic and actual Line2D checks; not a universal journal or colour-vision certification."
+  },
   "disallowed": [
     "missing-data demo fallback",
     "silent dropped rows",
@@ -33,7 +55,8 @@
     "duplicate coordinates overwritten",
     "unknown units guessed",
     "demo condition reuse in author output",
-    "truncated data from old limits"
+    "truncated data from old limits",
+    "silent palette cycling or curve-identity reuse"
   ],
   "validation_status": "local_engineering_checked; model_behavior_NOT_RUN; author_scientific_review_pending"
 }

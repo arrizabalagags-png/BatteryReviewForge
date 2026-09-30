@@ -1,8 +1,7 @@
 """Coordinate-keyed raw diffraction maps; no phase fitting or synthetic fallback."""
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.lines import Line2D
-from recipe_runtime import ContractError, groups, values, line, label, finish, checked_limits, pair
+from recipe_runtime import ContractError, groups, values, line, label, finish, checked_limits, pair, curve_colors
 
 
 def edges(coordinates):
@@ -16,6 +15,7 @@ def edges(coordinates):
 def render(cfg, tables):
     by = groups(tables['diffraction'])
     voltage = groups(tables['voltage']) if tables.get('voltage') else {}
+    colors = curve_colors(cfg, [sample + ':measured_synchronized_voltage' for sample in voltage]) if voltage else {}
     fig = plt.figure(layout='constrained')
     gs = fig.add_gridspec(len(by) + 1, 2 if voltage else 1, width_ratios=[3, 1] if voltage else [1])
     checks, axes, handles, texts, maps = [], [], [], [], []
@@ -43,13 +43,13 @@ def render(cfg, tables):
         ax.set_title(label(cfg, sample), fontsize=8)
         fig.colorbar(im, ax=ax, label=f'Intensity ({cfg["units"]["intensity"]})')
         checked_limits(ax, cfg.get('limits', {}).get('diffraction', {}), xs, ys, 'diffraction')
-        handles.append(Line2D([], [], color='#225c83'))
-        texts.append(label(cfg, sample))
         if voltage:
             trace = voltage[sample]
             side = fig.add_subplot(gs[index, 1], sharey=ax)
             axes.append(side)
-            line(side, values(trace, 'voltage'), values(trace, 'progress'), checks, identity=sample + ':measured_synchronized_voltage', color='#225c83')
+            artist = line(side, values(trace, 'voltage'), values(trace, 'progress'), checks, identity=sample + ':measured_synchronized_voltage', color=colors[sample + ':measured_synchronized_voltage'])
+            handles.append(artist)
+            texts.append(label(cfg, sample))
             side.set(xlabel='Voltage (V)', ylabel=f'Progress ({cfg["units"]["progress"]})')
             checked_limits(side, cfg.get('limits', {}).get('voltage', {}), values(trace, 'voltage'), values(trace, 'progress'), 'voltage')
     finish(fig, axes, cfg, handles, texts, base_height=max(3.4, len(by) * 3.4))

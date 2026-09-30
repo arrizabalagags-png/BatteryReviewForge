@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile
+from eval_provenance import source_provenance, tree_manifest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -22,13 +23,17 @@ PUBLIC_DOCS = ["docs/COMPATIBILITY.md", "docs/SKILL_NAMES.json", "docs/EVAL.md",
                "docs/validation/2026-09-30-frame-final-regression.json",
                "docs/validation/2026-09-30-frame-regression-initial.json",
                "docs/validation/2026-09-30-schema-followup.json",
+               "docs/validation/2026-09-30-recipe-eval-followup.json",
                "docs/DEMO_METADATA_SCHEMA.json", "scripts/check_demo_metadata.py",
                "scripts/check_skill_dependencies.py", "scripts/diagnose_install.py", "scripts/check_skill_distribution.py",
-               "scripts/workflow_eval.py"]
+               "scripts/workflow_eval.py", "scripts/eval_provenance.py", "scripts/runtime_contract/cli_runtime.py", "docs/SOURCE_PROVENANCE.json"]
 
 
 def main() -> None:
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    source_record = {**source_provenance(ROOT), 'skill_tree': tree_manifest(ROOT / 'skills'),
+                     'scope': 'Source commit plus worktree state at packaging; complete Skill file hashes identify the effective tree.'}
+    (ROOT / 'docs/SOURCE_PROVENANCE.json').write_text(json.dumps(source_record, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     files = [ROOT / name for name in TOP_LEVEL + PUBLIC_DOCS]
     files += sorted((ROOT / ".codex-plugin").rglob("*"))
     files += sorted((ROOT / "skills").rglob("*"))

@@ -64,6 +64,8 @@ GUIDE = '''# 给助手的接手说明
 
 本项目连续曲线默认无点实线，以不同颜色区分。所有数据坐标轴同时保留上、右、下、左四条框线，线宽和颜色一致；刻度可只放下侧和左侧。包括热图数据坐标和每个组合panel；独立色标、插图与关闭的布局轴不作为额外数据框。容量循环和可选CE都要检查，不能只改CE后遗漏容量。保留每条原始数值记录；去掉显示符号不代表删数据。检查实际图件和每个组合panel，内部记录会保存Line2D线型/marker、四边框可见性及原数组核对结果。这是项目显示规则，不是所有期刊的统一要求。
 
+颜色按真实曲线身份分配：全电池每个样品的capacity、CE和每个cycle剖面分别计数；对称电池同一signed_voltage轨迹在全图和放大图同色；XRD色标表示强度，同步电压按样品身份区分。默认只有10种曲线色，超过时先停。可提供足够长的style.colors数组，或完整的style.curve_colors身份→颜色对象；两者不能同时给。身份见data_checks记录，不能按旧Demo样品盲套。重复/别名同色、透明色、白底对比不足2:1或sRGB距离小于0.10的颜色先停，请作者选互异颜色后复核。这是显示启发式，不宣称色盲无障碍认证；不得循环复用或自动改数据来减少曲线。
+
 重复运行会新建带版本的Working目录。对外分享需作者确认权利、许可、姓名/课题/未公开图像；不要上传整个Working。包内src/share_bundle.py可按现有交付契约创建脱敏Share包，自动检查不代替人工审查。
 '''
 
@@ -98,11 +100,26 @@ def prepare_sources(version):
         required = {'full_cell': {'cycling': ['sample', 'cycle', 'capacity'], 'profiles_optional': ['sample', 'cycle', 'capacity', 'voltage'], 'ce_optional': ['ce']},
                     'li_li': {'trace': ['sample', 'time', 'voltage']},
                     'operando_xrd': {'diffraction': ['sample', 'two_theta', 'progress', 'intensity'], 'voltage_optional': ['sample', 'progress', 'voltage']}}[kind]
-        dump(pack / 'input_contract.json', {'schema_version': 1, 'resource_id': kind, 'format': 'UTF-8/BOM CSV long table; explicit JSON mapping; preserve raw file', 'required_columns': required,
-                   'units_supported': cfg['units'], 'units_note': {'full_cell': 'capacity mAh g^-1/mAh cm^-2/mAh; explicit mass/area/absolute basis; cycle=1; voltage=V; CE=% only when recorded', 'li_li': 'time h/s; signed voltage mV/V; explicit Li||Li or Na||Na and current/half-cycle areal-capacity/overlap area basis', 'operando_xrd': '2theta deg; progress %/fraction/h/s/cycle; intensity counts/a.u.; optional voltage V; no phase inference'}[kind],
-                   'required_conditions': list(cfg['conditions']['common']), 'condition_policy': 'Real config has nulls. Required unknown fields must stop; N/P and E/C may explicitly say not reported but never be guessed.',
-                   'geometry': 'Any positive number of groups; uneven lengths allowed per trace; XRD each group has its own complete unique coordinate grid. Auto ranges include new values. Long labels wrap; unreadable layouts must be revised.',
-                   'disallowed': ['missing-data demo fallback', 'silent dropped rows', 'silent smoothing/fitting', 'duplicate coordinates overwritten', 'unknown units guessed', 'demo condition reuse in author output', 'truncated data from old limits'],
+        units_supported = {'full_cell': {'cycle': ['1'], 'capacity': ['mAh g^-1', 'mAh cm^-2', 'mAh'], 'voltage': ['V'], 'ce': ['%']},
+                           'li_li': {'time': ['h', 's'], 'voltage': ['V', 'mV']},
+                           'operando_xrd': {'two_theta': ['deg'], 'progress': ['%', 'fraction', 'h', 's', 'cycle'], 'intensity': ['counts', 'a.u.'], 'voltage': ['V']}}[kind]
+        required_conditions = [name for name in cfg['conditions']['common'] if name not in {'N_P', 'E_C'}]
+        condition_policy = {'full_cell': 'Every required field must be confirmed per actual sample. N_P/E_C are optional reporting fields: if present they must be confirmed text (explicit not reported only after checking); omitted fields remain unknown and are never guessed. Capacity basis must match the selected mass/area/absolute unit.',
+                            'li_li': 'Every required field must be confirmed per actual sample. metal is Li or Na and cell_configuration must be exactly Li||Li or Na||Na. Current density and half-cycle areal capacity must be positive; signed voltage and overlap-area basis are retained. No full-cell N/P or E/C condition is inherited.',
+                            'operando_xrd': 'Every required field must be confirmed per actual sample. Wavelength must be positive; progress_definition and intensity_normalization must describe the actual coordinates/units. Optional voltage requires V, matching samples and confirmed synchronization over the same endpoints. No full-cell N/P or E/C condition is inherited.'}[kind]
+        geometry = {'full_cell': 'One or more samples; uneven strictly increasing cycle records allowed. Cycles are positive integers, capacity nonnegative. Optional voltage profiles must match recorded sample/cycle and each capacity coordinate must strictly increase. Auto ranges include all values; layouts must be reviewed.',
+                    'li_li': 'One or more Li/Na symmetric-cell samples; uneven strictly increasing nonnegative time records allowed, at least two points per sample. Zoom must lie within every sample trace and contain at least two points. Auto ranges retain signed voltage; layouts must be reviewed.',
+                    'operando_xrd': 'One or more samples, each with its own complete unique rectangular two_theta/progress grid of at least 2x2 coordinates. CSV order may vary; coordinate-keyed lookup never fills missing cells. %/fraction progress must stay within 0..100/0..1. Auto ranges include all values; layouts must be reviewed.'}[kind]
+        dump(pack / 'input_contract.json', {'schema_version': 2, 'config_schema_version': 1, 'resource_id': kind, 'format': 'UTF-8/BOM CSV long table; explicit JSON mapping; preserve raw file', 'required_columns': required,
+                   'units_supported': units_supported, 'units_optional': {'full_cell': ['ce'], 'li_li': [], 'operando_xrd': ['voltage']}[kind],
+                   'units_note': {'full_cell': 'capacity mAh g^-1/mAh cm^-2/mAh; explicit mass/area/absolute basis; cycle=1; voltage=V; CE=% only when recorded', 'li_li': 'time h/s; signed voltage mV/V; explicit Li||Li or Na||Na and current/half-cycle areal-capacity/overlap area basis', 'operando_xrd': '2theta deg; progress %/fraction/h/s/cycle; intensity counts/a.u.; optional voltage V; no phase inference'}[kind],
+                   'required_conditions': required_conditions, 'optional_conditions': ['N_P', 'E_C'] if kind == 'full_cell' else [], 'condition_policy': condition_policy,
+                   'geometry': geometry,
+                   'curve_colors': {'default_palette_size': 10, 'identity_rule': {'full_cell': '<sample>:capacity / <sample>:CE / <sample>:profile:<cycle>', 'li_li': '<sample>:signed_voltage; full and zoom views share identity', 'operando_xrd': '<sample>:measured_synchronized_voltage; heatmap colormap describes intensity, not sample identity'}[kind],
+                                    'custom': 'Use style.colors with enough unique opaque colours, or exact style.curve_colors mapping for all actual identities; do not provide both.',
+                                    'stop_on': ['insufficient colours', 'duplicate or alias-equivalent colours', 'transparent colour', 'white-background contrast below 2:1', 'pairwise sRGB distance below 0.10'],
+                                    'scope': 'Project display heuristic and actual Line2D checks; not a universal journal or colour-vision certification.'},
+                   'disallowed': ['missing-data demo fallback', 'silent dropped rows', 'silent smoothing/fitting', 'duplicate coordinates overwritten', 'unknown units guessed', 'demo condition reuse in author output', 'truncated data from old limits', 'silent palette cycling or curve-identity reuse'],
                    'validation_status': 'local_engineering_checked; model_behavior_NOT_RUN; author_scientific_review_pending'})
         (pack / 'AGENT_GUIDE.md').write_text(GUIDE, encoding='utf-8')
         (pack / 'requirements.txt').write_text('# Python 3.10+; install in this project venv, never globally.\nmatplotlib>=3.8,<4\nnumpy>=1.26,<3\nPillow>=10,<13\npypdf>=4,<7\n', encoding='utf-8')

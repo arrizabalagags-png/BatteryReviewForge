@@ -1,5 +1,6 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "config_schema_version": 1,
   "resource_id": "full_cell",
   "format": "UTF-8/BOM CSV long table; explicit JSON mapping; preserve raw file",
   "required_columns": {
@@ -19,11 +20,24 @@
     ]
   },
   "units_supported": {
-    "cycle": "1",
-    "capacity": "mAh g^-1",
-    "voltage": "V",
-    "ce": "%"
+    "cycle": [
+      "1"
+    ],
+    "capacity": [
+      "mAh g^-1",
+      "mAh cm^-2",
+      "mAh"
+    ],
+    "voltage": [
+      "V"
+    ],
+    "ce": [
+      "%"
+    ]
   },
+  "units_optional": [
+    "ce"
+  ],
   "units_note": "capacity mAh g^-1/mAh cm^-2/mAh; explicit mass/area/absolute basis; cycle=1; voltage=V; CE=% only when recorded",
   "required_conditions": [
     "cathode",
@@ -33,12 +47,27 @@
     "formation",
     "loading_or_areal_capacity",
     "temperature_C",
-    "voltage_window_V",
+    "voltage_window_V"
+  ],
+  "optional_conditions": [
     "N_P",
     "E_C"
   ],
-  "condition_policy": "Real config has nulls. Required unknown fields must stop; N/P and E/C may explicitly say not reported but never be guessed.",
-  "geometry": "Any positive number of groups; uneven lengths allowed per trace; XRD each group has its own complete unique coordinate grid. Auto ranges include new values. Long labels wrap; unreadable layouts must be revised.",
+  "condition_policy": "Every required field must be confirmed per actual sample. N_P/E_C are optional reporting fields: if present they must be confirmed text (explicit not reported only after checking); omitted fields remain unknown and are never guessed. Capacity basis must match the selected mass/area/absolute unit.",
+  "geometry": "One or more samples; uneven strictly increasing cycle records allowed. Cycles are positive integers, capacity nonnegative. Optional voltage profiles must match recorded sample/cycle and each capacity coordinate must strictly increase. Auto ranges include all values; layouts must be reviewed.",
+  "curve_colors": {
+    "default_palette_size": 10,
+    "identity_rule": "<sample>:capacity / <sample>:CE / <sample>:profile:<cycle>",
+    "custom": "Use style.colors with enough unique opaque colours, or exact style.curve_colors mapping for all actual identities; do not provide both.",
+    "stop_on": [
+      "insufficient colours",
+      "duplicate or alias-equivalent colours",
+      "transparent colour",
+      "white-background contrast below 2:1",
+      "pairwise sRGB distance below 0.10"
+    ],
+    "scope": "Project display heuristic and actual Line2D checks; not a universal journal or colour-vision certification."
+  },
   "disallowed": [
     "missing-data demo fallback",
     "silent dropped rows",
@@ -46,7 +75,8 @@
     "duplicate coordinates overwritten",
     "unknown units guessed",
     "demo condition reuse in author output",
-    "truncated data from old limits"
+    "truncated data from old limits",
+    "silent palette cycling or curve-identity reuse"
   ],
   "validation_status": "local_engineering_checked; model_behavior_NOT_RUN; author_scientific_review_pending"
 }

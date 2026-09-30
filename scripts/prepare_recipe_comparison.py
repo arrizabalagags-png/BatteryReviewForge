@@ -11,6 +11,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts/runtime_contract'))
 from cli_runtime import configure_utf8
+from eval_provenance import freeze
 
 
 def write_json(path, value):
@@ -93,7 +94,9 @@ def prepare(resource, scenario, output, host, host_version, model):
             shutil.copytree(pack, workspace / 'figure_pack', ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
         prompt = common_prompt + ('\n还提供existing_source原有完整入口与依赖源码，需适配新的CSV，不能直接把原Demo当新数据输出。\n' if arm == 'B' else '\n还提供figure_pack完整绘图包，请先读取AGENT_GUIDE.md和input_contract.json。\n' if arm == 'C' else '')
         (workspace / 'TASK.md').write_text(prompt, encoding='utf-8')
-        write_json(workspace / 'RUN_RECORD.json', {'schema_version': 1, 'resource_id': resource, 'scenario': scenario, 'arm': arm, 'run_state': 'NOT_RUN', 'host': host, 'host_version': host_version, 'model': model, 'actual_model_version': None, 'skill_version': json.loads((ROOT / 'plugin.json').read_text(encoding='utf-8-sig'))['version'], 'input_files': frozen, 'started_at': None, 'finished_at': None, 'duration_s': None, 'request_count': None, 'actual_cost': None, 'cost_evidence': None, 'rework_count': None, 'human_rescue': None, 'reviewer': None, 'final_artifact_evidence': [], 'checks': {'new_data_used': 'NOT_RUN', 'units_groups_conditions': 'NOT_RUN', 'no_demo_residue': 'NOT_RUN', 'all_points_and_signed_values_preserved': 'NOT_RUN', 'proper_stop_or_resolution': 'NOT_RUN', 'visual_review': 'NOT_RUN'}})
+        write_json(workspace / 'RUN_RECORD.json', {'schema_version': 2, 'resource_id': resource, 'scenario': scenario, 'arm': arm, 'run_state': 'NOT_RUN', 'host': host, 'host_version': host_version, 'model': model, 'actual_model_version': None, 'skill_version': json.loads((ROOT / 'plugin.json').read_text(encoding='utf-8-sig'))['version'],
+                    **freeze(ROOT, workspace / '.dsh/skills'), 'execution_environment': {'os': None, 'architecture': None},
+                    'input_files': frozen, 'started_at': None, 'finished_at': None, 'duration_s': None, 'request_count': None, 'actual_cost': None, 'cost_evidence': None, 'rework_count': None, 'human_rescue': None, 'reviewer': None, 'final_artifact_evidence': [], 'checks': {'new_data_used': 'NOT_RUN', 'units_groups_conditions': 'NOT_RUN', 'no_demo_residue': 'NOT_RUN', 'all_points_and_signed_values_preserved': 'NOT_RUN', 'proper_stop_or_resolution': 'NOT_RUN', 'visual_review': 'NOT_RUN'}})
     write_json(output / 'COMPARISON.json', {'schema_version': 1, 'resource_id': resource, 'scenario': scenario, 'host': host, 'host_version': host_version, 'model': model, 'input_files': frozen, 'arms': ['A', 'B', 'C'], 'model_runs': 'NOT_RUN', 'policy': 'Same actual host/model/settings and new independent conversations; repeat each arm >=3 times; preparation is not execution or a PASS.'})
     return output
 
