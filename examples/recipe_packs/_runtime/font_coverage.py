@@ -131,4 +131,3 @@ def install_font_guard(fig):
             raise FontCoverageError('最终渲染检测到字体缺字；请核对字体和原文字，不输出缺字图。') from exc
     fig.draw = checked_draw
     fig.voltpeer_font_guard = True
-

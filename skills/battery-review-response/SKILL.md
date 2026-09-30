@@ -6,7 +6,7 @@ description: Draft and verify point-by-point responses to editor and reviewer co
 # Reviewer response and resubmission
 
 <!-- execution-contract -->
-For model/tool adaptation or resuming a task, read [the execution guide](references/EXECUTION.md). DeepSeek Flash uses short stages and checkpoints; DeepSeek Pro can plan larger text/evidence batches, with the same scientific checks. Show the result, its file link and material unresolved questions; keep logs and recovery records inside the project's `.voltpeer/` folder. Use only capabilities actually available in the current model and host.
+For model/tool adaptation or resuming a task, read [the execution guide](references/EXECUTION.md). DeepSeek Flash uses short stages and checkpoints; DeepSeek Pro can plan larger text/evidence batches, with the same scientific checks. Reply in the user's language with the result, usable result/preview links and material unresolved questions. Keep mappings, configuration, logs and recovery records inside the project's `.voltpeer/` folder; do not link them in a normal final reply. Provide the corresponding source record only when the user explicitly requests provenance. Use only capabilities actually available in the current model and host.
 <!-- /execution-contract -->
 
 Use this for received peer-review comments or manuscript revision after review. Use [RESPONSE_MATRIX.md](assets/templates/RESPONSE_MATRIX.md) only if the project lacks a better format. For a new independent referee report, use `battery-reviewer` and keep it separate from response drafting.

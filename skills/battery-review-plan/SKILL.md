@@ -6,7 +6,7 @@ description: Define the angle, scope, evidence feasibility, and argument map for
 # Planning a battery Review
 
 <!-- execution-contract -->
-For model/tool adaptation or resuming a task, read [the execution guide](references/EXECUTION.md). DeepSeek Flash uses short stages and checkpoints; DeepSeek Pro can plan larger text/evidence batches, with the same scientific checks. Show the result, its file link and material unresolved questions; keep logs and recovery records inside the project's `.voltpeer/` folder. Use only capabilities actually available in the current model and host.
+For model/tool adaptation or resuming a task, read [the execution guide](references/EXECUTION.md). DeepSeek Flash uses short stages and checkpoints; DeepSeek Pro can plan larger text/evidence batches, with the same scientific checks. Reply in the user's language with the result, usable result/preview links and material unresolved questions. Keep mappings, configuration, logs and recovery records inside the project's `.voltpeer/` folder; do not link them in a normal final reply. Provide the corresponding source record only when the user explicitly requests provenance. Use only capabilities actually available in the current model and host.
 <!-- /execution-contract -->
 
 Use this for topic selection, a new outline, or recovery from scope drift. A short project brief is the durable decision record; [PROJECT_BRIEF.md](assets/templates/PROJECT_BRIEF.md) is an optional starter. If the user requests a narrower edit, preserve that scope.

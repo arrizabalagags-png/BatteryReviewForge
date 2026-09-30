@@ -16,9 +16,30 @@ from batteryplot.ingest import PLOT_COLUMNS, apply_mapping, inspect_table, read_
 from batteryplot.style import PRESETS, register_community_style
 
 
+METADATA_FIELDS = frozenset({
+    "kind", "style", "community_style_lock", "sheet", "columns", "common",
+    "mode", "condition_note", "width_mm", "height_mm", "sample_id", "fragment",
+    "claim", "caption_notes",
+})
+
+
 def render_from_metadata(data: Path, metadata: Path):
     """Validate author mappings and render; journal/export choices are separate."""
     config = json.loads(metadata.read_text(encoding="utf-8-sig"))
+    if not isinstance(config, dict):
+        raise DataContractError("Metadata must be a JSON object")
+    unknown = set(config) - METADATA_FIELDS
+    if unknown:
+        hints = []
+        if "figure_size_mm" in unknown:
+            hints.append("Use width_mm and height_mm for figure size")
+        if "dpi" in unknown:
+            hints.append("Pass raster resolution with the --dpi CLI argument")
+        raise DataContractError(
+            f"Unknown metadata keys: {', '.join(sorted(unknown))}. "
+            f"Allowed keys: {', '.join(sorted(METADATA_FIELDS))}. "
+            + "; ".join(hints)
+        )
     kind = config.get("kind")
     style = config.get("style")
     if not style:

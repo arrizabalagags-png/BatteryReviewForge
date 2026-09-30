@@ -6,7 +6,7 @@ description: Inspect author-owned battery instrument CSV exports, map columns an
 # Prepare battery test data
 
 <!-- execution-contract -->
-For model/tool adaptation or resuming a task, read [the execution guide](references/EXECUTION.md). DeepSeek Flash uses short stages and checkpoints; DeepSeek Pro can plan larger text/evidence batches, with the same scientific checks. Show the result, its file link and material unresolved questions; keep logs and recovery records inside the project's `.voltpeer/` folder. Use only capabilities actually available in the current model and host.
+For model/tool adaptation or resuming a task, read [the execution guide](references/EXECUTION.md). DeepSeek Flash uses short stages and checkpoints; DeepSeek Pro can plan larger text/evidence batches, with the same scientific checks. Reply in the user's language with the result, usable result/preview links and material unresolved questions. Keep mappings, configuration, logs and recovery records inside the project's `.voltpeer/` folder; do not link them in a normal final reply. Provide the corresponding source record only when the user explicitly requests provenance. Use only capabilities actually available in the current model and host.
 <!-- /execution-contract -->
 
 Use this before plotting when the author brings raw cycling, impedance, spectroscopy or other instrument tables. Start by inventorying files and reading a few rows; an extension or instrument filename does not identify the experiment, voltage reference, capacity basis or units. Keep the raw export untouched in the author's workspace. Do not upload unpublished data to a public repository or issue.

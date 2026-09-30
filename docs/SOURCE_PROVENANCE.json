@@ -1,10 +1,10 @@
 {
-  "source_commit": "4ddf96ca9b11cecc0e4084f7bf9c4d0ec84ac197",
+  "source_commit": "b68c51b05371f1ad7a54f565a24dd1ecaa9ade5b",
   "source_worktree_dirty": true,
-  "source_tracked_diff_sha256": "409b04b75652061dae41e8e56c4d2163f41c65ac0c556efe09df52db6cee2146",
+  "source_tracked_diff_sha256": "c86c49419da3eb4568a1fb689cd1608ca7e7a95a0eda275eb3ef3c1711af9aa6",
   "source_identity_origin": "actual_repository_HEAD_and_worktree",
   "skill_tree": {
-    "sha256": "1d6acf687af50c5afe1438de40cf2e248980a0dc6c71e4454e5464e1197fa17d",
+    "sha256": "3b4d0d18e303389e3900743650ee1bc8982d2d039be8a2bd7b436336835c1b90",
     "files": [
       {
         "path": "battery-claim-check/agents/openai.yaml",
@@ -28,8 +28,8 @@
       },
       {
         "path": "battery-claim-check/references/EXECUTION.md",
-        "sha256": "e39ec648a2574d7345bcd59f7786da42b5439b3ec373d16d9e62d2c4d4c019e8",
-        "bytes": 5378
+        "sha256": "05402ddd88f87426b94c4e3b85dbef92ad0503a872602cd034c88f4aabcef330",
+        "bytes": 5608
       },
       {
         "path": "battery-claim-check/scripts/check_task_state.py",
@@ -38,8 +38,8 @@
       },
       {
         "path": "battery-claim-check/SKILL.md",
-        "sha256": "c4226109a732fc7bd893832f88ea6f7344bf852b8e3ab4675570f6a2b5a81ff8",
-        "bytes": 3422
+        "sha256": "f2e1a85fabf7fcbba5c8ad7c86906ab10f2916a75a02eddbfaa980e70854ad69",
+        "bytes": 3653
       },
       {
         "path": "battery-data-prepare/agents/openai.yaml",
@@ -58,8 +58,8 @@
       },
       {
         "path": "battery-data-prepare/references/EXECUTION.md",
-        "sha256": "e39ec648a2574d7345bcd59f7786da42b5439b3ec373d16d9e62d2c4d4c019e8",
-        "bytes": 5378
+        "sha256": "05402ddd88f87426b94c4e3b85dbef92ad0503a872602cd034c88f4aabcef330",
+        "bytes": 5608
       },
       {
         "path": "battery-data-prepare/references/MAPPING_CONTRACT.md",
@@ -78,8 +78,8 @@
       },
       {
         "path": "battery-data-prepare/SKILL.md",
-        "sha256": "d835a88eadfc8dcb1a892cdfa71c50b5392c0be56ce761b20da5ad9d6ac49404",
-        "bytes": 3326
+        "sha256": "76b9b60a442566eaf7b83b399383b85e3d4f5bd5d802bd7646345b2dab44f501",
+        "bytes": 3545
       },
       {
         "path": "battery-experiment-plan/agents/openai.yaml",
@@ -103,8 +103,8 @@
       },
       {
         "path": "battery-experiment-plan/references/EXECUTION.md",
-        "sha256": "e39ec648a2574d7345bcd59f7786da42b5439b3ec373d16d9e62d2c4d4c019e8",
-        "bytes": 5378
+        "sha256": "05402ddd88f87426b94c4e3b85dbef92ad0503a872602cd034c88f4aabcef330",
+        "bytes": 5608
       },
       {
         "path": "battery-experiment-plan/scripts/check_task_state.py",
@@ -113,8 +113,8 @@
       },
       {
         "path": "battery-experiment-plan/SKILL.md",
-        "sha256": "533223cdde5d89be0de9e451508df7b93fae4410ccc81b92dd8255b1e702aecf",
-        "bytes": 2943
+        "sha256": "60d0a524a2b46ecfff7b667ce7b5efbc5efb48a93779a1c31f10fdd89913626e",
+        "bytes": 3162
       },
       {
         "path": "battery-figure-assemble/agents/openai.yaml",
@@ -148,8 +148,8 @@
       },
       {
         "path": "battery-figure-assemble/references/EXECUTION.md",
-        "sha256": "e39ec648a2574d7345bcd59f7786da42b5439b3ec373d16d9e62d2c4d4c019e8",
-        "bytes": 5378
+        "sha256": "05402ddd88f87426b94c4e3b85dbef92ad0503a872602cd034c88f4aabcef330",
+        "bytes": 5608
       },
       {
         "path": "battery-figure-assemble/references/LAYOUT_RECIPES.md",
@@ -343,8 +343,8 @@
       },
       {
         "path": "battery-figure-assemble/SKILL.md",
-        "sha256": "234a786905d6c086c34d6f274a748ab664982252badb3bd6685620d1a1d9388b",
-        "bytes": 11365
+        "sha256": "7e3969a70fd1fa353f1bcdcff0dfc5ac223e1642a37010871a50ed9aaa9b4e61",
+        "bytes": 11613
       },
       {
         "path": "battery-literature-map/agents/openai.yaml",
@@ -378,8 +378,8 @@
       },
       {
         "path": "battery-literature-map/references/EXECUTION.md",
-        "sha256": "e39ec648a2574d7345bcd59f7786da42b5439b3ec373d16d9e62d2c4d4c019e8",
-        "bytes": 5378
+        "sha256": "05402ddd88f87426b94c4e3b85dbef92ad0503a872602cd034c88f4aabcef330",
+        "bytes": 5608
       },
       {
         "path": "battery-literature-map/scripts/check_task_state.py",
@@ -388,8 +388,8 @@
       },
       {
         "path": "battery-literature-map/SKILL.md",
-        "sha256": "a26d9eafee95f2ad3961fcbe23255f21ca0193300e907fdc7e3e18a347d06c26",
-        "bytes": 3534
+        "sha256": "d2beb84c4cf6384fd869dd6135643c15d0da89386fae262d947b0656a2372361",
+        "bytes": 3759
       },
       {
         "path": "battery-metrics-audit/agents/openai.yaml",
@@ -413,8 +413,8 @@
       },
       {
         "path": "battery-metrics-audit/references/EXECUTION.md",
-        "sha256": "e39ec648a2574d7345bcd59f7786da42b5439b3ec373d16d9e62d2c4d4c019e8",
-        "bytes": 5378
+        "sha256": "05402ddd88f87426b94c4e3b85dbef92ad0503a872602cd034c88f4aabcef330",
+        "bytes": 5608
       },
       {
         "path": "battery-metrics-audit/scripts/check_task_state.py",
@@ -423,8 +423,8 @@
       },
       {
         "path": "battery-metrics-audit/SKILL.md",
-        "sha256": "e5b1d7bc17d925a476fa895b0a498beb573ae063efca54092f00c644a1068577",
-        "bytes": 8036
+        "sha256": "9495bc9bb2e04b301e2cc1f89f4d20492584795f50e724bbe0d1987a0ba8f22d",
+        "bytes": 8295
       },
       {
         "path": "battery-review-audit/agents/openai.yaml",
@@ -443,8 +443,8 @@
       },
       {
         "path": "battery-review-audit/references/EXECUTION.md",
-        "sha256": "e39ec648a2574d7345bcd59f7786da42b5439b3ec373d16d9e62d2c4d4c019e8",
-        "bytes": 5378
+        "sha256": "05402ddd88f87426b94c4e3b85dbef92ad0503a872602cd034c88f4aabcef330",
+        "bytes": 5608
       },
       {
         "path": "battery-review-audit/scripts/check_task_state.py",
@@ -453,8 +453,8 @@
       },
       {
         "path": "battery-review-audit/SKILL.md",
-        "sha256": "d9cb0e35e53183465b211d238a74b49dd2a0ccfe471cd326cf4a3a5eddc793bf",
-        "bytes": 2982
+        "sha256": "8fbef67db034290c8b496451607f6310bcb6a2ef299dd95ec77da04db7d42bf8",
+        "bytes": 3205
       },
       {
         "path": "battery-review-figure/agents/openai.yaml",
@@ -578,8 +578,8 @@
       },
       {
         "path": "battery-review-figure/references/EXECUTION.md",
-        "sha256": "e39ec648a2574d7345bcd59f7786da42b5439b3ec373d16d9e62d2c4d4c019e8",
-        "bytes": 5378
+        "sha256": "05402ddd88f87426b94c4e3b85dbef92ad0503a872602cd034c88f4aabcef330",
+        "bytes": 5608
       },
       {
         "path": "battery-review-figure/references/FIGURE_ROUTER.md",
@@ -663,8 +663,8 @@
       },
       {
         "path": "battery-review-figure/references/UPLOADED_DATA.md",
-        "sha256": "be403c330b3f827ea10346643a69e315f00f11eb096e4bd0a131857b5661d9d1",
-        "bytes": 8152
+        "sha256": "079967ea8d7a586b02710d51b572a968d55a875c8de79f96f8d5addc5175ff08",
+        "bytes": 10262
       },
       {
         "path": "battery-review-figure/references/VISUAL_FINISH.md",
@@ -788,8 +788,8 @@
       },
       {
         "path": "battery-review-figure/scripts/plot_uploaded.py",
-        "sha256": "ef308ed832ee07233a0a562a455ba9e7730805859e24303a6920a6dfa9818193",
-        "bytes": 5705
+        "sha256": "68bbbf490a8b0e2c3779f7395be8416e1996ff7fc1d8d96525374bbc20bd367d",
+        "bytes": 6530
       },
       {
         "path": "battery-review-figure/scripts/preview_styles.py",
@@ -813,8 +813,8 @@
       },
       {
         "path": "battery-review-figure/SKILL.md",
-        "sha256": "956b52bcc0286db9d7e033d9af42eaf3d99126ac997501188af4811a1950cffd",
-        "bytes": 17050
+        "sha256": "11b836bab1c00f0e0f2b18d857d3e40ac7586d486a2c2aade86ef024f6d52db2",
+        "bytes": 17493
       },
       {
         "path": "battery-review-forge/agents/openai.yaml",
@@ -848,8 +848,8 @@
       },
       {
         "path": "battery-review-forge/references/EXECUTION.md",
-        "sha256": "e39ec648a2574d7345bcd59f7786da42b5439b3ec373d16d9e62d2c4d4c019e8",
-        "bytes": 5378
+        "sha256": "05402ddd88f87426b94c4e3b85dbef92ad0503a872602cd034c88f4aabcef330",
+        "bytes": 5608
       },
       {
         "path": "battery-review-forge/references/shared/battery-review-figure/assets/style-preview.svg",
@@ -868,8 +868,8 @@
       },
       {
         "path": "battery-review-forge/SKILL.md",
-        "sha256": "3b63c0acc360c6220d09ca1c49076c093ce3d649fc150f1fb300568c9eaa214a",
-        "bytes": 8098
+        "sha256": "f7faebb01445167c38044b788d1f7d50e79f95a7e5bcaab41ebb63e1b1b53f86",
+        "bytes": 8364
       },
       {
         "path": "battery-review-plan/agents/openai.yaml",
@@ -893,8 +893,8 @@
       },
       {
         "path": "battery-review-plan/references/EXECUTION.md",
-        "sha256": "e39ec648a2574d7345bcd59f7786da42b5439b3ec373d16d9e62d2c4d4c019e8",
-        "bytes": 5378
+        "sha256": "05402ddd88f87426b94c4e3b85dbef92ad0503a872602cd034c88f4aabcef330",
+        "bytes": 5608
       },
       {
         "path": "battery-review-plan/scripts/check_task_state.py",
@@ -903,8 +903,8 @@
       },
       {
         "path": "battery-review-plan/SKILL.md",
-        "sha256": "c6fb6adda889de299b6a1b1c6557333fcaa671275ace07909c220bda6d1e54a0",
-        "bytes": 4427
+        "sha256": "f0b1c246869e12559d4c74d620fe0bc37514e3905a9952c36caac335bfd4b2aa",
+        "bytes": 4674
       },
       {
         "path": "battery-review-polish/agents/openai.yaml",
@@ -923,8 +923,8 @@
       },
       {
         "path": "battery-review-polish/references/EXECUTION.md",
-        "sha256": "e39ec648a2574d7345bcd59f7786da42b5439b3ec373d16d9e62d2c4d4c019e8",
-        "bytes": 5378
+        "sha256": "05402ddd88f87426b94c4e3b85dbef92ad0503a872602cd034c88f4aabcef330",
+        "bytes": 5608
       },
       {
         "path": "battery-review-polish/scripts/check_task_state.py",
@@ -933,8 +933,8 @@
       },
       {
         "path": "battery-review-polish/SKILL.md",
-        "sha256": "7ad2ea3c2a286d380e68011d152c847dd9aba56bf125a367c28189e56e8f0f0e",
-        "bytes": 2409
+        "sha256": "9923986804ecf8b362a7a1eb45f454d421df4400baf5e4c535964cade1791b18",
+        "bytes": 2632
       },
       {
         "path": "battery-review-response/agents/openai.yaml",
@@ -958,8 +958,8 @@
       },
       {
         "path": "battery-review-response/references/EXECUTION.md",
-        "sha256": "e39ec648a2574d7345bcd59f7786da42b5439b3ec373d16d9e62d2c4d4c019e8",
-        "bytes": 5378
+        "sha256": "05402ddd88f87426b94c4e3b85dbef92ad0503a872602cd034c88f4aabcef330",
+        "bytes": 5608
       },
       {
         "path": "battery-review-response/scripts/check_task_state.py",
@@ -968,8 +968,8 @@
       },
       {
         "path": "battery-review-response/SKILL.md",
-        "sha256": "e07b1cc0fc217638aaed27b170e2e02d34f6bdfb3dccd5ea3efced7e3ebf96a2",
-        "bytes": 2588
+        "sha256": "7d29011cfbac46988355d9f02d8af1f08c36aaddf3ceacd60343f0ff476e06c9",
+        "bytes": 2813
       },
       {
         "path": "battery-review-submission/agents/openai.yaml",
@@ -993,8 +993,8 @@
       },
       {
         "path": "battery-review-submission/references/EXECUTION.md",
-        "sha256": "e39ec648a2574d7345bcd59f7786da42b5439b3ec373d16d9e62d2c4d4c019e8",
-        "bytes": 5378
+        "sha256": "05402ddd88f87426b94c4e3b85dbef92ad0503a872602cd034c88f4aabcef330",
+        "bytes": 5608
       },
       {
         "path": "battery-review-submission/scripts/check_task_state.py",
@@ -1003,8 +1003,8 @@
       },
       {
         "path": "battery-review-submission/SKILL.md",
-        "sha256": "467c297bf80775d525927c39ccfd93a2eec619e599350868fe2cbeec549db74b",
-        "bytes": 3574
+        "sha256": "1359c1b79729a21f8cecabbc3d479606e0c6901dfc2097cef09830a96018288c",
+        "bytes": 3803
       },
       {
         "path": "battery-review-write/agents/openai.yaml",
@@ -1023,8 +1023,8 @@
       },
       {
         "path": "battery-review-write/references/EXECUTION.md",
-        "sha256": "e39ec648a2574d7345bcd59f7786da42b5439b3ec373d16d9e62d2c4d4c019e8",
-        "bytes": 5378
+        "sha256": "05402ddd88f87426b94c4e3b85dbef92ad0503a872602cd034c88f4aabcef330",
+        "bytes": 5608
       },
       {
         "path": "battery-review-write/scripts/check_task_state.py",
@@ -1033,8 +1033,8 @@
       },
       {
         "path": "battery-review-write/SKILL.md",
-        "sha256": "fa8c14407b43c62f0715219e333725c61f8f4dd930e9610789b6c904556ab846",
-        "bytes": 3429
+        "sha256": "f6e9bd2c34bdada3436626c8bdd02a8107a1bf840c275548762cbf0de311e514",
+        "bytes": 3660
       },
       {
         "path": "battery-reviewer/agents/openai.yaml",
@@ -1053,8 +1053,8 @@
       },
       {
         "path": "battery-reviewer/references/EXECUTION.md",
-        "sha256": "e39ec648a2574d7345bcd59f7786da42b5439b3ec373d16d9e62d2c4d4c019e8",
-        "bytes": 5378
+        "sha256": "05402ddd88f87426b94c4e3b85dbef92ad0503a872602cd034c88f4aabcef330",
+        "bytes": 5608
       },
       {
         "path": "battery-reviewer/scripts/check_task_state.py",
@@ -1063,8 +1063,8 @@
       },
       {
         "path": "battery-reviewer/SKILL.md",
-        "sha256": "2f6c76bc07c8f07638d52807662e730ef990d4d07f595fb9dd7fb7df5aa08c4b",
-        "bytes": 2809
+        "sha256": "389193595975ca8cb1a65ecadad985ba8d000be6709ffee1940c78e929af726a",
+        "bytes": 3030
       }
     ]
   },

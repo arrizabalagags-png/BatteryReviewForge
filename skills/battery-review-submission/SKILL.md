@@ -6,7 +6,7 @@ description: Match a battery Review to a journal and audit its proposal, cover l
 # Journal selection and submission preflight
 
 <!-- execution-contract -->
-For model/tool adaptation or resuming a task, read [the execution guide](references/EXECUTION.md). DeepSeek Flash uses short stages and checkpoints; DeepSeek Pro can plan larger text/evidence batches, with the same scientific checks. Show the result, its file link and material unresolved questions; keep logs and recovery records inside the project's `.voltpeer/` folder. Use only capabilities actually available in the current model and host.
+For model/tool adaptation or resuming a task, read [the execution guide](references/EXECUTION.md). DeepSeek Flash uses short stages and checkpoints; DeepSeek Pro can plan larger text/evidence batches, with the same scientific checks. Reply in the user's language with the result, usable result/preview links and material unresolved questions. Keep mappings, configuration, logs and recovery records inside the project's `.voltpeer/` folder; do not link them in a normal final reply. Provide the corresponding source record only when the user explicitly requests provenance. Use only capabilities actually available in the current model and host.
 <!-- /execution-contract -->
 
 Use this when the user is selecting a journal, preparing a proposal, cover letter, or submission package, or asking whether a Review is ready to submit. Journal rules are time-sensitive. Check the official journal and publisher pages for the *exact article type* and record each URL and access date in a journal ledger. Use [JOURNAL_CHECK.md](assets/templates/JOURNAL_CHECK.md) if there is no existing checklist.

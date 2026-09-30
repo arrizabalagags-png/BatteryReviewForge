@@ -6,7 +6,7 @@ description: Coordinate a multi-stage battery Review or Perspective project acro
 # Battery Review Forge
 
 <!-- execution-contract -->
-For model/tool adaptation or resuming a task, read [the execution guide](references/EXECUTION.md). DeepSeek Flash uses short stages and checkpoints; DeepSeek Pro can plan larger text/evidence batches, with the same scientific checks. Show the result, its file link and material unresolved questions; keep logs and recovery records inside the project's `.voltpeer/` folder. Use only capabilities actually available in the current model and host.
+For model/tool adaptation or resuming a task, read [the execution guide](references/EXECUTION.md). DeepSeek Flash uses short stages and checkpoints; DeepSeek Pro can plan larger text/evidence batches, with the same scientific checks. Reply in the user's language with the result, usable result/preview links and material unresolved questions. Keep mappings, configuration, logs and recovery records inside the project's `.voltpeer/` folder; do not link them in a normal final reply. Provide the corresponding source record only when the user explicitly requests provenance. Use only capabilities actually available in the current model and host.
 <!-- /execution-contract -->
 
 Coordinate a battery Review or Perspective across stages while keeping the current plan, evidence, and revision decisions inspectable. For a single-stage task, use the corresponding specialist skill. Do not apply this workflow to analysis of a new primary experimental paper. Respond in the user's language unless asked otherwise.
