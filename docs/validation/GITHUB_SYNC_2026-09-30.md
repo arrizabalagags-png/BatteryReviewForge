@@ -21,4 +21,8 @@
 
 ## 同步结果
 
-首次提交与远端核对完成后，在此追加准确提交 SHA 和分支证据。
+源码与分发包提交：`137b6a6d2e184f3efb0f398a5517a7948bbc2c2b`（`Prepare VoltPeer 0.10.0 beta skills and verified distributions`）。本次提交包含 276 个变更文件，其中 36 个 ZIP。
+
+执行 `git push -u origin HEAD:refs/heads/codex/public-skills` 成功；随后 `git ls-remote origin refs/heads/codex/public-skills` 返回与本地 HEAD 完全相同的 SHA。核对时工作区干净。
+
+仓库分支：[codex/public-skills](https://github.com/arrizabalagags-png/BatteryReviewForge/tree/codex/public-skills)。源码提交：[137b6a6](https://github.com/arrizabalagags-png/BatteryReviewForge/commit/137b6a6d2e184f3efb0f398a5517a7948bbc2c2b)。本同步记录在后续文档提交中更新，未改变上述固定分发包字节。
