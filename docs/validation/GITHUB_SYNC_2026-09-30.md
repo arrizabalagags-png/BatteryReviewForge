@@ -45,3 +45,9 @@ CSV 在 Git 中设 `-text`，保留原输入 CRLF 字节，防止 fresh checkout
 ### 暂存快照复核
 
 Git 暂存区另逐文件核对 **104 份 CSV 与本机原始字节完全一致**。为应用新的 `-text` 属性，执行显式 CSV renormalize；没有改本机原件。最终暂存的 **612 个变更文件、69 个 ZIP**（36 个下载包和 33 个演示/拼版包）再按 Git 实际 blob 和递归嵌套 ZIP 扫描 **1,832 条目**，无规则覆盖的令牌、私钥、个人绝对路径或禁止目录；暂存 diff gate 通过。
+
+### 本轮公开源码推送结果
+
+源码、绘图实现、科学图件、分发包及整理后的证据提交：`1cee0d16351070db7ee4b5f4a6ac6a2d45c886cf`（`Validate four-frame plotting and refresh beta distributions`）。`git push origin HEAD:refs/heads/codex/public-skills` 成功；随后 `git ls-remote` 返回同一 SHA，核对时公开工作区干净。
+
+[本轮源码与包提交](https://github.com/arrizabalagags-png/BatteryReviewForge/commit/1cee0d16351070db7ee4b5f4a6ac6a2d45c886cf)；[公开分支](https://github.com/arrizabalagags-png/BatteryReviewForge/tree/codex/public-skills)。本结果段在随后的日志提交保存；没有为记录提交 SHA 修改已核验的分发包字节。用户决定今天收尾，只保存已完成工作和日志；ECS 留待后续发布。
