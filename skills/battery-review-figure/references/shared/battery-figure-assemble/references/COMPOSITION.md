@@ -15,9 +15,9 @@ python -m pip install -r requirements.txt
 Inspect a folder first, then compose with a reviewed manifest:
 
 ```bash
-python <installed-battery-figure-assemble>/<installed-battery-figure-assemble>/scripts/compose_figure.py inventory \
+python <installed-battery-figure-assemble>/scripts/compose_figure.py inventory \
   --input path/to/figure_sources --output path/to/inspection
-python <installed-battery-figure-assemble>/<installed-battery-figure-assemble>/scripts/compose_figure.py compose \
+python <installed-battery-figure-assemble>/scripts/compose_figure.py compose \
   --manifest path/to/figure_manifest.json --out path/to/Fig3 --strict
 ```
 

@@ -34,8 +34,8 @@ python <installed-battery-review-figure>/scripts/plot_uploaded.py styles
 原创 SVG 示意图库也可按同一风格重配色：
 
 ```bash
-python <installed-battery-review-figure>/<installed-battery-review-figure>/scripts/render_template.py --list
-python <installed-battery-review-figure>/<installed-battery-review-figure>/scripts/render_template.py \
+python <installed-battery-review-figure>/scripts/render_template.py --list
+python <installed-battery-review-figure>/scripts/render_template.py \
   --template battery-lab-primitives --style rose_blue --out figures/lab.svg
 ```
 

@@ -69,9 +69,13 @@ def sync_skill(folder):
         # Bare paths in copied guides have the source Skill's root semantics,
         # not the recipient Skill's root. Copy scientific reference/assets only;
         # executable instructions explicitly require the independently installed owner.
+        seen_bare_paths = set()
         for value, linked, _ in list(markdown_paths(content)):
             if linked or PLACEHOLDER.search(value):
                 continue
+            if value in seen_bare_paths:
+                continue
+            seen_bare_paths.add(value)
             base = origin.parent if value.startswith(('./', '../')) else owner
             target = (base / value).resolve()
             if target.is_relative_to(folder):

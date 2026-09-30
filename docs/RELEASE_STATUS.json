@@ -1,18 +1,29 @@
 {
   "version": "0.10.0",
   "channel": "beta",
-  "checked_at": "2026-09-30",
+  "checked_at": "2026-10-01",
   "host": "DeepSeek Harness desktop",
-  "local_engineering_checks": "PASS: 129 tests / 257.400 s before schema supplement; current focused schema followup 3 tests / 0.955 s; actual archives checked separately",
+  "local_engineering_checks": "Historical full regression 129 tests / 257.400 s; later focused recipe/eval, fonts, uploaded metadata and contract-sync checks recorded separately; current archive gate required.",
   "final_regression_record": "validation/2026-09-30-frame-final-regression.json",
-  "distribution_record": "validation/2026-09-30-distribution.json",
+  "distribution_record": "validation/2026-10-01-distribution.json",
   "actual_archive_gate": "PASS: 36 downloads / 62 extracted Skill reference-and-AST checks / 30 canonical demo schema checks",
   "desktop_discovery_to_delivery": "NOT_RUN",
-  "flash_model_evaluation": "NOT_RUN",
-  "pro_model_evaluation": "NOT_RUN",
+  "flash_model_evaluation": "NOT_RUN: full 69-case suite; limited direct-API pilot PARTIAL",
+  "pro_model_evaluation": "NOT_RUN: full 69-case suite; limited direct-API pilot PARTIAL",
   "macos_real_device": "NOT_RUN",
   "publication": "GitHub source candidate on codex/public-skills; no release tag or ECS deployment",
   "github_source_branch": "codex/public-skills",
   "github_sync_record": "validation/GITHUB_SYNC_2026-09-30.md",
-  "schema_followup_record": "validation/2026-09-30-schema-followup.json"
+  "schema_followup_record": "validation/2026-09-30-schema-followup.json",
+  "api_pilot": {
+    "status": "PARTIAL_API_PILOT",
+    "native_desktop_test": false,
+    "record": "validation/2026-10-01-api-pilot.json",
+    "final_rounds": 3,
+    "all_attempts": 13,
+    "confirmed_token_estimated_cny": 0.67786444,
+    "uncertain_request_reserved_cny": 0.415863,
+    "controlled_cost_upper_bound_cny": 1.09372744,
+    "current_full_tree_behavior": "NOT_RUN: late shared-guide documentation correction changes the frozen tree"
+  }
 }

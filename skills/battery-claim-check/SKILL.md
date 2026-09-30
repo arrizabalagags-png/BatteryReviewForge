@@ -19,6 +19,12 @@ Prioritize numbers and units, mechanism/causality, priority or “first” claim
 
 Check the source's *actual scope*: cell type and format, tested branch and cycle, denominator, conditions, uncertainty, and whether a value is measured, recalculated, or modelled. Use `battery-metrics-audit` for cross-study comparability or a full battery extraction table. Distinguish `NR` (checked source does not report it), `NV` (source or section not yet verified), and `NA` (not applicable).
 
+When sources give opposite effects, retain each within-source result and denominator. List the conditions actually verified in common; if E/C or other comparison fields remain NR/NV, do not describe the sources as having identical complete conditions or pool an effect. Missing supplementary information does not erase an already reported opposite result. A percentage-point difference is not a relative percentage change.
+
+Match mechanistic evidence to the exact claim. Cycling, CE and EIS can describe performance or impedance under a declared model; EIS alone is not direct evidence of SEI chemical composition or proof that an additive forms an inorganic-rich SEI. Such a composition claim needs relevant, assigned chemical/structural measurements and controls (for example source-supported XPS), with limitations retained; merely naming an instrument is not verification. Keep a supported observation separate from an unverified causal explanation.
+
+Preserve the original manuscript as an unchanged input. If a copy is requested, use the host's actual file-copy operation and check its byte hash; do not reconstruct a purported unchanged copy from model text. If no copy tool is available, link the retained original and state that no byte-verified copy was made. Write edits to a separately named revision and label it as a revision.
+
 ## Bibliography and negative claims
 
 Verify title, authors, journal, year, DOI, correction/retraction status where relevant, and duplicate records against authoritative source metadata. A plausible DOI is not a verified DOI. Inspect whether cited works actually address the sentence next to the citation; a paragraph-end cluster may mask unsupported intermediate claims.

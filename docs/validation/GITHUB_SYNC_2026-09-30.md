@@ -95,3 +95,12 @@ Git 暂存区另逐文件核对 **104 份 CSV 与本机原始字节完全一致*
 其余 32 个下载 ZIP 保持原大小和 SHA。所有包以 `docs/downloads/distribution-sha256.txt` 和 `2026-09-30-distribution.json` 为准；前文完整包、recipe 哈希仅为历史记录。
 
 本批仅公开绘图包运行时、契约、EVAL 工具、合成测试材料、分发和公开摘要；不包含私有网站、二维码、原始研究数据或个人原始日志。0.10.0 保持 Beta；真实 Harness 发现到交付、Flash/Pro 模型行为、macOS 实机仍 **NOT_RUN**，科学内容仍待作者审阅。后续中文标签与字体 cmap 小补修另行记录；本批没有把该未完成工作记为通过。未创建 tag、Release、PR 或 main 合并，未发布上海 ECS。
+# 2026-10-01 续接快照索引
+
+本文件下方较早条目保留各次真实包和 Git 记录。最新续接说明如下；Beta 分支同步与正式 ECS 发布分别执行。
+
+- 默认 `main` 的 README 介绍单独提交 `c84fc748a05f5056097f0ae402aaa80c356d92e0`，只更新项目说明和候选入口，稳定代码仍为 v0.9.2。About 介绍已写明电池科研用途、DeepSeek Harness 主路线和 Beta 验证边界。
+- 当前便携包 944,271 bytes，SHA-256 `2762ce334a04d485952e22639a8e87527137f77642b09d34c3f2fc8f128a129d`。实际36个下载包、62项解压 Skill 引用/AST依赖、30项 canonical 演示对应通过；最新完整包内公共文档和 Skill 成员与维护源逐字节对应。
+- 去敏 API 摘要见 `2026-10-01-api-pilot.json`；实际13个任务试次保留失败与未知扣费预留。最后三轮图件/原稿/安全停止分别检查，整体为 PARTIAL_API_PILOT。完整69项、原生桌面、macOS保持 NOT_RUN。
+- 测试后的共享命令前缀补修改变五份 Markdown，未改变 Python 文件；当前完整 Skill 树 SHA `4f283de6aa8509f247bf353739382d6d7e95103954f355c5b18f67e27947f474`，其模型行为 NOT_RUN。旧 RUN/FROZEN 不改写。原稿字节复制、相反证据范围和简短结果回复规则已保存，仍保留模型实际未遵守的结果。
+- 本批源码、分发与日志提交到 `codex/public-skills`；实际 push 和远端 SHA 的最终读回记录另存私有 Web `deployment/GITHUB_SYNC_2026-09-30.md`。未创建 tag 或 Release，未切换 ECS。

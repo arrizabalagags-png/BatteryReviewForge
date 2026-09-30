@@ -1,6 +1,6 @@
 # 软件适配与实际验证状态
 
-默认路线是 **DeepSeek Harness 官方桌面端 + 项目工作区技能**。技术 ID 保持 `battery-review-figure`、`battery-figure-assemble` 等；显示名支持情况不能替代技能发现检查。文档核对于 2026-09-30；本次为 **Beta**，真实 Flash/Pro 固定行为 EVAL 和原生桌面完整发现到结果链路仍待实跑。
+默认路线是 **DeepSeek Harness 官方桌面端 + 项目工作区技能**。技术 ID 保持 `battery-review-figure`、`battery-figure-assemble` 等；显示名支持情况不能替代技能发现检查。文档核对于 2026-10-01；本次为 **Beta**。有限Flash/Pro直连API pilot已实际执行，独立评分为PARTIAL_API_PILOT；完整69项固定行为EVAL及原生桌面发现到结果链路仍待实跑。[去敏结果和用量](validation/2026-10-01-api-pilot.json)。
 
 ## DeepSeek Harness 桌面端主线
 
@@ -47,7 +47,7 @@ sh install.sh --workspace "/path/to/research project"
 | discovered | 原生客户端新会话读取实际技术 ID 的路径 | 本次桌面原生发现待实测 |
 | runtime_ready | 所需包实际 import 成功及工具执行权 | 本地项目QA环境已检查；使用者机器必须自己检查 |
 | smoke_test_passed | 实际导出、文件解析与打开，非按钮点击 | 本次Python本地绘图/拼版路线及失效边界回归测试 |
-| behavior_eval | 完整case请求、模型输出/调用、产物与独立评分证据 | 两个目标模型 NOT_RUN；不以单元测试冒充 |
+| behavior_eval | 完整case请求、模型输出/调用、产物与独立评分证据 | 有限直连API pilot PARTIAL；完整69项和原生宿主 NOT_RUN；不以单元测试冒充 |
 
 诊断命令：`python scripts/diagnose_install.py --skills-root "实际目标目录" --host "DeepSeek Harness desktop"`。目标可为安装集合，也可直接指向一个含 SKILL.md 的技能目录。诊断逐技能读取本包 requirements，检查已装版本和实际 import；无第三方依赖记 NOT_REQUIRED。显式 `--smoke-output "新目录"` 只实跑已实现的绘图 PDF/PNG/SVG 或拼版 PDF/PNG 路线，其他流程记 NOT_SUPPORTED，不创建假的产物或发现通过状态。默认隐藏个人路径；完整技术诊断由维护者按需查看。**SVG面板输入拼版**还需要原生 Cairo；import 可用不等于所有 SVG 已渲染通过。缺少时用原编辑器导出的矢量 PDF。
 

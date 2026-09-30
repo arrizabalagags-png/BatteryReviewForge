@@ -26,6 +26,7 @@ PUBLIC_DOCS = ["docs/COMPATIBILITY.md", "docs/SKILL_NAMES.json", "docs/EVAL.md",
                "docs/validation/2026-09-30-recipe-eval-followup.json",
                "docs/validation/2026-09-30-recipe-font-followup.json",
                "docs/validation/2026-09-30-upload-metadata-followup.json",
+               "docs/validation/2026-10-01-api-pilot.json",
                "docs/DEMO_METADATA_SCHEMA.json", "scripts/check_demo_metadata.py",
                "scripts/check_skill_dependencies.py", "scripts/diagnose_install.py", "scripts/check_skill_distribution.py",
                "scripts/workflow_eval.py", "scripts/eval_provenance.py", "scripts/runtime_contract/cli_runtime.py", "docs/SOURCE_PROVENANCE.json"]
