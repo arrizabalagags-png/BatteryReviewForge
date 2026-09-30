@@ -1,0 +1,21 @@
+{
+  "checked_at": "2026-09-30",
+  "version": "0.10.0",
+  "channel": "beta",
+  "python": "3.12.14",
+  "platform": "Windows",
+  "command": "python -m unittest discover -s tests -v",
+  "tests_run": 104,
+  "elapsed_seconds": 169.804,
+  "result": "PASS",
+  "status": "historical_not_current_release_gate",
+  "scope": "Capacity-marker correction and tests present when this run started",
+  "new_requirement_arrived_while_validation_pending": "Show top, right, bottom and left axes frames on all data plots",
+  "current_release_gate": false,
+  "does_not_validate": "The subsequently requested four-sided-frame changes or their final packages",
+  "raw_log_public": false,
+  "native_desktop_discovery_to_delivery": "NOT_RUN",
+  "flash_model_evaluation": "NOT_RUN",
+  "pro_model_evaluation": "NOT_RUN",
+  "macos_real_device": "NOT_RUN"
+}

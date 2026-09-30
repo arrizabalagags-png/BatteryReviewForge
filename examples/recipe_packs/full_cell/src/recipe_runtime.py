@@ -274,10 +274,17 @@ def values(rows, key):
 
 def line(ax, x, y, checks, *, identity, **kwargs):
     import numpy as np
+    kwargs.setdefault('linestyle', '-')
+    kwargs.setdefault('marker', None)
     artist, = ax.plot(x, y, **kwargs)
     if not np.array_equal(artist.get_xdata(), np.asarray(x)) or not np.array_equal(artist.get_ydata(), np.asarray(y)):
         raise ContractError('绘图坐标与规范化原始记录不一致。')
-    checks.append({'identity': identity, 'points': len(x), 'x': list(x), 'y': list(y), 'check': 'exact_artist_array'})
+    marker, line_style = artist.get_marker(), artist.get_linestyle()
+    if marker not in (None, 'None', '', ' ') or line_style != '-':
+        raise ContractError('连续曲线需为无点实线；请核对项目副本的绘图样式。')
+    checks.append({'identity': identity, 'points': len(x), 'x': list(x), 'y': list(y),
+                   'check': 'exact_artist_array', 'line_style': line_style,
+                   'marker': marker, 'style_check': 'solid_without_markers'})
     return artist
 
 
@@ -340,8 +347,16 @@ def run(kind, render, argv=None):
             raise ContractError('中文标签需要本机CJK字体（如微软雅黑/Noto Sans CJK）；请在隔离环境中配置，不输出缺字图。')
         style = cfg.get('style', {})
         font = number(style.get('font_pt', 8), 'style.font_pt')
-        with plt.rc_context({'font.family': [cjk, 'DejaVu Sans'] if cjk else ['DejaVu Sans'], 'font.size': font, 'pdf.fonttype': 42, 'svg.fonttype': 'none', 'axes.spines.top': False, 'axes.spines.right': False, 'lines.linewidth': 1.1}):
+        with plt.rc_context({'font.family': [cjk, 'DejaVu Sans'] if cjk else ['DejaVu Sans'], 'font.size': font, 'pdf.fonttype': 42, 'svg.fonttype': 'none', 'axes.spines.top': True, 'axes.spines.right': True, 'axes.spines.bottom': True, 'axes.spines.left': True, 'lines.linewidth': 1.1}):
             fig, checks = render(cfg, tables)
+            frames = []
+            for index, ax in enumerate(fig.axes):
+                if not ax.axison or hasattr(ax, '_colorbar'):
+                    continue
+                sides = {side: ax.spines[side].get_visible() for side in ('top','right','bottom','left')}
+                if not all(sides.values()):
+                    raise ContractError('数据图需保留上下左右四条框线，请检查项目副本。')
+                frames.append({'axis_index': index, 'spines': sides})
             export = cfg.get('export', {})
             formats = export.get('formats', ['pdf', 'svg', 'png', 'tiff'])
             if not formats or len(set(formats)) != len(formats) or set(formats) - {'pdf', 'svg', 'png', 'tiff'}:
@@ -360,7 +375,7 @@ def run(kind, render, argv=None):
                 version = read_json(Path(__file__).resolve().parents[1] / 'VERSION.json')
                 record = {'schema_version': 1, 'resource_id': kind, 'pack_version': version['version'], 'data_status': cfg['data_status'], 'conditions': conditions,
                           'input_records': [{'file': t['path'].name, 'sha256': t['sha256'], 'rows': len(t['rows']), 'columns': t['columns']} for t in tables.values() if t],
-                          'exact_data_artist_checks': checks, 'plotted_data_sha256': data_hash, 'unit_mapping': cfg['units'],
+                          'exact_data_artist_checks': checks, 'data_frame_checks': frames, 'plotted_data_sha256': data_hash, 'unit_mapping': cfg['units'],
                           'export': {'formats': formats, 'dpi_by_format': {f: dpis[f] if f in dpis else None for f in formats}, 'tiff_compression': 'tiff_lzw' if 'tiff' in formats else None},
                           'scientific_review': 'pending_author_review', 'material_questions': warnings, 'model_behavior_eval': 'NOT_RUN',
                           'generated_at': datetime.now(timezone.utc).isoformat(timespec='seconds'),

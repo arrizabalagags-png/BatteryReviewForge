@@ -24,9 +24,9 @@
 
 ## 交付与分享
 
-图件默认 Working 包：根目录 `index.html`、`README.md`；可交付图件在 `results/`；输入、规格、审查与恢复记录在 `.voltpeer/`。绘图用 `scripts/deliver.py`；拼版用 `scripts/compose_figure.py deliver`。这样作者直接找结果，内部证据仍可续读。SVG 输入需要 Python CairoSVG **及原生 Cairo**；无 Cairo 时提示作者从原编辑软件导出矢量 PDF，不把只安装 Python 包写成完整支持。
+图件默认 Working 包：根目录 `index.html`、`README.md`；可交付图件在 `results/`；输入、规格、审查与恢复记录在 `.voltpeer/`。需要图件时调用已安装的 `battery-review-figure` 或 `battery-figure-assemble`，并读取它自己的交付指南和 requirements。本工作流指南不附带其他技能的绘图/拼版程序；只装文字流程技能不要求安装绘图库。SVG 输入需要 Python CairoSVG **及原生 Cairo**；无 Cairo 时提示作者从原编辑软件导出矢量 PDF，不把只安装 Python 包写成完整支持。
 
-对外发布必须先确认最终图件可公开及许可，再用 `scripts/share_bundle.py`（绘图/拼版技能中提供）生成独立 Share 包。排除原始输入、TASK_STATE、本地路径和内部日志，检查文本/元数据；保留科学标签和必需署名。自动清理不能识别图像里所有姓名或未公开发现，分享前仍需作者检查可见内容。Working 包是私有研究材料，不放进公开仓库。
+对外发布必须先确认最终图件可公开及许可，再按实际绘图/拼版技能自己的分享指南生成独立 Share 包。文字流程技能不提供这一图件工具。排除原始输入、TASK_STATE、本地路径和内部日志，检查文本/元数据；保留科学标签和必需署名。自动清理不能识别图像里所有姓名或未公开发现，分享前仍需作者检查可见内容。Working 包是私有研究材料，不放进公开仓库。
 
 位图按内容类（线条/图像/混合）及格式分别记录 DPI；默认 300 dpi 是中性试样，不能叫“达到所有期刊要求”。历史规格有范围或缺值时明确指定并核查现行期刊要求。PDF/SVG 的位图嵌入仍有有效分辨率限制。TIFF 默认 LZW。
 

@@ -1,3 +1,5 @@
+> This is a copied science guide. Its executable commands require a separately installed `battery-review-figure`; `<installed-battery-review-figure>` means that Skill's actual root. Those scripts and Python dependencies are not supplied by this guide.
+
 # 把电池数据文件变成图
 
 给 Codex 原始或整理好的 CSV、TSV、TXT、XLSX 文件，并说清“这是什么电芯、想画什么、图给谁看”。不用自己写 Matplotlib，也不用手写下面的 JSON；Codex 会查列名并生成映射记录。缺条件时先指出缺什么；不能从文件名猜成论文结论。
@@ -7,21 +9,21 @@
 在仓库根目录安装一次依赖：
 
 ```bash
-python -m pip install -r skills/battery-review-figure/requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 先看文件里有哪些列：
 
 ```bash
-python skills/battery-review-figure/scripts/plot_uploaded.py inspect --data my_data.xlsx --sheet Sheet1
+python <installed-battery-review-figure>/<installed-battery-review-figure>/<installed-battery-review-figure>/scripts/plot_uploaded.py inspect --data my_data.xlsx --sheet Sheet1
 ```
 
 若工作簿只有一张表，可省略 `--sheet`。脚本显示列名、前三行和可能的图型；候选只说明列形状相符，不代表数据、单位或实验条件正确。准备一份 JSON 映射后再画：
 
-画最终图前，看[六种风格预览](STYLE_PRESETS.md)并让作者选一套；如果整篇稿件已选过，就沿用。命令行也可列出风格：`python skills/battery-review-figure/scripts/plot_uploaded.py styles`。没有选择时继续查列和条件，绘图命令会明确报错而不会猜默认风格。
+画最终图前，看[六种风格预览](STYLE_PRESETS.md)并让作者选一套；如果整篇稿件已选过，就沿用。命令行也可列出风格：`python <installed-battery-review-figure>/<installed-battery-review-figure>/<installed-battery-review-figure>/scripts/plot_uploaded.py styles`。没有选择时继续查列和条件，绘图命令会明确报错而不会猜默认风格。
 
 ```bash
-python skills/battery-review-figure/scripts/plot_uploaded.py plot --data my_data.xlsx --metadata my_figure.json --out figures/Fig2a
+python <installed-battery-review-figure>/<installed-battery-review-figure>/<installed-battery-review-figure>/scripts/plot_uploaded.py plot --data my_data.xlsx --metadata my_figure.json --out figures/Fig2a
 ```
 
 输出 PDF、SVG、300 dpi PNG 和 `.provenance.json`。CSV、TSV、TXT 同样可用。旧版 XLS、Origin 工程、各品牌仪器专有格式须先导出可读表；不要假装已解析其内部结构。

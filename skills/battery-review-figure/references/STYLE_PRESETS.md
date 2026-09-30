@@ -22,7 +22,7 @@
 列出风格，再把 `style` 写进上传数据的映射 JSON：
 
 ```bash
-python skills/battery-review-figure/scripts/plot_uploaded.py styles
+python scripts/plot_uploaded.py styles
 ```
 
 ```json
@@ -32,8 +32,8 @@ python skills/battery-review-figure/scripts/plot_uploaded.py styles
 原创 SVG 示意图库也可按同一风格重配色：
 
 ```bash
-python skills/battery-review-figure/scripts/render_template.py --list
-python skills/battery-review-figure/scripts/render_template.py \
+python scripts/render_template.py --list
+python scripts/render_template.py \
   --template battery-lab-primitives --style rose_blue --out figures/lab.svg
 ```
 

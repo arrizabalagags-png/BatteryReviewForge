@@ -159,7 +159,7 @@ def render_electrochem(recipe, folder, *, style='forge'):
 
         fw, fh = fig.get_size_inches()*25.4
         for letter, ax in axes.items():
-            ax.spines[['top', 'right']].set_visible(False)
+            ax.spines[['top','right','bottom','left']].set_visible(True)
             ax.grid(False)
             ax.tick_params(length=2.3, width=.6, pad=2)
             box = ax.get_position()

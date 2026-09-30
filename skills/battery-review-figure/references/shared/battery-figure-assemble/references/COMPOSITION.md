@@ -1,3 +1,5 @@
+> This is a copied science guide. Its executable commands require a separately installed `battery-figure-assemble`; `<installed-battery-figure-assemble>` means that Skill's actual root. Those scripts and Python dependencies are not supplied by this guide.
+
 # Reproducible multi-panel assembly
 
 This route accepts author-supplied raster panels (PNG/JPEG/TIFF) and one-page PDF/SVG panels. It outputs a physical-size PDF, a 300 dpi or higher PNG preview, per-panel crops, an alignment overlay, and a JSON audit. PDF/SVG sources stay vector where the source permits it. Raster images are never made vector by wrapping them in PDF.
@@ -7,15 +9,15 @@ This route accepts author-supplied raster panels (PNG/JPEG/TIFF) and one-page PD
 Install the skill's Python dependencies in an isolated project environment (Python ≥3.10):
 
 ```bash
-python -m pip install -r skills/battery-figure-assemble/requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 Inspect a folder first, then compose with a reviewed manifest:
 
 ```bash
-python skills/battery-figure-assemble/scripts/compose_figure.py inventory \
+python <installed-battery-figure-assemble>/<installed-battery-figure-assemble>/scripts/compose_figure.py inventory \
   --input path/to/figure_sources --output path/to/inspection
-python skills/battery-figure-assemble/scripts/compose_figure.py compose \
+python <installed-battery-figure-assemble>/<installed-battery-figure-assemble>/scripts/compose_figure.py compose \
   --manifest path/to/figure_manifest.json --out path/to/Fig3 --strict
 ```
 
@@ -24,14 +26,14 @@ python skills/battery-figure-assemble/scripts/compose_figure.py compose \
 For a self-contained synthetic check:
 
 ```bash
-python skills/battery-figure-assemble/examples/demo_assemble.py outputs/assemble-demo
+python <installed-battery-figure-assemble>/examples/demo_assemble.py outputs/assemble-demo
 ```
 
 The example contains no research observations.
 
 `demo_assemble.py --help` only displays arguments. Use `--output NEW_FOLDER --without-svg` for a PDF/PNG-only demonstration when native Cairo is unavailable. SVG input specifically requires both the CairoSVG Python package and working native Cairo libraries; a successful package install does not prove SVG input is usable. Export a supplied SVG to vector PDF in its source editor when that optional capability is unavailable. Do not rename a raster file to PDF or claim it became editable.
 
-For ordinary handoff after inspection, use `compose_figure.py deliver --manifest MANIFEST --out WORKING_FOLDER [--strict]`. Final PDF/PNG appear in `results/`, a root `index.html` opens them, and detailed QA, source mappings and recovery are retained under `.voltpeer/`. Existing outputs receive new version names. The older `compose` command still exports developer-facing diagnostics; it also preserves earlier versions. PNG DPI is a preview choice and does not change embedded raster source resolution. Named journal requirements still need exact article/content-class confirmation. Public sharing uses `scripts/share_bundle.py` only after author-confirmed rights and license; do not publish the private Working folder.
+For ordinary handoff after inspection, use `compose_figure.py deliver --manifest MANIFEST --out WORKING_FOLDER [--strict]`. Final PDF/PNG appear in `results/`, a root `index.html` opens them, and detailed QA, source mappings and recovery are retained under `.voltpeer/`. Existing outputs receive new version names. The older `compose` command still exports developer-facing diagnostics; it also preserves earlier versions. PNG DPI is a preview choice and does not change embedded raster source resolution. Named journal requirements still need exact article/content-class confirmation. Public sharing uses `<installed-battery-figure-assemble>/scripts/share_bundle.py` only after author-confirmed rights and license; do not publish the private Working folder.
 
 ## Manifest contract
 

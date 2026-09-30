@@ -7,6 +7,7 @@ from __future__ import annotations
 from pathlib import Path
 import re
 import shutil
+from check_skill_distribution import markdown_paths, PLACEHOLDER
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS = ROOT / 'skills'
@@ -62,7 +63,38 @@ def sync_skill(folder):
                 return '](' + REMOTE + target.relative_to(ROOT).as_posix() + (match['anchor'] or '') + ')'
             relative = __import__('os').path.relpath(local, destination.parent).replace('\\', '/')
             return '](' + relative + (match['anchor'] or '') + ')'
-        return LINK.sub(replace, content)
+        content = LINK.sub(replace, content)
+        owner = SKILLS / origin.relative_to(SKILLS).parts[0]
+        installed_owner_required = False
+        # Bare paths in copied guides have the source Skill's root semantics,
+        # not the recipient Skill's root. Copy scientific reference/assets only;
+        # executable instructions explicitly require the independently installed owner.
+        for value, linked, _ in list(markdown_paths(content)):
+            if linked or PLACEHOLDER.search(value):
+                continue
+            base = origin.parent if value.startswith(('./', '../')) else owner
+            target = (base / value).resolve()
+            if target.is_relative_to(folder):
+                continue
+            if not target.exists():
+                raise ValueError(f'Missing bare source path: {origin.relative_to(ROOT)} -> {value}')
+            if target.is_relative_to(owner / 'scripts') or target.is_relative_to(owner / 'examples'):
+                replacement = f'<installed-{owner.name}>/' + target.relative_to(owner).as_posix()
+                installed_owner_required = True
+            else:
+                local = shared(target) if target.is_file() else None
+                if local:
+                    relative = __import__('os').path.relpath(local, destination.parent).replace('\\', '/')
+                    replacement = f'[{value}]({relative})'
+                else:
+                    replacement = f'[{value}]({REMOTE}{target.relative_to(ROOT).as_posix()})'
+            content = content.replace(value, replacement)
+        if installed_owner_required:
+            notice = (f'> This is a copied science guide. Its executable commands require a separately installed '
+                      f'`{owner.name}`; `<installed-{owner.name}>` means that Skill\'s actual root. '
+                      'Those scripts and Python dependencies are not supplied by this guide.\n\n')
+            content = notice + content
+        return content
 
     entry = folder / 'SKILL.md'
     # Refresh previously copied guides after their owning source changes.
@@ -73,16 +105,16 @@ def sync_skill(folder):
                 origin = canonical(SKILLS / old.relative_to(shared_root))
                 if origin.is_file():
                     shared(origin)
-    entry.write_text(rewrite(entry, entry, entry.read_text(encoding='utf-8-sig')), encoding='utf-8')
+    entry.write_text(rewrite(entry, entry, entry.read_text(encoding='utf-8-sig')), encoding='utf-8', newline='\n')
     # Existing local guide links also need standalone closure (atlas + demos).
     for guide in sorted((folder / 'references').glob('*.md')):
-        guide.write_text(rewrite(guide, guide, guide.read_text(encoding='utf-8-sig')), encoding='utf-8')
+        guide.write_text(rewrite(guide, guide, guide.read_text(encoding='utf-8-sig')), encoding='utf-8', newline='\n')
     while pending:
         origin = pending.pop(0)
         destination = copied[origin]
         destination.parent.mkdir(parents=True, exist_ok=True)
         if origin.suffix == '.md':
-            destination.write_text(rewrite(origin, destination, origin.read_text(encoding='utf-8-sig')), encoding='utf-8')
+            destination.write_text(rewrite(origin, destination, origin.read_text(encoding='utf-8-sig')), encoding='utf-8', newline='\n')
         else:
             shutil.copyfile(origin, destination)
     return len(copied)

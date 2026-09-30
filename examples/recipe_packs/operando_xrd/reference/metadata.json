@@ -2,7 +2,7 @@
   "data_status": "synthetic_demo",
   "not_experimental_data": true,
   "random_seed": 20260923,
-  "generator_version": "1.2",
+  "generator_version": "1.5",
   "figure_grammar_id": "operando_xrd + matched_voltage_trace",
   "journal_preset": "journal_neutral_180mm",
   "variables_and_units": {
@@ -20,5 +20,37 @@
   "review": {
     "science": "models and data-to-panel links inspected; no experimental interpretation",
     "display": "internal PNG and final-size inspection completed; independent author review remains required"
-  }
+  },
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 1,
+      "label": "_child0",
+      "points": 105,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    }
+  ],
+  "curve_style_check": "pass: actual rendered Line2D artists are solid and have no markers",
+  "data_frame_check": "pass: actual data axes show top/right/bottom/left spines",
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    }
+  ]
 }

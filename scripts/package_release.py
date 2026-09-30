@@ -1,8 +1,8 @@
 """Build the portable full package and independently installable Skills.
 
 This archive contains the installers, public documentation, plugin manifest and
-skills. Private papers, local outputs, test fixtures and website demos are not
-included. The user can unpack it and run install.ps1 or install.sh.
+skills and original synthetic evaluation fixtures. Private papers, local outputs
+and website demos are not included. Unpack and run install.ps1 or install.sh.
 """
 
 from __future__ import annotations
@@ -18,7 +18,11 @@ OUTPUT = ROOT / "docs" / "downloads" / f"BatteryReviewForge-v{VERSION}.zip"
 TOP_LEVEL = ["README.md", "AUTHORS.md", "LICENSE", "CITATION.cff", "install.ps1", "install.sh"]
 PUBLIC_DOCS = ["docs/COMPATIBILITY.md", "docs/SKILL_NAMES.json", "docs/EVAL.md",
                "docs/SKILLS_QA_2026-09-30.md", "docs/RELEASE_STATUS.json",
-               "scripts/diagnose_install.py", "scripts/check_skill_distribution.py",
+               "docs/validation/FIGURE_FEEDBACK_2026-09-30.md",
+               "docs/validation/2026-09-30-frame-final-regression.json",
+               "docs/validation/2026-09-30-frame-regression-initial.json",
+               "docs/DEMO_METADATA_SCHEMA.json", "scripts/check_demo_metadata.py",
+               "scripts/check_skill_dependencies.py", "scripts/diagnose_install.py", "scripts/check_skill_distribution.py",
                "scripts/workflow_eval.py"]
 
 

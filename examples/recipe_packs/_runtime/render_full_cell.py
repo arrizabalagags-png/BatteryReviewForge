@@ -1,6 +1,17 @@
 """Full-cell cycling with optional measured CE and matched voltage profiles."""
 import matplotlib.pyplot as plt
+import colorsys
+from matplotlib.colors import to_rgb, to_hex
 from recipe_runtime import groups, values, line, label, finish, checked_limits
+
+
+def trace_shade(color, index, count):
+    if index == 0:
+        return to_hex(color)
+    hue, lightness, saturation = colorsys.rgb_to_hls(*to_rgb(color))
+    candidates = [0.20 + 0.22 * step / (2 * count + 2) for step in range(2 * count + 3)]
+    candidates = [value for value in candidates if abs(value - lightness) > 0.025]
+    return to_hex(colorsys.hls_to_rgb(hue, candidates[index - 1], saturation))
 
 
 def render(cfg, tables):
@@ -21,7 +32,7 @@ def render(cfg, tables):
         handles.append(artist)
         texts.append(name)
         if ce_ax is not None:
-            artist = line(ce_ax, values(rows, 'cycle'), values(rows, 'ce'), checks, identity=f'{sample}:CE', color=color, linestyle='--')
+            artist = line(ce_ax, values(rows, 'cycle'), values(rows, 'ce'), checks, identity=f'{sample}:CE', color=trace_shade(color, 1, 2), linestyle='-', marker=None)
             handles.append(artist)
             texts.append(name + ' · CE')
     all_rows = cycling['rows']
@@ -35,9 +46,10 @@ def render(cfg, tables):
         linked = {}
         for row in profiles['rows']:
             linked.setdefault((row['sample'], row['cycle']), []).append(row)
-        styles = ['-', '--', '-.', ':']
         for index, ((sample, cycle), rows) in enumerate(linked.items()):
-            artist = line(axes[1], values(rows, 'capacity'), values(rows, 'voltage'), checks, identity=f'{sample}:profile:{cycle:g}', color=sample_colors[sample], linestyle=styles[index % len(styles)])
+            sample_keys = [key for key in linked if key[0] == sample]
+            color = trace_shade(sample_colors[sample], sample_keys.index((sample, cycle)), len(sample_keys))
+            artist = line(axes[1], values(rows, 'capacity'), values(rows, 'voltage'), checks, identity=f'{sample}:profile:{cycle:g}', color=color, linestyle='-')
             handles.append(artist)
             texts.append(label(cfg, sample) + f' · cycle {cycle:g}')
         axes[1].set(xlabel=f'Discharge capacity ({units["capacity"]})', ylabel='Voltage (V)')

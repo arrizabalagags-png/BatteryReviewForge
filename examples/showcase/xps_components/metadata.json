@@ -31,5 +31,78 @@
     "default_template": false
   },
   "reproduce": "python render_specialist.py --recipe xps_components --input-folder xps_components --output-dir brf-output --style forge",
-  "creator": "BatteryReviewForge original synthetic model and drawing"
+  "creator": "BatteryReviewForge original synthetic model and drawing",
+  "generator_version": "1.5",
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Component 1",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "Component 2",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "Component 3",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "Data",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "Sum",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "Background",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "_child0",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "_child1",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 2
+        }
+      ]
+    }
+  ]
 }

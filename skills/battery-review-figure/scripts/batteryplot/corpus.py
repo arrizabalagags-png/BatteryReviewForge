@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from .layout import axes_mm, measure_layout
-from .style import colors_for
+from .style import colors_for, trace_shade
 
 CORPUS_RECIPES = ('ftir', 'nmr', 'rdf_coordination', 'msd', 'lsv', 'transference')
 
@@ -199,7 +199,7 @@ def render_corpus(recipe, folder, *, style='forge'):
                 b.plot(x, cn, color=colors[idx], label=pair)
             a.set(xlabel='Distance (Å)', ylabel='g(r)')
             b.set(xlabel='Distance (Å)', ylabel='Coordination number')
-            for ax in (a, b): ax.axvline(cutoff, ls='--', lw=.6, color='#73777d')
+            for ax in (a, b): ax.axvline(cutoff, ls='-', lw=.6, color='#73777d')
             a.legend(frameon=False, loc='best')
             transformations.append('Supplied cumulative coordination checked against 4πρ∫r²g(r)dr using declared pair number densities; no species assignment inferred')
 
@@ -263,7 +263,7 @@ def render_corpus(recipe, folder, *, style='forge'):
                 _ordered(x, f'{name} polarization time')
                 if x[0] < 0 or np.any(y <= 0): raise ValueError('Polarization time nonnegative and current positive required')
                 a.plot(x, y, color=colors[idx], label=name)
-                for stage, ls in (('before', '-'), ('after', '--')):
+                for stage_index, stage in enumerate(('before', 'after')):
                     key = (name, stage)
                     if key not in eis_groups or len(eis_groups[key]) < 3:
                         raise ValueError(f'{name} needs before and after EIS, >=3 rows each')
@@ -271,7 +271,7 @@ def render_corpus(recipe, folder, *, style='forge'):
                     zr = np.array([r['z_real_ohm'] for r in rg])
                     zi = np.array([r['z_imag_negative_ohm'] for r in rg])
                     if np.any(zr < 0) or np.any(zi < 0): raise ValueError('EIS displayed ohm magnitudes must be nonnegative')
-                    b.plot(zr, zi, ls=ls, color=colors[idx], label=f'{name} {stage}')
+                    b.plot(zr, zi, ls='-', color=trace_shade(colors[idx], stage_index, 2), label=f'{name} {stage}')
                 if name in known:
                     calculations[name] = {'tLi_plus': _transference_value(known[name]),
                                           'method': opt['calculation_method'], 'inputs': known[name]}
@@ -285,7 +285,7 @@ def render_corpus(recipe, folder, *, style='forge'):
 
         fw, fh = fig.get_size_inches()*25.4
         for letter, ax in axes.items():
-            ax.spines[['top', 'right']].set_visible(False)
+            ax.spines[['top','right','bottom','left']].set_visible(True)
             ax.grid(False)
             ax.tick_params(length=2.3, width=.6, pad=2)
             box = ax.get_position()

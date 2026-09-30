@@ -1,3 +1,5 @@
+> This is a copied science guide. Its executable commands require a separately installed `battery-review-figure`; `<installed-battery-review-figure>` means that Skill's actual root. Those scripts and Python dependencies are not supplied by this guide.
+
 # 选一套图的颜色风格
 
 ![Six original style previews made with invented values](../assets/style-preview.svg)
@@ -22,7 +24,7 @@
 列出风格，再把 `style` 写进上传数据的映射 JSON：
 
 ```bash
-python skills/battery-review-figure/scripts/plot_uploaded.py styles
+python <installed-battery-review-figure>/scripts/plot_uploaded.py styles
 ```
 
 ```json
@@ -32,12 +34,12 @@ python skills/battery-review-figure/scripts/plot_uploaded.py styles
 原创 SVG 示意图库也可按同一风格重配色：
 
 ```bash
-python skills/battery-review-figure/scripts/render_template.py --list
-python skills/battery-review-figure/scripts/render_template.py \
+python <installed-battery-review-figure>/<installed-battery-review-figure>/scripts/render_template.py --list
+python <installed-battery-review-figure>/<installed-battery-review-figure>/scripts/render_template.py \
   --template battery-lab-primitives --style rose_blue --out figures/lab.svg
 ```
 
-重配色只处理本库原创 SVG 的颜色，不会碰作者的原始显微图、已发表图片或实验数值。`scripts/preview_styles.py --out path/style-preview` 可重新生成预览。
+重配色只处理本库原创 SVG 的颜色，不会碰作者的原始显微图、已发表图片或实验数值。`<installed-battery-review-figure>/scripts/preview_styles.py --out path/style-preview` 可重新生成预览。
 
 ## English
 

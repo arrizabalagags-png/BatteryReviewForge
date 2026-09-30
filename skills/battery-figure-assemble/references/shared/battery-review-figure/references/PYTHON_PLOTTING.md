@@ -1,6 +1,8 @@
+> This is a copied science guide. Its executable commands require a separately installed `battery-review-figure`; `<installed-battery-review-figure>` means that Skill's actual root. Those scripts and Python dependencies are not supplied by this guide.
+
 # BatteryReviewForge Python plotting library
 
-The bundled `scripts/batteryplot` package uses Matplotlib. It is an original implementation for battery Review and Perspective figures. It keeps an individual figure's code, input table, outputs and provenance close together in the manuscript project. It does not ship paper data or copy third-party artwork. For ordinary author uploads, start with [the CSV/XLSX guide](UPLOADED_DATA.md) and `scripts/plot_uploaded.py`; custom Python is optional.
+The bundled `<installed-battery-review-figure>/scripts/batteryplot` package uses Matplotlib. It is an original implementation for battery Review and Perspective figures. It keeps an individual figure's code, input table, outputs and provenance close together in the manuscript project. It does not ship paper data or copy third-party artwork. For ordinary author uploads, start with [the CSV/XLSX guide](UPLOADED_DATA.md) and `<installed-battery-review-figure>/scripts/plot_uploaded.py`; custom Python is optional.
 
 ## Install and import
 
@@ -22,7 +24,7 @@ save_bundle(fig, "figures/cycle_retention", claim="A specific, source-supported 
 For a runnable synthetic check from the repository root:
 
 ```bash
-python skills/battery-review-figure/examples/demo_figures.py --output outputs/figure-demo
+python <installed-battery-review-figure>/<installed-battery-review-figure>/examples/demo_figures.py --output outputs/figure-demo
 ```
 
 The example data are invented and must never be used as literature evidence.
@@ -78,7 +80,7 @@ figures/fig03_cycle/
 
 The PDF and SVG are vector masters with editable text where supported. PNG/TIFF uses at least 300 dpi; DPI does not apply to pure vector marks. The default canvas is 89 mm wide. Change `width_mm`/`height_mm` for the target journal and inspect the exported figure at that final size. The sidecar records the claim, data path, source IDs, row count, comparison mode and caption notes. It says `requires_human_review` because the package cannot determine whether a paper's numbers, statistics, licenses or journal rules are correct.
 
-All chart helpers accept a `style` code from [STYLE_PRESETS.md](STYLE_PRESETS.md). When using the author-upload CLI, `style` is required in its mapping JSON so the choice is recorded in the provenance sidecar. Programmatic calls retain `forge` as a backward-compatible default; manuscript-facing scripts should pass the selected style explicitly. Original editable SVG templates use the same presets through `scripts/render_template.py`.
+All chart helpers accept a `style` code from [STYLE_PRESETS.md](STYLE_PRESETS.md). When using the author-upload CLI, `style` is required in its mapping JSON so the choice is recorded in the provenance sidecar. Programmatic calls retain `forge` as a backward-compatible default; manuscript-facing scripts should pass the selected style explicitly. Original editable SVG templates use the same presets through `<installed-battery-review-figure>/scripts/render_template.py`.
 
 Before release, check the exported figure, caption and source data together: all requested observations remain; `n` and error-bar definition are supplied when relevant; legends, symbols, scales, axes, type and line widths are readable; raster inserts have adequate effective resolution; and every reused visual has a recorded license/permission. For multi-panel figures, check final rendered alignment and collisions after layout, not just Python source. Verify the target journal's current author guide for exact dimensions and formats.
 
@@ -90,4 +92,4 @@ The library was informed by the reproducible per-project organization and public
 
 在已安装 Matplotlib 的 Python 环境中，将 `battery-review-figure/scripts` 加入 `PYTHONPATH`，从 `batteryplot` 导入所需函数。每个定量数据行都填 `source_id`、`evidence_state=verified` 和该图型要求的测试条件；`NR`、`NV` 只用于条件矩阵，不能拿来代替定量数值。跨论文比较先检查分母、电芯构型、倍率、温度、载量和液量，再按具体体系补充压力、E/S、N/P 等关键条件。函数通过校验不代表论文证据已经核实。
 
-用 `save_bundle` 导出 PDF、SVG、PNG 与 `.provenance.json`，在目标期刊的最终尺寸下检查字体、标注、颜色、误差线和面板对齐。`examples/demo_figures.py` 只含虚构测试数据，不能用于论文。完整接口与字段见上表。
+用 `save_bundle` 导出 PDF、SVG、PNG 与 `.provenance.json`，在目标期刊的最终尺寸下检查字体、标注、颜色、误差线和面板对齐。`<installed-battery-review-figure>/<installed-battery-review-figure>/examples/demo_figures.py` 只含虚构测试数据，不能用于论文。完整接口与字段见上表。

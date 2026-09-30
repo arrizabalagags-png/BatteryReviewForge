@@ -19,7 +19,7 @@ The [pattern atlas](ASSET_PATTERN_ATLAS.md) classifies local-reference ideas int
 The author may provide PPTX, AI, PSD, EPS, image or PDF collections. Make a **private catalog** before using them:
 
 ```bash
-python skills/battery-review-figure/scripts/asset_inventory.py \
+python scripts/asset_inventory.py \
   --input path/to/reference-assets \
   --output outputs/private-asset-inventory.json
 ```

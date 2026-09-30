@@ -28,16 +28,16 @@ def main() -> None:
         variant = [0.39, 0.55, 0.62, 0.72, 0.80, 0.86]
         for ax, (name, preset) in zip(axes.flat, PRESETS.items()):
             series = preset["series"]
-            ax.plot(x, baseline, color=series[0], linewidth=preset["line_pt"], marker="o",
-                    markersize=3, label="Reference")
-            ax.plot(x, variant, color=series[1], linewidth=preset["line_pt"], marker="s",
-                    markersize=3, linestyle="--", label="Variant")
+            ax.plot(x, baseline, color=series[0], linewidth=preset["line_pt"],
+                    marker=None, linestyle="-", label="Reference")
+            ax.plot(x, variant, color=series[1], linewidth=preset["line_pt"],
+                    marker=None, linestyle="-", label="Variant")
             ax.fill_between(x, [v - 0.035 for v in variant], [v + 0.035 for v in variant],
                             color=series[1], alpha=0.13, linewidth=0)
             ax.set(xlim=(-0.3, 10.3), ylim=(0.2, 1.02), xlabel="Cycle index (synthetic)",
                    ylabel="Relative value")
             ax.set_title(f"{preset['label_en']}  ·  {name}", pad=34)
-            ax.spines[["top", "right"]].set_visible(False)
+            ax.spines[["top", "right", "bottom", "left"]].set_visible(True)
             ax.tick_params(labelsize=8)
             ax.xaxis.label.set_size(8)
             ax.yaxis.label.set_size(8)

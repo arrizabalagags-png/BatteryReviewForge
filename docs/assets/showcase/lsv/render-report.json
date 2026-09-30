@@ -76,5 +76,65 @@
     "observation": "Shared-axis electrolyte LSV traces; synthetic current/voltage values are not published results.",
     "review_scope": "Original PDF figure and caption visually checked; no numerical values or artwork copied",
     "default_template": false
-  }
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 450
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 450
+        },
+        {
+          "label": "C",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 450
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 450
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 450
+        },
+        {
+          "label": "C",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 450
+        }
+      ]
+    }
+  ]
 }

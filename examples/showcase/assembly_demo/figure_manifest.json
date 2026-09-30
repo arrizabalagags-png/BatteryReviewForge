@@ -8,13 +8,13 @@
   "label_band_mm": 0,
   "draw_labels": false,
   "row_heights_mm": [
-    54.59138,
-    32.82284,
-    57.51006
+    54.08877,
+    37.23153,
+    57.05514
   ],
   "col_weights": [
-    4.073944,
-    3.025916
+    4.044714,
+    3.05522
   ],
   "dpi": 300,
   "min_effective_dpi": 300,
@@ -30,10 +30,10 @@
       "alignment_intent": "compare",
       "alignment_group": "shared-axes-ruler",
       "plot_box_fraction": [
-        0.1162472,
-        0.089426,
-        0.9717718,
-        0.8273712
+        0.1067237,
+        0.0925748,
+        0.9740402,
+        0.8495458
       ]
     },
     {
@@ -47,10 +47,10 @@
       "alignment_intent": "compare",
       "alignment_group": "shared-axes-ruler",
       "plot_box_fraction": [
-        0.1294374,
-        0.089426,
-        0.9826491,
-        0.8273712
+        0.1216497,
+        0.0925748,
+        0.9721788,
+        0.8495458
       ]
     },
     {
@@ -64,10 +64,10 @@
       "alignment_intent": "compare",
       "alignment_group": "shared-axes-ruler",
       "plot_box_fraction": [
-        0.1162472,
-        0.1283279,
-        0.9717718,
-        0.7726403
+        0.1067237,
+        0.1193961,
+        0.9740402,
+        0.7878561
       ]
     },
     {
@@ -81,10 +81,10 @@
       "alignment_intent": "compare",
       "alignment_group": "shared-axes-ruler",
       "plot_box_fraction": [
-        0.1294374,
-        0.1283279,
-        0.9826491,
-        0.7726403
+        0.1216497,
+        0.1193961,
+        0.9721788,
+        0.7878561
       ]
     },
     {
@@ -92,16 +92,16 @@
       "path": "panel-e.png",
       "row": 2,
       "col": 0,
-      "role": "full-cell cycling",
+      "role": "NMC811||Li half-cell cycling",
       "source_id": "SYNTHETIC-DEMO-SHARED-STUDY",
       "rights_status": "original",
       "alignment_intent": "compare",
       "alignment_group": "shared-axes-ruler",
       "plot_box_fraction": [
-        0.1162472,
-        0.0866038,
-        0.9717718,
-        0.8361323
+        0.1067237,
+        0.0895198,
+        0.9740402,
+        0.8573681
       ]
     },
     {
@@ -109,16 +109,16 @@
       "path": "panel-f.png",
       "row": 2,
       "col": 1,
-      "role": "selected full-cell voltage profiles",
+      "role": "selected NMC811||Li half-cell voltage profiles",
       "source_id": "SYNTHETIC-DEMO-SHARED-STUDY",
       "rights_status": "original",
       "alignment_intent": "compare",
       "alignment_group": "shared-axes-ruler",
       "plot_box_fraction": [
-        0.1294374,
-        0.0866038,
-        0.9826491,
-        0.8361323
+        0.1216497,
+        0.0895198,
+        0.9721788,
+        0.8573681
       ]
     }
   ]

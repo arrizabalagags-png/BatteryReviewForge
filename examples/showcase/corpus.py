@@ -154,6 +154,12 @@ def generate(name):
 def render(name):
     folder = ROOT / name
     fig, report = render_recipe(name, folder)
+    from batteryplot.qa import data_plot_checks
+    checks = data_plot_checks(fig)
+    report['actual_artist_checks'] = checks
+    metadata = json.loads((folder/'metadata.json').read_text(encoding='utf-8'))
+    metadata.update(generator_version='1.5', actual_artist_checks=checks)
+    (folder/'metadata.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     with matplotlib.rc_context(fig.brf_export_rc):
         for suffix in ('png', 'svg', 'pdf'):
             fig.savefig(folder/f'figure.{suffix}', dpi=300, facecolor='white')

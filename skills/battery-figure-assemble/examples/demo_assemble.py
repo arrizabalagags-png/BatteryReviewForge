@@ -37,10 +37,8 @@ def make_demo(root: Path, *, without_svg: bool = False) -> Path:
 
     image = Image.new("RGB", (1200, 680), "white")
     draw = ImageDraw.Draw(image)
-    draw.line((115, 80, 115, 570, 1090, 570), fill="#26343D", width=4)
+    draw.rectangle((115, 80, 1090, 570), outline="#26343D", width=4)
     draw.line((145, 210, 380, 250, 610, 325, 835, 370, 1060, 402), fill="#205C85", width=9, joint="curve")
-    for x, y in ((145, 210), (380, 250), (610, 325), (835, 370), (1060, 402)):
-        draw.ellipse((x - 10, y - 10, x + 10, y + 10), fill="#205C85")
     image.save(sources / "demo_trend.png", dpi=(600, 600))
 
     svg = sources / "demo_matrix.svg"

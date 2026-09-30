@@ -16,7 +16,7 @@ from .data import (
     source_ids,
     verified_rows,
 )
-from .style import COLORS, LINESTYLES, MARKERS, colors_for, condition_banner, make_figure, theme_for
+from .style import COLORS, LINESTYLES, colors_for, condition_banner, make_figure, theme_for
 
 
 CYCLE_CONTEXT = (
@@ -82,7 +82,7 @@ def cycle_retention(
         ax.plot([p[0] for p in points], [p[1] for p in points],
                 color=colors[series_index], linestyle=LINESTYLES[series_index],
                 linewidth=fig.batteryplot_linewidth,
-                marker=MARKERS[series_index], markersize=3, label=name)
+                marker=None, label=name)
     ax.set(xlabel="Cycle number", ylabel="Capacity retention (%)")
     ax.set_xlim(left=0)
     ax.set_ylim(bottom=0)
@@ -122,7 +122,7 @@ def rate_capability(
         ax.plot([p[0] for p in points], [p[2] for p in points],
                 color=colors[series_index], linestyle=LINESTYLES[series_index],
                 linewidth=fig.batteryplot_linewidth,
-                marker=MARKERS[series_index], markersize=3, label=name)
+                marker=None, label=name)
     assert reference_steps is not None
     ax.set_xticks([s for s, _ in reference_steps], [label for _, label in reference_steps])
     ax.set(xlabel="Applied rate (test order)", ylabel=f"Specific capacity ({rows[0]['capacity_unit']})")

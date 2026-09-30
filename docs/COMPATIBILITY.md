@@ -22,8 +22,8 @@ sh install.sh --workspace "/path/to/research project"
 
 工作区须已存在。目标为 `<工作区>/.dsh/skills/<技术ID>/SKILL.md`，这是官方项目文件系统 provider 的高优先级路径；有 `.git` 时项目根取最近祖先。打开项目根，避免选择里面另一个嵌套目录。[官方技能发现说明](https://deepseek-harness.github.io/deepseek-harness/reference/subsystems/skills)。CLI 与桌面 profile 不能混同，不能仅复制到猜测的 userData/global 目录便写“桌面已安装”。
 
-4. 在该工作区新开会话，请它定位 `battery-review-figure` 和 `battery-figure-assemble`，读取其实际 SKILL.md。安装脚本输出只证明 copied；宿主实际定位才是 discovered。
-5. 在项目自己的虚拟环境安装需要的 Python 依赖，先跑合成样例。不要给系统 Python 装全局包。绘图需要 `skills/battery-review-figure/requirements.txt`；拼版需要 `skills/battery-figure-assemble/requirements.txt`。Windows 本次QA使用隔离 Python 3.12，要求 Python ≥3.10；目录可含中文/空格，JSON BOM 可读。
+4. 在该工作区新开会话，请它定位实际装入的技能，读取其实际 SKILL.md。单个技能不要求同时装绘图和拼版。安装脚本输出只证明 copied；宿主实际定位才是 discovered。
+5. 绘图/拼版脚本在项目虚拟环境中安装该技能自己根目录的 `requirements.txt`，再跑合成样例；只用文字流程不要求安装绘图库。不要给系统 Python 装全局包。Windows 本次QA使用隔离 Python 3.12，脚本要求 Python ≥3.10；目录可含中文/空格，JSON BOM 可读。
 6. 用一份真实授权数据试样，核对结果里的单位、分母、边界和最终尺寸，再批量。缺关键字段时补材料，不要求新手读内部日志。
 
 更新：Windows 加 `-Overwrite`，shell 加 `--overwrite`。安装器先移动同名旧树到相邻 `.brf-install-backups`，再完整复制新树；保留作者修改，不合并旧遗留文件。没有覆盖参数时遇同名停止。恢复先把旧目录复制回原目标或指定独立测试工作区，核查实际被宿主发现的路径。
@@ -49,7 +49,7 @@ sh install.sh --workspace "/path/to/research project"
 | smoke_test_passed | 实际导出、文件解析与打开，非按钮点击 | 本次Python本地绘图/拼版路线及失效边界回归测试 |
 | behavior_eval | 完整case请求、模型输出/调用、产物与独立评分证据 | 两个目标模型 NOT_RUN；不以单元测试冒充 |
 
-诊断命令：`python scripts/diagnose_install.py --skills-root "实际目标目录" --host "DeepSeek Harness desktop"`。默认隐藏个人路径；完整技术诊断由维护者按需查看。绘图SVG导出由 Matplotlib 完成；**SVG面板输入拼版**需要 CairoSVG 和原生 Cairo，必须实际 import/渲染，缺少时用原编辑器导出的矢量 PDF。包内 doc 写“支持SVG”指此条件，不保证每台Windows预装Cairo。
+诊断命令：`python scripts/diagnose_install.py --skills-root "实际目标目录" --host "DeepSeek Harness desktop"`。目标可为安装集合，也可直接指向一个含 SKILL.md 的技能目录。诊断逐技能读取本包 requirements，检查已装版本和实际 import；无第三方依赖记 NOT_REQUIRED。显式 `--smoke-output "新目录"` 只实跑已实现的绘图 PDF/PNG/SVG 或拼版 PDF/PNG 路线，其他流程记 NOT_SUPPORTED，不创建假的产物或发现通过状态。默认隐藏个人路径；完整技术诊断由维护者按需查看。**SVG面板输入拼版**还需要原生 Cairo；import 可用不等于所有 SVG 已渲染通过。缺少时用原编辑器导出的矢量 PDF。
 
 ## 结果与恢复
 
@@ -67,3 +67,5 @@ sh install.sh --workspace "/path/to/research project"
 | 其他桌面端 | 按已核实官方技能接口 | 不照搬目录、不杜撰一键安装；无官方可验证接口时只提供手动参考 |
 
 兼容测试协议见 [EVAL说明](../evals/README.md)。打包前用 `scripts/check_skill_distribution.py` 检查完整安装树和每个独立ZIP解压目录；必须能在单技能目录解析所有本地运行引用。引用检查也不证明客户端能力。
+
+维护者再运行 `python scripts/check_skill_dependencies.py --skills-root skills`，用 AST 检查每个技能所附 Python 源码的 import 是否在本技能 requirements 声明。检查不读取全局已装包来弥补漏项，懒加载和可选 SVG 导入仍记录；动态名称无法静态解析时保留 NOT_TESTED。此门禁只核对 Python 导入与声明，不验证宿主插件、真实模型或科学结论。

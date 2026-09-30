@@ -76,5 +76,65 @@
     "observation": "Two-temperature Li+ MSD comparison; synthetic slopes have no measured diffusion meaning.",
     "review_scope": "Original PDF figure and caption visually checked; no numerical values or artwork copied",
     "default_template": false
-  }
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 250
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 250
+        },
+        {
+          "label": "C",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 250
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 250
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 250
+        },
+        {
+          "label": "C",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 250
+        }
+      ]
+    }
+  ]
 }

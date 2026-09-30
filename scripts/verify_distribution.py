@@ -7,8 +7,18 @@ from pathlib import Path, PurePosixPath
 from tempfile import TemporaryDirectory
 from zipfile import ZipFile
 from check_skill_distribution import check_skill
+from check_skill_dependencies import check_skill_dependencies
+from check_demo_metadata import check_demo, validate_metadata
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def same_source(left: Path, right: Path) -> bool:
+    """Git checkouts may normalize CRLF; archive manifest hashes stay byte-exact."""
+    actual, expected = left.read_bytes(), right.read_bytes()
+    if right.suffix in {".py", ".txt", ".json", ".md", ".csv", ".svg", ".yaml", ".yml", ".cff", ".sh", ".ps1"} or right.name == "LICENSE":
+        actual, expected = actual.replace(b"\r\n", b"\n"), expected.replace(b"\r\n", b"\n")
+    return actual == expected
 
 
 def unpack(archive: ZipFile, target: Path) -> list[str]:
@@ -31,8 +41,24 @@ def inspect_skills(root: Path, ids: set[str], version: str) -> int:
     for folder in folders:
         issues = check_skill(folder)
         assert not issues, f"{folder.name}: {issues}"
+        dependencies = check_skill_dependencies(folder)
+        assert dependencies["status"] == "PASS", (folder.name, dependencies["issues"], dependencies["unresolved_dynamic_imports"])
         meta = json.loads((folder / "assets/SKILL_RELEASE.json").read_text(encoding="utf-8"))
         assert meta["version"] == version, (folder.name, meta)
+        source = ROOT / "skills" / folder.name
+        # Check actual downloaded files, including lazy imports, requirements,
+        # CJK glyph handling, palettes and frame/export gates. Frontmatter may
+        # vary by host; the scientific/execution body must still match.
+        expected = {p.relative_to(source).as_posix() for p in source.rglob("*")
+                    if p.is_file() and p.name != "SKILL.md" and "__pycache__" not in p.parts and p.suffix not in {".pyc", ".pyo"}}
+        actual = {p.relative_to(folder).as_posix() for p in folder.rglob("*")
+                  if p.is_file() and p.name != "SKILL.md"}
+        assert actual == expected, f"{folder.name}: downloaded file set differs"
+        for name in sorted(expected):
+            assert same_source(folder / name, source / name), (folder.name, name)
+        original = (source/"SKILL.md").read_text(encoding="utf-8-sig")
+        packed = (folder/"SKILL.md").read_text(encoding="utf-8-sig")
+        assert original.split("---", 2)[2] == packed.split("---", 2)[2], f"{folder.name}: Skill body differs"
     return len(folders)
 
 
@@ -60,7 +86,12 @@ def main() -> None:
             target = Path(directory)
             names = unpack(archive, target)
             if path == full:
-                assert {"install.ps1", "install.sh", "docs/COMPATIBILITY.md", "docs/EVAL.md", "scripts/check_skill_distribution.py"} <= set(names)
+                assert {"install.ps1", "install.sh", "docs/COMPATIBILITY.md", "docs/EVAL.md", "docs/DEMO_METADATA_SCHEMA.json",
+                        "docs/validation/2026-09-30-frame-final-regression.json", "docs/validation/2026-09-30-frame-regression-initial.json",
+                        "scripts/check_skill_distribution.py", "scripts/check_skill_dependencies.py", "scripts/check_demo_metadata.py"} <= set(names)
+                for name in ("docs/DEMO_METADATA_SCHEMA.json", "scripts/check_skill_dependencies.py", "scripts/check_demo_metadata.py",
+                             "docs/validation/2026-09-30-frame-final-regression.json", "docs/validation/2026-09-30-frame-regression-initial.json"):
+                    assert same_source(target / name, ROOT / name), name
                 isolated_checks += inspect_skills(target / "skills", ids, version)
                 assert json.loads((target / ".codex-plugin/plugin.json").read_text(encoding="utf-8"))["version"] == version
                 assert json.loads((target / "docs/SKILL_NAMES.json").read_text(encoding="utf-8"))["skills"] == mapping
@@ -103,21 +134,46 @@ def main() -> None:
             assert all((package/f).is_file() for f in ['AGENT_GUIDE.md','input_contract.json','config.demo.json','config.real.example.json','src/plot.py','checks.py','requirements.txt','LICENSE'])
             manifest=json.loads((package/'PACKAGE_MANIFEST.json').read_text(encoding='utf-8'))
             assert manifest['resource_id']==row['resource_id'] and manifest['version']==version
+            declared = [item['path'] for item in manifest['files']]
+            actual = {p.relative_to(package).as_posix() for p in package.rglob('*') if p.is_file() and p.name != 'PACKAGE_MANIFEST.json'}
+            assert len(declared) == len(set(declared)) and set(declared) == actual, 'Manifest file closure differs'
             for item in manifest['files']:
                 checked=(package/item['path']).resolve()
                 assert checked.is_relative_to(package.resolve()) and checked.is_file()
                 assert hashlib.sha256(checked.read_bytes()).hexdigest()==item['sha256']
+            source = ROOT / 'examples/recipe_packs' / row['resource_id']
+            for name in actual:
+                assert same_source(package/name, source/name), (row['resource_id'], name)
+            runtime = ROOT / 'examples/recipe_packs/_runtime/recipe_runtime.py'
+            assert same_source(package/'src/recipe_runtime.py', runtime)
+            assert same_source(package/'src/renderer.py', runtime.parent/f"render_{row['resource_id']}.py")
+            for name in ('output_safety.py', 'delivery_contract.py', 'share_bundle.py', 'cli_runtime.py'):
+                assert same_source(package/'src'/name, ROOT/'scripts/runtime_contract'/name)
+            reference = json.loads((package/'reference/metadata.json').read_text(encoding='utf-8'))
+            validate_metadata(reference)
+            assert reference == json.loads((ROOT/'examples/showcase'/row['resource_id']/'metadata.json').read_text(encoding='utf-8'))
         report.append({'file':path.relative_to(downloads).as_posix(),'bytes':row['bytes'],'sha256':row['sha256']})
+    demo_checks = []
+    for metadata in sorted((ROOT/'examples/showcase').glob('*/metadata.json')):
+        identity = metadata.parent.name
+        demo_checks.append(check_demo(metadata.parent, ROOT/'docs/assets/showcase'/identity,
+                                      ROOT/f'docs/assets/showcase/BRF-demo-{identity}.zip'))
+    assert len(demo_checks) == 30, 'Expected 30 current canonical demos'
     outputs = ROOT / "outputs"
     outputs.mkdir(exist_ok=True)
     result = {"version": version, "channel": release["channel"], "archives": report,
-              "isolated_skill_checks": isolated_checks, "real_host_model_behavior": "NOT_RUN"}
+              "isolated_skill_checks": isolated_checks, "ast_dependency_checks": isolated_checks,
+              "downloaded_skill_file_closure_and_body": "PASS", "downloaded_python_requirements_match_source": "PASS",
+              "text_source_comparison": "CRLF/LF-normalized; ZIP manifests and archive hashes are byte-exact",
+              "recipe_runtime_and_manifest_closure": "PASS",
+              "demo_schema_source_site_zip_checks": demo_checks, "real_host_model_behavior": "NOT_RUN"}
     (outputs / "version-consistency.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     checksums = "".join(f"{r['sha256']}  {r['file']}\n" for r in report)
     (downloads / "distribution-sha256.txt").write_text(checksums, encoding="utf-8")
     (outputs / "distribution-sha256.txt").write_text(checksums, encoding="utf-8")
     print(json.dumps({"version": version, "channel": release["channel"], "checked_archives": len(report),
-                      "isolated_skill_checks": isolated_checks, "result": "passed"}))
+                      "isolated_skill_checks": isolated_checks, "ast_dependency_checks": isolated_checks,
+                      "canonical_demo_schema_checks": len(demo_checks), "result": "passed"}))
 
 
 if __name__ == "__main__":

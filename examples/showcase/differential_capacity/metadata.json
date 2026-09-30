@@ -22,5 +22,66 @@
     "default_template": false
   },
   "reproduce": "python render_specialist.py --recipe differential_capacity --input-folder differential_capacity --output-dir brf-output --style forge",
-  "creator": "BatteryReviewForge original synthetic model and drawing"
+  "creator": "BatteryReviewForge original synthetic model and drawing",
+  "generator_version": "1.5",
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "1",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 650
+        },
+        {
+          "label": "100",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 650
+        },
+        {
+          "label": "300",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 650
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "_child0",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 650
+        },
+        {
+          "label": "_child1",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 650
+        },
+        {
+          "label": "_child2",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 650
+        }
+      ]
+    }
+  ]
 }

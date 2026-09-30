@@ -2,6 +2,12 @@
 
 ## v0.10.0 Beta — 2026-09-30 本地候选
 
+- All numeric data axes now keep top/right/bottom/left frame spines, including spectra, coordinate heatmaps, selected-style previews, composite panels and standalone plot packs. Actual-artist gates reject a missing frame side; meaningful scatter and decorative axes remain distinct.
+- Distribution doctor reads each installed Skill's own dependency scope. Markdown bare-path closure and AST import-to-requirements gates include negative fixtures; metadata schema checks compare canonical inputs, served artifacts and packed bytes.
+- Correct NMC811||Li synthetic examples to half-cell descriptions while retaining historical full_cell resource IDs and original numerical inputs.
+- Scientific figure feedback: solid data curves with distinct colours; markerless CE without altering values; generalized Randles EIS demo with declared CPE/Warburg parameters and equal Nyquist coordinate units.
+- Fix the subsequently reported capacity-panel omission: cycling, retention, rate and continuous Nyquist curves use no point markers. Independent-observation scatter comparisons keep their meaningful points. Actual-artist export gates and complete-pack array/style records prevent a CE-only check from missing another panel.
+- Graphite and blue/orange presets replace two near-duplicate blue/green choices. Saved demos, standalone plot packs and source tests are updated together; see docs/validation/FIGURE_FEEDBACK_2026-09-30.md.
 - DeepSeek Harness desktop workspace installers and result-first execution contracts; Flash/Pro use the same scientific rules. Original desktop discovery and real model runs remain NOT_RUN.
 - Versioned Working deliverables, private provenance/recovery records, explicit raster DPI, LZW TIFF, guarded Share export and local standalone Skill reference closure.
 - 15 portable single-Skill ZIPs plus 15 WorkBuddy imports and their full/starter collections. Gates inspect the extracted distribution, not only source files.

@@ -23,5 +23,47 @@
     "default_template": false
   },
   "reproduce": "python render_specialist.py --recipe ionic_conductivity --input-folder ionic_conductivity --output-dir brf-output --style forge",
-  "creator": "BatteryReviewForge original synthetic model and drawing"
+  "creator": "BatteryReviewForge original synthetic model and drawing",
+  "generator_version": "1.5",
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 11
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 11
+        },
+        {
+          "label": "C",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 11
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": []
+    }
+  ]
 }

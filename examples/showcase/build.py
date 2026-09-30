@@ -29,7 +29,7 @@ ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parents[1] / 'skills' / 'battery-review-figure' / 'scripts'))
 SITE = ROOT.parents[1] / "docs" / "assets" / "showcase"
 SEED = 20260923
-VERSION = "1.2"
+VERSION = "1.5"
 COLORS = {"A": "#31577d", "B": "#bc4566", "C": "#00857f"}
 INK = "#172c40"
 MUTED = "#526476"
@@ -50,20 +50,20 @@ GRAMMAR = {
     "style_presets": "same_full_cell_data_six_style_choices",
 }
 CONDITIONS = {
-    "full_cell": "Illustrative NMC811||Li; 0.5 C; 2.8–4.3 V; 25 °C; cathode 3 mAh cm−2. These are invented settings, not a test report.",
+    "full_cell": "Illustrative NMC811||Li half-cell; 0.5 C; 2.8–4.3 V; 25 °C; cathode 3 mAh cm−2. These are invented settings, not a test report.",
     "li_cu_ce": "Illustrative Li||Cu repeated plating/stripping; 1 mA cm−2; 1 mAh cm−2 plated; 1 V stripping cutoff; 25 °C.",
     "li_li": "Illustrative Li||Li; ±1 mA cm−2; 1 mAh cm−2 per half-cycle; no rest; 25 °C.",
-    "eis": "Illustrative two-electrode model; 100 kHz–10 mHz; Rs + (Rct||CPE) + semi-infinite Warburg. Values have no fitted experimental interpretation.",
+    "eis": "Illustrative two-electrode model; 100 kHz–10 mHz; Rs + (CPE || (Rct + semi-infinite Warburg)); Z_W = sigma*(1-j)/sqrt(2*pi*f). Values have no fitted experimental interpretation.",
     "operando_xrd": "Illustrative angle-by-SOC model with moving and splitting Gaussian peaks; no phase assignment or acquired diffraction.",
     "tof_sims": "Illustrative 20 × 20 µm ion maps at 30 s sputter time; arbitrary intensity, common 0–0.65 display scale; time is not depth.",
     "integrated_study": "One invented A/B electrolyte comparison reuses the source files and identities above; panels do not establish a real mechanism.",
-    "rate_capability": "Illustrative NMC811||Li; 0.2/0.5/1/2/5/0.2 C in ten-cycle stages; 2.8–4.3 V; 25 °C. Recovery stage is simulated, not measured.",
-    "gcd_profiles": "Illustrative NMC811||Li at 0.5 C, 2.8–4.3 V, 25 °C; cycles 1/100/300/500 share the full-cell capacity state.",
+    "rate_capability": "Illustrative NMC811||Li half-cell; 0.2/0.5/1/2/5/0.2 C in ten-cycle stages; 2.8–4.3 V; 25 °C. Recovery stage is simulated, not measured.",
+    "gcd_profiles": "Illustrative NMC811||Li half-cell at 0.5 C, 2.8–4.3 V, 25 °C; cycles 1/100/300/500 share the NMC811||Li half-cell capacity state.",
     "pouch_thermal": "Illustrative 100 × 70 mm pouch surface at 2 C and 25 °C ambient; modelled 0–30 min temperature, not an IR measurement.",
     "literature_benchmark": "48 invented Li–S-like records, each at 0.2 C, 25 °C and cycle 100, with one consistent mAh g−1 sulfur basis; IDs are synthetic, never citations.",
     "reporting_matrix": "18 invented study IDs with seven reporting fields; status categories are examples, not an audit of real papers.",
     "capability_spread": "Ten independently labelled synthetic capability panels; shared styles do not imply one experiment across unlike cell and measurement types.",
-    "style_presets": "Six presentations of the same synthetic full-cell cycling CSV, with identical axes and values. Colours are selectable house presets, not journal endorsements.",
+    "style_presets": "Six presentations of the same synthetic NMC811||Li half-cell cycling CSV, with identical axes and values. Colours are selectable house presets, not journal endorsements.",
 }
 VARIABLES = {
     "full_cell": {"x": "cycle number", "y": "discharge capacity (mAh g−1)", "linked": "voltage (V) vs specific capacity (mAh g−1) at declared cycles"},
@@ -73,7 +73,7 @@ VARIABLES = {
     "operando_xrd": {"x": "state of charge (%)", "y": "2θ (°)", "linked": "model intensity (a.u.) and voltage (V) on the same SOC axis"},
     "tof_sims": {"x": "lateral position (µm)", "y": "lateral position (µm)", "linked": "ion intensity (a.u.) and sputter time (s), not calibrated depth"},
     "rate_capability": {"x": "cycle number", "y": "discharge capacity (mAh g−1)", "linked": "selected voltage (V) versus capacity (mAh g−1) at measured stages"},
-    "gcd_profiles": {"x": "specific capacity (mAh g−1)", "y": "voltage (V)", "linked": "cycle state shared with full-cell demo"},
+    "gcd_profiles": {"x": "specific capacity (mAh g−1)", "y": "voltage (V)", "linked": "cycle state shared with NMC811||Li half-cell demo"},
     "pouch_thermal": {"x": "pouch width (mm)", "y": "pouch height (mm)", "linked": "temperature (°C), same-map line profile, Tmax versus time (min)"},
     "literature_benchmark": {"x": "sulfur loading (mg cm−2)", "y": "capacity at cycle 100 (mAh g−1)", "linked": "48 invented comparable records; category by symbol"},
     "reporting_matrix": {"x": "reporting field", "y": "synthetic study ID", "linked": "reported/partial/NR/NV/NA categorical status"},
@@ -158,8 +158,11 @@ def generate_li_li() -> None:
 
 
 def impedance(frequency: np.ndarray, rs: float, rct: float, cpe: float, alpha: float, sigma: float) -> np.ndarray:
-    jw = 2j * np.pi * frequency
-    return rs + 1 / (1 / rct + cpe * jw ** alpha) + sigma / np.sqrt(jw)
+    # Randles topology: the diffusion element belongs to the faradaic branch.
+    # Z_W = sigma * (1-j) / sqrt(omega); sigma units are ohm s^(-1/2).
+    omega = 2 * np.pi * frequency
+    warburg = sigma * (1 - 1j) / np.sqrt(omega)
+    return rs + 1 / (cpe * (1j * omega) ** alpha + 1 / (rct + warburg))
 
 
 def generate_eis() -> None:
@@ -170,7 +173,13 @@ def generate_eis() -> None:
         values = impedance(frequencies, *params)
         rows.extend((sample, round(float(f), 8), round(float(z.real), 7), round(float(z.imag), 7)) for f, z in zip(frequencies, values))
     csv_write(path / "data.csv", ["sample", "frequency_Hz", "Zreal_ohm", "Zimag_ohm"], rows)
-    (path / "model.json").write_text(json.dumps({"circuit": "Rs + (Rct || CPE) + semi-infinite Warburg", "parameters": {"A": {"Rs_ohm": 4.2, "Rct_ohm": 23, "CPE_Q": .00085, "CPE_alpha": .86, "Warburg_sigma": 3.0}, "B": {"Rs_ohm": 5.1, "Rct_ohm": 43, "CPE_Q": .00067, "CPE_alpha": .83, "Warburg_sigma": 4.0}}, "status": "invented model, not fitted data"}, indent=2) + "\n", encoding="utf-8")
+    (path / "model.json").write_text(json.dumps({
+        "circuit": "Rs + (CPE || (Rct + semi-infinite Warburg))",
+        "formula": "Z = Rs + 1 / (Q*(j*omega)^alpha + 1/(Rct + sigma*(1-j)/sqrt(omega))); omega = 2*pi*f",
+        "parameter_units": {"Rs_ohm":"ohm", "Rct_ohm":"ohm", "CPE_Q":"S s^alpha", "CPE_alpha":"1", "Warburg_sigma":"ohm s^(-1/2)"},
+        "parameters": {"A": {"Rs_ohm": 4.2, "Rct_ohm": 23, "CPE_Q": .00085, "CPE_alpha": .86, "Warburg_sigma": 3.0}, "B": {"Rs_ohm": 5.1, "Rct_ohm": 43, "CPE_Q": .00067, "CPE_alpha": .83, "Warburg_sigma": 4.0}},
+        "reference": {"url":"https://www.gamry.com/assets/Application-Notes/Basics-of-EIS.pdf", "scope":"Figures 19-21 for Randles topology; Eq. 20 for Warburg convention. Cdl generalized to CPE; all demo parameter values are original and invented."},
+        "status": "original synthetic teaching model, not experimental or fitted data"}, indent=2) + "\n", encoding="utf-8")
 
 
 def generate_xrd() -> None:
@@ -216,7 +225,7 @@ def generate_integrated() -> None:
     path.mkdir(exist_ok=True)
     manifest = {"source_study": "single invented A/B electrolyte comparison", "uses": ["../li_cu_ce/data.csv", "../li_cu_ce/profiles.csv", "../li_li/data.csv", "../eis/data.csv", "../full_cell/data.csv", "../full_cell/voltage_profiles.csv"], "identity_rule": "A and B retain the same color and label in every panel", "status": "synthetic_demo; no mechanistic inference"}
     (path / "sources.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-    csv_write(path / "data_index.csv", ["sample", "test", "source_csv"], ((sample, test, source) for sample in ("A", "B") for test, source in (("LiCu CE", "../li_cu_ce/data.csv"), ("LiLi", "../li_li/data.csv"), ("EIS", "../eis/data.csv"), ("full cell", "../full_cell/data.csv"))))
+    csv_write(path / "data_index.csv", ["sample", "test", "source_csv"], ((sample, test, source) for sample in ("A", "B") for test, source in (("LiCu CE", "../li_cu_ce/data.csv"), ("LiLi", "../li_li/data.csv"), ("EIS", "../eis/data.csv"), ("NMC811||Li half-cell", "../full_cell/data.csv"))))
 
 
 def generate_rate() -> None:
@@ -348,7 +357,7 @@ def generate_styles() -> None:
     path.mkdir(exist_ok=True)
     shutil.copy2(ROOT / "full_cell" / "data.csv", path / "data.csv")
     (path / "source.json").write_text(json.dumps({
-        "source": "../full_cell/data.csv", "dataset": "same synthetic A/B full-cell cycling",
+        "source": "../full_cell/data.csv", "dataset": "same synthetic A/B NMC811||Li half-cell cycling",
         "xlim": [0, 500], "ylim": [130, 190],
         "meaning": "Only colour and strokes vary; values and scales do not."},
         indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -367,7 +376,7 @@ def configure() -> None:
 
 
 def axis(ax, letter: str) -> None:
-    ax.spines[["top", "right"]].set_visible(False)
+    ax.spines[["top", "right", "bottom", "left"]].set_visible(True)
     ax.tick_params(direction="out", length=2.2, width=.55, pad=2.2)
     ax.grid(False)
     ax.text(-.09, 1.035, letter, transform=ax.transAxes, fontweight="bold", fontsize=8, va="bottom", ha="right", color=INK)
@@ -396,14 +405,14 @@ def plot_ce(ax1, ax2) -> None:
     rows = csv_read(ROOT / "li_cu_ce" / "data.csv")
     n = arr(rows, "cycle")
     for sample in "AB":
-        ax1.plot(n, arr(rows, f"{sample}_ce_pct"), color=COLORS[sample], lw=.8, marker="o", ms=1.8, markevery=20, label=f"Electrolyte {sample}")
+        ax1.plot(n, arr(rows, f"{sample}_ce_pct"), color=COLORS[sample], lw=.9, ls="-", label=f"Electrolyte {sample}")
     ax1.set(xlabel="Cycle number", ylabel="Coulombic efficiency (%)", xlim=(0, 305), ylim=(96.5, 100.25))
     ax1.legend(frameon=False, loc="lower right", handlelength=1.4)
     profiles = csv_read(ROOT / "li_cu_ce" / "profiles.csv")
     for sample in "AB":
         for cycle in (1, 300):
             r = [row for row in profiles if row["sample"] == sample and int(row["cycle"]) == cycle and row["stage"] == "strip"]
-            ax2.plot(arr(r, "capacity_mAh_cm2"), arr(r, "voltage_V") * 1000, color=COLORS[sample], lw=.9, ls="-" if cycle == 300 else (0, (3, 2)), label=f"{sample} · {cycle}")
+            ax2.plot(arr(r, "capacity_mAh_cm2"), arr(r, "voltage_V") * 1000, color=COLORS[sample] if cycle == 300 else {"A": "#7396b5", "B": "#885369"}[sample], lw=.9, ls="-", label=f"{sample} · {cycle}")
     ax2.set(xlabel="Stripped capacity (mAh cm$^{-2}$)", ylabel="Voltage (mV)", xlim=(0, 1.02), ylim=(35, 145))
     ax2.legend(frameon=False, ncol=2, loc="upper left", handlelength=1.3)
 
@@ -426,9 +435,9 @@ def plot_eis(ax1, ax2) -> None:
     for sample in "AB":
         r = [row for row in rows if row["sample"] == sample]
         zr, zi, freq = arr(r, "Zreal_ohm"), arr(r, "Zimag_ohm"), arr(r, "frequency_Hz")
-        ax1.plot(zr, -zi, color=COLORS[sample], lw=.65, marker="o", ms=2.0, markevery=5, label=f"Model {sample}")
-        ax2.semilogx(freq, np.degrees(np.arctan2(-zi, zr)), color=COLORS[sample], lw=.95, label=f"Model {sample}")
-    ax1.set(xlabel="Z′ (Ω)", ylabel="−Z″ (Ω)", xlim=(0, 63), ylim=(0, 21))
+        ax1.plot(zr, -zi, color=COLORS[sample], lw=.9, ls="-", label=f"Model {sample}")
+        ax2.semilogx(freq, np.degrees(np.arctan2(-zi, zr)), color=COLORS[sample], lw=.95, ls="-", label=f"Model {sample}")
+    ax1.set(xlabel="Z′ (Ω)", ylabel="−Z″ (Ω)", xlim=(0, 70), ylim=(0, 70/3))
     ax1.set_aspect("equal", adjustable="box")
     ax2.set(xlabel="Frequency (Hz)", ylabel="Phase magnitude (°)", xlim=(.01, 1e5), ylim=(0, 50))
     ax1.legend(frameon=False, loc="upper right", handlelength=1.4)
@@ -438,8 +447,8 @@ def plot_eis_nyquist(ax) -> None:
     rows = csv_read(ROOT / "eis" / "data.csv")
     for sample in "AB":
         r = [row for row in rows if row["sample"] == sample]
-        ax.plot(arr(r, "Zreal_ohm"), -arr(r, "Zimag_ohm"), color=COLORS[sample], lw=.65, marker="o", ms=1.9, markevery=5, label=sample)
-    ax.set(xlabel="Z′ (Ω)", ylabel="−Z″ (Ω)", xlim=(0, 76), ylim=(0, 26))
+        ax.plot(arr(r, "Zreal_ohm"), -arr(r, "Zimag_ohm"), color=COLORS[sample], lw=.9, ls="-", label=f"Model {sample}")
+    ax.set(xlabel="Z′ (Ω)", ylabel="−Z″ (Ω)", xlim=(0, 70), ylim=(0, 28))
     ax.set_aspect("equal", adjustable="box")
     ax.legend(frameon=False, loc="upper right", ncol=2, handlelength=1.1)
 
@@ -494,7 +503,7 @@ def plot_tofsims(axes, fig) -> None:
     for species, color, label in (("F-", COLORS["B"], r"F$^{-}$"), ("Li+", COLORS["C"], r"Li$^{+}$"), ("S-", COLORS["A"], r"S$^{-}$")):
         r = [row for row in depth if row["species"] == species]
         ax.plot(arr(r, "sputter_time_s"), arr(r, "mean_normalized_intensity"), color=color, lw=1, label=label)
-    ax.axvline(30, color=MUTED, lw=.55, ls=(0, (2, 2)))
+    ax.axvline(30, color=MUTED, lw=.55, ls="-")
     ax.set(xlabel="Sputter time (s)", ylabel="Mean normalized intensity", xlim=(0, 180), ylim=(0, .48))
     ax.legend(frameon=False, loc="upper right", ncol=3, handlelength=1.2)
 
@@ -504,7 +513,7 @@ def plot_rate(ax1, ax2) -> None:
     for sample in "AB":
         r = [row for row in rows if row["sample"] == sample]
         ax1.plot(arr(r, "cycle"), arr(r, "capacity_mAh_g"), color=COLORS[sample],
-                 marker="o", ms=2, lw=.8, label=f"Electrolyte {sample}")
+                 marker=None, ls="-", lw=.8, label=f"Electrolyte {sample}")
     for boundary in (10.5, 20.5, 30.5, 40.5, 50.5):
         ax1.axvline(boundary, color="#ccd4dc", lw=.5)
     for x, label in zip((5.5, 15.5, 25.5, 35.5, 45.5, 55.5),
@@ -529,17 +538,16 @@ def plot_gcd(ax, compact=False) -> None:
     for cycle in ((300,) if compact else (1, 100, 300, 500)):
         for direction in ("discharge", "charge"):
             r = [row for row in rows if int(row["cycle"]) == cycle and row["direction"] == direction]
-            ax.plot(arr(r, "capacity_mAh_g"), arr(r, "voltage_V"), color=shades[cycle],
-                    lw=.9, ls="-" if direction == "discharge" else (0, (3, 2)),
-                    label=f"Cycle {cycle}" if direction == "discharge" else None)
+            ax.plot(arr(r, "capacity_mAh_g"), arr(r, "voltage_V"), color=shades[cycle] if direction == "discharge" else {1: "#c893a0", 100: "#b66f86", 300: "#944462", 500: "#70384b"}[cycle],
+                    lw=.9, ls="-", label=f"{cycle} · {direction}")
     ax.set(xlabel="Specific capacity (mAh g$^{-1}$)", ylabel="Voltage (V)",
            xlim=(0, 190), ylim=(2.85, 4.37))
     if compact:
-        ax.text(.98, .04, "Cycle 300 · solid/discharge · dashed/charge",
+        ax.text(.98, .04, "Cycle 300 · blue/discharge · rose/charge",
                 transform=ax.transAxes, ha="right", va="bottom", fontsize=4.5, color=MUTED)
     else:
         ax.legend(frameon=False, loc="lower left", ncol=2, fontsize=5.7)
-        ax.text(.98, .04, "solid: discharge    dashed: charge", transform=ax.transAxes,
+        ax.text(.98, .04, "blue: discharge    rose: charge", transform=ax.transAxes,
                 ha="right", va="bottom", fontsize=5.5, color=MUTED)
 
 
@@ -554,7 +562,7 @@ def plot_thermal(axes, fig, colorbar_ax) -> None:
     for x, sign in ((12, "+"), (75, "−")):
         map_ax.add_patch(Rectangle((x, 70), 13, 5, facecolor="#b9c4cb", edgecolor=INK, lw=.6))
         map_ax.text(x + 6.5, 72.5, sign, ha="center", va="center", fontsize=6, color=INK)
-    map_ax.axhline(35, color="white", lw=.7, ls=(0, (4, 2)))
+    map_ax.axhline(35, color="white", lw=.7, ls="-")
     map_ax.set(xlabel="Pouch width (mm)", ylabel="Pouch height (mm)",
                xlim=(0, 100), ylim=(0, 76))
     bar = fig.colorbar(im, cax=colorbar_ax)
@@ -644,7 +652,11 @@ def compact_capability_figure():
         axes[3].plot(arr(r, "Zreal_ohm"), -arr(r, "Zimag_ohm"), color=COLORS[sample], lw=.65)
     axes[1].set(xlabel="Cycle number", ylabel="Capacity (mAh g$^{-1}$)", xlim=(0, 500), ylim=(130, 190))
     axes[2].set(xlabel="Cycle number", ylabel="Li‖Cu CE (%)", xlim=(0, 300), ylim=(96.5, 100.2))
-    axes[3].set(xlabel="Z′ (Ω)", ylabel="−Z″ (Ω)", xlim=(0, 76), ylim=(0, 60))
+    axes[3].set(xlabel="Z′ (Ω)", ylabel="−Z″ (Ω)")
+    box = axes[3].get_position()
+    width, height = fig.get_size_inches()
+    axes[3].set(xlim=(0, 70), ylim=(0, 70 * box.height * height / (box.width * width)))
+    axes[3].set_aspect("equal", adjustable="box")
     plot_benchmark(axes[4], fig, compact=True)
     history = csv_read(ROOT / "pouch_thermal" / "history.csv")
     axes[5].plot(arr(history, "time_min"), arr(history, "Tmax_C"), color=COLORS["B"], lw=.8)
@@ -658,7 +670,7 @@ def compact_capability_figure():
     rate = csv_read(ROOT / "rate_capability" / "data.csv")
     for sample in "AB":
         r = [row for row in rate if row["sample"] == sample]
-        axes[7].plot(arr(r, "cycle"), arr(r, "capacity_mAh_g"), color=COLORS[sample], lw=.65, marker="o", ms=1.5)
+        axes[7].plot(arr(r, "cycle"), arr(r, "capacity_mAh_g"), color=COLORS[sample], lw=.65, marker=None, ls="-")
     axes[7].set(xlabel="Cycle number", ylabel="Capacity (mAh g$^{-1}$)", xlim=(0, 61), ylim=(105, 185))
     plot_gcd(axes[8], compact=True)
     plot_matrix(axes[9], compact=True)
@@ -681,10 +693,10 @@ def style_presets_figure():
     fig.subplots_adjust(left=.072, right=.983, bottom=.12, top=.9, wspace=.36, hspace=.62)
     for ax, (key, theme) in zip(axes.flat, themes.items()):
         first, second = theme["series"][:2]
-        for sample, colour, line in (("A", first, "-"), ("B", second, "--")):
+        for sample, colour, line in (("A", first, "-"), ("B", second, "-")):
             ax.plot(n, arr(rows, f"{sample}_mAh_g"), color=colour, lw=.9, ls=line, label=sample)
         ax.set(xlim=(0, 500), ylim=(130, 190), xlabel="Cycle number", ylabel="Capacity (mAh g$^{-1}$)")
-        ax.spines[["top", "right"]].set_visible(False)
+        ax.spines[["top", "right", "bottom", "left"]].set_visible(True)
         ax.grid(False)
         ax.tick_params(direction="out", length=2, width=.55, labelsize=5.8)
         ax.set_title(theme["label_en"], fontsize=9, fontweight="bold", loc="left", pad=12, color=INK)
@@ -878,9 +890,41 @@ def source_names(name: str) -> list[str]:
     return sorted(p.name for p in (ROOT / name).glob("*.csv"))
 
 
+def data_frame_audit(fig) -> list[dict]:
+    checks = []
+    for panel, ax in enumerate(fig.axes):
+        if ax.axison and not hasattr(ax, "_colorbar"):
+            spines = {side: bool(ax.spines[side].get_visible()) for side in ("top", "right", "bottom", "left")}
+            if not all(spines.values()):
+                raise ValueError(f"panel {panel}: data axes must show all four frame spines")
+            checks.append({"panel_index": panel, "spines": spines})
+    return checks
+
+
+def curve_style_audit(fig) -> list[dict]:
+    """Inspect actual continuous Line2D artists before saving the teaching plate."""
+    data_frame_audit(fig)
+    report = []
+    for panel, ax in enumerate(fig.axes):
+        if ax.axison and not hasattr(ax, "_colorbar"):
+            frame = {side: ax.spines[side].get_visible() for side in ("top", "right", "bottom", "left")}
+            if not all(frame.values()):
+                raise ValueError(f"panel {panel}: data axes must show all four frame spines")
+        for line in ax.lines:
+            marker, line_style = line.get_marker(), line.get_linestyle()
+            if marker not in (None, "None", "", " ") or line_style != "-":
+                raise ValueError(f"panel {panel}: continuous curves must be solid without markers")
+            report.append({"panel_index": panel, "label": line.get_label(),
+                           "points": len(line.get_xdata()), "line_style": line_style,
+                           "marker": marker, "colour": matplotlib.colors.to_hex(line.get_color())})
+    return report
+
+
 def render(name: str) -> None:
     destination = ROOT / name
     fig = figure(name)
+    curve_styles = curve_style_audit(fig)
+    frames = data_frame_audit(fig)
     ruler = ruler_audit(name, fig)
     (destination / "alignment.json").write_text(json.dumps(ruler, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     if ruler["failures"]:
@@ -897,7 +941,7 @@ def render(name: str) -> None:
                 target.plot(original.get_xdata(), original.get_ydata(), color=original.get_color(),
                             lw=.95, ls=original.get_linestyle(), label=original.get_label())
             target.set(xlim=(0, 500), ylim=(130, 190), xlabel="Cycle number", ylabel="Capacity (mAh g$^{-1}$)")
-            target.spines[["top", "right"]].set_visible(False)
+            target.spines[["top", "right", "bottom", "left"]].set_visible(True)
             target.grid(False)
             target.tick_params(direction="out", length=2, width=.55, labelsize=6)
             target.legend(frameon=False, loc="upper right", ncol=2, fontsize=6)
@@ -908,6 +952,10 @@ def render(name: str) -> None:
     svg.write_text("\n".join(line.rstrip() for line in svg.read_text(encoding="utf-8").splitlines()) + "\n", encoding="utf-8")
     plt.close(fig)
     meta = {"data_status": "synthetic_demo", "not_experimental_data": True, "random_seed": SEED, "generator_version": VERSION, "figure_grammar_id": GRAMMAR[name], "journal_preset": "six selectable presets" if name == "style_presets" else "journal_neutral_180mm", "variables_and_units": VARIABLES[name], "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.", "test_conditions": CONDITIONS[name], "source_files": source_names(name), "creator": "BatteryReviewForge original code", "review": {"science": "models and data-to-panel links inspected; no experimental interpretation", "display": "internal PNG and final-size inspection completed; independent author review remains required"}}
+    meta["continuous_curve_style_checks"] = curve_styles
+    meta["curve_style_check"] = "pass: actual rendered Line2D artists are solid and have no markers"
+    meta["data_frame_check"] = "pass: actual data axes show top/right/bottom/left spines"
+    meta["data_frame_checks"] = frames
     (destination / "metadata.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
@@ -931,6 +979,7 @@ def assembly_demo() -> None:
     out = ROOT / "assembly_demo"
     out.mkdir(exist_ok=True)
     fig = figure("integrated_study")
+    curve_style_audit(fig)
     fig.canvas.draw()
     renderer = fig.canvas.get_renderer()
     axes = fig.axes
@@ -946,7 +995,7 @@ def assembly_demo() -> None:
     rows_mm = [(high - low) * scale_mm_per_in for low, high in y_ranges]
     roles = ("Li||Cu cycling CE", "Li||Cu voltage profiles",
              "Li||Li symmetric cycling", "EIS Nyquist",
-             "full-cell cycling", "selected full-cell voltage profiles")
+             "NMC811||Li half-cell cycling", "selected NMC811||Li half-cell voltage profiles")
     panels = []
     for i, (letter, ax) in enumerate(zip("abcdef", axes[:6])):
         row, col = divmod(i, 2)
@@ -977,22 +1026,27 @@ def assembly_demo() -> None:
     manifest_path = out / "figure_manifest.json"
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     script = ROOT.parents[1] / "skills" / "battery-figure-assemble" / "scripts" / "compose_figure.py"
-    subprocess.run([sys.executable, str(script), "compose", "--manifest", str(manifest_path),
-                    "--out", str(out / "assembled-example"), "--strict"], check=True)
-    shutil.copy2(out / "assembled-example.png", SITE / "assembly-example.png")
-    shutil.copy2(out / "assembled-example.pdf", SITE / "assembly-example.pdf")
+    process = subprocess.run([sys.executable, str(script), "compose", "--manifest", str(manifest_path),
+                              "--out", str(out / "assembled-example"), "--strict"],
+                             check=True, capture_output=True, encoding="utf-8")
+    actual = json.loads(process.stdout)["outputs"]
+    actual_png, actual_pdf = Path(actual["png"]), Path(actual["pdf"])
+    actual_qa = actual_png.with_suffix(".qa.json")
+    shutil.copy2(actual_png, SITE / "assembly-example.png")
+    shutil.copy2(actual_pdf, SITE / "assembly-example.pdf")
     readme = {"data_status": "synthetic_demo", "source": "integrated_study",
               "panels": list("abcdef"), "instruction": "Assemble a–f without panel subtitles or data changes.",
               "ready_manifest": "figure_manifest.json",
-              "alignment_report": "assembled-example.qa.json",
+              "alignment_report": actual_qa.name,
+              "assembled_files": [actual_png.name, actual_pdf.name],
               "note": "Panel crops use common column x-rulers and row y-rulers; measured plot boxes are recorded in the manifest."}
     (out / "README.json").write_text(json.dumps(readme, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     archive = SITE / "assembly-demo.zip"
     archive.parent.mkdir(parents=True, exist_ok=True)
     with ZipFile(archive, "w", ZIP_DEFLATED) as z:
-        for file in sorted(out.iterdir()):
-            if file.suffix not in {".png", ".pdf", ".json"} or file.name.endswith(".alignment.png"):
-                continue
+        current = [out / f"panel-{letter}.png" for letter in "abcdef"]
+        current += [manifest_path, out / "README.json", actual_png, actual_pdf, actual_qa]
+        for file in sorted(current):
             z.write(file, file.name)
 
 

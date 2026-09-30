@@ -68,8 +68,12 @@ class PhysicalAndSpecialistTests(unittest.TestCase):
                 elif recipe=='gitt_pulse':
                     np.testing.assert_array_equal(a.lines[0].get_xdata(),b.lines[0].get_xdata())
                 elif recipe=='ionic_conductivity':
-                    np.testing.assert_allclose(b.lines[0].get_xdata(),1000/(a.lines[0].get_xdata()+273.15))
-                    np.testing.assert_allclose(b.lines[0].get_ydata(),np.log(a.lines[0].get_ydata()/1000))
+                    # Arrhenius observations remain scatter; compare the actual
+                    # PathCollection values rather than assuming a fitted line.
+                    self.assertFalse(b.lines)
+                    observed = b.collections[0].get_offsets()
+                    np.testing.assert_allclose(observed[:,0],1000/(a.lines[0].get_xdata()+273.15))
+                    np.testing.assert_allclose(observed[:,1],np.log(a.lines[0].get_ydata()/1000))
                 elif recipe=='raman_series':
                     np.testing.assert_array_equal(a.lines[1].get_ydata(),b.lines[1].get_ydata())
                 elif recipe=='cyclic_voltammetry':

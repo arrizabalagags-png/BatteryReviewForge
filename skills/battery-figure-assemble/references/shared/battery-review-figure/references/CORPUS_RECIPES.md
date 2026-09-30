@@ -1,10 +1,12 @@
+> This is a copied science guide. Its executable commands require a separately installed `battery-review-figure`; `<installed-battery-review-figure>` means that Skill's actual root. Those scripts and Python dependencies are not supplied by this guide.
+
 # Six optional plots from checked battery papers
 
-Use the installed `scripts/render_specialist.py`. Ask what the data columns and test conditions mean before rendering. These are optional display choices; their scientific axes and test identities were checked in primary papers. Layout details such as a separate zoom or splitting two axes are display variants, not an assertion that the cited paper used the identical layout. No class has the three independent papers required for default-template promotion.
+Use the installed `<installed-battery-review-figure>/<installed-battery-review-figure>/scripts/render_specialist.py`. Ask what the data columns and test conditions mean before rendering. These are optional display choices; their scientific axes and test identities were checked in primary papers. Layout details such as a separate zoom or splitting two axes are display variants, not an assertion that the cited paper used the identical layout. No class has the three independent papers required for default-template promotion.
 
 All bundled data are synthetic. They establish no measured peak assignment, chemistry, stability window, transport property or performance claim. Never infer experiment identity from `.csv` alone.
 
-Command: `python scripts/render_specialist.py --recipe NAME --input-folder INPUT --output-dir NEW_OUTPUT --style forge`. Read the supplied metadata and ask the user for a preferred style first. Do not overwrite their input or output.
+Command: `python <installed-battery-review-figure>/<installed-battery-review-figure>/scripts/render_specialist.py --recipe NAME --input-folder INPUT --output-dir NEW_OUTPUT --style forge`. Read the supplied metadata and ask the user for a preferred style first. Do not overwrite their input or output.
 
 ## ftir
 

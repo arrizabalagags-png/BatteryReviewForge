@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections import defaultdict
 
 from .data import DataContractError, comparison_guard, number, verified_rows
-from .style import COLORS, LINESTYLES, MARKERS, colors_for, condition_banner, make_figure
+from .style import COLORS, LINESTYLES, colors_for, condition_banner, make_figure, trace_shade
 
 
 COMMON = ("chemistry", "cell_configuration", "temperature_c")
@@ -104,8 +104,7 @@ def cycling_capacity(
         if min(xs) < 0 or min(ys) < 0:
             raise DataContractError("Cycle and discharge capacity must be non-negative")
         ax.plot(xs, ys, color=colors[i], linestyle=LINESTYLES[i], linewidth=fig.batteryplot_linewidth,
-                marker=MARKERS[i], markersize=2.7,
-                markevery=max(1, len(xs) // 30), label=name)
+                marker=None, label=name)
     ax.set(xlabel="Cycle number", ylabel=f"Discharge capacity ({next(iter(units))})")
     ax.set_xlim(left=0)
     # Autoscale uses data span, which can be tiny for almost-constant capacity.
@@ -156,9 +155,8 @@ def coulombic_efficiency(
         xs, ys = _ordered_xy(group, "cycle", "ce_pct", name)
         if min(xs) < 0:
             raise DataContractError("Cycle number must be non-negative")
-        ax.plot(xs, ys, color=colors[i], linestyle=LINESTYLES[i], linewidth=fig.batteryplot_linewidth,
-                marker=MARKERS[i], markersize=2.7,
-                markevery=max(1, len(xs) // 30), label=name)
+        ax.plot(xs, ys, color=colors[i], linestyle=LINESTYLES[i],
+                linewidth=fig.batteryplot_linewidth, label=name)
     ax.set(xlabel="Cycle number", ylabel="Coulombic efficiency (%)")
     ax.set_xlim(left=0)
     # A zoom is allowed only when the visible axis clearly displays it.
@@ -233,8 +231,9 @@ def voltage_capacity(
         if min(xs) < 0:
             raise DataContractError("Capacity must be non-negative")
         i = names.index(name)
-        ax.plot(xs, ys, color=colors[i],
-                linestyle="-" if direction == "discharge" else "--",
+        sample_traces = [key for key in traces if key[0] == name]
+        shade = trace_shade(colors[i], sample_traces.index((name, cycle, direction)), len(sample_traces))
+        ax.plot(xs, ys, color=shade, linestyle="-",
                 linewidth=fig.batteryplot_linewidth, label=f"{name} · cycle {cycle} · {direction}")
     ax.set(xlabel=f"Capacity ({rows[0]['capacity_unit']})", ylabel="Voltage (V)")
     ax.set_xlim(left=0)
@@ -260,9 +259,8 @@ def nyquist(
     for i, (name, group) in enumerate(_series(rows).items()):
         xs = [number(row["z_real_ohm"], "z_real_ohm", index) for index, row in group]
         ys = [number(row["minus_z_imag_ohm"], "minus_z_imag_ohm", index) for index, row in group]
-        ax.plot(xs, ys, color=colors[i], marker=MARKERS[i], linestyle=LINESTYLES[i],
-                linewidth=fig.batteryplot_linewidth,
-                markersize=2.6, label=name)
+        ax.plot(xs, ys, color=colors[i], marker=None, linestyle=LINESTYLES[i],
+                linewidth=fig.batteryplot_linewidth, label=name)
     ax.set(xlabel="Re(Z) (Ω)", ylabel="−Im(Z) (Ω)")
     ax.set_aspect("equal", adjustable="datalim")
     ax.legend(frameon=False)

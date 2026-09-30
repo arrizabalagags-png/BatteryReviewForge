@@ -2,7 +2,7 @@
   "data_status": "synthetic_demo",
   "not_experimental_data": true,
   "random_seed": 20260923,
-  "generator_version": "1.1",
+  "generator_version": "1.5",
   "figure_grammar_id": "FULL_PROFILE_01",
   "journal_preset": "journal_neutral_180mm",
   "variables_and_units": {
@@ -11,7 +11,7 @@
     "linked": "voltage (V) vs specific capacity (mAh g−1) at declared cycles"
   },
   "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
-  "test_conditions": "Illustrative NMC811||Li; 0.5 C; 2.8–4.3 V; 25 °C; cathode 3 mAh cm−2. These are invented settings, not a test report.",
+  "test_conditions": "Illustrative NMC811||Li half-cell; 0.5 C; 2.8–4.3 V; 25 °C; cathode 3 mAh cm−2. These are invented settings, not a test report.",
   "source_files": [
     "data.csv",
     "voltage_profiles.csv"
@@ -20,5 +20,77 @@
   "review": {
     "science": "models and data-to-panel links inspected; no experimental interpretation",
     "display": "internal PNG and final-size inspection completed; independent author review remains required"
-  }
+  },
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "Electrolyte A",
+      "points": 500,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 0,
+      "label": "Electrolyte B",
+      "points": 500,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 1,
+      "label": "1",
+      "points": 180,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#c6d7e6"
+    },
+    {
+      "panel_index": 1,
+      "label": "100",
+      "points": 180,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#92b4d0"
+    },
+    {
+      "panel_index": 1,
+      "label": "300",
+      "points": 180,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#6389aa"
+    },
+    {
+      "panel_index": 1,
+      "label": "500",
+      "points": 180,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    }
+  ],
+  "curve_style_check": "pass: actual rendered Line2D artists are solid and have no markers",
+  "data_frame_check": "pass: actual data axes show top/right/bottom/left spines",
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    }
+  ]
 }

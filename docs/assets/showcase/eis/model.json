@@ -1,5 +1,13 @@
 {
-  "circuit": "Rs + (Rct || CPE) + semi-infinite Warburg",
+  "circuit": "Rs + (CPE || (Rct + semi-infinite Warburg))",
+  "formula": "Z = Rs + 1 / (Q*(j*omega)^alpha + 1/(Rct + sigma*(1-j)/sqrt(omega))); omega = 2*pi*f",
+  "parameter_units": {
+    "Rs_ohm": "ohm",
+    "Rct_ohm": "ohm",
+    "CPE_Q": "S s^alpha",
+    "CPE_alpha": "1",
+    "Warburg_sigma": "ohm s^(-1/2)"
+  },
   "parameters": {
     "A": {
       "Rs_ohm": 4.2,
@@ -16,5 +24,9 @@
       "Warburg_sigma": 4.0
     }
   },
-  "status": "invented model, not fitted data"
+  "reference": {
+    "url": "https://www.gamry.com/assets/Application-Notes/Basics-of-EIS.pdf",
+    "scope": "Figures 19-21 for Randles topology; Eq. 20 for Warburg convention. Cdl generalized to CPE; all demo parameter values are original and invented."
+  },
+  "status": "original synthetic teaching model, not experimental or fitted data"
 }

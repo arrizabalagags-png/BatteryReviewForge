@@ -22,7 +22,7 @@ save_bundle(fig, "figures/cycle_retention", claim="A specific, source-supported 
 For a runnable synthetic check from the repository root:
 
 ```bash
-python skills/battery-review-figure/examples/demo_figures.py --output outputs/figure-demo
+python examples/demo_figures.py --output outputs/figure-demo
 ```
 
 The example data are invented and must never be used as literature evidence.

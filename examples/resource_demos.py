@@ -63,13 +63,13 @@ def data(kind, rng):
 
 
 def draw(kind, fields, values, target):
-    plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10,'svg.fonttype':'none','pdf.fonttype':42,'axes.spines.top':False,'axes.spines.right':False})
+    plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10,'svg.fonttype':'none','pdf.fonttype':42,'axes.spines.top':True,'axes.spines.right':True,'axes.spines.bottom':True,'axes.spines.left':True})
     panels = 2 if kind in {'rate','polarization','cycling','jv'} else 1
     fig, axes=plt.subplots(1,panels,figsize=(7.087,3.1),layout='constrained'); axes=np.atleast_1d(axes); a=axes[0]
     x=values[:,0]
     if kind=='ce': a.plot(x,values[:,3],color='#185cbd',lw=1); a.set(xlabel='Cycle',ylabel='Coulombic efficiency (%)')
     elif kind=='rate':
-        a.plot(x,values[:,2],'.-',color='#185cbd'); a.set(xlabel='Cycle',ylabel='Capacity (mAh g$^{-1}$)')
+        a.plot(x,values[:,2],'-',marker=None,color='#185cbd'); a.set(xlabel='Cycle',ylabel='Capacity (mAh g$^{-1}$)')
         axes[1].step(x,values[:,1],where='mid',color='#187f84'); axes[1].set(xlabel='Cycle',ylabel='Current (mA g$^{-1}$)')
     elif kind=='symmetric': a.plot(x,values[:,1],color='#185cbd',lw=.7); a.set(xlabel='Time (h)',ylabel='Overpotential (mV)')
     elif kind=='polarization':
@@ -83,15 +83,24 @@ def draw(kind, fields, values, target):
         a.legend(frameon=False); a.set(xlabel='Cycle',ylabel='Efficiency (%)')
     elif kind=='jv':
         a.plot(x,values[:,1],color='#185cbd'); a.axhline(0,color='#59687c',lw=.7); a.set(xlabel='Voltage (V)',ylabel='Current density (mA cm$^{-2}$)')
-        axes[1].plot(x,values[:,2],color='#187f84'); m=np.argmax(values[:,2]); axes[1].plot(x[m],values[m,2],'o',color='#a85e37'); axes[1].set(xlabel='Voltage (V)',ylabel='Power density (mW cm$^{-2}$)')
+        axes[1].plot(x,values[:,2],color='#187f84'); m=np.argmax(values[:,2]); axes[1].annotate('MPP',(x[m],values[m,2]),xytext=(4,6),textcoords='offset points',fontsize=8,color='#a85e37'); axes[1].set(xlabel='Voltage (V)',ylabel='Power density (mW cm$^{-2}$)')
     elif kind=='stability': a.plot(x,values[:,1],color='#185cbd'); a.set(xlabel='Time (h)',ylabel='Power / initial power')
     else: a.semilogy(x,values[:,1],color='#185cbd'); a.set(xlabel='Time (ns)',ylabel='Signal (a.u.)')
-    fig.suptitle('Synthetic teaching data — not experimental results',fontsize=9,color='#515e70')
+    checks=[]
     for i, ax in enumerate(axes):
+        frame={side:ax.spines[side].get_visible() for side in ('top','right','bottom','left')}
+        if not all(frame.values()): raise ValueError('Data axes must show four frame spines')
+        for trace in ax.lines:
+            if trace.get_linestyle()!='-' or trace.get_marker() not in (None,'None','',' '):
+                raise ValueError('Continuous curves must be solid without markers')
+        checks.append({'panel':i,'frame_spines':frame,'curve_styles':[
+            {'linestyle':line.get_linestyle(),'marker':line.get_marker(),'points':len(line.get_xdata())}
+            for line in ax.lines]})
         if panels>1: ax.text(-.16,1.05,chr(97+i),transform=ax.transAxes,weight='bold')
         ax.margins(x=.02)
     for fmt in ['svg','pdf','png']: fig.savefig(target / f'figure.{fmt}',dpi=160,facecolor='white')
     plt.close(fig)
+    return checks
 
 
 def validate_demo(kind, fields, values, expected):
@@ -130,9 +139,10 @@ def main():
         folder.mkdir(parents=True,exist_ok=True)
         with (folder/'data.csv').open('w',encoding='utf-8',newline='') as handle:
             w=csv.writer(handle); w.writerow(fields); w.writerows(values)
-        draw(kind,fields,values,folder)
+        frame_checks=draw(kind,fields,values,folder)
         shutil.copyfile(__file__,folder/'render.py')
         meta={'id':slug,'title':title,'domain':domain,'type':'demo','data_status':'synthetic_demo','not_experimental_data':True,'random_seed':SEED+index,'source_files':['data.csv'],'variables_and_units':fields,'test_conditions':conditions,'render_options':{'recipe':slug},'reproduce':f'python render.py --output rebuilt --recipe {slug} --demo-input data.csv','creator':'VoltPeer maintainers','license':'MIT','generator_version':'0.10.0','limitations':'Toy teaching replay only; no model fit, measured device, or scientific validation. This generator does not adapt experimental data.'}
+        meta['actual_artist_checks']=frame_checks
         (folder/'metadata.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         (folder/'README.txt').write_text(f'{title}\nAll numeric data are synthetic teaching values. Never use them as experimental results.\n{meta["reproduce"]}\nRequires Python >=3.10, numpy and matplotlib in an isolated environment.\n',encoding='utf-8')
         with ZipFile(args.output/f'BRF-demo-{slug}.zip','w',ZIP_DEFLATED) as z:

@@ -14,6 +14,7 @@ from matplotlib.figure import Figure
 
 from .data import DataContractError
 from .style import PLOT_STYLE
+from .qa import data_plot_checks
 from output_safety import reserve_stem
 
 
@@ -53,6 +54,7 @@ def save_bundle(
     with reserve_stem(stem, suffixes) as (reserved, version):
         with mpl.rc_context(PLOT_STYLE):
             fig.canvas.draw()
+            actual_artist_checks = data_plot_checks(fig)
             for fmt in formats:
                 target = Path(str(reserved) + f".{fmt}")
                 effective = dpi_by_format.get(fmt, dpi)
@@ -62,6 +64,7 @@ def save_bundle(
         sidecar = Path(str(reserved) + ".provenance.json")
         sidecar.write_text(json.dumps({
         **dict(meta),
+        "actual_artist_checks": actual_artist_checks,
         "claim": claim,
         "source_data": source_data,
         "caption_notes": caption_notes,

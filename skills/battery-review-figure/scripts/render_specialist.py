@@ -12,6 +12,7 @@ import matplotlib
 matplotlib.use('Agg')
 from batteryplot.specialist import RECIPES, render_recipe
 from batteryplot.style import PRESETS, register_community_style
+from batteryplot.qa import data_plot_checks
 
 
 def main():
@@ -29,6 +30,7 @@ def main():
         if pin != args.style: parser.error('Style must match exact local community lock')
     if args.style not in PRESETS: parser.error('Unknown style')
     fig, report = render_recipe(args.recipe, args.input_folder, style=args.style)
+    report['actual_artist_checks'] = data_plot_checks(fig)
     report['input_sha256'] = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
                                for p in args.input_folder.iterdir() if p.is_file() and p.suffix in ('.csv','.json')}
     args.output_dir.mkdir(parents=True)

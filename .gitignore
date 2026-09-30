@@ -7,6 +7,8 @@
 !examples/showcase/assembly_demo/assembled-example.pdf
 examples/showcase/assembly_demo/assembled-example_panel_checks/
 examples/showcase/assembly_demo/assembled-example.alignment.png
+# Versioned reruns and panel-check overlays stay as local verification outputs.
+examples/showcase/assembly_demo/assembled-example_v*
 *.docx
 *.pptx
 *.xlsx

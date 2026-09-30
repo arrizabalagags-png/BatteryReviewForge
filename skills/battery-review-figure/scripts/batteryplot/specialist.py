@@ -143,8 +143,8 @@ def render_recipe(recipe, folder, *, style='forge'):
                 keep = np.array([row['sample'] == sample for row in rows])
                 t, s = d['temperature_C'][keep], d['conductivity_mS_cm'][keep]
                 increasing(t, 'Temperature')
-                a.plot(t, s, 'o-', ms=3, color=colors[idx], label=sample)
-                b.plot(1000/(t+273.15), np.log(s/1000), 'o', ms=3, color=colors[idx])
+                a.plot(t, s, '-', marker=None, color=colors[idx], label=sample)
+                b.scatter(1000/(t+273.15), np.log(s/1000), s=9, color=colors[idx])
             a.set(xlabel='Temperature (°C)', ylabel='Conductivity (mS/cm)')
             b.set(xlabel='1000/T (1/K)', ylabel='ln[conductivity / (S/cm)]')
             a.legend(frameon=False)
@@ -166,9 +166,9 @@ def render_recipe(recipe, folder, *, style='forge'):
                 model += d[field]
                 a.fill_between(e, baseline, baseline+d[field], color=colors[idx], alpha=.18)
                 a.plot(e, baseline+d[field], color=colors[idx], label=opt['component_labels'][idx])
-            a.plot(e, d['intensity_counts'], 'o', ms=1.5, mfc='none', mew=.45, color='#41454b', markevery=5, label='Data')
+            a.plot(e, d['intensity_counts'], '-', marker=None, color='#8f5b99', lw=.7, label='Data')
             a.plot(e, model, color='#202124', lw=.85, label='Sum')
-            a.plot(e, baseline, '--', color='#686c72', lw=.7, label='Background')
+            a.plot(e, baseline, '-', color='#686c72', lw=.7, label='Background')
             b.plot(e, d['intensity_counts']-model, color='#41454b', lw=.7)
             b.axhline(0, color='#686c72', lw=.5)
             for ax in (a,b): ax.set_xlim(max(e), min(e)); ax.set_xlabel('Binding energy (eV)')
@@ -196,7 +196,7 @@ def render_recipe(recipe, folder, *, style='forge'):
 
         fw, fh = fig.get_size_inches()*25.4
         for letter, ax in axes.items():
-            ax.spines[['top','right']].set_visible(False)
+            ax.spines[['top','right','bottom','left']].set_visible(True)
             ax.grid(False); ax.tick_params(length=2.3, width=.6, pad=2)
             box = ax.get_position()
             fig.text(box.x0-8/fw, box.y1+2/fh, letter, fontsize=8, fontweight='bold', ha='left', va='bottom')

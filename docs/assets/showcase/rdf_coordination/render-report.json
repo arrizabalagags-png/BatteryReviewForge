@@ -76,5 +76,77 @@
     "observation": "RDF and cumulative coordination on distinct axes; synthetic curves are not MD results.",
     "review_scope": "Original PDF figure and caption visually checked; no numerical values or artwork copied",
     "default_template": false
-  }
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Li-O (solvent)",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 550
+        },
+        {
+          "label": "Li-O (anion)",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 550
+        },
+        {
+          "label": "Li-F (diluent)",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 550
+        },
+        {
+          "label": "_child3",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Li-O (solvent)",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 550
+        },
+        {
+          "label": "Li-O (anion)",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 550
+        },
+        {
+          "label": "Li-F (diluent)",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 550
+        },
+        {
+          "label": "_child3",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 2
+        }
+      ]
+    }
+  ]
 }

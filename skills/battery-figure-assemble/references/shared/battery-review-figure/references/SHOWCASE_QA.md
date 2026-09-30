@@ -12,7 +12,7 @@
 
 ## 当前网页的处理
 
-旧图保留为代码测试/历史练习，不在首页。新版 `examples/showcase` 先生成 CSV，再由绘图脚本读入并导出 SVG、PDF、PNG。首页每张图旁标注 synthetic，元数据说明模型和限制。综合图只使用同一个 A/B synthetic study 的数据身份；它不是实验证据链。前后对比只可比较完全相同的原始 panels；在未达投稿尺寸前叫“排版过程”，不叫“投稿成图”。
+旧图保留为代码测试/历史练习，不在首页。新版 [maintainer showcase sources](https://github.com/arrizabalagags-png/BatteryReviewForge/tree/79b4238a5a7dfc963bafc0aefacd2337f9795ba8/examples/showcase) 先生成 CSV，再由绘图脚本读入并导出 SVG、PDF、PNG。首页每张图旁标注 synthetic，元数据说明模型和限制。综合图只使用同一个 A/B synthetic study 的数据身份；它不是实验证据链。前后对比只可比较完全相同的原始 panels；在未达投稿尺寸前叫“排版过程”，不叫“投稿成图”。
 
 ## English
 

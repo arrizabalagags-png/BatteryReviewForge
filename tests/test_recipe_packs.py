@@ -119,6 +119,11 @@ class RecipePackTests(unittest.TestCase):
                 self.assertEqual({p: file_hash(p) for p in source_files}, before)
                 self.assertNotIn('SYNTHETIC DEMO', (output / 'results/figure.svg').read_text(encoding='utf-8'))
                 plotted = record['exact_data_artist_checks']
+                curves = [c for c in plotted if c['check'] == 'exact_artist_array']
+                self.assertTrue(all(c['line_style'] == '-' and c['marker'] in (None,'None','',' ')
+                                    and c['style_check'] == 'solid_without_markers' for c in curves))
+                self.assertTrue(record['data_frame_checks'])
+                self.assertTrue(all(all(frame['spines'].values()) for frame in record['data_frame_checks']))
                 if kind == 'full_cell':
                     self.assertEqual(max(c['y'][0] for c in plotted if ':capacity' in c['identity']), 447.5)
                     self.assertEqual(sorted(c['points'] for c in plotted if ':capacity' in c['identity']), [4, 7, 10])

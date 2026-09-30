@@ -7,15 +7,15 @@ This route accepts author-supplied raster panels (PNG/JPEG/TIFF) and one-page PD
 Install the skill's Python dependencies in an isolated project environment (Python ≥3.10):
 
 ```bash
-python -m pip install -r skills/battery-figure-assemble/requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 Inspect a folder first, then compose with a reviewed manifest:
 
 ```bash
-python skills/battery-figure-assemble/scripts/compose_figure.py inventory \
+python scripts/compose_figure.py inventory \
   --input path/to/figure_sources --output path/to/inspection
-python skills/battery-figure-assemble/scripts/compose_figure.py compose \
+python scripts/compose_figure.py compose \
   --manifest path/to/figure_manifest.json --out path/to/Fig3 --strict
 ```
 
@@ -24,7 +24,7 @@ python skills/battery-figure-assemble/scripts/compose_figure.py compose \
 For a self-contained synthetic check:
 
 ```bash
-python skills/battery-figure-assemble/examples/demo_assemble.py outputs/assemble-demo
+python examples/demo_assemble.py outputs/assemble-demo
 ```
 
 The example contains no research observations.

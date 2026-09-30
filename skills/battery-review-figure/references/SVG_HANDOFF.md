@@ -8,7 +8,7 @@
 4. 数值、峰位、颜色映射、比例尺和原始图像需要修改时，回到 CSV/仪器导出/绘图脚本重新生成，并更新溯源文件；不要在 Inkscape 里徒手移动数据点或重新标比例尺。
 5. 保存 SVG；如目标期刊需要 PDF，再从 Inkscape 导出或另存 PDF。检查字体、图例、裁边和比例尺在**实际投稿尺寸**下是否清楚，并把改后的 SVG/PDF 与原数据、图注放在同一项目目录。
 
-在网页上可直接[下载本项目的 SVG 样图](https://github.com/arrizabalagags-png/BatteryReviewForge/blob/79b4238a5a7dfc963bafc0aefacd2337f9795ba8/docs/index.html#examples)试手。ToF-SIMS、Raman/RDF、全电池和电芯分层展示图的源代码与虚构 CSV 在 `docs/assets/gallery/`；不要把样图当实验成果使用。
+在网页上可直接[下载本项目的 SVG 样图](https://github.com/arrizabalagags-png/BatteryReviewForge/blob/79b4238a5a7dfc963bafc0aefacd2337f9795ba8/docs/index.html#examples)试手。ToF-SIMS、Raman/RDF、全电池和电芯分层展示图的源代码与虚构 CSV 在 [the online gallery assets](https://github.com/arrizabalagags-png/BatteryReviewForge/tree/79b4238a5a7dfc963bafc0aefacd2337f9795ba8/docs/assets/gallery)；不要把样图当实验成果使用。
 
 ## English
 

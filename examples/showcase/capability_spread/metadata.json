@@ -2,7 +2,7 @@
   "data_status": "synthetic_demo",
   "not_experimental_data": true,
   "random_seed": 20260923,
-  "generator_version": "1.2",
+  "generator_version": "1.5",
   "figure_grammar_id": "ten_panel_capability_spread",
   "journal_preset": "journal_neutral_180mm",
   "variables_and_units": {
@@ -20,5 +20,213 @@
   "review": {
     "science": "models and data-to-panel links inspected; no experimental interpretation",
     "display": "internal PNG and final-size inspection completed; independent author review remains required"
-  }
+  },
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 1,
+      "label": "_child0",
+      "points": 500,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 1,
+      "label": "_child1",
+      "points": 500,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 2,
+      "label": "_child0",
+      "points": 300,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 2,
+      "label": "_child1",
+      "points": 300,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 3,
+      "label": "_child0",
+      "points": 86,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 3,
+      "label": "_child1",
+      "points": 86,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 5,
+      "label": "_child0",
+      "points": 61,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 5,
+      "label": "_child1",
+      "points": 61,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 6,
+      "label": "_child0",
+      "points": 352,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 6,
+      "label": "_child1",
+      "points": 352,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 7,
+      "label": "_child0",
+      "points": 60,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 7,
+      "label": "_child1",
+      "points": 60,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 8,
+      "label": "300 · discharge",
+      "points": 180,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#5d83a4"
+    },
+    {
+      "panel_index": 8,
+      "label": "300 · charge",
+      "points": 180,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#944462"
+    }
+  ],
+  "curve_style_check": "pass: actual rendered Line2D artists are solid and have no markers",
+  "data_frame_check": "pass: actual data axes show top/right/bottom/left spines",
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 2,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 3,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 4,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 5,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 6,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 7,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 8,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 9,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    }
+  ]
 }

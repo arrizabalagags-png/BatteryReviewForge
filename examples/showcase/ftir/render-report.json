@@ -76,5 +76,65 @@
     "observation": "Overlaid FTIR transmittance spectra; this demo does not reuse measured peaks or assignments.",
     "review_scope": "Original PDF figure and caption visually checked; no numerical values or artwork copied",
     "default_template": false
-  }
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "C",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "C",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        }
+      ]
+    }
+  ]
 }

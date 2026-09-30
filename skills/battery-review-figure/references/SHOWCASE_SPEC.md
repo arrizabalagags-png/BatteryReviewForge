@@ -1,6 +1,6 @@
 # 可复现样图规格（虚构演示）
 
-这里的 13 类图用于展示文件到图件的工作流。它们由 `examples/showcase/build.py` 先生成 CSV，再从磁盘重新读取并绘图；`metadata.json` 记录变量、单位、条件、样本身份和 `synthetic_demo`。演示数值及 SIM 编号均不是实验或真实论文。真实数据绘图仍须按 [图型语法](BATTERY_FIGURE_GRAMMAR.md)检查协议，不能套用演示参数。
+这里的 13 类图用于展示文件到图件的工作流。它们由 [maintainer demo generator](https://github.com/arrizabalagags-png/BatteryReviewForge/tree/79b4238a5a7dfc963bafc0aefacd2337f9795ba8/examples/showcase/build.py) 先生成 CSV，再从磁盘重新读取并绘图；`metadata.json` 记录变量、单位、条件、样本身份和 `synthetic_demo`。演示数值及 SIM 编号均不是实验或真实论文。真实数据绘图仍须按 [图型语法](BATTERY_FIGURE_GRAMMAR.md)检查协议，不能套用演示参数。
 
 | 图型 | 输入与坐标 | 允许的相邻图 | 必须看见或记录 | 禁止的自动补足 |
 | --- | --- | --- | --- | --- |

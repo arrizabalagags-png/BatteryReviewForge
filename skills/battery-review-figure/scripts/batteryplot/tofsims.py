@@ -99,7 +99,7 @@ def tofsims_depth(rows: list[dict], *, sample_id: str,
     fig,ax = make_figure(width_mm,height_mm,style=style)
     for i,(name,points) in enumerate(groups.items()):
         ax.plot(*zip(*points),color=colors[i],lw=fig.batteryplot_linewidth,
-                linestyle=("-","--","-.",":")[i%4],label=name)
+                linestyle="-",label=name)
     ax.set(xlabel="Sputter time (s)",ylabel=f"Secondary-ion signal ({selected[0]['signal_unit']})")
     ax.set_xlim(left=0); ax.set_ylim(bottom=0)
     ax.legend(frameon=False,ncol=min(3,len(groups)))

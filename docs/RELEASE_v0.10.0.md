@@ -1,6 +1,6 @@
 # VoltPeer 0.10.0 Beta candidate
 
-Prepared locally on 2026-09-30. Publication is pending the combined upload requested by the maintainer.
+Prepared on 2026-09-30 and synchronized as a GitHub source candidate on `codex/public-skills`. GitHub Release and ECS deployment remain separate, unexecuted actions. Current synchronization evidence is in [GITHUB_SYNC_2026-09-30.md](validation/GITHUB_SYNC_2026-09-30.md).
 
 ## Install
 
