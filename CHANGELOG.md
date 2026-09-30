@@ -1,5 +1,14 @@
 # 更新记录 / Changelog
 
+## v0.10.0 Beta — 2026-09-30 本地候选
+
+- DeepSeek Harness desktop workspace installers and result-first execution contracts; Flash/Pro use the same scientific rules. Original desktop discovery and real model runs remain NOT_RUN.
+- Versioned Working deliverables, private provenance/recovery records, explicit raster DPI, LZW TIFF, guarded Share export and local standalone Skill reference closure.
+- 15 portable single-Skill ZIPs plus 15 WorkBuddy imports and their full/starter collections. Gates inspect the extracted distribution, not only source files.
+- Three independent, configurable full_cell / li_li / operando_xrd plot packs; unseen groups, length changes, bounds and required conditions checked locally.
+- 65 workflow EVAL fixtures and fixed-input A/B/C pack comparison preparation. Engineering PASS does not promote this candidate to Stable.
+- The private website is updated separately. This entry does not imply a GitHub Release or ECS deployment.
+
 ## v0.9.2 — 2026-09-27
 
 - All 15 skills now include capability-based execution, bounded repair, coverage tracking and a compact recovery record.

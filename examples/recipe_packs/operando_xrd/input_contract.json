@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "resource_id": "operando_xrd",
+  "format": "UTF-8/BOM CSV long table; explicit JSON mapping; preserve raw file",
+  "required_columns": {
+    "diffraction": [
+      "sample",
+      "two_theta",
+      "progress",
+      "intensity"
+    ],
+    "voltage_optional": [
+      "sample",
+      "progress",
+      "voltage"
+    ]
+  },
+  "units_supported": {
+    "two_theta": "deg",
+    "progress": "fraction",
+    "intensity": "a.u.",
+    "voltage": "V"
+  },
+  "units_note": "2theta deg; progress %/fraction/h/s/cycle; intensity counts/a.u.; optional voltage V; no phase inference",
+  "required_conditions": [
+    "radiation",
+    "wavelength_A",
+    "cell_configuration",
+    "progress_definition",
+    "synchronization",
+    "intensity_normalization"
+  ],
+  "condition_policy": "Real config has nulls. Required unknown fields must stop; N/P and E/C may explicitly say not reported but never be guessed.",
+  "geometry": "Any positive number of groups; uneven lengths allowed per trace; XRD each group has its own complete unique coordinate grid. Auto ranges include new values. Long labels wrap; unreadable layouts must be revised.",
+  "disallowed": [
+    "missing-data demo fallback",
+    "silent dropped rows",
+    "silent smoothing/fitting",
+    "duplicate coordinates overwritten",
+    "unknown units guessed",
+    "demo condition reuse in author output",
+    "truncated data from old limits"
+  ],
+  "validation_status": "local_engineering_checked; model_behavior_NOT_RUN; author_scientific_review_pending"
+}

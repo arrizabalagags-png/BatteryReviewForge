@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 from .data import DataContractError
 
 MM_PER_INCH = 25.4
-THEME = json.loads((Path(__file__).resolve().parents[2] / "assets" / "figure_theme.json").read_text(encoding="utf-8"))
+THEME = json.loads((Path(__file__).resolve().parents[2] / "assets" / "figure_theme.json").read_text(encoding="utf-8-sig"))
 PRESETS = THEME["presets"]
 COLOR = re.compile(r"^#[0-9A-Fa-f]{6}$")
 DEFAULT_STYLE = "forge"
@@ -56,7 +56,7 @@ def get_preset(style: str) -> dict:
 def register_community_style(lock_path: str | Path) -> tuple[str, dict]:
     """Load one pinned JSON style from an explicit local lock; no network or code execution."""
     lock_file = Path(lock_path)
-    lock = json.loads(lock_file.read_text(encoding="utf-8"))
+    lock = json.loads(lock_file.read_text(encoding="utf-8-sig"))
     pin = lock.get("style_id", "")
     if not re.fullmatch(r"community:[a-z][a-z0-9-]*@[0-9]+\.[0-9]+\.[0-9]+", pin):
         raise DataContractError("Community style needs a pinned community:id@version lock")

@@ -1,0 +1,188 @@
+{
+  "version": "0.10.0",
+  "channel": "beta",
+  "archives": [
+    {
+      "file": "BatteryReviewForge-v0.10.0.zip",
+      "bytes": 856164,
+      "sha256": "85fb282c0d5f0a3130a71de72d79e36104cef1d19890b5680cf64cfb41655b76"
+    },
+    {
+      "file": "BatteryReviewForge-WorkBuddy-v0.10.0.zip",
+      "bytes": 779928,
+      "sha256": "b6c4176df5dcf5f805c9c0f1479697657c44d519681c23ca9934a3f9ab9c7290"
+    },
+    {
+      "file": "BatteryReviewForge-WorkBuddy-Starter-v0.10.0.zip",
+      "bytes": 659733,
+      "sha256": "28b86b2c5f48f24bd08a7b9de8104cf25233cbd89a9fca3f374f067bd785c57d"
+    },
+    {
+      "file": "single/battery-claim-check-v0.10.0.zip",
+      "bytes": 8033,
+      "sha256": "22ca2ba8a30da2f1aa58e155d9dea972c3b36e77fc1825674f1d3652890834f8"
+    },
+    {
+      "file": "single/battery-data-prepare-v0.10.0.zip",
+      "bytes": 11232,
+      "sha256": "b07ae9568dbda4cda2786d625dec8f1503d9a8ac60e775943b026f48296aa291"
+    },
+    {
+      "file": "single/battery-experiment-plan-v0.10.0.zip",
+      "bytes": 8517,
+      "sha256": "9b9eab84cd808ebb1c194da133a99e7fdd8994e025f0f1ad90d8ee9184146286"
+    },
+    {
+      "file": "single/battery-figure-assemble-v0.10.0.zip",
+      "bytes": 134226,
+      "sha256": "2e4a6fbb6b184e68ee88377612931ddd6c94ddd442a3ca88220ce528aef72755"
+    },
+    {
+      "file": "single/battery-literature-map-v0.10.0.zip",
+      "bytes": 8606,
+      "sha256": "deb406bc09e297a366d979d0694edc05df600a793dd8c11022e7e1ba3e3e6d0a"
+    },
+    {
+      "file": "single/battery-metrics-audit-v0.10.0.zip",
+      "bytes": 10091,
+      "sha256": "6cf4c04cbf9a70b291f2e7f4e75198106db419d7e52c56c3c2c6141e948d3f65"
+    },
+    {
+      "file": "single/battery-review-audit-v0.10.0.zip",
+      "bytes": 7501,
+      "sha256": "cd4e3e9455bdeba315e298169f7d5171e099acf15410fa935ae8d619cf90fc90"
+    },
+    {
+      "file": "single/battery-review-figure-v0.10.0.zip",
+      "bytes": 541954,
+      "sha256": "5754d523c48171018360659ed9a4ae76c9a15df666865353f45187dbb32a8cd3"
+    },
+    {
+      "file": "single/battery-review-forge-v0.10.0.zip",
+      "bytes": 23628,
+      "sha256": "f54487f843a0cbe5c84f7c25fbf95fbea3b8a417b20227058d9e10a1b61af4a5"
+    },
+    {
+      "file": "single/battery-review-plan-v0.10.0.zip",
+      "bytes": 9027,
+      "sha256": "91d7f38ddb28e41fcac2f27ce9a2976520784b532fd7530685c74d55ff2f0841"
+    },
+    {
+      "file": "single/battery-review-polish-v0.10.0.zip",
+      "bytes": 7228,
+      "sha256": "8e83427ca0f0f9f93d0c990e746f07da7772bddd510cbaab3a079640c958a5f4"
+    },
+    {
+      "file": "single/battery-review-response-v0.10.0.zip",
+      "bytes": 7793,
+      "sha256": "c0f286fa063e3052fa166b211b1d84e185aa9440e7fe3ff6142e8e94b05dcff2"
+    },
+    {
+      "file": "single/battery-review-submission-v0.10.0.zip",
+      "bytes": 8268,
+      "sha256": "e3929efcf2117114355358a67447854b6ffc6a0247b0d3ca7eaa2023d44e0d06"
+    },
+    {
+      "file": "single/battery-review-write-v0.10.0.zip",
+      "bytes": 7685,
+      "sha256": "f0aa7bab55411f4335e7a28c50b12f7fe9f1dba204f70cb6ac8f8f74c6e5a645"
+    },
+    {
+      "file": "single/battery-reviewer-v0.10.0.zip",
+      "bytes": 7349,
+      "sha256": "9e45a523aab7d33f3f4ef0a7e48f10e2b9f6b0d3059bfd2289abcc06251fccb8"
+    },
+    {
+      "file": "workbuddy/battery-claim-check-workbuddy-v0.10.0.zip",
+      "bytes": 8255,
+      "sha256": "dc92294468ff4118f2bb6db2e908de714d158c22ff408be61e91d1304fa26bfd"
+    },
+    {
+      "file": "workbuddy/battery-data-prepare-workbuddy-v0.10.0.zip",
+      "bytes": 11480,
+      "sha256": "26eadd77025f3707c27c9edb01f39b720934f5203b64b691e7ac97487cf6d974"
+    },
+    {
+      "file": "workbuddy/battery-experiment-plan-workbuddy-v0.10.0.zip",
+      "bytes": 8756,
+      "sha256": "a3fdaa4760b10ae9352be9bd3b7f4cf0b90f86f352ab9f13d60feabac646d3d2"
+    },
+    {
+      "file": "workbuddy/battery-figure-assemble-workbuddy-v0.10.0.zip",
+      "bytes": 134477,
+      "sha256": "a4fdc1394dc6db187e04a47e2d0c01efe9adefbc37f394db99ff72fc5ff2df98"
+    },
+    {
+      "file": "workbuddy/battery-literature-map-workbuddy-v0.10.0.zip",
+      "bytes": 8840,
+      "sha256": "a0491af0aafa6dd766914d67eab3679e970ca38ba5843d59f9256d667b8d065e"
+    },
+    {
+      "file": "workbuddy/battery-metrics-audit-workbuddy-v0.10.0.zip",
+      "bytes": 10344,
+      "sha256": "37104d576e128218368cd148f76242969978bca75eeda5e62c89bf5fb79166a1"
+    },
+    {
+      "file": "workbuddy/battery-review-audit-workbuddy-v0.10.0.zip",
+      "bytes": 7737,
+      "sha256": "6ba424f2c4bac8ea1e591956008ee281bfaa0c6b5399e83173f01d89f86872c6"
+    },
+    {
+      "file": "workbuddy/battery-review-figure-workbuddy-v0.10.0.zip",
+      "bytes": 542203,
+      "sha256": "2a0a5f0202bad60c9ccdc8ff528692a1b3b37a9e509224a5f8e18142b835af3f"
+    },
+    {
+      "file": "workbuddy/battery-review-forge-workbuddy-v0.10.0.zip",
+      "bytes": 23875,
+      "sha256": "08e4a743ab0ac90761dc812f34180bffda4ffb73449cea6a9dba3ab23eca4714"
+    },
+    {
+      "file": "workbuddy/battery-review-plan-workbuddy-v0.10.0.zip",
+      "bytes": 9248,
+      "sha256": "3db27d95b01bca0cc312859e8425b3f30f9cad5a5b10f7ec4966ac45b9db892b"
+    },
+    {
+      "file": "workbuddy/battery-review-polish-workbuddy-v0.10.0.zip",
+      "bytes": 7460,
+      "sha256": "b707fc3770a3c4112add8e743e6566f04c83491fee3da51f69a2d6d4d31cec65"
+    },
+    {
+      "file": "workbuddy/battery-review-response-workbuddy-v0.10.0.zip",
+      "bytes": 8000,
+      "sha256": "bd7dedc053d9456707f7d576a4dd8df07efecd2e20ae2b6ec96aed2b5b5a2dbf"
+    },
+    {
+      "file": "workbuddy/battery-review-submission-workbuddy-v0.10.0.zip",
+      "bytes": 8479,
+      "sha256": "a2ab0c3c07582324dd7e556f3cd5ed9fd20c21b2cf36546929054d9926b8b7d1"
+    },
+    {
+      "file": "workbuddy/battery-review-write-workbuddy-v0.10.0.zip",
+      "bytes": 7906,
+      "sha256": "8f66b15f28fb56444cec94ac0b7f19ae9851483c24e16d6fd59eab80e50c93e7"
+    },
+    {
+      "file": "workbuddy/battery-reviewer-workbuddy-v0.10.0.zip",
+      "bytes": 7557,
+      "sha256": "d59fe79f6583b293c5b9bbce93c3adc095ebc15d1acb77b8cab4e59d41740810"
+    },
+    {
+      "file": "recipes/VoltPeer-full_cell-0.10.0.zip",
+      "bytes": 200503,
+      "sha256": "ac66f6fee0e139ffcbea0795d5fde6933e85b990370e2ffd15a8e668987e5716"
+    },
+    {
+      "file": "recipes/VoltPeer-li_li-0.10.0.zip",
+      "bytes": 254594,
+      "sha256": "dac19cda40df94df5455ef429efe4e20da0b08c42a176579da69d12fd6d75fc0"
+    },
+    {
+      "file": "recipes/VoltPeer-operando_xrd-0.10.0.zip",
+      "bytes": 137492,
+      "sha256": "0913c92641bbb16c7bdb8ddd090815803a83334cf9caf89a7590cc93c0c35a36"
+    }
+  ],
+  "isolated_skill_checks": 62,
+  "real_host_model_behavior": "NOT_RUN"
+}

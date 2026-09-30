@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
 from batteryplot.style import PRESETS
+from output_safety import reserve_stem
 
 
 def main() -> None:
@@ -48,15 +49,17 @@ def main() -> None:
                                        transform=ax.transAxes, clip_on=False,
                                        facecolor=color, edgecolor="white", linewidth=0.5))
         fig.suptitle("BatteryReviewForge style choices · invented preview data", fontsize=14)
-        for ext in ("svg", "png"):
-            fig.savefig(args.out.with_suffix(f".{ext}"), dpi=300, facecolor="white")
-        svg = args.out.with_suffix(".svg")
-        svg.write_text("\n".join(line.rstrip() for line in svg.read_text(encoding="utf-8").splitlines()) + "\n",
-                       encoding="utf-8")
+        with reserve_stem(args.out, ('.svg', '.png')) as (reserved, _):
+            for ext in ("svg", "png"):
+                fig.savefig(Path(str(reserved) + f'.{ext}'), dpi=300, facecolor="white")
+            svg = Path(str(reserved) + '.svg')
+            svg.write_text("\n".join(line.rstrip() for line in svg.read_text(encoding="utf-8").splitlines()) + "\n", encoding="utf-8")
         plt.close(fig)
-    print(args.out.with_suffix(".svg"))
-    print(args.out.with_suffix(".png"))
+    print(Path(str(reserved) + '.svg'))
+    print(Path(str(reserved) + '.png'))
 
 
 if __name__ == "__main__":
+    from cli_runtime import configure_utf8
+    configure_utf8()
     main()

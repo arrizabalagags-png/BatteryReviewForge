@@ -1,0 +1,80 @@
+{
+  "scope": "Curated seed from author-provided primary-paper PDFs; paraphrased metadata only. No article artwork or caption text is redistributed.",
+  "verified_on": "2026-09-23",
+  "status_note": "The local 51-PDF scan found 297 caption candidates, including possible false positives. Only the figure pages below were inspected visually in this seed. Unlisted candidates have not been promoted to panel evidence.",
+  "figures": [
+    {
+      "doi": "10.1002/adfm.202211364", "journal": "Advanced Functional Materials", "year": 2023, "figure": 5, "pdf_page": 9,
+      "verification": "caption_and_figure_page_inspected", "cell_context": "Li||Cu and Li||Li; electrolyte comparison",
+      "conditions": "Li||Cu a: 1 mA cm^-2, 1 mAh cm^-2; b: 3 mA cm^-2, 3 mAh cm^-2; Aurbach c: 1 mA cm^-2, 1 mAh cm^-2; Li||Li d: 1 mA cm^-2, 1 mAh cm^-2",
+      "panels": [
+        {"panel":"a","type":"li_cu_cycle_ce","x":"cycle number","y":"CE (%)","encoding":"open-circle series","role":"long-cycle deposition/stripping CE","paired_with":["5b","5c"],"secondary_axis":false,"inset":true},
+        {"panel":"b","type":"li_cu_cycle_ce","x":"cycle number","y":"CE (%)","encoding":"open-circle series","role":"higher-current CE","paired_with":["5a","5c"],"secondary_axis":false,"inset":false},
+        {"panel":"c","type":"aurbach_ce","x":"time (h)","y":"voltage (V)","encoding":"protocol voltage traces and reported CE","role":"distinct CE protocol","paired_with":["5a","5b"],"secondary_axis":false,"inset":false},
+        {"panel":"d","type":"li_li_symmetric","x":"time (h)","y":"voltage (V)","encoding":"continuous traces","role":"symmetric-cell cycling","paired_with":["5e"],"secondary_axis":false,"inset":false},
+        {"panel":"e","type":"li_li_symmetric","x":"time (h)","y":"voltage (V)","encoding":"current-stage traces","role":"rate response","paired_with":["5d"],"secondary_axis":false,"inset":false}
+      ]
+    },
+    {
+      "doi": "10.1002/anie.202319090", "journal": "Angewandte Chemie International Edition", "year": 2024, "figure": 2, "pdf_page": 3,
+      "verification": "caption_and_figure_page_inspected", "cell_context": "Li/Cu and Li/Li; electrolyte comparison",
+      "conditions": "Text states Li/Cu 1 mA cm^-2 and 1 mAh cm^-2; panel d compares 0.5, 1, 2, 4 mA cm^-2; panel e CV 0.5 mV s^-1",
+      "panels": [
+        {"panel":"a","type":"li_cu_cycle_ce","x":"cycle number","y":"CE (%)","encoding":"series symbols/line","role":"repeated Li/Cu CE","paired_with":["2b","2d"],"secondary_axis":false,"inset":false},
+        {"panel":"b","type":"aurbach_ce","x":"time (h)","y":"voltage (V)","encoding":"protocol traces and reported CE","role":"distinct Aurbach measurement","paired_with":["2a"],"secondary_axis":false,"inset":true},
+        {"panel":"c","type":"li_cu_cycle_ce","x":"cycle number","y":"CE (%)","encoding":"series symbols/line","role":"different-solvent comparison","paired_with":["2a"],"secondary_axis":false,"inset":false},
+        {"panel":"d","type":"li_cu_voltage_profile","x":"areal capacity (mAh cm^-2)","y":"voltage (V)","encoding":"different-current profiles","role":"plating/stripping voltage evidence","paired_with":["2a"],"secondary_axis":false,"inset":true},
+        {"panel":"h","type":"li_li_symmetric","x":"time (h)","y":"voltage (V)","encoding":"continuous traces","role":"symmetric cycling","paired_with":["2i"],"secondary_axis":false,"inset":false},
+        {"panel":"i","type":"li_li_symmetric","x":"time (h)","y":"voltage (V)","encoding":"current-stage traces","role":"symmetric rate response","paired_with":["2h"],"secondary_axis":false,"inset":false}
+      ]
+    },
+    {
+      "doi": "10.1021/acsnano.3c07038", "journal": "ACS Nano", "year": 2024, "figure": 4, "pdf_page": 7,
+      "verification": "caption_and_figure_page_inspected", "cell_context": "Li||Cu and Li||Li; electrolyte comparison",
+      "conditions": "Li||Cu c: 0.5 mA cm^-2, 1 mAh cm^-2; d: 1 mA cm^-2, 1 mAh cm^-2; Li||Li f: 1 mA cm^-2, 1 mAh cm^-2",
+      "panels": [
+        {"panel":"a","type":"aurbach_ce","x":"time (h)","y":"voltage (V)","encoding":"protocol traces with CE values","role":"Aurbach measurement","paired_with":["4c","4d"],"secondary_axis":false,"inset":false},
+        {"panel":"b","type":"aurbach_ce","x":"electrolyte","y":"average CE (%)","encoding":"summary bars of this Aurbach protocol","role":"protocol-specific summary","paired_with":["4a"],"secondary_axis":false,"inset":false},
+        {"panel":"c","type":"li_cu_cycle_ce","x":"cycle number","y":"CE (%)","encoding":"symbols and line","role":"Li||Cu repeated CE at lower current","paired_with":["4a","4d"],"secondary_axis":false,"inset":false},
+        {"panel":"d","type":"li_cu_cycle_ce","x":"cycle number","y":"CE (%)","encoding":"symbols and line","role":"Li||Cu repeated CE at higher current","paired_with":["4a","4c"],"secondary_axis":false,"inset":false},
+        {"panel":"e","type":"li_cu_voltage_profile","x":"areal capacity (mAh cm^-2)","y":"voltage (V)","encoding":"selected-cycle profiles","role":"plating/stripping polarization","paired_with":["4c"],"secondary_axis":false,"inset":true},
+        {"panel":"f","type":"li_li_symmetric","x":"time (h)","y":"voltage (V)","encoding":"continuous traces","role":"symmetric cycling with linked zoom windows","paired_with":["4c","4d"],"secondary_axis":false,"inset":true}
+      ]
+    },
+    {
+      "doi": "10.1002/adfm.202211364", "journal": "Advanced Functional Materials", "year": 2023, "figure": 6, "pdf_page": 11,
+      "verification": "caption_and_figure_page_inspected", "cell_context": "Li||LFP and Li||NCM811 full cells",
+      "conditions": "a: Li||LFP at 2C; b-e: Li||NCM811 at 0.5C; f: harsher NCM811 configuration",
+      "panels": [
+        {"panel":"a","type":"full_cell_long_cycle","x":"cycle number","y":"specific capacity (mAh g^-1) and CE (%)","encoding":"capacity plus CE on right axis","role":"LFP cycling","paired_with":[],"secondary_axis":true,"inset":false},
+        {"panel":"b","type":"full_cell_long_cycle","x":"cycle number","y":"specific capacity (mAh g^-1) and CE (%)","encoding":"capacity plus CE on right axis","role":"NCM811 cycling","paired_with":["6c","6d","6e"],"secondary_axis":true,"inset":false},
+        {"panel":"c","type":"voltage_capacity_profile","x":"specific capacity (mAh g^-1)","y":"voltage (V)","encoding":"selected-cycle charge/discharge profiles","role":"NCM811 electrolyte A curves","paired_with":["6b"],"secondary_axis":false,"inset":false},
+        {"panel":"d","type":"voltage_capacity_profile","x":"specific capacity (mAh g^-1)","y":"voltage (V)","encoding":"selected-cycle charge/discharge profiles","role":"NCM811 electrolyte B curves","paired_with":["6b"],"secondary_axis":false,"inset":false},
+        {"panel":"e","type":"voltage_capacity_profile","x":"specific capacity (mAh g^-1)","y":"voltage (V)","encoding":"selected-cycle charge/discharge profiles","role":"NCM811 control curves","paired_with":["6b"],"secondary_axis":false,"inset":false},
+        {"panel":"f","type":"full_cell_long_cycle","x":"cycle number","y":"areal capacity (mAh cm^-2) and CE (%)","encoding":"capacity plus CE on right axis","role":"harsher full-cell validation","paired_with":["6b"],"secondary_axis":true,"inset":false}
+      ]
+    },
+    {
+      "doi": "10.1002/adfm.202209725", "journal": "Advanced Functional Materials", "year": 2023, "figure": 4, "pdf_page": 6,
+      "verification": "caption_and_figure_page_inspected", "cell_context": "NCM622||Li coin and pouch cells",
+      "conditions": "a-b: N/P 1.3, 3.0-4.4 V, 0.2C charge/0.5C discharge; c-d: pouch, 3.8 mAh cm^-2 cathode, 20 um Li, 2.8-4.4 V",
+      "panels": [
+        {"panel":"a","type":"full_cell_long_cycle","x":"cycle number","y":"specific capacity (mAh g^-1) and CE (%)","encoding":"capacity and CE","role":"coin-cell cycling","paired_with":["4b"],"secondary_axis":true,"inset":false},
+        {"panel":"b","type":"voltage_capacity_profile","x":"specific capacity (mAh g^-1)","y":"voltage (V)","encoding":"selected cycles","role":"coin-cell voltage evidence","paired_with":["4a"],"secondary_axis":false,"inset":false},
+        {"panel":"c","type":"pouch_cell","x":"cycle number","y":"capacity (mAh) and CE (%)","encoding":"capacity and CE","role":"pouch-cell cycling","paired_with":["4d"],"secondary_axis":true,"inset":false},
+        {"panel":"d","type":"voltage_capacity_profile","x":"capacity (mAh)","y":"voltage (V)","encoding":"selected cycles","role":"pouch-cell voltage evidence","paired_with":["4c"],"secondary_axis":false,"inset":false}
+      ]
+    },
+    {
+      "doi": "10.1002/smll.202311812", "journal": "Small", "year": 2024, "figure": 4, "pdf_page": 6,
+      "verification": "caption_and_figure_page_inspected", "cell_context": "Li||NCM811 full cell",
+      "conditions": "2.8-4.4 V; cathode 3.4 mAh cm^-2; Li 20 um; N/P 1.2; 0.2C charge/0.5C discharge in the page figure",
+      "panels": [
+        {"panel":"a","type":"full_cell_long_cycle","x":"cycle number","y":"specific capacity (mAh g^-1) and CE (%)","encoding":"capacity symbols and CE on right axis","role":"full-cell cycling comparison","paired_with":["4b","4c","4d"],"secondary_axis":true,"inset":false},
+        {"panel":"b","type":"voltage_capacity_profile","x":"capacity (mAh g^-1)","y":"voltage (V)","encoding":"selected cycles","role":"electrolyte control curves","paired_with":["4a"],"secondary_axis":false,"inset":false},
+        {"panel":"c","type":"voltage_capacity_profile","x":"capacity (mAh g^-1)","y":"voltage (V)","encoding":"selected cycles","role":"electrolyte comparison curves","paired_with":["4a"],"secondary_axis":false,"inset":false},
+        {"panel":"d","type":"voltage_capacity_profile","x":"capacity (mAh g^-1)","y":"voltage (V)","encoding":"selected cycles","role":"candidate electrolyte curves","paired_with":["4a"],"secondary_axis":false,"inset":false}
+      ]
+    }
+  ]
+}

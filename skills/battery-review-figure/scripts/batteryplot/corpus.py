@@ -96,7 +96,7 @@ def render_corpus(recipe, folder, *, style='forge'):
     if recipe not in CORPUS_RECIPES:
         raise ValueError('Unknown corpus recipe')
     folder = Path(folder)
-    meta = json.loads((folder / 'metadata.json').read_text(encoding='utf-8'))
+    meta = json.loads((folder / 'metadata.json').read_text(encoding='utf-8-sig'))
     if not meta.get('test_conditions') or not meta.get('source_files') or not isinstance(meta.get('render_options'), dict):
         raise ValueError('metadata.json needs test_conditions, source_files and render_options')
     if not all((folder / name).is_file() for name in meta['source_files']):

@@ -1,0 +1,9 @@
+{
+  "columns": {"cycle": "Cycle Index", "capacity": "Discharge capacity"},
+  "units": {"cycle": "count", "capacity": "mAh g-1"},
+  "numeric_columns": ["cycle", "capacity"],
+  "author_confirmed": true,
+  "plot_context": "Synthetic S1 full cell, 25 C, cathode active mass, 0.2 C, 2.0-4.0 V; no experimental interpretation",
+  "plot_context_confirmed": true,
+  "exclude_rows": []
+}

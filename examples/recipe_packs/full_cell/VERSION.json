@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "resource_id": "full_cell",
+  "version": "0.10.0",
+  "updated": "2026-09-30",
+  "status": "Beta",
+  "original_code_license": "MIT",
+  "generated_demo": true,
+  "reference_image": "reference/figure.png",
+  "author_data_supported": true,
+  "derived_from_resource_id": "full_cell",
+  "source_repository": "https://github.com/arrizabalagags-png/BatteryReviewForge",
+  "baseline_commit": "79b4238a5a7dfc963bafc0aefacd2337f9795ba8",
+  "model_evals": {
+    "deepseek-flash": "NOT_RUN",
+    "deepseek-v4-pro": "NOT_RUN"
+  },
+  "native_desktop_discovery": "NOT_RUN",
+  "demo_sha256": {
+    "demo/cycling.csv": "85d6a89f681e27e0c1483b0a56ee0b41ef8f071418e3192666df49572906deef",
+    "demo/profiles.csv": "b1c81edc874c20bd8bdf42bfe7ce4c7810c3c1769db52d22d1bcc591c1a191e1"
+  }
+}

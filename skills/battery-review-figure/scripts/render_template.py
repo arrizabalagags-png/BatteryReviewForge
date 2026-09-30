@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 
 from batteryplot.style import DEFAULT_STYLE, PRESETS, THEME, get_preset
+from output_safety import reserve_stem
 
 ORIGINALS = Path(__file__).resolve().parents[1] / "assets" / "original"
 COLOR = re.compile(r"#[0-9a-fA-F]{6}\b")
@@ -46,10 +47,15 @@ def main() -> None:
     })
     original = source.read_text(encoding="utf-8")
     recolored = COLOR.sub(lambda match: substitutions.get(match.group().lower(), match.group()), original)
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(recolored, encoding="utf-8")
-    print(f"{args.template}: {DEFAULT_STYLE} → {args.style}: {args.out}")
+    if args.out.suffix.lower() != '.svg':
+        parser.error('--out needs an .svg filename')
+    with reserve_stem(args.out.with_suffix(''), ('.svg',)) as (reserved, _):
+        result = Path(str(reserved) + '.svg')
+        result.write_text(recolored, encoding="utf-8")
+    print(f"{args.template}: {DEFAULT_STYLE} → {args.style}: {result}")
 
 
 if __name__ == "__main__":
+    from cli_runtime import configure_utf8
+    configure_utf8()
     main()

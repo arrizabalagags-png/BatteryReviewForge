@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "resource_id": "li_li",
+  "format": "UTF-8/BOM CSV long table; explicit JSON mapping; preserve raw file",
+  "required_columns": {
+    "trace": [
+      "sample",
+      "time",
+      "voltage"
+    ]
+  },
+  "units_supported": {
+    "time": "h",
+    "voltage": "mV"
+  },
+  "units_note": "time h/s; signed voltage mV/V; explicit Li||Li or Na||Na and current/half-cycle areal-capacity/overlap area basis",
+  "required_conditions": [
+    "metal",
+    "cell_configuration",
+    "area_basis",
+    "current_density_mA_cm2",
+    "half_cycle_areal_capacity_mAh_cm2",
+    "temperature_C",
+    "rest_protocol",
+    "failure_rule"
+  ],
+  "condition_policy": "Real config has nulls. Required unknown fields must stop; N/P and E/C may explicitly say not reported but never be guessed.",
+  "geometry": "Any positive number of groups; uneven lengths allowed per trace; XRD each group has its own complete unique coordinate grid. Auto ranges include new values. Long labels wrap; unreadable layouts must be revised.",
+  "disallowed": [
+    "missing-data demo fallback",
+    "silent dropped rows",
+    "silent smoothing/fitting",
+    "duplicate coordinates overwritten",
+    "unknown units guessed",
+    "demo condition reuse in author output",
+    "truncated data from old limits"
+  ],
+  "validation_status": "local_engineering_checked; model_behavior_NOT_RUN; author_scientific_review_pending"
+}

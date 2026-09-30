@@ -6,7 +6,7 @@ description: Turn a battery research question into a testable variable/control m
 # Plan battery experiments
 
 <!-- execution-contract -->
-For multi-step work or resuming after interruption, use [the execution and recovery guide](references/EXECUTION.md). Save verified inputs, user choices, pending conditions, outputs and the next action in the project's `TASK_STATE.json`; check file hashes before resuming. Start with guided execution when tool/vision capabilities are unverified; allow adaptive planning after a successful pilot. All modes retain the same scientific and output checks. For a one-step edit, keep the existing record and proceed directly.
+For model/tool adaptation or resuming a task, read [the execution guide](references/EXECUTION.md). DeepSeek Flash uses short stages and checkpoints; DeepSeek Pro can plan larger text/evidence batches, with the same scientific checks. Show the result, its file link and material unresolved questions; keep logs and recovery records inside the project's `.voltpeer/` folder. Use only capabilities actually available in the current model and host.
 <!-- /execution-contract -->
 
 Use this when the author needs to decide **what to compare and what evidence would answer the question**. Start with the precise claim, cell chemistry and failure mode or mechanism being tested. Read the author's proposal, existing data and relevant primary protocols before adopting any parameter. If the project is a Review-only task with no new experiment, route to `battery-review-plan` instead.

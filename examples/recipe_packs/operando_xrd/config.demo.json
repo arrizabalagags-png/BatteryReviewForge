@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "resource_id": "operando_xrd",
+  "data_status": "synthetic_demo",
+  "title": "Diffraction and measured-coordinate linkage",
+  "provenance": {
+    "input_origin": "original_synthetic_demo",
+    "demo_conditions_cleared": false
+  },
+  "labels": {},
+  "style": {
+    "width_mm": 180,
+    "font_pt": 8
+  },
+  "export": {
+    "formats": [
+      "pdf",
+      "svg",
+      "png",
+      "tiff"
+    ],
+    "png_dpi": 300,
+    "tiff_dpi": 300
+  },
+  "limits": {},
+  "data": {
+    "diffraction": {
+      "path": "demo/diffraction.csv",
+      "columns": {
+        "sample": "sample",
+        "two_theta": "two_theta",
+        "progress": "progress",
+        "intensity": "intensity"
+      }
+    },
+    "voltage": {
+      "path": "demo/voltage.csv",
+      "columns": {
+        "sample": "sample",
+        "progress": "progress",
+        "voltage": "voltage"
+      }
+    }
+  },
+  "units": {
+    "two_theta": "deg",
+    "progress": "fraction",
+    "intensity": "a.u.",
+    "voltage": "V"
+  },
+  "conditions": {
+    "common": {
+      "radiation": "Illustrative Cu K-alpha; not acquired",
+      "wavelength_A": 1.5406,
+      "cell_configuration": "Illustrative operando cell",
+      "progress_definition": "Illustrative fractional charging progress; not measured SOC",
+      "synchronization": "Illustrative equal coordinate endpoints; no measured timestamps",
+      "intensity_normalization": "Invented model values; no experimental normalization"
+    },
+    "by_sample": {}
+  }
+}

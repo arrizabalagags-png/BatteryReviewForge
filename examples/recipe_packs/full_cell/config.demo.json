@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "resource_id": "full_cell",
+  "data_status": "synthetic_demo",
+  "title": "Full-cell cycling and voltage profiles",
+  "provenance": {
+    "input_origin": "original_synthetic_demo",
+    "demo_conditions_cleared": false
+  },
+  "labels": {},
+  "style": {
+    "width_mm": 180,
+    "font_pt": 8
+  },
+  "export": {
+    "formats": [
+      "pdf",
+      "svg",
+      "png",
+      "tiff"
+    ],
+    "png_dpi": 300,
+    "tiff_dpi": 300
+  },
+  "limits": {},
+  "data": {
+    "cycling": {
+      "path": "demo/cycling.csv",
+      "columns": {
+        "sample": "sample",
+        "cycle": "cycle",
+        "capacity": "capacity",
+        "ce": "ce"
+      }
+    },
+    "profiles": {
+      "path": "demo/profiles.csv",
+      "columns": {
+        "sample": "sample",
+        "cycle": "cycle",
+        "capacity": "capacity",
+        "voltage": "voltage"
+      }
+    }
+  },
+  "units": {
+    "cycle": "1",
+    "capacity": "mAh g^-1",
+    "voltage": "V",
+    "ce": "%"
+  },
+  "conditions": {
+    "common": {
+      "cathode": "Illustrative layered cathode",
+      "anode": "Illustrative graphite",
+      "capacity_basis": "Illustrative cathode active material mass",
+      "rate_or_current": "Illustrative 0.5 C",
+      "formation": "Illustrative two formation cycles; not experimental",
+      "loading_or_areal_capacity": "Illustrative 3 mAh cm^-2",
+      "temperature_C": 25,
+      "voltage_window_V": [
+        2.9,
+        4.2
+      ],
+      "N_P": "not inferred",
+      "E_C": "not inferred"
+    },
+    "by_sample": {}
+  }
+}

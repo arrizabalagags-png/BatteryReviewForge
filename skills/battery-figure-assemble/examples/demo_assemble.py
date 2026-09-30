@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import argparse
 import subprocess
 import sys
 from pathlib import Path
@@ -11,7 +12,7 @@ from PIL import Image, ImageDraw
 from reportlab.pdfgen import canvas
 
 
-def make_demo(root: Path) -> Path:
+def make_demo(root: Path, *, without_svg: bool = False) -> Path:
     sources = root / "sources"
     sources.mkdir(parents=True, exist_ok=True)
     hero = sources / "demo_schematic.pdf"
@@ -83,15 +84,37 @@ def make_demo(root: Path) -> Path:
         ],
     }
     manifest_path = root / "demo_manifest.json"
+    if without_svg:
+        # Native PDF fallback demonstrates composition without a Cairo dependency.
+        fallback = sources / 'demo_matrix.pdf'
+        pdf = canvas.Canvas(str(fallback), pagesize=(600, 340))
+        pdf.setFont('Helvetica-Bold', 20)
+        pdf.drawString(24, 306, 'SYNTHETIC DEMO - reporting matrix')
+        for row, values in enumerate((('R', 'NR', 'NV'), ('NR', 'R', 'NV'))):
+            for col, value in enumerate(values):
+                pdf.setFillColorRGB(*((.30, .55, .52) if value == 'R' else (.76, .79, .80)))
+                pdf.rect(90 + col * 150, 158 - row * 116, 145, 110, fill=1, stroke=0)
+                pdf.setFillColorRGB(.15, .20, .23)
+                pdf.drawCentredString(162 + col * 150, 200 - row * 116, value)
+        pdf.save()
+        svg.unlink()  # Only the just-created fixture, never an author file.
+        manifest['panels'][2]['path'] = 'sources/demo_matrix.pdf'
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     return manifest_path
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        raise SystemExit("Usage: python demo_assemble.py OUTPUT_DIRECTORY")
-    root = Path(sys.argv[1]).resolve()
-    manifest_path = make_demo(root)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('output_directory', nargs='?', type=Path)
+    parser.add_argument('--output', type=Path)
+    parser.add_argument('--without-svg', action='store_true', help='PDF/PNG demo when native Cairo is unavailable')
+    args = parser.parse_args()
+    if bool(args.output) == bool(args.output_directory):
+        parser.error('Choose one output directory: positional or --output')
+    root = (args.output or args.output_directory).resolve()
+    if root.exists():
+        parser.error('Choose a new output folder; previous results will not be overwritten')
+    manifest_path = make_demo(root, without_svg=args.without_svg)
     script = Path(__file__).resolve().parents[1] / "scripts" / "compose_figure.py"
     subprocess.run([sys.executable, str(script), "inventory", "--input", str(root / "sources"),
                     "--output", str(root / "inventory")], check=True)

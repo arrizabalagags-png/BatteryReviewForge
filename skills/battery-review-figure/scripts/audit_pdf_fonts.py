@@ -12,10 +12,11 @@ import json
 import re
 from pathlib import Path
 
-import fitz
-
-
 def audit(path: Path, expected: str | None = None) -> dict:
+    try:
+        import pymupdf as fitz
+    except ImportError as exc:
+        raise RuntimeError("PDF font checking needs PyMuPDF. Install this skill's requirements.txt in the project Python environment.") from exc
     with fitz.open(path) as pdf:
         fonts: dict[tuple[int, str], dict] = {}
         for page_index in range(len(pdf)):
@@ -56,11 +57,16 @@ def main() -> None:
     args = parser.parse_args()
     if not args.pdf.is_file():
         parser.error(f"PDF not found: {args.pdf}")
-    result = audit(args.pdf, args.expect)
+    try:
+        result = audit(args.pdf, args.expect)
+    except (RuntimeError, OSError) as exc:
+        parser.exit(2, str(exc) + "\n")
     print(json.dumps(result, ensure_ascii=False, indent=2))
     if result["status"] != "pass":
         raise SystemExit(1)
 
 
 if __name__ == "__main__":
+    from cli_runtime import configure_utf8
+    configure_utf8()
     main()

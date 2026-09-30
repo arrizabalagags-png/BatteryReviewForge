@@ -3,14 +3,23 @@
 set -eu
 
 overwrite=0
-agent=codex
+agent=dsh
+workspace=''
+explicit_target=''
 while [ "$#" -gt 0 ]; do
     case "$1" in
         --overwrite) overwrite=1; shift ;;
         --agent)
             [ "$#" -ge 2 ] || { echo 'Missing value for --agent.' >&2; exit 2; }
             agent=$2; shift 2 ;;
-        *) echo "Usage: sh install.sh [--agent codex|kimi|dsh] [--overwrite]" >&2; exit 2 ;;
+        --workspace)
+            [ "$#" -ge 2 ] || { echo 'Missing value for --workspace.' >&2; exit 2; }
+            workspace=$2; shift 2 ;;
+        --target-root)
+            [ "$#" -ge 2 ] || { echo 'Missing value for --target-root.' >&2; exit 2; }
+            explicit_target=$2; shift 2 ;;
+        --help|-h) echo 'Usage: sh install.sh --workspace "/path/to/research project" [--overwrite]'; echo 'Advanced: --agent codex|kimi|dsh --target-root "/explicit/skills"'; exit 0 ;;
+        *) echo "Usage: sh install.sh --workspace \"research folder\" [--overwrite] [--agent codex|kimi|dsh] [--target-root PATH]" >&2; exit 2 ;;
     esac
 done
 
@@ -22,6 +31,19 @@ case "$agent" in
     dsh) target_root="${DSH_HOME:-$HOME/.dsh}/skills" ;;
     *) echo "Unknown agent: $agent. Choose codex, kimi, or dsh." >&2; exit 2 ;;
 esac
+if [ -n "$workspace" ]; then
+    [ "$agent" = dsh ] || { echo '--workspace requires --agent dsh.' >&2; exit 2; }
+    [ -z "$explicit_target" ] || { echo 'Choose --workspace or --target-root, not both.' >&2; exit 2; }
+    [ -d "$workspace" ] && [ ! -L "$workspace" ] || { echo 'Choose an existing real research workspace folder.' >&2; exit 2; }
+    workspace=$(CDPATH= cd -- "$workspace" && pwd -P)
+    [ ! -L "$workspace/.dsh" ] || { echo 'The workspace .dsh directory is a symbolic link; choose a real project installation.' >&2; exit 2; }
+    target_root="$workspace/.dsh/skills"
+elif [ -n "$explicit_target" ]; then
+    target_root=$explicit_target
+elif [ "$agent" = dsh ]; then
+    echo 'For DeepSeek Harness desktop, pass --workspace "your research folder". A global CLI profile does not prove desktop discovery.' >&2
+    exit 2
+fi
 if [ ! -d "$source_root" ]; then
     echo "The skills folder is missing. Extract the complete release ZIP first." >&2
     exit 1
@@ -65,5 +87,6 @@ for skill_path in "$source_root"/*; do
     cp -R "$skill_path" "$target_root/"
 done
 echo "Copied $count BatteryReviewForge skills for $agent to $target_root. Start a new agent task and check that the skills appear."
+[ -z "$workspace" ] || echo "Open workspace $workspace in DeepSeek Harness desktop and ask a new conversation to locate both figure skills."
 [ ! -d "$backup_root" ] || echo "Previous skills preserved at $backup_root. Keep until the new version is checked."
 echo 'Only copied is checked. Check discovery, dependencies and PNG/SVG export next.'

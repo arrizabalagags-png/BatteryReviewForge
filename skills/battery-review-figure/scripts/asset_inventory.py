@@ -73,4 +73,6 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    from cli_runtime import configure_utf8
+    configure_utf8()
     main()

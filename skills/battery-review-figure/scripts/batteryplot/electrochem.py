@@ -21,7 +21,7 @@ ELECTROCHEM_RECIPES = ('aurbach_protocol', 'eis_frequency', 'chronoamperometry',
 
 
 def _metadata(folder: Path, recipe: str):
-    meta = json.loads((folder / 'metadata.json').read_text(encoding='utf-8'))
+    meta = json.loads((folder / 'metadata.json').read_text(encoding='utf-8-sig'))
     if meta.get('figure_grammar_id') != f'optional:{recipe}' or meta.get('reference', {}).get('default_template') is not False:
         raise ValueError('Electrochemistry recipes are explicit optional variants')
     if not isinstance(meta.get('render_options'), dict) or not meta.get('test_conditions'):

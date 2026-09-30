@@ -6,7 +6,7 @@ description: Coordinate a multi-stage battery Review or Perspective project acro
 # Battery Review Forge
 
 <!-- execution-contract -->
-For multi-step work or resuming after interruption, use [the execution and recovery guide](references/EXECUTION.md). Save verified inputs, user choices, pending conditions, outputs and the next action in the project's `TASK_STATE.json`; check file hashes before resuming. Start with guided execution when tool/vision capabilities are unverified; allow adaptive planning after a successful pilot. All modes retain the same scientific and output checks. For a one-step edit, keep the existing record and proceed directly.
+For model/tool adaptation or resuming a task, read [the execution guide](references/EXECUTION.md). DeepSeek Flash uses short stages and checkpoints; DeepSeek Pro can plan larger text/evidence batches, with the same scientific checks. Show the result, its file link and material unresolved questions; keep logs and recovery records inside the project's `.voltpeer/` folder. Use only capabilities actually available in the current model and host.
 <!-- /execution-contract -->
 
 Coordinate a battery Review or Perspective across stages while keeping the current plan, evidence, and revision decisions inspectable. For a single-stage task, use the corresponding specialist skill. Do not apply this workflow to analysis of a new primary experimental paper. Respond in the user's language unless asked otherwise.
@@ -38,7 +38,7 @@ If the request is about **installing or using this suite in an agent host**, ide
 
 For a full-project request, load each specialist only as the work reaches its stage. Do not read every skill or create every template at intake. If a specialist is unavailable, follow the shared rules below and state the missing capability only if it affects the result.
 
-For an unclear figure request, use the [plain-language figure router](../battery-review-figure/references/FIGURE_ROUTER.md) before loading a plotting or assembly specialist. Choose by whether the author has raw data, a new schematic brief, finished panels, or a combination; do not decide from file extension alone.
+For an unclear figure request, use the [plain-language figure router](references/shared/battery-review-figure/references/FIGURE_ROUTER.md) before loading a plotting or assembly specialist. Choose by whether the author has raw data, a new schematic brief, finished panels, or a combination; do not decide from file extension alone.
 
 When the user says only “help me with this”, start from the materials: say briefly what you found, do the first verifiable piece of work, then show what was produced and any one decision needed next. If no material is attached, ask for the smallest useful item (for example a draft section, data table, or three panels) and offer a copyable example sentence. Keep internal skill names out of the author's required input.
 

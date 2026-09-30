@@ -4,6 +4,9 @@ from __future__ import annotations
 
 import io
 import json
+from datetime import datetime, timezone
+import importlib.metadata
+import platform
 from pathlib import Path
 
 from PIL import Image, ImageDraw
@@ -15,6 +18,7 @@ from reportlab.pdfgen import canvas
 from .assets import load_asset, preview_loaded, white_inset_fraction
 from .fonts import audit_fonts
 from .layout import ComposeError, resolve_layout
+from output_safety import reserve_stem
 
 
 PT_PER_MM = 72 / 25.4
@@ -171,6 +175,16 @@ def _alignment_audit(panels: list[dict], tolerance_mm: float = 1.5 / PT_PER_MM) 
 
 
 def compose(manifest: dict, stem: str | Path, *, strict: bool = False) -> dict:
+    """Reserve a complete version before writing; preserve every earlier export."""
+    with reserve_stem(stem, ('.pdf', '.png', '.qa.json', '.alignment.png', '_panel_checks')) as (reserved, version):
+        result = _compose(manifest, reserved, strict=strict)
+        result['output_version'] = version
+        result['parent_version'] = version - 1 if version > 1 else None
+        Path(str(reserved) + '.qa.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+        return result
+
+
+def _compose(manifest: dict, stem: str | Path, *, strict: bool = False) -> dict:
     """Produce PDF, PNG, and JSON. In strict mode, review warnings block output."""
     layout = resolve_layout(_auto_rows(manifest))
     prepared = []
@@ -274,7 +288,7 @@ def compose(manifest: dict, stem: str | Path, *, strict: bool = False) -> dict:
         raise ComposeError("Strict assembly blocked: " + "; ".join(warnings))
     stem = Path(stem)
     stem.parent.mkdir(parents=True, exist_ok=True)
-    pdf_path, png_path, qa_path = (stem.with_suffix(suffix) for suffix in (".pdf", ".png", ".qa.json"))
+    pdf_path, png_path, qa_path = (Path(str(stem) + suffix) for suffix in (".pdf", ".png", ".qa.json"))
     page_width_pt, page_height_pt = layout["width_mm"] * PT_PER_MM, layout["height_mm"] * PT_PER_MM
     buffer = io.BytesIO()
     base = canvas.Canvas(buffer, pagesize=(page_width_pt, page_height_pt), pageCompression=1)
@@ -352,12 +366,10 @@ def compose(manifest: dict, stem: str | Path, *, strict: bool = False) -> dict:
         overlay_draw.line((0, py, 16 if mm % 5 == 0 else 7, py), fill="#405469", width=1)
         if mm % 10 == 0:
             overlay_draw.text((18, py + 2), str(mm), fill="#405469")
-    overlay_path = stem.with_suffix(".alignment.png")
+    overlay_path = Path(str(stem) + '.alignment.png')
     overlay.save(overlay_path)
     crop_dir = stem.parent / f"{stem.name}_panel_checks"
-    crop_dir.mkdir(exist_ok=True)
-    for stale in crop_dir.glob("panel_*.png"):
-        stale.unlink()
+    crop_dir.mkdir(exist_ok=False)
     for panel, _, _, _ in prepared:
         x, y, width, height = panel["slot_mm"]
         scale_px = layout["dpi"] / 25.4
@@ -365,6 +377,10 @@ def compose(manifest: dict, stem: str | Path, *, strict: bool = False) -> dict:
         preview.crop(box).save(crop_dir / f"panel_{panel['label']}.png")
     font_audit = audit_fonts(pdf_path, infos)
     report = {"figure_id": layout["figure_id"], "claim": layout["claim"],
+              "specification": {"status": "author_requested" if 'dpi' in manifest else "journal_neutral_preview",
+                                "journal_requirements": "needs_confirmation",
+                                "raster_preview_dpi": layout['dpi'], "content_class": manifest.get('content_class', 'mixed'),
+                                "note": "PDF keeps supplied vector panels; PNG DPI does not change embedded raster effective resolution."},
               "status": "review_required" if warnings else "geometry_pass_visual_review_required",
               "width_mm": layout["width_mm"], "height_mm": layout["height_mm"],
               "dpi": layout["dpi"], "warnings": warnings, "panels": infos,
@@ -379,4 +395,9 @@ def compose(manifest: dict, stem: str | Path, *, strict: bool = False) -> dict:
                           "panel_checks": str(crop_dir),
                           "alignment_overlay": str(overlay_path)}}
     qa_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    release_path = Path(__file__).resolve().parents[2] / 'assets/SKILL_RELEASE.json'
+    release = json.loads(release_path.read_text(encoding='utf-8-sig')) if release_path.is_file() else {'version':'unreported'}
+    report['generated_at'] = datetime.now(timezone.utc).isoformat(timespec='seconds')
+    report['environment'] = {'skill_version':release['version'], 'python':platform.python_version(), 'os':platform.system(),
+                             'renderer':'batterycompose', 'pypdf':importlib.metadata.version('pypdf'), 'Pillow':Image.__version__}
     return report

@@ -62,7 +62,7 @@ def render_recipe(recipe, folder, *, style='forge'):
     if recipe in ELECTROCHEM_RECIPES:
         return render_electrochem(recipe, folder, style=style)
     folder = Path(folder)
-    meta = json.loads((folder / 'metadata.json').read_text(encoding='utf-8'))
+    meta = json.loads((folder / 'metadata.json').read_text(encoding='utf-8-sig'))
     if not meta.get('test_conditions') or not meta.get('source_files'):
         raise ValueError('metadata.json needs test_conditions and source_files')
     opt = meta['render_options']

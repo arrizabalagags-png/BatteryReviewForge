@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "resource_id": "full_cell",
+  "format": "UTF-8/BOM CSV long table; explicit JSON mapping; preserve raw file",
+  "required_columns": {
+    "cycling": [
+      "sample",
+      "cycle",
+      "capacity"
+    ],
+    "profiles_optional": [
+      "sample",
+      "cycle",
+      "capacity",
+      "voltage"
+    ],
+    "ce_optional": [
+      "ce"
+    ]
+  },
+  "units_supported": {
+    "cycle": "1",
+    "capacity": "mAh g^-1",
+    "voltage": "V",
+    "ce": "%"
+  },
+  "units_note": "capacity mAh g^-1/mAh cm^-2/mAh; explicit mass/area/absolute basis; cycle=1; voltage=V; CE=% only when recorded",
+  "required_conditions": [
+    "cathode",
+    "anode",
+    "capacity_basis",
+    "rate_or_current",
+    "formation",
+    "loading_or_areal_capacity",
+    "temperature_C",
+    "voltage_window_V",
+    "N_P",
+    "E_C"
+  ],
+  "condition_policy": "Real config has nulls. Required unknown fields must stop; N/P and E/C may explicitly say not reported but never be guessed.",
+  "geometry": "Any positive number of groups; uneven lengths allowed per trace; XRD each group has its own complete unique coordinate grid. Auto ranges include new values. Long labels wrap; unreadable layouts must be revised.",
+  "disallowed": [
+    "missing-data demo fallback",
+    "silent dropped rows",
+    "silent smoothing/fitting",
+    "duplicate coordinates overwritten",
+    "unknown units guessed",
+    "demo condition reuse in author output",
+    "truncated data from old limits"
+  ],
+  "validation_status": "local_engineering_checked; model_behavior_NOT_RUN; author_scientific_review_pending"
+}

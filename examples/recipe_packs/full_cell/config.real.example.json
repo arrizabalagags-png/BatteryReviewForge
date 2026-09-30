@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "resource_id": "full_cell",
+  "data_status": "author_data",
+  "title": "Full-cell cycling",
+  "provenance": {
+    "input_origin": "author_supplied",
+    "demo_conditions_cleared": false
+  },
+  "labels": {},
+  "style": {
+    "width_mm": 180,
+    "font_pt": 8
+  },
+  "export": {
+    "formats": [
+      "pdf",
+      "svg",
+      "png",
+      "tiff"
+    ],
+    "png_dpi": 300,
+    "tiff_dpi": 300
+  },
+  "limits": {},
+  "data": {
+    "cycling": {
+      "path": "input/your_cycling.csv",
+      "columns": {
+        "sample": "sample",
+        "cycle": "cycle",
+        "capacity": "capacity",
+        "ce": "ce"
+      }
+    },
+    "profiles": {
+      "path": "input/your_profiles.csv",
+      "columns": {
+        "sample": "sample",
+        "cycle": "cycle",
+        "capacity": "capacity",
+        "voltage": "voltage"
+      }
+    }
+  },
+  "units": {
+    "cycle": null,
+    "capacity": null,
+    "voltage": null,
+    "ce": null
+  },
+  "conditions": {
+    "common": {
+      "cathode": null,
+      "anode": null,
+      "capacity_basis": null,
+      "rate_or_current": null,
+      "formation": null,
+      "loading_or_areal_capacity": null,
+      "temperature_C": null,
+      "voltage_window_V": null,
+      "N_P": null,
+      "E_C": null
+    },
+    "by_sample": {}
+  }
+}

@@ -49,6 +49,8 @@ def _raster_image(path: Path, crop: list[int] | None = None) -> Image.Image:
 
 def _safe_svg(path: Path) -> bytes:
     data = path.read_bytes()
+    # Matplotlib's fixed standard header is not fetched; retain no DTD/entity declarations.
+    data = re.sub(rb'<!DOCTYPE\s+svg\s+PUBLIC\s+"-//W3C//DTD SVG 1\.1//EN"\s+"http://www\.w3\.org/Graphics/SVG/1\.1/DTD/svg11\.dtd"\s*>', b'', data, flags=re.I)
     if b"<!DOCTYPE" in data.upper() or b"<!ENTITY" in data.upper() or b"@import" in data.lower():
         raise ComposeError(f"SVG has external or entity declarations: {path}")
     for match in re.finditer(rb"url\(([^)]+)\)", data, re.I):
@@ -60,7 +62,11 @@ def _safe_svg(path: Path) -> bytes:
     except ET.ParseError as exc:
         raise ComposeError(f"Invalid SVG: {path}") from exc
     for element in root.iter():
+        if element.tag.rsplit('}', 1)[-1] in {'script', 'foreignObject'}:
+            raise ComposeError(f"SVG has executable or embedded web content: {path}")
         for key, value in element.attrib.items():
+            if key.rsplit('}', 1)[-1].lower().startswith('on'):
+                raise ComposeError(f"SVG has executable attributes: {path}")
             if key.endswith("href") and not value.startswith(("#", "data:")):
                 raise ComposeError(f"SVG has an external reference: {path}")
         style = element.attrib.get("style", "")
@@ -71,11 +77,12 @@ def _safe_svg(path: Path) -> bytes:
 
 
 def _svg_pdf(path: Path) -> bytes:
+    data = _safe_svg(path)
     try:
         import cairosvg
-    except ImportError as exc:
-        raise ComposeError("SVG input requires CairoSVG") from exc
-    return cairosvg.svg2pdf(bytestring=_safe_svg(path))
+        return cairosvg.svg2pdf(bytestring=data)
+    except (ImportError, OSError) as exc:
+        raise ComposeError("SVG input needs CairoSVG and a working native Cairo library. Python package presence alone is insufficient; export the original panel to vector PDF in its authoring app, or enable Cairo in this isolated environment. PNG/TIFF/PDF composition remains available.") from exc
 
 
 def load_asset(panel: dict) -> dict:
@@ -144,11 +151,12 @@ def preview_image(path: Path, max_side: int = 750) -> Image.Image:
         image.thumbnail((max_side, max_side), Image.Resampling.LANCZOS)
         return image
     if suffix == ".svg":
+        data = _safe_svg(path)
         try:
             import cairosvg
-        except ImportError as exc:
-            raise ComposeError("SVG preview requires CairoSVG") from exc
-        png = cairosvg.svg2png(bytestring=_safe_svg(path), output_width=max_side)
+            png = cairosvg.svg2png(bytestring=data, output_width=max_side)
+        except (ImportError, OSError) as exc:
+            raise ComposeError("SVG preview needs CairoSVG and native Cairo; use an author-exported PDF panel if unavailable.") from exc
         with Image.open(io.BytesIO(png)) as opened:
             return opened.convert("RGB").copy()
     with pdfium.PdfDocument(str(path)) as pdf:

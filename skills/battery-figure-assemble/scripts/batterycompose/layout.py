@@ -35,7 +35,7 @@ def _nonnegative(value: object, name: str) -> float:
 def load_manifest(path: str | Path) -> dict:
     path = Path(path).resolve()
     try:
-        manifest = json.loads(path.read_text(encoding="utf-8"))
+        manifest = json.loads(path.read_text(encoding="utf-8-sig"))
     except (OSError, json.JSONDecodeError) as exc:
         raise ComposeError(f"Cannot read manifest: {path}") from exc
     if not isinstance(manifest, dict):

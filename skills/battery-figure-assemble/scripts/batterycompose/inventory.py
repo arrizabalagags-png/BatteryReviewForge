@@ -10,6 +10,7 @@ from pypdf import PdfReader
 
 from .assets import RASTER, digest, preview_image, white_inset_fraction
 from .layout import ComposeError
+from output_safety import new_directory
 
 
 SUPPORTED = RASTER | {".pdf", ".svg"}
@@ -27,7 +28,7 @@ def inventory(folder: str | Path, output: str | Path) -> dict:
         raise ComposeError("No supported PNG/JPEG/TIFF/PDF/SVG assets found")
     if len(files) > 200:
         raise ComposeError("More than 200 assets; split the batch into figure-level folders")
-    output.mkdir(parents=True, exist_ok=True)
+    output, version = new_directory(output)
     records = []
     previews = []
     for path in files:
@@ -71,7 +72,7 @@ def inventory(folder: str | Path, output: str | Path) -> dict:
         path = output / f"contact-{start // batch_size + 1:02d}.png"
         sheet.save(path)
         contact_paths.append(str(path))
-    report = {"input_dir": str(folder), "count": len(records), "assets": records,
+    report = {"input_dir": str(folder), "count": len(records), "assets": records, "output_version": version,
               "contact_sheets": contact_paths,
               "note": "White-inset estimates are review hints, never automatic crops."}
     (output / "inventory.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

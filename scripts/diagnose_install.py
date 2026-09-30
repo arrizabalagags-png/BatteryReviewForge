@@ -18,7 +18,8 @@ import sys
 
 SKILLS = ('battery-review-figure', 'battery-figure-assemble')
 PACKAGES = ('matplotlib', 'numpy', 'openpyxl', 'python-pptx', 'Pillow', 'pypdf',
-            'pypdfium2', 'reportlab', 'CairoSVG', 'pdfplumber')
+            'pypdfium2', 'reportlab', 'CairoSVG', 'pdfplumber', 'PyMuPDF')
+OPTIONAL = {'CairoSVG'}
 
 
 def diagnose(root: Path, host='unspecified', host_version='not reported', output: Path | None = None):
@@ -27,7 +28,7 @@ def diagnose(root: Path, host='unspecified', host_version='not reported', output
     versions = {}
     imports = {}
     dependency_errors = []
-    module_names = {'python-pptx': 'pptx', 'Pillow': 'PIL', 'CairoSVG': 'cairosvg'}
+    module_names = {'python-pptx': 'pptx', 'Pillow': 'PIL', 'CairoSVG': 'cairosvg', 'PyMuPDF': 'pymupdf'}
     for name in PACKAGES:
         try:
             versions[name] = importlib.metadata.version(name)
@@ -39,14 +40,18 @@ def diagnose(root: Path, host='unspecified', host_version='not reported', output
             imports[name] = True
         except Exception as exc:
             imports[name] = False
-            dependency_errors.append(f'{name}: {exc}')
+            if name not in OPTIONAL:
+                dependency_errors.append(f'{name}: {exc}')
     report = {'host': host, 'host_version': host_version, 'skills_path': str(root),
               'python_path': sys.executable, 'python_version': platform.python_version(),
               'skills_readable': readable, 'dependencies': versions, 'dependency_imports': imports,
               'stages': {'copied': 'PASS' if all(readable.values()) else 'FAIL',
                          'discovered': 'NOT_TESTED',
-                         'runtime_ready': 'PASS' if all(versions.values()) and all(imports.values()) else 'FAIL',
+                         'runtime_ready': 'PASS' if all(versions[name] and imports[name] for name in PACKAGES if name not in OPTIONAL) else 'FAIL',
                          'smoke_test_passed': 'NOT_TESTED'},
+              'capabilities': {'svg_panel_import': 'AVAILABLE' if imports['CairoSVG'] else 'UNAVAILABLE_NATIVE_CAIRO_REQUIRED',
+                               'pdf_png_tiff_composition': 'AVAILABLE' if all(imports[name] for name in ('Pillow', 'pypdf', 'pypdfium2', 'reportlab', 'pdfplumber')) else 'UNAVAILABLE',
+                               'plot_svg_export': 'AVAILABLE' if imports['matplotlib'] else 'UNAVAILABLE'},
               'outputs': [], 'errors': dependency_errors,
               'next': 'Ask the host in a new task to locate both skills. File existence is not discovery.'}
     if output is not None:
@@ -83,7 +88,7 @@ def diagnose(root: Path, host='unspecified', host_version='not reported', output
                     raise ValueError('SVG export did not contain an SVG root')
                 report['outputs'] = [str(p) for p in sorted(output.iterdir()) if p.is_file()]
                 report['stages']['smoke_test_passed'] = 'PASS'
-                report['next'] = 'Open PNG and SVG, inspect axes and units. Native host discovery remains untested.'
+                report['next'] = 'Open PNG and SVG, inspect axes and units. Native host discovery and real model EVAL remain untested.'
             except Exception as exc:
                 report['stages']['smoke_test_passed'] = 'FAIL'
                 report['errors'].append(str(exc))

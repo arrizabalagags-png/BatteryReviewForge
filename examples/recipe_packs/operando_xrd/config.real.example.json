@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "resource_id": "operando_xrd",
+  "data_status": "author_data",
+  "title": "Operando diffraction",
+  "provenance": {
+    "input_origin": "author_supplied",
+    "demo_conditions_cleared": false
+  },
+  "labels": {},
+  "style": {
+    "width_mm": 180,
+    "font_pt": 8
+  },
+  "export": {
+    "formats": [
+      "pdf",
+      "svg",
+      "png",
+      "tiff"
+    ],
+    "png_dpi": 300,
+    "tiff_dpi": 300
+  },
+  "limits": {},
+  "data": {
+    "diffraction": {
+      "path": "input/your_diffraction.csv",
+      "columns": {
+        "sample": "sample",
+        "two_theta": "two_theta",
+        "progress": "progress",
+        "intensity": "intensity"
+      }
+    },
+    "voltage": {
+      "path": "input/your_voltage.csv",
+      "columns": {
+        "sample": "sample",
+        "progress": "progress",
+        "voltage": "voltage"
+      }
+    }
+  },
+  "units": {
+    "two_theta": null,
+    "progress": null,
+    "intensity": null,
+    "voltage": null
+  },
+  "conditions": {
+    "common": {
+      "radiation": null,
+      "wavelength_A": null,
+      "cell_configuration": null,
+      "progress_definition": null,
+      "synchronization": null,
+      "intensity_normalization": null
+    },
+    "by_sample": {}
+  }
+}

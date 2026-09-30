@@ -26,3 +26,13 @@ If correcting a source-backed rule, include the DOI or official URL, what part w
 5. State any remaining uncertainty or chemistry-specific limitation in the PR description.
 
 Project maintainers review contributions for scientific fit, clarity, source traceability, and licensing. A contribution may be narrowed before merging if it would over-constrain unrelated batteries or manuscript types.
+
+## Execution, packaging and verification
+
+Keep the science core separate from host/model execution. DeepSeek Harness desktop is the default project route; preserve technical IDs. Flash guidance is compact stages plus checkpoints; Pro can plan text/evidence batches but currently lacks vision. Neither adaptation may suppress missing scientific information, invent a pass or present a historical publisher profile as current compliance. Ordinary user replies show results and material unresolved questions; verbose diagnosis and recovery belong under the private project's `.voltpeer/`.
+
+The shared execution sources live in `scripts/runtime_contract/`. Edit them once, run `python scripts/sync_execution_contract.py`, and check every standalone copy. That sync also writes each `assets/SKILL_RELEASE.json` from plugin.json, so rerun after a version change. Runtime local references must be present in each independent skill: `python scripts/sync_standalone_references.py` refreshes linked science guides and `python scripts/check_skill_distribution.py --skills-root skills` detects missing/outside references. Check the **actual extracted full and single ZIPs**, not only the repository tree.
+
+Use a project virtual environment (Python ≥3.10), then `python -m unittest discover -s tests -v`. New delivery tests exercise real TIFF compression/DPI, PDF/SVG/PNG, Chinese/space/BOM files, concurrency/no overwrite, optional native Cairo failure, metadata/sensitive-source separation, evidence-preserving resume and project installation. Do not install dependencies globally or use a fixture count as proof of scientific truth.
+
+The 13 workflow Skills have fixed normal/missing/conflict/fabrication/resume cases in [evals](evals/README.md). Fixture integrity, script tests, model behavior and native desktop discovery are separate. A compatibility promotion needs actual named model/host runs, original tool/response evidence and independently inspected criteria. NOT_RUN/PENDING/FAIL remain visible in the matrix. Evaluation logs may contain private material; only publish explicitly sanitized, authorized summaries.

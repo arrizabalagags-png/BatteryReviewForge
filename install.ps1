@@ -1,9 +1,10 @@
 ﻿# Install standalone skills from an extracted release ZIP into a supported host.
 param(
     [ValidateSet('Codex', 'KimiCode', 'DeepSeekHarness')]
-    [string]$Agent = 'Codex',
+    [string]$Agent = 'DeepSeekHarness',
     [switch]$Overwrite,
-    [string]$TargetRoot
+    [string]$TargetRoot,
+    [string]$Workspace
 )
 
 $ErrorActionPreference = 'Stop'
@@ -21,7 +22,15 @@ foreach ($skillFolder in $skillFolders) {
     if ($skillFolder.Attributes -band [IO.FileAttributes]::ReparsePoint) { throw "Source skill is a link: $($skillFolder.FullName)" }
 }
 
-if ([string]::IsNullOrWhiteSpace($TargetRoot)) {
+if (-not [string]::IsNullOrWhiteSpace($Workspace)) {
+    if (-not [string]::IsNullOrWhiteSpace($TargetRoot)) { throw 'Choose -Workspace or -TargetRoot, not both.' }
+    if ($Agent -ne 'DeepSeekHarness') { throw '-Workspace is the DeepSeek Harness desktop project installation. Choose -Agent DeepSeekHarness.' }
+    if (-not (Test-Path -LiteralPath $Workspace -PathType Container)) { throw 'Open/create your research workspace first, then pass its existing folder to -Workspace.' }
+    $resolvedWorkspace = (Resolve-Path -LiteralPath $Workspace).Path
+    if ((Get-Item -LiteralPath $resolvedWorkspace).Attributes -band [IO.FileAttributes]::ReparsePoint) { throw 'Choose the real workspace folder, not a link/junction.' }
+    $targetRoot = Join-Path $resolvedWorkspace '.dsh\skills'
+} elseif ([string]::IsNullOrWhiteSpace($TargetRoot)) {
+    if ($Agent -eq 'DeepSeekHarness') { throw 'For DeepSeek Harness desktop, pass -Workspace "your research project folder". Global DSH_HOME belongs to the CLI profile and does not prove desktop discovery. Advanced users can choose -TargetRoot explicitly.' }
     $relativeRoots = @{
         Codex = '.codex\skills'
         KimiCode = '.kimi-code\skills'
@@ -60,6 +69,13 @@ foreach ($existingSkill in $conflicts) {
     $existingPath = Join-Path $targetRoot $existingSkill.Name
     if ((Get-Item -LiteralPath $existingPath).Attributes -band [IO.FileAttributes]::ReparsePoint) { throw "Existing skill is a link: $existingPath" }
 }
+$ancestorPath = [IO.Path]::GetFullPath($targetRoot)
+while (-not [string]::IsNullOrWhiteSpace($ancestorPath)) {
+    if ((Test-Path -LiteralPath $ancestorPath) -and ((Get-Item -LiteralPath $ancestorPath).Attributes -band [IO.FileAttributes]::ReparsePoint)) { throw "The target passes through a link/junction: $ancestorPath. Choose a real project folder." }
+    $parentPath = Split-Path -Parent $ancestorPath
+    if ($parentPath -eq $ancestorPath) { break }
+    $ancestorPath = $parentPath
+}
 New-Item -ItemType Directory -Force -Path $targetRoot | Out-Null
 $resolvedTarget = (Resolve-Path -LiteralPath $targetRoot).Path
 if ((Get-Item -LiteralPath $resolvedTarget).Attributes -band [IO.FileAttributes]::ReparsePoint) {
@@ -78,6 +94,7 @@ foreach ($skillFolder in $skillFolders) {
     }
     Copy-Item -LiteralPath $skillFolder.FullName -Destination $resolvedTarget -Recurse
 }
-Write-Host "Copied $($skillFolders.Count) BatteryReviewForge skills for $Agent to $targetRoot. Start a new agent task and check that the skills appear."
+Write-Host "Installed $($skillFolders.Count) VoltPeer skills in $resolvedTarget."
+if (-not [string]::IsNullOrWhiteSpace($Workspace)) { Write-Host "In DeepSeek Harness desktop, open workspace $resolvedWorkspace, start a new conversation, and ask it to locate battery-review-figure and battery-figure-assemble." }
 if (Test-Path -LiteralPath $backupRoot) { Write-Host "Previous skills preserved at $backupRoot. Do not delete until the new version is checked." }
 Write-Host 'Only copied is checked here. Discovery, Python dependencies and a PNG/SVG export still need checking.'

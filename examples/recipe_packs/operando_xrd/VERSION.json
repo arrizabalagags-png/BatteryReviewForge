@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "resource_id": "operando_xrd",
+  "version": "0.10.0",
+  "updated": "2026-09-30",
+  "status": "Beta",
+  "original_code_license": "MIT",
+  "generated_demo": true,
+  "reference_image": "reference/figure.png",
+  "author_data_supported": true,
+  "derived_from_resource_id": "operando_xrd",
+  "source_repository": "https://github.com/arrizabalagags-png/BatteryReviewForge",
+  "baseline_commit": "79b4238a5a7dfc963bafc0aefacd2337f9795ba8",
+  "model_evals": {
+    "deepseek-flash": "NOT_RUN",
+    "deepseek-v4-pro": "NOT_RUN"
+  },
+  "native_desktop_discovery": "NOT_RUN",
+  "demo_sha256": {
+    "demo/diffraction.csv": "60778374374341eb5d68cd5c7aba805dd39d8c90c0ec05c79b8d51ed7df8bcd8",
+    "demo/voltage.csv": "f5c81ffff0322235c1ea9fd1ed50d169f89eccb9925eb9fb0a6337b1bb1e35e1"
+  }
+}
