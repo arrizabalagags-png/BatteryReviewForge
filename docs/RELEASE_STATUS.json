@@ -3,7 +3,7 @@
   "channel": "beta",
   "checked_at": "2026-09-30",
   "host": "DeepSeek Harness desktop",
-  "local_engineering_checks": "PASS: 129 tests / 257.400 s; actual downloadable archive checks recorded separately",
+  "local_engineering_checks": "PASS: 129 tests / 257.400 s before schema supplement; current focused schema followup 3 tests / 0.955 s; actual archives checked separately",
   "final_regression_record": "validation/2026-09-30-frame-final-regression.json",
   "distribution_record": "validation/2026-09-30-distribution.json",
   "actual_archive_gate": "PASS: 36 downloads / 62 extracted Skill reference-and-AST checks / 30 canonical demo schema checks",
@@ -13,5 +13,6 @@
   "macos_real_device": "NOT_RUN",
   "publication": "GitHub source candidate on codex/public-skills; no release tag or ECS deployment",
   "github_source_branch": "codex/public-skills",
-  "github_sync_record": "validation/GITHUB_SYNC_2026-09-30.md"
+  "github_sync_record": "validation/GITHUB_SYNC_2026-09-30.md",
+  "schema_followup_record": "validation/2026-09-30-schema-followup.json"
 }

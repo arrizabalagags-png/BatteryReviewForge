@@ -51,3 +51,17 @@ Git 暂存区另逐文件核对 **104 份 CSV 与本机原始字节完全一致*
 源码、绘图实现、科学图件、分发包及整理后的证据提交：`1cee0d16351070db7ee4b5f4a6ac6a2d45c886cf`（`Validate four-frame plotting and refresh beta distributions`）。`git push origin HEAD:refs/heads/codex/public-skills` 成功；随后 `git ls-remote` 返回同一 SHA，核对时公开工作区干净。
 
 [本轮源码与包提交](https://github.com/arrizabalagags-png/BatteryReviewForge/commit/1cee0d16351070db7ee4b5f4a6ac6a2d45c886cf)；[公开分支](https://github.com/arrizabalagags-png/BatteryReviewForge/tree/codex/public-skills)。本结果段在随后的日志提交保存；没有为记录提交 SHA 修改已核验的分发包字节。用户决定今天收尾，只保存已完成工作和日志；ECS 留待后续发布。
+
+## 用户恢复任务后的 schema 补充：2026-09-30
+
+上一段“今天收尾”为当时授权记录；用户随后回到任务，明确要求上传完成内容后继续实施和检查。当前工作继续，GitHub 与 ECS 发布状态仍分别记录。此前公开日志保存提交 `ee6270695de6d8b1fcf32122de9d2f441b0806ae` 已在远端；本次增补继续保存同一 `codex/public-skills` 分支。
+
+可选 `limitations` 字段现在存在时要求非空字符串。当前定向 schema 检查 **3 tests OK / 0.955 s**；合法内容、列表错型、空字符串以及已有缺字段/不实声明/非有限值/source-site-ZIP 不一致负例均覆盖。新增公开摘要 `2026-09-30-schema-followup.json` 随完整包分发。**129 tests / 257.400 s** 保留为增补前的完整工程回归；没有为这项低影响 schema 扩展重复数值测试，也没有更改数据、图件、Skill 运行时或 recipe。
+
+重新生成完整包后，实际 **36 ZIP / 62 解压 Skill 引用与 AST / 30 canonical schema-source-site-ZIP PASS**。完整包内 schema、补充摘要、RELEASE_STATUS 和 QA 文档已逐字节（仅文本换行归一化）对照当前维护源。**35个其余下载包的大小和SHA完全不变**，其中三 recipe 保留原包；便携单 Skill 的重打输出与旧字节一致，WorkBuddy与recipe不做无内容的重复打包。
+
+当前完整包：`docs/downloads/BatteryReviewForge-v0.10.0.zip`，**874,061 bytes**，SHA-256 **`4019b9edcf5d5fb108acc39725331ddf5854aab532b6e83572dd8fc2b0c6a49a`**。更新的 `2026-09-30-distribution.json` 和 `docs/downloads/distribution-sha256.txt` 是当前36包清单；前文872,687 bytes的完整包与哈希是历史记录。
+
+版本保持0.10.0 / Beta；真实桌面发现到交付、Flash/Pro行为和macOS实机仍NOT_RUN。本轮不创建tag、Release、PR或main合并。推送结果随后追加。
+
+本次10个暂存文件及完整包内成员按Git实际blob扫描 **255条目**，未发现规则覆盖的私钥、GitHub/API令牌、个人绝对路径、禁止目录或超过100 MB文件。代码/文档差异检查通过，未包含Web私有源码、二维码或原始个人运行日志。扫描记录只描述已检查规则，不替代人工内容核对。

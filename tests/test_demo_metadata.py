@@ -23,6 +23,9 @@ class DemoMetadataTests(unittest.TestCase):
 
     def test_schema_rejects_missing_and_false_declarations(self):
         source = json.loads((ROOT/'examples/showcase/full_cell/metadata.json').read_text(encoding='utf-8'))
+        valid = copy.deepcopy(source)
+        valid['limitations'] = 'Synthetic demonstration; not experimental evidence.'
+        validate_metadata(valid)
         cases = []
         a = copy.deepcopy(source); del a['test_conditions']; cases.append(a)
         a = copy.deepcopy(source); a['not_experimental_data'] = 'true'; cases.append(a)
@@ -30,6 +33,8 @@ class DemoMetadataTests(unittest.TestCase):
         a = copy.deepcopy(source); a['source_files'] = []; cases.append(a)
         a = copy.deepcopy(source); a['data_frame_checks'][0]['spines']['top'] = False; cases.append(a)
         a = copy.deepcopy(source); a['unknown_passing_claim'] = True; cases.append(a)
+        a = copy.deepcopy(source); a['limitations'] = ['not a string']; cases.append(a)
+        a = copy.deepcopy(source); a['limitations'] = ''; cases.append(a)
         a = copy.deepcopy(source); a['render_options'] = {'invalid_number': float('nan')}; cases.append(a)
         for index, meta in enumerate(cases):
             with self.subTest(case=index), self.assertRaises(MetadataError):

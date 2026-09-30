@@ -4,8 +4,8 @@
   "archives": [
     {
       "file": "BatteryReviewForge-v0.10.0.zip",
-      "bytes": 872687,
-      "sha256": "9ce6aef09e45f1f0052f818f66cdefbabd4b793fbd0186c728a8a684ee4387b7"
+      "bytes": 874061,
+      "sha256": "4019b9edcf5d5fb108acc39725331ddf5854aab532b6e83572dd8fc2b0c6a49a"
     },
     {
       "file": "BatteryReviewForge-WorkBuddy-v0.10.0.zip",
@@ -401,5 +401,12 @@
       "source_site_figures": "PASS"
     }
   ],
-  "real_host_model_behavior": "NOT_RUN"
+  "real_host_model_behavior": "NOT_RUN",
+  "schema_followup_record": "2026-09-30-schema-followup.json",
+  "full_package_current_schema_and_followup_summary": "PASS",
+  "unchanged_download_archives": 35,
+  "changed_download_archives": [
+    "BatteryReviewForge-v0.10.0.zip"
+  ],
+  "recipe_packages_regenerated": false
 }

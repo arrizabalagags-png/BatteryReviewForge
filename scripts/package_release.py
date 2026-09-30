@@ -21,6 +21,7 @@ PUBLIC_DOCS = ["docs/COMPATIBILITY.md", "docs/SKILL_NAMES.json", "docs/EVAL.md",
                "docs/validation/FIGURE_FEEDBACK_2026-09-30.md",
                "docs/validation/2026-09-30-frame-final-regression.json",
                "docs/validation/2026-09-30-frame-regression-initial.json",
+               "docs/validation/2026-09-30-schema-followup.json",
                "docs/DEMO_METADATA_SCHEMA.json", "scripts/check_demo_metadata.py",
                "scripts/check_skill_dependencies.py", "scripts/diagnose_install.py", "scripts/check_skill_distribution.py",
                "scripts/workflow_eval.py"]

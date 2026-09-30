@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-09-30",
+  "version": "0.10.0",
+  "channel": "beta",
+  "python": "3.12.14",
+  "platform": "Windows",
+  "command": "python -m unittest discover -s tests -p test_demo_metadata.py -v",
+  "tests_run": 3,
+  "elapsed_seconds": 0.955,
+  "result": "PASS",
+  "change": "Optional limitations must be a non-empty string when present; no scientific values, saved figures, Skill runtime or recipe package changes",
+  "checks": [
+    "30 canonical demonstration metadata schemas",
+    "Valid limitations accepted; wrong type and empty string rejected",
+    "Missing required fields, false declarations, hidden top frame, unknown properties and non-finite numbers rejected",
+    "Source/site/ZIP metadata or input mismatch rejected"
+  ],
+  "prior_full_regression_record": "2026-09-30-frame-final-regression.json",
+  "prior_full_regression_scope": "129 tests / 257.400 seconds completed before this schema supplement; not rerun for this low-impact contract extension",
+  "raw_log_public": false,
+  "native_desktop_discovery_to_delivery": "NOT_RUN",
+  "flash_model_evaluation": "NOT_RUN",
+  "pro_model_evaluation": "NOT_RUN",
+  "macos_real_device": "NOT_RUN"
+}
