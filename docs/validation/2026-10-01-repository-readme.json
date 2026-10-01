@@ -1,0 +1,338 @@
+{
+  "scope": "Repository rename, public documentation and navigation only; no scientific implementation, new models, package rebuild or production deployment",
+  "checked_at_utc": "2026-10-01T02:18:38.919573+00:00",
+  "repository": {
+    "repo_id": 1382773044,
+    "full_name": "arrizabalagags-png/Voltpeer-skills",
+    "html_url": "https://github.com/arrizabalagags-png/Voltpeer-skills",
+    "default_branch": "main",
+    "about": {
+      "description": "VoltPeer · 电研搭子｜电池科研 AI Skills：绘图与拼版、数据整理、文献核验和综述写作。Open tools for battery data, figures and evidence.",
+      "homepage": "https://dazi.gsarrizabalaga.xyz/",
+      "topics": [
+        "ai-skills",
+        "battery-research",
+        "figure-assembly",
+        "literature-review",
+        "python",
+        "scientific-visualization"
+      ]
+    },
+    "old_api_redirect": {
+      "http_status": 200,
+      "final_url": "https://api.github.com/repositories/1382773044",
+      "same_repository_id": true
+    }
+  },
+  "source_base_commits": {
+    "codex/public-skills": "dfd46fcb4a3255b60826de8a4c721963adc4ff02",
+    "main": "c84fc748a05f5056097f0ae402aaa80c356d92e0"
+  },
+  "local_documents": {
+    "status": "PASS",
+    "doc_checks": [
+      {
+        "branch": "codex/public-skills",
+        "checked_link_occurrences": 268,
+        "fixed_source_targets": 98,
+        "local_headings": 10
+      },
+      {
+        "branch": "main",
+        "checked_link_occurrences": 267,
+        "fixed_source_targets": 91,
+        "local_headings": 10
+      }
+    ],
+    "manual_commands_match_frozen_guide": true,
+    "preview_provenance": [
+      {
+        "path": "examples/showcase/li_cu_ce/figure.png",
+        "sha256": "636bd2d4b090c932da9bb3856b7ee1bde929d6e7f28337f670359c0e4d421759",
+        "data_status": "synthetic_demo",
+        "creator": "BatteryReviewForge original code",
+        "license": "Repository MIT; original code-generated examples"
+      },
+      {
+        "path": "examples/showcase/full_cell/figure.png",
+        "sha256": "ab53facc05888532c5917574f41606736eccb65777b7f18fe6a8825c61a96700",
+        "data_status": "synthetic_demo",
+        "creator": "BatteryReviewForge original code",
+        "license": "Repository MIT; original code-generated examples"
+      },
+      {
+        "path": "examples/showcase/eis/figure.png",
+        "sha256": "f3b60db49d9de6b769999214db5362c8bd2472ba41cab1d3f23e456c9c64a89e",
+        "data_status": "synthetic_demo",
+        "creator": "BatteryReviewForge original code",
+        "license": "Repository MIT; original code-generated examples"
+      },
+      {
+        "path": "examples/showcase/integrated_study/figure.png",
+        "sha256": "80a4d32574013ab50677ae65d770662dbb8e1e63e4a818a41375b6343e0aac45",
+        "data_status": "synthetic_demo",
+        "creator": "BatteryReviewForge original code",
+        "license": "Repository MIT; original code-generated examples"
+      }
+    ],
+    "errors": []
+  },
+  "readme_archives": [
+    {
+      "branch": "codex/public-skills",
+      "source_commit": "dfd46fcb4a3255b60826de8a4c721963adc4ff02",
+      "original_bytes": 25908,
+      "original_sha256": "8e603763d74bec1ca7ccab0dba825d26b7449a14a79a90b1a284c2e59fb361db",
+      "archive_path": "docs/TECHNICAL_REFERENCE_v0.10.1.md",
+      "relative_links_pinned": 73
+    },
+    {
+      "branch": "main",
+      "source_commit": "c84fc748a05f5056097f0ae402aaa80c356d92e0",
+      "original_bytes": 25888,
+      "original_sha256": "fff5cbbdf4aa543218c3d165e03b79fb645be50caf5f167d2f7cd6fd6c996727",
+      "archive_path": "docs/TECHNICAL_REFERENCE_v0.9.2.md",
+      "relative_links_pinned": 69
+    }
+  ],
+  "complete_archive_body_preservation": [
+    {
+      "version": "0.10.1",
+      "complete_original_body_preserved_after_documented_link_and_line_end_changes": true
+    },
+    {
+      "version": "0.9.2",
+      "complete_original_body_preserved_after_documented_link_and_line_end_changes": true
+    }
+  ],
+  "github_markdown_rendering": [
+    {
+      "branch": "codex/public-skills",
+      "file": "README.md",
+      "source_sha256": "b24f157564e30831ceac9542bc85da69368194c93016a06f256c7c56b0509ed9",
+      "http_status": 200,
+      "html_elements": {
+        "img": 4,
+        "table": 5,
+        "details": 2,
+        "summary": 2,
+        "h1": 1,
+        "h2": 7,
+        "blockquote": 5
+      },
+      "html_sha256": "581fbf125fc346c0c01caa364ad834f181c9c0aa3b7e243766a06df697e1a97b"
+    },
+    {
+      "branch": "codex/public-skills",
+      "file": "README.en.md",
+      "source_sha256": "0cbd00a35618b0a72f88d63e765c592ab9e64970fa9bc51dfd1c994c358dab52",
+      "http_status": 200,
+      "html_elements": {
+        "img": 4,
+        "table": 5,
+        "details": 2,
+        "summary": 2,
+        "h1": 1,
+        "h2": 7,
+        "blockquote": 5
+      },
+      "html_sha256": "9fce2b4f2d20da084b9d34034d597e8e90401a8d7bd9fd0a5a786c091983414f"
+    },
+    {
+      "branch": "main",
+      "file": "README.md",
+      "source_sha256": "debc170cd8bae5cb7af809dcfca15382a653a1626dbc00c72a1ee2b061209d5a",
+      "http_status": 200,
+      "html_elements": {
+        "img": 4,
+        "table": 5,
+        "details": 2,
+        "summary": 2,
+        "h1": 1,
+        "h2": 7,
+        "blockquote": 5
+      },
+      "html_sha256": "60e3400a137472ca8547e8cb1b785186cafde847a1e418d9a6d0deab2d2c9717"
+    },
+    {
+      "branch": "main",
+      "file": "README.en.md",
+      "source_sha256": "dd6261e89640979b9d1ca510e4c788019473181067068d91364fdf28e9671cb4",
+      "http_status": 200,
+      "html_elements": {
+        "img": 4,
+        "table": 5,
+        "details": 2,
+        "summary": 2,
+        "h1": 1,
+        "h2": 7,
+        "blockquote": 5
+      },
+      "html_sha256": "ada5809112289d636a50483c469cb65317a45b3fcbe7e57b3db8434ac1b1c5d4"
+    }
+  ],
+  "github_url_readback": [
+    {
+      "requested_url": "https://github.com/arrizabalagags-png/BatteryReviewForge",
+      "http_status": 200,
+      "final_url": "https://github.com/arrizabalagags-png/Voltpeer-skills",
+      "redirects": [
+        {
+          "status": 301,
+          "from": "https://github.com/arrizabalagags-png/BatteryReviewForge",
+          "to": "https://github.com/arrizabalagags-png/Voltpeer-skills"
+        }
+      ]
+    },
+    {
+      "requested_url": "https://github.com/arrizabalagags-png/Voltpeer-skills",
+      "http_status": 200,
+      "final_url": "https://github.com/arrizabalagags-png/Voltpeer-skills",
+      "redirects": []
+    },
+    {
+      "requested_url": "https://github.com/arrizabalagags-png/BatteryReviewForge/releases/tag/v0.9.2",
+      "http_status": 200,
+      "final_url": "https://github.com/arrizabalagags-png/Voltpeer-skills/releases/tag/v0.9.2",
+      "redirects": [
+        {
+          "status": 301,
+          "from": "https://github.com/arrizabalagags-png/BatteryReviewForge/releases/tag/v0.9.2",
+          "to": "https://github.com/arrizabalagags-png/Voltpeer-skills/releases/tag/v0.9.2"
+        }
+      ]
+    },
+    {
+      "requested_url": "https://github.com/arrizabalagags-png/Voltpeer-skills/releases/latest",
+      "http_status": 200,
+      "final_url": "https://github.com/arrizabalagags-png/Voltpeer-skills/releases/tag/v0.9.2",
+      "redirects": [
+        {
+          "status": 302,
+          "from": "https://github.com/arrizabalagags-png/Voltpeer-skills/releases/latest",
+          "to": "https://github.com/arrizabalagags-png/Voltpeer-skills/releases/tag/v0.9.2"
+        }
+      ]
+    }
+  ],
+  "download_byte_checks": [
+    {
+      "url": "https://github.com/arrizabalagags-png/Voltpeer-skills/raw/dfd46fcb4a3255b60826de8a4c721963adc4ff02/docs/downloads/starter/VoltPeer-Plot-Starter-v0.10.1.zip",
+      "http_status": 200,
+      "bytes": 580632,
+      "sha256": "392b58b6a211c35f88a0148c95d07b9accb5b6eeb000640883466d96d3ab466a",
+      "hash_match": true
+    },
+    {
+      "url": "https://github.com/arrizabalagags-png/Voltpeer-skills/releases/download/v0.9.2/BatteryReviewForge-v0.9.2.zip",
+      "http_status": 200,
+      "bytes": 678776,
+      "sha256": "6128192925a0f918206172b6913cefc471296f3245956c1f5de38339036eedc4",
+      "hash_match": true
+    }
+  ],
+  "preview_remote_byte_checks": [
+    {
+      "path": "examples/showcase/li_cu_ce/figure.png",
+      "http_status": 200,
+      "bytes": 179537,
+      "sha256": "636bd2d4b090c932da9bb3856b7ee1bde929d6e7f28337f670359c0e4d421759",
+      "remote_matches_local": true
+    },
+    {
+      "path": "examples/showcase/full_cell/figure.png",
+      "http_status": 200,
+      "bytes": 180254,
+      "sha256": "ab53facc05888532c5917574f41606736eccb65777b7f18fe6a8825c61a96700",
+      "remote_matches_local": true
+    },
+    {
+      "path": "examples/showcase/eis/figure.png",
+      "http_status": 200,
+      "bytes": 154619,
+      "sha256": "f3b60db49d9de6b769999214db5362c8bd2472ba41cab1d3f23e456c9c64a89e",
+      "remote_matches_local": true
+    },
+    {
+      "path": "examples/showcase/integrated_study/figure.png",
+      "http_status": 200,
+      "bytes": 447356,
+      "sha256": "80a4d32574013ab50677ae65d770662dbb8e1e63e4a818a41375b6343e0aac45",
+      "remote_matches_local": true
+    }
+  ],
+  "protected_archives": {
+    "count": 137,
+    "all_sizes_and_sha256_unchanged": true,
+    "baseline_inventory_sha256": "e9622470f2de2d4b2ab742d85f19f55c8a2362c5bc026f57ea8f150f15bb4c5f"
+  },
+  "protected_github_releases": {
+    "count": 14,
+    "selected_release_fields_and_all_asset_ids_sizes_digests_timestamps_unchanged": true
+  },
+  "protected_tags": {
+    "count": 20,
+    "names_and_commit_targets_unchanged": true
+  },
+  "pages": {
+    "metadata_unchanged": true,
+    "metadata": {
+      "html_url": "https://dazi.gsarrizabalaga.xyz/",
+      "cname": "dazi.gsarrizabalaga.xyz",
+      "build_type": "workflow",
+      "source": {
+        "branch": "main",
+        "path": "/docs"
+      },
+      "status": "built",
+      "public": true
+    },
+    "http": [
+      {
+        "url": "https://arrizabalagags-png.github.io/BatteryReviewForge/",
+        "status": 404,
+        "final_url": "https://arrizabalagags-png.github.io/BatteryReviewForge/",
+        "redirects": []
+      },
+      {
+        "url": "https://arrizabalagags-png.github.io/Voltpeer-skills/",
+        "status": 200,
+        "final_url": "https://dazi.gsarrizabalaga.xyz/",
+        "redirects": [
+          {
+            "status": 301,
+            "from": "https://arrizabalagags-png.github.io/Voltpeer-skills/",
+            "to": "https://dazi.gsarrizabalaga.xyz/"
+          }
+        ]
+      }
+    ],
+    "settings_or_workflow_dispatch_modified": false
+  },
+  "security_report_channel": {
+    "private_vulnerability_reporting_enabled": false,
+    "security_email_published": false,
+    "documentation_does_not_claim_existing_private_channel": true
+  },
+  "social_preview": {
+    "http_status": 200,
+    "og_image_url": [
+      "https://opengraph.githubassets.com/d6f02ab707305bd73b347a448506ff755ace44ce1c23dc30414c3adbfe9e97d4/arrizabalagags-png/Voltpeer-skills"
+    ],
+    "custom_social_preview_uploaded": false,
+    "inspection_scope": "Read existing public HTML metadata; no social image upload or new image generation"
+  },
+  "visitor_structure_inspection": {
+    "method": "Author inspection of entry wording, route order and GitHub-rendered HTML structure; no timed human usability session",
+    "purpose_and_tasks_visible_before_technical_ids": true,
+    "existing_synthetic_figures_visible": true,
+    "one_recommended_desktop_route": true,
+    "other_hosts_and_full_skill_table_collapsed": true,
+    "requirements_and_fees_linked": true,
+    "full_technical_text_retained": true,
+    "real_user_completion_or_timing_claimed": false
+  },
+  "runtime_or_paid_model_tests_run_for_this_documentation_change": false,
+  "ecs_dns_nginx_certificates_changed": false,
+  "document_branch": "codex/public-skills"
+}
