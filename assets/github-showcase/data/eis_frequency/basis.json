@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "model_class": "analytic_model",
+  "data_origin": "original_synthetic",
+  "parameter_origin": "Explicit original teaching parameters, not measured values",
+  "validation_scope": "Declared teaching model; no experimental/material certification",
+  "equations": [
+    "omega=2*pi*f; Z=Rs+Rct/(1+j*omega*Rct*C)",
+    "Nyquist circle: (Re Z-Rs-Rct/2)^2+(Im Z)^2=(Rct/2)^2",
+    "Stored real and signed imaginary components come from the same complex values"
+  ],
+  "assumptions": [
+    "Positive passive resistors/capacitor; linear stationary small-signal response.",
+    "No Warburg, inductance, CPE or microscopic assignment is present in this ideal RC example."
+  ],
+  "parameters": {
+    "A": {
+      "Rs_ohm": 3.6,
+      "Rct_ohm": 22,
+      "C_F": 0.0008
+    },
+    "B": {
+      "Rs_ohm": 4.8,
+      "Rct_ohm": 41,
+      "C_F": 0.0007
+    },
+    "frequency_Hz": [
+      0.01,
+      100000.0
+    ]
+  },
+  "references": [
+    {
+      "url": "https://www.gamry.com/application-notes/EIS/basics-of-electrochemical-impedance-spectroscopy/",
+      "title": "Basics of Electrochemical Impedance Spectroscopy",
+      "supports": "Complex circuit equations and the ideal Randles RC semicircle; original parameter values.",
+      "scope": "model_definition_only",
+      "checked_date": "2026-10-01"
+    }
+  ],
+  "limitations": [
+    "No fitted cell resistance, active area, diffusion coefficient or material evidence."
+  ]
+}

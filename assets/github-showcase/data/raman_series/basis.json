@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "model_class": "phenomenological_model",
+  "data_origin": "original_synthetic",
+  "equations": [
+    "I_A-D(x)=45+0.14*(x-680)+(330-45*index)*G(x;730,4.5)+(100+55*index)*G(x;745+0.6*index,5.2)+55*G(x;783,6)",
+    "Display-only offset = 340 counts per series; raw intensities are unchanged"
+  ],
+  "parameters": {
+    "wavenumber_cm_1_range": [
+      680,
+      810
+    ],
+    "samples": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "offset_counts": 340
+  },
+  "assumptions": [
+    "Generic nonnegative band shapes and background; common acquisition scale is assumed."
+  ],
+  "references": [
+    {
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm",
+      "title": "NIST e-Handbook: normal distribution",
+      "supports": "The Gaussian mathematical line shape only; no material peak assignment or numeric data.",
+      "scope": "model_definition_only"
+    }
+  ],
+  "limitations": [
+    "No molecule, solvation state, concentration, measured shift or peak-area calibration is assigned."
+  ],
+  "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+}

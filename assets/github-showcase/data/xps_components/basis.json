@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "model_class": "phenomenological_model",
+  "data_origin": "original_synthetic",
+  "equations": [
+    "G(e)=exp(-0.5*((e-mu)/sigma)^2); L(e)=1/(1+((e-mu)/sigma)^2)",
+    "component=height*(0.7*G+0.3*L); expected_counts=110+3*(e-280)+sum(components)",
+    "observed_counts ~ Poisson(expected_counts); residual=observed-background-sum(known_components)"
+  ],
+  "parameters": {
+    "peak_centers_eV": [
+      284.7,
+      286.4,
+      289.0
+    ],
+    "shape_width_eV": [
+      0.5,
+      0.64,
+      0.71
+    ],
+    "peak_heights_counts": [
+      1000,
+      460,
+      270
+    ],
+    "lorentzian_fraction": 0.3,
+    "random_seed": 20260927
+  },
+  "assumptions": [
+    "Nonnegative independent counting statistics on known generic components and a linear background.",
+    "The mixture width is a shape parameter; it is not claimed as a common Gaussian/Lorentzian FWHM."
+  ],
+  "references": [
+    {
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm",
+      "title": "NIST e-Handbook: normal distribution",
+      "supports": "The Gaussian mathematical line shape only; no material peak assignment or numeric data.",
+      "scope": "model_definition_only"
+    },
+    {
+      "url": "https://goldbook.iupac.org/terms/view/L03628",
+      "title": "IUPAC: Lorentzian band shape",
+      "supports": "Lorentzian mathematical shape only; original energies and intensities.",
+      "scope": "model_definition_only"
+    }
+  ],
+  "limitations": [
+    "No optimizer, fitted composition, charge calibration, Shirley/Tougaard background or chemical assignment.",
+    "Components are known inputs; residuals are not evidence of a successful experimental fit."
+  ],
+  "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+}

@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "snapshot_date": "2026-10-01",
+  "data_status": "original_synthetic",
+  "not_experimental_data": true,
+  "source_snapshot": "Local scientific repair inputs; published here as a self-contained gallery snapshot, independently from unreleased packages",
+  "files": {
+    "eis/basis.json": {
+      "sha256": "867a5ba0d8510d9ab3a089f0880f7cf32b1aae971ac81bcfbc46e09f6e8b96e3",
+      "bytes": 1777,
+      "original_source": "examples/showcase/eis/metadata.json#scientific_basis"
+    },
+    "eis/data.csv": {
+      "sha256": "187d66d615d2151217d94f23d50a488800623e61357e4ce4a75ef945096ffa3c",
+      "bytes": 10261,
+      "original_source": "examples/showcase/eis/data.csv"
+    },
+    "eis/model.json": {
+      "sha256": "5906ec0e0c66dd1a01890c99ee0c1d8600a2362bea929fb683955d519c407ed1",
+      "bytes": 2626,
+      "original_source": "examples/showcase/eis/model.json"
+    },
+    "eis_frequency/basis.json": {
+      "sha256": "c37049ebdf741c020ff6b8f5dcc1e2a1bcc607fff2fcd2e6feb5c80fd53e6abc",
+      "bytes": 1488,
+      "original_source": "examples/showcase/eis_frequency/metadata.json#scientific_basis"
+    },
+    "eis_frequency/data.csv": {
+      "sha256": "09cb70965be2564365229285cc32fff3f339dc182aa07c0119ed82599efda83e",
+      "bytes": 14365,
+      "original_source": "examples/showcase/eis_frequency/data.csv"
+    },
+    "operando_xrd/basis.json": {
+      "sha256": "26ea0679b37c3de72e3bc914a430cc8dacbbd5a1d5b13dd3a15a44b53dc9bf43",
+      "bytes": 1788,
+      "original_source": "examples/showcase/operando_xrd/metadata.json#scientific_basis"
+    },
+    "operando_xrd/data.csv": {
+      "sha256": "7ed4b6b1ce6da4b978f08a1f1e60c9ed5a87a0b7b6f88d2e8580082cd9ad654a",
+      "bytes": 1243040,
+      "original_source": "examples/showcase/operando_xrd/data.csv"
+    },
+    "raman_series/basis.json": {
+      "sha256": "fb669acd6d1872104785d16dc5a591fd3b26be41c16e42d5e6159dbef74969d8",
+      "bytes": 1222,
+      "original_source": "examples/showcase/raman_series/metadata.json#scientific_basis"
+    },
+    "raman_series/data.csv": {
+      "sha256": "d5f12b7638cf67f635a3cf4fb5568bb4920576151764d7e971b8c7ae5e375948",
+      "bytes": 93925,
+      "original_source": "examples/showcase/raman_series/data.csv"
+    },
+    "xps_components/basis.json": {
+      "sha256": "eb5349283f149bfeadf1c3bf7e0e580e41b029c00a076437431f48f67efb9c34",
+      "bytes": 1883,
+      "original_source": "examples/showcase/xps_components/metadata.json#scientific_basis"
+    },
+    "xps_components/data.csv": {
+      "sha256": "de8fcadbceeb63ae9922373d708ce23912960c89617c2ddf2e2fc7c4ddda703b",
+      "bytes": 58109,
+      "original_source": "examples/showcase/xps_components/data.csv"
+    },
+    "li_cu_ce/basis.json": {
+      "sha256": "9e98b2ac8ad9f99e272c42412b2897a68945a826d5e0f3d35edf06c12e5a3054",
+      "bytes": 1660,
+      "original_source": "examples/showcase/li_cu_ce/metadata.json#scientific_basis"
+    },
+    "li_cu_ce/data.csv": {
+      "sha256": "cc4d9a633247ae4df9fada1b15e2adf7f6767c65be21532639c2374f5d8970f6",
+      "bytes": 24571,
+      "original_source": "examples/showcase/li_cu_ce/data.csv"
+    },
+    "full_cell/basis.json": {
+      "sha256": "da92ea2e439d4f9efb3f72832a2f90ae98a52b85abe8129c4b80cf741c01dcc7",
+      "bytes": 2871,
+      "original_source": "examples/showcase/full_cell/metadata.json#scientific_basis"
+    },
+    "full_cell/data.csv": {
+      "sha256": "1b8204c7d72bab8dac45e5827913230609c1e146609fd57a68a5d79bec4352f4",
+      "bytes": 72260,
+      "original_source": "examples/showcase/full_cell/data.csv"
+    }
+  },
+  "source_metadata_sha256": {
+    "eis": "72cae39570e44b342795eef252f221d6d09d5887e77f0c9e66dbe8af511b77b0",
+    "eis_frequency": "479b9dda5a3961f2778d09fc80cceacb0ca16c54139066cd0e77d8040d7f28fb",
+    "operando_xrd": "c4966ce6bf9ff03df010f2ba374e54189ad0ef62d7ee873be0ee6c5225def817",
+    "raman_series": "9e6a0dbe1fc0a9030a0515aa94aecacbc868bf80143db96029da71ca425b66e7",
+    "xps_components": "c9c49a4ce7d26c3d53b063771eeace0741a5c3a8fe23fb01aec1e8a23595c3ff",
+    "li_cu_ce": "cda54a0e2a3af752fb67f987766d0f41e4abd04923f77193a685639ecfd2d607",
+    "full_cell": "0d76ea4dbb84ee5934538d5c615e63ba876791aa7329e9d816d298113c6a670c"
+  }
+}

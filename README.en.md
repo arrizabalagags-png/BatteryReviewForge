@@ -8,6 +8,29 @@ A Skill is a set of research instructions and tools for an AI assistant. Use it 
 
 [Get started](#get-started) · [See examples](#see-the-results) · [Download the plotting package (Beta)](https://github.com/arrizabalagags-png/Voltpeer-skills/raw/dfd46fcb4a3255b60826de8a4c721963adc4ff02/docs/downloads/starter/VoltPeer-Plot-Starter-v0.10.1.zip) · [Project website](https://dazi.gsarrizabalaga.xyz/)
 
+## See the results
+
+**Original synthetic demos, not experimental data.** Every figure comes with its data, plotting code and declared model. These examples are not evidence of material performance. [Data and source code](https://github.com/arrizabalagags-png/Voltpeer-skills/blob/main/assets/github-showcase/README.md)
+
+### [Structure and spectra](https://github.com/arrizabalagags-png/Voltpeer-skills/blob/main/assets/github-showcase/README.md#structure-and-spectra)
+
+<a href="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/structure-spectra.png"><img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/structure-spectra.png" alt="Synthetic structure and spectra: Bragg-law peak evolution, selected progress traces, generic Raman bands and known spectral components" width="1000"></a>
+
+### [EIS: three views of the same data](https://github.com/arrizabalagags-png/Voltpeer-skills/blob/main/assets/github-showcase/README.md#impedance-spectroscopy)
+
+<a href="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/eis-cpe-warburg.png"><img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/eis-cpe-warburg.png" alt="Synthetic CPE and Warburg circuit: equal-scale Nyquist, impedance magnitude and signed phase from the same complex data" width="1000"></a>
+
+### [Six-panel layout demo](https://github.com/arrizabalagags-png/Voltpeer-skills/blob/main/assets/github-showcase/README.md#six-panel-layout)
+
+<a href="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/six-panel-layout.png"><img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/six-panel-layout.png" alt="Six-panel layout using independent synthetic efficiency, half-cell capacity, EIS, diffraction and count spectrum models; not one experimental study" width="1000"></a>
+
+<details>
+<summary>Another EIS example: an ideal RC circuit</summary>
+
+<img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/eis-ideal-rc.png" alt="Original ideal RC synthetic example: equal-scale semicircle Nyquist, impedance magnitude and signed phase" width="1000">
+
+</details>
+
 ## What would you like to do
 
 | Task | Start here |
@@ -18,14 +41,6 @@ A Skill is a set of research instructions and tools for an AI assistant. Use it 
 | [Organize literature](skills/battery-literature-map/SKILL.md) | Build screening records, source tables and evidence links |
 | [Develop a review article](skills/battery-review-plan/SKILL.md) | Work from scope and inspected evidence to structure, drafting and revision |
 | [Check before submission](skills/battery-review-audit/SKILL.md) | Audit metric comparability, citations and manuscript consistency |
-
-## See the results
-
-These are **original synthetic demos from the development branch, not experimental data**. They illustrate plotting and layout, not material performance. Each title opens its data, scripts and provenance. The examples are supplied under the project's [MIT license](LICENSE).
-
-| [Coulombic efficiency and stripping curves](https://github.com/arrizabalagags-png/Voltpeer-skills/tree/dfd46fcb4a3255b60826de8a4c721963adc4ff02/examples/showcase/li_cu_ce)<br><img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/dfd46fcb4a3255b60826de8a4c721963adc4ff02/examples/showcase/li_cu_ce/figure.png" alt="Coulombic efficiency and stripping curves — synthetic demo" width="420"> | [Capacity cycling and voltage profiles](https://github.com/arrizabalagags-png/Voltpeer-skills/tree/dfd46fcb4a3255b60826de8a4c721963adc4ff02/examples/showcase/full_cell)<br><img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/dfd46fcb4a3255b60826de8a4c721963adc4ff02/examples/showcase/full_cell/figure.png" alt="Capacity cycling and voltage profiles — synthetic demo" width="420"> |
-| --- | --- |
-| [EIS Nyquist and phase](https://github.com/arrizabalagags-png/Voltpeer-skills/tree/dfd46fcb4a3255b60826de8a4c721963adc4ff02/examples/showcase/eis)<br><img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/dfd46fcb4a3255b60826de8a4c721963adc4ff02/examples/showcase/eis/figure.png" alt="EIS Nyquist and phase — synthetic demo" width="420"> | [Six linked data panels](https://github.com/arrizabalagags-png/Voltpeer-skills/tree/dfd46fcb4a3255b60826de8a4c721963adc4ff02/examples/showcase/integrated_study)<br><img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/dfd46fcb4a3255b60826de8a4c721963adc4ff02/examples/showcase/integrated_study/figure.png" alt="Six linked data panels — synthetic demo" width="420"> |
 
 ## Get started
 
@@ -101,7 +116,7 @@ Plotting needs Python ≥3.10 and network access to obtain dependencies; the pac
 
 ## Documentation and scope
 
-This branch retains the **0.9.2 published Skill package**. The plotting download and previews above come from the **0.10.1 Beta** development branch. Native desktop discovery and complete behavior validation remain pending. Delivery formatting in the limited Flash API trial is PARTIAL. [Version notes](docs/RELEASE_v0.9.2.md) · [Compatibility and exact validation scope](https://github.com/arrizabalagags-png/Voltpeer-skills/blob/codex/public-skills/docs/COMPATIBILITY.md).
+This branch retains the **0.9.2 published Skill package**. Download links point to published **0.10.1 Beta**. The new gallery includes its own data and source code. Work on 0.10.2 is local; its packages have not been published. Native desktop discovery and complete behavior validation remain pending. Delivery formatting in the limited Flash API trial is PARTIAL. [Version notes](docs/RELEASE_v0.9.2.md) · [Compatibility and exact validation scope](https://github.com/arrizabalagags-png/Voltpeer-skills/blob/codex/public-skills/docs/COMPATIBILITY.md).
 
 | Learn more | Document |
 | --- | --- |

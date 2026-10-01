@@ -1,0 +1,658 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "data_status": "original_synthetic",
+  "font": "Arial",
+  "raw_inputs_unchanged": true,
+  "inputs_sha256": {
+    "eis/basis.json": "867a5ba0d8510d9ab3a089f0880f7cf32b1aae971ac81bcfbc46e09f6e8b96e3",
+    "eis/data.csv": "187d66d615d2151217d94f23d50a488800623e61357e4ce4a75ef945096ffa3c",
+    "eis/model.json": "5906ec0e0c66dd1a01890c99ee0c1d8600a2362bea929fb683955d519c407ed1",
+    "eis_frequency/basis.json": "c37049ebdf741c020ff6b8f5dcc1e2a1bcc607fff2fcd2e6feb5c80fd53e6abc",
+    "eis_frequency/data.csv": "09cb70965be2564365229285cc32fff3f339dc182aa07c0119ed82599efda83e",
+    "operando_xrd/basis.json": "26ea0679b37c3de72e3bc914a430cc8dacbbd5a1d5b13dd3a15a44b53dc9bf43",
+    "operando_xrd/data.csv": "7ed4b6b1ce6da4b978f08a1f1e60c9ed5a87a0b7b6f88d2e8580082cd9ad654a",
+    "raman_series/basis.json": "fb669acd6d1872104785d16dc5a591fd3b26be41c16e42d5e6159dbef74969d8",
+    "raman_series/data.csv": "d5f12b7638cf67f635a3cf4fb5568bb4920576151764d7e971b8c7ae5e375948",
+    "xps_components/basis.json": "eb5349283f149bfeadf1c3bf7e0e580e41b029c00a076437431f48f67efb9c34",
+    "xps_components/data.csv": "de8fcadbceeb63ae9922373d708ce23912960c89617c2ddf2e2fc7c4ddda703b",
+    "li_cu_ce/basis.json": "9e98b2ac8ad9f99e272c42412b2897a68945a826d5e0f3d35edf06c12e5a3054",
+    "li_cu_ce/data.csv": "cc4d9a633247ae4df9fada1b15e2adf7f6767c65be21532639c2374f5d8970f6",
+    "full_cell/basis.json": "da92ea2e439d4f9efb3f72832a2f90ae98a52b85abe8129c4b80cf741c01dcc7",
+    "full_cell/data.csv": "1b8204c7d72bab8dac45e5827913230609c1e146609fd57a68a5d79bec4352f4"
+  },
+  "model_relations": [
+    {
+      "name": "eis/A: Re Z",
+      "values": 86,
+      "max_absolute_error": 2.1316282072803006e-14
+    },
+    {
+      "name": "eis/A: Im Z",
+      "values": 86,
+      "max_absolute_error": 3.197442310920451e-14
+    },
+    {
+      "name": "eis/B: Re Z",
+      "values": 86,
+      "max_absolute_error": 3.552713678800501e-14
+    },
+    {
+      "name": "eis/B: Im Z",
+      "values": 86,
+      "max_absolute_error": 3.552713678800501e-14
+    },
+    {
+      "name": "eis_frequency/A: ideal RC circle",
+      "values": 120,
+      "max_absolute_error": 1.5631940186722204e-13
+    },
+    {
+      "name": "eis_frequency/A: Re Z",
+      "values": 120,
+      "max_absolute_error": 3.552713678800501e-15
+    },
+    {
+      "name": "eis_frequency/A: Im Z",
+      "values": 120,
+      "max_absolute_error": 1.7763568394002505e-15
+    },
+    {
+      "name": "eis_frequency/B: ideal RC circle",
+      "values": 120,
+      "max_absolute_error": 3.979039320256561e-13
+    },
+    {
+      "name": "eis_frequency/B: Re Z",
+      "values": 120,
+      "max_absolute_error": 7.105427357601002e-15
+    },
+    {
+      "name": "eis_frequency/B: Im Z",
+      "values": 120,
+      "max_absolute_error": 3.552713678800501e-15
+    },
+    {
+      "name": "Li || Cu/A: charge ledger",
+      "values": 300,
+      "max_absolute_error": 1.4210854715202004e-14
+    },
+    {
+      "name": "Li || Cu/B: charge ledger",
+      "values": 300,
+      "max_absolute_error": 1.4210854715202004e-14
+    },
+    {
+      "name": "NMC811 || Li/A: charge ledger",
+      "values": 500,
+      "max_absolute_error": 5.684341886080802e-14
+    },
+    {
+      "name": "NMC811 || Li/B: charge ledger",
+      "values": 500,
+      "max_absolute_error": 4.263256414560601e-14
+    },
+    {
+      "name": "Generic spectrum: expected count sum",
+      "values": 500,
+      "max_absolute_error": 4.547473508864641e-13
+    },
+    {
+      "name": "Generic spectrum: known component 1",
+      "values": 500,
+      "max_absolute_error": 6.650680006714538e-11
+    },
+    {
+      "name": "Generic spectrum: known component 2",
+      "values": 500,
+      "max_absolute_error": 2.3646862246096134e-11
+    },
+    {
+      "name": "Generic spectrum: known component 3",
+      "values": 500,
+      "max_absolute_error": 1.2647660696529783e-11
+    },
+    {
+      "name": "Diffraction: first-order Bragg angles and original Gaussian intensity",
+      "values": 25200,
+      "max_absolute_error": 2.9976021664879227e-14
+    },
+    {
+      "name": "Raman/A: original Gaussian bands and background",
+      "values": 600,
+      "max_absolute_error": 5.684341886080802e-14
+    },
+    {
+      "name": "Raman/B: original Gaussian bands and background",
+      "values": 600,
+      "max_absolute_error": 5.684341886080802e-14
+    },
+    {
+      "name": "Raman/C: original Gaussian bands and background",
+      "values": 600,
+      "max_absolute_error": 5.684341886080802e-14
+    },
+    {
+      "name": "Raman/D: original Gaussian bands and background",
+      "values": 600,
+      "max_absolute_error": 5.684341886080802e-14
+    }
+  ],
+  "figures": [
+    {
+      "slug": "structure-spectra",
+      "sources": [
+        "operando_xrd",
+        "raman_series",
+        "xps_components"
+      ],
+      "display_transformations": [
+        "Five existing diffraction progress rows selected; +0.72 a.u. offset per trace",
+        "Raman +340 counts per trace",
+        "Known spectral components shown on their common background; no fitting"
+      ],
+      "axes": [
+        {
+          "index": 0,
+          "frame": {
+            "left": true,
+            "right": true,
+            "bottom": true,
+            "top": true
+          },
+          "curves": [],
+          "equal_nyquist_scale_ratio": null
+        },
+        {
+          "index": 1,
+          "frame": {
+            "left": true,
+            "right": true,
+            "bottom": true,
+            "top": true
+          },
+          "curves": [
+            {
+              "label": "p = 0",
+              "points": 240,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "p = 0.25",
+              "points": 240,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "p = 0.5",
+              "points": 240,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "p = 0.75",
+              "points": 240,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "p = 1",
+              "points": 240,
+              "linestyle": "-",
+              "marker": "None"
+            }
+          ],
+          "equal_nyquist_scale_ratio": null
+        },
+        {
+          "index": 2,
+          "frame": {
+            "left": true,
+            "right": true,
+            "bottom": true,
+            "top": true
+          },
+          "curves": [
+            {
+              "label": "Model A",
+              "points": 600,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "Model B",
+              "points": 600,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "Model C",
+              "points": 600,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "Model D",
+              "points": 600,
+              "linestyle": "-",
+              "marker": "None"
+            }
+          ],
+          "equal_nyquist_scale_ratio": null
+        },
+        {
+          "index": 3,
+          "frame": {
+            "left": true,
+            "right": true,
+            "bottom": true,
+            "top": true
+          },
+          "curves": [
+            {
+              "label": "Poisson counts",
+              "points": 500,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "Component 1 + background",
+              "points": 500,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "Component 2 + background",
+              "points": 500,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "Component 3 + background",
+              "points": 500,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "Expected total",
+              "points": 500,
+              "linestyle": "-",
+              "marker": "None"
+            }
+          ],
+          "equal_nyquist_scale_ratio": null
+        }
+      ],
+      "panel_title_axis_label_overlap": "PASS",
+      "png_dimensions": [
+        2300,
+        1850
+      ],
+      "output_sha256": {
+        "png": "fdea43e4b1d43db55e5ababe08dc338597f8071bc66850b504514801e7b8b1c2",
+        "svg": "761ee284c944d3ce58c51205ab601f2da38800fd04b6740f725970006572910c"
+      }
+    },
+    {
+      "slug": "eis-cpe-warburg",
+      "sources": [
+        "eis"
+      ],
+      "display_transformations": [
+        "Re Z, −Im Z, abs(Z) and arg(Z) calculated from the same saved complex values; no smoothing or interpolation"
+      ],
+      "axes": [
+        {
+          "index": 0,
+          "frame": {
+            "left": true,
+            "right": true,
+            "bottom": true,
+            "top": true
+          },
+          "curves": [
+            {
+              "label": "Model A",
+              "points": 86,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "Model B",
+              "points": 86,
+              "linestyle": "-",
+              "marker": "None"
+            }
+          ],
+          "equal_nyquist_scale_ratio": 1.0
+        },
+        {
+          "index": 1,
+          "frame": {
+            "left": true,
+            "right": true,
+            "bottom": true,
+            "top": true
+          },
+          "curves": [
+            {
+              "label": "Model A",
+              "points": 86,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "Model B",
+              "points": 86,
+              "linestyle": "-",
+              "marker": "None"
+            }
+          ],
+          "equal_nyquist_scale_ratio": null
+        },
+        {
+          "index": 2,
+          "frame": {
+            "left": true,
+            "right": true,
+            "bottom": true,
+            "top": true
+          },
+          "curves": [
+            {
+              "label": "_child0",
+              "points": 86,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "_child1",
+              "points": 86,
+              "linestyle": "-",
+              "marker": "None"
+            }
+          ],
+          "equal_nyquist_scale_ratio": null
+        }
+      ],
+      "panel_title_axis_label_overlap": "PASS",
+      "png_dimensions": [
+        2300,
+        1150
+      ],
+      "output_sha256": {
+        "png": "5ac84964b31ba155f6f665b95218ede192cefd74e4c381f55493f3814b1de354",
+        "svg": "d12fc762b15efaafa0cd04c66719c5645f6d10c18ae7612d2a020084ca8c5fd0"
+      }
+    },
+    {
+      "slug": "eis-ideal-rc",
+      "sources": [
+        "eis_frequency"
+      ],
+      "display_transformations": [
+        "Re Z, −Im Z, abs(Z) and arg(Z) calculated from the same saved complex values; no smoothing or interpolation"
+      ],
+      "axes": [
+        {
+          "index": 0,
+          "frame": {
+            "left": true,
+            "right": true,
+            "bottom": true,
+            "top": true
+          },
+          "curves": [
+            {
+              "label": "Model A",
+              "points": 120,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "Model B",
+              "points": 120,
+              "linestyle": "-",
+              "marker": "None"
+            }
+          ],
+          "equal_nyquist_scale_ratio": 1.0
+        },
+        {
+          "index": 1,
+          "frame": {
+            "left": true,
+            "right": true,
+            "bottom": true,
+            "top": true
+          },
+          "curves": [
+            {
+              "label": "Model A",
+              "points": 120,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "Model B",
+              "points": 120,
+              "linestyle": "-",
+              "marker": "None"
+            }
+          ],
+          "equal_nyquist_scale_ratio": null
+        },
+        {
+          "index": 2,
+          "frame": {
+            "left": true,
+            "right": true,
+            "bottom": true,
+            "top": true
+          },
+          "curves": [
+            {
+              "label": "_child0",
+              "points": 120,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "_child1",
+              "points": 120,
+              "linestyle": "-",
+              "marker": "None"
+            }
+          ],
+          "equal_nyquist_scale_ratio": null
+        }
+      ],
+      "panel_title_axis_label_overlap": "PASS",
+      "png_dimensions": [
+        2300,
+        1150
+      ],
+      "output_sha256": {
+        "png": "468b1080cf0fdcc9d9b88d85044a8a5348dfd65c063b9a90bd70fe25dbad6c2a",
+        "svg": "6d3ea87f5795bfd0055c4efd191fb4191fc8c1f4ba10d26d363f45e2c760be3c"
+      }
+    },
+    {
+      "slug": "six-panel-layout",
+      "sources": [
+        "li_cu_ce",
+        "full_cell",
+        "eis",
+        "operando_xrd",
+        "xps_components"
+      ],
+      "display_transformations": [
+        "Independent panels assembled without claiming one shared material or mechanism",
+        "Same EIS complex values in panels c/d",
+        "Known spectral components displayed on common background"
+      ],
+      "axes": [
+        {
+          "index": 0,
+          "frame": {
+            "left": true,
+            "right": true,
+            "bottom": true,
+            "top": true
+          },
+          "curves": [
+            {
+              "label": "Model A",
+              "points": 300,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "Model B",
+              "points": 300,
+              "linestyle": "-",
+              "marker": "None"
+            }
+          ],
+          "equal_nyquist_scale_ratio": null
+        },
+        {
+          "index": 1,
+          "frame": {
+            "left": true,
+            "right": true,
+            "bottom": true,
+            "top": true
+          },
+          "curves": [
+            {
+              "label": "Model A",
+              "points": 500,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "Model B",
+              "points": 500,
+              "linestyle": "-",
+              "marker": "None"
+            }
+          ],
+          "equal_nyquist_scale_ratio": null
+        },
+        {
+          "index": 2,
+          "frame": {
+            "left": true,
+            "right": true,
+            "bottom": true,
+            "top": true
+          },
+          "curves": [
+            {
+              "label": "Model A",
+              "points": 86,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "Model B",
+              "points": 86,
+              "linestyle": "-",
+              "marker": "None"
+            }
+          ],
+          "equal_nyquist_scale_ratio": 0.9999999999999996
+        },
+        {
+          "index": 3,
+          "frame": {
+            "left": true,
+            "right": true,
+            "bottom": true,
+            "top": true
+          },
+          "curves": [
+            {
+              "label": "_child0",
+              "points": 86,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "_child1",
+              "points": 86,
+              "linestyle": "-",
+              "marker": "None"
+            }
+          ],
+          "equal_nyquist_scale_ratio": null
+        },
+        {
+          "index": 4,
+          "frame": {
+            "left": true,
+            "right": true,
+            "bottom": true,
+            "top": true
+          },
+          "curves": [],
+          "equal_nyquist_scale_ratio": null
+        },
+        {
+          "index": 5,
+          "frame": {
+            "left": true,
+            "right": true,
+            "bottom": true,
+            "top": true
+          },
+          "curves": [
+            {
+              "label": "Poisson counts",
+              "points": 500,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "Component 1 + background",
+              "points": 500,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "Component 2 + background",
+              "points": 500,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "Component 3 + background",
+              "points": 500,
+              "linestyle": "-",
+              "marker": "None"
+            },
+            {
+              "label": "Expected total",
+              "points": 500,
+              "linestyle": "-",
+              "marker": "None"
+            }
+          ],
+          "equal_nyquist_scale_ratio": null
+        }
+      ],
+      "panel_title_axis_label_overlap": "PASS",
+      "png_dimensions": [
+        2300,
+        2500
+      ],
+      "output_sha256": {
+        "png": "aeb179ca4a9ad46f4e094b3b0d8ebd0d0708a815dac8f4db8c312c6c1d6831c8",
+        "svg": "c3b8eca8b2ec5ebd212f821fe85ab3078badba73d9b3e484539b8e361d0e1b0a"
+      }
+    }
+  ],
+  "scope": "Exact declared model/data and display checks only; no experimental validation, circuit fit, chemical assignment or host/model behavior certification"
+}

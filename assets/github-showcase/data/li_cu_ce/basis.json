@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "model_class": "phenomenological_model",
+  "data_origin": "original_synthetic",
+  "parameter_origin": "self-chosen teaching values; never paper measurements",
+  "validation_scope": "Declared teaching model; no experimental/material certification",
+  "equations": [
+    "CE=100*Qstrip/Qplate; Qplate=abs(jplate)*tplate; Qstrip=abs(jstrip)*tstrip",
+    "eta_A=0.9945-0.012*exp(-(n-1)/8)-0.0008*(n/300)^2",
+    "eta_B=0.991-0.018*exp(-(n-1)/9)-0.004*max((n-218)/82,0)^1.5; eta_B(n=264)-=0.0047",
+    "Vstrip=b+(1-b)*f^12; b=0.045+sample_offset+0.006*n/300; end Vstrip=1 V"
+  ],
+  "assumptions": [
+    "Chosen recoverable-charge fractions; excess Li counterelectrode so CE is not full-cell retention.",
+    "Negative applied current is plating; positive is stripping; cutoff is reached at the CE-derived endpoint.",
+    "Voltage is a display relation, not a fitted nucleation, SEI or depletion mechanism."
+  ],
+  "parameters": {
+    "j_mA_cm2": 1,
+    "Qplate_mAh_cm2": 1,
+    "cutoff_V": 1,
+    "cycles": 300,
+    "sample_offset_V": {
+      "A": 0,
+      "B": 0.02
+    }
+  },
+  "references": [
+    {
+      "url": "https://www.nature.com/articles/s41560-020-0648-z",
+      "title": "Understanding and applying coulombic efficiency in lithium metal batteries",
+      "supports": "CE charge accounting and protocol/cell-configuration boundaries; not the source of demo numbers.",
+      "scope": "model_definition_only",
+      "checked_date": "2026-10-01"
+    }
+  ],
+  "limitations": [
+    "Cannot infer dead Li versus electrolyte consumption, dendrites, full-cell life or a material benefit."
+  ]
+}

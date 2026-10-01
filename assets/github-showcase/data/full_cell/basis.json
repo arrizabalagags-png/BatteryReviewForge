@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "model_class": "phenomenological_model",
+  "data_origin": "original_synthetic",
+  "parameter_origin": "self-chosen teaching values; never paper measurements",
+  "validation_scope": "Declared teaching model; no experimental/material certification",
+  "equations": [
+    "a_n=(1-a0*exp(-(n-1)/tau_a))*exp(-k*(n-1)-k_late*max(n-n_late,0)^2)",
+    "Qdis_n=Q0*a_n; eta_n=1-l_ss-l_tr*exp(-(n-1)/tau_CE)",
+    "Qchg_n=Qdis_n/eta_n; CE_n=100*Qdis_n/Qchg_n; side_charge_n=Qchg_n-Qdis_n",
+    "s(f)=0.55*f+0.45*f^7; Vdis=4.3-1.5*s(f); Vchg=2.8+1.5*s(f)"
+  ],
+  "assumptions": [
+    "Excess lithium counterelectrode remains available; no finite Li inventory bottleneck is imposed.",
+    "Accessible cathode activity and external coulombic loss are separate chosen functions.",
+    "The active fraction is a positive phenomenological display law, not a fitted NMC811 mechanism; CE products cannot predict this capacity.",
+    "Specific capacity uses cathode active-material mass; voltage endpoints respect the declared window."
+  ],
+  "parameters": {
+    "count_cycles": 500,
+    "A": {
+      "initial_capacity": 184,
+      "activation_fraction": 0.012,
+      "activation_cycles": 3,
+      "fade_per_cycle": 0.00012,
+      "late_fade_per_cycle2": 2e-06,
+      "late_fade_start": 350,
+      "steady_ce_loss": 0.0006,
+      "transient_ce_loss": 0.004,
+      "ce_decay_cycles": 4
+    },
+    "B": {
+      "initial_capacity": 182,
+      "activation_fraction": 0.018,
+      "activation_cycles": 4,
+      "fade_per_cycle": 0.00024,
+      "late_fade_per_cycle2": 3.5e-06,
+      "late_fade_start": 350,
+      "steady_ce_loss": 0.001,
+      "transient_ce_loss": 0.006,
+      "ce_decay_cycles": 4
+    },
+    "voltage_window_V": [
+      2.8,
+      4.3
+    ]
+  },
+  "references": [
+    {
+      "url": "https://www.nature.com/articles/s41467-025-60833-y",
+      "title": "Deciphering coulombic loss in lithium-ion batteries and beyond",
+      "supports": "Coulombic loss, electrode compensation and capacity fade are distinct; does not provide the numerical activity model.",
+      "scope": "model_definition_only",
+      "checked_date": "2026-10-01"
+    },
+    {
+      "url": "https://www.nature.com/articles/s41560-020-0648-z",
+      "title": "Understanding and applying coulombic efficiency in lithium metal batteries",
+      "supports": "Excess-Li half-cell versus full-cell interpretation boundaries; all demo values are original.",
+      "scope": "model_definition_only",
+      "checked_date": "2026-10-01"
+    }
+  ],
+  "limitations": [
+    "No NMC811 material performance, cycle-life forecast, electrode mechanism or lithium reservoir mass is inferred.",
+    "Legacy resource_id full_cell is retained for file compatibility; this gallery example is a half-cell, not the full-cell recipe."
+  ]
+}

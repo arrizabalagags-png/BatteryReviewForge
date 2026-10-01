@@ -8,6 +8,29 @@ Skill 是给 AI 助手的一组科研工作说明和工具，需要在支持它�
 
 [开始使用](#开始使用) · [看看效果](#看看实际效果) · [下载绘图包（Beta）](https://github.com/arrizabalagags-png/Voltpeer-skills/raw/dfd46fcb4a3255b60826de8a4c721963adc4ff02/docs/downloads/starter/VoltPeer-Plot-Starter-v0.10.1.zip) · [项目网站](https://dazi.gsarrizabalaga.xyz/)
 
+## 看看实际效果
+
+**原创合成演示，非实验数据。** 每张图都保留对应数据、绘图代码和模型依据；不用于证明材料性能。[查看数据与源码](https://github.com/arrizabalagags-png/Voltpeer-skills/blob/main/assets/github-showcase/README.md)
+
+### [结构与光谱](https://github.com/arrizabalagags-png/Voltpeer-skills/blob/main/assets/github-showcase/README.md#structure-and-spectra)
+
+<a href="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/structure-spectra.png"><img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/structure-spectra.png" alt="结构与光谱合成演示：Bragg 定律峰位演化、选定进度的衍射曲线、通用 Raman 谱和已知谱峰成分" width="1000"></a>
+
+### [EIS：同一组数据，三个视角](https://github.com/arrizabalagags-png/Voltpeer-skills/blob/main/assets/github-showcase/README.md#impedance-spectroscopy)
+
+<a href="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/eis-cpe-warburg.png"><img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/eis-cpe-warburg.png" alt="合成 CPE 与 Warburg 模型：横纵等尺度 Nyquist、阻抗模值和真实有符号相位" width="1000"></a>
+
+### [六面板拼版示例](https://github.com/arrizabalagags-png/Voltpeer-skills/blob/main/assets/github-showcase/README.md#six-panel-layout)
+
+<a href="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/six-panel-layout.png"><img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/six-panel-layout.png" alt="六面板排版演示：独立模型的库伦效率、半电池容量、EIS、衍射与计数光谱；不代表同一实验研究" width="1000"></a>
+
+<details>
+<summary>再看一个 EIS 示例：理想 RC 电路</summary>
+
+<img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/eis-ideal-rc.png" alt="原创理想 RC 电路合成示例：等尺度半圆 Nyquist、阻抗模值及相位" width="1000">
+
+</details>
+
 ## 你现在想做什么
 
 | 任务 | 可以从这里开始 |
@@ -18,14 +41,6 @@ Skill 是给 AI 助手的一组科研工作说明和工具，需要在支持它�
 | [整理文献](skills/battery-literature-map/SKILL.md) | 建立筛选记录、文献台账与证据关系 |
 | [写 Review](skills/battery-review-plan/SKILL.md) | 从选题、结构和证据，推进到正文与修改 |
 | [投稿前检查](skills/battery-review-audit/SKILL.md) | 核查指标可比性、引用和全文一致性 |
-
-## 看看实际效果
-
-以下是开发分支中的**原创合成 Demo，非实验数据**。图件用于展示绘图与组合方式，不能作为材料性能证据。每个标题可打开对应数据、脚本和来源说明；素材按项目 [MIT 许可](LICENSE)提供。
-
-| [库伦效率与剥离曲线](https://github.com/arrizabalagags-png/Voltpeer-skills/tree/dfd46fcb4a3255b60826de8a4c721963adc4ff02/examples/showcase/li_cu_ce)<br><img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/dfd46fcb4a3255b60826de8a4c721963adc4ff02/examples/showcase/li_cu_ce/figure.png" alt="库伦效率与剥离曲线 — synthetic demo" width="420"> | [容量循环与电压曲线](https://github.com/arrizabalagags-png/Voltpeer-skills/tree/dfd46fcb4a3255b60826de8a4c721963adc4ff02/examples/showcase/full_cell)<br><img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/dfd46fcb4a3255b60826de8a4c721963adc4ff02/examples/showcase/full_cell/figure.png" alt="容量循环与电压曲线 — synthetic demo" width="420"> |
-| --- | --- |
-| [EIS Nyquist 与相位](https://github.com/arrizabalagags-png/Voltpeer-skills/tree/dfd46fcb4a3255b60826de8a4c721963adc4ff02/examples/showcase/eis)<br><img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/dfd46fcb4a3255b60826de8a4c721963adc4ff02/examples/showcase/eis/figure.png" alt="EIS Nyquist 与相位 — synthetic demo" width="420"> | [关联数据六面板](https://github.com/arrizabalagags-png/Voltpeer-skills/tree/dfd46fcb4a3255b60826de8a4c721963adc4ff02/examples/showcase/integrated_study)<br><img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/dfd46fcb4a3255b60826de8a4c721963adc4ff02/examples/showcase/integrated_study/figure.png" alt="关联数据六面板 — synthetic demo" width="420"> |
 
 ## 开始使用
 
@@ -101,7 +116,7 @@ Skill 是给 AI 助手的一组科研工作说明和工具，需要在支持它�
 
 ## 文档与当前范围
 
-本分支保留 **0.9.2 正式技能包**；上方绘图包与预览来自 **0.10.1 Beta** 开发分支。 原生桌面发现与完整行为验收仍待验证；Flash 有限 API 试次的交付表达为 PARTIAL。[版本说明](docs/RELEASE_v0.9.2.md) · [实际适配与验证范围](https://github.com/arrizabalagags-png/Voltpeer-skills/blob/codex/public-skills/docs/COMPATIBILITY.md)。
+本分支保留 **0.9.2 正式技能包**；上方下载入口来自已公开的 **0.10.1 Beta**。精选图单独附有数据与源码。0.10.2 正在本机修订，未发布下载包。 原生桌面发现与完整行为验收仍待验证；Flash 有限 API 试次的交付表达为 PARTIAL。[版本说明](docs/RELEASE_v0.9.2.md) · [实际适配与验证范围](https://github.com/arrizabalagags-png/Voltpeer-skills/blob/codex/public-skills/docs/COMPATIBILITY.md)。
 
 | 想深入了解 | 文档 |
 | --- | --- |

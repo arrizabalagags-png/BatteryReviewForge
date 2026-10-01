@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-01",
+  "status": "PREPARED",
+  "scope": "GitHub README/gallery only; no skill-package, tag, release, website or ECS deployment",
+  "base_main": "b2053eb81c76c3d619fa8e3366b1b64a4f994537",
+  "figure_count": 4,
+  "data_axes": 16,
+  "continuous_curves": 39,
+  "model_checks": 23,
+  "maximum_model_absolute_error": 6.650680006714538e-11,
+  "data_status": "original_synthetic_not_experimental",
+  "raw_inputs_unchanged": true,
+  "nyquist_equal_physical_scale": true,
+  "curve_style": "solid lines with no markers",
+  "frame_style": "four data spines",
+  "label_bounds_and_overlap": "PASS",
+  "scientific_scope": "Declared model and display checks, not real experimental validation, circuit fit or chemical assignment",
+  "files": {
+    "README.md": {
+      "sha256": "cba5458c1d646b82c797f690fbdcfdba48205246d36e897dfebe11d05f5bb61e",
+      "bytes": 10300
+    },
+    "README.en.md": {
+      "sha256": "c28fef5ff91e57276dfd35131e59a83cbc1aea2fdf1c34a51fb40ce6c7f6beb7",
+      "bytes": 11233
+    },
+    "assets/github-showcase/data/eis/basis.json": {
+      "sha256": "867a5ba0d8510d9ab3a089f0880f7cf32b1aae971ac81bcfbc46e09f6e8b96e3",
+      "bytes": 1777
+    },
+    "assets/github-showcase/data/eis/data.csv": {
+      "sha256": "187d66d615d2151217d94f23d50a488800623e61357e4ce4a75ef945096ffa3c",
+      "bytes": 10261
+    },
+    "assets/github-showcase/data/eis/model.json": {
+      "sha256": "5906ec0e0c66dd1a01890c99ee0c1d8600a2362bea929fb683955d519c407ed1",
+      "bytes": 2626
+    },
+    "assets/github-showcase/data/eis_frequency/basis.json": {
+      "sha256": "c37049ebdf741c020ff6b8f5dcc1e2a1bcc607fff2fcd2e6feb5c80fd53e6abc",
+      "bytes": 1488
+    },
+    "assets/github-showcase/data/eis_frequency/data.csv": {
+      "sha256": "09cb70965be2564365229285cc32fff3f339dc182aa07c0119ed82599efda83e",
+      "bytes": 14365
+    },
+    "assets/github-showcase/data/full_cell/basis.json": {
+      "sha256": "da92ea2e439d4f9efb3f72832a2f90ae98a52b85abe8129c4b80cf741c01dcc7",
+      "bytes": 2871
+    },
+    "assets/github-showcase/data/full_cell/data.csv": {
+      "sha256": "1b8204c7d72bab8dac45e5827913230609c1e146609fd57a68a5d79bec4352f4",
+      "bytes": 72260
+    },
+    "assets/github-showcase/data/li_cu_ce/basis.json": {
+      "sha256": "9e98b2ac8ad9f99e272c42412b2897a68945a826d5e0f3d35edf06c12e5a3054",
+      "bytes": 1660
+    },
+    "assets/github-showcase/data/li_cu_ce/data.csv": {
+      "sha256": "cc4d9a633247ae4df9fada1b15e2adf7f6767c65be21532639c2374f5d8970f6",
+      "bytes": 24571
+    },
+    "assets/github-showcase/data/operando_xrd/basis.json": {
+      "sha256": "26ea0679b37c3de72e3bc914a430cc8dacbbd5a1d5b13dd3a15a44b53dc9bf43",
+      "bytes": 1788
+    },
+    "assets/github-showcase/data/operando_xrd/data.csv": {
+      "sha256": "7ed4b6b1ce6da4b978f08a1f1e60c9ed5a87a0b7b6f88d2e8580082cd9ad654a",
+      "bytes": 1243040
+    },
+    "assets/github-showcase/data/PROVENANCE.json": {
+      "sha256": "44cb6f329046ed521e67e7bb1171c4f7370c322af9019b681f5d9b4bb45b6f3a",
+      "bytes": 4287
+    },
+    "assets/github-showcase/data/raman_series/basis.json": {
+      "sha256": "fb669acd6d1872104785d16dc5a591fd3b26be41c16e42d5e6159dbef74969d8",
+      "bytes": 1222
+    },
+    "assets/github-showcase/data/raman_series/data.csv": {
+      "sha256": "d5f12b7638cf67f635a3cf4fb5568bb4920576151764d7e971b8c7ae5e375948",
+      "bytes": 93925
+    },
+    "assets/github-showcase/data/xps_components/basis.json": {
+      "sha256": "eb5349283f149bfeadf1c3bf7e0e580e41b029c00a076437431f48f67efb9c34",
+      "bytes": 1883
+    },
+    "assets/github-showcase/data/xps_components/data.csv": {
+      "sha256": "de8fcadbceeb63ae9922373d708ce23912960c89617c2ddf2e2fc7c4ddda703b",
+      "bytes": 58109
+    },
+    "assets/github-showcase/eis-cpe-warburg.png": {
+      "sha256": "5ac84964b31ba155f6f665b95218ede192cefd74e4c381f55493f3814b1de354",
+      "bytes": 185038
+    },
+    "assets/github-showcase/eis-cpe-warburg.svg": {
+      "sha256": "d12fc762b15efaafa0cd04c66719c5645f6d10c18ae7612d2a020084ca8c5fd0",
+      "bytes": 31376
+    },
+    "assets/github-showcase/eis-ideal-rc.png": {
+      "sha256": "468b1080cf0fdcc9d9b88d85044a8a5348dfd65c063b9a90bd70fe25dbad6c2a",
+      "bytes": 174731
+    },
+    "assets/github-showcase/eis-ideal-rc.svg": {
+      "sha256": "6d3ea87f5795bfd0055c4efd191fb4191fc8c1f4ba10d26d363f45e2c760be3c",
+      "bytes": 36576
+    },
+    "assets/github-showcase/README.md": {
+      "sha256": "ee41f7491864890d0f0e8e750e6afccf4679c3f572e1d9c79af1c5e66ace5ef3",
+      "bytes": 4528
+    },
+    "assets/github-showcase/render-checks.json": {
+      "sha256": "c05bade402c3568a9dadb78e3a2cb3a6828b708784ef67e7a219e88bee295874",
+      "bytes": 17842
+    },
+    "assets/github-showcase/six-panel-layout.png": {
+      "sha256": "aeb179ca4a9ad46f4e094b3b0d8ebd0d0708a815dac8f4db8c312c6c1d6831c8",
+      "bytes": 462441
+    },
+    "assets/github-showcase/six-panel-layout.svg": {
+      "sha256": "c3b8eca8b2ec5ebd212f821fe85ab3078badba73d9b3e484539b8e361d0e1b0a",
+      "bytes": 182166
+    },
+    "assets/github-showcase/structure-spectra.png": {
+      "sha256": "fdea43e4b1d43db55e5ababe08dc338597f8071bc66850b504514801e7b8b1c2",
+      "bytes": 383049
+    },
+    "assets/github-showcase/structure-spectra.svg": {
+      "sha256": "761ee284c944d3ce58c51205ab601f2da38800fd04b6740f725970006572910c",
+      "bytes": 169391
+    },
+    "examples/github_showcase/render.py": {
+      "sha256": "43b446b06fdb622faaff38def6e427beaccd8d3be418dc551caedf4bcf8f0252",
+      "bytes": 22706
+    },
+    "examples/github_showcase/requirements.txt": {
+      "sha256": "2d3be8915118ac9c3c67689393b9c47e4a291ffd283f973547dec615ea35d8c1",
+      "bytes": 40
+    },
+    "assets/github-showcase/.gitattributes": {
+      "sha256": "ada3af2b54f570971bd1fdc599745f30d7d5dfdccd5ddefe13915e1d34b8af3b",
+      "bytes": 146
+    }
+  },
+  "isolated_replay": {
+    "status": "PASS",
+    "png_and_svg_byte_equal": {
+      "eis-cpe-warburg.png": "5ac84964b31ba155f6f665b95218ede192cefd74e4c381f55493f3814b1de354",
+      "eis-cpe-warburg.svg": "d12fc762b15efaafa0cd04c66719c5645f6d10c18ae7612d2a020084ca8c5fd0",
+      "eis-ideal-rc.png": "468b1080cf0fdcc9d9b88d85044a8a5348dfd65c063b9a90bd70fe25dbad6c2a",
+      "eis-ideal-rc.svg": "6d3ea87f5795bfd0055c4efd191fb4191fc8c1f4ba10d26d363f45e2c760be3c",
+      "six-panel-layout.png": "aeb179ca4a9ad46f4e094b3b0d8ebd0d0708a815dac8f4db8c312c6c1d6831c8",
+      "six-panel-layout.svg": "c3b8eca8b2ec5ebd212f821fe85ab3078badba73d9b3e484539b8e361d0e1b0a",
+      "structure-spectra.png": "fdea43e4b1d43db55e5ababe08dc338597f8071bc66850b504514801e7b8b1c2",
+      "structure-spectra.svg": "761ee284c944d3ce58c51205ab601f2da38800fd04b6740f725970006572910c"
+    },
+    "script_root": "Independent GitHub main checkout"
+  },
+  "input_tampering": {
+    "status": "PASS",
+    "changed_input": "eis/data.csv",
+    "exit_code": 1,
+    "output_folder_not_created": true
+  },
+  "readme_local_links": "PASS",
+  "gallery_urls": "Absolute repo main links retained so the README in a skill ZIP does not require gallery assets in that ZIP"
+}

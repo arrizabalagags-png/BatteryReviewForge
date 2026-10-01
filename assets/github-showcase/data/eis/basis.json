@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "model_class": "analytic_model",
+  "data_origin": "original_synthetic",
+  "parameter_origin": "self-chosen teaching values; never paper measurements",
+  "validation_scope": "Declared teaching model; no experimental/material certification",
+  "equations": [
+    "omega=2*pi*f; ZW=sigma*(1-j)/sqrt(omega)",
+    "Y_CPE=Q*(j*omega)^alpha",
+    "Z=Rs+1/(Y_CPE+1/(Rct+ZW))",
+    "Nyquist=(Re Z,-Im Z); Bode=(abs(Z),arg(Z)) from the same stored complex values"
+  ],
+  "assumptions": [
+    "Linear small-signal stationary passive circuit, f>0, Rs>=0, Rct/Q>0, 0<alpha<=1, sigma>=0.",
+    "Semi-infinite planar diffusion is an assumed boundary; finite diffusion or nonstationary spectra require another model.",
+    "CPE is empirical; its Q with units S*s^alpha is not a measured capacitance unless alpha=1."
+  ],
+  "parameters": {
+    "frequency_Hz": [
+      0.01,
+      100000.0
+    ],
+    "A": {
+      "Rs_ohm": 4.2,
+      "Rct_ohm": 23,
+      "CPE_Q": 0.00085,
+      "CPE_alpha": 0.86,
+      "Warburg_sigma": 3.0
+    },
+    "B": {
+      "Rs_ohm": 5.1,
+      "Rct_ohm": 43,
+      "CPE_Q": 0.00067,
+      "CPE_alpha": 0.83,
+      "Warburg_sigma": 4.0
+    }
+  },
+  "references": [
+    {
+      "url": "https://www.gamry.com/application-notes/EIS/basics-of-electrochemical-impedance-spectroscopy/",
+      "title": "Basics of Electrochemical Impedance Spectroscopy",
+      "supports": "Complex impedance, series/parallel Randles topology, CPE and semi-infinite Warburg conventions; numbers self-chosen.",
+      "scope": "model_definition_only",
+      "checked_date": "2026-10-01"
+    }
+  ],
+  "limitations": [
+    "No circuit fit, experimental validation, transport coefficient or microscopic mechanism."
+  ]
+}

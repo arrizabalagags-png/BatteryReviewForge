@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "model_class": "phenomenological_model",
+  "data_origin": "original_synthetic",
+  "parameter_origin": "explicit teaching choices; not reported measurements",
+  "validation_scope": "Declared teaching model; no experimental/material certification",
+  "equations": [
+    "2theta=2*asin(lambda/(2*d)) in degrees (first order)",
+    "d1(p)=2.425*(1-0.022*p) A; d2(p)=2.075*(1+0.018*p) A",
+    "I(2theta,p)=background+sum(amplitude*exp(-0.5*((2theta-center)/sigma)^2))",
+    "V(p)=3.20+0.83*p+0.18*p^7"
+  ],
+  "assumptions": [
+    "Two independent fictitious d-spacings, not indexed planes of a refined shared crystal.",
+    "p is chosen fractional progression, not measured SOC; voltage is an independent display function.",
+    "Gaussian widths, amplitudes and background are display parameters, not structure factors or measured diffraction.",
+    "Legacy soc_fraction field stores display progress, not measured state of charge."
+  ],
+  "parameters": {
+    "wavelength_A": 1.5406,
+    "d1_initial_A": 2.425,
+    "d2_initial_A": 2.075,
+    "strain1_at_p1": -0.022,
+    "strain2_at_p1": 0.018,
+    "sigma_deg": [
+      0.13,
+      0.15
+    ],
+    "amplitudes_au": [
+      0.9,
+      0.77
+    ],
+    "background_au": 0.045
+  },
+  "references": [
+    {
+      "url": "https://dictionary.iucr.org/Bragg%27s_law",
+      "title": "IUCr Online Dictionary: Bragg's law",
+      "supports": "Diffraction angle versus wavelength and d spacing; no material assignment or literature numerical data.",
+      "scope": "model_definition_only",
+      "checked_date": "2026-10-01"
+    }
+  ],
+  "limitations": [
+    "No phase transition, crystallographic refinement, material identity or voltage-driven causality is demonstrated."
+  ]
+}
