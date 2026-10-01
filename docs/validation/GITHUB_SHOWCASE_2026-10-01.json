@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-10-01",
-  "status": "PREPARED",
+  "status": "PUBLISHED",
   "scope": "GitHub README/gallery only; no skill-package, tag, release, website or ECS deployment",
   "base_main": "b2053eb81c76c3d619fa8e3366b1b64a4f994537",
   "figure_count": 4,
@@ -163,5 +163,494 @@
     "output_folder_not_created": true
   },
   "readme_local_links": "PASS",
-  "gallery_urls": "Absolute repo main links retained so the README in a skill ZIP does not require gallery assets in that ZIP"
+  "gallery_urls": "Absolute repo main links retained so the README in a skill ZIP does not require gallery assets in that ZIP",
+  "publication": {
+    "gallery_commit": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+    "default_branch": "main",
+    "remote_main_readback_before_receipt_commit": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+    "verified_at_utc": "2026-10-01 08:31:27 UTC",
+    "github_url": "https://github.com/arrizabalagags-png/Voltpeer-skills",
+    "commit_url": "https://github.com/arrizabalagags-png/Voltpeer-skills/commit/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+    "gallery_changed_files": [
+      "README.en.md",
+      "README.md",
+      "assets/github-showcase/.gitattributes",
+      "assets/github-showcase/README.md",
+      "assets/github-showcase/data/PROVENANCE.json",
+      "assets/github-showcase/data/eis/basis.json",
+      "assets/github-showcase/data/eis/data.csv",
+      "assets/github-showcase/data/eis/model.json",
+      "assets/github-showcase/data/eis_frequency/basis.json",
+      "assets/github-showcase/data/eis_frequency/data.csv",
+      "assets/github-showcase/data/full_cell/basis.json",
+      "assets/github-showcase/data/full_cell/data.csv",
+      "assets/github-showcase/data/li_cu_ce/basis.json",
+      "assets/github-showcase/data/li_cu_ce/data.csv",
+      "assets/github-showcase/data/operando_xrd/basis.json",
+      "assets/github-showcase/data/operando_xrd/data.csv",
+      "assets/github-showcase/data/raman_series/basis.json",
+      "assets/github-showcase/data/raman_series/data.csv",
+      "assets/github-showcase/data/xps_components/basis.json",
+      "assets/github-showcase/data/xps_components/data.csv",
+      "assets/github-showcase/eis-cpe-warburg.png",
+      "assets/github-showcase/eis-cpe-warburg.svg",
+      "assets/github-showcase/eis-ideal-rc.png",
+      "assets/github-showcase/eis-ideal-rc.svg",
+      "assets/github-showcase/render-checks.json",
+      "assets/github-showcase/six-panel-layout.png",
+      "assets/github-showcase/six-panel-layout.svg",
+      "assets/github-showcase/structure-spectra.png",
+      "assets/github-showcase/structure-spectra.svg",
+      "docs/validation/GITHUB_SHOWCASE_2026-10-01.json",
+      "docs/validation/GITHUB_SHOWCASE_2026-10-01.md",
+      "examples/github_showcase/render.py",
+      "examples/github_showcase/requirements.txt"
+    ],
+    "excluded": [
+      "skill and distribution package changes",
+      "release or version tags",
+      "GitHub Pages",
+      "private website files",
+      "ECS deployment"
+    ]
+  },
+  "anonymous_readback": {
+    "status": "PASS",
+    "gallery_commit": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+    "request_count": 37,
+    "files": [
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "README.md",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/README.md",
+        "http_status": 200,
+        "bytes": 10300,
+        "sha256": "cba5458c1d646b82c797f690fbdcfdba48205246d36e897dfebe11d05f5bb61e",
+        "expected_sha256": "cba5458c1d646b82c797f690fbdcfdba48205246d36e897dfebe11d05f5bb61e",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "README.en.md",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/README.en.md",
+        "http_status": 200,
+        "bytes": 11233,
+        "sha256": "c28fef5ff91e57276dfd35131e59a83cbc1aea2fdf1c34a51fb40ce6c7f6beb7",
+        "expected_sha256": "c28fef5ff91e57276dfd35131e59a83cbc1aea2fdf1c34a51fb40ce6c7f6beb7",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/data/eis/basis.json",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/data/eis/basis.json",
+        "http_status": 200,
+        "bytes": 1777,
+        "sha256": "867a5ba0d8510d9ab3a089f0880f7cf32b1aae971ac81bcfbc46e09f6e8b96e3",
+        "expected_sha256": "867a5ba0d8510d9ab3a089f0880f7cf32b1aae971ac81bcfbc46e09f6e8b96e3",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/data/eis/data.csv",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/data/eis/data.csv",
+        "http_status": 200,
+        "bytes": 10261,
+        "sha256": "187d66d615d2151217d94f23d50a488800623e61357e4ce4a75ef945096ffa3c",
+        "expected_sha256": "187d66d615d2151217d94f23d50a488800623e61357e4ce4a75ef945096ffa3c",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/data/eis/model.json",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/data/eis/model.json",
+        "http_status": 200,
+        "bytes": 2626,
+        "sha256": "5906ec0e0c66dd1a01890c99ee0c1d8600a2362bea929fb683955d519c407ed1",
+        "expected_sha256": "5906ec0e0c66dd1a01890c99ee0c1d8600a2362bea929fb683955d519c407ed1",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/data/eis_frequency/basis.json",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/data/eis_frequency/basis.json",
+        "http_status": 200,
+        "bytes": 1488,
+        "sha256": "c37049ebdf741c020ff6b8f5dcc1e2a1bcc607fff2fcd2e6feb5c80fd53e6abc",
+        "expected_sha256": "c37049ebdf741c020ff6b8f5dcc1e2a1bcc607fff2fcd2e6feb5c80fd53e6abc",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/data/eis_frequency/data.csv",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/data/eis_frequency/data.csv",
+        "http_status": 200,
+        "bytes": 14365,
+        "sha256": "09cb70965be2564365229285cc32fff3f339dc182aa07c0119ed82599efda83e",
+        "expected_sha256": "09cb70965be2564365229285cc32fff3f339dc182aa07c0119ed82599efda83e",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/data/full_cell/basis.json",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/data/full_cell/basis.json",
+        "http_status": 200,
+        "bytes": 2871,
+        "sha256": "da92ea2e439d4f9efb3f72832a2f90ae98a52b85abe8129c4b80cf741c01dcc7",
+        "expected_sha256": "da92ea2e439d4f9efb3f72832a2f90ae98a52b85abe8129c4b80cf741c01dcc7",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/data/full_cell/data.csv",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/data/full_cell/data.csv",
+        "http_status": 200,
+        "bytes": 72260,
+        "sha256": "1b8204c7d72bab8dac45e5827913230609c1e146609fd57a68a5d79bec4352f4",
+        "expected_sha256": "1b8204c7d72bab8dac45e5827913230609c1e146609fd57a68a5d79bec4352f4",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/data/li_cu_ce/basis.json",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/data/li_cu_ce/basis.json",
+        "http_status": 200,
+        "bytes": 1660,
+        "sha256": "9e98b2ac8ad9f99e272c42412b2897a68945a826d5e0f3d35edf06c12e5a3054",
+        "expected_sha256": "9e98b2ac8ad9f99e272c42412b2897a68945a826d5e0f3d35edf06c12e5a3054",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/data/li_cu_ce/data.csv",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/data/li_cu_ce/data.csv",
+        "http_status": 200,
+        "bytes": 24571,
+        "sha256": "cc4d9a633247ae4df9fada1b15e2adf7f6767c65be21532639c2374f5d8970f6",
+        "expected_sha256": "cc4d9a633247ae4df9fada1b15e2adf7f6767c65be21532639c2374f5d8970f6",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/data/operando_xrd/basis.json",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/data/operando_xrd/basis.json",
+        "http_status": 200,
+        "bytes": 1788,
+        "sha256": "26ea0679b37c3de72e3bc914a430cc8dacbbd5a1d5b13dd3a15a44b53dc9bf43",
+        "expected_sha256": "26ea0679b37c3de72e3bc914a430cc8dacbbd5a1d5b13dd3a15a44b53dc9bf43",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/data/operando_xrd/data.csv",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/data/operando_xrd/data.csv",
+        "http_status": 200,
+        "bytes": 1243040,
+        "sha256": "7ed4b6b1ce6da4b978f08a1f1e60c9ed5a87a0b7b6f88d2e8580082cd9ad654a",
+        "expected_sha256": "7ed4b6b1ce6da4b978f08a1f1e60c9ed5a87a0b7b6f88d2e8580082cd9ad654a",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/data/PROVENANCE.json",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/data/PROVENANCE.json",
+        "http_status": 200,
+        "bytes": 4287,
+        "sha256": "44cb6f329046ed521e67e7bb1171c4f7370c322af9019b681f5d9b4bb45b6f3a",
+        "expected_sha256": "44cb6f329046ed521e67e7bb1171c4f7370c322af9019b681f5d9b4bb45b6f3a",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/data/raman_series/basis.json",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/data/raman_series/basis.json",
+        "http_status": 200,
+        "bytes": 1222,
+        "sha256": "fb669acd6d1872104785d16dc5a591fd3b26be41c16e42d5e6159dbef74969d8",
+        "expected_sha256": "fb669acd6d1872104785d16dc5a591fd3b26be41c16e42d5e6159dbef74969d8",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/data/raman_series/data.csv",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/data/raman_series/data.csv",
+        "http_status": 200,
+        "bytes": 93925,
+        "sha256": "d5f12b7638cf67f635a3cf4fb5568bb4920576151764d7e971b8c7ae5e375948",
+        "expected_sha256": "d5f12b7638cf67f635a3cf4fb5568bb4920576151764d7e971b8c7ae5e375948",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/data/xps_components/basis.json",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/data/xps_components/basis.json",
+        "http_status": 200,
+        "bytes": 1883,
+        "sha256": "eb5349283f149bfeadf1c3bf7e0e580e41b029c00a076437431f48f67efb9c34",
+        "expected_sha256": "eb5349283f149bfeadf1c3bf7e0e580e41b029c00a076437431f48f67efb9c34",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/data/xps_components/data.csv",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/data/xps_components/data.csv",
+        "http_status": 200,
+        "bytes": 58109,
+        "sha256": "de8fcadbceeb63ae9922373d708ce23912960c89617c2ddf2e2fc7c4ddda703b",
+        "expected_sha256": "de8fcadbceeb63ae9922373d708ce23912960c89617c2ddf2e2fc7c4ddda703b",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/eis-cpe-warburg.png",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/eis-cpe-warburg.png",
+        "http_status": 200,
+        "bytes": 185038,
+        "sha256": "5ac84964b31ba155f6f665b95218ede192cefd74e4c381f55493f3814b1de354",
+        "expected_sha256": "5ac84964b31ba155f6f665b95218ede192cefd74e4c381f55493f3814b1de354",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/eis-cpe-warburg.svg",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/eis-cpe-warburg.svg",
+        "http_status": 200,
+        "bytes": 31376,
+        "sha256": "d12fc762b15efaafa0cd04c66719c5645f6d10c18ae7612d2a020084ca8c5fd0",
+        "expected_sha256": "d12fc762b15efaafa0cd04c66719c5645f6d10c18ae7612d2a020084ca8c5fd0",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/eis-ideal-rc.png",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/eis-ideal-rc.png",
+        "http_status": 200,
+        "bytes": 174731,
+        "sha256": "468b1080cf0fdcc9d9b88d85044a8a5348dfd65c063b9a90bd70fe25dbad6c2a",
+        "expected_sha256": "468b1080cf0fdcc9d9b88d85044a8a5348dfd65c063b9a90bd70fe25dbad6c2a",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/eis-ideal-rc.svg",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/eis-ideal-rc.svg",
+        "http_status": 200,
+        "bytes": 36576,
+        "sha256": "6d3ea87f5795bfd0055c4efd191fb4191fc8c1f4ba10d26d363f45e2c760be3c",
+        "expected_sha256": "6d3ea87f5795bfd0055c4efd191fb4191fc8c1f4ba10d26d363f45e2c760be3c",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/README.md",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/README.md",
+        "http_status": 200,
+        "bytes": 4528,
+        "sha256": "ee41f7491864890d0f0e8e750e6afccf4679c3f572e1d9c79af1c5e66ace5ef3",
+        "expected_sha256": "ee41f7491864890d0f0e8e750e6afccf4679c3f572e1d9c79af1c5e66ace5ef3",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/render-checks.json",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/render-checks.json",
+        "http_status": 200,
+        "bytes": 17842,
+        "sha256": "c05bade402c3568a9dadb78e3a2cb3a6828b708784ef67e7a219e88bee295874",
+        "expected_sha256": "c05bade402c3568a9dadb78e3a2cb3a6828b708784ef67e7a219e88bee295874",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/six-panel-layout.png",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/six-panel-layout.png",
+        "http_status": 200,
+        "bytes": 462441,
+        "sha256": "aeb179ca4a9ad46f4e094b3b0d8ebd0d0708a815dac8f4db8c312c6c1d6831c8",
+        "expected_sha256": "aeb179ca4a9ad46f4e094b3b0d8ebd0d0708a815dac8f4db8c312c6c1d6831c8",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/six-panel-layout.svg",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/six-panel-layout.svg",
+        "http_status": 200,
+        "bytes": 182166,
+        "sha256": "c3b8eca8b2ec5ebd212f821fe85ab3078badba73d9b3e484539b8e361d0e1b0a",
+        "expected_sha256": "c3b8eca8b2ec5ebd212f821fe85ab3078badba73d9b3e484539b8e361d0e1b0a",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/structure-spectra.png",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/structure-spectra.png",
+        "http_status": 200,
+        "bytes": 383049,
+        "sha256": "fdea43e4b1d43db55e5ababe08dc338597f8071bc66850b504514801e7b8b1c2",
+        "expected_sha256": "fdea43e4b1d43db55e5ababe08dc338597f8071bc66850b504514801e7b8b1c2",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/structure-spectra.svg",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/structure-spectra.svg",
+        "http_status": 200,
+        "bytes": 169391,
+        "sha256": "761ee284c944d3ce58c51205ab601f2da38800fd04b6740f725970006572910c",
+        "expected_sha256": "761ee284c944d3ce58c51205ab601f2da38800fd04b6740f725970006572910c",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "examples/github_showcase/render.py",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/examples/github_showcase/render.py",
+        "http_status": 200,
+        "bytes": 22706,
+        "sha256": "43b446b06fdb622faaff38def6e427beaccd8d3be418dc551caedf4bcf8f0252",
+        "expected_sha256": "43b446b06fdb622faaff38def6e427beaccd8d3be418dc551caedf4bcf8f0252",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "examples/github_showcase/requirements.txt",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/examples/github_showcase/requirements.txt",
+        "http_status": 200,
+        "bytes": 40,
+        "sha256": "2d3be8915118ac9c3c67689393b9c47e4a291ffd283f973547dec615ea35d8c1",
+        "expected_sha256": "2d3be8915118ac9c3c67689393b9c47e4a291ffd283f973547dec615ea35d8c1",
+        "byte_match": true
+      },
+      {
+        "revision": "6d82ec4cec8dd3ffecca8e8f7598264286bbbf86",
+        "path": "assets/github-showcase/.gitattributes",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/6d82ec4cec8dd3ffecca8e8f7598264286bbbf86/assets/github-showcase/.gitattributes",
+        "http_status": 200,
+        "bytes": 146,
+        "sha256": "ada3af2b54f570971bd1fdc599745f30d7d5dfdccd5ddefe13915e1d34b8af3b",
+        "expected_sha256": "ada3af2b54f570971bd1fdc599745f30d7d5dfdccd5ddefe13915e1d34b8af3b",
+        "byte_match": true
+      },
+      {
+        "revision": "main",
+        "path": "README.md",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/README.md",
+        "http_status": 200,
+        "bytes": 10300,
+        "sha256": "cba5458c1d646b82c797f690fbdcfdba48205246d36e897dfebe11d05f5bb61e",
+        "expected_sha256": "cba5458c1d646b82c797f690fbdcfdba48205246d36e897dfebe11d05f5bb61e",
+        "byte_match": true
+      },
+      {
+        "revision": "main",
+        "path": "README.en.md",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/README.en.md",
+        "http_status": 200,
+        "bytes": 11233,
+        "sha256": "c28fef5ff91e57276dfd35131e59a83cbc1aea2fdf1c34a51fb40ce6c7f6beb7",
+        "expected_sha256": "c28fef5ff91e57276dfd35131e59a83cbc1aea2fdf1c34a51fb40ce6c7f6beb7",
+        "byte_match": true
+      },
+      {
+        "revision": "main",
+        "path": "assets/github-showcase/structure-spectra.png",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/structure-spectra.png",
+        "http_status": 200,
+        "bytes": 383049,
+        "sha256": "fdea43e4b1d43db55e5ababe08dc338597f8071bc66850b504514801e7b8b1c2",
+        "expected_sha256": "fdea43e4b1d43db55e5ababe08dc338597f8071bc66850b504514801e7b8b1c2",
+        "byte_match": true
+      },
+      {
+        "revision": "main",
+        "path": "assets/github-showcase/eis-cpe-warburg.png",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/eis-cpe-warburg.png",
+        "http_status": 200,
+        "bytes": 185038,
+        "sha256": "5ac84964b31ba155f6f665b95218ede192cefd74e4c381f55493f3814b1de354",
+        "expected_sha256": "5ac84964b31ba155f6f665b95218ede192cefd74e4c381f55493f3814b1de354",
+        "byte_match": true
+      },
+      {
+        "revision": "main",
+        "path": "assets/github-showcase/eis-ideal-rc.png",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/eis-ideal-rc.png",
+        "http_status": 200,
+        "bytes": 174731,
+        "sha256": "468b1080cf0fdcc9d9b88d85044a8a5348dfd65c063b9a90bd70fe25dbad6c2a",
+        "expected_sha256": "468b1080cf0fdcc9d9b88d85044a8a5348dfd65c063b9a90bd70fe25dbad6c2a",
+        "byte_match": true
+      },
+      {
+        "revision": "main",
+        "path": "assets/github-showcase/six-panel-layout.png",
+        "url": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/six-panel-layout.png",
+        "http_status": 200,
+        "bytes": 462441,
+        "sha256": "aeb179ca4a9ad46f4e094b3b0d8ebd0d0708a815dac8f4db8c312c6c1d6831c8",
+        "expected_sha256": "aeb179ca4a9ad46f4e094b3b0d8ebd0d0708a815dac8f4db8c312c6c1d6831c8",
+        "byte_match": true
+      }
+    ],
+    "authentication": "none"
+  },
+  "github_browser": {
+    "status": "PASS",
+    "url": "https://github.com/arrizabalagags-png/Voltpeer-skills",
+    "authentication": "none",
+    "http_status": 200,
+    "viewport": {
+      "width": 1365,
+      "height": 1000
+    },
+    "figures": [
+      {
+        "slug": "structure-spectra",
+        "src": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/structure-spectra.png",
+        "alt": "结构与光谱合成演示：Bragg 定律峰位演化、选定进度的衍射曲线、通用 Raman 谱和已知谱峰成分",
+        "naturalWidth": 2300,
+        "naturalHeight": 1850,
+        "renderedWidth": 838,
+        "renderedHeight": 674.03125,
+        "visible": true,
+        "screenshot": "github-structure-spectra.png"
+      },
+      {
+        "slug": "eis-cpe-warburg",
+        "src": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/eis-cpe-warburg.png",
+        "alt": "合成 CPE 与 Warburg 模型：横纵等尺度 Nyquist、阻抗模值和真实有符号相位",
+        "naturalWidth": 2300,
+        "naturalHeight": 1150,
+        "renderedWidth": 838,
+        "renderedHeight": 419,
+        "visible": true,
+        "screenshot": "github-eis-cpe-warburg.png"
+      },
+      {
+        "slug": "six-panel-layout",
+        "src": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/six-panel-layout.png",
+        "alt": "六面板排版演示：独立模型的库伦效率、半电池容量、EIS、衍射与计数光谱；不代表同一实验研究",
+        "naturalWidth": 2300,
+        "naturalHeight": 2500,
+        "renderedWidth": 838,
+        "renderedHeight": 910.859375,
+        "visible": true,
+        "screenshot": "github-six-panel-layout.png"
+      },
+      {
+        "slug": "eis-ideal-rc",
+        "src": "https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/eis-ideal-rc.png",
+        "alt": "原创理想 RC 电路合成示例：等尺度半圆 Nyquist、阻抗模值及相位",
+        "naturalWidth": 2300,
+        "naturalHeight": 1150,
+        "renderedWidth": 838,
+        "renderedHeight": 419,
+        "visible": true,
+        "screenshot": "github-eis-ideal-rc.png"
+      }
+    ],
+    "readme_overflow": {
+      "clientWidth": 838,
+      "scrollWidth": 838
+    },
+    "screenshots_location": "Ignored local outputs/gallery-qa; normal-width image screenshots also manually inspected"
+  }
 }
