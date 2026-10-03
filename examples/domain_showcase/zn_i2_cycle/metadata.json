@@ -1,0 +1,140 @@
+{
+  "id": "zn_i2_cycle",
+  "title": "Zn-I₂ 长循环与 CE",
+  "domain": "zinc",
+  "type": "demo",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260935,
+  "source_files": [
+    "data.csv"
+  ],
+  "variables_and_units": [
+    "cycle",
+    "capacity_mAh_g_iodine",
+    "ce_percent",
+    "charge_capacity_mAh_g_iodine"
+  ],
+  "test_conditions": "Original Zn-I2 accessible-cathode-capacity model with excess zinc; per gram I2, I2+2e->2I- only, no carbon/extra redox capacity; independent charge/discharge ledger, no CE-product lifetime law",
+  "render_options": {
+    "recipe": "zn_i2_cycle"
+  },
+  "reproduce": "python render_existing.py --output new-result",
+  "creator": "VoltPeer maintainers",
+  "license": "MIT",
+  "generator_version": "1.6",
+  "limitations": "Declared teaching model only; no measured device, mechanism or material certification. This generator does not adapt experimental data.",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "phenomenological_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "I2+2e- -> 2I-; Q_theoretical=2*F/(3.6*M_I2) mAh/g_I2",
+      "Q_discharge=175*exp(-cycle/1600)+Normal(0,0.8) mAh/g_I2",
+      "CE=99.2+Normal(0,0.1) percent; Q_charge=Q_discharge/(CE/100)"
+    ],
+    "assumptions": [
+      "Only the two-electron iodine couple contributes capacity; carbon/other redox contributions are zero.",
+      "Fade represents inaccessible iodine capacity; independent CE loss can be buffered by excess zinc."
+    ],
+    "parameters": {
+      "F_C_mol": 96485.33212,
+      "M_I2_g_mol": 253.80894,
+      "theoretical_Q_mAh_g_I2": 211.19414583619036,
+      "initial_accessible_Q_mAh_g_I2": 175,
+      "excess_Zn_counter_inventory": true
+    },
+    "references": [
+      {
+        "url": "https://www.nature.com/articles/s41467-020-20331-9",
+        "title": "A four-electron Zn-I2 aqueous battery",
+        "supports": "Explicit distinction between ordinary two-electron and additional four-electron iodine couples; no reported capacity is copied.",
+        "scope": "model_definition_only"
+      },
+      {
+        "url": "https://physics.nist.gov/cgi-bin/cuu/Value?f",
+        "title": "NIST CODATA: Faraday constant",
+        "supports": "Charge per mole of electrons for theoretical iodine capacity.",
+        "scope": "model_definition_only"
+      },
+      {
+        "url": "https://www.nature.com/articles/s41467-022-28381-x",
+        "title": "Experimental practices for rechargeable aqueous zinc batteries",
+        "supports": "Electrode configuration, inventory and denominator reporting boundaries; no numeric data is copied.",
+        "scope": "model_definition_only"
+      }
+    ],
+    "limitations": [
+      "All numeric material/rate parameters are original teaching assumptions, not measured or copied paper data.",
+      "No four-electron iodine, shuttle mechanism, loading/volume claim or full-cell CE-product life law."
+    ],
+    "validation_scope": "Original teaching-model equations, charge/energy/units and declared boundaries only; no experimental or material certification."
+  },
+  "actual_artist_checks": [
+    {
+      "panel": 0,
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "curve_styles": [
+        {
+          "linestyle": "None",
+          "marker": "o",
+          "points": 500,
+          "sampling": "cycle_scatter"
+        }
+      ],
+      "xlabel": "Cycle",
+      "ylabel": "Capacity (mAh g$^{-1}_{iodine}$)"
+    },
+    {
+      "panel": 1,
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "curve_styles": [
+        {
+          "linestyle": "None",
+          "marker": "o",
+          "points": 500,
+          "sampling": "cycle_scatter"
+        }
+      ],
+      "xlabel": "Cycle",
+      "ylabel": "Model capacity retention (%)"
+    },
+    {
+      "panel": 2,
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "curve_styles": [
+        {
+          "linestyle": "None",
+          "marker": "o",
+          "points": 500,
+          "sampling": "cycle_scatter"
+        }
+      ],
+      "xlabel": "",
+      "ylabel": "CE (%)"
+    }
+  ],
+  "curve_style_check": "Cycle quantities marker-only; continuous profiles solid/unmarked; user preference.",
+  "retention_reference": {
+    "reference_cycle": 1,
+    "reference_capacity": 174.64425068346046,
+    "formula": "100*Qdis(n)/Qdis(explicit cycle 1)",
+    "conditions": "same original teaching model; physical current/rate not simulated or supplied; no acquired cell normalization"
+  },
+  "current_bundle_entry": "render_existing.py; supplied CSV only; draw() called, never data() or main()"
+}

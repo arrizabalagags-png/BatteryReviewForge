@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "title": "Rate sequence and recovery step",
+  "panels": [
+    {
+      "xlabel": "Cycle in declared sequence",
+      "ylabel": "Specific capacity (mAh g⁻¹)",
+      "title": "Reversible rate protocol"
+    },
+    {
+      "xlabel": "Cycle in declared sequence",
+      "ylabel": "Measured R (h⁻¹)",
+      "title": "Actual rate sequence",
+      "kind": "step"
+    }
+  ],
+  "colours": [
+    "#287D8E",
+    "#BA5574",
+    "#4868A8",
+    "#A46D35",
+    "#655AA0",
+    "#387F64"
+  ],
+  "input_contract": "Panel indices are zero based. x/y meanings and units come from each panel. z is the row coordinate of rectangular heatmaps. Keep each series in its original row order. Changed author data need an adapted scientific contract."
+}

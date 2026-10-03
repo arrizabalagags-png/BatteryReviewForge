@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "resource_id": "li_li",
+  "data_status": "synthetic_demo",
+  "title": "Li symmetric cell",
+  "provenance": {
+    "input_origin": "original_synthetic_demo",
+    "demo_conditions_cleared": false
+  },
+  "labels": {},
+  "style": {
+    "width_mm": 180,
+    "font_pt": 8
+  },
+  "export": {
+    "formats": [
+      "pdf",
+      "svg",
+      "png",
+      "tiff"
+    ],
+    "png_dpi": 300,
+    "tiff_dpi": 300
+  },
+  "limits": {},
+  "data": {
+    "trace": {
+      "path": "demo/trace.csv",
+      "columns": {
+        "sample": "sample",
+        "time": "time",
+        "voltage": "voltage"
+      }
+    }
+  },
+  "units": {
+    "time": "h",
+    "voltage": "mV"
+  },
+  "view": {
+    "zoom": [
+      10,
+      14
+    ]
+  },
+  "conditions": {
+    "common": {
+      "metal": "Li",
+      "cell_configuration": "Li||Li",
+      "area_basis": "Illustrative projected electrode overlap area",
+      "current_density_mA_cm2": 1,
+      "half_cycle_areal_capacity_mAh_cm2": 1,
+      "temperature_C": 25,
+      "rest_protocol": "Illustrative no rest",
+      "failure_rule": "Illustrative input contains no experimental failure assignment"
+    },
+    "by_sample": {}
+  }
+}

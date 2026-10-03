@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="489.6pt" height="352.8pt" viewBox="0 0 489.6 352.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-03T11:08:13.643952</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.9.4, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 352.8 
+L 489.6 352.8 
+L 489.6 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 37.991178 320.411322 
+L 486.59976 320.411322 
+L 486.59976 46.158677 
+L 37.991178 46.158677 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="m89c8cf543c" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m89c8cf543c" x="126.353474" y="320.411322" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font: 9px 'DejaVu Sans'; text-anchor: middle" x="126.353474" y="334.249916" transform="rotate(-0 126.353474 334.249916)">0.2</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#m89c8cf543c" x="216.981471" y="320.411322" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font: 9px 'DejaVu Sans'; text-anchor: middle" x="216.981471" y="334.249916" transform="rotate(-0 216.981471 334.249916)">0.4</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#m89c8cf543c" x="307.609467" y="320.411322" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font: 9px 'DejaVu Sans'; text-anchor: middle" x="307.609467" y="334.249916" transform="rotate(-0 307.609467 334.249916)">0.6</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m89c8cf543c" x="398.237463" y="320.411322" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font: 9px 'DejaVu Sans'; text-anchor: middle" x="398.237463" y="334.249916" transform="rotate(-0 398.237463 334.249916)">0.8</text>
+     </g>
+    </g>
+    <g id="text_5">
+     <text style="font: 10px 'DejaVu Sans'; text-anchor: middle" x="262.295469" y="347.720073" transform="rotate(-0 262.295469 347.720073)">Declared atomic fraction A</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_5">
+      <defs>
+       <path id="m9e4a718a88" d="M 0 0 
+L -3.5 0 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m9e4a718a88" x="37.991178" y="267.924051" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font: 9px 'DejaVu Sans'; text-anchor: end" x="30.991178" y="271.343348" transform="rotate(-0 30.991178 271.343348)">0.2</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m9e4a718a88" x="37.991178" y="214.562395" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font: 9px 'DejaVu Sans'; text-anchor: end" x="30.991178" y="217.981692" transform="rotate(-0 30.991178 217.981692)">0.4</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#m9e4a718a88" x="37.991178" y="161.20074" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font: 9px 'DejaVu Sans'; text-anchor: end" x="30.991178" y="164.620036" transform="rotate(-0 30.991178 164.620036)">0.6</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m9e4a718a88" x="37.991178" y="107.839084" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font: 9px 'DejaVu Sans'; text-anchor: end" x="30.991178" y="111.258381" transform="rotate(-0 30.991178 111.258381)">0.8</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_9">
+      <g>
+       <use xlink:href="#m9e4a718a88" x="37.991178" y="54.477428" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_10">
+      <text style="font: 9px 'DejaVu Sans'; text-anchor: end" x="30.991178" y="57.896725" transform="rotate(-0 30.991178 57.896725)">1.0</text>
+     </g>
+    </g>
+    <g id="text_11">
+     <text style="font: 10px 'DejaVu Sans'; text-anchor: middle" x="10.598678" y="183.285" transform="rotate(-90 10.598678 183.285)">Recovered fraction A</text>
+    </g>
+   </g>
+   <g id="line2d_10">
+    <path d="M 58.382477 281.463576 
+L 63.480302 273.624002 
+L 68.578126 266.136455 
+L 73.675951 258.977744 
+L 78.773776 252.126672 
+L 83.871601 245.563825 
+L 90.6687 237.231134 
+L 97.4658 229.341027 
+L 104.2629 221.859154 
+L 111.06 214.754632 
+L 117.857099 207.999615 
+L 124.654199 201.568931 
+L 131.451299 195.43977 
+L 138.248399 189.591411 
+L 145.045498 184.004988 
+L 151.842598 178.663289 
+L 160.338973 172.306465 
+L 168.835347 166.279661 
+L 177.331722 160.557828 
+L 185.828097 155.118389 
+L 194.324471 149.940941 
+L 202.820846 145.007001 
+L 211.317221 140.299785 
+L 221.51287 134.928987 
+L 231.70852 129.83887 
+L 241.90417 125.007992 
+L 252.099819 120.417038 
+L 262.295469 116.048569 
+L 274.190393 111.212235 
+L 286.085318 106.634707 
+L 297.980242 102.295753 
+L 309.875167 98.177194 
+L 323.469366 93.71921 
+L 337.063566 89.505817 
+L 350.657765 85.517425 
+L 365.95124 81.277642 
+L 381.244714 77.278135 
+L 396.538189 73.499042 
+L 413.530938 69.537055 
+L 430.523687 65.803676 
+L 449.215711 61.938112 
+L 466.208461 58.624707 
+L 466.208461 58.624707 
+" clip-path="url(#pb976e47389)" style="fill: none; stroke: #287d8e; stroke-width: 1.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_11">
+    <path d="M 58.382477 307.945293 
+L 466.208461 67.817842 
+L 466.208461 67.817842 
+" clip-path="url(#pb976e47389)" style="fill: none; stroke: #ba5574; stroke-width: 1.8; stroke-linecap: square"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 37.991178 320.411323 
+L 37.991178 46.158678 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 486.59976 320.411323 
+L 486.59976 46.158678 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 37.991178 320.411322 
+L 486.59976 320.411322 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 37.991178 46.158677 
+L 486.59976 46.158677 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_12">
+    <text style="font: 10px 'DejaVu Sans'; text-anchor: start" x="37.991178" y="10.598677" transform="rotate(-0 37.991178 10.598677)">Sensitivity factors and atomic-fraction normalization</text>
+   </g>
+   <g id="legend_1">
+    <g id="line2d_12">
+     <path d="M 41.591178 33.423169 
+L 50.591178 33.423169 
+L 59.591178 33.423169 
+" style="fill: none; stroke: #287d8e; stroke-width: 1.8; stroke-linecap: square"/>
+    </g>
+    <g id="text_13">
+     <text style="font: 9px 'DejaVu Sans'; text-anchor: start" x="66.791178" y="36.573169" transform="rotate(-0 66.791178 36.573169)">Raw intensity fraction</text>
+    </g>
+    <g id="line2d_13">
+     <path d="M 183.027584 33.423169 
+L 192.027584 33.423169 
+L 201.027584 33.423169 
+" style="fill: none; stroke: #ba5574; stroke-width: 1.8; stroke-linecap: square"/>
+    </g>
+    <g id="text_14">
+     <text style="font: 9px 'DejaVu Sans'; text-anchor: start" x="208.227584" y="36.573169" transform="rotate(-0 208.227584 36.573169)">Sensitivity-corrected</text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pb976e47389">
+   <rect x="37.991178" y="46.158678" width="448.608582" height="274.252645"/>
+  </clipPath>
+ </defs>
+</svg>

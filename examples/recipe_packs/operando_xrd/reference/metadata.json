@@ -1,0 +1,93 @@
+{
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "generator_version": "1.6",
+  "figure_grammar_id": "adaptable_recipe:operando_xrd",
+  "test_conditions": "{\"radiation\": \"Illustrative Cu K-alpha; not acquired\", \"wavelength_A\": 1.5406, \"cell_configuration\": \"Illustrative operando cell\", \"progress_definition\": \"Illustrative fractional charging progress; not measured SOC\", \"synchronization\": \"Illustrative equal coordinate endpoints; no measured timestamps\", \"intensity_normalization\": \"Invented model values; no experimental normalization\"}",
+  "variables_and_units": {
+    "two_theta": "deg",
+    "progress": "fraction",
+    "intensity": "a.u.",
+    "voltage": "V"
+  },
+  "source_files": [
+    "../config.demo.json",
+    "../demo/model.json",
+    "data_checks.json",
+    "../demo/diffraction.csv",
+    "../demo/voltage.csv"
+  ],
+  "creator": "VoltPeer original recipe generator and its own CSV/config renderer",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "phenomenological_model",
+    "data_origin": "original_synthetic",
+    "parameter_origin": "explicit teaching choices; not reported measurements",
+    "validation_scope": "Declared teaching model; no experimental/material certification",
+    "equations": [
+      "2theta=2*asin(lambda/(2*d)) in degrees (first order)",
+      "d1(p)=2.38*(1-0.012*p) A; d2(p)=2.18*(1+0.008*p) A",
+      "I(2theta,p)=background+sum(amplitude*exp(-0.5*((2theta-center)/sigma)^2))",
+      "V(p)=3.1+1.1*p"
+    ],
+    "assumptions": [
+      "Two independent fictitious d-spacings, not indexed planes of a refined shared crystal.",
+      "p is chosen fractional progression, not measured SOC; voltage is an independent display function.",
+      "Gaussian widths, amplitudes and background are display parameters, not structure factors or measured diffraction."
+    ],
+    "parameters": {
+      "wavelength_A": 1.5406,
+      "d1_initial_A": 2.38,
+      "d2_initial_A": 2.18,
+      "strain1_at_p1": -0.012,
+      "strain2_at_p1": 0.008,
+      "sigma_deg": [
+        0.21,
+        0.28
+      ],
+      "amplitudes_au": [
+        1,
+        0.6
+      ],
+      "background_au": 0.04
+    },
+    "references": [
+      {
+        "url": "https://dictionary.iucr.org/Bragg%27s_law",
+        "title": "IUCr Online Dictionary: Bragg's law",
+        "supports": "Diffraction angle versus wavelength and d spacing; no material assignment or literature numerical data.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "limitations": [
+      "No phase transition, crystallographic refinement, material identity or voltage-driven causality is demonstrated."
+    ]
+  },
+  "reproduce": "python src/plot.py --config config.demo.json --out Working-demo",
+  "data_frame_check": "pass: actual own-reference data axes show all four frame spines",
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 2,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    }
+  ],
+  "review": {
+    "science": "Demo model equations and ledger have scoped automated checks; no experimental certification.",
+    "display": "Rendered locally from this same pack; independent visual and author review remain pending."
+  }
+}

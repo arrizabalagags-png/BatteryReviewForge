@@ -1,0 +1,248 @@
+{
+  "id": "paper_flow_efficiency",
+  "title": "液流电池三种效率",
+  "domain": "storage",
+  "type": "demo",
+  "license": "MIT",
+  "scope": "Paper-informed original analytic teaching model; no copied points or figure.",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "source_files": [
+    "data.csv",
+    "model.json"
+  ],
+  "test_conditions": "Declared analytic parameters in scientific_basis.parameters; no experimental cell or material is assigned.",
+  "variables_and_units": {
+    "1": [
+      "Cycle number",
+      "Efficiency (%)"
+    ],
+    "2": [
+      "Cycle number",
+      "Mean voltage (V)"
+    ]
+  },
+  "creator": "VoltPeer",
+  "generator_version": "1.0.0",
+  "reproduce": "python render_existing.py --output new-result-folder",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "CE=Qdis/Qch; VE=(Edis/Qdis)/(Ech/Qch); EE=Edis/Ech=CE*VE"
+    ],
+    "assumptions": [
+      "Original explicitly idealised model; parameters are illustrative and do not describe the referenced experiment."
+    ],
+    "parameters": {
+      "Qcharge_mAh": 10,
+      "constant_current_branch": true,
+      "charge_voltage": "1.6+0.0005n",
+      "discharge_voltage": "1.35-0.0005n"
+    },
+    "references": [
+      {
+        "title": "Development of high-voltage and high-energy membrane-free nonaqueous lithium-based organic redox flow batteries",
+        "doi": "10.1038/s41467-023-40374-y",
+        "url": "https://www.nature.com/articles/s41467-023-40374-y",
+        "figure_panel": "Figure 3b–d; Figure 6",
+        "supports": "Charge, voltage and energy-efficiency relations; not the chemical system or measured values.",
+        "checked_at": "2026-10-02",
+        "scope": "Publisher caption / equation / measurement caveat checked. Original analytic teaching inputs; no paper points, images or material inference copied.",
+        "support_level": "plot form / caption",
+        "formula_scope": "The listed equations are declared teaching assumptions. A plot-form reference does not independently verify every analytic line shape, parameter or inference."
+      }
+    ],
+    "limitations": [
+      "Constant branch voltage model; real voltage means are charge-weighted integrals. Not arithmetic means from unmatched time series; no chemistry assignment."
+    ],
+    "validation_scope": "Analytic consistency / dimensional accounting / original synthetic redraw only. Not validation of an actual material or author-supplied measurement."
+  },
+  "reference": {
+    "doi": "10.1038/s41467-023-40374-y",
+    "figure_panel": "Figure 3b–d; Figure 6",
+    "observation": "Charge, voltage and energy-efficiency relations; not the chemical system or measured values.",
+    "review_scope": "Publisher caption / equation / measurement caveat checked. Original analytic teaching inputs; no paper points, images or material inference copied.",
+    "default_template": false
+  },
+  "review": {
+    "science": "Analytic consistency and units checked; no material validation.",
+    "display": "Actual artist, frame and text-bound checks; inspect exported figure at final size."
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "CE",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 100,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "VE",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 100,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "EE",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 100,
+          "sampling": "cycle_scatter"
+        }
+      ],
+      "xlabel": "Cycle number",
+      "ylabel": "Efficiency (%)"
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Charge",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 100,
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "Discharge",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 100,
+          "sampling": "continuous_solid"
+        }
+      ],
+      "xlabel": "Cycle number",
+      "ylabel": "Mean voltage (V)"
+    }
+  ],
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "CE",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 100,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "VE",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 100,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "EE",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 100,
+          "sampling": "cycle_scatter"
+        }
+      ],
+      "xlabel": "Cycle number",
+      "ylabel": "Efficiency (%)"
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Charge",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 100,
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "Discharge",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 100,
+          "sampling": "continuous_solid"
+        }
+      ],
+      "xlabel": "Cycle number",
+      "ylabel": "Mean voltage (V)"
+    }
+  ],
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "CE",
+      "points": 100,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#287d8e",
+      "sampling": "cycle_scatter"
+    },
+    {
+      "panel_index": 0,
+      "label": "VE",
+      "points": 100,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#ba5574",
+      "sampling": "cycle_scatter"
+    },
+    {
+      "panel_index": 0,
+      "label": "EE",
+      "points": 100,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#4868a8",
+      "sampling": "cycle_scatter"
+    },
+    {
+      "panel_index": 1,
+      "label": "Charge",
+      "points": 100,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#287d8e",
+      "sampling": "continuous_solid"
+    },
+    {
+      "panel_index": 1,
+      "label": "Discharge",
+      "points": 100,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#ba5574",
+      "sampling": "continuous_solid"
+    }
+  ],
+  "curve_style_check": "Cycle capacity/CE/charge ledger: marker-only; continuous profiles: solid/unmarked; user display preference.",
+  "data_frame_check": "All four spines visible on every data axis."
+}

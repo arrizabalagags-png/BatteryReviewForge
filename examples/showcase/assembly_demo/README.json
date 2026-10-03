@@ -11,6 +11,10 @@
   ],
   "instruction": "Assemble a–f without panel subtitles or data changes.",
   "ready_manifest": "figure_manifest.json",
-  "alignment_report": "assembled-example.qa.json",
+  "alignment_report": "assembled-example_v005.qa.json",
+  "assembled_files": [
+    "assembled-example_v005.png",
+    "assembled-example_v005.pdf"
+  ],
   "note": "Panel crops use common column x-rulers and row y-rulers; measured plot boxes are recorded in the manifest."
 }

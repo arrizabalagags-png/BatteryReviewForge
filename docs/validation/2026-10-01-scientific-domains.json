@@ -1,0 +1,582 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-01",
+  "scope": "Declared original synthetic models and physical identities only; not experimental/material/mechanistic certification.",
+  "status": "PASS",
+  "recipes": 22,
+  "checks": [
+    {
+      "recipe": "cyclic_voltammetry",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "phenomenological_model",
+      "source_files": [
+        "data.csv"
+      ]
+    },
+    {
+      "recipe": "differential_capacity",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "phenomenological_model",
+      "source_files": [
+        "data.csv"
+      ]
+    },
+    {
+      "recipe": "gitt_pulse",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "analytic_model",
+      "source_files": [
+        "data.csv"
+      ]
+    },
+    {
+      "recipe": "ionic_conductivity",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "analytic_model",
+      "source_files": [
+        "data.csv"
+      ]
+    },
+    {
+      "recipe": "xps_components",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "phenomenological_model",
+      "source_files": [
+        "data.csv"
+      ]
+    },
+    {
+      "recipe": "raman_series",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "phenomenological_model",
+      "source_files": [
+        "data.csv"
+      ]
+    },
+    {
+      "recipe": "ftir",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "analytic_model",
+      "source_files": [
+        "data.csv"
+      ]
+    },
+    {
+      "recipe": "nmr",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "phenomenological_model",
+      "source_files": [
+        "data.csv"
+      ]
+    },
+    {
+      "recipe": "rdf_coordination",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "analytic_model",
+      "source_files": [
+        "data.csv"
+      ]
+    },
+    {
+      "recipe": "msd",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "analytic_model",
+      "source_files": [
+        "data.csv"
+      ]
+    },
+    {
+      "recipe": "lsv",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "analytic_model",
+      "source_files": [
+        "data.csv"
+      ]
+    },
+    {
+      "recipe": "transference",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "analytic_model",
+      "source_files": [
+        "data.csv",
+        "eis.csv"
+      ]
+    },
+    {
+      "recipe": "na_metal_ce",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "phenomenological_model",
+      "source_files": [
+        "data.csv"
+      ]
+    },
+    {
+      "recipe": "k_ion_rate",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "phenomenological_model",
+      "source_files": [
+        "data.csv"
+      ]
+    },
+    {
+      "recipe": "zn_plating_ce",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "phenomenological_model",
+      "source_files": [
+        "data.csv"
+      ]
+    },
+    {
+      "recipe": "zn_symmetric",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "phenomenological_model",
+      "source_files": [
+        "data.csv"
+      ]
+    },
+    {
+      "recipe": "zn_air_power",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "phenomenological_model",
+      "source_files": [
+        "data.csv"
+      ]
+    },
+    {
+      "recipe": "zn_i2_cycle",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "phenomenological_model",
+      "source_files": [
+        "data.csv"
+      ]
+    },
+    {
+      "recipe": "flow_efficiency",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "analytic_model",
+      "source_files": [
+        "data.csv",
+        "cycle_profiles.csv"
+      ]
+    },
+    {
+      "recipe": "pv_jv",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "analytic_model",
+      "source_files": [
+        "data.csv",
+        "metrics.json"
+      ]
+    },
+    {
+      "recipe": "pv_stability",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "phenomenological_model",
+      "source_files": [
+        "data.csv"
+      ]
+    },
+    {
+      "recipe": "pv_trpl",
+      "assertion": "Metadata schema, original provenance, declared units/conditions, source closure and actual four-sided data frames",
+      "status": "PASS",
+      "model_class": "analytic_model",
+      "source_files": [
+        "data.csv"
+      ]
+    },
+    {
+      "recipe": "cyclic_voltammetry",
+      "assertion": "Triangular acquisition order, both current branches and explicitly phenomenological non-kinetic scope",
+      "status": "PASS"
+    },
+    {
+      "recipe": "differential_capacity",
+      "assertion": "Integral of the same-branch finite-difference dQ/dV recalls charge capacity; no branch mixing",
+      "status": "PASS",
+      "max_capacity_recall_error_mAh_g": 0.00033641143326690326
+    },
+    {
+      "recipe": "gitt_pulse",
+      "assertion": "Twelve 6-min pulses/24-min rests, 0.12 mAh integration and one continuous RC state through switching",
+      "status": "PASS",
+      "pulses": 12,
+      "integrated_charge_mAh": 0.12000000000000002
+    },
+    {
+      "recipe": "ionic_conductivity",
+      "assertion": "Known Arrhenius input activation energies recalled with kelvin and mS→S conversion",
+      "status": "PASS",
+      "input_energy_recall_eV": {
+        "A": 0.19999999999999998,
+        "B": 0.24000000000000005,
+        "C": 0.28999999999999987
+      }
+    },
+    {
+      "recipe": "xps_components",
+      "assertion": "Nonnegative integer photon counts and known-component expectation; residual is counting noise, no chemical fit",
+      "status": "PASS",
+      "poisson_mean_square_residual_over_mean_counts": 0.9645458303964828
+    },
+    {
+      "recipe": "raman_series",
+      "assertion": "Positive same-scale generic Raman intensities; display offset has no molecular/concentration assignment",
+      "status": "PASS"
+    },
+    {
+      "recipe": "ftir",
+      "assertion": "Stored absorbance independently recalls -log10(T/100), with 0<T<=100",
+      "status": "PASS",
+      "max_absorbance_recall_error": 9.71445146547012e-17
+    },
+    {
+      "recipe": "nmr",
+      "assertion": "Generic nonnegative Lorentzian bands with explicit ppm reference and no molecular/T2 assignment",
+      "status": "PASS"
+    },
+    {
+      "recipe": "rdf_coordination",
+      "assertion": "CN independently recalls 4πrho integral(r²gdr); nonnegative/excluded short range and g→1",
+      "status": "PASS",
+      "max_coordination_recall_error": 3.552713678800501e-15
+    },
+    {
+      "recipe": "msd",
+      "assertion": "3D drift-free Brownian MSD=6Dt and Å²/ps→cm²/s; input D is not a fitted/MD result",
+      "status": "PASS",
+      "known_D_recall_cm2_s": {
+        "25/A": 8.666666666666666e-06,
+        "25/B": 5.1666666666666675e-06,
+        "25/C": 2.833333333333334e-06,
+        "-70/A": 3.926985491698151e-07,
+        "-70/B": 2.3410875046662046e-07,
+        "-70/C": 1.2838221799782417e-07
+      }
+    },
+    {
+      "recipe": "lsv",
+      "assertion": "Forward anodic log-current slope uses declared temperature/transfer coefficient; no decomposition-onset inference",
+      "status": "PASS"
+    },
+    {
+      "recipe": "transference",
+      "assertion": "Frequency-derived RC complex impedances and resistance-corrected apparent t_BV using A, not mA",
+      "status": "PASS",
+      "apparent_t_BV_model_values": {
+        "A": 0.7282508857105365,
+        "B": 0.290184203885945
+      }
+    },
+    {
+      "recipe": "na_metal_ce",
+      "assertion": "Positive strip/plating charge ledger, bounded teaching loss and full-cell-life interpretation explicitly excluded",
+      "status": "PASS",
+      "CE_min_percent": 98.06661884326681,
+      "CE_max_percent": 99.40209397094891
+    },
+    {
+      "recipe": "zn_plating_ce",
+      "assertion": "Positive strip/plating charge ledger, bounded teaching loss and full-cell-life interpretation explicitly excluded",
+      "status": "PASS",
+      "CE_min_percent": 97.93658545412546,
+      "CE_max_percent": 99.40587961906556
+    },
+    {
+      "recipe": "k_ion_rate",
+      "assertion": "Rate steps reduce accessible capacity, recovery at original current respects independent active-capacity loss",
+      "status": "PASS",
+      "rate_step_capacity_means_mAh_g": [
+        216.21131343816108,
+        194.77999916008125,
+        168.01606805047828,
+        127.53222234412544,
+        96.64731784847623,
+        210.2880914531616
+      ]
+    },
+    {
+      "recipe": "zn_symmetric",
+      "assertion": "Cell-voltage/current signs, exact 1-hour half-cycle schedule and area charge; no single-electrode interpretation",
+      "status": "PASS"
+    },
+    {
+      "recipe": "zn_air_power",
+      "assertion": "Delivered areal power recalls jV in mW/cm²; voltage decreases, power maximum is interior and positive",
+      "status": "PASS",
+      "model_Pmax_mW_cm2": 218.29755007691415,
+      "current_at_sampled_Pmax_mA_cm2": 334.0
+    },
+    {
+      "recipe": "zn_i2_cycle",
+      "assertion": "Iodine-only I2+2e→2I− theoretical bound and CE=Qdis/Qchg; excludes four-electron/carbon contributions",
+      "status": "PASS",
+      "theoretical_mAh_g_I2": 211.19414583619036,
+      "max_discharge_mAh_g_I2": 175.75487749150244
+    },
+    {
+      "recipe": "flow_efficiency",
+      "assertion": "All 150 complete V(Q) branches independently recall capacity-weighted voltages, energy and CE×VE=EE without pump energy",
+      "status": "PASS",
+      "max_branch_energy_recall_error_mWh": 5.684341886080802e-14
+    },
+    {
+      "recipe": "pv_jv",
+      "assertion": "Ideal single-diode governing equation, Voc zero, Jsc positive, valid generating-quadrant MPP/FF and model efficiency",
+      "status": "PASS",
+      "metrics": {
+        "data_status": "synthetic_demo",
+        "scope": "Original ideal diode only; not measured device performance",
+        "Jsc_mA_cm2": 23.5,
+        "Voc_V": 1.08,
+        "Vmpp_V": 0.9540000000000001,
+        "Jmpp_mA_cm2": 22.606336628397575,
+        "Pmax_mW_cm2": 21.566445143491286,
+        "fill_factor": 0.8497417314220365,
+        "model_efficiency_percent": 21.566445143491286,
+        "MPP_domain": "V>=0 and J>=0, delivered-power convention",
+        "grid_step_V": 0.002
+      }
+    },
+    {
+      "recipe": "pv_stability",
+      "assertion": "Positive normalized fixed-operating-point teaching power, no measured T80/MPP lifetime claim",
+      "status": "PASS"
+    },
+    {
+      "recipe": "pv_trpl",
+      "assertion": "Nonnegative biexponential components plus background; known first-order rates recalled, no fit/IRF/mechanism claim",
+      "status": "PASS"
+    },
+    {
+      "recipe": "na_metal_ce",
+      "assertion": "Tampering with an actual charge/energy/diode relation is rejected, including p=jV-consistent fake PV current",
+      "status": "PASS"
+    },
+    {
+      "recipe": "zn_i2_cycle",
+      "assertion": "Tampering with an actual charge/energy/diode relation is rejected, including p=jV-consistent fake PV current",
+      "status": "PASS"
+    },
+    {
+      "recipe": "flow_efficiency",
+      "assertion": "Tampering with an actual charge/energy/diode relation is rejected, including p=jV-consistent fake PV current",
+      "status": "PASS"
+    },
+    {
+      "recipe": "pv_jv",
+      "assertion": "Tampering with an actual charge/energy/diode relation is rejected, including p=jV-consistent fake PV current",
+      "status": "PASS"
+    },
+    {
+      "recipe": "flow_efficiency",
+      "assertion": "A tampered V(Q) trace is rejected even if summary CE×VE remains unchanged",
+      "status": "PASS"
+    },
+    {
+      "recipe": "na_metal_ce",
+      "assertion": "Actual standalone CLI replays the original CSV and retains source closure; no arbitrary-input provenance stamping",
+      "status": "PASS"
+    },
+    {
+      "recipe": "k_ion_rate",
+      "assertion": "Actual standalone CLI replays the original CSV and retains source closure; no arbitrary-input provenance stamping",
+      "status": "PASS"
+    },
+    {
+      "recipe": "zn_plating_ce",
+      "assertion": "Actual standalone CLI replays the original CSV and retains source closure; no arbitrary-input provenance stamping",
+      "status": "PASS"
+    },
+    {
+      "recipe": "zn_symmetric",
+      "assertion": "Actual standalone CLI replays the original CSV and retains source closure; no arbitrary-input provenance stamping",
+      "status": "PASS"
+    },
+    {
+      "recipe": "zn_air_power",
+      "assertion": "Actual standalone CLI replays the original CSV and retains source closure; no arbitrary-input provenance stamping",
+      "status": "PASS"
+    },
+    {
+      "recipe": "zn_i2_cycle",
+      "assertion": "Actual standalone CLI replays the original CSV and retains source closure; no arbitrary-input provenance stamping",
+      "status": "PASS"
+    },
+    {
+      "recipe": "flow_efficiency",
+      "assertion": "Actual standalone CLI replays the original CSV and retains source closure; no arbitrary-input provenance stamping",
+      "status": "PASS"
+    },
+    {
+      "recipe": "pv_jv",
+      "assertion": "Actual standalone CLI replays the original CSV and retains source closure; no arbitrary-input provenance stamping",
+      "status": "PASS"
+    },
+    {
+      "recipe": "pv_stability",
+      "assertion": "Actual standalone CLI replays the original CSV and retains source closure; no arbitrary-input provenance stamping",
+      "status": "PASS"
+    },
+    {
+      "recipe": "pv_trpl",
+      "assertion": "Actual standalone CLI replays the original CSV and retains source closure; no arbitrary-input provenance stamping",
+      "status": "PASS"
+    },
+    {
+      "recipe": "na_metal_ce",
+      "assertion": "A CE-ratio-consistent but altered numeric CSV is rejected instead of claiming the original teaching model",
+      "status": "PASS"
+    }
+  ],
+  "generator_sha256": {
+    "examples/showcase/advanced.py": "8eecaaaa47a0c2ce4f5d09f84df767a245a39fe6e5642615c3834f6ca0472231",
+    "examples/showcase/corpus.py": "8b7c74f4eeba2163f4967fafde755fe4a439cfcf62356c0d749be8f78359d8ca",
+    "examples/resource_demos.py": "a71d4e3787a3d4d85c519f838b61f98fef03a7385046be120fe04b70fd5c5005",
+    "tests/test_synthetic_domain_physics.py": "cb44d9d48f76d1e28458a575399789b7f45669bffc3ab301687b93b463f269da"
+  },
+  "fixture_sha256": {
+    "cyclic_voltammetry": {
+      "alignment.json": "e1be367eb6d59b1d01d2384c1eedb23af33cd4a8e0e3a2c03662daea72db1e99",
+      "data.csv": "c331f0af98c4d8cfa2e443fdba363ee5bcc4319daec99633ea160daf8b131ed9",
+      "metadata.json": "fcf441b58c9c0a38c5d67c0cf92bcd9e26cc2f1ce85bb32132682d61d064023a",
+      "render-report.json": "175400d9e8ca4d0f1b2e0b0659b141fd986d0277e24e037d89977b429b602eff"
+    },
+    "differential_capacity": {
+      "alignment.json": "e1be367eb6d59b1d01d2384c1eedb23af33cd4a8e0e3a2c03662daea72db1e99",
+      "data.csv": "a3424b9ccaeb729f62ffa4632de96d10eac718ee8ff8d2f51d9a00d6a8a8af0f",
+      "metadata.json": "6bf75b13339fb452540e39ab6c7dc8c67f73769ecd0ec006570cb13726f7a211",
+      "render-report.json": "2bea3fb42a22f8877b6d586b17476f43ac0538bed0dcd4fe08e16b2d7b718008"
+    },
+    "gitt_pulse": {
+      "alignment.json": "98c9e2c4c20b7afbf59a9a51219b70e73ba1d513a126662039799c6719c4b1ae",
+      "data.csv": "8e32e9ef4d45735f23276c5ceaca43b25853b83a2bb27df7f20761b747dfa1bc",
+      "metadata.json": "519e98c15eb8954c6456e74f9c93f126bfc4b368bdc9940c6d66f40cbffff8c1",
+      "render-report.json": "287266e2ceff2de9392cf078589d1d9bf5c52ba76995522d7b1726145f08f177"
+    },
+    "ionic_conductivity": {
+      "alignment.json": "e1be367eb6d59b1d01d2384c1eedb23af33cd4a8e0e3a2c03662daea72db1e99",
+      "data.csv": "8153cc848cad14225e179734617c13e11418cc3d00456030f019f29edb93a2a8",
+      "metadata.json": "aecef71a59a4d6d7dfa1a663ca5ea89fb93434b7791521caceeb570d7644236d",
+      "render-report.json": "7389885cf1ab3b55d4c6b10ceab22b56ed9e718dcdb54745ab5fcb6c153d7421"
+    },
+    "xps_components": {
+      "alignment.json": "98c9e2c4c20b7afbf59a9a51219b70e73ba1d513a126662039799c6719c4b1ae",
+      "data.csv": "de8fcadbceeb63ae9922373d708ce23912960c89617c2ddf2e2fc7c4ddda703b",
+      "metadata.json": "c9c49a4ce7d26c3d53b063771eeace0741a5c3a8fe23fb01aec1e8a23595c3ff",
+      "render-report.json": "e546abfb2ef50b8061cfdf04059356897a45d60bc9fc716f102b187089d77bc7"
+    },
+    "raman_series": {
+      "alignment.json": "e1be367eb6d59b1d01d2384c1eedb23af33cd4a8e0e3a2c03662daea72db1e99",
+      "data.csv": "d5f12b7638cf67f635a3cf4fb5568bb4920576151764d7e971b8c7ae5e375948",
+      "metadata.json": "9e6a0dbe1fc0a9030a0515aa94aecacbc868bf80143db96029da71ca425b66e7",
+      "render-report.json": "63eabb7df6b2cdd9b059867871f6995bb6582d4fca65305d669e49f20e5ee7e2"
+    },
+    "ftir": {
+      "alignment.json": "e1be367eb6d59b1d01d2384c1eedb23af33cd4a8e0e3a2c03662daea72db1e99",
+      "data.csv": "45c6dbc8adefdd4e495fdf388dce50c8177f3a04a59f617b6e9db74427497c97",
+      "metadata.json": "5d7e4962ff00446992dec6c0851652872da85a4996875496304a55f76f054b94",
+      "render-report.json": "2e68e8f5eb6646ea347a56e4b300fd721ecdc19b34f396554f4b78781c5189f6"
+    },
+    "nmr": {
+      "alignment.json": "e1be367eb6d59b1d01d2384c1eedb23af33cd4a8e0e3a2c03662daea72db1e99",
+      "data.csv": "9e23d6ed71222726ab2d338de99e8637a02c2f0d69bedaab3df453daa82e09bf",
+      "metadata.json": "ffa9b15185777bfac668c02c1ce864570b1e40d51200ee28b96040b2ecc72bbc",
+      "render-report.json": "db9e70fefbaa9ef768d62740a6c56a3f765b81c97ebcaa9dcc2f2b4a2c8ea70e"
+    },
+    "rdf_coordination": {
+      "alignment.json": "e1be367eb6d59b1d01d2384c1eedb23af33cd4a8e0e3a2c03662daea72db1e99",
+      "data.csv": "b17fd3d2ab197e2f4323c873ee21a0be0037323a7e01179fbbb7b695c2aca863",
+      "metadata.json": "bfcff9e4519617cd4cac4c27e7ba5c76159c7c04c66c082317194ec3495816d0",
+      "render-report.json": "8efe1ec7f9024acfac07c203de096505066b7efca3130aac7b0b3d9ec6fb791d"
+    },
+    "msd": {
+      "alignment.json": "e1be367eb6d59b1d01d2384c1eedb23af33cd4a8e0e3a2c03662daea72db1e99",
+      "data.csv": "4044244f5e37ae06f9b8b328c18264ee59f3ae5bfc41a015d772d7e1a4cbaebf",
+      "metadata.json": "ed5ac54f58eda112d12d30be41f05d6dad98c654208b12bc401e4ba7770a70ce",
+      "render-report.json": "70e4403c0efd018fbc3c389dcc39e8a37fbb60f54e2b432fbb845fab99bf2cb8"
+    },
+    "lsv": {
+      "alignment.json": "e1be367eb6d59b1d01d2384c1eedb23af33cd4a8e0e3a2c03662daea72db1e99",
+      "data.csv": "9508a60bffa4b234b125915038e367500dcf9d9715fd5a34958fe4234b485e0a",
+      "metadata.json": "f15ee5f320a103515e99e1ac9c93318582e70fc4f41d0d6c203e68a23d56319b",
+      "render-report.json": "b1a3ab7c85578beebef9116b1a7e53386af6d48db622ac09a7fc4d4135a35b7e"
+    },
+    "transference": {
+      "alignment.json": "e1be367eb6d59b1d01d2384c1eedb23af33cd4a8e0e3a2c03662daea72db1e99",
+      "data.csv": "591c0680f39e967347b2b83836c8d314c88bbcacd21321c8a1126f2692506248",
+      "eis.csv": "e9f3887c5f1c39f1c913c97ff2ff5a9e2174423501d796e1049c36fb5784a480",
+      "metadata.json": "6095a14e49c394656c4bfdf00b54d41779e1fa2d66688c3d6d7470a4f86c9875",
+      "render-report.json": "d52ee16edac04a611836fe931063688e779519505f38ba13a40b0a0f80dedc7b"
+    },
+    "na_metal_ce": {
+      "data.csv": "b52e273348f3d241375c45f6d7df7c6f04273dad8363160dd0419f57e04f8e83",
+      "metadata.json": "4464c4e719b0df5e97cd881e6bdfc34e13b0e8f363bbe4ddaa2a0759c4321703"
+    },
+    "k_ion_rate": {
+      "data.csv": "6d8c9a58b7a7a1c6460a06d07a8d888e3d70548fd4fb712c346f62ac068aa471",
+      "metadata.json": "65d9e95e3226b2fd0a88f551de00dacf70527ff72195cec3035f2c8ed112b0ad"
+    },
+    "zn_plating_ce": {
+      "data.csv": "d330da6da8f713ee03cdebf76e60606a0e13f8ab5e30b6a51fe59d98e5ea969a",
+      "metadata.json": "608174f4288b6aa6df1f26a5183273a85164dd63b02b5b4c9641eb818aa75138"
+    },
+    "zn_symmetric": {
+      "data.csv": "cf49f27109a8bb210720284dc6c0797a826225d9e4d35c0ec860cfdcaa49d749",
+      "metadata.json": "f163cd85ebbe4e0d1bc4be912c3fe1d737c6998095335eb9c92e9875b2ef3fd0"
+    },
+    "zn_air_power": {
+      "data.csv": "3f9ddc7f0f96fd49f116764808a56ccd85cb4a6219a4f13c9cbe7708dfe7c258",
+      "metadata.json": "5d199ab87e217e9d7503a515ee31865a0f4cd9b01536f03c9ea7cb6969ad61e2"
+    },
+    "zn_i2_cycle": {
+      "data.csv": "e0917c627cd3e822b9f40d9130c7d164ab5ed8ae940efd9e9f05251274621989",
+      "metadata.json": "0ec0aa2238285c794984fbb85377a2f6ea64d45a31d7a50795da73a03a883830"
+    },
+    "flow_efficiency": {
+      "cycle_profiles.csv": "0474c32fb44a537fdf195b130d64b98d318748dcd1f0fc8ce8058f02cb8b924e",
+      "data.csv": "d24cd5b6e06c7772805b876df77d41c3c06b0da345a08443568156ca44a8bce7",
+      "metadata.json": "5e599534fd326fc9d1ad855680cdb2b84c6c5f0b147e799fdec6fb6c4b7416d4"
+    },
+    "pv_jv": {
+      "data.csv": "41fb1727710a0f25e783532c1574871115f14ecb44e52961eef8cba2820d1fe8",
+      "metadata.json": "17b7559f064f615ce5e5588bf8c9a50f94ddcc396ef223eb52c143569b97a59b",
+      "metrics.json": "cd3d9551bbda5780f14c75309258d30a69e448781490ffe0bb98fbb9697d0be2"
+    },
+    "pv_stability": {
+      "data.csv": "c975a4a4d30d8c13961e5a1d0a22b965a03f5b713c0a8e2e320487629b91cc6f",
+      "metadata.json": "04b947863084d565cee48ac4afa69805f394183d5a16f9d9e580fa3b5d959eb1"
+    },
+    "pv_trpl": {
+      "data.csv": "a29e5a917c7e8b4df3ec85e21af3ef7f29c84e971275ac216aa5c8763bb6a72d",
+      "metadata.json": "0101e5b6ad7e9666540c53b7e41f05cf15215e9c8ec7b873eaab7c49f3979f76"
+    }
+  },
+  "not_run": [
+    "Human scientific/material review",
+    "Experimental replication",
+    "New model/host behavior EVAL",
+    "DSC/TGA/EQE: no such resource is part of these 22 examples"
+  ]
+}

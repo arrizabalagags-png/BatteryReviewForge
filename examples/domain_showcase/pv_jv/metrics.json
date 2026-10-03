@@ -1,0 +1,13 @@
+{
+  "data_status": "synthetic_demo",
+  "scope": "Original ideal diode only; not measured device performance",
+  "Jsc_mA_cm2": 23.5,
+  "Voc_V": 1.08,
+  "Vmpp_V": 0.9540000000000001,
+  "Jmpp_mA_cm2": 22.606336628397575,
+  "Pmax_mW_cm2": 21.566445143491286,
+  "fill_factor": 0.8497417314220365,
+  "model_efficiency_percent": 21.566445143491286,
+  "MPP_domain": "V>=0 and J>=0, delivered-power convention",
+  "grid_step_V": 0.002
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "title": "Diffusion time and penetration profile",
+  "panels": [
+    {
+      "title": "Diffusion time and penetration profile",
+      "xlabel": "Distance from surface (µm)",
+      "ylabel": "Concentration / surface concentration",
+      "yscale": "linear",
+      "xscale": "linear"
+    }
+  ],
+  "colours": [
+    "#287D8E",
+    "#BA5574",
+    "#4868A8",
+    "#A46D35",
+    "#655AA0",
+    "#387F64"
+  ],
+  "input_contract": "Panel is zero-based. x/y meanings and units are declared in panels. Rows are retained in original order. Author data require a reviewed adapted contract; no silent sorting, smoothing or normalisation."
+}

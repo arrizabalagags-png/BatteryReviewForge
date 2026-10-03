@@ -1,0 +1,70 @@
+{
+  "resource_id": "full_cell",
+  "source_kind": "VoltPeer original reproducible tutorial",
+  "reference_origin": "Rendered from this pack config.demo.json and demo/*.csv; not copied from the gallery.",
+  "reference_scope": "Same-data demo figure only; no experimental values/conditions/claims inherited by author data.",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "phenomenological_model",
+    "data_origin": "original_synthetic",
+    "parameter_origin": "explicit teaching choices; not reported measurements",
+    "validation_scope": "Declared teaching model; no experimental/material certification",
+    "equations": [
+      "eta_n=1-l_ss-l_tr*exp(-(n-1)/tau_cycles)",
+      "Qcharge_n=L_(n-1); Qdischarge_n=eta_n*Qcharge_n; L_n=Qdischarge_n",
+      "CE_n=100*Qdischarge_n/Qcharge_n; loss_n=Qcharge_n-Qdischarge_n",
+      "s(f)=0.55*f+0.45*f^7; Vdis=4.2-1.3*s(f); Vchg=2.9+1.3*s(f)"
+    ],
+    "assumptions": [
+      "No excess cyclable inventory, no electrode compensation, no active-material loss or reversible self-discharge.",
+      "Inventory-only loss is a restrictive teaching case, not a real-cell acceptance criterion.",
+      "Voltage shape is a bounded monotonic display relation, not an NMC/graphite model."
+    ],
+    "parameters": {
+      "count_cycles": 40,
+      "A": {
+        "initial_mAh_g": 170,
+        "loss_ss": 0.0012,
+        "loss_tr": 0.005,
+        "tau_cycles": 5
+      },
+      "B": {
+        "initial_mAh_g": 164,
+        "loss_ss": 0.002,
+        "loss_tr": 0.007,
+        "tau_cycles": 5
+      },
+      "voltage_window_V": [
+        2.9,
+        4.2
+      ]
+    },
+    "references": [
+      {
+        "url": "https://www.nature.com/articles/s41467-025-60833-y",
+        "title": "Deciphering coulombic loss in lithium-ion batteries and beyond",
+        "supports": "Charge conservation and warning that coulombic loss need not equal capacity loss; all numerical parameters are self-chosen.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "limitations": [
+      "No chemistry, life, N/P, electrolyte volume, electrode compensation or mechanism is certified.",
+      "CE/product relationship applies only under this toy inventory model."
+    ]
+  },
+  "demo_inputs_sha256": {
+    "demo/cycling.csv": "2ebcd3c63a75e3d211ea812ea67911e98a81352e8a676a96fdf9bcba7ea9924a",
+    "demo/profiles.csv": "55387e9f7a876cf275cc54476f5d40489a0a6273c91478c4277f70b0b8f1da11"
+  },
+  "config_demo_sha256": "c7ffd88a91aa831f9253ad65ee10cbafe9377da7b6b00715571687410deb2118",
+  "model_sha256": "c6820278f8414f384f49fe32665402bddcf23fab878e136f02e9c24a80794e37",
+  "reference_sha256": {
+    "reference/figure.pdf": "d9ab767256578702db830bf427d04cdd4fdd6fad336befb5daa65b57c853deac",
+    "reference/figure.png": "e0273e181fc3d12376e80b8cfcc495061aca6afe051a0e8aa25dbc20f77cd5d8",
+    "reference/figure.svg": "97555e56d022cf5d421402ce0998cf286b974aab696ee586452dd5ed0c63c0e9"
+  },
+  "third_party_paper_data_included": false,
+  "DOI": null,
+  "license": "MIT; original code and generated tutorial assets only; does not license third-party papers"
+}

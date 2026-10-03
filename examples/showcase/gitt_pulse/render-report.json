@@ -62,9 +62,45 @@
   "transformations": [
     "Voltage and measured/supplied current share acquisition time; no diffusion coefficient inferred"
   ],
-  "test_conditions": "Invented charging pulse schedule: 0.1 mA for 6 min, 24 min rest, 12 pulses, 25 °C. Relaxation model only; no diffusion coefficient or equilibrium claim.",
+  "test_conditions": "Original RC charging model: 0.1 mA for 6 min, 24 min rest, 12 pulses, 25 °C; 0.12 mAh passed. Recorded OCV is a known model state, not a measured equilibrium or diffusion fit.",
   "data_status": "synthetic_demo",
   "source_files": [
     "data.csv"
+  ],
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "_child0",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 1801
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "_child0",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 1801
+        }
+      ]
+    }
   ]
 }

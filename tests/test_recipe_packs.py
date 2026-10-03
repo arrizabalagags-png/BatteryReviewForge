@@ -1,0 +1,420 @@
+"""Blind-shape engineering adaptation checks. These are synthetic fixtures, not model EVALs."""
+import csv
+import hashlib
+import json
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
+import unittest
+from zipfile import ZipFile
+
+ROOT = Path(__file__).resolve().parents[1]
+KINDS = ('full_cell', 'li_li', 'operando_xrd')
+
+
+def dump(path, value):
+    path.write_text(json.dumps(value, ensure_ascii=False, indent=2), encoding='utf-8-sig')
+
+
+def csv_write(path, columns, rows):
+    with path.open('w', encoding='utf-8-sig', newline='') as handle:
+        writer = csv.writer(handle)
+        writer.writerow(columns)
+        writer.writerows(rows)
+
+
+def file_hash(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+class RecipePackTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.temp = tempfile.TemporaryDirectory(prefix='VoltPeer 独立包 带空格 ')
+        cls.workspace = Path(cls.temp.name)
+        completed = subprocess.run([sys.executable, str(ROOT / 'scripts/package_recipe_packs.py'), '--out', str(cls.workspace / 'downloads')], capture_output=True, text=True, encoding='utf-8')
+        if completed.returncode:
+            raise RuntimeError(completed.stderr + completed.stdout)
+        cls.packs = {}
+        for archive in (cls.workspace / 'downloads').glob('*.zip'):
+            with ZipFile(archive) as z:
+                z.extractall(cls.workspace / '解压 单独运行')
+        for kind in KINDS:
+            cls.packs[kind] = cls.workspace / '解压 单独运行' / kind
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.temp.cleanup()
+
+    def command(self, pack, config, out):
+        return subprocess.run([sys.executable, str(pack / 'src/plot.py'), '--config', str(config), '--out', str(out)], cwd=pack, capture_output=True, text=True, encoding='utf-8')
+
+    def author_fixture(self, kind, folder):
+        """Simulate fresh author-input shape, while documenting that fixture numbers are synthetic."""
+        folder.mkdir()
+        pack = self.packs[kind]
+        config = json.loads((pack / 'config.real.example.json').read_text(encoding='utf-8'))
+        config['provenance']['demo_conditions_cleared'] = True
+        config['title'] = 'Engineering input-shape test; not experimental evidence'
+        samples = ['New group ' + letter + ' with a deliberately long independently supplied label' for letter in 'ABC']
+        config['labels'] = {samples[2]: '新样品C—中文名称与第三组较长图例'}
+        common = config['conditions']['common']
+        if kind == 'full_cell':
+            common.update(cathode='Declared cathode X', anode='Declared anode Y', capacity_basis='Cathode active material mass', rate_or_current='Author declared 0.2 C', formation='Two recorded formation cycles', loading_or_areal_capacity='2.1 mAh cm^-2', temperature_C=23, voltage_window_V=[2.5, 4.5], N_P='not reported', E_C='not reported')
+            config['units'] = {'cycle': '1', 'capacity': 'mAh g^-1', 'voltage': 'V', 'ce': '%'}
+            rows = [(s, c, 450 - i * 90 - c * 2.5, 101 - c * .07) for i, s in enumerate(samples) for c in range(1, 5 + i * 3)]
+            csv_write(folder / '新循环.csv', ['组别', '循环', '容量', '效率'], rows)
+            config['data'] = {'cycling': {'path': '新循环.csv', 'columns': {'sample': '组别', 'cycle': '循环', 'capacity': '容量', 'ce': '效率'}}}
+        elif kind == 'li_li':
+            common.update(metal='Na', cell_configuration='Na||Na', area_basis='Projected geometric overlap electrode area', current_density_mA_cm2=.3, half_cycle_areal_capacity_mAh_cm2=.9, temperature_C=30, rest_protocol='Recorded 10 min after each half-cycle', failure_rule='Stop only on the author-defined 1 V criterion')
+            config['units'] = {'time': 's', 'voltage': 'V'}
+            rows = [(s, j * 50, (-1 if j % 2 else 1) * (.1 + .005 * i + .01 * j)) for i, s in enumerate(samples) for j in range(3 + i * 3)]
+            csv_write(folder / '新轨迹.csv', ['group', 'seconds', 'signed_V'], rows)
+            config['data'] = {'trace': {'path': '新轨迹.csv', 'columns': {'sample': 'group', 'time': 'seconds', 'voltage': 'signed_V'}}}
+        else:
+            common.update(radiation='Author declared monochromatic synchrotron', wavelength_A=.61992, cell_configuration='Author declared operando cell X', progress_definition='Reported charge progress percentage; supplied reference definition', synchronization='Voltage and XRD share declared 0 to 100 progress endpoints', intensity_normalization='No normalization; recorded detector counts')
+            config['units'] = {'two_theta': 'deg', 'progress': '%', 'intensity': 'counts', 'voltage': 'V'}
+            rows = [(s, 20 + k * (1.5 + i), p, 2300 + 120 * i - k * 20 + p * .9) for i, s in enumerate(samples) for p in (0, 10, 55, 100) for k in range(2 + i)]
+            csv_write(folder / '新衍射.csv', ['group', 'angle', 'charge_progress', 'detector_counts'], list(reversed(rows)))
+            voltages = [(s, p, 2.8 + p * .013) for s in samples for p in (0, 5, 30, 100)]
+            csv_write(folder / '同步电压.csv', ['group', 'charge_progress', 'V'], voltages)
+            config['data'] = {'diffraction': {'path': '新衍射.csv', 'columns': {'sample': 'group', 'two_theta': 'angle', 'progress': 'charge_progress', 'intensity': 'detector_counts'}}, 'voltage': {'path': '同步电压.csv', 'columns': {'sample': 'group', 'progress': 'charge_progress', 'voltage': 'V'}}}
+        path = folder / '真实格式 模拟输入.json'
+        dump(path, config)
+        return path, config, samples
+
+    def test_extracted_packs_run_without_repository_parent(self):
+        for kind, pack in self.packs.items():
+            with self.subTest(resource_id=kind):
+                manifest = json.loads((pack / 'PACKAGE_MANIFEST.json').read_text(encoding='utf-8'))
+                for file in manifest['files']:
+                    self.assertEqual(file_hash(pack / file['path']), file['sha256'], file['path'])
+                result = self.command(pack, pack / 'config.demo.json', self.workspace / (kind + ' demo Working'))
+                self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
+                working = self.workspace / (kind + ' demo Working')
+                self.assertTrue((working / 'results/figure.pdf').is_file())
+                self.assertTrue((working / 'results/figure.svg').is_file())
+                self.assertTrue((working / 'results/figure.png').is_file())
+                from PIL import Image
+                with Image.open(working / 'results/figure.tiff') as image:
+                    self.assertEqual(image.tag_v2[259], 5)
+                check = subprocess.run([sys.executable, str(pack / 'checks.py'), '--working', str(working)], cwd=pack, capture_output=True, text=True, encoding='utf-8')
+                self.assertEqual(check.returncode, 0, check.stderr + check.stdout)
+                self.assertIn('review remains pending', check.stdout)
+
+    def test_blind_groups_uneven_lengths_units_and_no_overwrite(self):
+        for kind, pack in self.packs.items():
+            with self.subTest(resource_id=kind):
+                config_path, cfg, samples = self.author_fixture(kind, self.workspace / (kind + ' 新输入'))
+                source_files = [config_path.parent / x['path'] for x in cfg['data'].values()]
+                before = {p: file_hash(p) for p in source_files}
+                output = self.workspace / (kind + ' 新结果')
+                result = self.command(pack, config_path, output)
+                self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
+                record = json.loads((output / '.voltpeer/records/data_checks.json').read_text(encoding='utf-8'))
+                self.assertEqual(record['data_status'], 'author_data')
+                self.assertEqual(set(record['conditions']), set(samples))
+                self.assertEqual(record['unit_mapping'], cfg['units'])
+                self.assertEqual({p: file_hash(p) for p in source_files}, before)
+                self.assertNotIn('SYNTHETIC DEMO', (output / 'results/figure.svg').read_text(encoding='utf-8'))
+                plotted = record['exact_data_artist_checks']
+                curves = [c for c in plotted if c['check'] == 'exact_artist_array']
+                self.assertTrue(all(c['line_style'] == '-' and c['marker'] in (None,'None','',' ')
+                                    and c['style_check'] == 'solid_without_markers' for c in curves))
+                self.assertTrue(record['data_frame_checks'])
+                self.assertTrue(all(all(frame['spines'].values()) for frame in record['data_frame_checks']))
+                assigned = record['curve_color_assignments']
+                self.assertEqual(len(assigned), len(set(assigned.values())))
+                self.assertTrue(record['data_color_checks'])
+                self.assertTrue(all(row['color'] == assigned[row['color_identity']] for row in record['data_color_checks']))
+                if kind == 'full_cell':
+                    self.assertEqual(max(c['y'][0] for c in plotted if ':capacity' in c['identity']), 447.5)
+                    self.assertEqual(sorted(c['points'] for c in plotted if ':capacity' in c['identity']), [4, 7, 10])
+                    self.assertTrue(record['material_questions'])
+                elif kind == 'li_li':
+                    self.assertTrue(any(v < 0 for c in plotted for v in c['y']))
+                    self.assertEqual(max(v for c in plotted for v in c['x']), 400)
+                else:
+                    maps = [c for c in plotted if ':raw_diffraction_grid' in c['identity']]
+                    self.assertEqual(len(maps), 3)
+                    group_a = next(c for c in maps if c['identity'].startswith(samples[0] + ':'))
+                    self.assertEqual(group_a['intensity'][0][0], 2300)
+                    self.assertEqual(sorted(len(c['two_theta']) for c in maps), [2, 3, 4])
+                    self.assertTrue(all(c['display_extent']['progress'] == [0, 100] for c in maps))
+                first_hash = file_hash(output / 'results/figure.pdf')
+                again = self.command(pack, config_path, output)
+                self.assertEqual(again.returncode, 0, again.stderr)
+                self.assertTrue(output.with_name(output.name + '_v002').is_dir())
+                self.assertEqual(file_hash(output / 'results/figure.pdf'), first_hash)
+
+    def test_should_stop_inputs_and_old_ranges_do_not_create_outputs(self):
+        for kind, pack in self.packs.items():
+            with self.subTest(resource_id=kind):
+                config_path, valid, _ = self.author_fixture(kind, self.workspace / (kind + ' 拒绝输入'))
+                variants = []
+                missing_unit = json.loads(json.dumps(valid))
+                missing_unit['units'] = {}
+                variants.append(missing_unit)
+                invalid_container = json.loads(json.dumps(valid))
+                invalid_container['units'] = []
+                variants.append(invalid_container)
+                missing_condition = json.loads(json.dumps(valid))
+                missing_condition['conditions']['common'] = {}
+                variants.append(missing_condition)
+                old_range = json.loads(json.dumps(valid))
+                old_range['limits'] = {'full_cell': {'cycling': {'y': [145, 188]}}, 'li_li': {'trace': {'y': [-.01, .01]}}, 'operando_xrd': {'intensity': [0, 1]}}[kind]
+                variants.append(old_range)
+                for index, bad in enumerate(variants):
+                    dump(config_path, bad)
+                    output = self.workspace / (kind + f' 不应生成{index}')
+                    result = self.command(pack, config_path, output)
+                    self.assertEqual(result.returncode, 2, result.stderr)
+                    self.assertNotIn('Traceback', result.stderr)
+                    self.assertFalse(output.exists())
+                demo_as_author = json.loads((pack / 'config.demo.json').read_text(encoding='utf-8'))
+                demo_as_author['data_status'] = 'author_data'
+                demo_as_author['provenance'] = {'input_origin': 'author_supplied', 'demo_conditions_cleared': True}
+                dump(config_path, demo_as_author)
+                result = self.command(pack, config_path, self.workspace / (kind + ' 不可借演示条件'))
+                self.assertEqual(result.returncode, 2)
+                self.assertIn('演示', result.stderr)
+
+    def test_actual_curve_count_stops_short_duplicate_and_transparent_palettes(self):
+        for kind, pack in self.packs.items():
+            with self.subTest(resource_id=kind):
+                config_path, valid, _ = self.author_fixture(kind, self.workspace / (kind + ' 颜色应停'))
+                for index, colors in enumerate((['#1f77b4'], ['red', '#ff0000', '#123456', '#225c83', '#8c564b', '#9467bd'], ['#1f77b400'] * 6, ['#ffffff'] * 6)):
+                    bad = json.loads(json.dumps(valid))
+                    bad['style']['colors'] = colors
+                    dump(config_path, bad)
+                    output = self.workspace / (kind + f' 颜色不应生成{index}')
+                    result = self.command(pack, config_path, output)
+                    self.assertEqual(result.returncode, 2, result.stderr)
+                    self.assertIn('颜色', result.stderr)
+                    self.assertNotIn('Traceback', result.stderr)
+                    self.assertFalse(output.exists())
+
+    def test_eleven_real_groups_require_eleven_distinct_colours_and_keep_all_rows(self):
+        pack = self.packs['li_li']
+        config_path, cfg, _ = self.author_fixture('li_li', self.workspace / '十一组颜色')
+        rows = [(f'New specimen {index}', time, (-1 if time else 1) * (.1 + index * .02)) for index in range(11) for time in (0, 1, 3)]
+        csv_write(config_path.parent / '新轨迹.csv', ['group', 'seconds', 'signed_V'], rows)
+        cfg['labels'] = {}
+        cfg['export']['formats'] = ['svg']
+        dump(config_path, cfg)
+        failed_output = self.workspace / '默认十色不能静默循环'
+        result = self.command(pack, config_path, failed_output)
+        self.assertEqual(result.returncode, 2, result.stderr)
+        self.assertIn('11', result.stderr)
+        self.assertFalse(failed_output.exists())
+        cfg['style']['curve_colors'] = dict(zip((f'New specimen {index}:signed_voltage' for index in range(11)), ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf', '#000000']))
+        dump(config_path, cfg)
+        output = self.workspace / '十一真实颜色'
+        before = file_hash(config_path.parent / '新轨迹.csv')
+        result = self.command(pack, config_path, output)
+        self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
+        self.assertEqual(file_hash(config_path.parent / '新轨迹.csv'), before)
+        record = json.loads((output / '.voltpeer/records/data_checks.json').read_text(encoding='utf-8'))
+        self.assertEqual(len(record['curve_color_assignments']), 11)
+        self.assertEqual(len(set(record['curve_color_assignments'].values())), 11)
+        self.assertEqual(sum(row['points'] for row in record['exact_data_artist_checks']), len(rows))
+
+    def test_contracts_declare_runtime_units_and_resource_specific_conditions(self):
+        expected = {'full_cell': {'cycle': ['1'], 'capacity': ['mAh g^-1', 'mAh cm^-2', 'mAh'], 'voltage': ['V'], 'ce': ['%']},
+                    'li_li': {'time': ['h', 's'], 'voltage': ['V', 'mV']},
+                    'operando_xrd': {'two_theta': ['deg'], 'progress': ['%', 'fraction', 'h', 's', 'cycle'], 'intensity': ['counts', 'a.u.'], 'voltage': ['V']}}
+        for kind, pack in self.packs.items():
+            contract = json.loads((pack / 'input_contract.json').read_text(encoding='utf-8'))
+            self.assertEqual(contract['units_supported'], expected[kind])
+            self.assertNotIn('Any positive number', contract['geometry'])
+            self.assertEqual(contract['curve_colors']['default_palette_size'], 10)
+            if kind == 'full_cell':
+                self.assertEqual(contract['optional_conditions'], ['N_P', 'E_C'])
+                self.assertNotIn('N_P', contract['required_conditions'])
+            else:
+                self.assertNotIn('N_P', contract['required_conditions'])
+                self.assertNotIn('E_C', contract['required_conditions'])
+                self.assertEqual(contract['optional_conditions'], [])
+
+    def test_extracted_full_cell_area_absolute_units_and_omitted_optional_reporting(self):
+        pack = self.packs['full_cell']
+        config_path, valid, _ = self.author_fixture('full_cell', self.workspace / '容量单位与可选工况')
+        before = file_hash(config_path.parent / '新循环.csv')
+        for index, (unit, basis) in enumerate((('mAh cm^-2', 'Projected electrode area'), ('mAh', 'Absolute total cell capacity'))):
+            cfg = json.loads(json.dumps(valid))
+            cfg['units']['capacity'] = unit
+            cfg['conditions']['common']['capacity_basis'] = basis
+            cfg['conditions']['common'].pop('N_P')
+            cfg['conditions']['common'].pop('E_C')
+            cfg['export']['formats'] = ['svg']
+            dump(config_path, cfg)
+            output = self.workspace / f'实际ZIP其他容量单位{index}'
+            result = self.command(pack, config_path, output)
+            self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
+            record = json.loads((output / '.voltpeer/records/data_checks.json').read_text(encoding='utf-8'))
+            self.assertEqual(record['unit_mapping']['capacity'], unit)
+            self.assertTrue(all('N_P' not in row and 'E_C' not in row for row in record['conditions'].values()))
+            self.assertEqual(file_hash(config_path.parent / '新循环.csv'), before)
+
+    def late_chinese_fixture(self, kind, folder):
+        config_path, cfg, _ = self.author_fixture(kind, folder)
+        cfg['labels'] = {}
+        cfg['style']['font_family'] = 'DejaVu Serif'
+        cfg['export']['formats'] = ['pdf', 'svg', 'png']
+        late = '晚出现中文组'
+        if kind == 'full_cell':
+            rows = [('First Latin group', c, 200 - c * .3) for c in range(1, 61)]
+            rows += [(late, c, 130 - c) for c in range(1, 4)]
+            csv_write(folder / '新循环.csv', ['group', 'cycle', 'capacity'], rows)
+            cfg['data'] = {'cycling': {'path': '新循环.csv', 'columns': {'sample': 'group', 'cycle': 'cycle', 'capacity': 'capacity'}}}
+        elif kind == 'li_li':
+            rows = [('First Latin group', t, (.1 if t % 2 else -.1)) for t in range(60)]
+            rows += [(late, t, (.2 if t % 2 else -.2)) for t in range(3)]
+            csv_write(folder / '新轨迹.csv', ['group', 'seconds', 'signed_V'], rows)
+            cfg['view'] = {}
+        else:
+            rows = [('First Latin group', angle, p, 300 + angle + p) for p in range(30) for angle in (20, 21)]
+            rows += [(late, angle, p, 500 + angle + p) for p in (0, 29) for angle in (20, 21)]
+            csv_write(folder / '新衍射.csv', ['group', 'angle', 'charge_progress', 'detector_counts'], rows)
+            cfg['data'].pop('voltage')
+        dump(config_path, cfg)
+        return config_path, cfg, late
+
+    def font_fault_command(self, kind, pack, config_path, output, missing):
+        # Fault injection happens only in the actually extracted ZIP process.
+        # Even an installed CJK font must fail if its actual cmap lacks the text.
+        program = """import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(sys.argv[1]) / 'src'))
+import font_coverage
+original = font_coverage.font_characters
+removed = {ord(char) for char in sys.argv[5]}
+font_coverage.font_characters = lambda path: original(path) - removed
+from recipe_runtime import run
+from renderer import render
+raise SystemExit(run(sys.argv[2], render, ['--config', sys.argv[3], '--out', sys.argv[4]]))
+"""
+        return subprocess.run([sys.executable, '-c', program, str(pack), kind, str(config_path), str(output), missing],
+                              cwd=pack, capture_output=True, text=True, encoding='utf-8')
+
+    def test_late_chinese_group_in_all_actual_zips_is_covered_and_preserves_requested_latin_font(self):
+        from pypdf import PdfReader
+        for kind, pack in self.packs.items():
+            with self.subTest(resource_id=kind):
+                config_path, cfg, late = self.late_chinese_fixture(kind, self.workspace / (kind + ' 第61行中文正例'))
+                raw = config_path.parent / next(iter(cfg['data'].values()))['path']
+                original = file_hash(raw)
+                output = self.workspace / (kind + ' 完整中文图件')
+                completed = self.command(pack, config_path, output)
+                self.assertEqual(completed.returncode, 0, completed.stderr + completed.stdout)
+                self.assertNotIn('missing from font', completed.stderr)
+                self.assertEqual(file_hash(raw), original)
+                svg = (output / 'results/figure.svg').read_text(encoding='utf-8')
+                self.assertIn(late, svg)
+                with (output / 'results/figure.pdf').open('rb') as pdf_file:
+                    self.assertIn(late, ''.join(page.extract_text() for page in PdfReader(pdf_file).pages))
+                record = json.loads((output / '.voltpeer/records/data_checks.json').read_text(encoding='utf-8'))
+                checks = record['font_glyph_checks']
+                late_checks = [row for row in checks if late in row['text']]
+                self.assertTrue(late_checks, checks)
+                self.assertTrue(all(row['status'] == 'PASS_GLYPH_COVERAGE_ONLY' for row in checks))
+                self.assertTrue(all({f'U+{ord(char):04X}' for char in late} <= set(row['required_codepoints']) for row in late_checks))
+                self.assertTrue(all(len(row['font_sha256']) == 64 and row['fallback_used'] for row in late_checks))
+                latin = [row for row in checks if 'Engineering input-shape' in row['text']]
+                self.assertTrue(latin)
+                self.assertTrue(all(row['actual_family'] == 'DejaVu Serif' and not row['fallback_used'] for row in latin))
+                self.assertTrue(any(row['text'].startswith(('Signed cell voltage', 'Discharge capacity', '2θ')) for row in checks))
+                self.assertEqual(record['input_records'][0]['rows'], 64 if kind == 'operando_xrd' else 63)
+                self.assertEqual(record['model_behavior_eval'], 'NOT_RUN')
+                self.assertEqual(record['scientific_review'], 'pending_author_review')
+
+    def test_late_chinese_cmap_failure_stops_all_actual_zips_even_with_cjk_font_names(self):
+        for kind, pack in self.packs.items():
+            with self.subTest(resource_id=kind):
+                config_path, cfg, late = self.late_chinese_fixture(kind, self.workspace / (kind + ' 第61行中文负例'))
+                raw = config_path.parent / next(iter(cfg['data'].values()))['path']
+                original = file_hash(raw)
+                output = self.workspace / (kind + ' 缺字不能生成')
+                failed = self.font_fault_command(kind, pack, config_path, output, late)
+                self.assertEqual(failed.returncode, 2, failed.stderr + failed.stdout)
+                self.assertIn('字形', failed.stderr)
+                self.assertNotIn('Traceback', failed.stderr)
+                self.assertFalse(output.exists())
+                self.assertEqual(file_hash(raw), original)
+
+    def test_actual_axis_unit_missing_glyph_stops_without_erasing_text(self):
+        pack = self.packs['li_li']
+        config_path, cfg, _ = self.late_chinese_fixture('li_li', self.workspace / '实际单位字形负例')
+        raw = config_path.parent / cfg['data']['trace']['path']
+        original = file_hash(raw)
+        output = self.workspace / 'V单位缺字不能生成'
+        failed = self.font_fault_command('li_li', pack, config_path, output, 'V')
+        self.assertEqual(failed.returncode, 2, failed.stderr + failed.stdout)
+        self.assertIn('U+0056', failed.stderr)
+        self.assertFalse(output.exists())
+        self.assertEqual(file_hash(raw), original)
+        self.assertEqual(json.loads(config_path.read_text(encoding='utf-8-sig'))['units']['voltage'], 'V')
+
+    def test_final_renderer_missing_glyph_warning_stops_actual_zip_delivery(self):
+        pack = self.packs['li_li']
+        config_path, cfg, _ = self.late_chinese_fixture('li_li', self.workspace / '最终渲染警告负例')
+        raw = config_path.parent / cfg['data']['trace']['path']
+        original = file_hash(raw)
+        output = self.workspace / '缺字警告不能交付'
+        program = """import sys
+from pathlib import Path
+import warnings
+from matplotlib.text import Text
+sys.path.insert(0, str(Path(sys.argv[1]) / 'src'))
+draw = Text.draw
+def missing_glyph(self, renderer):
+    warnings.warn('Glyph 65533 missing from font(s) Test renderer', UserWarning)
+    return draw(self, renderer)
+Text.draw = missing_glyph
+from recipe_runtime import run
+from renderer import render
+raise SystemExit(run('li_li', render, ['--config', sys.argv[2], '--out', sys.argv[3]]))
+"""
+        failed = subprocess.run([sys.executable, '-c', program, str(pack), str(config_path), str(output)],
+                                cwd=pack, capture_output=True, text=True, encoding='utf-8')
+        self.assertEqual(failed.returncode, 2, failed.stderr + failed.stdout)
+        self.assertIn('最终渲染', failed.stderr)
+        self.assertNotIn('Traceback', failed.stderr)
+        self.assertFalse(output.exists())
+        self.assertEqual(file_hash(raw), original)
+
+    def test_invalid_requested_font_family_stops_before_output(self):
+        pack = self.packs['li_li']
+        config_path, cfg, _ = self.author_fixture('li_li', self.workspace / '字体配置应停')
+        cfg['export']['formats'] = ['svg']
+        for index, font in enumerate(([], '', 12, ['DejaVu Sans', None])):
+            with self.subTest(font_family=font):
+                cfg['style']['font_family'] = font
+                dump(config_path, cfg)
+                output = self.workspace / ('字体无效' + str(index))
+                failed = self.command(pack, config_path, output)
+                self.assertEqual(failed.returncode, 2, failed.stderr + failed.stdout)
+                self.assertIn('style.font_family', failed.stderr)
+                self.assertFalse(output.exists())
+
+    def test_xrd_duplicate_or_missing_grid_and_unsynchronized_voltage_stop(self):
+        pack = self.packs['operando_xrd']
+        config_path, config, _ = self.author_fixture('operando_xrd', self.workspace / 'XRD应停')
+        data = config_path.parent / config['data']['diffraction']['path']
+        original = data.read_text(encoding='utf-8-sig')
+        for index, contents in enumerate((original + original.splitlines()[1] + '\n', '\n'.join(original.splitlines()[:-1]) + '\n')):
+            data.write_text(contents, encoding='utf-8')
+            result = self.command(pack, config_path, self.workspace / f'网格不完整{index}')
+            self.assertEqual(result.returncode, 2, result.stderr)
+            self.assertIn('网格', result.stderr)
+        data.write_text(original, encoding='utf-8')
+        voltage = config_path.parent / config['data']['voltage']['path']
+        voltage.write_text(voltage.read_text(encoding='utf-8-sig').replace(',100,', ',99,'), encoding='utf-8')
+        result = self.command(pack, config_path, self.workspace / '不同步不外推')
+        self.assertEqual(result.returncode, 2, result.stderr)
+        self.assertIn('同步', result.stderr)
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -1,0 +1,256 @@
+{
+  "schema_version": 1,
+  "checked_date": "2026-10-01",
+  "status": "PASS",
+  "scope": "Temporary original teaching fixtures, analytic equations/charge inventories/units/linkage and actual selected artists; no real cell/material/experimental certification.",
+  "not_validated": [
+    "Experimental data",
+    "Named material performance",
+    "All native desktop/model behavior",
+    "Independent human visual review"
+  ],
+  "tests_run": 18,
+  "failures": 0,
+  "errors": 0,
+  "source_sha256": {
+    "examples/recipe_packs/_runtime/generate_demo.py": "a7fbddf2db64d903b34a38dce407f40586e27a06e1d792ac380799c6cbb509b1",
+    "examples/showcase/build.py": "bd127159f502c05c56bd4cba916b89fb3514889c81cb830105a414fdb03a076b",
+    "examples/showcase/electrochem.py": "d75d0b2a760bca59ce1701d471999d254bebfbef608a56a7b4d8eeeff2ec15fd",
+    "scripts/package_recipe_packs.py": "3c295435bd661300a91e3945b282da41624306fb4abf3a8fe08aa1f4ab4d185c",
+    "skills/battery-review-figure/scripts/batteryplot/electrochem.py": "134b77742c94dab715c97b24cda95cc6aba00745c4f9ba54243d33535c930c6c",
+    "tests/test_synthetic_core_physics.py": "f742ef2fbbe4175c9ab465e1e480650d0415513d2852030f702960b5d730a77b"
+  },
+  "cases": [
+    {
+      "case": "test_aurbach_inventory_balance_and_integrated_current",
+      "description": "Formation, reservoir, ten partial pairs and final strip obey recoverable inventory and charge conservation.",
+      "status": "PASS",
+      "evidence": {
+        "partial_cycles": 10,
+        "final_strip_mAh_cm2": 1.9775000000000003,
+        "chosen_reservoir_efficiency_pct": 99.5,
+        "excluded_formation": true
+      }
+    },
+    {
+      "case": "test_bragg_angle_and_diffraction_grid",
+      "description": "First-order Bragg inversion and complete nonnegative peak grids hold in gallery and recipe.",
+      "status": "PASS",
+      "evidence": {
+        "grid": [
+          105,
+          240
+        ],
+        "wavelength_A": 1.5406,
+        "interpretation": "Fictitious independent spacings; progress is not measured SOC or phase assignment"
+      }
+    },
+    {
+      "case": "test_capacity_voltage_profiles_cover_declared_window",
+      "description": "Gallery/recipe voltage endpoints match their own capacity ledger and cutoffs.",
+      "status": "PASS",
+      "evidence": {
+        "gallery_window_V": [
+          2.8,
+          4.3
+        ],
+        "own_fullcell_recipe_window_V": [
+          2.9,
+          4.2
+        ],
+        "no_substitution_between_cell_types": true
+      }
+    },
+    {
+      "case": "test_eis_csv_bode_use_same_complex_values",
+      "description": "Stored EIS real/imaginary data and optional ideal-RC frequency view match analytic circuits.",
+      "status": "PASS",
+      "evidence": {
+        "core_points_per_sample": 86,
+        "optional_points_per_sample": 120,
+        "no_independent_drawn_bode_curve": true
+      }
+    },
+    {
+      "case": "test_eis_passive_limits_and_independent_semicircle",
+      "description": "Randles CPE/Warburg has correct signed impedance and ideal-RC limiting semicircle.",
+      "status": "PASS",
+      "evidence": {
+        "frequency_boundary_Hz": [
+          1e-08,
+          1000000000000.0
+        ],
+        "Nyquist_convention": "Re Z, -Im Z",
+        "CPE_alpha_one_Warburg_zero_limit": "Ideal RC semicircle"
+      }
+    },
+    {
+      "case": "test_electrochem_generate_render_source_contract",
+      "description": "All four optional paths actually render; mandatory CSV and optional ledger must exist, be unique and stay local.",
+      "status": "PASS",
+      "evidence": {
+        "rendered_optional_paths": [
+          "aurbach_protocol",
+          "eis_frequency",
+          "chronoamperometry",
+          "ocv_rest"
+        ],
+        "optional_ledger": "aurbach_protocol/protocol.json",
+        "source_contract_rejected_cases": 6,
+        "outputs": [
+          "PNG",
+          "SVG",
+          "PDF",
+          "alignment",
+          "actual_artist_checks"
+        ],
+        "gap_closed": "Old 17 checks validated generation/schema/physics but did not execute four optional render paths"
+      }
+    },
+    {
+      "case": "test_fullcell_recipe_inventory_and_ce_accounting",
+      "description": "Two 40-cycle full-cell toy ledgers conserve charge under stated assumptions.",
+      "status": "PASS",
+      "evidence": {
+        "cycles_per_sample": 40,
+        "samples": 2,
+        "relationship_scope": "No excess/compensation; not an author-data acceptance rule"
+      }
+    },
+    {
+      "case": "test_halfcell_capacity_does_not_inherit_ce_product",
+      "description": "Excess-Li half-cell accessible activity and independent CE ledger remain distinct.",
+      "status": "PASS",
+      "evidence": {
+        "cycles_per_sample": 500,
+        "samples": 2,
+        "legacy_id": "full_cell",
+        "actual_configuration": "Excess-Li half-cell"
+      }
+    },
+    {
+      "case": "test_invalid_model_parameters_stop",
+      "description": "Analytic generators refuse nonfinite/unphysical coefficients rather than fabricating outputs.",
+      "status": "PASS",
+      "evidence": {
+        "rejected_cases": 10,
+        "scope": "Only known demo functions; measured author anomalies are not silently clipped or replaced"
+      }
+    },
+    {
+      "case": "test_li_cu_ce_and_true_one_volt_endpoint",
+      "description": "Li||Cu Qstrip/Qplate, current-time integrals and stored 1 V endpoint agree.",
+      "status": "PASS",
+      "evidence": {
+        "cycles": 300,
+        "selected_cycles": [
+          1,
+          100,
+          300
+        ],
+        "samples": 2,
+        "stored_strip_cutoff_V": 1
+      }
+    },
+    {
+      "case": "test_model_metadata_and_composite_source_closure",
+      "description": "All 18 core model records have source-scoped basis; composite lists its actual ten input data files.",
+      "status": "PASS",
+      "evidence": {
+        "core_metadata_templates": 18,
+        "composite_input_dependencies": 10,
+        "references_scope": "Model definition/interpretation boundaries only; never paper numbers"
+      }
+    },
+    {
+      "case": "test_own_recipe_reference_data_and_schema",
+      "description": "Three adaptable reference images are rendered from their own CSV/config; raw artist arrays match.",
+      "status": "PASS",
+      "evidence": {
+        "recipes": 3,
+        "source_origin": "Each own generator/config/CSV, no copying the canonical half-cell image into a full-cell demo",
+        "engineering_validation": "Exact artist arrays, frame checks and schema only"
+      }
+    },
+    {
+      "case": "test_rate_accessibility_recovery_and_linked_cutoffs",
+      "description": "Rate-stage response separates reversible access from irreversible loss without arbitrary recovery bonuses.",
+      "status": "PASS",
+      "evidence": {
+        "stages_C": [
+          0.2,
+          0.5,
+          1,
+          2,
+          5,
+          0.2
+        ],
+        "cycles": 60,
+        "scope": "Chosen rate response, no transport/material fit"
+      }
+    },
+    {
+      "case": "test_rc_current_transient_charge_and_ocv_limits",
+      "description": "Voltage-step current has an analytic integrated charge; open-circuit RC relaxation has a finite limit.",
+      "status": "PASS",
+      "evidence": {
+        "transient_rows_per_sample": 300,
+        "ocv_rows_per_sample": 250,
+        "limitation": "No deposited mass/nucleation or voltage-derived self-discharge capacity"
+      }
+    },
+    {
+      "case": "test_selected_figures_do_not_clip_new_endpoints",
+      "description": "Affected scientific Line2D endpoints remain inside saved figure axes and use four-sided solid-line display.",
+      "status": "PASS",
+      "evidence": {
+        "figures": [
+          "full_cell",
+          "li_cu_ce",
+          "li_li",
+          "eis",
+          "gcd_profiles",
+          "rate_capability"
+        ],
+        "check": "Actual y arrays remain in y-limits; four-sided frames, solid lines, no markers"
+      }
+    },
+    {
+      "case": "test_symmetric_rc_unique_time_continuous_state_and_charge",
+      "description": "Li||Li terminal RC state is continuous; timestamps and external charge are exact.",
+      "status": "PASS",
+      "evidence": {
+        "samples": 2,
+        "hours": 200,
+        "trace_rows_per_sample": 10001,
+        "switching": "Voltage IR jump allowed; RC state continuous; current integrated as zero-order hold"
+      }
+    },
+    {
+      "case": "test_thermal_node_first_law_and_linked_values",
+      "description": "Thermal field obeys positive node balance and exact linked line/history at plausible declared scale.",
+      "status": "PASS",
+      "evidence": {
+        "total_heat_capacity_J_K": 90,
+        "total_conductance_W_K": 0.16666666666666666,
+        "mass_kg": 0.1,
+        "limitation": "Uncoupled teaching nodes; no IR, C-rate heat inference or thermal-runaway calculation"
+      }
+    },
+    {
+      "case": "test_tofsims_same_field_mean_and_nonnegative_limits",
+      "description": "Sputter profile at 30 s equals shown channel mean; arbitrary intensity is not concentration.",
+      "status": "PASS",
+      "evidence": {
+        "channels": 3,
+        "grid": [
+          72,
+          72
+        ],
+        "linkage_time_s": 30,
+        "no_map_or_profile_display_clipping": true,
+        "physical_claim": "None: nonnegative layout field; matrix/yield effects not simulated"
+      }
+    }
+  ]
+}

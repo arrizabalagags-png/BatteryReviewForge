@@ -2,7 +2,7 @@
   "data_status": "synthetic_demo",
   "not_experimental_data": true,
   "random_seed": 20260923,
-  "generator_version": "1.1",
+  "generator_version": "1.6",
   "figure_grammar_id": "nyquist + bode (optional model demonstration)",
   "journal_preset": "journal_neutral_180mm",
   "variables_and_units": {
@@ -10,15 +10,121 @@
     "y": "−Z″ (Ω)",
     "linked": "frequency (Hz) and phase (°) from one circuit model"
   },
-  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
-  "test_conditions": "Illustrative two-electrode model; 100 kHz–10 mHz; Rs + (Rct||CPE) + semi-infinite Warburg. Values have no fitted experimental interpretation.",
+  "sample_identity": "A/B are local teaching-model labels, not one electrolyte across unlike techniques; SIM IDs are invented records, never citations.",
+  "test_conditions": "Illustrative two-electrode model; 100 kHz–10 mHz; Rs + (CPE || (Rct + semi-infinite Warburg)); Z_W = sigma*(1-j)/sqrt(2*pi*f). Values have no fitted experimental interpretation.",
   "source_files": [
     "data.csv",
     "model.json"
   ],
   "creator": "BatteryReviewForge original code",
   "review": {
-    "science": "models and data-to-panel links inspected; no experimental interpretation",
-    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+    "science": "Declared model equations/units/linked-file relations have scoped automated tests; no experimental certification.",
+    "display": "Actual line/frame/alignment checks only; independent visual and author review remain pending."
+  },
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "Model A",
+      "points": 86,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 0,
+      "label": "Model B",
+      "points": 86,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 1,
+      "label": "Model A",
+      "points": 86,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 1,
+      "label": "Model B",
+      "points": 86,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    }
+  ],
+  "curve_style_check": "pass: actual rendered Line2D artists are solid and have no markers",
+  "data_frame_check": "pass: actual data axes show top/right/bottom/left spines",
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    }
+  ],
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "parameter_origin": "self-chosen teaching values; never paper measurements",
+    "validation_scope": "Declared teaching model; no experimental/material certification",
+    "equations": [
+      "omega=2*pi*f; ZW=sigma*(1-j)/sqrt(omega)",
+      "Y_CPE=Q*(j*omega)^alpha",
+      "Z=Rs+1/(Y_CPE+1/(Rct+ZW))",
+      "Nyquist=(Re Z,-Im Z); Bode=(abs(Z),arg(Z)) from the same stored complex values"
+    ],
+    "assumptions": [
+      "Linear small-signal stationary passive circuit, f>0, Rs>=0, Rct/Q>0, 0<alpha<=1, sigma>=0.",
+      "Semi-infinite planar diffusion is an assumed boundary; finite diffusion or nonstationary spectra require another model.",
+      "CPE is empirical; its Q with units S*s^alpha is not a measured capacitance unless alpha=1."
+    ],
+    "parameters": {
+      "frequency_Hz": [
+        0.01,
+        100000.0
+      ],
+      "A": {
+        "Rs_ohm": 4.2,
+        "Rct_ohm": 23,
+        "CPE_Q": 0.00085,
+        "CPE_alpha": 0.86,
+        "Warburg_sigma": 3.0
+      },
+      "B": {
+        "Rs_ohm": 5.1,
+        "Rct_ohm": 43,
+        "CPE_Q": 0.00067,
+        "CPE_alpha": 0.83,
+        "Warburg_sigma": 4.0
+      }
+    },
+    "references": [
+      {
+        "url": "https://www.gamry.com/application-notes/EIS/basics-of-electrochemical-impedance-spectroscopy/",
+        "title": "Basics of Electrochemical Impedance Spectroscopy",
+        "supports": "Complex impedance, series/parallel Randles topology, CPE and semi-infinite Warburg conventions; numbers self-chosen.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "limitations": [
+      "No circuit fit, experimental validation, transport coefficient or microscopic mechanism."
+    ]
   }
 }

@@ -5,7 +5,7 @@
   "source_files": [
     "data.csv"
   ],
-  "test_conditions": "Synthetic Li||Al-like oxidative sweep at nominal 25 °C and 0.1 mV/s; all current densities and turn-up positions invented. No onset or stability-window determination.",
+  "test_conditions": "Original one-way anodic exponential response, nominal 25 °C, 0.1 mV/s, vs Li/Li+. Negligible reverse reaction/depletion assumed; no oxidation-onset or stability-window determination.",
   "variables_and_units": [
     "electrolyte",
     "voltage_V",
@@ -30,5 +30,106 @@
     "default_template": false
   },
   "reproduce": "python render_specialist.py --recipe lsv --input-folder lsv --output-dir brf-output --style forge",
-  "creator": "BatteryReviewForge original synthetic analytic demonstration"
+  "creator": "BatteryReviewForge original synthetic analytic demonstration",
+  "generator_version": "1.6",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "j_anodic_uA_cm2=0.08+0.30*exp(alpha*F*(V-E0)/(R*T))",
+      "E0_A,B,C=4.32,4.49,4.66 V; alpha=0.15, T=298.15 K"
+    ],
+    "parameters": {
+      "alpha": 0.15,
+      "j0_uA_cm2": 0.3,
+      "baseline_uA_cm2": 0.08,
+      "R_J_mol_K": 8.314462618,
+      "F_C_mol": 96485.33212,
+      "temperature_K": 298.15,
+      "scan_rate_mV_s": 0.1,
+      "reference": "Li/Li+",
+      "voltage_window_V": [
+        3,
+        5.1
+      ]
+    },
+    "assumptions": [
+      "A one-way anodic charge-transfer term with negligible reverse product reaction and depletion.",
+      "The baseline and forward-rate parameters are original; no onset threshold is assigned."
+    ],
+    "references": [
+      {
+        "url": "https://www.gamry.com/electrochemistry-applications/cv-cyclic-voltammetry",
+        "title": "Gamry: electrochemical charge-transfer equations",
+        "supports": "The forward exponential term of charge-transfer kinetics, not a stability-window calibration.",
+        "scope": "model_definition_only"
+      }
+    ],
+    "limitations": [
+      "No mass-transport limit, electrode passivation, iR correction, measured stability window or kinetic fit.",
+      "A kinetic teaching turn-up is not a thermodynamic decomposition potential."
+    ],
+    "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 450
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 450
+        },
+        {
+          "label": "C",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 450
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 450
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 450
+        },
+        {
+          "label": "C",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 450
+        }
+      ]
+    }
+  ]
 }

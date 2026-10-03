@@ -63,7 +63,7 @@
     "Supplied simulated MSD only; no slope fit or diffusion coefficient calculation"
   ],
   "calculations": {},
-  "test_conditions": "Synthetic Li+-like mean-square displacement at 25 and -70 °C over 0-50 ps. No simulation box, ensemble, uncertainty or diffusion coefficient claim.",
+  "test_conditions": "Original drift-free 3D Brownian mean, MSD=6Dt, 25 and −70 °C, 0–50 ps. D is a stored input with a chosen 0.17 eV Arrhenius temperature law; no MD trajectories, fitted D or real electrolyte phase prediction.",
   "data_status": "synthetic_demo",
   "source_files": [
     "data.csv"
@@ -76,5 +76,65 @@
     "observation": "Two-temperature Li+ MSD comparison; synthetic slopes have no measured diffusion meaning.",
     "review_scope": "Original PDF figure and caption visually checked; no numerical values or artwork copied",
     "default_template": false
-  }
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 250
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 250
+        },
+        {
+          "label": "C",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 250
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 250
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 250
+        },
+        {
+          "label": "C",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 250
+        }
+      ]
+    }
+  ]
 }

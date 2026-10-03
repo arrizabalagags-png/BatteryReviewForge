@@ -1,0 +1,19 @@
+{
+  "suite_id": "voltpeer-workflow-69-v2",
+  "base_suite_id": "voltpeer-workflow-65-v1",
+  "base_cases": 65,
+  "evidence_conflict_cases": 4,
+  "total_cases": 69,
+  "compatibility": "beta",
+  "models": {
+    "deepseek-flash": {
+      "behavior_eval": "NOT_RUN",
+      "desktop_native_eval": "NOT_RUN"
+    },
+    "deepseek-v4-pro": {
+      "behavior_eval": "NOT_RUN",
+      "desktop_native_eval": "NOT_RUN"
+    }
+  },
+  "note": "Original 65 fixtures preserved, plus four opposing-result/NR-NV fixtures. Static/test preparation is not real model invocation. New run records freeze complete Skill trees, source commit/worktree state and OS/architecture."
+}

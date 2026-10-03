@@ -1,0 +1,131 @@
+{
+  "id": "science_raman_polarization",
+  "title": "平行偏振角与 Raman 信号",
+  "domain": "general",
+  "type": "demo",
+  "license": "MIT",
+  "scope": "Original analytic teaching record. Source references support the declared method/derivation only, never this invented parameter set or measurements.",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "source_files": [
+    "data.csv",
+    "model.json"
+  ],
+  "test_conditions": "No acquired cell or material. Independently declared analytic parameters, assumptions and units in scientific_basis.",
+  "variables_and_units": {
+    "1": [
+      "Parallel polarization angle (degree)",
+      "Relative Raman intensity"
+    ]
+  },
+  "creator": "VoltPeer",
+  "generator_version": "1.0.0",
+  "reproduce": "python render_existing.py --output result-01",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "relationship": "Parallel incident and detected polarizations rotate together relative to a declared diagonal Raman tensor.",
+    "equations": [
+      "e_in=e_out=(cos(theta),sin(theta)); I(theta)∝|e_out^T diag(a,b) e_in|²=|a cos²(theta)+b sin²(theta)|²"
+    ],
+    "parameters": {
+      "tensor_diagonal_relative": [
+        1,
+        0.3
+      ],
+      "polarizer_configuration": "parallel, incident and detected axes rotated together"
+    },
+    "assumptions": [
+      "Independently declared parameters; no experimental or material fit.",
+      "Single aligned tensor and ideal parallel polarizers; no structural assignment or powder average."
+    ],
+    "limitations": [
+      "Single aligned tensor and ideal parallel polarizers; no structural assignment or powder average.",
+      "A numerical/model QA pass does not validate author data or a physical mechanism."
+    ],
+    "constraints": [
+      "Finite numerical values and explicit physical units.",
+      "Continuous plotted curves are solid without markers; data axes retain four borders.",
+      "All plotted responses are nonnegative."
+    ],
+    "references": [
+      {
+        "title": "IUPAC: Raman scattering",
+        "doi": "10.1351/goldbook.08667",
+        "url": "https://goldbook.iupac.org/terms/view/08667/plain",
+        "figure_panel": "Polarizability and Stokes/anti-Stokes energy-level distinction; projection and occupation factors are independently derived",
+        "supports": "Parallel incident and detected polarizations rotate together relative to a declared diagonal Raman tensor.",
+        "checked_at": "2026-10-03",
+        "scope": "Method/equation/caveat reference only. Original analytic teaching inputs; no copied paper points, pixels or experimental inference."
+      }
+    ],
+    "validation": {
+      "finite": true,
+      "nonnegative": true,
+      "unit_interval": false
+    },
+    "validation_scope": "Source method/principle and explicitly derived restricted teaching specialization checked; equation, units and numerical constraints only. No copied paper measurements, material parameters, experimental fit or mechanism certification."
+  },
+  "review": {
+    "science": "Equation/units/numerical constraints and source scope checked. No author-data validation.",
+    "display": "Actual solid/unmarked curve artists, four-frame spines, legend/title and text bounds checked."
+  },
+  "reference": {
+    "doi": "10.1351/goldbook.08667",
+    "figure_panel": "Polarizability and Stokes/anti-Stokes energy-level distinction; projection and occupation factors are independently derived",
+    "observation": "Parallel incident and detected polarizations rotate together relative to a declared diagonal Raman tensor.",
+    "review_scope": "Method/equation/caveat reference only. Original analytic teaching inputs; no copied paper points, pixels or experimental inference.",
+    "default_template": false
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Parallel tensor projection",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        }
+      ]
+    }
+  ],
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Parallel tensor projection",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        }
+      ]
+    }
+  ],
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "Parallel tensor projection",
+      "points": 241,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#287d8e"
+    }
+  ],
+  "curve_style_check": "Actual Line2D artists: all continuous curves solid and unmarked.",
+  "data_frame_check": "Actual data axes: all four spines visible."
+}

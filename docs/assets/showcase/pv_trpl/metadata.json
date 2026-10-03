@@ -1,0 +1,85 @@
+{
+  "id": "pv_trpl",
+  "title": "TRPL 原始信号与衰减",
+  "domain": "general",
+  "type": "demo",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260939,
+  "source_files": [
+    "data.csv"
+  ],
+  "variables_and_units": [
+    "time_ns",
+    "signal_a_u",
+    "fast_component_a_u",
+    "slow_component_a_u",
+    "background_a_u"
+  ],
+  "test_conditions": "Synthetic biexponential decay; no instrument response, no fitted lifetime or mechanistic conclusion",
+  "render_options": {
+    "recipe": "pv_trpl"
+  },
+  "reproduce": "python render.py --output rebuilt --recipe pv_trpl --demo-input data.csv",
+  "creator": "VoltPeer maintainers",
+  "license": "MIT",
+  "generator_version": "1.6",
+  "limitations": "Declared teaching model only; no measured device, mechanism or material certification. This generator does not adapt experimental data.",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "I(t)=0.7*exp(-t/18 ns)+0.3*exp(-t/90 ns)+0.002"
+    ],
+    "assumptions": [
+      "Two independent first-order decays with constant background and nonnegative amplitudes."
+    ],
+    "parameters": {
+      "amplitudes_a_u": [
+        0.7,
+        0.3
+      ],
+      "input_time_constants_ns": [
+        18,
+        90
+      ],
+      "background_a_u": 0.002,
+      "time_ns_range": [
+        0,
+        400
+      ]
+    },
+    "references": [
+      {
+        "url": "https://downloads.picoquant.com/manuals/SymPhoTime64_Manual.pdf",
+        "title": "PicoQuant SymPhoTime64 manual: lifetime analysis",
+        "supports": "Exponential lifetime modeling and the need for instrument-response-aware fitting; original known decay constants.",
+        "scope": "model_definition_only"
+      }
+    ],
+    "limitations": [
+      "All numeric material/rate parameters are original teaching assumptions, not measured or copied paper data.",
+      "No IRF convolution, instrument timing, fitted lifetime, carrier recombination mechanism or material assignment."
+    ],
+    "validation_scope": "Original teaching-model equations, charge/energy/units and declared boundaries only; no experimental or material certification."
+  },
+  "actual_artist_checks": [
+    {
+      "panel": 0,
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "curve_styles": [
+        {
+          "linestyle": "-",
+          "marker": "None",
+          "points": 401
+        }
+      ]
+    }
+  ]
+}

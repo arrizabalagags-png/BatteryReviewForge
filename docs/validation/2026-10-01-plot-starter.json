@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "version": "0.10.1",
+  "channel": "beta",
+  "date": "2026-10-01",
+  "status": "PASS_LOCAL_ENGINEERING",
+  "new_resource_id": "plot_starter",
+  "plot_kinds": 10,
+  "isolated_runtime": "batteryplot shared canonical Skill; no DSH/Codex forks",
+  "tests": [
+    {
+      "suite": "test_plot_starter",
+      "cases": 11,
+      "seconds": 227.107,
+      "status": "PASS",
+      "scope": "Actual isolated ZIP execution; all 10 kinds, raw CE values including 100.5, distinct solid markerless curves/four frames, hashes, failure boundaries, DSH/Codex copy, isolated venv pip installation and actual demo"
+    },
+    {
+      "suite": "style CLI and packager file boundary followup",
+      "cases": 2,
+      "seconds": 19.538,
+      "status": "PASS",
+      "scope": "Metadata style inherited; explicit CLI change recorded without changing input; Demo selected style; unknown style stops; packager refuses an existing output-directory file"
+    },
+    {
+      "suite": "test_recipe_packs isolated extraction",
+      "cases": 1,
+      "recipe_runs": 3,
+      "seconds": 19.771,
+      "status": "PASS",
+      "scope": "Existing full_cell/li_li/operando_xrd actual ZIP demos; source/version-only updates"
+    }
+  ],
+  "initial_test_repair": {
+    "suite_cases": 9,
+    "seconds": 241.263,
+    "runtime_failures": 0,
+    "test_failure": "Archive-file-set assertion counted Python-generated __pycache__ after execution; assertion now compares actual downloaded ZIP file set",
+    "focused_recheck_cases": 3,
+    "focused_recheck_seconds": 14.529,
+    "focused_recheck": "PASS"
+  },
+  "checks": {
+    "source_skill_references": "PASS:15",
+    "source_ast_requirements": "PASS:15",
+    "same_scientific_body_for_hosts": "PASS",
+    "author_input_and_prior_bundle_unchanged": "PASS",
+    "demo_conditions_not_author_fallback": "PASS",
+    "mandatory_scientific_conditions_and_NR_NV_failstop": "PASS",
+    "setup_api_key": "NOT_REQUIRED",
+    "old_0.10.0_archives": "PASS: 36 byte-exact preserved ZIPs",
+    "actual_archive_gate": "PASS: 37 archives / 63 isolated reference-and-AST / 30 canonical demos"
+  },
+  "environment": {
+    "os": "Windows",
+    "architecture": "AMD64",
+    "python": "3.12.14",
+    "venv": "created independently, include-system-site-packages=false; shipped requirements actually installed"
+  },
+  "validation_boundaries": {
+    "original_values_checked": "CE original x/y arrays including 100.5; all-kind file inputs hashed unchanged",
+    "raw_artists_all_kinds": "10 routes; distinct curve colors, solid/markerless artists and 4 data spines",
+    "human_scientific_validation": "NOT_PERFORMED",
+    "native_dsh_discovery": "NOT_TESTED",
+    "native_codex_discovery": "NOT_TESTED",
+    "model_eval": "NOT_RUN_THIS_TASK",
+    "macos_linux_runtime": "NOT_TESTED",
+    "api_calls_by_this_work": "0"
+  },
+  "new_sources": [
+    {
+      "file": "examples/plot_starter/start.py",
+      "sha256": "1265c492c93909b5a95820a7960b551eb12a8e426c49324aa15122e10ef46d05"
+    },
+    {
+      "file": "scripts/package_plot_starter.py",
+      "sha256": "c7359e2c45943edc9d23d7d4d0965330febd6bd6b3bbdb756ae54d6b68b42af1"
+    },
+    {
+      "file": "skills/battery-review-figure/scripts/plot_uploaded.py",
+      "sha256": "d9cf8d5848950daea87ed2018144750eb9b82cc8495f3923f3d960ee9b237eef"
+    },
+    {
+      "file": "skills/battery-review-figure/scripts/deliver.py",
+      "sha256": "559781fb4fbad219a448f88fa8dcb8089fa425c4829f3bd6b349ed1bb09af2bb"
+    },
+    {
+      "file": "tests/test_plot_starter.py",
+      "sha256": "7825bb485fb1e8a93e064fdc1d5a8f2d0e45b7ba7c5f454a97437676ac552e39"
+    }
+  ]
+}

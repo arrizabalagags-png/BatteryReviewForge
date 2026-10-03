@@ -38,24 +38,24 @@
   "plot_rectangles_mm": [
     {
       "panel": "a",
-      "left": 12.117,
-      "top": 6.536,
-      "width": 102.515,
-      "height": 83.632
+      "left": 12.113,
+      "top": 6.625,
+      "width": 102.559,
+      "height": 83.081
     },
     {
       "panel": "b",
-      "left": 139.513,
-      "top": 6.536,
-      "width": 39.429,
-      "height": 83.632
+      "left": 139.496,
+      "top": 6.625,
+      "width": 39.446,
+      "height": 83.081
     },
     {
       "panel": "c",
-      "left": 117.195,
-      "top": 12.472,
-      "width": 3.588,
-      "height": 71.76
+      "left": 117.236,
+      "top": 12.269,
+      "width": 3.59,
+      "height": 71.791
     }
   ],
   "note": "Measured after final Matplotlib draw. Colorbars are excluded."

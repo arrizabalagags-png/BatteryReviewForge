@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-01",
+  "status": "PASS",
+  "model": "gpt-6-luna",
+  "execution": "Actual Codex collaboration agent; independent output verification by root",
+  "package_sha256": "77e362bdb85161e32e1f1433963b8fba9919f2055945bb908395fff9da9e935e",
+  "package_bytes": 577033,
+  "scope": "Historical first 0.10.1 Starter before three routing-document corrections",
+  "current_package_behavior": "NOT_TESTED_BY_THIS_RECORD; scientific Python/CSV/requirements bytes unchanged",
+  "data": "Independent author-declared synthetic acceptance CSV; no actual experimental claim",
+  "input_sha256": "ecc7d1a94c0a8a40d8c29100f0508d039eccbea5e5eb55eff9210911bdcd4ab4",
+  "input_rows": 48,
+  "author_mapping": "Created by Luna from task inputs; not prefilled",
+  "curves": [
+    {
+      "series": "A",
+      "points": 24,
+      "raw_xy_exact": true,
+      "linestyle": "-",
+      "marker": null,
+      "color": "#d45f66"
+    },
+    {
+      "series": "B",
+      "points": 24,
+      "raw_xy_exact": true,
+      "linestyle": "-",
+      "marker": null,
+      "color": "#357fa7"
+    }
+  ],
+  "anomaly_100_5_retained": true,
+  "four_spines": true,
+  "formats": {
+    "figure.pdf": {
+      "bytes": 23222,
+      "sha256": "1c7d6573baaee3f8b07825795cfe646f7a490ee5f7ffc2574c2dfe3f30bb60fd"
+    },
+    "figure.png": {
+      "bytes": 41539,
+      "sha256": "7028009616574a5e823010efb685cfa1926be7ace4ebb1b7f9d3eaa6f1f02326"
+    },
+    "figure.svg": {
+      "bytes": 11334,
+      "sha256": "adf031437f05ee711fa2442499e587b84642d812a19d89a31403b21b454eb280"
+    }
+  },
+  "png_size": [
+    1051,
+    767
+  ],
+  "png_dpi": [
+    299.9994,
+    299.9994
+  ],
+  "pdf_size_mm": [
+    89,
+    65
+  ],
+  "pdf_fonts": "Embedded non-Type3 fonts",
+  "model_visual_preview": "Actually opened by Luna and root",
+  "model_final_delivery": "Short Chinese clickable PNG/SVG/PDF links and 100.5% note",
+  "billing": "Not exposed for this Codex agent; neither zero nor a paid DeepSeek API run",
+  "native_host_skill_discovery": "NOT_TESTED",
+  "all_task_generalization": "NOT_CLAIMED"
+}

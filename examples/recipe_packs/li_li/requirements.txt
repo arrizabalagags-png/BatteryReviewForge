@@ -1,0 +1,5 @@
+# Python 3.10+; install in this project venv, never globally.
+matplotlib>=3.8,<4
+numpy>=1.26,<3
+Pillow>=10,<13
+pypdf>=4,<7

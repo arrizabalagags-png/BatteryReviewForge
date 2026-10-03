@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "model_class": "analytic_model",
+  "data_origin": "original_synthetic",
+  "parameter_origin": "explicit teaching choices; not reported measurements",
+  "validation_scope": "Declared teaching model; no experimental/material certification",
+  "equations": [
+    "T_half=Q_half/abs(j); j alternates sign each T_half",
+    "d eta/dt=(j*Rp-eta)/tau; V=j*Rs+eta",
+    "eta(t)=j*Rp+(eta_start-j*Rp)*exp(-t/tau); Qpassed=integral(j dt)"
+  ],
+  "assumptions": [
+    "Zero open-circuit offset; constant positive passive linear terminal RC parameters.",
+    "Applied current is a right-continuous zero-order hold; RC state stays continuous at switching.",
+    "External charge is not a lithium-deposition mass measurement."
+  ],
+  "parameters": {
+    "half_cycles": 40,
+    "j_mA_cm2": 1,
+    "Q_half_mAh_cm2": 1,
+    "A": {
+      "Rs_ohm_cm2": 10,
+      "Rp_ohm_cm2": 24,
+      "tau_h": 0.08
+    },
+    "B": {
+      "Rs_ohm_cm2": 12,
+      "Rp_ohm_cm2": 35,
+      "tau_h": 0.12
+    }
+  },
+  "references": [
+    {
+      "url": "https://www.gamry.com/application-notes/EIS/basics-of-electrochemical-impedance-spectroscopy/",
+      "title": "Basics of Electrochemical Impedance Spectroscopy",
+      "supports": "Ohm law, capacitor differential relation and passive equivalent circuits; values are not measured.",
+      "scope": "model_definition_only",
+      "checked_date": "2026-10-01"
+    },
+    {
+      "url": "https://www.nature.com/articles/s41560-020-0648-z",
+      "title": "Understanding and applying coulombic efficiency in lithium metal batteries",
+      "supports": "Cell configuration and plating/stripping protocol boundaries; no symmetric trace certifies CE or full-cell stability.",
+      "scope": "model_definition_only",
+      "checked_date": "2026-10-01"
+    }
+  ],
+  "limitations": [
+    "No SEI, dendrite, short circuit, transfer mass, lifetime or CE claim follows from this ideal terminal RC trace."
+  ]
+}

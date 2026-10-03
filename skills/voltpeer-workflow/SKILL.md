@@ -1,0 +1,65 @@
+---
+name: voltpeer-workflow
+description: Coordinate a multi-stage battery Review or Perspective project across planning, evidence, writing, submission, and revision. Use for the full workflow or unclear stage requests, not a single specialized edit.
+---
+
+# VoltPeer
+
+<!-- execution-contract -->
+For model/tool adaptation or resuming a task, read [the execution guide](references/EXECUTION.md). DeepSeek Flash uses short stages and checkpoints; DeepSeek Pro can plan larger text/evidence batches, with the same scientific checks. Reply in the user's language with the result, usable result/preview links and material unresolved questions. Keep mappings, configuration, logs and recovery records inside the project's `.voltpeer/` folder; do not link them in a normal final reply. Provide the corresponding source record only when the user explicitly requests provenance. Use only capabilities actually available in the current model and host.
+<!-- /execution-contract -->
+
+Coordinate a battery Review or Perspective across stages while keeping the current plan, evidence, and revision decisions inspectable. For a single-stage task, use the corresponding specialist skill. Do not apply this workflow to analysis of a new primary experimental paper. Respond in the user's language unless asked otherwise.
+
+For a new experiment, route the research question and controls to `voltpeer-experiment-plan`, the raw instrument table to `voltpeer-data`, and the confirmed numeric data to `voltpeer-plot`. These are separate steps of an experimental project; this Review coordinator does not make the author's lab protocol decisions.
+
+## Route the request
+
+The author does not need to know a skill name or choose an internal mode. Read the supplied draft, papers, tables, images, or project folder first. Identify the chemistry or device class, article type (narrative/critical Review, scoping review, systematic review, Perspective), target readership and venue if known, current manuscript state, accessible sources, and requested deliverable. Infer these from what is actually available. Choose the specialist internally, describe the next action in ordinary language, and ask only for a missing decision that blocks useful work. Do not turn intake into a questionnaire. Read [codex-operations.md](references/codex-operations.md) for multi-session or multi-agent work.
+
+If the request is about **installing or using this suite in an agent host**, identify the exact product first and read [AGENT_COMPATIBILITY.md](references/AGENT_COMPATIBILITY.md). A host's login and API setup is separate from this skill. Do not assume another host has Codex's plugin commands, skill paths, or tool access.
+
+| Stage | Specialist skill |
+| --- | --- |
+| Inspect or normalize raw instrument exports with explicit units | `voltpeer-data` |
+| Plan variables, controls and evidence for a battery research question | `voltpeer-experiment-plan` |
+| Angle, scope, competing Reviews, outline | `voltpeer-plan` |
+| Search, screening, source-state inventory | `voltpeer-literature` |
+| Claim-to-source and citation verification | `voltpeer-claim-check` |
+| Battery metrics, mechanisms, cross-study comparisons | `voltpeer-metrics` |
+| Draft or restructure sections | `voltpeer-write` |
+| Plan, create, or audit figures | `voltpeer-plot` |
+| Assemble supplied image/PDF/SVG panels | `voltpeer-assemble` |
+| Polish, translate, or compress existing prose | `voltpeer-polish` |
+| Whole-manuscript pre-submission audit | `voltpeer-review-audit` |
+| Journal rules and initial submission package | `voltpeer-submission` |
+| Independent referee-style assessment in a fresh session/agent | `voltpeer-reviewer` |
+| Editor/reviewer response and revision | `voltpeer-response` |
+
+For a full-project request, load each specialist only as the work reaches its stage. Do not read every skill or create every template at intake. If a specialist is unavailable, follow the shared rules below and state the missing capability only if it affects the result.
+
+For an unclear figure request, use the [plain-language figure router](references/shared/voltpeer-plot/references/FIGURE_ROUTER.md) before loading a plotting or assembly specialist. Choose by whether the author has raw data, a new schematic brief, finished panels, or a combination; do not decide from file extension alone.
+
+When the user says only “help me with this”, start from the materials: say briefly what you found, do the first verifiable piece of work, then show what was produced and any one decision needed next. If no material is attached, ask for the smallest useful item (for example a draft section, data table, or three panels) and offer a copyable example sentence. Keep internal skill names out of the author's required input.
+
+## Shared rules
+
+1. **One current plan.** Record the review question, boundaries, central judgement, section roles, display-item roles, venue constraints, and open decisions in a project brief. Deliberately amend it when evidence changes the plan; mark older plans and figure numbers superseded. The brief is an alignment tool, not a reason to ignore new evidence.
+2. **Count source states separately.** Search hits, verified metadata, obtained full texts, supplementary files, papers read, extracted studies, and studies actually supporting claims are different counts. Never present a large search library as a large evidence base.
+3. **Trace important claims.** For numerical, mechanistic, priority, safety, scale-up, cost, or negative claims, keep the original source, exact location, conditions, counterevidence, and confidence. Cite primary studies for their measurements; cite Reviews for interpretations or field framing. Mark inaccessible or unverified sources explicitly. Do not invent DOIs, data, quotes, permissions, or reviewer positions.
+4. **Compare like with like.** A battery number needs its chemistry, cell configuration, tested branch and cycle, normalization boundary, operating conditions, and source. Use `NR` only for a field checked and not reported; use `NV` for one not yet verified. Separate reported, recalculated, and modelled values. Do not rank across incompatible denominators or conditions.
+5. **Make the synthesis visible.** Each major section should state what the evidence establishes, where studies disagree, what remains unresolved, and why that changes a research or engineering decision. A chronological catalog of papers is not a sufficient Review.
+6. **Check display items independently.** A figure or table needs a scientific claim, source trace, readable final-size layout, and a rights status. A correct credit line does not itself grant reuse permission.
+7. **Keep publication actions explicit.** Verify live journal rules for the exact article type and record source URL and access date. Prepare files and checks within the task scope; submit, contact editors/reviewers, publish, or disclose private manuscripts only when the user has authorized that action.
+
+## Deliverables and stopping conditions
+
+Choose the smallest useful durable outputs for the stage. Each specialist has optional empty templates; adapt to existing project files rather than duplicating them. Use [SESSION_HANDOFF.md](assets/templates/SESSION_HANDOFF.md) only when another session needs continuity.
+
+- **Planning is complete** when the angle, closest competing Reviews, evidence feasibility, outline logic, and unresolved decisions are inspectable.
+- **Evidence work is complete** when each requested claim or table cell can be traced to a checked source, or is clearly flagged as unresolved.
+- **Drafting is complete** when the requested text is delivered with citations and remaining evidence gaps marked, without silently upgrading hypotheses into facts.
+- **Preflight is complete** when all applicable venue requirements have checked evidence or an explicit blocker.
+- **Response work is complete** when every reviewer point is mapped to a change, evidence-based explanation, or unresolved action, and manuscript locations agree with the response.
+
+Report what was produced, what was verified, and any decision-blocking gaps. Do not call an unverified draft submission-ready or a revised manuscript independently re-reviewed.

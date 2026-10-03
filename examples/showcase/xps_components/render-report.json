@@ -62,9 +62,81 @@
   "transformations": [
     "Supplied components + background only; residual = data - sum; no peak fitting or chemical assignment performed"
   ],
-  "test_conditions": "Invented C 1s-like binding-energy window, counts and 3 Gaussian components with known baseline. No compound identity, measured composition or fitting quality claim.",
+  "test_conditions": "Original generic 280–294 eV window with 3 known mixed-line-shape components and counting noise. No compound identity, measured composition or fitting quality claim.",
   "data_status": "synthetic_demo",
   "source_files": [
     "data.csv"
+  ],
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Component 1",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "Component 2",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "Component 3",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "Data",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "Sum",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "Background",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "_child0",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "_child1",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 2
+        }
+      ]
+    }
   ]
 }

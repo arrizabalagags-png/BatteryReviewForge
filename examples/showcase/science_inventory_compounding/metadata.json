@@ -1,0 +1,177 @@
+{
+  "id": "science_inventory_compounding",
+  "title": "逐圈效率与库存累积",
+  "domain": "general",
+  "type": "demo",
+  "license": "MIT",
+  "scope": "Original analytic teaching record. Source references support the declared method/derivation only, never this invented parameter set or measurements.",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "source_files": [
+    "data.csv",
+    "model.json"
+  ],
+  "test_conditions": "No acquired cell or material. Independently declared analytic parameters, assumptions and units in scientific_basis.",
+  "variables_and_units": {
+    "1": [
+      "Cycle count",
+      "Retained inventory fraction"
+    ]
+  },
+  "creator": "VoltPeer",
+  "generator_version": "1.0.0",
+  "reproduce": "python render_existing.py --output result-01",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "relationship": "Multiplicative fixed fractional inventory loss differs from a constant absolute loss ledger.",
+    "equations": [
+      "Qn/Q0=CE^n"
+    ],
+    "parameters": {
+      "CE_fraction": [
+        0.999,
+        0.9995,
+        0.9998
+      ]
+    },
+    "assumptions": [
+      "Independently declared parameters; no experimental or material fit.",
+      "Simplified inventory-limited cell with fixed fractional loss; real CE cannot uniquely forecast life."
+    ],
+    "limitations": [
+      "Simplified inventory-limited cell with fixed fractional loss; real CE cannot uniquely forecast life.",
+      "A numerical/model QA pass does not validate author data or a physical mechanism."
+    ],
+    "constraints": [
+      "Finite numerical values and explicit physical units.",
+      "Continuous plotted curves are solid without markers; data axes retain four borders.",
+      "All plotted fractions lie between zero and one."
+    ],
+    "references": [
+      {
+        "title": "COMSOL: Capacity Loss",
+        "doi": "",
+        "url": "https://doc.comsol.com/6.3/doc/com.comsol.help.battery/battery_ug_electrochem_battery.06.26.html",
+        "figure_panel": "Parasitic-current accounting, throughput and declared aging factors",
+        "supports": "Multiplicative fixed fractional inventory loss differs from a constant absolute loss ledger.",
+        "checked_at": "2026-10-03",
+        "scope": "Method/equation/caveat reference only. Original analytic teaching inputs; no copied paper points, pixels or experimental inference."
+      }
+    ],
+    "validation": {
+      "finite": true,
+      "nonnegative": false,
+      "unit_interval": true
+    },
+    "validation_scope": "Source method/principle and explicitly derived restricted teaching specialization checked; equation, units and numerical constraints only. No copied paper measurements, material parameters, experimental fit or mechanism certification."
+  },
+  "review": {
+    "science": "Equation/units/numerical constraints and source scope checked. No author-data validation.",
+    "display": "Actual cycle-marker/continuous-solid artists, four-frame spines, legend/title and text bounds checked."
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "CE = 99.9%",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 241,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "CE = 99.95%",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 241,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "CE = 99.98%",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 241,
+          "sampling": "cycle_scatter"
+        }
+      ],
+      "xlabel": "Equivalent cycle count",
+      "ylabel": "Retained inventory fraction"
+    }
+  ],
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "CE = 99.9%",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 241,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "CE = 99.95%",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 241,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "CE = 99.98%",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 241,
+          "sampling": "cycle_scatter"
+        }
+      ],
+      "xlabel": "Equivalent cycle count",
+      "ylabel": "Retained inventory fraction"
+    }
+  ],
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "CE = 99.9%",
+      "points": 241,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#287d8e",
+      "sampling": "cycle_scatter"
+    },
+    {
+      "panel_index": 0,
+      "label": "CE = 99.95%",
+      "points": 241,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#ba5574",
+      "sampling": "cycle_scatter"
+    },
+    {
+      "panel_index": 0,
+      "label": "CE = 99.98%",
+      "points": 241,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#4868a8",
+      "sampling": "cycle_scatter"
+    }
+  ],
+  "curve_style_check": "Discrete cycle quantities marker-only; continuous functions solid/unmarked; user display preference.",
+  "data_frame_check": "Actual data axes: all four spines visible."
+}

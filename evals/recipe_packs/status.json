@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "resource_ids": ["full_cell", "li_li", "operando_xrd"],
+  "arms": ["A", "B", "C"],
+  "scenarios": ["new_shape", "missing_units", "missing_conditions", "conflict_range"],
+  "deepseek-flash": "NOT_RUN",
+  "deepseek-v4-pro": "NOT_RUN",
+  "native_desktop": "NOT_RUN",
+  "engineering_tests": "see tests/test_recipe_packs.py and dated local QA; not model behavior evidence",
+  "performance_or_cost_advantage": "NOT_CLAIMED"
+}

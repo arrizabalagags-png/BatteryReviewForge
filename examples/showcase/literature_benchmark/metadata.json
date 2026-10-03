@@ -2,22 +2,67 @@
   "data_status": "synthetic_demo",
   "not_experimental_data": true,
   "random_seed": 20260923,
-  "generator_version": "1.1",
-  "figure_grammar_id": "source_linked_comparable_literature_scatter",
+  "generator_version": "1.6",
+  "figure_grammar_id": "invented_record_layout_scatter; not actual literature benchmarking",
   "journal_preset": "journal_neutral_180mm",
   "variables_and_units": {
     "x": "sulfur loading (mg cm−2)",
     "y": "capacity at cycle 100 (mAh g−1)",
     "linked": "48 invented comparable records; category by symbol"
   },
-  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
+  "sample_identity": "A/B are local teaching-model labels, not one electrolyte across unlike techniques; SIM IDs are invented records, never citations.",
   "test_conditions": "48 invented Li–S-like records, each at 0.2 C, 25 °C and cycle 100, with one consistent mAh g−1 sulfur basis; IDs are synthetic, never citations.",
   "source_files": [
     "data.csv"
   ],
   "creator": "BatteryReviewForge original code",
   "review": {
-    "science": "models and data-to-panel links inspected; no experimental interpretation",
-    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+    "science": "Declared model equations/units/linked-file relations have scoped automated tests; no experimental certification.",
+    "display": "Actual line/frame/alignment checks only; independent visual and author review remain pending."
+  },
+  "continuous_curve_style_checks": [],
+  "curve_style_check": "pass: actual rendered Line2D artists are solid and have no markers",
+  "data_frame_check": "pass: actual data axes show top/right/bottom/left spines",
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    }
+  ],
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "layout_fixture",
+    "data_origin": "original_synthetic",
+    "parameter_origin": "self-chosen teaching values; never paper measurements",
+    "validation_scope": "Declared teaching model; no experimental/material certification",
+    "equations": [
+      "No physical equations; categorical/scatter fixtures only."
+    ],
+    "assumptions": [
+      "SIM IDs are invented and are never citations or source-supported performance claims."
+    ],
+    "parameters": {
+      "seed": 20260923,
+      "source_files": [
+        "data.csv"
+      ]
+    },
+    "references": [
+      {
+        "url": "https://www.nature.com/nchem/editorial-policies/reporting-standards",
+        "title": "Nature Chemistry: reporting standards and availability of data, materials, code and protocols",
+        "supports": "Why source provenance/reporting are required; fixture values and categories are invented, not audited papers.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "limitations": [
+      "No real literature benchmarking, material ranking or evidence audit."
+    ]
   }
 }

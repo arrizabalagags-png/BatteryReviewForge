@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-09-30",
+  "version": "0.10.0",
+  "channel": "beta",
+  "python": "3.12.14",
+  "platform": "Windows",
+  "command": "python -m unittest discover -s tests -v",
+  "tests_run": 129,
+  "elapsed_seconds": 263.920,
+  "result": "FAIL",
+  "failures": 1,
+  "errors": 5,
+  "current_release_gate": false,
+  "causes": [
+    "The Arrhenius panel uses observed-data scatter, but one old regression still indexed Line2D instead of PathCollection offsets.",
+    "Four negative-test subcases tried restoring a marker with set_marker(None), which the installed Matplotlib setter rejects. The supported no-marker string is required.",
+    "The canonical execution guide had mixed LF/CRLF. Standalone guide rewriting changed its line endings and broke the byte-exact self-contained copy check."
+  ],
+  "follow_up": "Fix the test artist access and marker restoration, normalize maintained/copied guides to LF, then perform a new complete regression and actual archive validation.",
+  "raw_log_public": false,
+  "native_desktop_discovery_to_delivery": "NOT_RUN",
+  "flash_model_evaluation": "NOT_RUN",
+  "pro_model_evaluation": "NOT_RUN",
+  "macos_real_device": "NOT_RUN"
+}

@@ -1,14 +1,14 @@
 {
-  "name": "battery-review-forge",
+  "name": "voltpeer",
   "interface": {
-    "displayName": "电研搭子 · VoltPeer"
+    "displayName": "VoltPeer"
   },
   "plugins": [
     {
-      "name": "battery-review-forge",
+      "name": "voltpeer",
       "source": {
         "source": "url",
-        "url": "https://github.com/arrizabalagags-png/BatteryReviewForge.git",
+        "url": "https://github.com/arrizabalagags-png/Voltpeer-skills.git",
         "ref": "main"
       },
       "policy": {

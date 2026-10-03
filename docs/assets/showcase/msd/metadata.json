@@ -5,16 +5,17 @@
   "source_files": [
     "data.csv"
   ],
-  "test_conditions": "Synthetic Li+-like mean-square displacement at 25 and -70 °C over 0-50 ps. No simulation box, ensemble, uncertainty or diffusion coefficient claim.",
+  "test_conditions": "Original drift-free 3D Brownian mean, MSD=6Dt, 25 and −70 °C, 0–50 ps. D is a stored input with a chosen 0.17 eV Arrhenius temperature law; no MD trajectories, fitted D or real electrolyte phase prediction.",
   "variables_and_units": [
     "temperature_C",
     "electrolyte",
     "time_ps",
-    "msd_A2"
+    "msd_A2",
+    "input_diffusivity_A2_ps"
   ],
   "render_options": {
-    "simulated_species": "Li+",
-    "simulation_method": "Invented analytic trajectories; not molecular dynamics",
+    "simulated_species": "Li+-like teaching label",
+    "simulation_method": "Analytic 3D Brownian ensemble mean with known D; no trajectories or molecular dynamics",
     "diffusion_fit": false
   },
   "reference": {
@@ -27,5 +28,120 @@
     "default_template": false
   },
   "reproduce": "python render_specialist.py --recipe msd --input-folder msd --output-dir brf-output --style forge",
-  "creator": "BatteryReviewForge original synthetic analytic demonstration"
+  "creator": "BatteryReviewForge original synthetic analytic demonstration",
+  "generator_version": "1.6",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "D(T)=D(298.15 K)*exp(-0.17 eV/kB*(1/T-1/298.15 K))",
+      "<|r(t)-r(0)|^2>=6*D*t for isotropic three-dimensional drift-free Brownian motion",
+      "1 Å²/ps=1e-4 cm²/s; D is a declared generator input, not fitted output"
+    ],
+    "parameters": {
+      "dimensions": 3,
+      "input_activation_energy_eV": 0.17,
+      "reference_temperature_K": 298.15,
+      "input_D_A2_ps": {
+        "25": {
+          "A": 0.08666666666666667,
+          "B": 0.051666666666666666,
+          "C": 0.028333333333333335
+        },
+        "-70": {
+          "A": 0.003926985491698151,
+          "B": 0.002341087504666205,
+          "C": 0.0012838221799782417
+        }
+      },
+      "time_ps_range": [
+        0,
+        50
+      ]
+    },
+    "assumptions": [
+      "The long-time Brownian relation is deliberately extended over this teaching grid.",
+      "Temperature dependence is a chosen Arrhenius input; no actual electrolyte phase behavior is modeled."
+    ],
+    "references": [
+      {
+        "url": "https://manual.gromacs.org/current/reference-manual/analysis/mean-square-displacement.html",
+        "title": "GROMACS: mean square displacement",
+        "supports": "Three-dimensional Einstein relation; known model inputs are not simulated trajectories.",
+        "scope": "model_definition_only"
+      },
+      {
+        "url": "https://goldbook.iupac.org/terms/view/A00446",
+        "title": "IUPAC: Arrhenius equation",
+        "supports": "Temperature law only; original activation energy.",
+        "scope": "model_definition_only"
+      }
+    ],
+    "limitations": [
+      "No MD trajectories or diffusion fit; no ballistic regime, confinement, crystallization or glass transition.",
+      "The input D values are not measurements or chemistry predictions."
+    ],
+    "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 250
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 250
+        },
+        {
+          "label": "C",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 250
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 250
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 250
+        },
+        {
+          "label": "C",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 250
+        }
+      ]
+    }
+  ]
 }

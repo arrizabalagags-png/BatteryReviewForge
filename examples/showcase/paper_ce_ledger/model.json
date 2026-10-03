@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "title": "Coulombic efficiency and charge ledger",
+  "panels": [
+    {
+      "xlabel": "Cycle number",
+      "ylabel": "Charge (mAh)",
+      "title": "Per-cycle ledger"
+    },
+    {
+      "xlabel": "Cycle number",
+      "ylabel": "Coulombic efficiency (%)",
+      "title": "Same charge pairs"
+    }
+  ],
+  "colours": [
+    "#287D8E",
+    "#BA5574",
+    "#4868A8",
+    "#A46D35",
+    "#655AA0",
+    "#387F64"
+  ],
+  "input_contract": "Panel indices are zero based. x/y meanings and units come from each panel. z is the row coordinate of rectangular heatmaps. Keep each series in its original row order. Changed author data need an adapted scientific contract."
+}

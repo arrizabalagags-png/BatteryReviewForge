@@ -100,5 +100,65 @@
     "observation": "Current polarization paired with before/after EIS; synthetic known parameters only.",
     "review_scope": "Original PDF figure and caption visually checked; no numerical values or artwork copied",
     "default_template": false
-  }
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 300
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 300
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A before",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 240
+        },
+        {
+          "label": "A after",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 240
+        },
+        {
+          "label": "B before",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 240
+        },
+        {
+          "label": "B after",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 240
+        }
+      ]
+    }
+  ]
 }

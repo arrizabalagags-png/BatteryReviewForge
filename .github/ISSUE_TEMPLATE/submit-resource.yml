@@ -1,0 +1,32 @@
+name: 分享已准备好的科研资源
+description: 原创示意图、绘图包、公开数据模板或方法说明
+title: "[Commons resource] "
+body:
+  - type: markdown
+    attributes:
+      value: "此 Issue 公开可见。先清除密钥、个人信息、绝对路径和未发表材料。投稿代码不会自动执行。"
+  - type: input
+    id: name
+    attributes: {label: 名称与署名}
+    validations: {required: true}
+  - type: textarea
+    id: use
+    attributes: {label: 用途、输入、输出与使用边界}
+    validations: {required: true}
+  - type: textarea
+    id: files
+    attributes: {label: JSON 草稿、公开来源与文件清单, description: "附上本地检查后的 JSON 和有权公开的素材。文件名使用相对路径。"}
+    validations: {required: true}
+  - type: dropdown
+    id: license
+    attributes: {label: 原创资源许可, options: ["CC0-1.0", "CC-BY-4.0", "MIT"]}
+    validations: {required: true}
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: 权限
+      options:
+        - {label: "我有权公开这份原创内容，并同意公开展示。", required: true}
+        - {label: "我允许按所选许可收入资源库。", required: true}
+        - {label: "我允许进行文件格式检查和生成预览；此项不授权模型训练。", required: true}
+        - {label: "我另外允许未来用于模型训练（可不勾选）。", required: false}

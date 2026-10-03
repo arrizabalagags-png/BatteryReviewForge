@@ -1,0 +1,1172 @@
+{
+  "source_commit": "18c659ecc46442497fd7e921161ea951640cc52b",
+  "source_worktree_dirty": true,
+  "source_tracked_diff_sha256": "27557c15d3a5801fbc8296670d408361afabd00ed21c349f617f82f77c6dbb7a",
+  "source_identity_origin": "actual_repository_HEAD_and_worktree",
+  "skill_tree": {
+    "sha256": "5a9db9a0d9a7b35cd2655f4ae5ce50ab6348613120a127ea2d5763354c3b8817",
+    "files": [
+      {
+        "path": "voltpeer-assemble/agents/openai.yaml",
+        "sha256": "37775bd1ee983c2916365951b6a18f446b652aa7941893441c6e620ba06e76f6",
+        "bytes": 248
+      },
+      {
+        "path": "voltpeer-assemble/assets/SKILL_RELEASE.json",
+        "sha256": "f67abe3fefdc844472e7998b5bde8987acc2c0c5fb59cc5a7bda4dd4f3b00854",
+        "bytes": 89
+      },
+      {
+        "path": "voltpeer-assemble/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0",
+        "bytes": 509
+      },
+      {
+        "path": "voltpeer-assemble/examples/demo_assemble.py",
+        "sha256": "3cc0fd7a6da73d2e3163d9e475a56db9bd3d96bb2a2f377ca2c6397bd0d9af04",
+        "bytes": 6324
+      },
+      {
+        "path": "voltpeer-assemble/references/COMPOSITION.md",
+        "sha256": "2359f0566157e8d55cba159b08b58586302a7aacac4ede597082e1f1e895673b",
+        "bytes": 13783
+      },
+      {
+        "path": "voltpeer-assemble/references/EDITORIAL_COMPOSITION.md",
+        "sha256": "ec1ff6d7573bd8a6beba822c4d3570bd7ba36f2b04bcf1de448251aa0512d2e5",
+        "bytes": 5239
+      },
+      {
+        "path": "voltpeer-assemble/references/EXECUTION.md",
+        "sha256": "2089c4f680f91b455897362b579933f72e6568049eb055c0b017a85d34c06c2b",
+        "bytes": 7381
+      },
+      {
+        "path": "voltpeer-assemble/references/LAYOUT_RECIPES.md",
+        "sha256": "461b196b6eaf603dd971e7ff86b319e5916a239baf6d828afce64363e7ccf2fa",
+        "bytes": 3696
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-assemble/references/EDITORIAL_COMPOSITION.md",
+        "sha256": "ec1ff6d7573bd8a6beba822c4d3570bd7ba36f2b04bcf1de448251aa0512d2e5",
+        "bytes": 5239
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-assemble/references/LAYOUT_RECIPES.md",
+        "sha256": "968588b6be70a19fb6ee9c496edcfed9e763931874ff1b63639de813963b5483",
+        "bytes": 3714
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/assets/figure_theme.json",
+        "sha256": "137bdb923dc2a69341d2b88fc6d78cd5d074471e3e04264313020bc1d649f38d",
+        "bytes": 5820
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/assets/original/electrolyte-evidence-chain.svg",
+        "sha256": "3cea6e37c0aac7cc9cc4890dd56371ebc1e3279cc7658e33eb1dcda40418cf27",
+        "bytes": 3618
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/assets/original/review-wheel.svg",
+        "sha256": "3721030fd5696725f02fe0c93bd620166fb5f284e54fa3e6f8ff3c4d25dc7103",
+        "bytes": 2022
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/assets/style-preview.svg",
+        "sha256": "ac034886fa831ceb39f0d35c0d086f772c82f877630564d33f486ba19ef6a5c4",
+        "bytes": 79890
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/references/ADVANCED_FIGURE_ATLAS.md",
+        "sha256": "606d3a2791f8d7e3334462570ce0ca89e468f97143ee554c7824cbc707289316",
+        "bytes": 5195
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/references/BATTERY_FIGURE_ATLAS.md",
+        "sha256": "b8f79c19d78541b3e0fd39bf54f6b6d694d8b1325fb4bf3eb404867be9c06a72",
+        "bytes": 14804
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/references/BATTERY_FIGURE_GRAMMAR.json",
+        "sha256": "2dccdcf9e5c51c454255a37be4405e174280a8c5760beddb1ddd74add2fa0c24",
+        "bytes": 18538
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/references/BATTERY_FIGURE_GRAMMAR.md",
+        "sha256": "5098d687f9b6fee033ec99c49234af7a0256d4ccfee210cd322d2cc255784389",
+        "bytes": 8065
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/references/CORPUS_RECIPES.md",
+        "sha256": "a722ad4ddc2c5f0190f27c546ff94ea653775802cf7b1bba440f03073c52dc2d",
+        "bytes": 6766
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/references/DELIVERY.md",
+        "sha256": "dc0d09cc622915f12bbaf529cfc469ae6d6f025296515029e634d16cc0e8c6ba",
+        "bytes": 2504
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/references/JOURNAL_FIGURE_SPEC.json",
+        "sha256": "2d5dbdb24e16e5409493dd867e6ff1e2d00512764902523b0e10330032bd6577",
+        "bytes": 2490
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/references/PANEL_EVIDENCE.json",
+        "sha256": "2e4214b3cb0826e31290b5828d1f78af5f3bf9cedc2c1770fd6fa9afb4ee26c8",
+        "bytes": 9831
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/references/PHYSICAL_LAYOUT.md",
+        "sha256": "88a5745f58e39512adc7e6cc4965773647aa9b7e2cbbf6497c8d474bead1e7dc",
+        "bytes": 3071
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/references/PLOT_QA_CHECKLIST.md",
+        "sha256": "02853cc20ab2db54c46a22d50995ad07437ea201a3d0f91f39b71d2affae0ce7",
+        "bytes": 3102
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/references/PYTHON_PLOTTING.md",
+        "sha256": "83609a25419de524d7028ba6480ed6f427a7238326667a55c53a487ab7f34e68",
+        "bytes": 10024
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/references/SHOWCASE_QA.md",
+        "sha256": "8f523412b77de1e033cc8d664c123b11d74e7447d2b607877a22be2324381291",
+        "bytes": 3373
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/references/SHOWCASE_RECIPES.md",
+        "sha256": "b680870293284a635e1ea6b5b86f95e57cd9e31fbbbbe95f43f96f02e2365f3e",
+        "bytes": 6026
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/references/SHOWCASE_SPEC.md",
+        "sha256": "9cb4c752d3e0a98ba47bd35acfb0548c579fd6bbcd52f8372a54d3c9d550393a",
+        "bytes": 4214
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/references/SPECIALIST_RECIPES.md",
+        "sha256": "3b0706eaac9f3c8066a648e1c3a0b884b36f5731810808b2472d9e22a48622be",
+        "bytes": 5825
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/references/STYLE_PRESETS.md",
+        "sha256": "1b76afd4f5700a87e8db52c4a70a7276d4fcf404d4df592a12f596d4ba58425e",
+        "bytes": 3929
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/references/SVG_HANDOFF.md",
+        "sha256": "58d125a1785088467393805aa7a6bec52799ddc2176fbb8d02ab120b8dcb5a4e",
+        "bytes": 2239
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/references/UPLOADED_DATA.md",
+        "sha256": "62c8922705b6b8f4db05807f7225ca78c1bd6b78ef9a5316b415d1eb96f6daef",
+        "bytes": 13892
+      },
+      {
+        "path": "voltpeer-assemble/references/shared/voltpeer-plot/references/VISUAL_FINISH.md",
+        "sha256": "87fbcf2d68f46c2b057b73586dc97074f7d3ee843b318b40ca67dc1ac370c6d9",
+        "bytes": 6219
+      },
+      {
+        "path": "voltpeer-assemble/requirements.txt",
+        "sha256": "5db24eee49748d82aa31644817b7dc861abc87020b456424b9dcf8bcaf45ae23",
+        "bytes": 258
+      },
+      {
+        "path": "voltpeer-assemble/scripts/batterycompose/__init__.py",
+        "sha256": "11a6408b88b7b9e7e3f65c429484a00653d5f16b0717e69d263a5a242235c413",
+        "bytes": 239
+      },
+      {
+        "path": "voltpeer-assemble/scripts/batterycompose/assets.py",
+        "sha256": "9c9320f3ad8b59956843cf75e32205c6cc6fcc554a6e462672277794682d7e3b",
+        "bytes": 8179
+      },
+      {
+        "path": "voltpeer-assemble/scripts/batterycompose/fonts.py",
+        "sha256": "7296f6d8bb1c96f4604efb0564da78515982c2d1612002646745879c25e57b16",
+        "bytes": 2342
+      },
+      {
+        "path": "voltpeer-assemble/scripts/batterycompose/inventory.py",
+        "sha256": "3579ad921a93d03f649679cad41808747fd0bae1ddd139e7de9009c318711fed",
+        "bytes": 3855
+      },
+      {
+        "path": "voltpeer-assemble/scripts/batterycompose/layout.py",
+        "sha256": "e1819ec7bcdbd7ec1c06b35ec7161cf172b354a86984b3e884a84aca05d3b7d8",
+        "bytes": 10789
+      },
+      {
+        "path": "voltpeer-assemble/scripts/batterycompose/render.py",
+        "sha256": "fa8c0416d93cc831971cb436ec4df5313820b71757586fa39be5dceff84206db",
+        "bytes": 23225
+      },
+      {
+        "path": "voltpeer-assemble/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69",
+        "bytes": 3866
+      },
+      {
+        "path": "voltpeer-assemble/scripts/cli_runtime.py",
+        "sha256": "b0b7adc821a0dc706ac190cff20a0e2764ef59fb4da3fe873d558e79790d5370",
+        "bytes": 282
+      },
+      {
+        "path": "voltpeer-assemble/scripts/compose_figure.py",
+        "sha256": "4f1644221300386e070893d00abf8552ff7d65fda66b7a76c85f37f5dad3dbbd",
+        "bytes": 4264
+      },
+      {
+        "path": "voltpeer-assemble/scripts/delivery_contract.py",
+        "sha256": "e0548e2c0c61c72bfb859d3ef42f5288437dc207d2a7e68a890205ff9ee35524",
+        "bytes": 6370
+      },
+      {
+        "path": "voltpeer-assemble/scripts/output_safety.py",
+        "sha256": "6f2b035179f83ae3fa25ea54a5d43c0cedf47ff5e0576daf979c3fb8fc0f11da",
+        "bytes": 1871
+      },
+      {
+        "path": "voltpeer-assemble/scripts/share_bundle.py",
+        "sha256": "c9935aebac50e23fa3e55d19f4914662e3712d990eba80823f1f46ecc41094b8",
+        "bytes": 8156
+      },
+      {
+        "path": "voltpeer-assemble/SKILL.md",
+        "sha256": "475bc74c099e923ba3d35d6d8946f2425de806b6477265ae95f2706ca8028818",
+        "bytes": 11496
+      },
+      {
+        "path": "voltpeer-claim-check/agents/openai.yaml",
+        "sha256": "2224aa6263315708a4ca2bec470a25682953a630c54f973448499f3f66ac9afd",
+        "bytes": 125
+      },
+      {
+        "path": "voltpeer-claim-check/assets/SKILL_RELEASE.json",
+        "sha256": "56e6ad6ce14946bbf2d75aed0d28a5c40b12ac3e7bcdd3bf2b2a485c8b7e9a47",
+        "bytes": 92
+      },
+      {
+        "path": "voltpeer-claim-check/assets/templates/EVIDENCE_LEDGER.csv",
+        "sha256": "724a7a92968ba1190aa9b4fa613b0bd57799b5a5ea7c26bf6d553c99250322fa",
+        "bytes": 322
+      },
+      {
+        "path": "voltpeer-claim-check/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0",
+        "bytes": 509
+      },
+      {
+        "path": "voltpeer-claim-check/references/EXECUTION.md",
+        "sha256": "2089c4f680f91b455897362b579933f72e6568049eb055c0b017a85d34c06c2b",
+        "bytes": 7381
+      },
+      {
+        "path": "voltpeer-claim-check/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69",
+        "bytes": 3866
+      },
+      {
+        "path": "voltpeer-claim-check/SKILL.md",
+        "sha256": "86209d223ea7e613a17c9e5674ec3849c405ff1083cd84e2652f558242781604",
+        "bytes": 4960
+      },
+      {
+        "path": "voltpeer-data/agents/openai.yaml",
+        "sha256": "6cb0bdf12a092302ab0171511612c1e8b196a5590e24b613b054c5a2962b079d",
+        "bytes": 149
+      },
+      {
+        "path": "voltpeer-data/assets/SKILL_RELEASE.json",
+        "sha256": "4e53270ca7dfbfe583b1b77988e87b5ce1944d3895327329cb57f1900d6f7cb2",
+        "bytes": 85
+      },
+      {
+        "path": "voltpeer-data/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0",
+        "bytes": 509
+      },
+      {
+        "path": "voltpeer-data/references/EXECUTION.md",
+        "sha256": "2089c4f680f91b455897362b579933f72e6568049eb055c0b017a85d34c06c2b",
+        "bytes": 7381
+      },
+      {
+        "path": "voltpeer-data/references/INSTRUMENT_EXPORTS.md",
+        "sha256": "b9210278fadb83b895706ab36ba5deb4fd1eb85933f972b899bf01b05da75d51",
+        "bytes": 7922
+      },
+      {
+        "path": "voltpeer-data/references/MAPPING_CONTRACT.md",
+        "sha256": "0aece8d47d70b6d0e591e915573a751955132a0881bdbdcfd663c8458db31a47",
+        "bytes": 2313
+      },
+      {
+        "path": "voltpeer-data/requirements-native.txt",
+        "sha256": "f3c80e69cc55704358446db8a6a665711ee82a8ee1eb19a73404d3f0317885b5",
+        "bytes": 264
+      },
+      {
+        "path": "voltpeer-data/requirements.txt",
+        "sha256": "9cf3662d9c512f0411251cb0b8387a79289c8b0c3119d6175f4025f7884aa2aa",
+        "bytes": 112
+      },
+      {
+        "path": "voltpeer-data/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69",
+        "bytes": 3866
+      },
+      {
+        "path": "voltpeer-data/scripts/instrument_import.py",
+        "sha256": "341227c52f369cd3b5f3fa3e95c2c201cc0ef843bc739d78ea992775da42b2a8",
+        "bytes": 23544
+      },
+      {
+        "path": "voltpeer-data/scripts/neware_ndax14.py",
+        "sha256": "5a0a6f10065868b306e2fc759182c9c81d046c7b5504030c2addafa32dd4e890",
+        "bytes": 16530
+      },
+      {
+        "path": "voltpeer-data/scripts/prepare_csv.py",
+        "sha256": "83abe9c6be5ff24f27374db071413cf71492bcb0cc23fdff1133d1baa8a512fe",
+        "bytes": 6695
+      },
+      {
+        "path": "voltpeer-data/SKILL.md",
+        "sha256": "4d0391beec86fee88f68347cd5d8a847db2b571d4100812dce890bd75ad18c87",
+        "bytes": 4699
+      },
+      {
+        "path": "voltpeer-experiment-plan/agents/openai.yaml",
+        "sha256": "e0cbffc1b15724ef01aadbb0a6b640389f772afbb6ea52f3b6021ad0c0189ec4",
+        "bytes": 125
+      },
+      {
+        "path": "voltpeer-experiment-plan/assets/EXPERIMENT_PLAN.md",
+        "sha256": "8c313e650526411d602263d5e51d492adc54568278c1fa1d0a7e68c2edb9858b",
+        "bytes": 1526
+      },
+      {
+        "path": "voltpeer-experiment-plan/assets/SKILL_RELEASE.json",
+        "sha256": "90c6bbd801d28a5dd0adcd5ef472a2085e826787ca39271ff47d70fd84d21ed5",
+        "bytes": 96
+      },
+      {
+        "path": "voltpeer-experiment-plan/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0",
+        "bytes": 509
+      },
+      {
+        "path": "voltpeer-experiment-plan/references/EXECUTION.md",
+        "sha256": "2089c4f680f91b455897362b579933f72e6568049eb055c0b017a85d34c06c2b",
+        "bytes": 7381
+      },
+      {
+        "path": "voltpeer-experiment-plan/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69",
+        "bytes": 3866
+      },
+      {
+        "path": "voltpeer-experiment-plan/SKILL.md",
+        "sha256": "b4d915333b657d3d6933e8afe9856e62ff1f515a8c5849adcd15e534b3a85e84",
+        "bytes": 3124
+      },
+      {
+        "path": "voltpeer-literature/agents/openai.yaml",
+        "sha256": "69eb072b444d27b7f99185e553d8418ab1572f4d41b7b23276e77f10b7ea95a6",
+        "bytes": 129
+      },
+      {
+        "path": "voltpeer-literature/assets/SKILL_RELEASE.json",
+        "sha256": "0e226bf0fb4f3a602fafb65630fba6000f0d20316d7cc51a0bcb5a1eb71d0d95",
+        "bytes": 91
+      },
+      {
+        "path": "voltpeer-literature/assets/templates/SCREENING_LOG.csv",
+        "sha256": "a516087eb236ef26542f4aed473fb601d5da324d6f3d9e65f0598aceac13ad5c",
+        "bytes": 247
+      },
+      {
+        "path": "voltpeer-literature/assets/templates/SEARCH_RUNS.csv",
+        "sha256": "3cf08a0635f7e494eaa6f8baf49cda7554d4a35983eae9bb44f21fd210464a28",
+        "bytes": 105
+      },
+      {
+        "path": "voltpeer-literature/assets/templates/SOURCE_REGISTER.csv",
+        "sha256": "4694d43dd11e66bd049d2f2dda7c9841a38bbc9f824496a0d17a2f3b2b3f89d9",
+        "bytes": 222
+      },
+      {
+        "path": "voltpeer-literature/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0",
+        "bytes": 509
+      },
+      {
+        "path": "voltpeer-literature/references/EXECUTION.md",
+        "sha256": "2089c4f680f91b455897362b579933f72e6568049eb055c0b017a85d34c06c2b",
+        "bytes": 7381
+      },
+      {
+        "path": "voltpeer-literature/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69",
+        "bytes": 3866
+      },
+      {
+        "path": "voltpeer-literature/SKILL.md",
+        "sha256": "d6b320bf404c455fa796169da0d37c681d92c2fbef7d714b662239c8ed0d234e",
+        "bytes": 3729
+      },
+      {
+        "path": "voltpeer-metrics/agents/openai.yaml",
+        "sha256": "360383ca553ce05058848dda73e964bb5a7778923957cfd5548249f54aacba3a",
+        "bytes": 126
+      },
+      {
+        "path": "voltpeer-metrics/assets/SKILL_RELEASE.json",
+        "sha256": "7031937c23194122e607ab2cf9cfc0b9e8e710a863f0d094919dccfa06d2708f",
+        "bytes": 88
+      },
+      {
+        "path": "voltpeer-metrics/assets/templates/BATTERY_COMPARISON.csv",
+        "sha256": "b98086bd2c61ca55db2ab9ed54944c11867b87c13d7454cbf13a61ef121672a0",
+        "bytes": 553
+      },
+      {
+        "path": "voltpeer-metrics/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0",
+        "bytes": 509
+      },
+      {
+        "path": "voltpeer-metrics/references/EXECUTION.md",
+        "sha256": "2089c4f680f91b455897362b579933f72e6568049eb055c0b017a85d34c06c2b",
+        "bytes": 7381
+      },
+      {
+        "path": "voltpeer-metrics/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69",
+        "bytes": 3866
+      },
+      {
+        "path": "voltpeer-metrics/SKILL.md",
+        "sha256": "4d0f14e601250f3c2c57c475b3954a98e199f7d5043d48ebc6e401892071e0f4",
+        "bytes": 8232
+      },
+      {
+        "path": "voltpeer-plan/agents/openai.yaml",
+        "sha256": "31862ff1bb82bb0f34346dd19f86f168985562c614b78ba456a6817cdde499a5",
+        "bytes": 144
+      },
+      {
+        "path": "voltpeer-plan/assets/SKILL_RELEASE.json",
+        "sha256": "5d1299d16098f0433d29dc350c70d20070d4fedeaae7983671d742c071664c2e",
+        "bytes": 85
+      },
+      {
+        "path": "voltpeer-plan/assets/templates/PROJECT_BRIEF.md",
+        "sha256": "77e93eb95b7d994eeb0327d0e64a33d6f867afaa40bb7d4a33cdd41f1529a812",
+        "bytes": 1367
+      },
+      {
+        "path": "voltpeer-plan/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0",
+        "bytes": 509
+      },
+      {
+        "path": "voltpeer-plan/references/EXECUTION.md",
+        "sha256": "2089c4f680f91b455897362b579933f72e6568049eb055c0b017a85d34c06c2b",
+        "bytes": 7381
+      },
+      {
+        "path": "voltpeer-plan/references/RESEARCH_ARGUMENT.md",
+        "sha256": "97980ce1246d621f9575441e039aa575e9fea43697d0d835740b4662cd1f4c58",
+        "bytes": 2886
+      },
+      {
+        "path": "voltpeer-plan/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69",
+        "bytes": 3866
+      },
+      {
+        "path": "voltpeer-plan/SKILL.md",
+        "sha256": "ff52a3144af41bfd73759bfc1cc5109492639b4ffb4eb020f92b0d09745aab5d",
+        "bytes": 4997
+      },
+      {
+        "path": "voltpeer-plot/agents/openai.yaml",
+        "sha256": "e23c2cc5e0db8300e83f3ba5f5db7591f02f8859356044f8a6c35d397a758aa2",
+        "bytes": 129
+      },
+      {
+        "path": "voltpeer-plot/assets/corpus_evidence.json",
+        "sha256": "fb612455adbf21b8dabfbf5d585eb2a319c9c72af51968fc538fec6fd212b76f",
+        "bytes": 9098
+      },
+      {
+        "path": "voltpeer-plot/assets/figure_theme.json",
+        "sha256": "137bdb923dc2a69341d2b88fc6d78cd5d074471e3e04264313020bc1d649f38d",
+        "bytes": 5820
+      },
+      {
+        "path": "voltpeer-plot/assets/original/battery-lab-primitives.svg",
+        "sha256": "7e7138a66bce240d281cb5bc38807082708a5182bc570b5b994751ebd60e8983",
+        "bytes": 5938
+      },
+      {
+        "path": "voltpeer-plot/assets/original/battery-morphology-primitives.svg",
+        "sha256": "168c9cd5b0188adbbbe3f33b29fefb587828fc356031aa61b5dda14a2c9681a9",
+        "bytes": 3525
+      },
+      {
+        "path": "voltpeer-plot/assets/original/cell-boundaries.svg",
+        "sha256": "e47335c8c707f55e43e856cba5c4108a8a541f4abe2d7db9bb282efa7f194386",
+        "bytes": 3726
+      },
+      {
+        "path": "voltpeer-plot/assets/original/electrolyte-evidence-chain.svg",
+        "sha256": "3cea6e37c0aac7cc9cc4890dd56371ebc1e3279cc7658e33eb1dcda40418cf27",
+        "bytes": 3618
+      },
+      {
+        "path": "voltpeer-plot/assets/original/review-wheel.svg",
+        "sha256": "3721030fd5696725f02fe0c93bd620166fb5f284e54fa3e6f8ff3c4d25dc7103",
+        "bytes": 2022
+      },
+      {
+        "path": "voltpeer-plot/assets/SKILL_RELEASE.json",
+        "sha256": "51cdf8a99eef63c456fe3cfda22b0c59623e1a9e911fd7caf1d407d18b617d00",
+        "bytes": 85
+      },
+      {
+        "path": "voltpeer-plot/assets/style-preview.png",
+        "sha256": "cacaee0b347b2d000a5ae8ac09e2bb02e894ad7b7adc46f87cf5a35d02df8d17",
+        "bytes": 399085
+      },
+      {
+        "path": "voltpeer-plot/assets/style-preview.svg",
+        "sha256": "ac034886fa831ceb39f0d35c0d086f772c82f877630564d33f486ba19ef6a5c4",
+        "bytes": 79890
+      },
+      {
+        "path": "voltpeer-plot/assets/templates/FIGURE_LEDGER.md",
+        "sha256": "16a95d59aa16e82ad6bea01fc3a0eec04266f0f68025164cd06763f4cd983172",
+        "bytes": 464
+      },
+      {
+        "path": "voltpeer-plot/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0",
+        "bytes": 509
+      },
+      {
+        "path": "voltpeer-plot/examples/demo_figures.py",
+        "sha256": "b7807e974d0e4958779728c32642b0344c2a708232975cd3788b7544df15b03d",
+        "bytes": 3222
+      },
+      {
+        "path": "voltpeer-plot/examples/demo_uploaded.py",
+        "sha256": "d9140d75b1e7ec9e69c9049f638b70ee5e8224a0fe5c3e6176a5843dfb0abd47",
+        "bytes": 5033
+      },
+      {
+        "path": "voltpeer-plot/references/ADVANCED_FIGURE_ATLAS.md",
+        "sha256": "606d3a2791f8d7e3334462570ce0ca89e468f97143ee554c7824cbc707289316",
+        "bytes": 5195
+      },
+      {
+        "path": "voltpeer-plot/references/ASSET_PATTERN_ATLAS.md",
+        "sha256": "96ab3bd67b9abba0ea4f4705ac021a55fbf7530a27d9020491b6a30693d25dbe",
+        "bytes": 2513
+      },
+      {
+        "path": "voltpeer-plot/references/BATTERY_COMMONS.md",
+        "sha256": "34a3d2ffe62c7954087943de777b518bfa4fe212b1aa9b18a4f92e20979ead82",
+        "bytes": 4571
+      },
+      {
+        "path": "voltpeer-plot/references/BATTERY_FIGURE_ATLAS.md",
+        "sha256": "eadc2b375b86263a32466b5e78cf219450a909310f80832555c70feff5645df4",
+        "bytes": 14831
+      },
+      {
+        "path": "voltpeer-plot/references/BATTERY_FIGURE_GRAMMAR.json",
+        "sha256": "2dccdcf9e5c51c454255a37be4405e174280a8c5760beddb1ddd74add2fa0c24",
+        "bytes": 18538
+      },
+      {
+        "path": "voltpeer-plot/references/BATTERY_FIGURE_GRAMMAR.md",
+        "sha256": "5098d687f9b6fee033ec99c49234af7a0256d4ccfee210cd322d2cc255784389",
+        "bytes": 8065
+      },
+      {
+        "path": "voltpeer-plot/references/CORPUS_RECIPES.md",
+        "sha256": "02678d6ee958c4b4f4136f7fbce776af2eb42aa45438c5001a411cbf4d52b091",
+        "bytes": 6477
+      },
+      {
+        "path": "voltpeer-plot/references/DELIVERY.md",
+        "sha256": "7f8f2d70aca4dd4ff3431388807e9f069047bf184e92bc05821bd242a6730d50",
+        "bytes": 2901
+      },
+      {
+        "path": "voltpeer-plot/references/ELECTROCHEM_RECIPES.md",
+        "sha256": "2182727edfdebc6621955ebaf284ff72017603c9a25002ff449c6ba6b68b76e6",
+        "bytes": 3382
+      },
+      {
+        "path": "voltpeer-plot/references/EXECUTION.md",
+        "sha256": "2089c4f680f91b455897362b579933f72e6568049eb055c0b017a85d34c06c2b",
+        "bytes": 7381
+      },
+      {
+        "path": "voltpeer-plot/references/FIGURE_ROUTER.md",
+        "sha256": "4a00f884faa6ee602842d43a6b60ebcbdf43f8ca5f9949f666e4229f8f360ec5",
+        "bytes": 3188
+      },
+      {
+        "path": "voltpeer-plot/references/JOURNAL_FIGURE_SPEC.json",
+        "sha256": "2d5dbdb24e16e5409493dd867e6ff1e2d00512764902523b0e10330032bd6577",
+        "bytes": 2490
+      },
+      {
+        "path": "voltpeer-plot/references/PANEL_EVIDENCE.json",
+        "sha256": "2e4214b3cb0826e31290b5828d1f78af5f3bf9cedc2c1770fd6fa9afb4ee26c8",
+        "bytes": 9831
+      },
+      {
+        "path": "voltpeer-plot/references/PHYSICAL_LAYOUT.md",
+        "sha256": "88a5745f58e39512adc7e6cc4965773647aa9b7e2cbbf6497c8d474bead1e7dc",
+        "bytes": 3071
+      },
+      {
+        "path": "voltpeer-plot/references/PLOT_QA_CHECKLIST.md",
+        "sha256": "02853cc20ab2db54c46a22d50995ad07437ea201a3d0f91f39b71d2affae0ce7",
+        "bytes": 3102
+      },
+      {
+        "path": "voltpeer-plot/references/PLOT_STARTER.md",
+        "sha256": "2bb891fe83fa031e87878780841d6d88c32b601df8b0b9dee060104a7343ac67",
+        "bytes": 4880
+      },
+      {
+        "path": "voltpeer-plot/references/PYTHON_PLOTTING.md",
+        "sha256": "666e3c52b13ada00ac28763f01f7c128d3f6daf0d35cd97bda91b698415129ed",
+        "bytes": 9657
+      },
+      {
+        "path": "voltpeer-plot/references/RESOURCE_LIBRARY.md",
+        "sha256": "1cb6c58e8c1ba561bdc3402c3565d37be6c8411f59aeb6a17f7a46e87cda750d",
+        "bytes": 4717
+      },
+      {
+        "path": "voltpeer-plot/references/shared/voltpeer-assemble/references/COMPOSITION.md",
+        "sha256": "d4d46af10474b2ce03397c41fc778aa40e9c5f10b5165c2557f05ad2bd821cdf",
+        "bytes": 14148
+      },
+      {
+        "path": "voltpeer-plot/references/shared/voltpeer-assemble/references/EDITORIAL_COMPOSITION.md",
+        "sha256": "ec1ff6d7573bd8a6beba822c4d3570bd7ba36f2b04bcf1de448251aa0512d2e5",
+        "bytes": 5239
+      },
+      {
+        "path": "voltpeer-plot/references/shared/voltpeer-assemble/references/LAYOUT_RECIPES.md",
+        "sha256": "461b196b6eaf603dd971e7ff86b319e5916a239baf6d828afce64363e7ccf2fa",
+        "bytes": 3696
+      },
+      {
+        "path": "voltpeer-plot/references/SHOWCASE_QA.md",
+        "sha256": "8f523412b77de1e033cc8d664c123b11d74e7447d2b607877a22be2324381291",
+        "bytes": 3373
+      },
+      {
+        "path": "voltpeer-plot/references/SHOWCASE_RECIPES.md",
+        "sha256": "b680870293284a635e1ea6b5b86f95e57cd9e31fbbbbe95f43f96f02e2365f3e",
+        "bytes": 6026
+      },
+      {
+        "path": "voltpeer-plot/references/SHOWCASE_SPEC.md",
+        "sha256": "9cb4c752d3e0a98ba47bd35acfb0548c579fd6bbcd52f8372a54d3c9d550393a",
+        "bytes": 4214
+      },
+      {
+        "path": "voltpeer-plot/references/SPECIALIST_RECIPES.md",
+        "sha256": "3b0706eaac9f3c8066a648e1c3a0b884b36f5731810808b2472d9e22a48622be",
+        "bytes": 5825
+      },
+      {
+        "path": "voltpeer-plot/references/STYLE_PRESETS.md",
+        "sha256": "f9a8ad9ea7e6a0ec10f84ebdb0349078b0ae138aac82e73897d8561fb47aaa65",
+        "bytes": 3588
+      },
+      {
+        "path": "voltpeer-plot/references/SVG_HANDOFF.md",
+        "sha256": "58d125a1785088467393805aa7a6bec52799ddc2176fbb8d02ab120b8dcb5a4e",
+        "bytes": 2239
+      },
+      {
+        "path": "voltpeer-plot/references/SYNTHETIC_DATA.md",
+        "sha256": "c7db122d15fce07f50d372ec5919920279a7f6abf90e500a13d2ffae31c86fb7",
+        "bytes": 2303
+      },
+      {
+        "path": "voltpeer-plot/references/UPLOADED_DATA.md",
+        "sha256": "f68f6a36570a6e68a88ef6efdb28c1c158f7e668fce854e01d5036bd9ed84f3e",
+        "bytes": 13551
+      },
+      {
+        "path": "voltpeer-plot/references/VISUAL_FINISH.md",
+        "sha256": "e3d6bd1bca0094d39d1da79680cc54f80d5250c85cf615274c293ad47f171ae7",
+        "bytes": 6246
+      },
+      {
+        "path": "voltpeer-plot/requirements.txt",
+        "sha256": "c9fddcd4becef007720a433bcbf1944afef063a37d388261737dfdd0241906d0",
+        "bytes": 93
+      },
+      {
+        "path": "voltpeer-plot/scripts/asset_inventory.py",
+        "sha256": "e886c82d2c9435105c8518051e6ee83a05213308a2d4ffd9359deceb03fafda0",
+        "bytes": 3243
+      },
+      {
+        "path": "voltpeer-plot/scripts/audit_pdf_fonts.py",
+        "sha256": "c042e01ec79f4b0223c6fc1598e30be08c93edb985eb95e215d5182e9a511ac2",
+        "bytes": 2893
+      },
+      {
+        "path": "voltpeer-plot/scripts/batteryplot/__init__.py",
+        "sha256": "38f5f0a7c930ec5dc9b9dd4fc1665b712f02b3820dbae691970e96c3d9ba4158",
+        "bytes": 828
+      },
+      {
+        "path": "voltpeer-plot/scripts/batteryplot/battery_charts.py",
+        "sha256": "9fa4e980b7dc5c07c09e77e69a31011e5c7c69f214a721822fcc8c85d95d7a57",
+        "bytes": 14302
+      },
+      {
+        "path": "voltpeer-plot/scripts/batteryplot/charts.py",
+        "sha256": "2476a025f800ba35bda2173061b863c1d7b1b7e397f5a62ac0b7c226aafacd92",
+        "bytes": 11103
+      },
+      {
+        "path": "voltpeer-plot/scripts/batteryplot/corpus.py",
+        "sha256": "89e6da0b69068dfb44f94a8331a7db2d0e4ed2fdb27f04089a53a6fbd18a0099",
+        "bytes": 18047
+      },
+      {
+        "path": "voltpeer-plot/scripts/batteryplot/data.py",
+        "sha256": "d8e5e49b51d2a7e23842e3cbae91e16f4fe337a2294ed53ff4a6505075e0ad0c",
+        "bytes": 3415
+      },
+      {
+        "path": "voltpeer-plot/scripts/batteryplot/electrochem.py",
+        "sha256": "134b77742c94dab715c97b24cda95cc6aba00745c4f9ba54243d33535c930c6c",
+        "bytes": 11725
+      },
+      {
+        "path": "voltpeer-plot/scripts/batteryplot/export.py",
+        "sha256": "42307fb9e52432b213118bf7130536f387b2ebf5b5fe3430009e95fd635ada47",
+        "bytes": 4662
+      },
+      {
+        "path": "voltpeer-plot/scripts/batteryplot/ingest.py",
+        "sha256": "87ac0d04fe18a8787e2e98fdd38acc5885a72b41f67c2760ae17d15888011164",
+        "bytes": 6401
+      },
+      {
+        "path": "voltpeer-plot/scripts/batteryplot/layout.py",
+        "sha256": "089b0734fb90630ebf48a0ad12c8f0f69af367d5bff00987dabdcb346272a5d8",
+        "bytes": 3183
+      },
+      {
+        "path": "voltpeer-plot/scripts/batteryplot/qa.py",
+        "sha256": "6055643068fa6c58e4fd4ae60da309479c6e4799600509a10aef63010b1e5733",
+        "bytes": 1232
+      },
+      {
+        "path": "voltpeer-plot/scripts/batteryplot/specialist.py",
+        "sha256": "fb9a9dd3bc7ec4bdbb148f82887693c26d1c6702448171d27d535abf51c4db97",
+        "bytes": 12850
+      },
+      {
+        "path": "voltpeer-plot/scripts/batteryplot/specification.py",
+        "sha256": "6990e00e7cdcea3fb4f613346d5e7c276e2073a4147b52b69276ae4418178484",
+        "bytes": 2425
+      },
+      {
+        "path": "voltpeer-plot/scripts/batteryplot/style.py",
+        "sha256": "e4c069340b9ba1d60f7a7680315329934df114fb6cff3d746b0cb08d17a000ab",
+        "bytes": 15700
+      },
+      {
+        "path": "voltpeer-plot/scripts/batteryplot/tofsims.py",
+        "sha256": "3fd24e60a95f579820457d0cf522aae6638b1d30298ab16ccf2855942b4c0678",
+        "bytes": 6394
+      },
+      {
+        "path": "voltpeer-plot/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69",
+        "bytes": 3866
+      },
+      {
+        "path": "voltpeer-plot/scripts/cli_runtime.py",
+        "sha256": "b0b7adc821a0dc706ac190cff20a0e2764ef59fb4da3fe873d558e79790d5370",
+        "bytes": 282
+      },
+      {
+        "path": "voltpeer-plot/scripts/community_registry.py",
+        "sha256": "20b0e43b69d48e6d949a0331ef347d3b46a58896f95cd13b2cdce4a432392b66",
+        "bytes": 12746
+      },
+      {
+        "path": "voltpeer-plot/scripts/deliver.py",
+        "sha256": "64b1232e1dbd703bfb36168ff1a8a2682731d0c1ec0c048541760f00a4c8bc45",
+        "bytes": 3479
+      },
+      {
+        "path": "voltpeer-plot/scripts/delivery_contract.py",
+        "sha256": "e0548e2c0c61c72bfb859d3ef42f5288437dc207d2a7e68a890205ff9ee35524",
+        "bytes": 6370
+      },
+      {
+        "path": "voltpeer-plot/scripts/output_safety.py",
+        "sha256": "6f2b035179f83ae3fa25ea54a5d43c0cedf47ff5e0576daf979c3fb8fc0f11da",
+        "bytes": 1871
+      },
+      {
+        "path": "voltpeer-plot/scripts/plot_uploaded.py",
+        "sha256": "d9cf8d5848950daea87ed2018144750eb9b82cc8495f3923f3d960ee9b237eef",
+        "bytes": 7088
+      },
+      {
+        "path": "voltpeer-plot/scripts/preview_styles.py",
+        "sha256": "1f30197cf5969b5f51ac34ebd5100e74c394926cd760b0934e0f9c5ff8b6cc9f",
+        "bytes": 3116
+      },
+      {
+        "path": "voltpeer-plot/scripts/render_specialist.py",
+        "sha256": "2accc5a2b1404aabcde57bffabde4c15ac55d8d3c3e2b6fd39606f292d333fa5",
+        "bytes": 2127
+      },
+      {
+        "path": "voltpeer-plot/scripts/render_template.py",
+        "sha256": "db9544122daf96ed4a043684776d14836e8851dce7afc3a89df0afbd20240386",
+        "bytes": 2777
+      },
+      {
+        "path": "voltpeer-plot/scripts/share_bundle.py",
+        "sha256": "c9935aebac50e23fa3e55d19f4914662e3712d990eba80823f1f46ecc41094b8",
+        "bytes": 8156
+      },
+      {
+        "path": "voltpeer-plot/SKILL.md",
+        "sha256": "c61c9e8c41b8f3d7db6ed0894d0b19f4ba89a1f07040f14f9ca3196a8f4c7c23",
+        "bytes": 22345
+      },
+      {
+        "path": "voltpeer-polish/agents/openai.yaml",
+        "sha256": "a4b3a10255383a946efdf0d371712f418ea094edce4ae5e2e8d25c0d49f012ca",
+        "bytes": 135
+      },
+      {
+        "path": "voltpeer-polish/assets/SKILL_RELEASE.json",
+        "sha256": "ab9d5c32084534e168c22abc648aca4281288448f12242a733de4685a775eee6",
+        "bytes": 87
+      },
+      {
+        "path": "voltpeer-polish/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0",
+        "bytes": 509
+      },
+      {
+        "path": "voltpeer-polish/references/battery-language-100/corpus.csv",
+        "sha256": "013208f43e02110e3f1fefa36052ec8e097ed5af2e339cdc1fd5b5954e62a033",
+        "bytes": 87079
+      },
+      {
+        "path": "voltpeer-polish/references/battery-language-100/corpus.json",
+        "sha256": "15b3d97a76a3852e3123a79ea75d8a462fa315b479e4d9e19ca1c5c586af6a2e",
+        "bytes": 324070
+      },
+      {
+        "path": "voltpeer-polish/references/battery-language-100/DOMAIN_GUIDE.md",
+        "sha256": "17c715874d827fb0ddb8fc9eabd67101e1c97e721c2d03c533a929b711e823ff",
+        "bytes": 18571
+      },
+      {
+        "path": "voltpeer-polish/references/battery-language-100/evaluation_cases.json",
+        "sha256": "d7883ead8ff54c0b4ac54235ccc56a9f8702462eb07aac14ba2b0a5455139f24",
+        "bytes": 52812
+      },
+      {
+        "path": "voltpeer-polish/references/battery-language-100/GLOSSARY.md",
+        "sha256": "2e8d95a6f237a32319d812e3c4df785d7cf5cbcb291ddd992eabb52b70d91bcd",
+        "bytes": 10294
+      },
+      {
+        "path": "voltpeer-polish/references/battery-language-100/GUIDANCE_ADAPTATION.md",
+        "sha256": "b0436c3ad9d0740beb5096c10a1940939245d65908667791b25a8a3022962b93",
+        "bytes": 4974
+      },
+      {
+        "path": "voltpeer-polish/references/battery-language-100/PHRASE_FUNCTIONS.md",
+        "sha256": "a80ff359e61c676b1001d50a63df12070e3b3afdf782cc24fe44197180e26712",
+        "bytes": 5799
+      },
+      {
+        "path": "voltpeer-polish/references/battery-language-100/README.md",
+        "sha256": "c78a5f2a08b244366b46e84b8bff038f1aa8a4ec333f65940368fc877d1ccc6a",
+        "bytes": 3733
+      },
+      {
+        "path": "voltpeer-polish/references/battery-language-100/SOURCE_SCOPE.md",
+        "sha256": "167d7e857eebea57f1378540e1e33cfd6ef8936e5e90684440c11fb844a4b52a",
+        "bytes": 4081
+      },
+      {
+        "path": "voltpeer-polish/references/battery-language-100/validate_polish.py",
+        "sha256": "d089b3bf3f8c7be4de2f037d6b4933445107aa60f187e4d9693d7423366a5754",
+        "bytes": 14071
+      },
+      {
+        "path": "voltpeer-polish/references/EXECUTION.md",
+        "sha256": "2089c4f680f91b455897362b579933f72e6568049eb055c0b017a85d34c06c2b",
+        "bytes": 7381
+      },
+      {
+        "path": "voltpeer-polish/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69",
+        "bytes": 3866
+      },
+      {
+        "path": "voltpeer-polish/SKILL.md",
+        "sha256": "79c0fcbb125f6854ffafb3900a3fd24d17a6c97a1a8af844f0ec47adca196a88",
+        "bytes": 4198
+      },
+      {
+        "path": "voltpeer-response/agents/openai.yaml",
+        "sha256": "2ec5f84d82fc356e179fe859712c4d949f90e154ca0fd91ab4ba866fe0e189e8",
+        "bytes": 117
+      },
+      {
+        "path": "voltpeer-response/assets/SKILL_RELEASE.json",
+        "sha256": "7fa148eaa11136a66576143c90fbca7fdffe3200299647d6853823015021f5fc",
+        "bytes": 89
+      },
+      {
+        "path": "voltpeer-response/assets/templates/RESPONSE_MATRIX.md",
+        "sha256": "64b22375f2023be058931d20ebfce4810b8ed5efe93e53124b85f67eda62e70d",
+        "bytes": 518
+      },
+      {
+        "path": "voltpeer-response/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0",
+        "bytes": 509
+      },
+      {
+        "path": "voltpeer-response/references/EXECUTION.md",
+        "sha256": "2089c4f680f91b455897362b579933f72e6568049eb055c0b017a85d34c06c2b",
+        "bytes": 7381
+      },
+      {
+        "path": "voltpeer-response/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69",
+        "bytes": 3866
+      },
+      {
+        "path": "voltpeer-response/SKILL.md",
+        "sha256": "af345e44d1f9aa8442d5b7f6ca0ee79de4cace4edbeaddd278fe3be8dce2a8fb",
+        "bytes": 2784
+      },
+      {
+        "path": "voltpeer-review-audit/agents/openai.yaml",
+        "sha256": "d4e3d207bc1be96ef1f61054ab740797da754c6c1af7e284ad9aa32c6f029427",
+        "bytes": 120
+      },
+      {
+        "path": "voltpeer-review-audit/assets/SKILL_RELEASE.json",
+        "sha256": "d9358199731d4e51fe0fc6ec7be6447c0ef79cde33cca43dad43e2b2e0ea9369",
+        "bytes": 93
+      },
+      {
+        "path": "voltpeer-review-audit/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0",
+        "bytes": 509
+      },
+      {
+        "path": "voltpeer-review-audit/references/EXECUTION.md",
+        "sha256": "2089c4f680f91b455897362b579933f72e6568049eb055c0b017a85d34c06c2b",
+        "bytes": 7381
+      },
+      {
+        "path": "voltpeer-review-audit/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69",
+        "bytes": 3866
+      },
+      {
+        "path": "voltpeer-review-audit/SKILL.md",
+        "sha256": "7d833c4fed07ff52fc3f79924a670ba21d6e8b98e02d5a308ab108358e553864",
+        "bytes": 3178
+      },
+      {
+        "path": "voltpeer-reviewer/agents/openai.yaml",
+        "sha256": "5236cbb5fcbeb254669ce0ffc4a0c7036c23a2c163c1ca084a06e3365a3ab7bf",
+        "bytes": 122
+      },
+      {
+        "path": "voltpeer-reviewer/assets/SKILL_RELEASE.json",
+        "sha256": "0ecf846466c23a7003f9b96ab8a24ead1cbbbd916a0c8f25c2273a4039c12e97",
+        "bytes": 89
+      },
+      {
+        "path": "voltpeer-reviewer/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0",
+        "bytes": 509
+      },
+      {
+        "path": "voltpeer-reviewer/references/EXECUTION.md",
+        "sha256": "2089c4f680f91b455897362b579933f72e6568049eb055c0b017a85d34c06c2b",
+        "bytes": 7381
+      },
+      {
+        "path": "voltpeer-reviewer/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69",
+        "bytes": 3866
+      },
+      {
+        "path": "voltpeer-reviewer/SKILL.md",
+        "sha256": "4aa70aeb0e03a1f27fde26719e6ba4989a70dc509007f05c3eeb0b487f3bc07f",
+        "bytes": 3006
+      },
+      {
+        "path": "voltpeer-submission/agents/openai.yaml",
+        "sha256": "e63e314f9cd03d4f7615ab25872af6e6700945e0a725c9eeab22f631567f7d26",
+        "bytes": 121
+      },
+      {
+        "path": "voltpeer-submission/assets/SKILL_RELEASE.json",
+        "sha256": "db2b715b9fd3a0bd8d978a0d86142f64acf9c9e06f2a22585521f3a6b9058a7e",
+        "bytes": 91
+      },
+      {
+        "path": "voltpeer-submission/assets/templates/JOURNAL_CHECK.md",
+        "sha256": "8a37d92a261e3d6d5f79780bf79d0eafb5044b5fc0d37ab66e1c6d066e84abda",
+        "bytes": 625
+      },
+      {
+        "path": "voltpeer-submission/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0",
+        "bytes": 509
+      },
+      {
+        "path": "voltpeer-submission/references/EXECUTION.md",
+        "sha256": "2089c4f680f91b455897362b579933f72e6568049eb055c0b017a85d34c06c2b",
+        "bytes": 7381
+      },
+      {
+        "path": "voltpeer-submission/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69",
+        "bytes": 3866
+      },
+      {
+        "path": "voltpeer-submission/SKILL.md",
+        "sha256": "b6132bcc14a88f47ff72dac3709e85fad46d51b553eb4da2da583a1f1e8b8e45",
+        "bytes": 3769
+      },
+      {
+        "path": "voltpeer-workflow/agents/openai.yaml",
+        "sha256": "5d1b2ffc31c3e22ec00cfdb3075ef718eaa17da52d3b7de33f7b77c59bc274da",
+        "bytes": 128
+      },
+      {
+        "path": "voltpeer-workflow/assets/SKILL_RELEASE.json",
+        "sha256": "f2bee7d2eb00b1675484f507515954a55b10e632a9f8ca6681120fbbc0378170",
+        "bytes": 89
+      },
+      {
+        "path": "voltpeer-workflow/assets/templates/SESSION_HANDOFF.md",
+        "sha256": "16c43b5152ccad81866b3e7c90956764f4de9d6406c9f1e3fdd7ba770176a116",
+        "bytes": 313
+      },
+      {
+        "path": "voltpeer-workflow/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0",
+        "bytes": 509
+      },
+      {
+        "path": "voltpeer-workflow/references/AGENT_COMPATIBILITY.md",
+        "sha256": "84e5504753591c0ce6b78749598637b8cc3d1f3310118fa392880e07d7e99c52",
+        "bytes": 1712
+      },
+      {
+        "path": "voltpeer-workflow/references/codex-operations.md",
+        "sha256": "ff369bda3ad4135b57b23a87bb32c88cffa3dc175aec207f70bd3f59504424bc",
+        "bytes": 3253
+      },
+      {
+        "path": "voltpeer-workflow/references/EXECUTION.md",
+        "sha256": "2089c4f680f91b455897362b579933f72e6568049eb055c0b017a85d34c06c2b",
+        "bytes": 7381
+      },
+      {
+        "path": "voltpeer-workflow/references/shared/voltpeer-plot/assets/style-preview.svg",
+        "sha256": "ac034886fa831ceb39f0d35c0d086f772c82f877630564d33f486ba19ef6a5c4",
+        "bytes": 79890
+      },
+      {
+        "path": "voltpeer-workflow/references/shared/voltpeer-plot/references/FIGURE_ROUTER.md",
+        "sha256": "4a00f884faa6ee602842d43a6b60ebcbdf43f8ca5f9949f666e4229f8f360ec5",
+        "bytes": 3188
+      },
+      {
+        "path": "voltpeer-workflow/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69",
+        "bytes": 3866
+      },
+      {
+        "path": "voltpeer-workflow/SKILL.md",
+        "sha256": "d202b832c32cf1d83bec0a813d994bf819899cc499498f817f8fd72e067f668e",
+        "bytes": 8207
+      },
+      {
+        "path": "voltpeer-write/agents/openai.yaml",
+        "sha256": "e06e70c51231922a4f8ad3839733061a89081a49efd30bdd90b3cebb504cda42",
+        "bytes": 138
+      },
+      {
+        "path": "voltpeer-write/assets/SKILL_RELEASE.json",
+        "sha256": "36b343e032fe4d17af9593d753eab7dfead822d149ca3f49036ea49ace072eb1",
+        "bytes": 86
+      },
+      {
+        "path": "voltpeer-write/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0",
+        "bytes": 509
+      },
+      {
+        "path": "voltpeer-write/references/EXECUTION.md",
+        "sha256": "2089c4f680f91b455897362b579933f72e6568049eb055c0b017a85d34c06c2b",
+        "bytes": 7381
+      },
+      {
+        "path": "voltpeer-write/references/RESEARCH_PAPER.md",
+        "sha256": "8ae12c671b1cec55089718046021a341d31ca44897edadf766e1a4084d657029",
+        "bytes": 5436
+      },
+      {
+        "path": "voltpeer-write/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69",
+        "bytes": 3866
+      },
+      {
+        "path": "voltpeer-write/SKILL.md",
+        "sha256": "45c8fd77c53df1838b5fcfa470ca61dbc6c8b95a3a4e9869171b03a20b7ec090",
+        "bytes": 4154
+      }
+    ]
+  },
+  "scope": "Source commit plus worktree state at packaging; complete Skill file hashes identify the effective tree."
+}

@@ -1,0 +1,100 @@
+{
+  "id": "k_ion_rate",
+  "title": "钾离子倍率与恢复",
+  "domain": "alkali",
+  "type": "demo",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260931,
+  "source_files": [
+    "data.csv"
+  ],
+  "variables_and_units": [
+    "cycle",
+    "current_mA_g",
+    "capacity_mAh_g"
+  ],
+  "test_conditions": "Original working-electrode capacity model vs excess K metal; capacity per gram of unnamed active material, current in mA/g; not a full-cell energy or material record",
+  "render_options": {
+    "recipe": "k_ion_rate"
+  },
+  "reproduce": "python render_existing.py --output new-result",
+  "creator": "VoltPeer maintainers",
+  "license": "MIT",
+  "generator_version": "1.6",
+  "limitations": "Declared teaching model only; no measured device, mechanism or material certification. This generator does not adapt experimental data.",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "phenomenological_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "Q_cycle=260*exp(-(cycle-1)/1800)/(1+(current_mA_g/500)^0.7)",
+      "Current steps are 50,100,200,500,1000,50 mA/g, 10 cycles each"
+    ],
+    "assumptions": [
+      "Rate-limited accessible capacity plus a small separate active-capacity loss.",
+      "Capacity is per gram of working active material vs excess potassium counter metal."
+    ],
+    "parameters": {
+      "accessible_Q0_mAh_g": 260,
+      "current_scale_mA_g": 500,
+      "exponent": 0.7,
+      "fade_constant_cycles": 1800
+    },
+    "references": [
+      {
+        "url": "https://pubs.acs.org/doi/10.1021/acsenergylett.1c00870",
+        "title": "Battery reporting checklist",
+        "supports": "Current-rate, mass-basis and cell-configuration reporting boundaries; the accessibility law is an original phenomenological assumption.",
+        "scope": "model_definition_only"
+      }
+    ],
+    "limitations": [
+      "All numeric material/rate parameters are original teaching assumptions, not measured or copied paper data.",
+      "No named cathode/theoretical capacity, ion-diffusion fit or full-cell energy inference."
+    ],
+    "validation_scope": "Original teaching-model equations, charge/energy/units and declared boundaries only; no experimental or material certification."
+  },
+  "actual_artist_checks": [
+    {
+      "panel": 0,
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "curve_styles": [
+        {
+          "linestyle": "None",
+          "marker": "o",
+          "points": 60,
+          "sampling": "cycle_scatter"
+        }
+      ],
+      "xlabel": "Cycle",
+      "ylabel": "Capacity (mAh g$^{-1}$)"
+    },
+    {
+      "panel": 1,
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "curve_styles": [
+        {
+          "linestyle": "-",
+          "marker": "None",
+          "points": 60,
+          "sampling": "continuous_solid"
+        }
+      ],
+      "xlabel": "Cycle",
+      "ylabel": "Current (mA g$^{-1}$)"
+    }
+  ],
+  "curve_style_check": "Cycle quantities marker-only; continuous profiles solid/unmarked; user preference.",
+  "current_bundle_entry": "render_existing.py; supplied CSV only; draw() called, never data() or main()"
+}

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="740" viewBox="0 0 1000 740" role="img" aria-label="Original editable four-part circular review figure template">
+  <rect width="1000" height="740" fill="#ffffff"/>
+  <style>
+    text{font-family:Arial,Helvetica,sans-serif;fill:#26343D}
+    .title{font-size:32px;font-weight:700}
+    .sector{font-size:24px;font-weight:700}
+    .small{font-size:18px;fill:#66747C}
+  </style>
+  <text x="40" y="53" class="title">One question, four kinds of evidence</text>
+  <text x="40" y="83" class="small">Editable layout template; replace every placeholder with sourced content.</text>
+  <g transform="translate(500 395)" fill="none" stroke-width="84" stroke-linecap="butt">
+    <path d="M 0,-220 A 220,220 0 0 1 220,0" stroke="#205C85"/>
+    <path d="M 220,0 A 220,220 0 0 1 0,220" stroke="#348678"/>
+    <path d="M 0,220 A 220,220 0 0 1 -220,0" stroke="#B45A48"/>
+    <path d="M -220,0 A 220,220 0 0 1 0,-220" stroke="#8B6F9E"/>
+    <circle r="143" fill="#ffffff" stroke="#D8E0E4" stroke-width="2"/>
+  </g>
+  <g text-anchor="middle">
+    <text x="500" y="377" class="sector">REVIEW</text>
+    <text x="500" y="408" class="sector">QUESTION</text>
+    <text x="500" y="438" class="small">State one bounded claim</text>
+    <text x="626" y="245" class="sector">1</text>
+    <text x="650" y="554" class="sector">2</text>
+    <text x="350" y="554" class="sector">3</text>
+    <text x="374" y="245" class="sector">4</text>
+  </g>
+  <g class="small">
+    <text x="756" y="217">Mechanism</text><text x="756" y="243">Evidence type + limit</text>
+    <text x="754" y="572">Cell boundary</text><text x="754" y="598">Conditions + denominator</text>
+    <text x="42" y="572">Performance</text><text x="42" y="598">Comparable observations</text>
+    <text x="42" y="217">Translation</text><text x="42" y="243">Open question + scale</text>
+  </g>
+  <text x="40" y="696" class="small">Place source IDs and caveats in the caption. Ring size does not encode a numeric quantity.</text>
+</svg>

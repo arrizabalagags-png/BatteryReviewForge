@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "title": "Heat generation and removal balance",
+  "panels": [
+    {
+      "title": "Heat generation and removal balance",
+      "xlabel": "Temperature (K)",
+      "ylabel": "Heat rate (W)",
+      "yscale": "linear",
+      "xscale": "linear"
+    }
+  ],
+  "colours": [
+    "#287D8E",
+    "#BA5574",
+    "#4868A8",
+    "#A46D35",
+    "#655AA0",
+    "#387F64"
+  ],
+  "input_contract": "Panel is zero-based. x/y meanings and units are declared in panels. Rows are retained in original order. Author data require a reviewed adapted contract; no silent sorting, smoothing or normalisation."
+}

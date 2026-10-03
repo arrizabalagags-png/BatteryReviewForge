@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "date": "2026-10-03",
+  "version": "0.12.0",
+  "channel": "beta",
+  "example_delivery_revision": "cycling-rule-v1.2.0",
+  "package_revision": "cycling-rule-v1.2.1",
+  "archive_count": 35,
+  "isolated_skill_copies": 66,
+  "actual_example_replays": 16,
+  "original_csv_count": 190,
+  "original_csv_changes": 0,
+  "starter": {
+    "path": "docs/assets/cycling-rule-v1.2.1/starter/VoltPeer-Plot-Starter-v0.12.0.zip",
+    "bytes": 743774,
+    "sha256": "289b1d3a2e37fd11c8c3955fc3be1394b21abfb3a0c676bfeb06fb72344979df"
+  },
+  "full_skill": {
+    "path": "docs/downloads/v0.12.0-cycling-rule-v1.2.1/VoltPeer-v0.12.0.zip",
+    "bytes": 1205664,
+    "sha256": "f242306ceeac28890622a83ceb073760946fee8179e6cf5b355370856cd9b063"
+  },
+  "skill_package_independent": {
+    "status": "PASS",
+    "passed": 52,
+    "failed": 0
+  },
+  "science_report_status": "PASS",
+  "science_report_failed": 0,
+  "style_authority": "User display preference, not a universal journal rule",
+  "native_host_current_tree": "NOT_RUN",
+  "full_current_model_gate": "NOT_RUN",
+  "scientific_boundary": "Original synthetic teaching examples; incomplete physical conditions remain explicit. No experimental certification.",
+  "publication": "SOURCE_SYNC_PREPARED_NO_STABLE_RELEASE_NO_ECS_DEPLOYMENT"
+}

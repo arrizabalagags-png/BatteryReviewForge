@@ -23,7 +23,7 @@ class CheckpointTest(unittest.TestCase):
         (self.folder / 'figure.svg').write_text('<svg/>')
         (self.folder / 'review.txt').write_text('Fixture review; not a real visual check.')
         self.state = json.loads((SOURCE / 'TASK_STATE.json').read_text())
-        self.state.update(task_id='test', objective='Test resume', skill_id='battery-review-figure', updated_at='2026-09-27T12:00:00Z')
+        self.state.update(task_id='test', objective='Test resume', skill_id='voltpeer-plot', updated_at='2026-09-27T12:00:00Z')
         for role, path in [('inputs', 'input.csv'), ('outputs', 'figure.svg')]:
             self.state[role] = [{'path': path, 'sha256': hashlib.sha256((self.folder / path).read_bytes()).hexdigest()}]
         self.state['checks'] = [{'name':'fixture', 'status':'pass', 'evidence_path':'review.txt'}]

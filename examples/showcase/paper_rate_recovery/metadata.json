@@ -1,0 +1,191 @@
+{
+  "id": "paper_rate_recovery",
+  "title": "倍率序列与回归步骤",
+  "domain": "general",
+  "type": "demo",
+  "license": "MIT",
+  "scope": "Paper-informed original analytic teaching model; no copied points or figure.",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "source_files": [
+    "data.csv",
+    "model.json"
+  ],
+  "test_conditions": "Declared analytic parameters in scientific_basis.parameters; no experimental cell or material is assigned.",
+  "variables_and_units": {
+    "1": [
+      "Cycle in declared sequence",
+      "Specific capacity (mAh g⁻¹)"
+    ],
+    "2": [
+      "Cycle in declared sequence",
+      "Measured R (h⁻¹)"
+    ]
+  },
+  "creator": "VoltPeer",
+  "generator_version": "1.0.0",
+  "reproduce": "python render_existing.py --output new-result-folder",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "Q=Q0*[1−(Rτ)^n*(1−exp(−(Rτ)^−n))]",
+      "R=I/Qmeasured is measured inverse time; not nominal C-rate"
+    ],
+    "assumptions": [
+      "Original explicitly idealised model; parameters are illustrative and do not describe the referenced experiment."
+    ],
+    "parameters": {
+      "Q0_mAh_g": 170,
+      "cases": [
+        {
+          "tau_h": 0.08,
+          "n": 0.7
+        }
+      ],
+      "return_protocol_h_minus1": [
+        0.2,
+        0.5,
+        1,
+        2,
+        5,
+        0.2
+      ]
+    },
+    "references": [
+      {
+        "title": "Quantifying the factors limiting rate performance in battery electrodes",
+        "doi": "10.1038/s41467-019-09792-9",
+        "url": "https://www.nature.com/articles/s41467-019-09792-9",
+        "figure_panel": "Figure 1; Equations 2, 4, 5b",
+        "supports": "Rate-dependent capacity and length-scale / characteristic-time model. R is measured inverse discharge time, not nominal C-rate.",
+        "checked_at": "2026-10-02",
+        "scope": "Publisher caption / equation / measurement caveat checked. Original analytic teaching inputs; no paper points, images or material inference copied.",
+        "support_level": "equation and conditions",
+        "formula_scope": "The listed equations are declared teaching assumptions. A plot-form reference does not independently verify every analytic line shape, parameter or inference."
+      }
+    ],
+    "limitations": [
+      "Semi-empirical forward model, no fit; rate recovery assumes no permanent degradation. Values of τ/n do not uniquely establish a mechanism."
+    ],
+    "validation_scope": "Analytic consistency / dimensional accounting / original synthetic redraw only. Not validation of an actual material or author-supplied measurement."
+  },
+  "reference": {
+    "doi": "10.1038/s41467-019-09792-9",
+    "figure_panel": "Figure 1; Equations 2, 4, 5b",
+    "observation": "Rate-dependent capacity and length-scale / characteristic-time model. R is measured inverse discharge time, not nominal C-rate.",
+    "review_scope": "Publisher caption / equation / measurement caveat checked. Original analytic teaching inputs; no paper points, images or material inference copied.",
+    "default_template": false
+  },
+  "review": {
+    "science": "Analytic consistency and units checked; no material validation.",
+    "display": "Actual artist, frame and text-bound checks; inspect exported figure at final size."
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Model capacity",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 60,
+          "sampling": "cycle_scatter"
+        }
+      ],
+      "xlabel": "Cycle in declared sequence",
+      "ylabel": "Specific capacity (mAh g⁻¹)"
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Protocol R",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 60,
+          "sampling": "continuous_solid"
+        }
+      ],
+      "xlabel": "Cycle in declared sequence",
+      "ylabel": "Measured R (h⁻¹)"
+    }
+  ],
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Model capacity",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 60,
+          "sampling": "cycle_scatter"
+        }
+      ],
+      "xlabel": "Cycle in declared sequence",
+      "ylabel": "Specific capacity (mAh g⁻¹)"
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Protocol R",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 60,
+          "sampling": "continuous_solid"
+        }
+      ],
+      "xlabel": "Cycle in declared sequence",
+      "ylabel": "Measured R (h⁻¹)"
+    }
+  ],
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "Model capacity",
+      "points": 60,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#287d8e",
+      "sampling": "cycle_scatter"
+    },
+    {
+      "panel_index": 1,
+      "label": "Protocol R",
+      "points": 60,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#287d8e",
+      "sampling": "continuous_solid"
+    }
+  ],
+  "curve_style_check": "Cycle capacity/CE/charge ledger: marker-only; continuous profiles: solid/unmarked; user display preference.",
+  "data_frame_check": "All four spines visible on every data axis."
+}

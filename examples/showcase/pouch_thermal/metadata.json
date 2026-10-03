@@ -2,7 +2,7 @@
   "data_status": "synthetic_demo",
   "not_experimental_data": true,
   "random_seed": 20260923,
-  "generator_version": "1.2",
+  "generator_version": "1.6",
   "figure_grammar_id": "pouch_surface_temperature + linked_line_and_time",
   "journal_preset": "journal_neutral_180mm",
   "variables_and_units": {
@@ -10,8 +10,8 @@
     "y": "pouch height (mm)",
     "linked": "temperature (°C), same-map line profile, Tmax versus time (min)"
   },
-  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
-  "test_conditions": "Illustrative 100 × 70 mm pouch surface at 2 C and 25 °C ambient; modelled 0–30 min temperature, not an IR measurement.",
+  "sample_identity": "A/B are local teaching-model labels, not one electrolyte across unlike techniques; SIM IDs are invented records, never citations.",
+  "test_conditions": "Independent thermal nodes over a 100 × 70 mm rectangular display, 25 °C ambient, total heat capacity 90 J K−1 and conductance 1/6 W K−1; no IR measurement or heating inferred from a C-rate.",
   "source_files": [
     "data.csv",
     "line_profile.csv",
@@ -20,7 +20,120 @@
   ],
   "creator": "BatteryReviewForge original code",
   "review": {
-    "science": "models and data-to-panel links inspected; no experimental interpretation",
-    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+    "science": "Declared model equations/units/linked-file relations have scoped automated tests; no experimental certification.",
+    "display": "Actual line/frame/alignment checks only; independent visual and author review remain pending."
+  },
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "_child6",
+      "points": 2,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#ffffff"
+    },
+    {
+      "panel_index": 1,
+      "label": "_child0",
+      "points": 101,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 2,
+      "label": "Maximum",
+      "points": 61,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 2,
+      "label": "Surface mean",
+      "points": 61,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    }
+  ],
+  "curve_style_check": "pass: actual rendered Line2D artists are solid and have no markers",
+  "data_frame_check": "pass: actual data axes show top/right/bottom/left spines",
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 2,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    }
+  ],
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "parameter_origin": "self-chosen teaching values; never paper measurements",
+    "validation_scope": "Declared teaching model; no experimental/material certification",
+    "equations": [
+      "Cnode*dT/dt=Pnode(x,y)-Gnode*(T-Tamb); T(x,y,0)=Tamb",
+      "T=Tamb+(P/Gnode)*(1-exp(-t/tau)); tau=Cnode/Gnode",
+      "Each equally weighted node has Cnode=Ctotal/N and Gnode=Gtotal/N; Ctotal=m*cp=90 J/K; Gtotal=1/6 W/K; tau=540 s",
+      "P/Gnode=5.5+9.6*Gaussian_center+3.2*Gaussian_tab+0.40*sin(x/15)*cos(y/12) K"
+    ],
+    "assumptions": [
+      "Independent uncoupled thermal nodes, constant positive heating and thermal conductance.",
+      "Spatial heating distribution is a chosen positive function, not a solved pouch conduction problem."
+    ],
+    "parameters": {
+      "Tamb_C": 25,
+      "tau_min": 9,
+      "total_mass_kg": 0.1,
+      "specific_heat_J_kg_K": 900,
+      "Gtotal_W_K": 0.16666666666666666,
+      "Ctotal_J_K": 90,
+      "geometry_mm": [
+        100,
+        70
+      ]
+    },
+    "references": [
+      {
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/1-4-heat-transfer-specific-heat-and-calorimetry",
+        "title": "OpenStax University Physics: Heat Transfer, Specific Heat, and Calorimetry",
+        "supports": "Heat capacity and energy balance; demo node geometry and powers are self-chosen.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/1-6-mechanisms-of-heat-transfer",
+        "title": "OpenStax University Physics: Mechanisms of Heat Transfer",
+        "supports": "Linear thermal conductance interpretation; no experimental cell parameters copied.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "limitations": [
+      "No IR measurement, cell electrical-to-heat mapping, lateral coupling, thermal-runaway prediction or inferred 2 C heating."
+    ]
   }
 }

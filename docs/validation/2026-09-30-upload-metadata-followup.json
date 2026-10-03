@@ -1,0 +1,39 @@
+{
+  "checked_at": "2026-09-30",
+  "version": "0.10.0",
+  "channel": "beta",
+  "source_base_commit": "b68c51b",
+  "platform": "Windows",
+  "python": "3.12.14",
+  "scope": "Targeted engineering followup to API pilot observations: strict upload metadata, accurate parameter/scientific-state documentation and result-first replies. This record does not score a model run.",
+  "targeted_gates": [
+    {
+      "tests_run": 5,
+      "elapsed_seconds": 7.077,
+      "result": "PASS",
+      "scope": "Actual upload CLI rejects figure_size_mm/dpi with actionable errors and no output; legal CSV/XLSX mapping with width_mm/height_mm and --dpi renders at requested size/resolution; unknown cross-source conditions remain blocked; full/half cell separation; explicit CE ratio preserves values above 100 percent"
+    },
+    {
+      "tests_run": 1,
+      "elapsed_seconds": 0.201,
+      "result": "PASS",
+      "scope": "All 15 Skill directories contain byte-identical execution guide, task-state template and recovery checker copied from their maintained source"
+    }
+  ],
+  "unique_targeted_tests": 6,
+  "allowed_metadata_fields": [
+    "kind", "style", "community_style_lock", "sheet", "columns", "common",
+    "mode", "condition_note", "width_mm", "height_mm", "sample_id", "fragment",
+    "claim", "caption_notes"
+  ],
+  "metadata_dpi": "unsupported; use CLI --dpi, or deliver.py per-format CLI DPI options",
+  "scientific_contracts_and_condition_banner": "unchanged; required source/evidence/condition gates are preserved",
+  "documentation_states": "NA is author-confirmed not applicable; NR follows review of available complete source; NV is not yet verified. Direct is only declaration consistency screening.",
+  "final_reply": "Use the user language and usable results/preview links. Keep mappings/configuration/checkpoints/.voltpeer links internal; give the corresponding source record only on an explicit provenance request. Disclose material scientific gaps.",
+  "font_eof_cleanup": "Removed exactly one trailing blank line from four font_coverage.py files and the previous font followup JSON; no semantic changes",
+  "full_suite_model_evaluation": "NOT_RUN in this engineering followup; the parent task records its limited API pilot separately",
+  "real_desktop_host_integration": "NOT_RUN",
+  "full_129_regression": "historical prior gate; not rerun for this targeted followup",
+  "new_distribution_hashes": "Recorded after packaging in 2026-09-30-distribution.json and docs/downloads/distribution-sha256.txt",
+  "raw_logs_public": false
+}

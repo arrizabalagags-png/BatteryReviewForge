@@ -1,0 +1,530 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/arrizabalagags-png/BatteryReviewForge/blob/codex/public-skills/docs/DEMO_METADATA_SCHEMA.json",
+  "title": "VoltPeer synthetic demonstration metadata, version 2",
+  "description": "Full structural contract for current metadata. Scientific inputs and per-recipe render_options are additionally checked by their renderer; this schema does not certify scientific interpretation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "data_status",
+    "not_experimental_data",
+    "source_files",
+    "test_conditions",
+    "variables_and_units",
+    "creator",
+    "generator_version",
+    "scientific_basis"
+  ],
+  "anyOf": [
+    {
+      "required": [
+        "figure_grammar_id"
+      ]
+    },
+    {
+      "required": [
+        "id",
+        "title",
+        "domain",
+        "type",
+        "reproduce"
+      ]
+    }
+  ],
+  "properties": {
+    "data_status": {
+      "type": "string",
+      "const": "synthetic_demo"
+    },
+    "not_experimental_data": {
+      "type": "boolean",
+      "const": true
+    },
+    "source_files": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "test_conditions": {
+      "type": "string",
+      "minLength": 1
+    },
+    "limitations": {
+      "type": "string",
+      "minLength": 1
+    },
+    "variables_and_units": {
+      "anyOf": [
+        {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "creator": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generator_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+(?:\\.\\d+)?$"
+    },
+    "random_seed": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "figure_grammar_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "journal_preset": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sample_identity": {
+      "type": "string",
+      "minLength": 1
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "science",
+        "display"
+      ],
+      "properties": {
+        "science": {
+          "type": "string",
+          "minLength": 1
+        },
+        "display": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "render_options": {
+      "type": "object"
+    },
+    "reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "doi",
+        "observation",
+        "review_scope",
+        "default_template"
+      ],
+      "properties": {
+        "doi": {
+          "type": "string",
+          "pattern": "^10\\."
+        },
+        "journal": {
+          "type": "string",
+          "minLength": 1
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 1900
+        },
+        "panel": {
+          "type": "string",
+          "minLength": 1
+        },
+        "figure_panel": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "review_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "default_template": {
+          "type": "boolean",
+          "const": false
+        }
+      }
+    },
+    "reproduce": {
+      "type": "string",
+      "minLength": 1
+    },
+    "curve_style_check": {
+      "type": "string",
+      "minLength": 1
+    },
+    "data_frame_check": {
+      "type": "string",
+      "minLength": 1
+    },
+    "continuous_curve_style_checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "panel_index",
+          "label",
+          "points",
+          "line_style",
+          "marker",
+          "colour"
+        ],
+        "properties": {
+          "panel_index": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "label": {
+            "type": "string"
+          },
+          "points": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "line_style": {
+            "type": "string",
+            "const": "-"
+          },
+          "marker": {
+            "enum": [
+              null,
+              "None",
+              "",
+              " "
+            ]
+          },
+          "colour": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          }
+        }
+      }
+    },
+    "data_frame_checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "panel_index",
+          "spines"
+        ],
+        "properties": {
+          "panel_index": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "spines": {
+            "type": "object",
+            "required": [
+              "top",
+              "right",
+              "bottom",
+              "left"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "top": {
+                "type": "boolean",
+                "const": true
+              },
+              "right": {
+                "type": "boolean",
+                "const": true
+              },
+              "bottom": {
+                "type": "boolean",
+                "const": true
+              },
+              "left": {
+                "type": "boolean",
+                "const": true
+              }
+            }
+          },
+          "continuous_curves": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "linestyle",
+                "marker",
+                "points"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "linestyle": {
+                  "type": "string",
+                  "const": "-"
+                },
+                "marker": {
+                  "enum": [
+                    null,
+                    "None",
+                    "",
+                    " "
+                  ]
+                },
+                "points": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "actual_artist_checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "panel_index",
+              "spines"
+            ],
+            "properties": {
+              "panel_index": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "spines": {
+                "type": "object",
+                "required": [
+                  "top",
+                  "right",
+                  "bottom",
+                  "left"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "top": {
+                    "type": "boolean",
+                    "const": true
+                  },
+                  "right": {
+                    "type": "boolean",
+                    "const": true
+                  },
+                  "bottom": {
+                    "type": "boolean",
+                    "const": true
+                  },
+                  "left": {
+                    "type": "boolean",
+                    "const": true
+                  }
+                }
+              },
+              "continuous_curves": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "linestyle",
+                    "marker",
+                    "points"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "linestyle": {
+                      "type": "string",
+                      "const": "-"
+                    },
+                    "marker": {
+                      "enum": [
+                        null,
+                        "None",
+                        "",
+                        " "
+                      ]
+                    },
+                    "points": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "panel",
+              "frame_spines",
+              "curve_styles"
+            ],
+            "properties": {
+              "panel": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "frame_spines": {
+                "type": "object",
+                "required": [
+                  "top",
+                  "right",
+                  "bottom",
+                  "left"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "top": {
+                    "type": "boolean",
+                    "const": true
+                  },
+                  "right": {
+                    "type": "boolean",
+                    "const": true
+                  },
+                  "bottom": {
+                    "type": "boolean",
+                    "const": true
+                  },
+                  "left": {
+                    "type": "boolean",
+                    "const": true
+                  }
+                }
+              },
+              "curve_styles": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "linestyle",
+                    "marker",
+                    "points"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "linestyle": {
+                      "type": "string",
+                      "const": "-"
+                    },
+                    "marker": {
+                      "enum": [
+                        null,
+                        "None",
+                        "",
+                        " "
+                      ]
+                    },
+                    "points": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "domain": {
+      "enum": [
+        "alkali",
+        "zinc",
+        "storage",
+        "photovoltaic",
+        "general"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "const": "demo"
+    },
+    "license": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scientific_basis": {
+      "type": "object",
+      "required": ["schema_version", "model_class", "data_origin", "equations", "assumptions", "parameters", "references", "limitations", "validation_scope"],
+      "properties": {
+        "schema_version": {"type": "integer", "const": 1},
+        "model_class": {"enum": ["analytic_model", "phenomenological_model", "layout_fixture", "composite"]},
+        "data_origin": {"type": "string", "const": "original_synthetic"},
+        "equations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "assumptions": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "parameters": {"type": "object"},
+        "references": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object", "required": ["url", "title", "supports", "scope"],
+            "properties": {
+              "url": {"type": "string", "pattern": "^https://"},
+              "title": {"type": "string", "minLength": 1},
+              "supports": {"type": "string", "minLength": 1},
+              "scope": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "limitations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "validation_scope": {"type": "string", "minLength": 1}
+      }
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

@@ -1,0 +1,541 @@
+{
+  "client_date": "2026-10-01",
+  "scope": "Downloaded gallery source delivery, independent redraw and failure boundaries",
+  "command": "outputs/qa-venv/Scripts/python.exe -m unittest discover -s tests -p test_demo_bundle_execution.py -v",
+  "exit_code": 0,
+  "unittest_methods": 8,
+  "elapsed_seconds": 102.277,
+  "result": "PASS",
+  "python_version": "3.12.14",
+  "checks": [
+    {
+      "test": "test_all_thirty_sources_and_archive_input_closure",
+      "result": "PASS"
+    },
+    {
+      "test": "test_changed_author_data_retained_without_scientific_certification",
+      "result": "PASS"
+    },
+    {
+      "test": "test_detached_render_all_families_and_both_composites",
+      "result": "PASS"
+    },
+    {
+      "test": "test_existing_output_refused_and_original_results_preserved",
+      "result": "PASS"
+    },
+    {
+      "test": "test_input_path_escape_rejected_by_packager",
+      "result": "PASS"
+    },
+    {
+      "test": "test_missing_input_stops_without_creating_output",
+      "result": "PASS"
+    },
+    {
+      "test": "test_nonfinite_author_data_stops_before_plotting",
+      "result": "PASS"
+    },
+    {
+      "test": "test_source_edits_require_opt_in_and_generate_is_never_called",
+      "result": "PASS"
+    }
+  ],
+  "canonical_zip_count": 30,
+  "historic_alias_zip_count": 2,
+  "detached_redraws": [
+    {
+      "sample": "eis",
+      "result": "PASS",
+      "formats": [
+        "PNG",
+        "SVG",
+        "PDF"
+      ],
+      "original_inputs_unchanged": true,
+      "original_source_unchanged": true,
+      "python_isolated_mode": true
+    },
+    {
+      "sample": "cyclic_voltammetry",
+      "result": "PASS",
+      "formats": [
+        "PNG",
+        "SVG",
+        "PDF"
+      ],
+      "original_inputs_unchanged": true,
+      "original_source_unchanged": true,
+      "python_isolated_mode": true
+    },
+    {
+      "sample": "ftir",
+      "result": "PASS",
+      "formats": [
+        "PNG",
+        "SVG",
+        "PDF"
+      ],
+      "original_inputs_unchanged": true,
+      "original_source_unchanged": true,
+      "python_isolated_mode": true
+    },
+    {
+      "sample": "aurbach_protocol",
+      "result": "PASS",
+      "formats": [
+        "PNG",
+        "SVG",
+        "PDF"
+      ],
+      "original_inputs_unchanged": true,
+      "original_source_unchanged": true,
+      "python_isolated_mode": true
+    },
+    {
+      "sample": "integrated_study",
+      "result": "PASS",
+      "formats": [
+        "PNG",
+        "SVG",
+        "PDF"
+      ],
+      "original_inputs_unchanged": true,
+      "original_source_unchanged": true,
+      "python_isolated_mode": true
+    },
+    {
+      "sample": "capability_spread",
+      "result": "PASS",
+      "formats": [
+        "PNG",
+        "SVG",
+        "PDF"
+      ],
+      "original_inputs_unchanged": true,
+      "original_source_unchanged": true,
+      "python_isolated_mode": true
+    }
+  ],
+  "author_input_redraw": "PASS: substituted EIS data preserved; demo basis/conditions not applied as certification",
+  "failure_boundaries": [
+    "existing directory rejected without changing sentinel",
+    "missing CSV rejected before creating output",
+    "NaN rejected before creating output",
+    "source drift rejected unless explicitly allowed",
+    "unsafe input path rejected"
+  ],
+  "generator_bomb": "PASS: deliberate GENERATORS functions that always raise were not called during redraw",
+  "paid_model_calls": 0,
+  "network_calls_for_tests": 0,
+  "archive_identity_scope": "Each of 32 temporary ZIPs, every declared source/input byte, and manifest closure were verified by the test. Temporary artifacts were removed; no identity claim for current docs ZIPs before parent repackaging.",
+  "source_snapshot": [
+    {
+      "path": "examples/demo_bundle_runner.py",
+      "sha256": "b441d052bffb5db739747491593aef4f9af502c4316899ba6e4dd58439cab78e"
+    },
+    {
+      "path": "examples/recipe_packs/_runtime/generate_demo.py",
+      "sha256": "a7fbddf2db64d903b34a38dce407f40586e27a06e1d792ac380799c6cbb509b1"
+    },
+    {
+      "path": "examples/showcase/advanced.py",
+      "sha256": "8eecaaaa47a0c2ce4f5d09f84df767a245a39fe6e5642615c3834f6ca0472231"
+    },
+    {
+      "path": "examples/showcase/aurbach_protocol/data.csv",
+      "sha256": "abc2eec640a9bee44e52c8ffe81ece26a7536b0b52b8d90cbb3d9ddf72000361"
+    },
+    {
+      "path": "examples/showcase/aurbach_protocol/metadata.json",
+      "sha256": "20f6fa8e4f5400bb725e6e30850c97b5655d5db86d19dbcc12b2609cbec8fd67"
+    },
+    {
+      "path": "examples/showcase/aurbach_protocol/protocol.json",
+      "sha256": "0c45b584cedffa66984c9e4c4621e25a6126f940ab47ed01f52aae6e80dbcd1a"
+    },
+    {
+      "path": "examples/showcase/build.py",
+      "sha256": "bd127159f502c05c56bd4cba916b89fb3514889c81cb830105a414fdb03a076b"
+    },
+    {
+      "path": "examples/showcase/capability_spread/data_index.csv",
+      "sha256": "72bb685412ec28b43c11b9d268d023e306c793bcbb18f9d40c0b41f2a56ed342"
+    },
+    {
+      "path": "examples/showcase/capability_spread/metadata.json",
+      "sha256": "108b8dada3f4126ed5aa3c6c432a78db591daddc11c7f67325dc3c3e6b0a2821"
+    },
+    {
+      "path": "examples/showcase/capability_spread/sources.json",
+      "sha256": "786cec4b9e57df133703d9cefb764979f6cbf6b023424291083eb77e431b5e17"
+    },
+    {
+      "path": "examples/showcase/chronoamperometry/data.csv",
+      "sha256": "c686595180e174af03a34b3cd67507e20ae0cba7a4bf60816e3d2d975e5322f9"
+    },
+    {
+      "path": "examples/showcase/chronoamperometry/metadata.json",
+      "sha256": "cd7b386cb1192d8fbc7dddd084fb738885a23a518a60ac319abdcbc012cdc92e"
+    },
+    {
+      "path": "examples/showcase/corpus.py",
+      "sha256": "8b7c74f4eeba2163f4967fafde755fe4a439cfcf62356c0d749be8f78359d8ca"
+    },
+    {
+      "path": "examples/showcase/cyclic_voltammetry/data.csv",
+      "sha256": "c331f0af98c4d8cfa2e443fdba363ee5bcc4319daec99633ea160daf8b131ed9"
+    },
+    {
+      "path": "examples/showcase/cyclic_voltammetry/metadata.json",
+      "sha256": "fcf441b58c9c0a38c5d67c0cf92bcd9e26cc2f1ce85bb32132682d61d064023a"
+    },
+    {
+      "path": "examples/showcase/differential_capacity/data.csv",
+      "sha256": "a3424b9ccaeb729f62ffa4632de96d10eac718ee8ff8d2f51d9a00d6a8a8af0f"
+    },
+    {
+      "path": "examples/showcase/differential_capacity/metadata.json",
+      "sha256": "6bf75b13339fb452540e39ab6c7dc8c67f73769ecd0ec006570cb13726f7a211"
+    },
+    {
+      "path": "examples/showcase/eis/data.csv",
+      "sha256": "187d66d615d2151217d94f23d50a488800623e61357e4ce4a75ef945096ffa3c"
+    },
+    {
+      "path": "examples/showcase/eis/metadata.json",
+      "sha256": "72cae39570e44b342795eef252f221d6d09d5887e77f0c9e66dbe8af511b77b0"
+    },
+    {
+      "path": "examples/showcase/eis/model.json",
+      "sha256": "5906ec0e0c66dd1a01890c99ee0c1d8600a2362bea929fb683955d519c407ed1"
+    },
+    {
+      "path": "examples/showcase/eis_frequency/data.csv",
+      "sha256": "09cb70965be2564365229285cc32fff3f339dc182aa07c0119ed82599efda83e"
+    },
+    {
+      "path": "examples/showcase/eis_frequency/metadata.json",
+      "sha256": "479b9dda5a3961f2778d09fc80cceacb0ca16c54139066cd0e77d8040d7f28fb"
+    },
+    {
+      "path": "examples/showcase/electrochem.py",
+      "sha256": "d75d0b2a760bca59ce1701d471999d254bebfbef608a56a7b4d8eeeff2ec15fd"
+    },
+    {
+      "path": "examples/showcase/ftir/data.csv",
+      "sha256": "45c6dbc8adefdd4e495fdf388dce50c8177f3a04a59f617b6e9db74427497c97"
+    },
+    {
+      "path": "examples/showcase/ftir/metadata.json",
+      "sha256": "5d7e4962ff00446992dec6c0851652872da85a4996875496304a55f76f054b94"
+    },
+    {
+      "path": "examples/showcase/full_cell/data.csv",
+      "sha256": "1b8204c7d72bab8dac45e5827913230609c1e146609fd57a68a5d79bec4352f4"
+    },
+    {
+      "path": "examples/showcase/full_cell/metadata.json",
+      "sha256": "0d76ea4dbb84ee5934538d5c615e63ba876791aa7329e9d816d298113c6a670c"
+    },
+    {
+      "path": "examples/showcase/full_cell/voltage_profiles.csv",
+      "sha256": "db99b690fd9228788b5197b80435f57f0937c5571cc8a05b3539596c1b43c062"
+    },
+    {
+      "path": "examples/showcase/gcd_profiles/data.csv",
+      "sha256": "d68bc3d08eac360dc4696225ddb468ef08d06c006308651f73a82f6e060f8468"
+    },
+    {
+      "path": "examples/showcase/gcd_profiles/metadata.json",
+      "sha256": "ba3c5b5e224f4feea3db3b9ea9e685241aa59d67628f57481d2a17213bc95a94"
+    },
+    {
+      "path": "examples/showcase/gitt_pulse/data.csv",
+      "sha256": "8e32e9ef4d45735f23276c5ceaca43b25853b83a2bb27df7f20761b747dfa1bc"
+    },
+    {
+      "path": "examples/showcase/gitt_pulse/metadata.json",
+      "sha256": "519e98c15eb8954c6456e74f9c93f126bfc4b368bdc9940c6d66f40cbffff8c1"
+    },
+    {
+      "path": "examples/showcase/integrated_study/data_index.csv",
+      "sha256": "7a3db0c87c98e697e5ca325a4e9a8202dd5dc6459f9fc8ca6dfe6b42a8b69442"
+    },
+    {
+      "path": "examples/showcase/integrated_study/metadata.json",
+      "sha256": "1324cf2eaa5edfe5b450886899df31e927874183b79a1ae196e5701be8e96ef7"
+    },
+    {
+      "path": "examples/showcase/integrated_study/sources.json",
+      "sha256": "04c30a8c88e397a7f49e51f6ee4c3938a4d1ec864f0659d1516d618324fb02fe"
+    },
+    {
+      "path": "examples/showcase/ionic_conductivity/data.csv",
+      "sha256": "8153cc848cad14225e179734617c13e11418cc3d00456030f019f29edb93a2a8"
+    },
+    {
+      "path": "examples/showcase/ionic_conductivity/metadata.json",
+      "sha256": "aecef71a59a4d6d7dfa1a663ca5ea89fb93434b7791521caceeb570d7644236d"
+    },
+    {
+      "path": "examples/showcase/li_cu_ce/data.csv",
+      "sha256": "cc4d9a633247ae4df9fada1b15e2adf7f6767c65be21532639c2374f5d8970f6"
+    },
+    {
+      "path": "examples/showcase/li_cu_ce/metadata.json",
+      "sha256": "cda54a0e2a3af752fb67f987766d0f41e4abd04923f77193a685639ecfd2d607"
+    },
+    {
+      "path": "examples/showcase/li_cu_ce/profiles.csv",
+      "sha256": "49de4884a52d3e96dff0a10859548a1ca3220bf321d8eb87d8006d25e7040c36"
+    },
+    {
+      "path": "examples/showcase/li_li/data.csv",
+      "sha256": "efc9991fcda15f264203d31a4931ae0fa86cc5d3fcb939f14fffcfb665713a2e"
+    },
+    {
+      "path": "examples/showcase/li_li/metadata.json",
+      "sha256": "8598363bc01bbbb6db391f97699dcb9e25bc00e454daf809210336bbd4699b7c"
+    },
+    {
+      "path": "examples/showcase/literature_benchmark/data.csv",
+      "sha256": "201fb399c2f286077826c6e9ddc4c2c5644c2fed3ee741307f1efa2174e3b84d"
+    },
+    {
+      "path": "examples/showcase/literature_benchmark/metadata.json",
+      "sha256": "4672d08463c5dd85d861a8e5ad5455c56004b0ea70ccc7a83afd2902ac6ba9a1"
+    },
+    {
+      "path": "examples/showcase/lsv/data.csv",
+      "sha256": "9508a60bffa4b234b125915038e367500dcf9d9715fd5a34958fe4234b485e0a"
+    },
+    {
+      "path": "examples/showcase/lsv/metadata.json",
+      "sha256": "f15ee5f320a103515e99e1ac9c93318582e70fc4f41d0d6c203e68a23d56319b"
+    },
+    {
+      "path": "examples/showcase/msd/data.csv",
+      "sha256": "4044244f5e37ae06f9b8b328c18264ee59f3ae5bfc41a015d772d7e1a4cbaebf"
+    },
+    {
+      "path": "examples/showcase/msd/metadata.json",
+      "sha256": "ed5ac54f58eda112d12d30be41f05d6dad98c654208b12bc401e4ba7770a70ce"
+    },
+    {
+      "path": "examples/showcase/nmr/data.csv",
+      "sha256": "9e23d6ed71222726ab2d338de99e8637a02c2f0d69bedaab3df453daa82e09bf"
+    },
+    {
+      "path": "examples/showcase/nmr/metadata.json",
+      "sha256": "ffa9b15185777bfac668c02c1ce864570b1e40d51200ee28b96040b2ecc72bbc"
+    },
+    {
+      "path": "examples/showcase/ocv_rest/data.csv",
+      "sha256": "642637bc88967fae090f3ae6529c896737b11f41c4c9b36b64254e25dbbb79d7"
+    },
+    {
+      "path": "examples/showcase/ocv_rest/metadata.json",
+      "sha256": "03d25f8a82e03e31dd209a6b70c42bc1ce3b6a8b5137d0338fdd14e810c46e63"
+    },
+    {
+      "path": "examples/showcase/operando_xrd/data.csv",
+      "sha256": "7ed4b6b1ce6da4b978f08a1f1e60c9ed5a87a0b7b6f88d2e8580082cd9ad654a"
+    },
+    {
+      "path": "examples/showcase/operando_xrd/metadata.json",
+      "sha256": "c4966ce6bf9ff03df010f2ba374e54189ad0ef62d7ee873be0ee6c5225def817"
+    },
+    {
+      "path": "examples/showcase/operando_xrd/voltage.csv",
+      "sha256": "3ff26a01ccf91e68f53f580e7de119fab316334ae3ef3552c63543be426a0eed"
+    },
+    {
+      "path": "examples/showcase/pouch_thermal/data.csv",
+      "sha256": "ca4b1a4bfbc06079e73240b3768ebc01cf4c551bd73e4c57e7b6f22b806c3642"
+    },
+    {
+      "path": "examples/showcase/pouch_thermal/geometry.json",
+      "sha256": "359379551c06117b7a7d608ef7a1987898e5639b9371ea54031d766d25b7b1f3"
+    },
+    {
+      "path": "examples/showcase/pouch_thermal/history.csv",
+      "sha256": "37f1461623ccd1ba0e2e5fbf86ebad4cce05664cc3e1f1ead56df970d51346ab"
+    },
+    {
+      "path": "examples/showcase/pouch_thermal/line_profile.csv",
+      "sha256": "6307db84a2d570c19ed11bc9af63a8ac965eae2e15fa66bd1865c7be640f50ff"
+    },
+    {
+      "path": "examples/showcase/pouch_thermal/metadata.json",
+      "sha256": "0e5f771cdaf44e0c16e4f51f81438e02dbaf5d35a2e85af572f449c296b8304b"
+    },
+    {
+      "path": "examples/showcase/raman_series/data.csv",
+      "sha256": "d5f12b7638cf67f635a3cf4fb5568bb4920576151764d7e971b8c7ae5e375948"
+    },
+    {
+      "path": "examples/showcase/raman_series/metadata.json",
+      "sha256": "9e6a0dbe1fc0a9030a0515aa94aecacbc868bf80143db96029da71ca425b66e7"
+    },
+    {
+      "path": "examples/showcase/rate_capability/data.csv",
+      "sha256": "02797d1e27ad33a1c1372e4505511fb5f87e7948efeb35fb404adf67ffe6ccd5"
+    },
+    {
+      "path": "examples/showcase/rate_capability/metadata.json",
+      "sha256": "411c2b08edaac838419dbce8974cb700afefda7117d492f4048949045fc2e7bc"
+    },
+    {
+      "path": "examples/showcase/rate_capability/voltage_profiles.csv",
+      "sha256": "62efdd91803af0f47c04df26cd93102f24c07f44e47561523eddb74bbabfd0d8"
+    },
+    {
+      "path": "examples/showcase/rdf_coordination/data.csv",
+      "sha256": "b17fd3d2ab197e2f4323c873ee21a0be0037323a7e01179fbbb7b695c2aca863"
+    },
+    {
+      "path": "examples/showcase/rdf_coordination/metadata.json",
+      "sha256": "bfcff9e4519617cd4cac4c27e7ba5c76159c7c04c66c082317194ec3495816d0"
+    },
+    {
+      "path": "examples/showcase/reporting_matrix/data.csv",
+      "sha256": "cc6e46644522fce88b2eba70cdd436f04203d6114330eb5c6b796d1ccd470000"
+    },
+    {
+      "path": "examples/showcase/reporting_matrix/metadata.json",
+      "sha256": "aee9499f09daa11da4c26c1bd2a1489d8592461ba6d048b8de49d7674b37aaf5"
+    },
+    {
+      "path": "examples/showcase/reporting_matrix/status_key.json",
+      "sha256": "5cff88d069761e7efee2b2ea10233498a0bd1fac2581dc4992ad2de31ba01365"
+    },
+    {
+      "path": "examples/showcase/style_presets/data.csv",
+      "sha256": "1b8204c7d72bab8dac45e5827913230609c1e146609fd57a68a5d79bec4352f4"
+    },
+    {
+      "path": "examples/showcase/style_presets/metadata.json",
+      "sha256": "a1d8b8f430fcc439333f7319508f5eadc6cdab6e9dc0d870109400ca1c0482f4"
+    },
+    {
+      "path": "examples/showcase/style_presets/source.json",
+      "sha256": "6918109fde27d78798edd8b38e5f394a05d82eb63a50e608d6f5c3ece98fab65"
+    },
+    {
+      "path": "examples/showcase/tof_sims/data.csv",
+      "sha256": "be700cba3888471d07d5b6b37208af142aa60fd09d1aaedf07f7af28370e263e"
+    },
+    {
+      "path": "examples/showcase/tof_sims/depth.csv",
+      "sha256": "0afd9b3d31652c0d7ca4c431b8c275cba206ef0f989990eb9fb0ddf4f2080a89"
+    },
+    {
+      "path": "examples/showcase/tof_sims/metadata.json",
+      "sha256": "481b94a5b6e8fbacbdfb01e5095430bb958263394ccad8c65261bd020cab3e11"
+    },
+    {
+      "path": "examples/showcase/transference/data.csv",
+      "sha256": "591c0680f39e967347b2b83836c8d314c88bbcacd21321c8a1126f2692506248"
+    },
+    {
+      "path": "examples/showcase/transference/eis.csv",
+      "sha256": "e9f3887c5f1c39f1c913c97ff2ff5a9e2174423501d796e1049c36fb5784a480"
+    },
+    {
+      "path": "examples/showcase/transference/metadata.json",
+      "sha256": "6095a14e49c394656c4bfdf00b54d41779e1fa2d66688c3d6d7470a4f86c9875"
+    },
+    {
+      "path": "examples/showcase/xps_components/data.csv",
+      "sha256": "de8fcadbceeb63ae9922373d708ce23912960c89617c2ddf2e2fc7c4ddda703b"
+    },
+    {
+      "path": "examples/showcase/xps_components/metadata.json",
+      "sha256": "c9c49a4ce7d26c3d53b063771eeace0741a5c3a8fe23fb01aec1e8a23595c3ff"
+    },
+    {
+      "path": "scripts/package_demo_bundles.py",
+      "sha256": "1ec82c29d55d05e53fb833c6bd733d3b2d6e88d3adfc7dd498b3368c5a62d67c"
+    },
+    {
+      "path": "skills/battery-review-figure/assets/figure_theme.json",
+      "sha256": "d019f7c849bf837524251e8ded47b49254a69eb1f5948d7478e0c0dc8e6dea33"
+    },
+    {
+      "path": "skills/battery-review-figure/assets/SKILL_RELEASE.json",
+      "sha256": "6072f95a281b8ef2c6c87d9d6b92bd0da76ea173ddad6e0884c1de67d67281eb"
+    },
+    {
+      "path": "skills/battery-review-figure/scripts/batteryplot/__init__.py",
+      "sha256": "38f5f0a7c930ec5dc9b9dd4fc1665b712f02b3820dbae691970e96c3d9ba4158"
+    },
+    {
+      "path": "skills/battery-review-figure/scripts/batteryplot/battery_charts.py",
+      "sha256": "9fa4e980b7dc5c07c09e77e69a31011e5c7c69f214a721822fcc8c85d95d7a57"
+    },
+    {
+      "path": "skills/battery-review-figure/scripts/batteryplot/charts.py",
+      "sha256": "2476a025f800ba35bda2173061b863c1d7b1b7e397f5a62ac0b7c226aafacd92"
+    },
+    {
+      "path": "skills/battery-review-figure/scripts/batteryplot/corpus.py",
+      "sha256": "89e6da0b69068dfb44f94a8331a7db2d0e4ed2fdb27f04089a53a6fbd18a0099"
+    },
+    {
+      "path": "skills/battery-review-figure/scripts/batteryplot/data.py",
+      "sha256": "d8e5e49b51d2a7e23842e3cbae91e16f4fe337a2294ed53ff4a6505075e0ad0c"
+    },
+    {
+      "path": "skills/battery-review-figure/scripts/batteryplot/electrochem.py",
+      "sha256": "134b77742c94dab715c97b24cda95cc6aba00745c4f9ba54243d33535c930c6c"
+    },
+    {
+      "path": "skills/battery-review-figure/scripts/batteryplot/export.py",
+      "sha256": "42307fb9e52432b213118bf7130536f387b2ebf5b5fe3430009e95fd635ada47"
+    },
+    {
+      "path": "skills/battery-review-figure/scripts/batteryplot/ingest.py",
+      "sha256": "87ac0d04fe18a8787e2e98fdd38acc5885a72b41f67c2760ae17d15888011164"
+    },
+    {
+      "path": "skills/battery-review-figure/scripts/batteryplot/layout.py",
+      "sha256": "089b0734fb90630ebf48a0ad12c8f0f69af367d5bff00987dabdcb346272a5d8"
+    },
+    {
+      "path": "skills/battery-review-figure/scripts/batteryplot/qa.py",
+      "sha256": "6055643068fa6c58e4fd4ae60da309479c6e4799600509a10aef63010b1e5733"
+    },
+    {
+      "path": "skills/battery-review-figure/scripts/batteryplot/specialist.py",
+      "sha256": "fb9a9dd3bc7ec4bdbb148f82887693c26d1c6702448171d27d535abf51c4db97"
+    },
+    {
+      "path": "skills/battery-review-figure/scripts/batteryplot/specification.py",
+      "sha256": "6990e00e7cdcea3fb4f613346d5e7c276e2073a4147b52b69276ae4418178484"
+    },
+    {
+      "path": "skills/battery-review-figure/scripts/batteryplot/style.py",
+      "sha256": "e4c069340b9ba1d60f7a7680315329934df114fb6cff3d746b0cb08d17a000ab"
+    },
+    {
+      "path": "skills/battery-review-figure/scripts/batteryplot/tofsims.py",
+      "sha256": "3fd24e60a95f579820457d0cf522aae6638b1d30298ab16ccf2855942b4c0678"
+    },
+    {
+      "path": "skills/battery-review-figure/scripts/output_safety.py",
+      "sha256": "6f2b035179f83ae3fa25ea54a5d43c0cedf47ff5e0576daf979c3fb8fc0f11da"
+    },
+    {
+      "path": "tests/test_demo_bundle_execution.py",
+      "sha256": "c8e900d9d08053a9b88c4f70d5b858030db103fb4bb10e6a305cfc7cd03f639c"
+    }
+  ],
+  "not_covered": [
+    "Scientific certification of substituted author data",
+    "Native Harness/Codex/WorkBuddy skill discovery",
+    "Linux/macOS execution",
+    "GitHub publication",
+    "ECS deployment"
+  ]
+}

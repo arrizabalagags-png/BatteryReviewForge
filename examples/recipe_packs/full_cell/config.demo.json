@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "resource_id": "full_cell",
+  "data_status": "synthetic_demo",
+  "title": "Full-cell cycling and voltage profiles",
+  "provenance": {
+    "input_origin": "original_synthetic_demo",
+    "demo_conditions_cleared": false
+  },
+  "labels": {},
+  "style": {
+    "width_mm": 180,
+    "font_pt": 8
+  },
+  "export": {
+    "formats": [
+      "pdf",
+      "svg",
+      "png",
+      "tiff"
+    ],
+    "png_dpi": 300,
+    "tiff_dpi": 300
+  },
+  "limits": {},
+  "data": {
+    "cycling": {
+      "path": "demo/cycling.csv",
+      "columns": {
+        "sample": "sample",
+        "cycle": "cycle",
+        "capacity": "capacity",
+        "ce": "ce"
+      }
+    },
+    "profiles": {
+      "path": "demo/profiles.csv",
+      "columns": {
+        "sample": "sample",
+        "cycle": "cycle",
+        "capacity": "capacity",
+        "voltage": "voltage"
+      }
+    }
+  },
+  "units": {
+    "cycle": "1",
+    "capacity": "mAh g^-1",
+    "voltage": "V",
+    "ce": "%"
+  },
+  "conditions": {
+    "common": {
+      "cathode": "Generic positive electrode; no material curve fitted",
+      "anode": "Generic negative electrode; no material curve fitted",
+      "capacity_basis": "Assumed positive-electrode active-material mass; original demo values in mAh g^-1",
+      "rate_or_current": "Nominal 0.5 C display context; no time/transport model simulated",
+      "formation": "Decaying loss transient only; no formation experiment simulated",
+      "loading_or_areal_capacity": "No area/areal loading is simulated; mass-specific teaching basis only",
+      "temperature_C": 25,
+      "voltage_window_V": [
+        2.9,
+        4.2
+      ],
+      "ce_definition": "discharge capacity / charge capacity",
+      "retention_reference_cycle": 1,
+      "retention_basis": "100*Qdis(n)/Qdis(declared cycle 1), same model/rate/temperature/voltage/mass basis",
+      "N_P": "not inferred",
+      "E_C": "not inferred"
+    },
+    "by_sample": {}
+  }
+}

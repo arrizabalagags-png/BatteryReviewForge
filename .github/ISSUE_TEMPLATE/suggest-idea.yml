@@ -1,0 +1,18 @@
+name: 提一个想法
+description: 不需要代码，说明你想完成的科研任务
+title: "[Commons idea] "
+body:
+  - type: textarea
+    id: task
+    attributes: {label: 现在的任务与卡点, description: "只描述可公开的背景，不提供未发表数据、个人信息或密钥。"}
+    validations: {required: true}
+  - type: textarea
+    id: result
+    attributes: {label: 希望得到的结果, description: "可附网页生成的 JSON 草稿。"}
+    validations: {required: true}
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: 公开投稿
+      options:
+        - {label: "我同意公开展示这份想法。", required: true}

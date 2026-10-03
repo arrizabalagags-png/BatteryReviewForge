@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Download and verify static site bundle
         env:
-          SITE_ASSET_URL: https://github.com/arrizabalagags-png/BatteryReviewForge/releases/download/website-v0.9.2/site-dist.zip
+          SITE_ASSET_URL: https://github.com/arrizabalagags-png/Voltpeer-skills/releases/download/website-v0.9.2/site-dist.zip
           EXPECTED_SHA256: 44f40e9652d387ebd655d3e1ad4f5cc64abbf77153ed065662cc425fa62200b6
         run: |
           set -euo pipefail

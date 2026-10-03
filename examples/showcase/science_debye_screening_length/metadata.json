@@ -1,0 +1,122 @@
+{
+  "id": "science_debye_screening_length",
+  "title": "离子强度与屏蔽长度",
+  "domain": "general",
+  "type": "demo",
+  "license": "MIT",
+  "scope": "Original analytic teaching record. Source references support the declared method/derivation only, never this invented parameter set or measurements.",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "source_files": [
+    "data.csv",
+    "model.json"
+  ],
+  "test_conditions": "No acquired cell or material. Independently declared analytic parameters, assumptions and units in scientific_basis.",
+  "variables_and_units": {
+    "1": [
+      "Salt concentration (mol L$^{-1}$)",
+      "Debye length (nm)"
+    ]
+  },
+  "creator": "VoltPeer",
+  "generator_version": "1.0.0",
+  "reproduce": "python render_existing.py --output result-01",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "relationship": "Dilute screening length decreases with square-root ion concentration.",
+    "equations": [
+      "lambdaD=sqrt(epsilon*RT/(2F²c))"
+    ],
+    "parameters": {
+      "epsilon_r": 78.4,
+      "T_K": 298.15,
+      "c_conversion": "mol/L × 1000 = mol/m³"
+    },
+    "assumptions": [
+      "Independently declared parameters; no experimental or material fit.",
+      "Ideal symmetric monovalent aqueous-like dielectric; high concentration excluded."
+    ],
+    "limitations": [
+      "Ideal symmetric monovalent aqueous-like dielectric; high concentration excluded.",
+      "A numerical/model QA pass does not validate author data or a physical mechanism."
+    ],
+    "constraints": [
+      "Finite numerical values and explicit physical units.",
+      "Continuous plotted curves are solid without markers; data axes retain four borders.",
+      "All plotted responses are nonnegative."
+    ],
+    "references": [
+      {
+        "title": "COMSOL: Diffuse Double Layer",
+        "doi": "",
+        "url": "https://doc.comsol.com/6.3/doc/com.comsol.help.models.edecm.diffuse_double_layer/diffuse_double_layer.html",
+        "figure_panel": "Debye length and dilute Gouy-Chapman-Stern double-layer limits",
+        "supports": "Dilute screening length decreases with square-root ion concentration.",
+        "checked_at": "2026-10-03",
+        "scope": "Method/equation/caveat reference only. Original analytic teaching inputs; no copied paper points, pixels or experimental inference."
+      }
+    ],
+    "validation": {
+      "finite": true,
+      "nonnegative": true,
+      "unit_interval": false
+    },
+    "validation_scope": "Source method/principle and explicitly derived restricted teaching specialization checked; equation, units and numerical constraints only. No copied paper measurements, material parameters, experimental fit or mechanism certification."
+  },
+  "review": {
+    "science": "Equation/units/numerical constraints and source scope checked. No author-data validation.",
+    "display": "Actual solid/unmarked curve artists, four-frame spines, legend/title and text bounds checked."
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Dilute 1:1 model",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        }
+      ]
+    }
+  ],
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Dilute 1:1 model",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        }
+      ]
+    }
+  ],
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "Dilute 1:1 model",
+      "points": 241,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#287d8e"
+    }
+  ],
+  "curve_style_check": "Actual Line2D artists: all continuous curves solid and unmarked.",
+  "data_frame_check": "Actual data axes: all four spines visible."
+}

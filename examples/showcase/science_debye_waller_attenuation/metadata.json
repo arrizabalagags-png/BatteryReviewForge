@@ -1,0 +1,164 @@
+{
+  "id": "science_debye_waller_attenuation",
+  "title": "原子位移与衍射强度衰减",
+  "domain": "general",
+  "type": "demo",
+  "license": "MIT",
+  "scope": "Original analytic teaching record. Source references support the declared method/derivation only, never this invented parameter set or measurements.",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "source_files": [
+    "data.csv",
+    "model.json"
+  ],
+  "test_conditions": "No acquired cell or material. Independently declared analytic parameters, assumptions and units in scientific_basis.",
+  "variables_and_units": {
+    "1": [
+      "Scattering vector (Å$^{-1}$)",
+      "Intensity / static intensity"
+    ]
+  },
+  "creator": "VoltPeer",
+  "generator_version": "1.0.0",
+  "reproduce": "python render_existing.py --output result-01",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "relationship": "An assumed displacement factor attenuates high-q coherent intensity.",
+    "equations": [
+      "I/Istatic=exp(-q²<u²>/3)"
+    ],
+    "parameters": {
+      "mean_square_displacement_A2": [
+        0.01,
+        0.03,
+        0.06
+      ]
+    },
+    "assumptions": [
+      "Independently declared parameters; no experimental or material fit.",
+      "Isotropic independent-displacement factor only; no actual temperature or phase assigned."
+    ],
+    "limitations": [
+      "Isotropic independent-displacement factor only; no actual temperature or phase assigned.",
+      "A numerical/model QA pass does not validate author data or a physical mechanism."
+    ],
+    "constraints": [
+      "Finite numerical values and explicit physical units.",
+      "Continuous plotted curves are solid without markers; data axes retain four borders.",
+      "All plotted fractions lie between zero and one."
+    ],
+    "references": [
+      {
+        "title": "NIST: Small Angle Neutron Scattering Fundamentals",
+        "doi": "",
+        "url": "https://ncnr.nist.gov/programs/sans/pdf/sans_theory.pdf",
+        "figure_panel": "Guinier, Porod and scattering-vector definitions",
+        "supports": "An assumed displacement factor attenuates high-q coherent intensity.",
+        "checked_at": "2026-10-03",
+        "scope": "Method/equation/caveat reference only. Original analytic teaching inputs; no copied paper points, pixels or experimental inference."
+      }
+    ],
+    "validation": {
+      "finite": true,
+      "nonnegative": false,
+      "unit_interval": true
+    },
+    "validation_scope": "Source method/principle and explicitly derived restricted teaching specialization checked; equation, units and numerical constraints only. No copied paper measurements, material parameters, experimental fit or mechanism certification."
+  },
+  "review": {
+    "science": "Equation/units/numerical constraints and source scope checked. No author-data validation.",
+    "display": "Actual solid/unmarked curve artists, four-frame spines, legend/title and text bounds checked."
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "⟨u²⟩ = 0.01 Å²",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        },
+        {
+          "label": "⟨u²⟩ = 0.03 Å²",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        },
+        {
+          "label": "⟨u²⟩ = 0.06 Å²",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        }
+      ]
+    }
+  ],
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "⟨u²⟩ = 0.01 Å²",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        },
+        {
+          "label": "⟨u²⟩ = 0.03 Å²",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        },
+        {
+          "label": "⟨u²⟩ = 0.06 Å²",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        }
+      ]
+    }
+  ],
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "⟨u²⟩ = 0.01 Å²",
+      "points": 241,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#287d8e"
+    },
+    {
+      "panel_index": 0,
+      "label": "⟨u²⟩ = 0.03 Å²",
+      "points": 241,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#ba5574"
+    },
+    {
+      "panel_index": 0,
+      "label": "⟨u²⟩ = 0.06 Å²",
+      "points": 241,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#4868a8"
+    }
+  ],
+  "curve_style_check": "Actual Line2D artists: all continuous curves solid and unmarked.",
+  "data_frame_check": "Actual data axes: all four spines visible."
+}

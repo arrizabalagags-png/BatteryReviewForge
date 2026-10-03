@@ -41,5 +41,128 @@
     "default_template": false
   },
   "reproduce": "python render_specialist.py --recipe transference --input-folder transference --output-dir brf-output --style forge",
-  "creator": "BatteryReviewForge original synthetic analytic demonstration"
+  "creator": "BatteryReviewForge original synthetic analytic demonstration",
+  "generator_version": "1.6",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "I(t)=Iss+(I0-Iss)*exp(-t/95 s)",
+      "Z(omega)=Rs+R_interface/(1+j*omega*R_interface*C); before/after R_interface is R0 and Rss",
+      "t_BV=Iss*(DeltaV-I0*R0)/(I0*(DeltaV-Iss*Rss)); current is converted mA→A"
+    ],
+    "parameters": {
+      "DeltaV_V": 0.01,
+      "tau_s": 95,
+      "interface_C_F": 5e-06,
+      "frequency_Hz_range": [
+        1000000.0,
+        0.0001
+      ],
+      "series_R_ohm": {
+        "A": 18,
+        "B": 25
+      },
+      "interface_R0_ohm": {
+        "A": 65,
+        "B": 85
+      },
+      "interface_Rss_ohm": {
+        "A": 79.3,
+        "B": 103.7
+      },
+      "I0_mA": {
+        "A": 0.04,
+        "B": 0.05
+      },
+      "Iss_mA": {
+        "A": 0.03,
+        "B": 0.02
+      }
+    },
+    "assumptions": [
+      "Binary-electrolyte Bruce–Vincent-style demonstration with the supplied interfacial resistances.",
+      "Semicircle diameter is R_interface; the separate Rs is not silently substituted for it."
+    ],
+    "references": [
+      {
+        "url": "https://doi.org/10.1016/0032-3861(87)90394-6",
+        "title": "Evans, Vincent and Bruce: electrochemical measurement of transference numbers",
+        "supports": "Resistance-corrected polarization method and its assumptions; all numeric inputs are original.",
+        "scope": "model_definition_only"
+      },
+      {
+        "url": "https://www.gamry.com/application-notes/EIS/basics-of-electrochemical-impedance-spectroscopy/",
+        "title": "Gamry: electrochemical impedance spectroscopy",
+        "supports": "Ideal parallel-RC element and high/low-frequency resistance limits.",
+        "scope": "model_definition_only"
+      }
+    ],
+    "limitations": [
+      "An apparent method-specific quantity, not a rigorous concentrated-solution transference measurement.",
+      "No EIS optimizer, concentration corrections, activity coefficients or measured electrode evolution."
+    ],
+    "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 300
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 300
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A before",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 240
+        },
+        {
+          "label": "A after",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 240
+        },
+        {
+          "label": "B before",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 240
+        },
+        {
+          "label": "B after",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 240
+        }
+      ]
+    }
+  ]
 }

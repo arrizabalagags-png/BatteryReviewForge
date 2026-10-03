@@ -1,0 +1,76 @@
+{
+  "id": "pv_stability",
+  "title": "光伏稳态功率与稳定性",
+  "domain": "photovoltaic",
+  "type": "demo",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260938,
+  "source_files": [
+    "data.csv"
+  ],
+  "variables_and_units": [
+    "time_h",
+    "normalized_power"
+  ],
+  "test_conditions": "Invented fixed operating point; normalized to t=0; temperature and atmosphere required for real tests",
+  "render_options": {
+    "recipe": "pv_stability"
+  },
+  "reproduce": "python render.py --output rebuilt --recipe pv_stability --demo-input data.csv",
+  "creator": "VoltPeer maintainers",
+  "license": "MIT",
+  "generator_version": "1.6",
+  "limitations": "Declared teaching model only; no measured device, mechanism or material certification. This generator does not adapt experimental data.",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "phenomenological_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "P_normalized(t)=exp(-0.12*(t/1000 h)^0.75); P_normalized(0)=1"
+    ],
+    "assumptions": [
+      "An original positive stretched-exponential teaching trace at one fixed operating point."
+    ],
+    "parameters": {
+      "time_h_range": [
+        0,
+        1000
+      ],
+      "decay_amplitude": 0.12,
+      "stretch_exponent": 0.75,
+      "normalization_time_h": 0
+    },
+    "references": [
+      {
+        "url": "https://www.nature.com/articles/s41560-019-0529-5",
+        "title": "Consensus statement for stability assessment and reporting for perovskite photovoltaics",
+        "supports": "Operating-point, environment and normalization reporting boundaries; not these teaching decay parameters.",
+        "scope": "model_definition_only"
+      }
+    ],
+    "limitations": [
+      "All numeric material/rate parameters are original teaching assumptions, not measured or copied paper data.",
+      "No measured T80/T95, MPP tracking, encapsulation, atmosphere or extrapolated device lifetime."
+    ],
+    "validation_scope": "Original teaching-model equations, charge/energy/units and declared boundaries only; no experimental or material certification."
+  },
+  "actual_artist_checks": [
+    {
+      "panel": 0,
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "curve_styles": [
+        {
+          "linestyle": "-",
+          "marker": "None",
+          "points": 201
+        }
+      ]
+    }
+  ]
+}

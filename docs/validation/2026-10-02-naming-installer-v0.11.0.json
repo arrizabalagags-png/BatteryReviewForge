@@ -1,0 +1,171 @@
+{
+  "scope": "Isolated filesystem transactions; host discovery NOT_RUN",
+  "results": [
+    {
+      "engine": "ps1",
+      "case": "clean",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "engine": "ps1",
+      "case": "legacy_default",
+      "exit_code": 1,
+      "passed": true
+    },
+    {
+      "engine": "ps1",
+      "case": "legacy_overwrite",
+      "exit_code": 1,
+      "passed": true
+    },
+    {
+      "engine": "ps1",
+      "case": "check_only",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "engine": "ps1",
+      "case": "migrate_all",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "engine": "ps1",
+      "case": "migrate_all_crlf",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "engine": "ps1",
+      "case": "canonical_default",
+      "exit_code": 1,
+      "passed": true
+    },
+    {
+      "engine": "ps1",
+      "case": "overwrite",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "engine": "ps1",
+      "case": "collision",
+      "exit_code": 1,
+      "passed": true
+    },
+    {
+      "engine": "ps1",
+      "case": "collision_crlf",
+      "exit_code": 1,
+      "passed": true
+    },
+    {
+      "engine": "ps1",
+      "case": "invalid_source",
+      "exit_code": 1,
+      "passed": true
+    },
+    {
+      "engine": "ps1",
+      "case": "missing_map",
+      "exit_code": 1,
+      "passed": true
+    },
+    {
+      "engine": "ps1",
+      "case": "source_junction",
+      "exit_code": 1,
+      "passed": true
+    },
+    {
+      "engine": "sh",
+      "case": "clean",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "engine": "sh",
+      "case": "legacy_default",
+      "exit_code": 2,
+      "passed": true
+    },
+    {
+      "engine": "sh",
+      "case": "legacy_overwrite",
+      "exit_code": 2,
+      "passed": true
+    },
+    {
+      "engine": "sh",
+      "case": "check_only",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "engine": "sh",
+      "case": "migrate_all",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "engine": "sh",
+      "case": "migrate_all_crlf",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "engine": "sh",
+      "case": "canonical_default",
+      "exit_code": 2,
+      "passed": true
+    },
+    {
+      "engine": "sh",
+      "case": "overwrite",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "engine": "sh",
+      "case": "collision",
+      "exit_code": 2,
+      "passed": true
+    },
+    {
+      "engine": "sh",
+      "case": "collision_crlf",
+      "exit_code": 2,
+      "passed": true
+    },
+    {
+      "engine": "sh",
+      "case": "invalid_source",
+      "exit_code": 2,
+      "passed": true
+    },
+    {
+      "engine": "sh",
+      "case": "missing_map",
+      "exit_code": 2,
+      "passed": true
+    },
+    {
+      "engine": "sh",
+      "case": "source_junction",
+      "exit_code": 2,
+      "passed": true
+    }
+  ],
+  "version": "0.11.0",
+  "actual_transactions": 26,
+  "file_symlink_cases": "2 skipped: Windows privilege unavailable",
+  "windows_junction_cases": "2 actual refusals passed",
+  "portable_skill_tests": 16,
+  "data_prepare_tests": 6,
+  "reference_sync_tests": 1,
+  "isolated_starter_contract_tests": 2,
+  "old_install_update_test": 1,
+  "full_native_host_model_gate": "NOT_RUN"
+}

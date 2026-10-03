@@ -1,0 +1,553 @@
+{
+  "version": "0.10.0",
+  "channel": "beta",
+  "archives": [
+    {
+      "file": "BatteryReviewForge-v0.10.0.zip",
+      "bytes": 904984,
+      "sha256": "4b957427d30702fa04230f3ebd8e5dd8d580c6a81bd7f4a82253d231aabc23b6"
+    },
+    {
+      "file": "BatteryReviewForge-WorkBuddy-v0.10.0.zip",
+      "bytes": 781465,
+      "sha256": "83615500aec3e18e9d8c03129dce4eeec5a0a90756b93061c5089b9994500276"
+    },
+    {
+      "file": "BatteryReviewForge-WorkBuddy-Starter-v0.10.0.zip",
+      "bytes": 659690,
+      "sha256": "cc81bfbac109f65b6c92641c92f46562b0c463064385253c6290f9c28fa39757"
+    },
+    {
+      "file": "single/battery-claim-check-v0.10.0.zip",
+      "bytes": 8195,
+      "sha256": "379f0f2b0361b228e7487461f0133fe9403f38345a04ceaca02ee176e150b4b1"
+    },
+    {
+      "file": "single/battery-data-prepare-v0.10.0.zip",
+      "bytes": 11374,
+      "sha256": "91b83d0aff7cea32f22f8ded04032ef10d3eaedc79a1c4d0205b55b516f84fdf"
+    },
+    {
+      "file": "single/battery-experiment-plan-v0.10.0.zip",
+      "bytes": 8676,
+      "sha256": "92a4a99e393e367a512b5765638085eb0fb8b384d771dacebf6ad32a7ffe5651"
+    },
+    {
+      "file": "single/battery-figure-assemble-v0.10.0.zip",
+      "bytes": 133348,
+      "sha256": "6bcdf407cea547c7421c1a64dedd85eef081948394ec7dac1ef463000462e94b"
+    },
+    {
+      "file": "single/battery-literature-map-v0.10.0.zip",
+      "bytes": 8748,
+      "sha256": "3edd5477db20a52b11fa7d02c4514ab6654f4222c9217e9baad949b948acc4b4"
+    },
+    {
+      "file": "single/battery-metrics-audit-v0.10.0.zip",
+      "bytes": 10252,
+      "sha256": "982a4172a62960b524426b861cab0f80b66405e4cc40f0dbee73b5ffbb3de843"
+    },
+    {
+      "file": "single/battery-review-audit-v0.10.0.zip",
+      "bytes": 7644,
+      "sha256": "b59fd096bb7d0ef65129810620d8ea0c6a8a13d0c697caf661655f92e5076d59"
+    },
+    {
+      "file": "single/battery-review-figure-v0.10.0.zip",
+      "bytes": 543301,
+      "sha256": "c28068f0fece8b8156a55de50da63697590f1ac3e43fbcd3eba9dc6cb6b4f40c"
+    },
+    {
+      "file": "single/battery-review-forge-v0.10.0.zip",
+      "bytes": 23678,
+      "sha256": "b3b8af3a09daec54d83fbd95aa5d93b77027045b072371b845dfa41583246b7c"
+    },
+    {
+      "file": "single/battery-review-plan-v0.10.0.zip",
+      "bytes": 9201,
+      "sha256": "a4e8b6069bedf22c3168236d7acb9240f6d258938ecbac1e787e4d83f352d1e2"
+    },
+    {
+      "file": "single/battery-review-polish-v0.10.0.zip",
+      "bytes": 7375,
+      "sha256": "c342d42ad2db7fece805dd9d0b6cde4bc4e4efb22f1094aa9d3f82807384afc2"
+    },
+    {
+      "file": "single/battery-review-response-v0.10.0.zip",
+      "bytes": 7933,
+      "sha256": "5c9449df28ca896cec87cca5c55fa11db46a140f24473d9c2be49c6d3c94713d"
+    },
+    {
+      "file": "single/battery-review-submission-v0.10.0.zip",
+      "bytes": 8418,
+      "sha256": "23ea4b47ae18fbe726c65a93ea74a658cef35da92ca27de9d0b81c968a32d64f"
+    },
+    {
+      "file": "single/battery-review-write-v0.10.0.zip",
+      "bytes": 7813,
+      "sha256": "f03c5099b336194d8d9d499aded657c2f2dd619aad6dfebbcec0572f987307d6"
+    },
+    {
+      "file": "single/battery-reviewer-v0.10.0.zip",
+      "bytes": 7507,
+      "sha256": "9a2409b7b00757466e8665a81c84374122ac3e6204ed5de2d19458fa9044f056"
+    },
+    {
+      "file": "workbuddy/battery-claim-check-workbuddy-v0.10.0.zip",
+      "bytes": 8408,
+      "sha256": "edb845dc51c9851684df045ebe6dd337293c7ff9093e3990727857a94ef5e9dc"
+    },
+    {
+      "file": "workbuddy/battery-data-prepare-workbuddy-v0.10.0.zip",
+      "bytes": 11609,
+      "sha256": "3ffc89b3e5c3c8501daf90c0ba31e7ba817cb03f30fe06a919693b91706ed223"
+    },
+    {
+      "file": "workbuddy/battery-experiment-plan-workbuddy-v0.10.0.zip",
+      "bytes": 8911,
+      "sha256": "83520c2d41719055570d7d14affa6077fe2e5c009355679e004a9efd731ed4c0"
+    },
+    {
+      "file": "workbuddy/battery-figure-assemble-workbuddy-v0.10.0.zip",
+      "bytes": 133587,
+      "sha256": "cecb5584fdbc80b39508c0d15b2678c9a25ef1af106d1c1f179b871b0a0c855b"
+    },
+    {
+      "file": "workbuddy/battery-literature-map-workbuddy-v0.10.0.zip",
+      "bytes": 8976,
+      "sha256": "99732764a30ca2346673075b2e197448060582025699007b93ac221a3675c8b2"
+    },
+    {
+      "file": "workbuddy/battery-metrics-audit-workbuddy-v0.10.0.zip",
+      "bytes": 10486,
+      "sha256": "b7d1acfd4fe1a1a5e337e0c375e4351d7d49906feac3e89667be297d0e388b54"
+    },
+    {
+      "file": "workbuddy/battery-review-audit-workbuddy-v0.10.0.zip",
+      "bytes": 7876,
+      "sha256": "cfcd64d0fdae780019265d4e61ef9b8aded16de7988c92512c4abf0379ed6094"
+    },
+    {
+      "file": "workbuddy/battery-review-figure-workbuddy-v0.10.0.zip",
+      "bytes": 543544,
+      "sha256": "3c5252bed62a33d08d9164027ad751bb4c7eaf1025322a670f87c1b0cb9ca585"
+    },
+    {
+      "file": "workbuddy/battery-review-forge-workbuddy-v0.10.0.zip",
+      "bytes": 23912,
+      "sha256": "c17a3a8548309ed0779d84019a2c0f85231b9015b0493d2420be0448d3d4401f"
+    },
+    {
+      "file": "workbuddy/battery-review-plan-workbuddy-v0.10.0.zip",
+      "bytes": 9408,
+      "sha256": "9ceb4ea18a8a1ed8d8a590639ebf75f71a459b10ada2a4f4a10dbea8b7312719"
+    },
+    {
+      "file": "workbuddy/battery-review-polish-workbuddy-v0.10.0.zip",
+      "bytes": 7594,
+      "sha256": "b3197867cc6e55a4786fbc9d8f5148399db03049f2b4e10bd73cd6daa79eca7d"
+    },
+    {
+      "file": "workbuddy/battery-review-response-workbuddy-v0.10.0.zip",
+      "bytes": 8126,
+      "sha256": "c0fd5b1b4111f9eb11d43cdc140c9005859f78532d8f89cfd60ec73d5eb6bded"
+    },
+    {
+      "file": "workbuddy/battery-review-submission-workbuddy-v0.10.0.zip",
+      "bytes": 8627,
+      "sha256": "0dba2dc1971a58c1676609cd8e53bebbed13124e859e6722b48bca5ee1402837"
+    },
+    {
+      "file": "workbuddy/battery-review-write-workbuddy-v0.10.0.zip",
+      "bytes": 8025,
+      "sha256": "a90a1f3895d48a1d8287f65a5e52ea77f2815d60afba35a7c7a6ae7a631b1b82"
+    },
+    {
+      "file": "workbuddy/battery-reviewer-workbuddy-v0.10.0.zip",
+      "bytes": 7702,
+      "sha256": "50c1bdf8fa374986365e5020e90870abb887c45fc53db0b6dfa7d904e2a65180"
+    },
+    {
+      "file": "recipes/VoltPeer-full_cell-0.10.0.zip",
+      "bytes": 223053,
+      "sha256": "e89f011936326703f2c6d955f0074a569ebfaedec67ca7e932bcebe391225aea"
+    },
+    {
+      "file": "recipes/VoltPeer-li_li-0.10.0.zip",
+      "bytes": 275901,
+      "sha256": "e226981448a78e1e30d8c730d72a58a38d64799a8beec3b90973338f540410d1"
+    },
+    {
+      "file": "recipes/VoltPeer-operando_xrd-0.10.0.zip",
+      "bytes": 159029,
+      "sha256": "2d96b9755523614e3d6aa263e07952061282216699e5aedba11ac3bf9b9e4759"
+    }
+  ],
+  "isolated_skill_checks": 62,
+  "ast_dependency_checks": 62,
+  "downloaded_skill_file_closure_and_body": "PASS",
+  "downloaded_python_requirements_match_source": "PASS",
+  "text_source_comparison": "CRLF/LF-normalized; ZIP manifests and archive hashes are byte-exact",
+  "recipe_runtime_and_manifest_closure": "PASS",
+  "demo_schema_source_site_zip_checks": [
+    {
+      "id": "aurbach_protocol",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "capability_spread",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "chronoamperometry",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "cyclic_voltammetry",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "differential_capacity",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "eis",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "eis_frequency",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "ftir",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "full_cell",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "gcd_profiles",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "gitt_pulse",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "integrated_study",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "ionic_conductivity",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "li_cu_ce",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "li_li",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "literature_benchmark",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "lsv",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "msd",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "nmr",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "ocv_rest",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "operando_xrd",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "pouch_thermal",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "raman_series",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "rate_capability",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "rdf_coordination",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "reporting_matrix",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "style_presets",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "tof_sims",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "transference",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "xps_components",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    }
+  ],
+  "real_host_model_behavior": "Full-suite NOT_RUN in this engineering gate; limited parent API pilot is separately recorded",
+  "current_followup": "2026-09-30-upload-metadata-followup.json",
+  "current_followup_targeted_gates": [
+    {
+      "tests_run": 5,
+      "elapsed_seconds": 7.077,
+      "result": "PASS",
+      "scope": "Actual upload CLI rejects figure_size_mm/dpi with actionable errors and no output; legal CSV/XLSX mapping with width_mm/height_mm and --dpi renders at requested size/resolution; unknown cross-source conditions remain blocked; full/half cell separation; explicit CE ratio preserves values above 100 percent"
+    },
+    {
+      "tests_run": 1,
+      "elapsed_seconds": 0.201,
+      "result": "PASS",
+      "scope": "All 15 Skill directories contain byte-identical execution guide, task-state template and recovery checker copied from their maintained source"
+    }
+  ],
+  "actual_independent_upload_archive_cli": {
+    "file": "single/battery-review-figure-v0.10.0.zip",
+    "sha256": "c28068f0fece8b8156a55de50da63697590f1ac3e43fbcd3eba9dc6cb6b4f40c",
+    "bytes": 543301,
+    "result": "PASS",
+    "unknown_metadata_cli_no_output": [
+      "plot_uploaded.py",
+      "deliver.py"
+    ],
+    "legal_cli_physical_size_mm": [
+      100,
+      70
+    ],
+    "raster_dpi": 600,
+    "direct_is_declaration_screening_only": true,
+    "input_sha256_unchanged": "ecaf5379ba9ec71c752a78181a002aaaf5d0c18c0ac9a749290316c26ca70be4",
+    "elapsed_seconds": 11.172,
+    "scope": "Independent actual single-Skill ZIP, engineering fixture only, no model execution"
+  },
+  "canonical_skill_tree_sha256": "3b4d0d18e303389e3900743650ee1bc8982d2d039be8a2bd7b436336835c1b90",
+  "historical_recipe_font_actual_archives": [
+    {
+      "resource_id": "full_cell",
+      "version": "0.10.0",
+      "file": "VoltPeer-full_cell-0.10.0.zip",
+      "sha256": "5c2b4413f3650e08416c652bdf370592657f2253c993bd7ab739d35610cf7ba3",
+      "bytes": 223053,
+      "validation": "package_structure_checked; see local QA for extracted execution; model NOT_RUN",
+      "actual_extracted_execution": "PASS",
+      "elapsed_seconds": 5.703,
+      "formats": [
+        "pdf",
+        "png",
+        "svg",
+        "tiff"
+      ],
+      "input_sha256_unchanged": {
+        "cycling.csv": "85d6a89f681e27e0c1483b0a56ee0b41ef8f071418e3192666df49572906deef",
+        "profiles.csv": "b1c81edc874c20bd8bdf42bfe7ce4c7810c3c1769db52d22d1bcc591c1a191e1"
+      },
+      "actual_curve_identity_colors": {
+        "Demo sample A:capacity": "#1f77b4",
+        "Demo sample B:capacity": "#2ca02c",
+        "Demo sample A:profile:1": "#9467bd",
+        "Demo sample A:profile:20": "#8c564b",
+        "Demo sample A:profile:40": "#e377c2",
+        "Demo sample B:profile:1": "#7f7f7f",
+        "Demo sample B:profile:20": "#bcbd22",
+        "Demo sample B:profile:40": "#17becf",
+        "Demo sample A:CE": "#ff7f0e",
+        "Demo sample B:CE": "#d62728"
+      },
+      "data_axes_checked": 3,
+      "scientific_review": "pending_author_review",
+      "model_behavior": "NOT_RUN",
+      "font_glyph_checks": "PASS; all final recorded texts have actual-font cmap coverage and font file SHA-256"
+    },
+    {
+      "resource_id": "li_li",
+      "version": "0.10.0",
+      "file": "VoltPeer-li_li-0.10.0.zip",
+      "sha256": "04c681f4503e167ff58dcf2b7ebdafa20dd7b0ca1633d12b663689ef9784ae41",
+      "bytes": 275904,
+      "validation": "package_structure_checked; see local QA for extracted execution; model NOT_RUN",
+      "actual_extracted_execution": "PASS",
+      "elapsed_seconds": 4.734,
+      "formats": [
+        "pdf",
+        "png",
+        "svg",
+        "tiff"
+      ],
+      "input_sha256_unchanged": {
+        "trace.csv": "8f72659e9cc37dccc2bc6d56185915746f2aa2185a7f06ed478488783114223a"
+      },
+      "actual_curve_identity_colors": {
+        "Demo sample A:signed_voltage": "#1f77b4",
+        "Demo sample B:signed_voltage": "#ff7f0e"
+      },
+      "data_axes_checked": 2,
+      "scientific_review": "pending_author_review",
+      "model_behavior": "NOT_RUN",
+      "font_glyph_checks": "PASS; all final recorded texts have actual-font cmap coverage and font file SHA-256"
+    },
+    {
+      "resource_id": "operando_xrd",
+      "version": "0.10.0",
+      "file": "VoltPeer-operando_xrd-0.10.0.zip",
+      "sha256": "1b4c9cff409b50ff7cd2584fec484b256156ea26c201631a9dcb314e1d2e745e",
+      "bytes": 159031,
+      "validation": "package_structure_checked; see local QA for extracted execution; model NOT_RUN",
+      "actual_extracted_execution": "PASS",
+      "elapsed_seconds": 5.329,
+      "formats": [
+        "pdf",
+        "png",
+        "svg",
+        "tiff"
+      ],
+      "input_sha256_unchanged": {
+        "diffraction.csv": "60778374374341eb5d68cd5c7aba805dd39d8c90c0ec05c79b8d51ed7df8bcd8",
+        "voltage.csv": "f5c81ffff0322235c1ea9fd1ed50d169f89eccb9925eb9fb0a6337b1bb1e35e1"
+      },
+      "actual_curve_identity_colors": {
+        "Demo sample A:measured_synchronized_voltage": "#1f77b4"
+      },
+      "data_axes_checked": 2,
+      "scientific_review": "pending_author_review",
+      "model_behavior": "NOT_RUN",
+      "font_glyph_checks": "PASS; all final recorded texts have actual-font cmap coverage and font file SHA-256"
+    }
+  ],
+  "historical_recipe_font_execution_scope": "These executions identify previous archive SHA values. Current recipe archives have only the requested trailing-blank-line cleanup; current manifest/runtime/helper closure was checked, not a rerun of the historical font/model trials.",
+  "recipe_final_text_cmap_guard_and_helper_source_closure": "PASS; same semantic font guard with EOF cleanup, copied into all three actual ZIPs",
+  "full_package_followup_doc_and_eval_source_closure": {
+    "status": "PASS",
+    "sha256": "4b957427d30702fa04230f3ebd8e5dd8d580c6a81bd7f4a82253d231aabc23b6",
+    "checked_files": [
+      "README.md",
+      "docs/COMPATIBILITY.md",
+      "docs/validation/2026-09-30-recipe-font-followup.json",
+      "docs/validation/2026-09-30-upload-metadata-followup.json",
+      "scripts/workflow_eval.py",
+      "scripts/eval_provenance.py",
+      "evals/workflow_cases.json",
+      "evals/evidence_conflict_cases.json",
+      "evals/fixtures/opposing_sources.md",
+      "evals/fixtures/opposing_retention.csv"
+    ],
+    "scope": "Current actual full ZIP contents byte-match maintained source; no new full model-suite scoring claim"
+  },
+  "previous_recipe_evidence_eval_followup": "2026-09-30-recipe-eval-followup.json",
+  "previous_recipe_font_followup": "2026-09-30-recipe-font-followup.json"
+}

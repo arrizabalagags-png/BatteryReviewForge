@@ -1,0 +1,81 @@
+{
+  "id": "zn_symmetric",
+  "title": "Zn|Zn 对称电池极化",
+  "domain": "zinc",
+  "type": "demo",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260933,
+  "source_files": [
+    "data.csv"
+  ],
+  "variables_and_units": [
+    "time_h",
+    "cell_voltage_mV",
+    "current_density_mA_cm2",
+    "half_cycle"
+  ],
+  "test_conditions": "Original two-terminal Zn|Zn model; +/-1 mA/cm2, 1 h half-cycles, 1 mAh/cm2 transfer each half-cycle; cell voltage is not a single-electrode overpotential or lifetime claim",
+  "render_options": {
+    "recipe": "zn_symmetric"
+  },
+  "reproduce": "python render.py --output rebuilt --recipe zn_symmetric --demo-input data.csv",
+  "creator": "VoltPeer maintainers",
+  "license": "MIT",
+  "generator_version": "1.6",
+  "limitations": "Declared teaching model only; no measured device, mechanism or material certification. This generator does not adapt experimental data.",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "phenomenological_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "j=(-1)^floor(time_h)*1 mA/cm2",
+      "V_cell_mV=sign(j)*(35+0.13*time_h+5*exp(-(time_h mod 1)/0.04))",
+      "Transferred_areal_Q=|j|*1 h=1 mAh/cm2 for each complete half-cycle"
+    ],
+    "assumptions": [
+      "Two-terminal symmetric-cell polarization combines both interfaces and electrolyte drop.",
+      "An instantaneous ohmic voltage reversal is allowed at a commanded current switch."
+    ],
+    "parameters": {
+      "half_cycle_h": 1,
+      "current_density_mA_cm2": 1,
+      "initial_two_terminal_plateau_mV": 35,
+      "illustrative_drift_mV_h": 0.13,
+      "transient_mV": 5,
+      "transient_tau_h": 0.04
+    },
+    "references": [
+      {
+        "url": "https://www.nature.com/articles/s41467-022-28381-x",
+        "title": "Experimental practices for rechargeable aqueous zinc batteries",
+        "supports": "Electrode configuration, inventory and denominator reporting boundaries; no numeric data is copied.",
+        "scope": "model_definition_only"
+      }
+    ],
+    "limitations": [
+      "All numeric material/rate parameters are original teaching assumptions, not measured or copied paper data.",
+      "Cannot divide by two to assign electrode overpotentials without additional evidence.",
+      "No short-circuit, dendrite, Zn utilization or full-cell lifetime claim."
+    ],
+    "validation_scope": "Original teaching-model equations, charge/energy/units and declared boundaries only; no experimental or material certification."
+  },
+  "actual_artist_checks": [
+    {
+      "panel": 0,
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "curve_styles": [
+        {
+          "linestyle": "-",
+          "marker": "None",
+          "points": 2400
+        }
+      ]
+    }
+  ]
+}

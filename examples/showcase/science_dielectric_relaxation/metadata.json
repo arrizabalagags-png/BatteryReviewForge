@@ -1,0 +1,142 @@
+{
+  "id": "science_dielectric_relaxation",
+  "title": "频率与介电弛豫损耗",
+  "domain": "general",
+  "type": "demo",
+  "license": "MIT",
+  "scope": "Original analytic teaching record. Source references support the declared method/derivation only, never this invented parameter set or measurements.",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "source_files": [
+    "data.csv",
+    "model.json"
+  ],
+  "test_conditions": "No acquired cell or material. Independently declared analytic parameters, assumptions and units in scientific_basis.",
+  "variables_and_units": {
+    "1": [
+      "Frequency (Hz)",
+      "Relative permittivity / loss"
+    ]
+  },
+  "creator": "VoltPeer",
+  "generator_version": "1.0.0",
+  "reproduce": "python render_existing.py --output result-01",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "relationship": "A Debye relaxation separates real permittivity and a positive loss peak.",
+    "equations": [
+      "epsilon*=epsiloninf+Deltaepsilon/(1+i omega tau)"
+    ],
+    "parameters": {
+      "epsilon_inf": 3,
+      "Delta_epsilon": 20,
+      "tau_s": 1e-08
+    },
+    "assumptions": [
+      "Independently declared parameters; no experimental or material fit.",
+      "Single isotropic Debye pole; ionic dc conduction excluded."
+    ],
+    "limitations": [
+      "Single isotropic Debye pole; ionic dc conduction excluded.",
+      "A numerical/model QA pass does not validate author data or a physical mechanism."
+    ],
+    "constraints": [
+      "Finite numerical values and explicit physical units.",
+      "Continuous plotted curves are solid without markers; data axes retain four borders.",
+      "All plotted responses are nonnegative."
+    ],
+    "references": [
+      {
+        "title": "COMSOL: Dispersion Theory",
+        "doi": "",
+        "url": "https://doc.comsol.com/6.4/doc/com.comsol.help.acdc/acdc_ug_theory.05.36.html",
+        "figure_panel": "Debye permittivity relaxation and loss",
+        "supports": "A Debye relaxation separates real permittivity and a positive loss peak.",
+        "checked_at": "2026-10-03",
+        "scope": "Method/equation/caveat reference only. Original analytic teaching inputs; no copied paper points, pixels or experimental inference."
+      }
+    ],
+    "validation": {
+      "finite": true,
+      "nonnegative": true,
+      "unit_interval": false
+    },
+    "validation_scope": "Source method/principle and explicitly derived restricted teaching specialization checked; equation, units and numerical constraints only. No copied paper measurements, material parameters, experimental fit or mechanism certification."
+  },
+  "review": {
+    "science": "Equation/units/numerical constraints and source scope checked. No author-data validation.",
+    "display": "Actual solid/unmarked curve artists, four-frame spines, legend/title and text bounds checked."
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Real permittivity",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        },
+        {
+          "label": "Positive dielectric loss",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        }
+      ]
+    }
+  ],
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Real permittivity",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        },
+        {
+          "label": "Positive dielectric loss",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        }
+      ]
+    }
+  ],
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "Real permittivity",
+      "points": 241,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#287d8e"
+    },
+    {
+      "panel_index": 0,
+      "label": "Positive dielectric loss",
+      "points": 241,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#ba5574"
+    }
+  ],
+  "curve_style_check": "Actual Line2D artists: all continuous curves solid and unmarked.",
+  "data_frame_check": "Actual data axes: all four spines visible."
+}

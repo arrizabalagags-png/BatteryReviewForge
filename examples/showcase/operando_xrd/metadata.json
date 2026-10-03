@@ -2,23 +2,125 @@
   "data_status": "synthetic_demo",
   "not_experimental_data": true,
   "random_seed": 20260923,
-  "generator_version": "1.2",
+  "generator_version": "1.6",
   "figure_grammar_id": "operando_xrd + matched_voltage_trace",
   "journal_preset": "journal_neutral_180mm",
   "variables_and_units": {
-    "x": "state of charge (%)",
-    "y": "2θ (°)",
-    "linked": "model intensity (a.u.) and voltage (V) on the same SOC axis"
+    "x": "2θ (°); λ=1.5406 Å",
+    "y": "time (h)",
+    "linked": "same-time voltage (V), assumed charge occupation and cubic (111)/(200) peaks; model is synthetic, not measured SOC"
   },
-  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
-  "test_conditions": "Illustrative angle-by-SOC model with moving and splitting Gaussian peaks; no phase assignment or acquired diffraction.",
+  "sample_identity": "A/B are local teaching-model labels, not one electrolyte across unlike techniques; SIM IDs are invented records, never citations.",
+  "test_conditions": "Original synthetic cubic host: (111)/(200) derive from one lattice a(t); Cu Kα-equivalent wavelength 1.5406 Å; 180 mA g−1 for 3600 s; same charge/time/occupation ledger and assumed voltage; no acquired diffraction or material identity.",
   "source_files": [
     "data.csv",
+    "state.csv",
     "voltage.csv"
   ],
   "creator": "BatteryReviewForge original code",
   "review": {
-    "science": "models and data-to-panel links inspected; no experimental interpretation",
-    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+    "science": "Declared model equations/units/linked-file relations have scoped automated tests; no experimental certification.",
+    "display": "Actual line/frame/alignment checks only; independent visual and author review remain pending."
+  },
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 1,
+      "label": "_child0",
+      "points": 105,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    }
+  ],
+  "curve_style_check": "pass: actual rendered Line2D artists are solid and have no markers",
+  "data_frame_check": "pass: actual data axes show top/right/bottom/left spines",
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    }
+  ],
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "parameter_origin": "independently chosen teaching inputs, no fitted material or copied paper values",
+    "equations": [
+      "Q(t)=I*t/3600; x(t)=Q(t)/Qhost; I=180 mA/g, Qhost=180 mAh/g, 0<=t<=3600 s",
+      "a(x)=4.16*(1-0.012*x) Å; d_hkl=a/sqrt(h²+k²+l²); hkl=(111),(200)",
+      "2theta=2*asin(lambda/(2d)); lambda=1.5406 Å",
+      "I(2theta,t)=background+sum A_hkl*exp[-0.5*((2theta-two_theta_hkl(t))/sigma_hkl)²]",
+      "V(t)=3.20+0.83*x(t)+0.18*x(t)^7 (declared phenomenological voltage, not derived from crystal energy)"
+    ],
+    "parameters": {
+      "wavelength_A": 1.5406,
+      "lattice_a0_A": 4.16,
+      "fractional_lattice_change_at_x1": -0.012,
+      "hkl": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          0
+        ]
+      ],
+      "sigma_deg": [
+        0.13,
+        0.15
+      ],
+      "amplitudes_au": [
+        0.9,
+        0.77
+      ],
+      "background_au": 0.045,
+      "current_mA_g": 180,
+      "host_capacity_mAh_g": 180,
+      "duration_s": 3600
+    },
+    "assumptions": [
+      "One fictitious cubic host, shared lattice at each timestamp; no independent peak motion.",
+      "The legacy soc_fraction field stores assumed site progress derived from the declared current ledger; no measured SOC.",
+      "Time, occupation, peak positions and voltage use the same recorded timestamps.",
+      "Gaussian line profiles and assumed voltage are teaching specializations; no instrument or chemical fit."
+    ],
+    "references": [
+      {
+        "url": "https://www.nature.com/articles/s41467-022-33931-4",
+        "title": "On the nanoscale structural evolution of solid discharge products in lithium-sulfur batteries using operando scattering",
+        "supports": "Figure 2e–g and Methods support pairing scattering/time with electrochemical records and separately inspecting peak width/strain. No Li-S phase, measured point or material parameter is transferred.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf",
+        "title": "IUPAC Green Book, third edition",
+        "supports": "Section 2.8 defines reciprocal crystal geometry; cubic d_hkl and first-order Bragg specialization are independently calculated.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "limitations": [
+      "No phase identification, lattice refinement, measured SOC, operando acquisition or experimental voltage fit.",
+      "Peak intensity is arbitrary signal; its amplitude is not a phase fraction or concentration."
+    ],
+    "validation_scope": "Common-lattice Bragg identities, finite nonnegative signals and exact time/charge/voltage indexing; no material validation."
   }
 }

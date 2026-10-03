@@ -1,10 +1,12 @@
 * text=auto
 *.md text eol=lf
-*.csv text eol=lf
+# Input hashes and extracted data bundles preserve the supplied CSV bytes.
+*.csv -text
 *.yaml text eol=lf
 *.cff text eol=lf
 *.json text eol=lf
-*.svg text eol=lf
+# Matplotlib places formatting spaces inside multiline SVG path attributes.
+*.svg text eol=lf whitespace=-blank-at-eol
 *.py text eol=lf
 *.txt text eol=lf
 *.pdf -text -diff

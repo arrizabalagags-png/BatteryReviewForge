@@ -1,0 +1,1123 @@
+{
+  "schema_version": "1.0",
+  "type": "mechanism",
+  "updated_at": "2026-10-03",
+  "license": "MIT",
+  "source_licences_independent": true,
+  "assets": [
+    {
+      "id": "mechanism-solvation-shell",
+      "version": "1.1.1",
+      "name": "Solvation shell",
+      "name_zh": "溶剂化壳层",
+      "author": "Shuo Guo / VoltPeer",
+      "category": "mechanism",
+      "license": "MIT",
+      "status": "community",
+      "candidate_status": "review_candidate",
+      "default_visible": true,
+      "description": "Neutral ligands coordinate a cation; shell size is illustrative.",
+      "description_zh": "离子周围的配位分子",
+      "created_at": "2026-10-03",
+      "updated_at": "2026-10-03",
+      "tags": [
+        "original-mechanism",
+        "solvation"
+      ],
+      "source": "Original native SVG geometry; scientific relations checked against separately listed journal sources.",
+      "permissions": {
+        "public_display": true,
+        "registry": true,
+        "automated_testing": true,
+        "model_training": false
+      },
+      "template": "solvation-shell",
+      "mechanism_group": "solvation",
+      "evidence_type_zh": "概念模型",
+      "scientific_boundary_zh": "Raman / NMR 配合模拟可支持配位变化；示意位置和配位数不是测量值。",
+      "scientific_boundary": "Use spectroscopy and simulation to support coordination changes. Positions and coordination numbers are illustrative.",
+      "supported_cations": [
+        "Li+",
+        "Na+",
+        "K+"
+      ],
+      "cation_scope_zh": "配位/一般传输场景，可选一价 Li+、Na+、K+。",
+      "scientific_references": [
+        {
+          "title": "The role of concentration in electrolyte solutions for non-aqueous lithium-based batteries",
+          "authors": "Guinevere A. Giffin",
+          "journal": "Nature Communications",
+          "year": 2022,
+          "doi": "10.1038/s41467-022-32794-z",
+          "url": "https://www.nature.com/articles/s41467-022-32794-z",
+          "source_license": "CC-BY-4.0 (publisher-deposited Crossref licence checked); no source figure reused",
+          "read_scope": "Publisher text: concentration regimes defined through ion-solvation shells"
+        },
+        {
+          "title": "Harnessing interfacial solvation structure for next-generation secondary batteries",
+          "authors": "Chao Ye, Shuibin Tu, Shao-Jian Zhang et al.",
+          "journal": "Nature Energy",
+          "year": 2026,
+          "doi": "10.1038/s41560-025-01937-z",
+          "url": "https://www.nature.com/articles/s41560-025-01937-z",
+          "source_license": "Publisher rights; abstract used as scientific basis only",
+          "read_scope": "Publisher abstract: interfacial coordination, ion migration, desolvation, combined characterization"
+        }
+      ],
+      "source_figures_reused": false,
+      "preview_url": "commons/mechanisms/mechanism-solvation-shell@1.1.1.svg",
+      "source_url": "commons/mechanisms/mechanism-solvation-shell@1.1.1.json",
+      "prompt_url": "commons/mechanisms/mechanism-solvation-shell@1.1.1-prompt.txt",
+      "renderer_url": "commons/mechanisms/VoltPeer-mechanism-source-v1.1.1.zip",
+      "detail_url": "mechanisms.html#solvation-shell",
+      "visual_method": "Original imagegen composition reference, scientific correction, native editable vector reconstruction; generic donor symbols carry no chemical bonds.",
+      "composition_reference": "VoltPeer original desolvation + SEI artwork, 2026-10-03; reference pixels are not embedded.",
+      "scientific_caption": "Generic donor D glyphs are not molecular structures. Repeated ions show process snapshots. Material dimensions, counts, domains and paths are schematic.",
+      "scientific_caption_zh": "D 表示抽象配位基团，不是分子结构；重复离子表示过程中的不同快照。尺寸、配位数、域大小与传输路线均为示意。",
+      "quality": {
+        "format_checked": true,
+        "scientific_review": "source-grounded conceptual template; no human certification claimed",
+        "final_size_qa": "not certified"
+      },
+      "sha256": "6ea6f94398266d42107bc32bbaf6a89dcb306c0baf6d46808ad0d1edbe45ea84"
+    },
+    {
+      "id": "mechanism-ion-pairing",
+      "version": "1.1.1",
+      "name": "Ion pairs and aggregates",
+      "name_zh": "离子对与聚集体",
+      "author": "Shuo Guo / VoltPeer",
+      "category": "mechanism",
+      "license": "MIT",
+      "status": "community",
+      "candidate_status": "review_candidate",
+      "default_visible": true,
+      "description": "Different ion-association motifs; no population fraction is assumed.",
+      "description_zh": "区分 SSIP、CIP 与 AGG",
+      "created_at": "2026-10-03",
+      "updated_at": "2026-10-03",
+      "tags": [
+        "original-mechanism",
+        "solvation"
+      ],
+      "source": "Original native SVG geometry; scientific relations checked against separately listed journal sources.",
+      "permissions": {
+        "public_display": true,
+        "registry": true,
+        "automated_testing": true,
+        "model_training": false
+      },
+      "template": "ion-pairing",
+      "mechanism_group": "solvation",
+      "evidence_type_zh": "概念模型",
+      "scientific_boundary_zh": "SSIP/CIP/AGG 的占比须由本体系的光谱与模拟验证；不能仅由盐浓度确定。",
+      "scientific_boundary": "Verify SSIP/CIP/AGG fractions in your electrolyte. Salt concentration alone does not determine the populations.",
+      "supported_cations": [
+        "Li+",
+        "Na+",
+        "K+"
+      ],
+      "cation_scope_zh": "配位/一般传输场景，可选一价 Li+、Na+、K+。",
+      "scientific_references": [
+        {
+          "title": "Superconcentrated electrolytes for a high-voltage lithium-ion battery",
+          "authors": "Jianhui Wang, Yuki Yamada, Keitaro Sodeyama et al.",
+          "journal": "Nature Communications",
+          "year": 2016,
+          "doi": "10.1038/ncomms12032",
+          "url": "https://www.nature.com/articles/ncomms12032",
+          "source_license": "CC-BY-4.0 (publisher-deposited Crossref licence checked); no source figure reused",
+          "read_scope": "Publisher discussion: coordination networks and concentration-dependent structure"
+        },
+        {
+          "title": "The role of concentration in electrolyte solutions for non-aqueous lithium-based batteries",
+          "authors": "Guinevere A. Giffin",
+          "journal": "Nature Communications",
+          "year": 2022,
+          "doi": "10.1038/s41467-022-32794-z",
+          "url": "https://www.nature.com/articles/s41467-022-32794-z",
+          "source_license": "CC-BY-4.0 (publisher-deposited Crossref licence checked); no source figure reused",
+          "read_scope": "Publisher text: concentration regimes defined through ion-solvation shells"
+        }
+      ],
+      "source_figures_reused": false,
+      "preview_url": "commons/mechanisms/mechanism-ion-pairing@1.1.1.svg",
+      "source_url": "commons/mechanisms/mechanism-ion-pairing@1.1.1.json",
+      "prompt_url": "commons/mechanisms/mechanism-ion-pairing@1.1.1-prompt.txt",
+      "renderer_url": "commons/mechanisms/VoltPeer-mechanism-source-v1.1.1.zip",
+      "detail_url": "mechanisms.html#ion-pairing",
+      "visual_method": "Original imagegen composition reference, scientific correction, native editable vector reconstruction; generic donor symbols carry no chemical bonds.",
+      "composition_reference": "VoltPeer original desolvation + SEI artwork, 2026-10-03; reference pixels are not embedded.",
+      "scientific_caption": "Generic donor D glyphs are not molecular structures. Repeated ions show process snapshots. Material dimensions, counts, domains and paths are schematic.",
+      "scientific_caption_zh": "D 表示抽象配位基团，不是分子结构；重复离子表示过程中的不同快照。尺寸、配位数、域大小与传输路线均为示意。",
+      "quality": {
+        "format_checked": true,
+        "scientific_review": "source-grounded conceptual template; no human certification claimed",
+        "final_size_qa": "not certified"
+      },
+      "sha256": "3947d348f98336850884791ca0e04f0722bd4e489f37527e41d6b4805c51463d"
+    },
+    {
+      "id": "mechanism-ligand-exchange",
+      "version": "1.1.1",
+      "name": "Coordination rearrangement",
+      "name_zh": "配位环境重组",
+      "author": "Shuo Guo / VoltPeer",
+      "category": "mechanism",
+      "license": "MIT",
+      "status": "community",
+      "candidate_status": "review_candidate",
+      "default_visible": true,
+      "description": "Exchange is schematic; no rate or activation energy is assigned.",
+      "description_zh": "配位分子的进入与离开",
+      "created_at": "2026-10-03",
+      "updated_at": "2026-10-03",
+      "tags": [
+        "original-mechanism",
+        "solvation"
+      ],
+      "source": "Original native SVG geometry; scientific relations checked against separately listed journal sources.",
+      "permissions": {
+        "public_display": true,
+        "registry": true,
+        "automated_testing": true,
+        "model_training": false
+      },
+      "template": "ligand-exchange",
+      "mechanism_group": "solvation",
+      "evidence_type_zh": "概念模型",
+      "scientific_boundary_zh": "静态配位结构不能给出交换速率；需动力学模拟或时间敏感表征。",
+      "scientific_boundary": "A static structure does not establish exchange rates. Time-sensitive measurements or dynamic simulations are needed.",
+      "supported_cations": [
+        "Li+",
+        "Na+",
+        "K+"
+      ],
+      "cation_scope_zh": "配位/一般传输场景，可选一价 Li+、Na+、K+。",
+      "scientific_references": [
+        {
+          "title": "Harnessing interfacial solvation structure for next-generation secondary batteries",
+          "authors": "Chao Ye, Shuibin Tu, Shao-Jian Zhang et al.",
+          "journal": "Nature Energy",
+          "year": 2026,
+          "doi": "10.1038/s41560-025-01937-z",
+          "url": "https://www.nature.com/articles/s41560-025-01937-z",
+          "source_license": "Publisher rights; abstract used as scientific basis only",
+          "read_scope": "Publisher abstract: interfacial coordination, ion migration, desolvation, combined characterization"
+        }
+      ],
+      "source_figures_reused": false,
+      "preview_url": "commons/mechanisms/mechanism-ligand-exchange@1.1.1.svg",
+      "source_url": "commons/mechanisms/mechanism-ligand-exchange@1.1.1.json",
+      "prompt_url": "commons/mechanisms/mechanism-ligand-exchange@1.1.1-prompt.txt",
+      "renderer_url": "commons/mechanisms/VoltPeer-mechanism-source-v1.1.1.zip",
+      "detail_url": "mechanisms.html#ligand-exchange",
+      "visual_method": "Original imagegen composition reference, scientific correction, native editable vector reconstruction; generic donor symbols carry no chemical bonds.",
+      "composition_reference": "VoltPeer original desolvation + SEI artwork, 2026-10-03; reference pixels are not embedded.",
+      "scientific_caption": "Generic donor D glyphs are not molecular structures. Repeated ions show process snapshots. Material dimensions, counts, domains and paths are schematic.",
+      "scientific_caption_zh": "D 表示抽象配位基团，不是分子结构；重复离子表示过程中的不同快照。尺寸、配位数、域大小与传输路线均为示意。",
+      "quality": {
+        "format_checked": true,
+        "scientific_review": "source-grounded conceptual template; no human certification claimed",
+        "final_size_qa": "not certified"
+      },
+      "sha256": "918896f0513d5572834f105b9e62c730fe64e357748ed16c6764870784ec15a2"
+    },
+    {
+      "id": "mechanism-desolvation",
+      "version": "1.1.1",
+      "name": "Interfacial desolvation",
+      "name_zh": "界面去溶剂化",
+      "author": "Shuo Guo / VoltPeer",
+      "category": "mechanism",
+      "license": "MIT",
+      "status": "community",
+      "candidate_status": "review_candidate",
+      "default_visible": true,
+      "description": "Coordination can change before interfacial transfer; the order is a model.",
+      "description_zh": "离子接近界面时改变配位",
+      "created_at": "2026-10-03",
+      "updated_at": "2026-10-03",
+      "tags": [
+        "original-mechanism",
+        "solvation"
+      ],
+      "source": "Original native SVG geometry; scientific relations checked against separately listed journal sources.",
+      "permissions": {
+        "public_display": true,
+        "registry": true,
+        "automated_testing": true,
+        "model_training": false
+      },
+      "template": "desolvation",
+      "mechanism_group": "solvation",
+      "evidence_type_zh": "概念模型",
+      "scientific_boundary_zh": "去溶剂化与界面传输可耦合；不得把完整去溶剂化画成所有体系的必经步骤。",
+      "scientific_boundary": "Desolvation and transfer can be coupled. Complete desolvation is not a universal prerequisite.",
+      "supported_cations": [
+        "Li+"
+      ],
+      "cation_scope_zh": "当前空间图以锂体系为范围；更换金属/价态须重新核对材料、反应与证据。",
+      "scientific_references": [
+        {
+          "title": "Harnessing interfacial solvation structure for next-generation secondary batteries",
+          "authors": "Chao Ye, Shuibin Tu, Shao-Jian Zhang et al.",
+          "journal": "Nature Energy",
+          "year": 2026,
+          "doi": "10.1038/s41560-025-01937-z",
+          "url": "https://www.nature.com/articles/s41560-025-01937-z",
+          "source_license": "Publisher rights; abstract used as scientific basis only",
+          "read_scope": "Publisher abstract: interfacial coordination, ion migration, desolvation, combined characterization"
+        }
+      ],
+      "source_figures_reused": false,
+      "preview_url": "commons/mechanisms/mechanism-desolvation@1.1.1.svg",
+      "source_url": "commons/mechanisms/mechanism-desolvation@1.1.1.json",
+      "prompt_url": "commons/mechanisms/mechanism-desolvation@1.1.1-prompt.txt",
+      "renderer_url": "commons/mechanisms/VoltPeer-mechanism-source-v1.1.1.zip",
+      "detail_url": "mechanisms.html#desolvation",
+      "visual_method": "Original imagegen composition reference, scientific correction, native editable vector reconstruction; generic donor symbols carry no chemical bonds.",
+      "composition_reference": "VoltPeer original desolvation + SEI artwork, 2026-10-03; reference pixels are not embedded.",
+      "scientific_caption": "Generic donor D glyphs are not molecular structures. Repeated ions show process snapshots. Material dimensions, counts, domains and paths are schematic.",
+      "scientific_caption_zh": "D 表示抽象配位基团，不是分子结构；重复离子表示过程中的不同快照。尺寸、配位数、域大小与传输路线均为示意。",
+      "quality": {
+        "format_checked": true,
+        "scientific_review": "source-grounded conceptual template; no human certification claimed",
+        "final_size_qa": "not certified"
+      },
+      "sha256": "b93b8931058a263ae511d42546bfc9eb3cec00845a5dcb5b3e3a059846b7bee8"
+    },
+    {
+      "id": "mechanism-double-layer",
+      "version": "1.1.1",
+      "name": "Electric double layer",
+      "name_zh": "电双层中的离子分布",
+      "author": "Shuo Guo / VoltPeer",
+      "category": "mechanism",
+      "license": "MIT",
+      "status": "community",
+      "candidate_status": "review_candidate",
+      "default_visible": true,
+      "description": "A negative interface enriches counterions; this is a simplified EDL.",
+      "description_zh": "带电界面附近的离子富集",
+      "created_at": "2026-10-03",
+      "updated_at": "2026-10-03",
+      "tags": [
+        "original-mechanism",
+        "transport"
+      ],
+      "source": "Original native SVG geometry; scientific relations checked against separately listed journal sources.",
+      "permissions": {
+        "public_display": true,
+        "registry": true,
+        "automated_testing": true,
+        "model_training": false
+      },
+      "template": "double-layer",
+      "mechanism_group": "transport",
+      "evidence_type_zh": "概念模型",
+      "scientific_boundary_zh": "不画绝对层厚或浓度；特异吸附与高浓度下的结构需要体系证据。",
+      "scientific_boundary": "No absolute layer thickness or concentration is specified. Specific adsorption requires system evidence.",
+      "supported_cations": [
+        "Li+"
+      ],
+      "cation_scope_zh": "当前空间图以锂体系为范围；更换金属/价态须重新核对材料、反应与证据。",
+      "scientific_references": [
+        {
+          "title": "The importance of electrode interfaces and interphases for rechargeable metal batteries",
+          "authors": "Jelena Popovic",
+          "journal": "Nature Communications",
+          "year": 2021,
+          "doi": "10.1038/s41467-021-26481-8",
+          "url": "https://www.nature.com/articles/s41467-021-26481-8",
+          "source_license": "CC-BY-4.0 (publisher Rights and permissions checked)",
+          "read_scope": "Publisher full text: SEI, metal deposition, transport, open questions"
+        },
+        {
+          "title": "Engineering a passivating electric double layer for high performance lithium metal batteries",
+          "authors": "Weili Zhang, Yang Lu, Lei Wan et al.",
+          "journal": "Nature Communications",
+          "year": 2022,
+          "doi": "10.1038/s41467-022-29761-z",
+          "url": "https://www.nature.com/articles/s41467-022-29761-z",
+          "source_license": "CC-BY-4.0 (publisher-deposited Crossref licence checked); no source figure reused",
+          "read_scope": "Publisher abstract/introduction: proposed additive-dependent EDL rearrangement"
+        }
+      ],
+      "source_figures_reused": false,
+      "preview_url": "commons/mechanisms/mechanism-double-layer@1.1.1.svg",
+      "source_url": "commons/mechanisms/mechanism-double-layer@1.1.1.json",
+      "prompt_url": "commons/mechanisms/mechanism-double-layer@1.1.1-prompt.txt",
+      "renderer_url": "commons/mechanisms/VoltPeer-mechanism-source-v1.1.1.zip",
+      "detail_url": "mechanisms.html#double-layer",
+      "visual_method": "Original imagegen composition reference, scientific correction, native editable vector reconstruction; generic donor symbols carry no chemical bonds.",
+      "composition_reference": "VoltPeer original desolvation + SEI artwork, 2026-10-03; reference pixels are not embedded.",
+      "scientific_caption": "Generic donor D glyphs are not molecular structures. Repeated ions show process snapshots. Material dimensions, counts, domains and paths are schematic.",
+      "scientific_caption_zh": "D 表示抽象配位基团，不是分子结构；重复离子表示过程中的不同快照。尺寸、配位数、域大小与传输路线均为示意。",
+      "quality": {
+        "format_checked": true,
+        "scientific_review": "source-grounded conceptual template; no human certification claimed",
+        "final_size_qa": "not certified"
+      },
+      "sha256": "29b1526e23eea9829596a062d79f146d655aca4f2d8069ffc344caf777f07f2c"
+    },
+    {
+      "id": "mechanism-migration-diffusion",
+      "version": "1.1.1",
+      "name": "Migration and diffusion",
+      "name_zh": "迁移与扩散",
+      "author": "Shuo Guo / VoltPeer",
+      "category": "mechanism",
+      "license": "MIT",
+      "status": "community",
+      "candidate_status": "review_candidate",
+      "default_visible": true,
+      "description": "Cations and anions migrate oppositely; diffusion follows the concentration gradient.",
+      "description_zh": "区分电场驱动与浓度梯度驱动",
+      "created_at": "2026-10-03",
+      "updated_at": "2026-10-03",
+      "tags": [
+        "original-mechanism",
+        "transport"
+      ],
+      "source": "Original native SVG geometry; scientific relations checked against separately listed journal sources.",
+      "permissions": {
+        "public_display": true,
+        "registry": true,
+        "automated_testing": true,
+        "model_training": false
+      },
+      "template": "migration-diffusion",
+      "mechanism_group": "transport",
+      "evidence_type_zh": "已知过程",
+      "scientific_boundary_zh": "箭头表示驱动力方向，长度不是通量；需要浓度、迁移数与边界条件才能定量。",
+      "scientific_boundary": "Arrows indicate driving directions, not flux magnitude. Quantification requires concentrations and boundary conditions.",
+      "supported_cations": [
+        "Li+",
+        "Na+",
+        "K+"
+      ],
+      "cation_scope_zh": "配位/一般传输场景，可选一价 Li+、Na+、K+。",
+      "scientific_references": [
+        {
+          "title": "The importance of electrode interfaces and interphases for rechargeable metal batteries",
+          "authors": "Jelena Popovic",
+          "journal": "Nature Communications",
+          "year": 2021,
+          "doi": "10.1038/s41467-021-26481-8",
+          "url": "https://www.nature.com/articles/s41467-021-26481-8",
+          "source_license": "CC-BY-4.0 (publisher Rights and permissions checked)",
+          "read_scope": "Publisher full text: SEI, metal deposition, transport, open questions"
+        }
+      ],
+      "source_figures_reused": false,
+      "preview_url": "commons/mechanisms/mechanism-migration-diffusion@1.1.1.svg",
+      "source_url": "commons/mechanisms/mechanism-migration-diffusion@1.1.1.json",
+      "prompt_url": "commons/mechanisms/mechanism-migration-diffusion@1.1.1-prompt.txt",
+      "renderer_url": "commons/mechanisms/VoltPeer-mechanism-source-v1.1.1.zip",
+      "detail_url": "mechanisms.html#migration-diffusion",
+      "visual_method": "Original imagegen composition reference, scientific correction, native editable vector reconstruction; generic donor symbols carry no chemical bonds.",
+      "composition_reference": "VoltPeer original desolvation + SEI artwork, 2026-10-03; reference pixels are not embedded.",
+      "scientific_caption": "Generic donor D glyphs are not molecular structures. Repeated ions show process snapshots. Material dimensions, counts, domains and paths are schematic.",
+      "scientific_caption_zh": "D 表示抽象配位基团，不是分子结构；重复离子表示过程中的不同快照。尺寸、配位数、域大小与传输路线均为示意。",
+      "quality": {
+        "format_checked": true,
+        "scientific_review": "source-grounded conceptual template; no human certification claimed",
+        "final_size_qa": "not certified"
+      },
+      "sha256": "41d069a81d0d21307d11004b2f02bd57d79643031db7e1359274124042971547"
+    },
+    {
+      "id": "mechanism-sei-formation",
+      "version": "1.1.1",
+      "name": "SEI formation",
+      "name_zh": "SEI 的形成",
+      "author": "Shuo Guo / VoltPeer",
+      "category": "mechanism",
+      "license": "MIT",
+      "status": "community",
+      "candidate_status": "review_candidate",
+      "default_visible": true,
+      "description": "Reduction products form a heterogeneous passivation interphase.",
+      "description_zh": "还原副反应形成界面膜",
+      "created_at": "2026-10-03",
+      "updated_at": "2026-10-03",
+      "tags": [
+        "original-mechanism",
+        "interphase"
+      ],
+      "source": "Original native SVG geometry; scientific relations checked against separately listed journal sources.",
+      "permissions": {
+        "public_display": true,
+        "registry": true,
+        "automated_testing": true,
+        "model_training": false
+      },
+      "template": "sei-formation",
+      "mechanism_group": "interphase",
+      "evidence_type_zh": "已知过程",
+      "scientific_boundary_zh": "组分与厚度取决于电解液和工况；图中的形状不代表特定化合物。",
+      "scientific_boundary": "Composition and thickness depend on electrolyte and conditions. Shapes do not identify specific compounds.",
+      "supported_cations": [
+        "Li+"
+      ],
+      "cation_scope_zh": "当前空间图以锂体系为范围；更换金属/价态须重新核对材料、反应与证据。",
+      "scientific_references": [
+        {
+          "title": "The importance of electrode interfaces and interphases for rechargeable metal batteries",
+          "authors": "Jelena Popovic",
+          "journal": "Nature Communications",
+          "year": 2021,
+          "doi": "10.1038/s41467-021-26481-8",
+          "url": "https://www.nature.com/articles/s41467-021-26481-8",
+          "source_license": "CC-BY-4.0 (publisher Rights and permissions checked)",
+          "read_scope": "Publisher full text: SEI, metal deposition, transport, open questions"
+        },
+        {
+          "title": "Cryo-STEM mapping of solid–liquid interfaces and dendrites in lithium-metal batteries",
+          "authors": "Michael J. Zachman, Zhengyuan Tu, Snehashis Choudhury et al.",
+          "journal": "Nature",
+          "year": 2018,
+          "doi": "10.1038/s41586-018-0397-3",
+          "url": "https://www.nature.com/articles/s41586-018-0397-3",
+          "source_license": "Publisher rights; no microscopy image reused",
+          "read_scope": "Publisher abstract: vitrification and structural/chemical mapping of native interfaces"
+        }
+      ],
+      "source_figures_reused": false,
+      "preview_url": "commons/mechanisms/mechanism-sei-formation@1.1.1.svg",
+      "source_url": "commons/mechanisms/mechanism-sei-formation@1.1.1.json",
+      "prompt_url": "commons/mechanisms/mechanism-sei-formation@1.1.1-prompt.txt",
+      "renderer_url": "commons/mechanisms/VoltPeer-mechanism-source-v1.1.1.zip",
+      "detail_url": "mechanisms.html#sei-formation",
+      "visual_method": "Original imagegen composition reference, scientific correction, native editable vector reconstruction; generic donor symbols carry no chemical bonds.",
+      "composition_reference": "VoltPeer original desolvation + SEI artwork, 2026-10-03; reference pixels are not embedded.",
+      "scientific_caption": "Generic donor D glyphs are not molecular structures. Repeated ions show process snapshots. Material dimensions, counts, domains and paths are schematic.",
+      "scientific_caption_zh": "D 表示抽象配位基团，不是分子结构；重复离子表示过程中的不同快照。尺寸、配位数、域大小与传输路线均为示意。",
+      "quality": {
+        "format_checked": true,
+        "scientific_review": "source-grounded conceptual template; no human certification claimed",
+        "final_size_qa": "not certified"
+      },
+      "sha256": "c988fff11d77d8b7446d3c68712a317b7616860da5385bb5703aa6442fb3df89"
+    },
+    {
+      "id": "mechanism-selective-passivation",
+      "version": "1.1.1",
+      "name": "Selective passivation",
+      "name_zh": "SEI 中的离子与电子",
+      "author": "Shuo Guo / VoltPeer",
+      "category": "mechanism",
+      "license": "MIT",
+      "status": "community",
+      "candidate_status": "review_candidate",
+      "default_visible": true,
+      "description": "Desired SEI behaviour: cation transfer with restricted electronic conduction.",
+      "description_zh": "离子通过与电子阻隔",
+      "created_at": "2026-10-03",
+      "updated_at": "2026-10-03",
+      "tags": [
+        "original-mechanism",
+        "interphase"
+      ],
+      "source": "Original native SVG geometry; scientific relations checked against separately listed journal sources.",
+      "permissions": {
+        "public_display": true,
+        "registry": true,
+        "automated_testing": true,
+        "model_training": false
+      },
+      "template": "selective-passivation",
+      "mechanism_group": "interphase",
+      "evidence_type_zh": "理想化目标",
+      "scientific_boundary_zh": "离子可通、电子受阻是设计目标；真实膜电导与路径不能由图或单次 XPS 确定。",
+      "scientific_boundary": "Ion transfer and electron restriction are desired properties. Actual conductivity and pathways need independent evidence.",
+      "supported_cations": [
+        "Li+"
+      ],
+      "cation_scope_zh": "当前空间图以锂体系为范围；更换金属/价态须重新核对材料、反应与证据。",
+      "scientific_references": [
+        {
+          "title": "The importance of electrode interfaces and interphases for rechargeable metal batteries",
+          "authors": "Jelena Popovic",
+          "journal": "Nature Communications",
+          "year": 2021,
+          "doi": "10.1038/s41467-021-26481-8",
+          "url": "https://www.nature.com/articles/s41467-021-26481-8",
+          "source_license": "CC-BY-4.0 (publisher Rights and permissions checked)",
+          "read_scope": "Publisher full text: SEI, metal deposition, transport, open questions"
+        }
+      ],
+      "source_figures_reused": false,
+      "preview_url": "commons/mechanisms/mechanism-selective-passivation@1.1.1.svg",
+      "source_url": "commons/mechanisms/mechanism-selective-passivation@1.1.1.json",
+      "prompt_url": "commons/mechanisms/mechanism-selective-passivation@1.1.1-prompt.txt",
+      "renderer_url": "commons/mechanisms/VoltPeer-mechanism-source-v1.1.1.zip",
+      "detail_url": "mechanisms.html#selective-passivation",
+      "visual_method": "Original imagegen composition reference, scientific correction, native editable vector reconstruction; generic donor symbols carry no chemical bonds.",
+      "composition_reference": "VoltPeer original desolvation + SEI artwork, 2026-10-03; reference pixels are not embedded.",
+      "scientific_caption": "Generic donor D glyphs are not molecular structures. Repeated ions show process snapshots. Material dimensions, counts, domains and paths are schematic.",
+      "scientific_caption_zh": "D 表示抽象配位基团，不是分子结构；重复离子表示过程中的不同快照。尺寸、配位数、域大小与传输路线均为示意。",
+      "quality": {
+        "format_checked": true,
+        "scientific_review": "source-grounded conceptual template; no human certification claimed",
+        "final_size_qa": "not certified"
+      },
+      "sha256": "f7868ad7f01b0d5c70397eef3caaa278975321bfafca66e3446345bccae04202"
+    },
+    {
+      "id": "mechanism-heterogeneous-sei",
+      "version": "1.1.1",
+      "name": "Heterogeneous interphase",
+      "name_zh": "非均匀界面膜",
+      "author": "Shuo Guo / VoltPeer",
+      "category": "mechanism",
+      "license": "MIT",
+      "status": "community",
+      "candidate_status": "review_candidate",
+      "default_visible": true,
+      "description": "Chemically heterogeneous domains may support different local ion paths.",
+      "description_zh": "不同界面区的局部传输",
+      "created_at": "2026-10-03",
+      "updated_at": "2026-10-03",
+      "tags": [
+        "original-mechanism",
+        "interphase"
+      ],
+      "source": "Original native SVG geometry; scientific relations checked against separately listed journal sources.",
+      "permissions": {
+        "public_display": true,
+        "registry": true,
+        "automated_testing": true,
+        "model_training": false
+      },
+      "template": "heterogeneous-sei",
+      "mechanism_group": "interphase",
+      "evidence_type_zh": "概念模型",
+      "scientific_boundary_zh": "色块只区分区域；域内、晶界或孔隙传输路线须由空间表征和模型核验。",
+      "scientific_boundary": "Colours distinguish regions. Domain, boundary and pore pathways require spatial evidence and modelling.",
+      "supported_cations": [
+        "Li+"
+      ],
+      "cation_scope_zh": "当前空间图以锂体系为范围；更换金属/价态须重新核对材料、反应与证据。",
+      "scientific_references": [
+        {
+          "title": "The importance of electrode interfaces and interphases for rechargeable metal batteries",
+          "authors": "Jelena Popovic",
+          "journal": "Nature Communications",
+          "year": 2021,
+          "doi": "10.1038/s41467-021-26481-8",
+          "url": "https://www.nature.com/articles/s41467-021-26481-8",
+          "source_license": "CC-BY-4.0 (publisher Rights and permissions checked)",
+          "read_scope": "Publisher full text: SEI, metal deposition, transport, open questions"
+        },
+        {
+          "title": "Cryo-STEM mapping of solid–liquid interfaces and dendrites in lithium-metal batteries",
+          "authors": "Michael J. Zachman, Zhengyuan Tu, Snehashis Choudhury et al.",
+          "journal": "Nature",
+          "year": 2018,
+          "doi": "10.1038/s41586-018-0397-3",
+          "url": "https://www.nature.com/articles/s41586-018-0397-3",
+          "source_license": "Publisher rights; no microscopy image reused",
+          "read_scope": "Publisher abstract: vitrification and structural/chemical mapping of native interfaces"
+        }
+      ],
+      "source_figures_reused": false,
+      "preview_url": "commons/mechanisms/mechanism-heterogeneous-sei@1.1.1.svg",
+      "source_url": "commons/mechanisms/mechanism-heterogeneous-sei@1.1.1.json",
+      "prompt_url": "commons/mechanisms/mechanism-heterogeneous-sei@1.1.1-prompt.txt",
+      "renderer_url": "commons/mechanisms/VoltPeer-mechanism-source-v1.1.1.zip",
+      "detail_url": "mechanisms.html#heterogeneous-sei",
+      "visual_method": "Original imagegen composition reference, scientific correction, native editable vector reconstruction; generic donor symbols carry no chemical bonds.",
+      "composition_reference": "VoltPeer original desolvation + SEI artwork, 2026-10-03; reference pixels are not embedded.",
+      "scientific_caption": "Generic donor D glyphs are not molecular structures. Repeated ions show process snapshots. Material dimensions, counts, domains and paths are schematic.",
+      "scientific_caption_zh": "D 表示抽象配位基团，不是分子结构；重复离子表示过程中的不同快照。尺寸、配位数、域大小与传输路线均为示意。",
+      "quality": {
+        "format_checked": true,
+        "scientific_review": "source-grounded conceptual template; no human certification claimed",
+        "final_size_qa": "not certified"
+      },
+      "sha256": "51bb913c5cfbed7e7cf13dba15d33d47f2ce9bb5080347a7fe203ba4079c7700"
+    },
+    {
+      "id": "mechanism-cei-formation",
+      "version": "1.1.1",
+      "name": "Cathode interphase formation",
+      "name_zh": "正极界面副反应",
+      "author": "Shuo Guo / VoltPeer",
+      "category": "mechanism",
+      "license": "MIT",
+      "status": "community",
+      "candidate_status": "review_candidate",
+      "default_visible": true,
+      "description": "Electrolyte oxidation can form cathode-side interphase products.",
+      "description_zh": "氧化副反应与 CEI",
+      "created_at": "2026-10-03",
+      "updated_at": "2026-10-03",
+      "tags": [
+        "original-mechanism",
+        "interphase"
+      ],
+      "source": "Original native SVG geometry; scientific relations checked against separately listed journal sources.",
+      "permissions": {
+        "public_display": true,
+        "registry": true,
+        "automated_testing": true,
+        "model_training": false
+      },
+      "template": "cei-formation",
+      "mechanism_group": "interphase",
+      "evidence_type_zh": "概念模型",
+      "scientific_boundary_zh": "不将所有 CEI 组分归因于单一路径；来源、膜结构与保护作用需本体系证据。",
+      "scientific_boundary": "CEI components can have multiple origins. Film structure and protection require evidence from your system.",
+      "supported_cations": [
+        "Li+"
+      ],
+      "cation_scope_zh": "当前空间图以锂体系为范围；更换金属/价态须重新核对材料、反应与证据。",
+      "scientific_references": [
+        {
+          "title": "Engineering a passivating electric double layer for high performance lithium metal batteries",
+          "authors": "Weili Zhang, Yang Lu, Lei Wan et al.",
+          "journal": "Nature Communications",
+          "year": 2022,
+          "doi": "10.1038/s41467-022-29761-z",
+          "url": "https://www.nature.com/articles/s41467-022-29761-z",
+          "source_license": "CC-BY-4.0 (publisher-deposited Crossref licence checked); no source figure reused",
+          "read_scope": "Publisher abstract/introduction: proposed additive-dependent EDL rearrangement"
+        },
+        {
+          "title": "In situ inorganic conductive network formation in high-voltage single-crystal Ni-rich cathodes",
+          "authors": "Xinming Fan, Xing Ou, Wengao Zhao et al.",
+          "journal": "Nature Communications",
+          "year": 2021,
+          "doi": "10.1038/s41467-021-25611-6",
+          "url": "https://www.nature.com/articles/s41467-021-25611-6",
+          "source_license": "Article licence not reused; confirm publisher terms before any reuse",
+          "read_scope": "Publisher abstract/introduction: ion/electron pathways and cracking-associated electrolyte access"
+        }
+      ],
+      "source_figures_reused": false,
+      "preview_url": "commons/mechanisms/mechanism-cei-formation@1.1.1.svg",
+      "source_url": "commons/mechanisms/mechanism-cei-formation@1.1.1.json",
+      "prompt_url": "commons/mechanisms/mechanism-cei-formation@1.1.1-prompt.txt",
+      "renderer_url": "commons/mechanisms/VoltPeer-mechanism-source-v1.1.1.zip",
+      "detail_url": "mechanisms.html#cei-formation",
+      "visual_method": "Original imagegen composition reference, scientific correction, native editable vector reconstruction; generic donor symbols carry no chemical bonds.",
+      "composition_reference": "VoltPeer original desolvation + SEI artwork, 2026-10-03; reference pixels are not embedded.",
+      "scientific_caption": "Generic donor D glyphs are not molecular structures. Repeated ions show process snapshots. Material dimensions, counts, domains and paths are schematic.",
+      "scientific_caption_zh": "D 表示抽象配位基团，不是分子结构；重复离子表示过程中的不同快照。尺寸、配位数、域大小与传输路线均为示意。",
+      "quality": {
+        "format_checked": true,
+        "scientific_review": "source-grounded conceptual template; no human certification claimed",
+        "final_size_qa": "not certified"
+      },
+      "sha256": "aaa1a4a0244e9590d18d1907c3edd8def4fb880c42a2358243797be8f892f61f"
+    },
+    {
+      "id": "mechanism-nucleation-growth",
+      "version": "1.1.1",
+      "name": "Metal nucleation and growth",
+      "name_zh": "金属成核与生长",
+      "author": "Shuo Guo / VoltPeer",
+      "category": "mechanism",
+      "license": "MIT",
+      "status": "community",
+      "candidate_status": "review_candidate",
+      "default_visible": true,
+      "description": "Ion supply, interfacial reaction and surface conditions affect metal growth.",
+      "description_zh": "从初始晶核到连续沉积",
+      "created_at": "2026-10-03",
+      "updated_at": "2026-10-03",
+      "tags": [
+        "original-mechanism",
+        "metal"
+      ],
+      "source": "Original native SVG geometry; scientific relations checked against separately listed journal sources.",
+      "permissions": {
+        "public_display": true,
+        "registry": true,
+        "automated_testing": true,
+        "model_training": false
+      },
+      "template": "nucleation-growth",
+      "mechanism_group": "metal",
+      "evidence_type_zh": "概念模型",
+      "scientific_boundary_zh": "晶核形状与大小是示意；均匀性和成核障碍须由原位或电化学证据评价。",
+      "scientific_boundary": "Nucleus shapes and sizes are illustrative. Uniformity and nucleation barriers require electrochemical or operando evidence.",
+      "supported_cations": [
+        "Li+"
+      ],
+      "cation_scope_zh": "当前空间图以锂体系为范围；更换金属/价态须重新核对材料、反应与证据。",
+      "scientific_references": [
+        {
+          "title": "The importance of electrode interfaces and interphases for rechargeable metal batteries",
+          "authors": "Jelena Popovic",
+          "journal": "Nature Communications",
+          "year": 2021,
+          "doi": "10.1038/s41467-021-26481-8",
+          "url": "https://www.nature.com/articles/s41467-021-26481-8",
+          "source_license": "CC-BY-4.0 (publisher Rights and permissions checked)",
+          "read_scope": "Publisher full text: SEI, metal deposition, transport, open questions"
+        }
+      ],
+      "source_figures_reused": false,
+      "preview_url": "commons/mechanisms/mechanism-nucleation-growth@1.1.1.svg",
+      "source_url": "commons/mechanisms/mechanism-nucleation-growth@1.1.1.json",
+      "prompt_url": "commons/mechanisms/mechanism-nucleation-growth@1.1.1-prompt.txt",
+      "renderer_url": "commons/mechanisms/VoltPeer-mechanism-source-v1.1.1.zip",
+      "detail_url": "mechanisms.html#nucleation-growth",
+      "visual_method": "Original imagegen composition reference, scientific correction, native editable vector reconstruction; generic donor symbols carry no chemical bonds.",
+      "composition_reference": "VoltPeer original desolvation + SEI artwork, 2026-10-03; reference pixels are not embedded.",
+      "scientific_caption": "Generic donor D glyphs are not molecular structures. Repeated ions show process snapshots. Material dimensions, counts, domains and paths are schematic.",
+      "scientific_caption_zh": "D 表示抽象配位基团，不是分子结构；重复离子表示过程中的不同快照。尺寸、配位数、域大小与传输路线均为示意。",
+      "quality": {
+        "format_checked": true,
+        "scientific_review": "source-grounded conceptual template; no human certification claimed",
+        "final_size_qa": "not certified"
+      },
+      "sha256": "163e86de231b80c2a81015e53c95b6f8611ca8d203f1fb5f92159d74c157a128"
+    },
+    {
+      "id": "mechanism-plating-stripping",
+      "version": "1.1.1",
+      "name": "Plating and stripping",
+      "name_zh": "沉积与剥离",
+      "author": "Shuo Guo / VoltPeer",
+      "category": "mechanism",
+      "license": "MIT",
+      "status": "community",
+      "candidate_status": "review_candidate",
+      "default_visible": true,
+      "description": "Li+ + e− ⇌ Li0; direction follows the imposed current.",
+      "description_zh": "同一界面的可逆半反应",
+      "created_at": "2026-10-03",
+      "updated_at": "2026-10-03",
+      "tags": [
+        "original-mechanism",
+        "metal"
+      ],
+      "source": "Original native SVG geometry; scientific relations checked against separately listed journal sources.",
+      "permissions": {
+        "public_display": true,
+        "registry": true,
+        "automated_testing": true,
+        "model_training": false
+      },
+      "template": "plating-stripping",
+      "mechanism_group": "metal",
+      "evidence_type_zh": "已知过程",
+      "scientific_boundary_zh": "可逆箭头只表示半反应方向；不保证完全可逆或库仑效率为 100%。",
+      "scientific_boundary": "The two directions describe half reactions. They do not guarantee full reversibility or 100% Coulombic efficiency.",
+      "supported_cations": [
+        "Li+"
+      ],
+      "cation_scope_zh": "当前空间图以锂体系为范围；更换金属/价态须重新核对材料、反应与证据。",
+      "scientific_references": [
+        {
+          "title": "The importance of electrode interfaces and interphases for rechargeable metal batteries",
+          "authors": "Jelena Popovic",
+          "journal": "Nature Communications",
+          "year": 2021,
+          "doi": "10.1038/s41467-021-26481-8",
+          "url": "https://www.nature.com/articles/s41467-021-26481-8",
+          "source_license": "CC-BY-4.0 (publisher Rights and permissions checked)",
+          "read_scope": "Publisher full text: SEI, metal deposition, transport, open questions"
+        },
+        {
+          "title": "Quantifying inactive lithium in lithium metal batteries",
+          "authors": "Chengcheng Fang, Jinxing Li, Minghao Zhang et al.",
+          "journal": "Nature",
+          "year": 2019,
+          "doi": "10.1038/s41586-019-1481-z",
+          "url": "https://www.nature.com/articles/s41586-019-1481-z",
+          "source_license": "Publisher rights; source text and images excluded from MIT artwork",
+          "read_scope": "Author abstract and verified journal DOI: inactive Li0 versus SEI-bound Li+"
+        }
+      ],
+      "source_figures_reused": false,
+      "preview_url": "commons/mechanisms/mechanism-plating-stripping@1.1.1.svg",
+      "source_url": "commons/mechanisms/mechanism-plating-stripping@1.1.1.json",
+      "prompt_url": "commons/mechanisms/mechanism-plating-stripping@1.1.1-prompt.txt",
+      "renderer_url": "commons/mechanisms/VoltPeer-mechanism-source-v1.1.1.zip",
+      "detail_url": "mechanisms.html#plating-stripping",
+      "visual_method": "Original imagegen composition reference, scientific correction, native editable vector reconstruction; generic donor symbols carry no chemical bonds.",
+      "composition_reference": "VoltPeer original desolvation + SEI artwork, 2026-10-03; reference pixels are not embedded.",
+      "scientific_caption": "Generic donor D glyphs are not molecular structures. Repeated ions show process snapshots. Material dimensions, counts, domains and paths are schematic.",
+      "scientific_caption_zh": "D 表示抽象配位基团，不是分子结构；重复离子表示过程中的不同快照。尺寸、配位数、域大小与传输路线均为示意。",
+      "quality": {
+        "format_checked": true,
+        "scientific_review": "source-grounded conceptual template; no human certification claimed",
+        "final_size_qa": "not certified"
+      },
+      "sha256": "7a1e321192128d16b218b24dba7773d22fac12d774c0e63062cc7da8b5bdc399"
+    },
+    {
+      "id": "mechanism-inactive-lithium",
+      "version": "1.1.1",
+      "name": "Electronically isolated lithium",
+      "name_zh": "失去电子连接的锂",
+      "author": "Shuo Guo / VoltPeer",
+      "category": "mechanism",
+      "license": "MIT",
+      "status": "community",
+      "candidate_status": "review_candidate",
+      "default_visible": true,
+      "description": "Isolated Li0 and SEI-bound Li+ are distinct inactive-inventory classes.",
+      "description_zh": "区分金属锂与界面膜中的锂",
+      "created_at": "2026-10-03",
+      "updated_at": "2026-10-03",
+      "tags": [
+        "original-mechanism",
+        "metal"
+      ],
+      "source": "Original native SVG geometry; scientific relations checked against separately listed journal sources.",
+      "permissions": {
+        "public_display": true,
+        "registry": true,
+        "automated_testing": true,
+        "model_training": false
+      },
+      "template": "inactive-lithium",
+      "mechanism_group": "metal",
+      "evidence_type_zh": "测量支持的过程",
+      "scientific_boundary_zh": "形貌或 CE 单独不能分辨两类损失；需化学定量并检查取样与滴定假设。",
+      "scientific_boundary": "Morphology or CE alone cannot separate inventory losses. Use chemical quantification and verify sampling assumptions.",
+      "supported_cations": [
+        "Li+"
+      ],
+      "cation_scope_zh": "当前空间图以锂体系为范围；更换金属/价态须重新核对材料、反应与证据。",
+      "scientific_references": [
+        {
+          "title": "Quantifying inactive lithium in lithium metal batteries",
+          "authors": "Chengcheng Fang, Jinxing Li, Minghao Zhang et al.",
+          "journal": "Nature",
+          "year": 2019,
+          "doi": "10.1038/s41586-019-1481-z",
+          "url": "https://www.nature.com/articles/s41586-019-1481-z",
+          "source_license": "Publisher rights; source text and images excluded from MIT artwork",
+          "read_scope": "Author abstract and verified journal DOI: inactive Li0 versus SEI-bound Li+"
+        }
+      ],
+      "source_figures_reused": false,
+      "preview_url": "commons/mechanisms/mechanism-inactive-lithium@1.1.1.svg",
+      "source_url": "commons/mechanisms/mechanism-inactive-lithium@1.1.1.json",
+      "prompt_url": "commons/mechanisms/mechanism-inactive-lithium@1.1.1-prompt.txt",
+      "renderer_url": "commons/mechanisms/VoltPeer-mechanism-source-v1.1.1.zip",
+      "detail_url": "mechanisms.html#inactive-lithium",
+      "visual_method": "Original imagegen composition reference, scientific correction, native editable vector reconstruction; generic donor symbols carry no chemical bonds.",
+      "composition_reference": "VoltPeer original desolvation + SEI artwork, 2026-10-03; reference pixels are not embedded.",
+      "scientific_caption": "Generic donor D glyphs are not molecular structures. Repeated ions show process snapshots. Material dimensions, counts, domains and paths are schematic.",
+      "scientific_caption_zh": "D 表示抽象配位基团，不是分子结构；重复离子表示过程中的不同快照。尺寸、配位数、域大小与传输路线均为示意。",
+      "quality": {
+        "format_checked": true,
+        "scientific_review": "source-grounded conceptual template; no human certification claimed",
+        "final_size_qa": "not certified"
+      },
+      "sha256": "0e74ebe36a5a145b2f664a61be65380824fc8b20adb2ec17276eaa0ffad71613"
+    },
+    {
+      "id": "mechanism-film-reformation",
+      "version": "1.1.1",
+      "name": "Interphase rupture and reformation",
+      "name_zh": "界面膜破裂与再形成",
+      "author": "Shuo Guo / VoltPeer",
+      "category": "mechanism",
+      "license": "MIT",
+      "status": "community",
+      "candidate_status": "review_candidate",
+      "default_visible": true,
+      "description": "Surface change can expose fresh metal and lead to further interphase formation.",
+      "description_zh": "新表面暴露后继续反应",
+      "created_at": "2026-10-03",
+      "updated_at": "2026-10-03",
+      "tags": [
+        "original-mechanism",
+        "interphase"
+      ],
+      "source": "Original native SVG geometry; scientific relations checked against separately listed journal sources.",
+      "permissions": {
+        "public_display": true,
+        "registry": true,
+        "automated_testing": true,
+        "model_training": false
+      },
+      "template": "film-reformation",
+      "mechanism_group": "interphase",
+      "evidence_type_zh": "概念模型",
+      "scientific_boundary_zh": "再形成不等于完全自修复；变化的时间顺序、损耗与可逆性需原位证据。",
+      "scientific_boundary": "Reformation does not establish complete repair. Timing, consumption and reversibility require operando evidence.",
+      "supported_cations": [
+        "Li+"
+      ],
+      "cation_scope_zh": "当前空间图以锂体系为范围；更换金属/价态须重新核对材料、反应与证据。",
+      "scientific_references": [
+        {
+          "title": "The importance of electrode interfaces and interphases for rechargeable metal batteries",
+          "authors": "Jelena Popovic",
+          "journal": "Nature Communications",
+          "year": 2021,
+          "doi": "10.1038/s41467-021-26481-8",
+          "url": "https://www.nature.com/articles/s41467-021-26481-8",
+          "source_license": "CC-BY-4.0 (publisher Rights and permissions checked)",
+          "read_scope": "Publisher full text: SEI, metal deposition, transport, open questions"
+        },
+        {
+          "title": "Imaging solid–electrolyte interphase dynamics using operando reflection interference microscopy",
+          "authors": "Guangxia Feng, Hao Jia, Yaping Shi et al.",
+          "journal": "Nature Nanotechnology",
+          "year": 2023,
+          "doi": "10.1038/s41565-023-01316-3",
+          "url": "https://www.nature.com/articles/s41565-023-01316-3",
+          "source_license": "Subscription article; public abstract as scientific basis only",
+          "read_scope": "Publisher abstract: time-dependent inner/outer layer evolution in the measured system"
+        }
+      ],
+      "source_figures_reused": false,
+      "preview_url": "commons/mechanisms/mechanism-film-reformation@1.1.1.svg",
+      "source_url": "commons/mechanisms/mechanism-film-reformation@1.1.1.json",
+      "prompt_url": "commons/mechanisms/mechanism-film-reformation@1.1.1-prompt.txt",
+      "renderer_url": "commons/mechanisms/VoltPeer-mechanism-source-v1.1.1.zip",
+      "detail_url": "mechanisms.html#film-reformation",
+      "visual_method": "Original imagegen composition reference, scientific correction, native editable vector reconstruction; generic donor symbols carry no chemical bonds.",
+      "composition_reference": "VoltPeer original desolvation + SEI artwork, 2026-10-03; reference pixels are not embedded.",
+      "scientific_caption": "Generic donor D glyphs are not molecular structures. Repeated ions show process snapshots. Material dimensions, counts, domains and paths are schematic.",
+      "scientific_caption_zh": "D 表示抽象配位基团，不是分子结构；重复离子表示过程中的不同快照。尺寸、配位数、域大小与传输路线均为示意。",
+      "quality": {
+        "format_checked": true,
+        "scientific_review": "source-grounded conceptual template; no human certification claimed",
+        "final_size_qa": "not certified"
+      },
+      "sha256": "cedb7c613e6655a4fcbf2bf055f12db6b3ea6cff5761eab67c2b6862e66c428c"
+    },
+    {
+      "id": "mechanism-solid-contact-loss",
+      "version": "1.1.1",
+      "name": "Solid-state contact loss",
+      "name_zh": "固态界面接触损失",
+      "author": "Shuo Guo / VoltPeer",
+      "category": "mechanism",
+      "license": "MIT",
+      "status": "community",
+      "candidate_status": "review_candidate",
+      "default_visible": true,
+      "description": "Stripping faster than replenishment can create voids and concentrate local current.",
+      "description_zh": "剥离空隙与局部电流集中",
+      "created_at": "2026-10-03",
+      "updated_at": "2026-10-03",
+      "tags": [
+        "original-mechanism",
+        "metal"
+      ],
+      "source": "Original native SVG geometry; scientific relations checked against separately listed journal sources.",
+      "permissions": {
+        "public_display": true,
+        "registry": true,
+        "automated_testing": true,
+        "model_training": false
+      },
+      "template": "solid-contact-loss",
+      "mechanism_group": "metal",
+      "evidence_type_zh": "测量支持的过程",
+      "scientific_boundary_zh": "该路径在 Li/Li6PS5Cl 的特定条件有证据；阈值依赖压力、材料和程序。",
+      "scientific_boundary": "This path has evidence in specified Li/Li6PS5Cl conditions. Thresholds depend on pressure, materials and protocol.",
+      "supported_cations": [
+        "Li+"
+      ],
+      "cation_scope_zh": "当前空间图以锂体系为范围；更换金属/价态须重新核对材料、反应与证据。",
+      "scientific_references": [
+        {
+          "title": "Critical stripping current leads to dendrite formation on plating in lithium anode solid electrolyte cells",
+          "authors": "Jitti Kasemchainan, Stefanie Zekoll, Dominic Spencer Jolly et al.",
+          "journal": "Nature Materials",
+          "year": 2019,
+          "doi": "10.1038/s41563-019-0438-9",
+          "url": "https://www.nature.com/articles/s41563-019-0438-9",
+          "source_license": "Subscription article; public abstract as scientific basis only",
+          "read_scope": "Publisher abstract: stripping voids, contact loss and local current concentration in Li/Li6PS5Cl"
+        }
+      ],
+      "source_figures_reused": false,
+      "preview_url": "commons/mechanisms/mechanism-solid-contact-loss@1.1.1.svg",
+      "source_url": "commons/mechanisms/mechanism-solid-contact-loss@1.1.1.json",
+      "prompt_url": "commons/mechanisms/mechanism-solid-contact-loss@1.1.1-prompt.txt",
+      "renderer_url": "commons/mechanisms/VoltPeer-mechanism-source-v1.1.1.zip",
+      "detail_url": "mechanisms.html#solid-contact-loss",
+      "visual_method": "Original imagegen composition reference, scientific correction, native editable vector reconstruction; generic donor symbols carry no chemical bonds.",
+      "composition_reference": "VoltPeer original desolvation + SEI artwork, 2026-10-03; reference pixels are not embedded.",
+      "scientific_caption": "Generic donor D glyphs are not molecular structures. Repeated ions show process snapshots. Material dimensions, counts, domains and paths are schematic.",
+      "scientific_caption_zh": "D 表示抽象配位基团，不是分子结构；重复离子表示过程中的不同快照。尺寸、配位数、域大小与传输路线均为示意。",
+      "quality": {
+        "format_checked": true,
+        "scientific_review": "source-grounded conceptual template; no human certification claimed",
+        "final_size_qa": "not certified"
+      },
+      "sha256": "8b6c7e06e04747e3558add089d8837276773460d8c91509a421e9313bcb6fa93"
+    },
+    {
+      "id": "mechanism-dual-pathways",
+      "version": "1.1.1",
+      "name": "Ionic and electronic pathways",
+      "name_zh": "正极中的离子与电子路径",
+      "author": "Shuo Guo / VoltPeer",
+      "category": "mechanism",
+      "license": "MIT",
+      "status": "community",
+      "candidate_status": "review_candidate",
+      "default_visible": true,
+      "description": "Ion and electron access must both reach electrochemically active regions.",
+      "description_zh": "区分电解质与导电网络",
+      "created_at": "2026-10-03",
+      "updated_at": "2026-10-03",
+      "tags": [
+        "original-mechanism",
+        "transport"
+      ],
+      "source": "Original native SVG geometry; scientific relations checked against separately listed journal sources.",
+      "permissions": {
+        "public_display": true,
+        "registry": true,
+        "automated_testing": true,
+        "model_training": false
+      },
+      "template": "dual-pathways",
+      "mechanism_group": "transport",
+      "evidence_type_zh": "概念模型",
+      "scientific_boundary_zh": "示意网络不代表实测连通性或特定涂层；混合导体需独立量化离子与电子电导。",
+      "scientific_boundary": "The network is conceptual. Connectivity and separate ionic/electronic conductivity require independent measurements.",
+      "supported_cations": [
+        "Li+",
+        "Na+",
+        "K+"
+      ],
+      "cation_scope_zh": "配位/一般传输场景，可选一价 Li+、Na+、K+。",
+      "scientific_references": [
+        {
+          "title": "In situ inorganic conductive network formation in high-voltage single-crystal Ni-rich cathodes",
+          "authors": "Xinming Fan, Xing Ou, Wengao Zhao et al.",
+          "journal": "Nature Communications",
+          "year": 2021,
+          "doi": "10.1038/s41467-021-25611-6",
+          "url": "https://www.nature.com/articles/s41467-021-25611-6",
+          "source_license": "Article licence not reused; confirm publisher terms before any reuse",
+          "read_scope": "Publisher abstract/introduction: ion/electron pathways and cracking-associated electrolyte access"
+        }
+      ],
+      "source_figures_reused": false,
+      "preview_url": "commons/mechanisms/mechanism-dual-pathways@1.1.1.svg",
+      "source_url": "commons/mechanisms/mechanism-dual-pathways@1.1.1.json",
+      "prompt_url": "commons/mechanisms/mechanism-dual-pathways@1.1.1-prompt.txt",
+      "renderer_url": "commons/mechanisms/VoltPeer-mechanism-source-v1.1.1.zip",
+      "detail_url": "mechanisms.html#dual-pathways",
+      "visual_method": "Original imagegen composition reference, scientific correction, native editable vector reconstruction; generic donor symbols carry no chemical bonds.",
+      "composition_reference": "VoltPeer original desolvation + SEI artwork, 2026-10-03; reference pixels are not embedded.",
+      "scientific_caption": "Generic donor D glyphs are not molecular structures. Repeated ions show process snapshots. Material dimensions, counts, domains and paths are schematic.",
+      "scientific_caption_zh": "D 表示抽象配位基团，不是分子结构；重复离子表示过程中的不同快照。尺寸、配位数、域大小与传输路线均为示意。",
+      "quality": {
+        "format_checked": true,
+        "scientific_review": "source-grounded conceptual template; no human certification claimed",
+        "final_size_qa": "not certified"
+      },
+      "sha256": "b241fbf5e3c788e9002eda00bccb914576a70b6f3e6fe92d901c216a03235974"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "title": "Diffusion-limited film growth",
+  "panels": [
+    {
+      "title": "Diffusion-limited film growth",
+      "xlabel": "Aging time (h)",
+      "ylabel": "Film thickness (nm)",
+      "yscale": "linear",
+      "xscale": "linear"
+    }
+  ],
+  "colours": [
+    "#287D8E",
+    "#BA5574",
+    "#4868A8",
+    "#A46D35",
+    "#655AA0",
+    "#387F64"
+  ],
+  "input_contract": "Panel is zero-based. x/y meanings and units are declared in panels. Rows are retained in original order. Author data require a reviewed adapted contract; no silent sorting, smoothing or normalisation."
+}

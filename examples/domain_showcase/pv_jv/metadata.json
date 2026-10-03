@@ -1,0 +1,108 @@
+{
+  "id": "pv_jv",
+  "title": "光伏 J–V 与最大功率",
+  "domain": "photovoltaic",
+  "type": "demo",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260937,
+  "source_files": [
+    "data.csv",
+    "metrics.json"
+  ],
+  "variables_and_units": [
+    "voltage_V",
+    "current_density_mA_cm2",
+    "power_density_mW_cm2"
+  ],
+  "test_conditions": "Original ideal single-junction diode model, Rs=0 and Rsh=infinity; 100 mW/cm2 incident power, 25 C, no spectral/material calibration; MPP/FF/efficiency are model outputs only",
+  "render_options": {
+    "recipe": "pv_jv"
+  },
+  "reproduce": "python render.py --output rebuilt --recipe pv_jv --demo-input data.csv",
+  "creator": "VoltPeer maintainers",
+  "license": "MIT",
+  "generator_version": "1.6",
+  "limitations": "Declared teaching model only; no measured device, mechanism or material certification. This generator does not adapt experimental data.",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "VT=kB*T/q; J0=Jph/expm1(Voc/(n*VT))",
+      "J=Jph-J0*expm1(V/(n*VT)); ideal single diode, Rs=0 and Rsh=infinity",
+      "P_delivered=V*J; MPP=max(P) within V>=0,J>=0; FF=Pmax/(Voc*Jsc)",
+      "model_efficiency_percent=100*Pmax/incident_power_mW_cm2"
+    ],
+    "assumptions": [
+      "One ideal single junction with uniform fixed illumination and temperature.",
+      "Delivered-current sign convention; negative current past Voc is retained, excluded from generating MPP."
+    ],
+    "parameters": {
+      "photocurrent_mA_cm2": 23.5,
+      "ideality_factor": 1.5,
+      "temperature_K": 298.15,
+      "open_circuit_voltage_V": 1.08,
+      "incident_power_mW_cm2": 100.0,
+      "series_resistance_ohm_cm2": 0.0,
+      "shunt_resistance_ohm_cm2": "infinite",
+      "kB_J_K": 1.380649e-23,
+      "electron_charge_C": 1.602176634e-19,
+      "thermal_voltage_V": 0.02569257912108585,
+      "saturation_current_mA_cm2": 1.5868967932198145e-11
+    },
+    "references": [
+      {
+        "url": "https://pvpmc.sandia.gov/modeling-guide/2-dc-module-iv/single-diode-equivalent-circuit-models/",
+        "title": "Sandia/NIST PVPMC: single diode equivalent circuit models",
+        "supports": "Governing single-diode equation and thermal voltage; all numerical parameters are original.",
+        "scope": "model_definition_only"
+      }
+    ],
+    "limitations": [
+      "All numeric material/rate parameters are original teaching assumptions, not measured or copied paper data.",
+      "No measured device efficiency, calibrated spectrum, resistance extraction, hysteresis or material-specific prediction.",
+      "A sampled MPP is within the stated 0.002 V grid resolution, not an experimental maximum-power tracker."
+    ],
+    "validation_scope": "Original teaching-model equations, charge/energy/units and declared boundaries only; no experimental or material certification."
+  },
+  "actual_artist_checks": [
+    {
+      "panel": 0,
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "curve_styles": [
+        {
+          "linestyle": "-",
+          "marker": "None",
+          "points": 551
+        },
+        {
+          "linestyle": "-",
+          "marker": "None",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "panel": 1,
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "curve_styles": [
+        {
+          "linestyle": "-",
+          "marker": "None",
+          "points": 551
+        }
+      ]
+    }
+  ]
+}

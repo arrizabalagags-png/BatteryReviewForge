@@ -12,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-sys.path.insert(0, str(ROOT / "skills" / "battery-review-figure" / "scripts"))
+sys.path.insert(0, str(ROOT / "skills" / "voltpeer-plot" / "scripts"))
 
 import build_community_registry as community_builder  # noqa: E402
 from build_community_registry import layout_preview, validate, validate_layout  # noqa: E402
@@ -140,7 +140,7 @@ class CommonsTest(unittest.TestCase):
                           "loading_mg_cm2":"2","voltage_window_v":"2.5-4.2",
                           "ce_definition":"discharge/charge"}}, ensure_ascii=False), encoding="utf-8")
             output = folder / "ce_plot"
-            process = subprocess.run([sys.executable, str(ROOT / "skills/battery-review-figure/scripts/plot_uploaded.py"),
+            process = subprocess.run([sys.executable, str(ROOT / "skills/voltpeer-plot/scripts/plot_uploaded.py"),
                 "plot", "--data", str(data), "--metadata", str(metadata), "--out", str(output)],
                 capture_output=True, text=True)
             self.assertEqual(process.returncode, 0, process.stderr)

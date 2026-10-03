@@ -9,7 +9,7 @@ from pathlib import Path
 import matplotlib
 
 matplotlib.use("Agg")
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "skills" / "battery-review-figure" / "scripts"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "skills" / "voltpeer-plot" / "scripts"))
 
 from batteryplot import DataContractError, comparison_bars, conditions_matrix, cycle_retention, rate_capability, save_bundle  # noqa: E402
 
@@ -31,8 +31,11 @@ class BatteryPlotTests(unittest.TestCase):
             cycle_retention(rows)
         with self.assertRaisesRegex(DataContractError, "condition_note"):
             cycle_retention(rows, mode="contextual")
-        fig, _ = cycle_retention(rows, mode="contextual", condition_note="Rates differ")
+        fig, ax = cycle_retention(rows, mode="contextual", condition_note="Rates differ")
         self.assertEqual(fig.batteryplot_meta["comparison"], "contextual")
+        self.assertTrue(all(line.get_marker() in (None,"None",""," ") and line.get_linestyle()=="-" for line in ax.lines))
+        self.assertTrue(all(ax.spines[side].get_visible() for side in ("top","right","bottom","left")))
+        matplotlib.pyplot.close(fig)
 
     def test_retention_requires_explicit_reference_cycle(self):
         row = {**BASE, "series": "A", "cycle": "10", "retention_pct": "94", "retention_basis": "after formation", "rate": "1 C"}
@@ -73,6 +76,7 @@ class BatteryPlotTests(unittest.TestCase):
         fig, ax = rate_capability(rows)
         self.assertEqual([tick.get_text() for tick in ax.get_xticklabels()], ["0.1 C", "2 C", "0.1 C"])
         self.assertEqual(list(ax.lines[0].get_ydata()), [150.0, 110.0, 145.0])
+        self.assertTrue(all(line.get_marker() in (None,"None",""," ") and line.get_linestyle()=="-" for line in ax.lines))
         with self.assertRaisesRegex(DataContractError, "sequences differ"):
             rate_capability(rows[:-1])
         matplotlib.pyplot.close(fig)

@@ -1,0 +1,39 @@
+{
+  "version": "0.11.0",
+  "scope": "Two actual clean installations from the final extracted full ZIP into new isolated test workspaces, with Chinese and spaces in paths; no real user discovery root.",
+  "archive": "docs/downloads/v0.11.0/VoltPeer-v0.11.0.zip",
+  "bytes": 1162137,
+  "sha256": "ef7dbe2b46b6ea3f9beccaadc685333164b07f4758a85fb5729a36ac8d1b1478",
+  "results": [
+    {
+      "engine": "ps1",
+      "status": "PASS",
+      "exit_code": 0,
+      "canonical_skill_count": 15,
+      "installed_files": 232,
+      "exact_file_hash_closure": true,
+      "legacy_alias_folders_installed": 0,
+      "research_fixture_unchanged": true,
+      "public_guide_files": 10,
+      "public_guide_bytes": 525484
+    },
+    {
+      "engine": "sh",
+      "status": "PASS",
+      "exit_code": 0,
+      "canonical_skill_count": 15,
+      "installed_files": 232,
+      "exact_file_hash_closure": true,
+      "legacy_alias_folders_installed": 0,
+      "research_fixture_unchanged": true,
+      "public_guide_files": 10,
+      "public_guide_bytes": 525484
+    }
+  ],
+  "native_host_discovery": "NOT_RUN",
+  "full_model_gate": "NOT_RUN",
+  "author_experiments_read": 0,
+  "remote_writes": 0,
+  "paid_requests": 0,
+  "status": "PASS"
+}

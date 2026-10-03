@@ -1,0 +1,66 @@
+{
+  "resource_id": "operando_xrd",
+  "source_kind": "VoltPeer original reproducible tutorial",
+  "reference_origin": "Rendered from this pack config.demo.json and demo/*.csv; not copied from the gallery.",
+  "reference_scope": "Same-data demo figure only; no experimental values/conditions/claims inherited by author data.",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "phenomenological_model",
+    "data_origin": "original_synthetic",
+    "parameter_origin": "explicit teaching choices; not reported measurements",
+    "validation_scope": "Declared teaching model; no experimental/material certification",
+    "equations": [
+      "2theta=2*asin(lambda/(2*d)) in degrees (first order)",
+      "d1(p)=2.38*(1-0.012*p) A; d2(p)=2.18*(1+0.008*p) A",
+      "I(2theta,p)=background+sum(amplitude*exp(-0.5*((2theta-center)/sigma)^2))",
+      "V(p)=3.1+1.1*p"
+    ],
+    "assumptions": [
+      "Two independent fictitious d-spacings, not indexed planes of a refined shared crystal.",
+      "p is chosen fractional progression, not measured SOC; voltage is an independent display function.",
+      "Gaussian widths, amplitudes and background are display parameters, not structure factors or measured diffraction."
+    ],
+    "parameters": {
+      "wavelength_A": 1.5406,
+      "d1_initial_A": 2.38,
+      "d2_initial_A": 2.18,
+      "strain1_at_p1": -0.012,
+      "strain2_at_p1": 0.008,
+      "sigma_deg": [
+        0.21,
+        0.28
+      ],
+      "amplitudes_au": [
+        1,
+        0.6
+      ],
+      "background_au": 0.04
+    },
+    "references": [
+      {
+        "url": "https://dictionary.iucr.org/Bragg%27s_law",
+        "title": "IUCr Online Dictionary: Bragg's law",
+        "supports": "Diffraction angle versus wavelength and d spacing; no material assignment or literature numerical data.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "limitations": [
+      "No phase transition, crystallographic refinement, material identity or voltage-driven causality is demonstrated."
+    ]
+  },
+  "demo_inputs_sha256": {
+    "demo/diffraction.csv": "205f8e1f495eb7460f3dd119b86c4d1335cf918f5e187502fe8549e1f83dea31",
+    "demo/voltage.csv": "f5c81ffff0322235c1ea9fd1ed50d169f89eccb9925eb9fb0a6337b1bb1e35e1"
+  },
+  "config_demo_sha256": "df1eaf5c39589dc7bb5a477c105e8e55bb69ea78d1201e9e9c80e41dc1080584",
+  "model_sha256": "43ce986e731394b68b403bf087a471c9e58a9ea286f621aa99ad014dcda27c79",
+  "reference_sha256": {
+    "reference/figure.pdf": "029e2dab86daa440a4551cb45888c964c9a2b7adbdf665767551e6f7aa600de8",
+    "reference/figure.png": "7c705b424aaa7e436501fff4ff2a1fbe7818c8adaf1d0410ea0ef2017ab531f9",
+    "reference/figure.svg": "9a6ecaeb128cdb78304475111cba3ee681b899cd824c350bc7e3374c61439852"
+  },
+  "third_party_paper_data_included": false,
+  "DOI": null,
+  "license": "MIT; original code and generated tutorial assets only; does not license third-party papers"
+}

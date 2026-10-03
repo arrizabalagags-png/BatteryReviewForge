@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT/'skills/battery-review-figure/scripts'))
+sys.path.insert(0, str(ROOT/'skills/voltpeer-plot/scripts'))
 from batteryplot.layout import axes_mm, measure_layout
 from batteryplot.specialist import RECIPES, render_recipe
 
@@ -68,8 +68,12 @@ class PhysicalAndSpecialistTests(unittest.TestCase):
                 elif recipe=='gitt_pulse':
                     np.testing.assert_array_equal(a.lines[0].get_xdata(),b.lines[0].get_xdata())
                 elif recipe=='ionic_conductivity':
-                    np.testing.assert_allclose(b.lines[0].get_xdata(),1000/(a.lines[0].get_xdata()+273.15))
-                    np.testing.assert_allclose(b.lines[0].get_ydata(),np.log(a.lines[0].get_ydata()/1000))
+                    # Arrhenius observations remain scatter; compare the actual
+                    # PathCollection values rather than assuming a fitted line.
+                    self.assertFalse(b.lines)
+                    observed = b.collections[0].get_offsets()
+                    np.testing.assert_allclose(observed[:,0],1000/(a.lines[0].get_xdata()+273.15))
+                    np.testing.assert_allclose(observed[:,1],np.log(a.lines[0].get_ydata()/1000))
                 elif recipe=='raman_series':
                     np.testing.assert_array_equal(a.lines[1].get_ydata(),b.lines[1].get_ydata())
                 elif recipe=='cyclic_voltammetry':
@@ -82,7 +86,7 @@ class PhysicalAndSpecialistTests(unittest.TestCase):
             temp=Path(temp)
             with zipfile.ZipFile(ROOT/'docs/assets/showcase/BRF-demo-xps_components.zip') as z:
                 z.extractall(temp)
-            command=[sys.executable,str(ROOT/'skills/battery-review-figure/scripts/render_specialist.py'),
+            command=[sys.executable,str(ROOT/'skills/voltpeer-plot/scripts/render_specialist.py'),
                      '--recipe','xps_components','--input-folder',str(temp/'xps_components'),
                      '--output-dir',str(temp/'result')]
             result=subprocess.run(command,capture_output=True,text=True,encoding='utf-8')

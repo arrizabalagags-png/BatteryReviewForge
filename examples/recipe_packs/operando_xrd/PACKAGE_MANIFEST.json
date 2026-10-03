@@ -1,0 +1,114 @@
+{
+  "resource_id": "operando_xrd",
+  "version": "0.12.0",
+  "files": [
+    {
+      "path": "AGENT_GUIDE.md",
+      "sha256": "7bbb76da6425430e99c98663f25c00fb0764c68c2879e1d7546ab7753367cdb6"
+    },
+    {
+      "path": "checks.py",
+      "sha256": "91eec970bdc9b48d353283580b7967ea2fa419925b3048319647e4178e11ba97"
+    },
+    {
+      "path": "config.demo.json",
+      "sha256": "df1eaf5c39589dc7bb5a477c105e8e55bb69ea78d1201e9e9c80e41dc1080584"
+    },
+    {
+      "path": "config.real.example.json",
+      "sha256": "705982ceee8f59120721ccaba3b4deae37a3cf1cd6868976ded5b4c3fdde0f35"
+    },
+    {
+      "path": "demo/diffraction.csv",
+      "sha256": "205f8e1f495eb7460f3dd119b86c4d1335cf918f5e187502fe8549e1f83dea31"
+    },
+    {
+      "path": "demo/generate_data.py",
+      "sha256": "a7fbddf2db64d903b34a38dce407f40586e27a06e1d792ac380799c6cbb509b1"
+    },
+    {
+      "path": "demo/model.json",
+      "sha256": "43ce986e731394b68b403bf087a471c9e58a9ea286f621aa99ad014dcda27c79"
+    },
+    {
+      "path": "demo/voltage.csv",
+      "sha256": "f5c81ffff0322235c1ea9fd1ed50d169f89eccb9925eb9fb0a6337b1bb1e35e1"
+    },
+    {
+      "path": "input_contract.json",
+      "sha256": "b72b410ad0dc142999f240ae1ecb764414c7812b2a0d4a55c24330b1406baa06"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "8f4f64a4e2b245de1be63eff0dfe446ee456639c187864a507e8b7577d4dd8fb"
+    },
+    {
+      "path": "README.md",
+      "sha256": "a10f2c422a77d970c6d0035e1ed78c41c474a4cb2057d02fde2cef69226f166a"
+    },
+    {
+      "path": "reference/data_checks.json",
+      "sha256": "3354f1188a7e0443b9229dfe81aea0c34f938cc4e97b965b53035dda68d9784c"
+    },
+    {
+      "path": "reference/figure.pdf",
+      "sha256": "029e2dab86daa440a4551cb45888c964c9a2b7adbdf665767551e6f7aa600de8"
+    },
+    {
+      "path": "reference/figure.png",
+      "sha256": "7c705b424aaa7e436501fff4ff2a1fbe7818c8adaf1d0410ea0ef2017ab531f9"
+    },
+    {
+      "path": "reference/figure.svg",
+      "sha256": "9a6ecaeb128cdb78304475111cba3ee681b899cd824c350bc7e3374c61439852"
+    },
+    {
+      "path": "reference/metadata.json",
+      "sha256": "da0ec5714dfd6fa09c342f56cd7644fd176af2ca46917486300d2cb451e8b212"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "a0de43a3c7a7fd6729808dc4fa27a0264d649d2d79a648d71288a3a51b26ab7b"
+    },
+    {
+      "path": "sources.json",
+      "sha256": "a11424e25dadeee34e64610c254a61004c87fc9ac083cb3e9baf40054bce051e"
+    },
+    {
+      "path": "src/cli_runtime.py",
+      "sha256": "b0b7adc821a0dc706ac190cff20a0e2764ef59fb4da3fe873d558e79790d5370"
+    },
+    {
+      "path": "src/delivery_contract.py",
+      "sha256": "e0548e2c0c61c72bfb859d3ef42f5288437dc207d2a7e68a890205ff9ee35524"
+    },
+    {
+      "path": "src/font_coverage.py",
+      "sha256": "64bf74fc34cad79189bcdb4dc844f43a379dca1f3ca66de37fd1e00b7ec1b74f"
+    },
+    {
+      "path": "src/output_safety.py",
+      "sha256": "6f2b035179f83ae3fa25ea54a5d43c0cedf47ff5e0576daf979c3fb8fc0f11da"
+    },
+    {
+      "path": "src/plot.py",
+      "sha256": "eee85809e8cca27b8ce779bb701f419ac4c37f9446891a4893b7376b980c0ce4"
+    },
+    {
+      "path": "src/recipe_runtime.py",
+      "sha256": "ce9718eb7316dbb7bcd0d653a01b853cd80deb6f984d16b0076cdaacff9ee128"
+    },
+    {
+      "path": "src/renderer.py",
+      "sha256": "14712aa189d91bf83a9875e4c0b1c750776fdeb41bbb3323db10cf086e41f5a0"
+    },
+    {
+      "path": "src/share_bundle.py",
+      "sha256": "c9935aebac50e23fa3e55d19f4914662e3712d990eba80823f1f46ecc41094b8"
+    },
+    {
+      "path": "VERSION.json",
+      "sha256": "c4ed92ef11476d45248a8d69502cfa13477e95c58aa96e66f1da11e427a24c59"
+    }
+  ]
+}

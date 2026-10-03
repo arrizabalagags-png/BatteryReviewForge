@@ -27,5 +27,127 @@
     "default_template": false
   },
   "reproduce": "python render_specialist.py --recipe cyclic_voltammetry --input-folder cyclic_voltammetry --output-dir brf-output --style forge",
-  "creator": "BatteryReviewForge original synthetic model and drawing"
+  "creator": "BatteryReviewForge original synthetic model and drawing",
+  "generator_version": "1.6",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "phenomenological_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "v follows an ordered 2.8→4.4→2.8 V triangular sweep",
+      "g(v;mu,s)=exp(-0.5*((v-mu)/s)^2); amplitude=0.7*sqrt(scan_rate_mV_s)",
+      "i_forward=(amplitude*g(v;3.90+0.035*log10(rate/0.1),0.10)+0.015*rate)*sin(pi*(v-2.8)/1.6)^2",
+      "i_reverse=(-0.91*amplitude*g(v;3.66-0.025*log10(rate/0.1),0.115)-0.015*rate)*same_gate"
+    ],
+    "parameters": {
+      "scan_rates_mV_s": [
+        0.1,
+        0.2,
+        0.5,
+        1.0
+      ],
+      "reference_electrode": "Li/Li+",
+      "temperature_C": 25,
+      "voltage_window_V": [
+        2.8,
+        4.4
+      ],
+      "peak_amplitude_coefficient_mA": 0.7
+    },
+    "assumptions": [
+      "Illustrative separated oxidation/reduction peaks with rate-dependent shifts.",
+      "The endpoint gate is an explicit plotting fixture, not a diffusion solution."
+    ],
+    "references": [
+      {
+        "url": "https://www.gamry.com/electrochemistry-applications/cv-cyclic-voltammetry",
+        "title": "Gamry: cyclic voltammetry",
+        "supports": "Triangular acquisition order and the square-root scan-rate trend, not these phenomenological peak shapes.",
+        "scope": "model_definition_only"
+      },
+      {
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm",
+        "title": "NIST e-Handbook: normal distribution",
+        "supports": "The Gaussian mathematical line shape only; no material peak assignment or numeric data.",
+        "scope": "model_definition_only"
+      }
+    ],
+    "limitations": [
+      "No reversible-couple kinetic fit, diffusion coefficient, active concentration or charge-balance inference.",
+      "A sqrt(rate) amplitude trend alone does not establish diffusion control."
+    ],
+    "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "0.1",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 799
+        },
+        {
+          "label": "0.2",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 799
+        },
+        {
+          "label": "0.5",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 799
+        },
+        {
+          "label": "1",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 799
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "0.1",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 799
+        },
+        {
+          "label": "0.2",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 799
+        },
+        {
+          "label": "0.5",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 799
+        },
+        {
+          "label": "1",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 799
+        }
+      ]
+    }
+  ]
 }

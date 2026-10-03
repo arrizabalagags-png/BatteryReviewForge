@@ -1,0 +1,483 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "mechanism ZIP CRC",
+      "status": "PASS"
+    },
+    {
+      "name": "CLI C:\\Users\\郭硕\\AppData\\Local\\Temp\\voltpeer-v012-downloads-1ehl8dl9\\first.",
+      "status": "PASS"
+    },
+    {
+      "name": "standalone Skill yields current native artwork",
+      "status": "PASS"
+    },
+    {
+      "name": "CLI C:\\Users\\郭硕\\AppData\\Local\\Temp\\voltpeer-v012-downloads-1ehl8dl9\\first.",
+      "status": "PASS"
+    },
+    {
+      "name": "existing SVG preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "CLI C:\\Users\\郭硕\\AppData\\Local\\Temp\\voltpeer-v012-downloads-1ehl8dl9\\transp",
+      "status": "PASS"
+    },
+    {
+      "name": "editable native artwork, no raster",
+      "status": "PASS"
+    },
+    {
+      "name": "custom colours retained",
+      "status": "PASS"
+    },
+    {
+      "name": "CLI C:\\Users\\郭硕\\AppData\\Local\\Temp\\voltpeer-v012-downloads-1ehl8dl9\\wrong-",
+      "status": "PASS"
+    },
+    {
+      "name": "unsupported lithium-specific scene cannot be relabelled",
+      "status": "PASS"
+    },
+    {
+      "name": "starter published SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "starter ZIP CRC",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest AGENT_GUIDE.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest demo/coulombic_efficiency.csv",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest demo/coulombic_efficiency.json",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest demo/cycle_retention.csv",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest demo/cycle_retention.json",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest demo/full_cell_cycling.csv",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest demo/full_cell_cycling.json",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest demo/half_cell_cycling.csv",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest demo/half_cell_cycling.json",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest demo/nyquist.csv",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest demo/nyquist.json",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest demo/rate_capability.csv",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest demo/rate_capability.json",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest demo/symmetric_cell_voltage.csv",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest demo/symmetric_cell_voltage.json",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest demo/tofsims_depth.csv",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest demo/tofsims_depth.json",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest demo/tofsims_map.csv",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest demo/tofsims_map.json",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest demo/voltage_capacity.csv",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest demo/voltage_capacity.json",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest DEMO_INDEX.json",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest DEMO_MODELS.json",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest HOSTS.json",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest INPUT_GUIDE.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest LICENSE",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest README.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/agents/openai.yaml",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/assets/corpus_evidence.json",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/assets/figure_theme.json",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/assets/original/battery-lab-primitives.svg",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/assets/original/battery-morphology-primitives.svg",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/assets/original/cell-boundaries.svg",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/assets/original/electrolyte-evidence-chain.svg",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/assets/original/review-wheel.svg",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/assets/SKILL_RELEASE.json",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/assets/style-preview.png",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/assets/style-preview.svg",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/assets/templates/FIGURE_LEDGER.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/assets/templates/TASK_STATE.json",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/examples/demo_figures.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/examples/demo_uploaded.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/ADVANCED_FIGURE_ATLAS.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/ASSET_PATTERN_ATLAS.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/BATTERY_COMMONS.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/BATTERY_FIGURE_ATLAS.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/BATTERY_FIGURE_GRAMMAR.json",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/BATTERY_FIGURE_GRAMMAR.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/CORPUS_RECIPES.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/DELIVERY.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/ELECTROCHEM_RECIPES.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/EXECUTION.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/FIGURE_ROUTER.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/JOURNAL_FIGURE_SPEC.json",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/PANEL_EVIDENCE.json",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/PHYSICAL_LAYOUT.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/PLOT_QA_CHECKLIST.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/PLOT_STARTER.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/PYTHON_PLOTTING.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/RESOURCE_LIBRARY.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/shared/voltpeer-assemble/references/COMPOSITION.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/shared/voltpeer-assemble/references/EDITORIAL_COMPOSITION.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/shared/voltpeer-assemble/references/LAYOUT_RECIPES.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/SHOWCASE_QA.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/SHOWCASE_RECIPES.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/SHOWCASE_SPEC.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/SPECIALIST_RECIPES.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/STYLE_PRESETS.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/SVG_HANDOFF.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/SYNTHETIC_DATA.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/UPLOADED_DATA.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/references/VISUAL_FINISH.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/requirements.txt",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/asset_inventory.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/audit_pdf_fonts.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/batteryplot/__init__.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/batteryplot/battery_charts.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/batteryplot/charts.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/batteryplot/corpus.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/batteryplot/data.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/batteryplot/electrochem.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/batteryplot/export.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/batteryplot/ingest.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/batteryplot/layout.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/batteryplot/qa.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/batteryplot/specialist.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/batteryplot/specification.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/batteryplot/style.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/batteryplot/tofsims.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/check_task_state.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/cli_runtime.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/community_registry.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/deliver.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/delivery_contract.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/output_safety.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/plot_uploaded.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/preview_styles.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/render_specialist.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/render_template.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/scripts/share_bundle.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest skills/voltpeer-plot/SKILL.md",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest start.py",
+      "status": "PASS"
+    },
+    {
+      "name": "starter manifest set complete",
+      "status": "PASS"
+    },
+    {
+      "name": "CLI check",
+      "status": "PASS"
+    },
+    {
+      "name": "CLI png",
+      "status": "PASS"
+    },
+    {
+      "name": "starter generates actual figure",
+      "status": "PASS"
+    },
+    {
+      "name": "starter preserves bundled input CSV",
+      "status": "PASS"
+    }
+  ],
+  "count": 119,
+  "scope": "Extracted current Skill/Starter actual standard-library and Python runtime, no AI model or native host discovery"
+}

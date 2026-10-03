@@ -1,0 +1,20 @@
+test_actual_artists_raw_values_and_distinct_colors (test_plot_starter.PlotStarterTests.test_actual_artists_raw_values_and_distinct_colors) ... ok
+test_all_ten_extracted_demo_exports (test_plot_starter.PlotStarterTests.test_all_ten_extracted_demo_exports) ... ok
+test_archive_self_contained_one_runtime (test_plot_starter.PlotStarterTests.test_archive_self_contained_one_runtime) ... ok
+test_author_anomaly_is_preserved_outside_public_demo (test_plot_starter.PlotStarterTests.test_author_anomaly_is_preserved_outside_public_demo) ... ok
+test_author_delivery_versions_and_integrity_failure (test_plot_starter.PlotStarterTests.test_author_delivery_versions_and_integrity_failure) ... ok
+test_bundled_demo_is_not_author_fallback (test_plot_starter.PlotStarterTests.test_bundled_demo_is_not_author_fallback) ... ok
+test_changed_package_is_rejected_before_install (test_plot_starter.PlotStarterTests.test_changed_package_is_rejected_before_install) ... ok
+test_dsh_and_codex_install_same_source_no_overwrite (test_plot_starter.PlotStarterTests.test_dsh_and_codex_install_same_source_no_overwrite) ... ok
+test_inspect_styles_and_confirmed_nonstandard_mapping (test_plot_starter.PlotStarterTests.test_inspect_styles_and_confirmed_nonstandard_mapping) ... ok
+test_missing_scientific_fields_stop_without_modifying_input (test_plot_starter.PlotStarterTests.test_missing_scientific_fields_stop_without_modifying_input) ... ok
+test_packager_does_not_replace_output_directory_file (test_plot_starter.PlotStarterTests.test_packager_does_not_replace_output_directory_file) ... ok
+test_public_demo_charge_and_source_relationships (test_plot_starter.PlotStarterTests.test_public_demo_charge_and_source_relationships) ... ok
+test_setup_owned_isolated_environment_without_key (test_plot_starter.PlotStarterTests.test_setup_owned_isolated_environment_without_key) ... ok
+test_style_inheritance_explicit_change_and_unknown_style (test_plot_starter.PlotStarterTests.test_style_inheritance_explicit_change_and_unknown_style) ... ok
+test_unknown_metadata_and_nr_nv_stop (test_plot_starter.PlotStarterTests.test_unknown_metadata_and_nr_nv_stop) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 292.721s
+
+OK

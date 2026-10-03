@@ -1,0 +1,3 @@
+用我的源数据画这类图。先确认物理量、单位、样品、测试工况、CE定义和保持率参考圈/容量；逐圈CE/容量/保持率用散点，不加连线。连续电压/光谱用实线，保留四边框。不猜缺项，不平滑，不改原值。示例是教学合成数据。
+
+Use the source and CSV components to redraw the existing teaching inputs with render_existing.py into a new output folder. Before adapting author data, confirm quantities, units, samples, test conditions, the CE definition and retention reference cycle/capacity. Cycle CE/capacity/retention use points without connecting lines; continuous voltage/spectra use solid unmarked traces. Keep four borders and all original values. List real missing requirements; do not guess, smooth or fabricate. This display is the user preference, not a universal journal mandate.

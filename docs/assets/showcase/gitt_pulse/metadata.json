@@ -5,11 +5,14 @@
   "source_files": [
     "data.csv"
   ],
-  "test_conditions": "Invented charging pulse schedule: 0.1 mA for 6 min, 24 min rest, 12 pulses, 25 °C. Relaxation model only; no diffusion coefficient or equilibrium claim.",
+  "test_conditions": "Original RC charging model: 0.1 mA for 6 min, 24 min rest, 12 pulses, 25 °C; 0.12 mAh passed. Recorded OCV is a known model state, not a measured equilibrium or diffusion fit.",
   "variables_and_units": [
     "time_min",
     "voltage_V",
-    "current_mA"
+    "current_mA",
+    "passed_charge_mAh",
+    "equilibrium_model_V",
+    "rc_polarization_V"
   ],
   "render_options": {
     "pulse_min": 6,
@@ -24,5 +27,82 @@
     "default_template": false
   },
   "reproduce": "python render_specialist.py --recipe gitt_pulse --input-folder gitt_pulse --output-dir brf-output --style forge",
-  "creator": "BatteryReviewForge original synthetic model and drawing"
+  "creator": "BatteryReviewForge original synthetic model and drawing",
+  "generator_version": "1.6",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "Q_passed_mAh=0.1*on_time_min/60",
+      "du/dt=(Rp*I-u)/tau; exact interval update u_next=u*exp(-dt/tau)+Rp*I*(1-exp(-dt/tau))",
+      "Ueq=3.22+0.011*on_time_min+0.03*tanh((on_time_min-38)/10)",
+      "V_cell=Ueq+R0*I+u; I is in A in resistance terms"
+    ],
+    "parameters": {
+      "pulse_current_mA": 0.1,
+      "pulse_min": 6,
+      "rest_min": 24,
+      "pulses": 12,
+      "R0_ohm": 340,
+      "Rp_ohm": 850,
+      "tau_s": 300,
+      "sampling_interval_s": 12,
+      "temperature_C": 25,
+      "total_charge_mAh": 0.12
+    },
+    "assumptions": [
+      "One linear RC polarization mode plus an original monotonic OCV function.",
+      "Current is held constant on each recorded time interval and the RC state carries across switches."
+    ],
+    "references": [
+      {
+        "url": "https://www.gamry.com/application-notes/EIS/basics-of-electrochemical-impedance-spectroscopy/",
+        "title": "Gamry: electrochemical impedance spectroscopy",
+        "supports": "Ideal resistor/capacitor element definitions; original OCV and pulse parameters.",
+        "scope": "model_definition_only"
+      }
+    ],
+    "limitations": [
+      "A GITT schedule example, not a Fickian diffusion solution or a fitted diffusion coefficient.",
+      "A finite rest does not prove equilibrium; no geometry or material identity is inferred."
+    ],
+    "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "_child0",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 1801
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "_child0",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 1801
+        }
+      ]
+    }
+  ]
 }

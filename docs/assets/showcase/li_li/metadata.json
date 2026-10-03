@@ -2,7 +2,7 @@
   "data_status": "synthetic_demo",
   "not_experimental_data": true,
   "random_seed": 20260923,
-  "generator_version": "1.1",
+  "generator_version": "1.6",
   "figure_grammar_id": "li_li_symmetric + linked_zoom",
   "journal_preset": "journal_neutral_180mm",
   "variables_and_units": {
@@ -10,14 +10,121 @@
     "y": "symmetric-cell voltage (mV)",
     "linked": "zoom uses the same time series"
   },
-  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
+  "sample_identity": "A/B are local teaching-model labels, not one electrolyte across unlike techniques; SIM IDs are invented records, never citations.",
   "test_conditions": "Illustrative Li||Li; ±1 mA cm−2; 1 mAh cm−2 per half-cycle; no rest; 25 °C.",
   "source_files": [
     "data.csv"
   ],
   "creator": "BatteryReviewForge original code",
   "review": {
-    "science": "models and data-to-panel links inspected; no experimental interpretation",
-    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+    "science": "Declared model equations/units/linked-file relations have scoped automated tests; no experimental certification.",
+    "display": "Actual line/frame/alignment checks only; independent visual and author review remain pending."
+  },
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "Electrolyte A",
+      "points": 10001,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 0,
+      "label": "Electrolyte B",
+      "points": 10001,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 1,
+      "label": "_child0",
+      "points": 351,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 1,
+      "label": "_child1",
+      "points": 351,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    }
+  ],
+  "curve_style_check": "pass: actual rendered Line2D artists are solid and have no markers",
+  "data_frame_check": "pass: actual data axes show top/right/bottom/left spines",
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    }
+  ],
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "parameter_origin": "explicit teaching choices; not reported measurements",
+    "validation_scope": "Declared teaching model; no experimental/material certification",
+    "equations": [
+      "T_half=Q_half/abs(j); j alternates sign each T_half",
+      "d eta/dt=(j*Rp-eta)/tau; V=j*Rs+eta",
+      "eta(t)=j*Rp+(eta_start-j*Rp)*exp(-t/tau); Qpassed=integral(j dt)"
+    ],
+    "assumptions": [
+      "Zero open-circuit offset; constant positive passive linear terminal RC parameters.",
+      "Applied current is a right-continuous zero-order hold; RC state stays continuous at switching.",
+      "External charge is not a lithium-deposition mass measurement."
+    ],
+    "parameters": {
+      "half_cycles": 200,
+      "j_mA_cm2": 1,
+      "Q_half_mAh_cm2": 1,
+      "A": {
+        "Rs_ohm_cm2": 10,
+        "Rp_ohm_cm2": 24,
+        "tau_h": 0.08
+      },
+      "B": {
+        "Rs_ohm_cm2": 12,
+        "Rp_ohm_cm2": 35,
+        "tau_h": 0.12
+      }
+    },
+    "references": [
+      {
+        "url": "https://www.gamry.com/application-notes/EIS/basics-of-electrochemical-impedance-spectroscopy/",
+        "title": "Basics of Electrochemical Impedance Spectroscopy",
+        "supports": "Ohm law, capacitor differential relation and passive equivalent circuits; values are not measured.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.nature.com/articles/s41560-020-0648-z",
+        "title": "Understanding and applying coulombic efficiency in lithium metal batteries",
+        "supports": "Cell configuration and plating/stripping protocol boundaries; no symmetric trace certifies CE or full-cell stability.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "limitations": [
+      "No SEI, dendrite, short circuit, transfer mass, lifetime or CE claim follows from this ideal terminal RC trace."
+    ]
   }
 }

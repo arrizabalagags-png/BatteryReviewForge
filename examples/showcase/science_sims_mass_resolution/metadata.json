@@ -1,0 +1,175 @@
+{
+  "id": "science_sims_mass_resolution",
+  "title": "质量分辨率与离子峰重叠",
+  "domain": "general",
+  "type": "demo",
+  "license": "MIT",
+  "scope": "Original analytic teaching record. Source references support the declared method/derivation only, never this invented parameter set or measurements.",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "source_files": [
+    "data.csv",
+    "model.json"
+  ],
+  "test_conditions": "No acquired cell or material. Independently declared analytic parameters, assumptions and units in scientific_basis.",
+  "variables_and_units": {
+    "1": [
+      "Mass-to-charge ratio (u/e)",
+      "Ion signal (a.u.)"
+    ]
+  },
+  "creator": "VoltPeer",
+  "generator_version": "1.0.0",
+  "reproduce": "python render_existing.py --output result-01",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "relationship": "Resolving power controls overlap of two hypothetical mass peaks.",
+    "equations": [
+      "sigma=m/(2.355*R); S=sum A exp[-(m-mi)²/(2sigma²)]"
+    ],
+    "parameters": {
+      "m_over_z_centers": [
+        28,
+        28.05
+      ],
+      "resolving_power": [
+        500,
+        1500,
+        5000
+      ]
+    },
+    "assumptions": [
+      "Independently declared parameters; no experimental or material fit.",
+      "Illustrative mass-to-charge peaks; no species assignment or measured resolving power."
+    ],
+    "limitations": [
+      "Illustrative mass-to-charge peaks; no species assignment or measured resolving power.",
+      "A numerical/model QA pass does not validate author data or a physical mechanism."
+    ],
+    "constraints": [
+      "Finite numerical values and explicit physical units.",
+      "Continuous plotted curves are solid without markers; data axes retain four borders.",
+      "All plotted responses are nonnegative."
+    ],
+    "references": [
+      {
+        "title": "NIST/NBS: Secondary ion mass spectrometry",
+        "doi": "10.6028/NBS.SP.427",
+        "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nbsspecialpublication427.pdf",
+        "figure_panel": "Secondary ion yield and matrix sensitivity; calibration and sputtering limitations",
+        "supports": "Resolving power controls overlap of two hypothetical mass peaks.",
+        "checked_at": "2026-10-03",
+        "scope": "Method/equation/caveat reference only. Original analytic teaching inputs; no copied paper points, pixels or experimental inference."
+      }
+    ],
+    "validation": {
+      "finite": true,
+      "nonnegative": true,
+      "unit_interval": false
+    },
+    "validation_scope": "Source method/principle and explicitly derived restricted teaching specialization checked; equation, units and numerical constraints only. No copied paper measurements, material parameters, experimental fit or mechanism certification."
+  },
+  "review": {
+    "science": "Equation/units/numerical constraints and source scope checked. No author-data validation.",
+    "display": "Actual solid/unmarked curve artists, four-frame spines, legend/title and text bounds checked."
+  },
+  "reference": {
+    "doi": "10.6028/NBS.SP.427",
+    "figure_panel": "Secondary ion yield and matrix sensitivity; calibration and sputtering limitations",
+    "observation": "Resolving power controls overlap of two hypothetical mass peaks.",
+    "review_scope": "Method/equation/caveat reference only. Original analytic teaching inputs; no copied paper points, pixels or experimental inference.",
+    "default_template": false
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "R = 500",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 601
+        },
+        {
+          "label": "R = 1500",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 601
+        },
+        {
+          "label": "R = 5000",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 601
+        }
+      ]
+    }
+  ],
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "R = 500",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 601
+        },
+        {
+          "label": "R = 1500",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 601
+        },
+        {
+          "label": "R = 5000",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 601
+        }
+      ]
+    }
+  ],
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "R = 500",
+      "points": 601,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#287d8e"
+    },
+    {
+      "panel_index": 0,
+      "label": "R = 1500",
+      "points": 601,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#ba5574"
+    },
+    {
+      "panel_index": 0,
+      "label": "R = 5000",
+      "points": 601,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#4868a8"
+    }
+  ],
+  "curve_style_check": "Actual Line2D artists: all continuous curves solid and unmarked.",
+  "data_frame_check": "Actual data axes: all four spines visible."
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "resource_id": "operando_xrd",
+  "version": "0.12.0",
+  "updated": "2026-10-01",
+  "status": "Beta",
+  "original_code_license": "MIT",
+  "generated_demo": true,
+  "reference_image": "reference/figure.png",
+  "author_data_supported": true,
+  "derived_from_resource_id": "operando_xrd",
+  "source_repository": "https://github.com/arrizabalagags-png/Voltpeer-skills",
+  "baseline_commit": "dfd46fcb4a3255b60826de8a4c721963adc4ff02",
+  "source_state": "local_unpublished_revision",
+  "model_evals": {
+    "deepseek-flash": "NOT_RUN",
+    "deepseek-v4-pro": "NOT_RUN"
+  },
+  "native_desktop_discovery": "NOT_RUN",
+  "demo_sha256": {
+    "demo/diffraction.csv": "205f8e1f495eb7460f3dd119b86c4d1335cf918f5e187502fe8549e1f83dea31",
+    "demo/model.json": "43ce986e731394b68b403bf087a471c9e58a9ea286f621aa99ad014dcda27c79",
+    "demo/voltage.csv": "f5c81ffff0322235c1ea9fd1ed50d169f89eccb9925eb9fb0a6337b1bb1e35e1"
+  }
+}

@@ -63,7 +63,7 @@
     "Same supplied LSV traces in full and zoom views; no onset threshold or electrochemical window inferred"
   ],
   "calculations": {},
-  "test_conditions": "Synthetic Li||Al-like oxidative sweep at nominal 25 °C and 0.1 mV/s; all current densities and turn-up positions invented. No onset or stability-window determination.",
+  "test_conditions": "Original one-way anodic exponential response, nominal 25 °C, 0.1 mV/s, vs Li/Li+. Negligible reverse reaction/depletion assumed; no oxidation-onset or stability-window determination.",
   "data_status": "synthetic_demo",
   "source_files": [
     "data.csv"
@@ -76,5 +76,65 @@
     "observation": "Shared-axis electrolyte LSV traces; synthetic current/voltage values are not published results.",
     "review_scope": "Original PDF figure and caption visually checked; no numerical values or artwork copied",
     "default_template": false
-  }
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 450
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 450
+        },
+        {
+          "label": "C",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 450
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 450
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 450
+        },
+        {
+          "label": "C",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 450
+        }
+      ]
+    }
+  ]
 }

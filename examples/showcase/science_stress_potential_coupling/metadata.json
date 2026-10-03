@@ -1,0 +1,129 @@
+{
+  "id": "science_stress_potential_coupling",
+  "title": "静水应力与平衡电位",
+  "domain": "general",
+  "type": "demo",
+  "license": "MIT",
+  "scope": "Original analytic teaching record. Source references support the declared method/derivation only, never this invented parameter set or measurements.",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "source_files": [
+    "data.csv",
+    "model.json"
+  ],
+  "test_conditions": "No acquired cell or material. Independently declared analytic parameters, assumptions and units in scientific_basis.",
+  "variables_and_units": {
+    "1": [
+      "Hydrostatic stress (MPa; tensile +)",
+      "Equilibrium potential shift (mV)"
+    ]
+  },
+  "creator": "VoltPeer",
+  "generator_version": "1.0.0",
+  "reproduce": "python render_existing.py --output result-01",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "relationship": "At fixed composition and electrolyte activity, tensile-positive hydrostatic stress lowers the inserted neutral Li chemical potential and raises the Li-referenced equilibrium electrode potential.",
+    "equations": [
+      "sigma_h=tr(sigma)/3; Delta_mu=-Omega*sigma_h; Delta_U=-Delta_mu/F=+Omega*sigma_h/F"
+    ],
+    "parameters": {
+      "Omega_m3_mol": 3e-06,
+      "sign": "sigma_h positive in tension, negative in compression",
+      "fixed": "composition and electrolyte activity",
+      "approximation": "first-order isotropic small-strain coupling; composition-dependent elastic-compliance term neglected"
+    },
+    "assumptions": [
+      "Independently declared parameters; no experimental or material fit.",
+      "Hydrostatic specialization of the first-order Larche-Cahn stress term. Omega=3 cm³/mol is an independently assumed teaching value, not a Si fit or the paper biaxial-film coefficient. Fixed composition/activity, small-strain isotropic thermodynamics; excludes elastic-compliance derivatives, finite-strain corrections, hysteresis and kinetic overpotential."
+    ],
+    "limitations": [
+      "Hydrostatic specialization of the first-order Larche-Cahn stress term. Omega=3 cm³/mol is an independently assumed teaching value, not a Si fit or the paper biaxial-film coefficient. Fixed composition/activity, small-strain isotropic thermodynamics; excludes elastic-compliance derivatives, finite-strain corrections, hysteresis and kinetic overpotential.",
+      "A numerical/model QA pass does not validate author data or a physical mechanism."
+    ],
+    "constraints": [
+      "Finite numerical values and explicit physical units.",
+      "Continuous plotted curves are solid without markers; data axes retain four borders."
+    ],
+    "references": [
+      {
+        "title": "Sethuraman et al.: In Situ Measurements of Stress-Potential Coupling in Lithiated Silicon, JES 157 A1253–A1261 (2010)",
+        "doi": "10.1149/1.3489378",
+        "url": "https://arxiv.org/pdf/1108.0372",
+        "figure_panel": "Eq. 1: negative first-order stress term in chemical potential; Eqs. 8–9 and 14: positive equilibrium-potential response to tensile stress. Hydrostatic specialization sigma_h=tr(sigma)/3, Omega=vSi*eta; the paper thin-film coefficient and measured values are not reused.",
+        "supports": "At fixed composition and electrolyte activity, tensile-positive hydrostatic stress lowers the inserted neutral Li chemical potential and raises the Li-referenced equilibrium electrode potential.",
+        "checked_at": "2026-10-03",
+        "scope": "Method/equation/caveat reference only. Original analytic teaching inputs; no copied paper points, pixels or experimental inference."
+      }
+    ],
+    "validation": {
+      "finite": true,
+      "nonnegative": false,
+      "unit_interval": false
+    },
+    "validation_scope": "Source method/principle and explicitly derived restricted teaching specialization checked; equation, units and numerical constraints only. No copied paper measurements, material parameters, experimental fit or mechanism certification."
+  },
+  "review": {
+    "science": "Equation/units/numerical constraints and source scope checked. No author-data validation.",
+    "display": "Actual solid/unmarked curve artists, four-frame spines, legend/title and text bounds checked."
+  },
+  "reference": {
+    "doi": "10.1149/1.3489378",
+    "figure_panel": "Eq. 1: negative first-order stress term in chemical potential; Eqs. 8–9 and 14: positive equilibrium-potential response to tensile stress. Hydrostatic specialization sigma_h=tr(sigma)/3, Omega=vSi*eta; the paper thin-film coefficient and measured values are not reused.",
+    "observation": "At fixed composition and electrolyte activity, tensile-positive hydrostatic stress lowers the inserted neutral Li chemical potential and raises the Li-referenced equilibrium electrode potential.",
+    "review_scope": "Method/equation/caveat reference only. Original analytic teaching inputs; no copied paper points, pixels or experimental inference.",
+    "default_template": false
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Ω = 3 cm³/mol",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        }
+      ]
+    }
+  ],
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Ω = 3 cm³/mol",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        }
+      ]
+    }
+  ],
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "Ω = 3 cm³/mol",
+      "points": 241,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#287d8e"
+    }
+  ],
+  "curve_style_check": "Actual Line2D artists: all continuous curves solid and unmarked.",
+  "data_frame_check": "Actual data axes: all four spines visible."
+}

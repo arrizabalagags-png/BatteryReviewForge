@@ -2,7 +2,7 @@
   "data_status": "synthetic_demo",
   "not_experimental_data": true,
   "random_seed": 20260923,
-  "generator_version": "1.1",
+  "generator_version": "1.6",
   "figure_grammar_id": "li_cu_cycle_ce + li_cu_voltage_profile",
   "journal_preset": "journal_neutral_180mm",
   "variables_and_units": {
@@ -10,7 +10,7 @@
     "y": "cycle-by-cycle CE (%)",
     "linked": "plating/stripping voltage (V) vs capacity (mAh cm−2)"
   },
-  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
+  "sample_identity": "A/B are local teaching-model labels, not one electrolyte across unlike techniques; SIM IDs are invented records, never citations.",
   "test_conditions": "Illustrative Li||Cu repeated plating/stripping; 1 mA cm−2; 1 mAh cm−2 plated; 1 V stripping cutoff; 25 °C.",
   "source_files": [
     "data.csv",
@@ -18,7 +18,119 @@
   ],
   "creator": "BatteryReviewForge original code",
   "review": {
-    "science": "models and data-to-panel links inspected; no experimental interpretation",
-    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+    "science": "Declared model equations/units/linked-file relations have scoped automated tests; no experimental certification.",
+    "display": "Actual line/frame/alignment checks only; independent visual and author review remain pending."
+  },
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "Electrolyte A",
+      "points": 300,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 0,
+      "label": "Electrolyte B",
+      "points": 300,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 1,
+      "label": "A · 1",
+      "points": 100,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#7396b5"
+    },
+    {
+      "panel_index": 1,
+      "label": "A · 300",
+      "points": 100,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 1,
+      "label": "B · 1",
+      "points": 100,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#885369"
+    },
+    {
+      "panel_index": 1,
+      "label": "B · 300",
+      "points": 100,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    }
+  ],
+  "curve_style_check": "pass: actual rendered Line2D artists are solid and have no markers",
+  "data_frame_check": "pass: actual data axes show top/right/bottom/left spines",
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    }
+  ],
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "phenomenological_model",
+    "data_origin": "original_synthetic",
+    "parameter_origin": "self-chosen teaching values; never paper measurements",
+    "validation_scope": "Declared teaching model; no experimental/material certification",
+    "equations": [
+      "CE=100*Qstrip/Qplate; Qplate=abs(jplate)*tplate; Qstrip=abs(jstrip)*tstrip",
+      "eta_A=0.9945-0.012*exp(-(n-1)/8)-0.0008*(n/300)^2",
+      "eta_B=0.991-0.018*exp(-(n-1)/9)-0.004*max((n-218)/82,0)^1.5; eta_B(n=264)-=0.0047",
+      "Vstrip=b+(1-b)*f^12; b=0.045+sample_offset+0.006*n/300; end Vstrip=1 V"
+    ],
+    "assumptions": [
+      "Chosen recoverable-charge fractions; excess Li counterelectrode so CE is not full-cell retention.",
+      "Negative applied current is plating; positive is stripping; cutoff is reached at the CE-derived endpoint.",
+      "Voltage is a display relation, not a fitted nucleation, SEI or depletion mechanism."
+    ],
+    "parameters": {
+      "j_mA_cm2": 1,
+      "Qplate_mAh_cm2": 1,
+      "cutoff_V": 1,
+      "cycles": 300,
+      "sample_offset_V": {
+        "A": 0,
+        "B": 0.02
+      }
+    },
+    "references": [
+      {
+        "url": "https://www.nature.com/articles/s41560-020-0648-z",
+        "title": "Understanding and applying coulombic efficiency in lithium metal batteries",
+        "supports": "CE charge accounting and protocol/cell-configuration boundaries; not the source of demo numbers.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "limitations": [
+      "Cannot infer dead Li versus electrolyte consumption, dendrites, full-cell life or a material benefit."
+    ]
   }
 }

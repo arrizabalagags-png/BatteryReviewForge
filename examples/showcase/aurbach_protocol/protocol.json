@@ -1,0 +1,353 @@
+{
+  "reservoir_plate_mAh_cm2": 2.0,
+  "partial_strip_mAh_cm2": 0.25,
+  "partial_plate_mAh_cm2": 0.25,
+  "partial_cycles": 10,
+  "final_strip_mAh_cm2": 1.9775000000000003,
+  "CE_reservoir_demo_pct": 99.5,
+  "final_active_inventory_mAh_cm2": 0.0,
+  "final_trapped_inventory_mAh_cm2": 0.05250000000000005,
+  "all_plated_mAh_cm2": 5.5,
+  "all_stripped_mAh_cm2": 5.4475,
+  "excluded_formation": true,
+  "stage_intervals": [
+    {
+      "stage": "formation plate",
+      "start_h": 0.0,
+      "end_h": 2.0,
+      "current_mA_cm2": -0.5,
+      "passed_mAh_cm2": 1.0,
+      "deposit_recovery": 0.97,
+      "active_before_mAh_cm2": 0.0,
+      "trapped_before_mAh_cm2": 0.0,
+      "active_after_mAh_cm2": 0.97,
+      "trapped_after_mAh_cm2": 0.030000000000000027
+    },
+    {
+      "stage": "formation strip",
+      "start_h": 2.0,
+      "end_h": 3.94,
+      "current_mA_cm2": 0.5,
+      "passed_mAh_cm2": 0.97,
+      "deposit_recovery": null,
+      "active_before_mAh_cm2": 0.97,
+      "trapped_before_mAh_cm2": 0.030000000000000027,
+      "active_after_mAh_cm2": 0.0,
+      "trapped_after_mAh_cm2": 0.030000000000000027
+    },
+    {
+      "stage": "reservoir plate",
+      "start_h": 3.94,
+      "end_h": 7.9399999999999995,
+      "current_mA_cm2": -0.5,
+      "passed_mAh_cm2": 2.0,
+      "deposit_recovery": 0.995,
+      "active_before_mAh_cm2": 0.0,
+      "trapped_before_mAh_cm2": 0.030000000000000027,
+      "active_after_mAh_cm2": 1.99,
+      "trapped_after_mAh_cm2": 0.040000000000000036
+    },
+    {
+      "stage": "partial cycles",
+      "start_h": 7.9399999999999995,
+      "end_h": 8.44,
+      "current_mA_cm2": 0.5,
+      "passed_mAh_cm2": 0.25,
+      "deposit_recovery": null,
+      "active_before_mAh_cm2": 1.99,
+      "trapped_before_mAh_cm2": 0.040000000000000036,
+      "active_after_mAh_cm2": 1.74,
+      "trapped_after_mAh_cm2": 0.040000000000000036
+    },
+    {
+      "stage": "partial cycles",
+      "start_h": 8.44,
+      "end_h": 8.94,
+      "current_mA_cm2": -0.5,
+      "passed_mAh_cm2": 0.25,
+      "deposit_recovery": 0.995,
+      "active_before_mAh_cm2": 1.74,
+      "trapped_before_mAh_cm2": 0.040000000000000036,
+      "active_after_mAh_cm2": 1.98875,
+      "trapped_after_mAh_cm2": 0.04125000000000004
+    },
+    {
+      "stage": "partial cycles",
+      "start_h": 8.94,
+      "end_h": 9.44,
+      "current_mA_cm2": 0.5,
+      "passed_mAh_cm2": 0.25,
+      "deposit_recovery": null,
+      "active_before_mAh_cm2": 1.98875,
+      "trapped_before_mAh_cm2": 0.04125000000000004,
+      "active_after_mAh_cm2": 1.73875,
+      "trapped_after_mAh_cm2": 0.04125000000000004
+    },
+    {
+      "stage": "partial cycles",
+      "start_h": 9.44,
+      "end_h": 9.94,
+      "current_mA_cm2": -0.5,
+      "passed_mAh_cm2": 0.25,
+      "deposit_recovery": 0.995,
+      "active_before_mAh_cm2": 1.73875,
+      "trapped_before_mAh_cm2": 0.04125000000000004,
+      "active_after_mAh_cm2": 1.9875,
+      "trapped_after_mAh_cm2": 0.04250000000000004
+    },
+    {
+      "stage": "partial cycles",
+      "start_h": 9.94,
+      "end_h": 10.44,
+      "current_mA_cm2": 0.5,
+      "passed_mAh_cm2": 0.25,
+      "deposit_recovery": null,
+      "active_before_mAh_cm2": 1.9875,
+      "trapped_before_mAh_cm2": 0.04250000000000004,
+      "active_after_mAh_cm2": 1.7375,
+      "trapped_after_mAh_cm2": 0.04250000000000004
+    },
+    {
+      "stage": "partial cycles",
+      "start_h": 10.44,
+      "end_h": 10.94,
+      "current_mA_cm2": -0.5,
+      "passed_mAh_cm2": 0.25,
+      "deposit_recovery": 0.995,
+      "active_before_mAh_cm2": 1.7375,
+      "trapped_before_mAh_cm2": 0.04250000000000004,
+      "active_after_mAh_cm2": 1.98625,
+      "trapped_after_mAh_cm2": 0.04375000000000004
+    },
+    {
+      "stage": "partial cycles",
+      "start_h": 10.94,
+      "end_h": 11.44,
+      "current_mA_cm2": 0.5,
+      "passed_mAh_cm2": 0.25,
+      "deposit_recovery": null,
+      "active_before_mAh_cm2": 1.98625,
+      "trapped_before_mAh_cm2": 0.04375000000000004,
+      "active_after_mAh_cm2": 1.73625,
+      "trapped_after_mAh_cm2": 0.04375000000000004
+    },
+    {
+      "stage": "partial cycles",
+      "start_h": 11.44,
+      "end_h": 11.94,
+      "current_mA_cm2": -0.5,
+      "passed_mAh_cm2": 0.25,
+      "deposit_recovery": 0.995,
+      "active_before_mAh_cm2": 1.73625,
+      "trapped_before_mAh_cm2": 0.04375000000000004,
+      "active_after_mAh_cm2": 1.985,
+      "trapped_after_mAh_cm2": 0.04500000000000004
+    },
+    {
+      "stage": "partial cycles",
+      "start_h": 11.94,
+      "end_h": 12.44,
+      "current_mA_cm2": 0.5,
+      "passed_mAh_cm2": 0.25,
+      "deposit_recovery": null,
+      "active_before_mAh_cm2": 1.985,
+      "trapped_before_mAh_cm2": 0.04500000000000004,
+      "active_after_mAh_cm2": 1.735,
+      "trapped_after_mAh_cm2": 0.04500000000000004
+    },
+    {
+      "stage": "partial cycles",
+      "start_h": 12.44,
+      "end_h": 12.94,
+      "current_mA_cm2": -0.5,
+      "passed_mAh_cm2": 0.25,
+      "deposit_recovery": 0.995,
+      "active_before_mAh_cm2": 1.735,
+      "trapped_before_mAh_cm2": 0.04500000000000004,
+      "active_after_mAh_cm2": 1.9837500000000001,
+      "trapped_after_mAh_cm2": 0.04625000000000004
+    },
+    {
+      "stage": "partial cycles",
+      "start_h": 12.94,
+      "end_h": 13.44,
+      "current_mA_cm2": 0.5,
+      "passed_mAh_cm2": 0.25,
+      "deposit_recovery": null,
+      "active_before_mAh_cm2": 1.9837500000000001,
+      "trapped_before_mAh_cm2": 0.04625000000000004,
+      "active_after_mAh_cm2": 1.7337500000000001,
+      "trapped_after_mAh_cm2": 0.04625000000000004
+    },
+    {
+      "stage": "partial cycles",
+      "start_h": 13.44,
+      "end_h": 13.94,
+      "current_mA_cm2": -0.5,
+      "passed_mAh_cm2": 0.25,
+      "deposit_recovery": 0.995,
+      "active_before_mAh_cm2": 1.7337500000000001,
+      "trapped_before_mAh_cm2": 0.04625000000000004,
+      "active_after_mAh_cm2": 1.9825000000000002,
+      "trapped_after_mAh_cm2": 0.04750000000000004
+    },
+    {
+      "stage": "partial cycles",
+      "start_h": 13.94,
+      "end_h": 14.44,
+      "current_mA_cm2": 0.5,
+      "passed_mAh_cm2": 0.25,
+      "deposit_recovery": null,
+      "active_before_mAh_cm2": 1.9825000000000002,
+      "trapped_before_mAh_cm2": 0.04750000000000004,
+      "active_after_mAh_cm2": 1.7325000000000002,
+      "trapped_after_mAh_cm2": 0.04750000000000004
+    },
+    {
+      "stage": "partial cycles",
+      "start_h": 14.44,
+      "end_h": 14.94,
+      "current_mA_cm2": -0.5,
+      "passed_mAh_cm2": 0.25,
+      "deposit_recovery": 0.995,
+      "active_before_mAh_cm2": 1.7325000000000002,
+      "trapped_before_mAh_cm2": 0.04750000000000004,
+      "active_after_mAh_cm2": 1.9812500000000002,
+      "trapped_after_mAh_cm2": 0.04875000000000004
+    },
+    {
+      "stage": "partial cycles",
+      "start_h": 14.94,
+      "end_h": 15.44,
+      "current_mA_cm2": 0.5,
+      "passed_mAh_cm2": 0.25,
+      "deposit_recovery": null,
+      "active_before_mAh_cm2": 1.9812500000000002,
+      "trapped_before_mAh_cm2": 0.04875000000000004,
+      "active_after_mAh_cm2": 1.7312500000000002,
+      "trapped_after_mAh_cm2": 0.04875000000000004
+    },
+    {
+      "stage": "partial cycles",
+      "start_h": 15.44,
+      "end_h": 15.94,
+      "current_mA_cm2": -0.5,
+      "passed_mAh_cm2": 0.25,
+      "deposit_recovery": 0.995,
+      "active_before_mAh_cm2": 1.7312500000000002,
+      "trapped_before_mAh_cm2": 0.04875000000000004,
+      "active_after_mAh_cm2": 1.9800000000000002,
+      "trapped_after_mAh_cm2": 0.050000000000000044
+    },
+    {
+      "stage": "partial cycles",
+      "start_h": 15.94,
+      "end_h": 16.439999999999998,
+      "current_mA_cm2": 0.5,
+      "passed_mAh_cm2": 0.25,
+      "deposit_recovery": null,
+      "active_before_mAh_cm2": 1.9800000000000002,
+      "trapped_before_mAh_cm2": 0.050000000000000044,
+      "active_after_mAh_cm2": 1.7300000000000002,
+      "trapped_after_mAh_cm2": 0.050000000000000044
+    },
+    {
+      "stage": "partial cycles",
+      "start_h": 16.439999999999998,
+      "end_h": 16.939999999999998,
+      "current_mA_cm2": -0.5,
+      "passed_mAh_cm2": 0.25,
+      "deposit_recovery": 0.995,
+      "active_before_mAh_cm2": 1.7300000000000002,
+      "trapped_before_mAh_cm2": 0.050000000000000044,
+      "active_after_mAh_cm2": 1.9787500000000002,
+      "trapped_after_mAh_cm2": 0.051250000000000046
+    },
+    {
+      "stage": "partial cycles",
+      "start_h": 16.939999999999998,
+      "end_h": 17.439999999999998,
+      "current_mA_cm2": 0.5,
+      "passed_mAh_cm2": 0.25,
+      "deposit_recovery": null,
+      "active_before_mAh_cm2": 1.9787500000000002,
+      "trapped_before_mAh_cm2": 0.051250000000000046,
+      "active_after_mAh_cm2": 1.7287500000000002,
+      "trapped_after_mAh_cm2": 0.051250000000000046
+    },
+    {
+      "stage": "partial cycles",
+      "start_h": 17.439999999999998,
+      "end_h": 17.939999999999998,
+      "current_mA_cm2": -0.5,
+      "passed_mAh_cm2": 0.25,
+      "deposit_recovery": 0.995,
+      "active_before_mAh_cm2": 1.7287500000000002,
+      "trapped_before_mAh_cm2": 0.051250000000000046,
+      "active_after_mAh_cm2": 1.9775000000000003,
+      "trapped_after_mAh_cm2": 0.05250000000000005
+    },
+    {
+      "stage": "final strip",
+      "start_h": 17.939999999999998,
+      "end_h": 21.895,
+      "current_mA_cm2": 0.5,
+      "passed_mAh_cm2": 1.9775000000000003,
+      "deposit_recovery": null,
+      "active_before_mAh_cm2": 1.9775000000000003,
+      "trapped_before_mAh_cm2": 0.05250000000000005,
+      "active_after_mAh_cm2": 0.0,
+      "trapped_after_mAh_cm2": 0.05250000000000005
+    }
+  ],
+  "sampling": "Right-continuous stage current; transition endpoint belongs to the new stage. Final endpoint included; stage charge comes from exact intervals, not trapezoidal interpolation across jumps.",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "parameter_origin": "Explicit original teaching parameters, not measured values",
+    "validation_scope": "Declared teaching model; no experimental/material certification",
+    "equations": [
+      "Qstage=abs(j)*duration_h; plated/stripped charge integrates the zero-order-hold current",
+      "Plating: active_new=active_old+eta*Qplate; trapped_new=trapped_old+(1-eta)*Qplate",
+      "Stripping: active_new=active_old-Qstrip; trapped inventory is not recovered",
+      "After conditioning: CE_reservoir_demo=100*(n*Qc+Qfinal)/(n*Qc+Qreservoir)"
+    ],
+    "assumptions": [
+      "Formation is excluded from the reservoir metric and ends with no recoverable active Li.",
+      "Reservoir and subsequent deposits share eta=0.995; stripping recovers available active Li exactly.",
+      "Partial strips remove Qc before redepositing Qc, always leaving positive active inventory.",
+      "No calendar corrosion, crossover or additional parasitic stripping process is simulated."
+    ],
+    "parameters": {
+      "formation_plate_mAh_cm2": 1,
+      "formation_recovery": 0.97,
+      "reservoir_plate_mAh_cm2": 2,
+      "Qc_mAh_cm2": 0.25,
+      "n": 10,
+      "j_mA_cm2": 0.5,
+      "deposit_recovery": 0.995,
+      "final_cutoff_V": 1
+    },
+    "references": [
+      {
+        "url": "https://www.nature.com/articles/s41467-025-66197-7",
+        "title": "De-solvation of heteroalkali cations enabling stable solid electrolyte interphase for dendrite-free lithium metal batteries",
+        "supports": "Fig. 4c caption/Methods define stage grammar; no times, efficiencies, capacities or curve artwork copied.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.nature.com/articles/s41560-020-0648-z",
+        "title": "Understanding and applying coulombic efficiency in lithium metal batteries",
+        "supports": "Protocol and cell-configuration boundaries of reservoir versus cycle-by-cycle efficiency.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "limitations": [
+      "The reservoir result is an algebraic check of the chosen ledger, not measured electrolyte CE or a universal protocol.",
+      "Voltage is an explicit bounded display relation, not SEI or nucleation physics."
+    ]
+  }
+}

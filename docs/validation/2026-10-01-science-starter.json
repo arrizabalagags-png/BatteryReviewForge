@@ -1,0 +1,189 @@
+{
+  "client_date": "2026-10-01",
+  "version": "0.10.2",
+  "channel": "beta",
+  "scope": "Real isolated Starter installation, ten demo routes, author-data and output protection",
+  "command": "outputs/qa-venv/Scripts/python.exe -m unittest discover -s tests -p test_plot_starter.py -v",
+  "exit_code": 0,
+  "result": "PASS",
+  "unittest_methods": 15,
+  "elapsed_seconds": 292.721,
+  "checks": [
+    {
+      "test": "test_actual_artists_raw_values_and_distinct_colors",
+      "result": "PASS"
+    },
+    {
+      "test": "test_all_ten_extracted_demo_exports",
+      "result": "PASS"
+    },
+    {
+      "test": "test_archive_self_contained_one_runtime",
+      "result": "PASS"
+    },
+    {
+      "test": "test_author_anomaly_is_preserved_outside_public_demo",
+      "result": "PASS"
+    },
+    {
+      "test": "test_author_delivery_versions_and_integrity_failure",
+      "result": "PASS"
+    },
+    {
+      "test": "test_bundled_demo_is_not_author_fallback",
+      "result": "PASS"
+    },
+    {
+      "test": "test_changed_package_is_rejected_before_install",
+      "result": "PASS"
+    },
+    {
+      "test": "test_dsh_and_codex_install_same_source_no_overwrite",
+      "result": "PASS"
+    },
+    {
+      "test": "test_inspect_styles_and_confirmed_nonstandard_mapping",
+      "result": "PASS"
+    },
+    {
+      "test": "test_missing_scientific_fields_stop_without_modifying_input",
+      "result": "PASS"
+    },
+    {
+      "test": "test_packager_does_not_replace_output_directory_file",
+      "result": "PASS"
+    },
+    {
+      "test": "test_public_demo_charge_and_source_relationships",
+      "result": "PASS"
+    },
+    {
+      "test": "test_setup_owned_isolated_environment_without_key",
+      "result": "PASS"
+    },
+    {
+      "test": "test_style_inheritance_explicit_change_and_unknown_style",
+      "result": "PASS"
+    },
+    {
+      "test": "test_unknown_metadata_and_nr_nv_stop",
+      "result": "PASS"
+    }
+  ],
+  "ten_public_demo_routes": [
+    "coulombic_efficiency",
+    "cycle_retention",
+    "full_cell_cycling",
+    "half_cell_cycling",
+    "nyquist",
+    "rate_capability",
+    "symmetric_cell_voltage",
+    "tofsims_depth",
+    "tofsims_map",
+    "voltage_capacity"
+  ],
+  "starter_archive": {
+    "file": "docs/downloads/starter/VoltPeer-Plot-Starter-v0.10.2.zip",
+    "bytes": 737887,
+    "sha256": "3a0641a4d32ef29f57d1544cdf1fbb7d4f76521d545f2daa7e0858cbad0c1591"
+  },
+  "final_log": {
+    "file": "docs/validation/2026-10-01-science-starter-unittest.log",
+    "sha256": "bca46353cb1495bafeca0a85d98f00e4bf36647bd92c56c136bf8575fab5a118"
+  },
+  "initial_failed_run": {
+    "sha256": "ff14674bd8cd5f7203a8af50e8014c8f34df35679eb79e9390f4a9b93f1c0deb",
+    "result": "FAILED (failures=10)",
+    "cause": "Structured cycle-by-cycle ce_protocol text also contained the word Aurbach, so the distinct-protocol guard correctly refused it.",
+    "fix": "Correct the declared protocol to cycle-by-cycle plating/stripping. Preserve the Aurbach guard and negative tests."
+  },
+  "source_files": [
+    {
+      "file": "examples/plot_starter/AGENT_GUIDE.md",
+      "sha256": "cd554e6b6243a7eab8f4433caf80a2964473b93c4b035525c5d3fdaac0cf577b"
+    },
+    {
+      "file": "examples/plot_starter/INPUT_GUIDE.md",
+      "sha256": "ccd67445aaf41282d8b8dfa7af889bd6f0581b653aabef1b6659501cdc2a49aa"
+    },
+    {
+      "file": "examples/plot_starter/README.md",
+      "sha256": "6b0c48ebd9ed99633bf21006e367a2cd80f106bcd48ecc212d51f480f804cb59"
+    },
+    {
+      "file": "examples/plot_starter/start.py",
+      "sha256": "1265c492c93909b5a95820a7960b551eb12a8e426c49324aa15122e10ef46d05"
+    },
+    {
+      "file": "scripts/package_plot_starter.py",
+      "sha256": "acd9f1b0b12948b0b2818f2de81646673c305293e4fab88e0195cee2bdfacd99"
+    },
+    {
+      "file": "skills/battery-review-figure/references/SYNTHETIC_DATA.md",
+      "sha256": "c7db122d15fce07f50d372ec5919920279a7f6abf90e500a13d2ffae31c86fb7"
+    },
+    {
+      "file": "skills/battery-review-figure/scripts/batteryplot/__init__.py",
+      "sha256": "38f5f0a7c930ec5dc9b9dd4fc1665b712f02b3820dbae691970e96c3d9ba4158"
+    },
+    {
+      "file": "skills/battery-review-figure/scripts/batteryplot/battery_charts.py",
+      "sha256": "9fa4e980b7dc5c07c09e77e69a31011e5c7c69f214a721822fcc8c85d95d7a57"
+    },
+    {
+      "file": "skills/battery-review-figure/scripts/batteryplot/charts.py",
+      "sha256": "2476a025f800ba35bda2173061b863c1d7b1b7e397f5a62ac0b7c226aafacd92"
+    },
+    {
+      "file": "skills/battery-review-figure/scripts/batteryplot/corpus.py",
+      "sha256": "89e6da0b69068dfb44f94a8331a7db2d0e4ed2fdb27f04089a53a6fbd18a0099"
+    },
+    {
+      "file": "skills/battery-review-figure/scripts/batteryplot/data.py",
+      "sha256": "d8e5e49b51d2a7e23842e3cbae91e16f4fe337a2294ed53ff4a6505075e0ad0c"
+    },
+    {
+      "file": "skills/battery-review-figure/scripts/batteryplot/electrochem.py",
+      "sha256": "134b77742c94dab715c97b24cda95cc6aba00745c4f9ba54243d33535c930c6c"
+    },
+    {
+      "file": "skills/battery-review-figure/scripts/batteryplot/export.py",
+      "sha256": "42307fb9e52432b213118bf7130536f387b2ebf5b5fe3430009e95fd635ada47"
+    },
+    {
+      "file": "skills/battery-review-figure/scripts/batteryplot/ingest.py",
+      "sha256": "87ac0d04fe18a8787e2e98fdd38acc5885a72b41f67c2760ae17d15888011164"
+    },
+    {
+      "file": "skills/battery-review-figure/scripts/batteryplot/layout.py",
+      "sha256": "089b0734fb90630ebf48a0ad12c8f0f69af367d5bff00987dabdcb346272a5d8"
+    },
+    {
+      "file": "skills/battery-review-figure/scripts/batteryplot/qa.py",
+      "sha256": "6055643068fa6c58e4fd4ae60da309479c6e4799600509a10aef63010b1e5733"
+    },
+    {
+      "file": "skills/battery-review-figure/scripts/batteryplot/specialist.py",
+      "sha256": "fb9a9dd3bc7ec4bdbb148f82887693c26d1c6702448171d27d535abf51c4db97"
+    },
+    {
+      "file": "skills/battery-review-figure/scripts/batteryplot/specification.py",
+      "sha256": "6990e00e7cdcea3fb4f613346d5e7c276e2073a4147b52b69276ae4418178484"
+    },
+    {
+      "file": "skills/battery-review-figure/scripts/batteryplot/style.py",
+      "sha256": "e4c069340b9ba1d60f7a7680315329934df114fb6cff3d746b0cb08d17a000ab"
+    },
+    {
+      "file": "skills/battery-review-figure/scripts/batteryplot/tofsims.py",
+      "sha256": "3fd24e60a95f579820457d0cf522aae6638b1d30298ab16ccf2855942b4c0678"
+    },
+    {
+      "file": "tests/test_plot_starter.py",
+      "sha256": "7babd1a51965a5c6b6636e2f05be079c8f28861c0dd021693aabd2ca4d2544d0"
+    }
+  ],
+  "author_boundary": "Supplied anomalies are preserved. Public toy-model assertions are not imposed on experimental author inputs.",
+  "native_host_discovery_and_model_behavior": "NOT_RUN_CURRENT_TREE",
+  "publication": "Local candidate only; no scientific release, tag, ECS deployment or whole-batch GitHub push."
+}

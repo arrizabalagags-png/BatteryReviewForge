@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 
 ROOT = Path(__file__).resolve().parents[1]
 SHOWCASE = ROOT / 'examples/showcase'
-sys.path.insert(0, str(ROOT / 'skills/battery-review-figure/scripts'))
+sys.path.insert(0, str(ROOT / 'skills/voltpeer-plot/scripts'))
 from batteryplot.corpus import CORPUS_RECIPES
 from batteryplot.specialist import RECIPES, render_recipe
 
@@ -136,7 +136,7 @@ class CorpusRecipeTests(unittest.TestCase):
     def test_public_cli_exports_all_formats_without_overwriting_input(self):
         with tempfile.TemporaryDirectory() as temp:
             out = Path(temp) / 'rendered'
-            script = ROOT / 'skills/battery-review-figure/scripts/render_specialist.py'
+            script = ROOT / 'skills/voltpeer-plot/scripts/render_specialist.py'
             subprocess.run([sys.executable, str(script), '--recipe', 'ftir',
                             '--input-folder', str(SHOWCASE / 'ftir'), '--output-dir', str(out)],
                            check=True, capture_output=True, text=True)

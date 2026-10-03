@@ -25,7 +25,19 @@
       ]
     }
   ],
-  "surface_model": "illustrative bounded heat field; not a measured thermogram",
+  "surface_model": "Uncoupled positive thermal-node balances; not a measured thermogram or electrical-to-heat model",
+  "thermal_parameters": {
+    "Tamb_C": 25,
+    "tau_min": 9,
+    "total_mass_kg": 0.1,
+    "specific_heat_J_kg_K": 900,
+    "Gtotal_W_K": 0.16666666666666666,
+    "Ctotal_J_K": 90,
+    "geometry_mm": [
+      100,
+      70
+    ]
+  },
   "colorbar_range_C": [
     25,
     45

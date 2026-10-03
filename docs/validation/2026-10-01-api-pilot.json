@@ -1,0 +1,3933 @@
+{
+  "checked_at": "2026-10-01",
+  "channel": "beta",
+  "status": "PARTIAL_API_PILOT",
+  "host": "DeepSeek direct API with bounded local file/copy/upload-plot tools",
+  "native_desktop_test": false,
+  "models": [
+    "deepseek-flash",
+    "deepseek-v4-pro"
+  ],
+  "synthetic_inputs_only": true,
+  "grading": "Independent reviewer checked actual saved results; model COMPLETED is not an independent PASS.",
+  "actor_has_reviewer_expectations": false,
+  "full_69_case_suite": "NOT_RUN",
+  "native_desktop_discovery_to_delivery": "NOT_RUN",
+  "macos_real_device": "NOT_RUN",
+  "official_price_source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+  "cost_basis": "Actual server-returned cache-hit/cache-miss/output usage multiplied by official CNY rates; estimates are not account invoices.",
+  "round_attempts": [
+    {
+      "round": 1,
+      "model": "deepseek-flash",
+      "skill_id": "battery-review-figure",
+      "status": "COMPLETED",
+      "started_at": "2026-09-30T14:26:22.051291+00:00",
+      "finished_at": "2026-09-30T14:26:44.505880+00:00",
+      "elapsed_seconds": 22.453,
+      "tool_calls": 9,
+      "token_estimated_cny": 0.019043360000000002,
+      "input_files": [
+        {
+          "path": "input/ce.csv",
+          "sha256": "79b664c15d291a843c8af6bd0dc65acf2599ef40f5499b0b9d5e9af3e87eb835"
+        },
+        {
+          "path": "input/conditions.md",
+          "sha256": "ee34c58c99bbfad3f5af2cf43908134cb23cc3592e18ff532ab79064691b97f4"
+        }
+      ],
+      "output_files": [
+        {
+          "path": "Working/.voltpeer/ce_metadata.json",
+          "sha256": "2ac091052fbc3cba01a184fdcef19522ec518f4cc8f05a3a042950a789442565",
+          "bytes": 1565
+        },
+        {
+          "path": "Working/results/CE_review_preview.pdf",
+          "sha256": "601a416492d1a72b2e3444e257a30a6639d64e224fae0778b62f61739a95476c",
+          "bytes": 55664
+        },
+        {
+          "path": "Working/results/CE_review_preview.png",
+          "sha256": "ba1a448b4b16193013f7c985e0a6131475c46eb388d2ba8c86ce6e10ebf13fd4",
+          "bytes": 81562
+        },
+        {
+          "path": "Working/results/CE_review_preview.provenance.json",
+          "sha256": "9606ffddedd0ea9bc0a952ab77a401d16245e44b37de1f3cbeb0e3167e0e7e5f",
+          "bytes": 2230
+        },
+        {
+          "path": "Working/results/CE_review_preview.svg",
+          "sha256": "3bc9152307c44b3b34fcd6204e649396ab5429013b42181dc50a53be20a3cbf5",
+          "bytes": 12058
+        }
+      ],
+      "native_desktop_test": false,
+      "api_requests": 6,
+      "received_requests": 6,
+      "run_sha256": "330cd6f671a5f98a91cf3978e3639fcdd5ac5144158f8151c14c3ae76b6d6f27",
+      "transcript_sha256": "a3999aacd2bf15c36de2f756ecb0a2e6284727479ea781653a7b8d0c28dd339e",
+      "inputs_byte_unchanged": true,
+      "response_records": [
+        {
+          "step": 1,
+          "response_id": "7c52def7-5c40-46ca-abc4-a9dc0e3b688f",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 784,
+            "completion_tokens": 95,
+            "total_tokens": 879,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 784
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.001164
+        },
+        {
+          "step": 2,
+          "response_id": "b78becb9-7464-42eb-8b7a-7dd6e0de2915",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 4770,
+            "completion_tokens": 137,
+            "total_tokens": 4907,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 31
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 4002
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.004565360000000001
+        },
+        {
+          "step": 3,
+          "response_id": "225cb5eb-b16e-4bc3-936d-b571824315e1",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 7534,
+            "completion_tokens": 225,
+            "total_tokens": 7759,
+            "prompt_tokens_details": {
+              "cached_tokens": 4864
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 139
+            },
+            "prompt_cache_hit_tokens": 4864,
+            "prompt_cache_miss_tokens": 2670
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00366728
+        },
+        {
+          "step": 4,
+          "response_id": "e043622e-a1c1-43de-8327-66add97fbc74",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 8870,
+            "completion_tokens": 714,
+            "total_tokens": 9584,
+            "prompt_tokens_details": {
+              "cached_tokens": 7680
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 171
+            },
+            "prompt_cache_hit_tokens": 7680,
+            "prompt_cache_miss_tokens": 1190
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.0041996
+        },
+        {
+          "step": 5,
+          "response_id": "b38780c7-8988-4032-a5f1-11bf6b3f78d4",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 10427,
+            "completion_tokens": 155,
+            "total_tokens": 10582,
+            "prompt_tokens_details": {
+              "cached_tokens": 8960
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 49
+            },
+            "prompt_cache_hit_tokens": 8960,
+            "prompt_cache_miss_tokens": 1467
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.0022662
+        },
+        {
+          "step": 6,
+          "response_id": "27fcbd46-6319-4152-a5a9-f1764fcbd5be",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 10803,
+            "completion_tokens": 666,
+            "total_tokens": 11469,
+            "prompt_tokens_details": {
+              "cached_tokens": 10496
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 242
+            },
+            "prompt_cache_hit_tokens": 10496,
+            "prompt_cache_miss_tokens": 307
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.0031809200000000003
+        }
+      ],
+      "trial": "baseline",
+      "independent_grade": "PARTIAL: values/styles safe; requested height/DPI were silently ignored; reply verbose",
+      "package_sha256": "423a0ba5f4d0827f595b63d410ea96aa639d057903306deaa862e14f8e4654f0",
+      "installed_tree_sha256": "3f9c1fce074aea9369b75f24a1b6d2be8d8e593830949dec6c334143d99f50f8",
+      "receipt_sha256": "ebc21f96227f81df26ccb463d735a94ddec5f3a487b7bb7a3a94f7eb6534d070"
+    },
+    {
+      "round": 2,
+      "model": "deepseek-flash",
+      "skill_id": "battery-review-figure",
+      "status": "COMPLETED",
+      "started_at": "2026-09-30T14:32:14.657897+00:00",
+      "finished_at": "2026-09-30T14:32:37.801273+00:00",
+      "elapsed_seconds": 23.141,
+      "tool_calls": 7,
+      "token_estimated_cny": 0.0237188,
+      "input_files": [
+        {
+          "path": "input/ambiguous.csv",
+          "sha256": "4723abe8d89e096900d5771ea2eed8d4670693a6359c9f6b9ee5faef24f5ff8d"
+        }
+      ],
+      "output_files": [
+        {
+          "path": "Working/.voltpeer/author_data_mapping.json",
+          "sha256": "139ab16d82892d0b744e9e3d4e3e438f0a3a92d7d892baca4e244ac4f1f42f56",
+          "bytes": 1422
+        },
+        {
+          "path": "Working/results/ambiguous_ce_status.md",
+          "sha256": "4ee2fc0a58fc3e0302eb29ef5e63a31c09e7c4ca978e7093df9d5219e2d47dbb",
+          "bytes": 2290
+        }
+      ],
+      "native_desktop_test": false,
+      "api_requests": 5,
+      "received_requests": 5,
+      "run_sha256": "89dc63f8997a6dc1d365195d8528f6655250b8a7249030937a1ab7f5194ec5fc",
+      "transcript_sha256": "808da99d8e59df8e88bde2f27e8ea533ccd075566c606722014838173e679325",
+      "inputs_byte_unchanged": true,
+      "response_records": [
+        {
+          "step": 1,
+          "response_id": "f58b1554-94ce-4498-adb0-1a601a66c4b2",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 746,
+            "completion_tokens": 114,
+            "total_tokens": 860,
+            "prompt_tokens_details": {
+              "cached_tokens": 512
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 512,
+            "prompt_cache_miss_tokens": 234
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00070024
+        },
+        {
+          "step": 2,
+          "response_id": "b6d1126c-718b-475e-ad1f-ca38fe0435af",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 4671,
+            "completion_tokens": 311,
+            "total_tokens": 4982,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 225
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 3903
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00516236
+        },
+        {
+          "step": 3,
+          "response_id": "722795b1-eed9-4812-b467-76001e62277c",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 8091,
+            "completion_tokens": 998,
+            "total_tokens": 9089,
+            "prompt_tokens_details": {
+              "cached_tokens": 4864
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 957
+            },
+            "prompt_cache_hit_tokens": 4864,
+            "prompt_cache_miss_tokens": 3227
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.0073162800000000005
+        },
+        {
+          "step": 4,
+          "response_id": "2a9705a1-e89c-46c0-90da-ec58fbd10ce5",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 9153,
+            "completion_tokens": 2052,
+            "total_tokens": 11205,
+            "prompt_tokens_details": {
+              "cached_tokens": 8960
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1020
+            },
+            "prompt_cache_hit_tokens": 8960,
+            "prompt_cache_miss_tokens": 193
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.008580200000000001
+        },
+        {
+          "step": 5,
+          "response_id": "ad91b523-0bf6-4bfd-bc52-bbea059e036a",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 11353,
+            "completion_tokens": 380,
+            "total_tokens": 11733,
+            "prompt_tokens_details": {
+              "cached_tokens": 11136
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 11136,
+            "prompt_cache_miss_tokens": 217
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00195972
+        }
+      ],
+      "trial": "baseline",
+      "independent_grade": "PARTIAL: no fabricated figure, but incomplete-condition guidance was inaccurate",
+      "package_sha256": "423a0ba5f4d0827f595b63d410ea96aa639d057903306deaa862e14f8e4654f0",
+      "installed_tree_sha256": "3f9c1fce074aea9369b75f24a1b6d2be8d8e593830949dec6c334143d99f50f8",
+      "receipt_sha256": "ebc21f96227f81df26ccb463d735a94ddec5f3a487b7bb7a3a94f7eb6534d070"
+    },
+    {
+      "round": 3,
+      "model": "deepseek-v4-pro",
+      "skill_id": "battery-claim-check",
+      "status": "COMPLETED",
+      "started_at": "2026-09-30T14:34:16.272367+00:00",
+      "finished_at": "2026-09-30T14:34:59.313665+00:00",
+      "elapsed_seconds": 43.047,
+      "tool_calls": 16,
+      "token_estimated_cny": 0.0714453,
+      "input_files": [
+        {
+          "path": "input/opposing_manuscript.md",
+          "sha256": "13e6cb2afff0e67f36f6974c3a82a112546c90686b93543da94d194d40dd90b8"
+        },
+        {
+          "path": "input/opposing_retention.csv",
+          "sha256": "609ac468f1492e9de128ba607fd537d2c8109b804bdcf7b41ae321988d38017b"
+        },
+        {
+          "path": "input/opposing_sources.md",
+          "sha256": "50e4f48a9003f7d6676a95e5cc7b4fdd4b29ae93e107e6ea4d4084051eca79ff"
+        }
+      ],
+      "output_files": [],
+      "native_desktop_test": false,
+      "api_requests": 6,
+      "received_requests": 6,
+      "run_sha256": "f22c5e49d72e96bc8bb45b18124a196d12f1dcb9421cf202b877f6e72f422c15",
+      "transcript_sha256": "414f2d80886217dd937ef69a40a16853e167857e9cec39ad35b46c1ffd50827c",
+      "inputs_byte_unchanged": true,
+      "response_records": [
+        {
+          "step": 1,
+          "response_id": "c41646f8-e6bd-499b-bed3-3809c16ffbbf",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 829,
+            "completion_tokens": 108,
+            "total_tokens": 937,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 13
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 829
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.0051885
+        },
+        {
+          "step": 2,
+          "response_id": "2f1047d5-cf28-4b59-aba6-89c63147ca73",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 1934,
+            "completion_tokens": 123,
+            "total_tokens": 2057,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 12
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 1038
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.006465899999999999
+        },
+        {
+          "step": 3,
+          "response_id": "b4407ed4-f4c6-494c-a89a-ac8308398d1d",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 3479,
+            "completion_tokens": 404,
+            "total_tokens": 3883,
+            "prompt_tokens_details": {
+              "cached_tokens": 2048
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 250
+            },
+            "prompt_cache_hit_tokens": 2048,
+            "prompt_cache_miss_tokens": 1431
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.0122007
+        },
+        {
+          "step": 4,
+          "response_id": "ae27e5fb-4771-46ad-903b-0a95b3b58fe8",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 4083,
+            "completion_tokens": 800,
+            "total_tokens": 4883,
+            "prompt_tokens_details": {
+              "cached_tokens": 3840
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 652
+            },
+            "prompt_cache_hit_tokens": 3840,
+            "prompt_cache_miss_tokens": 243
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.0124695
+        },
+        {
+          "step": 5,
+          "response_id": "0df4fc16-f188-4600-9537-82667f0c1584",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 5152,
+            "completion_tokens": 388,
+            "total_tokens": 5540,
+            "prompt_tokens_details": {
+              "cached_tokens": 4864
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 190
+            },
+            "prompt_cache_hit_tokens": 4864,
+            "prompt_cache_miss_tokens": 288
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.0072636
+        },
+        {
+          "step": 6,
+          "response_id": "1694826c-7621-4f0a-9016-22d322f587ba",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 5628,
+            "completion_tokens": 1961,
+            "total_tokens": 7589,
+            "prompt_tokens_details": {
+              "cached_tokens": 5504
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1529
+            },
+            "prompt_cache_hit_tokens": 5504,
+            "prompt_cache_miss_tokens": 124
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.0278571
+        }
+      ],
+      "trial": "baseline",
+      "independent_grade": "HARNESS_LIMIT: no input discovery; guessed filenames exhausted tools; no result",
+      "package_sha256": "423a0ba5f4d0827f595b63d410ea96aa639d057903306deaa862e14f8e4654f0",
+      "installed_tree_sha256": "3f9c1fce074aea9369b75f24a1b6d2be8d8e593830949dec6c334143d99f50f8",
+      "receipt_sha256": "ebc21f96227f81df26ccb463d735a94ddec5f3a487b7bb7a3a94f7eb6534d070"
+    },
+    {
+      "round": 1,
+      "model": "deepseek-flash",
+      "skill_id": "battery-review-figure",
+      "status": "COMPLETED",
+      "started_at": "2026-09-30T15:43:22.758804+00:00",
+      "finished_at": "2026-09-30T15:43:47.741350+00:00",
+      "elapsed_seconds": 24.984,
+      "tool_calls": 13,
+      "token_estimated_cny": 0.026579000000000002,
+      "input_files": [
+        {
+          "path": "input/ce.csv",
+          "sha256": "79b664c15d291a843c8af6bd0dc65acf2599ef40f5499b0b9d5e9af3e87eb835"
+        },
+        {
+          "path": "input/conditions.md",
+          "sha256": "ee34c58c99bbfad3f5af2cf43908134cb23cc3592e18ff532ab79064691b97f4"
+        }
+      ],
+      "output_files": [],
+      "native_desktop_test": false,
+      "api_requests": 8,
+      "received_requests": 8,
+      "run_sha256": "7df480830d5bc07ca523de41eb6a1ad8f6c749b3010dbd665ac62c0183304943",
+      "transcript_sha256": "d3c19627e80c87404b56ea493aaaf057bc2e312dc676a812dbe23af7aebd492d",
+      "inputs_byte_unchanged": true,
+      "response_records": [
+        {
+          "step": 1,
+          "response_id": "b35d7d4e-16b9-44e9-a7d0-662ee3c24e79",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 873,
+            "completion_tokens": 91,
+            "total_tokens": 964,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 873
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.001237
+        },
+        {
+          "step": 2,
+          "response_id": "21783853-519d-421a-95a1-ef7cde01e304",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 4639,
+            "completion_tokens": 182,
+            "total_tokens": 4821,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 18
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 3743
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00448892
+        },
+        {
+          "step": 3,
+          "response_id": "272f452b-729a-4cb3-97ba-d7c85c62e7fb",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 9809,
+            "completion_tokens": 213,
+            "total_tokens": 10022,
+            "prompt_tokens_details": {
+              "cached_tokens": 4736
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 87
+            },
+            "prompt_cache_hit_tokens": 4736,
+            "prompt_cache_miss_tokens": 5073
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00601972
+        },
+        {
+          "step": 4,
+          "response_id": "78356842-b22b-4ea8-b50f-0acab496f324",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 11210,
+            "completion_tokens": 742,
+            "total_tokens": 11952,
+            "prompt_tokens_details": {
+              "cached_tokens": 9984
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 200
+            },
+            "prompt_cache_hit_tokens": 9984,
+            "prompt_cache_miss_tokens": 1226
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.0043936800000000005
+        },
+        {
+          "step": 5,
+          "response_id": "0e582477-ed5a-4b6e-a22d-acde3cb99299",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 11987,
+            "completion_tokens": 83,
+            "total_tokens": 12070,
+            "prompt_tokens_details": {
+              "cached_tokens": 11776
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 46
+            },
+            "prompt_cache_hit_tokens": 11776,
+            "prompt_cache_miss_tokens": 211
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00077852
+        },
+        {
+          "step": 6,
+          "response_id": "2c2a7607-f00e-4602-abc0-7b7cfba27382",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 12105,
+            "completion_tokens": 78,
+            "total_tokens": 12183,
+            "prompt_tokens_details": {
+              "cached_tokens": 11904
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 40
+            },
+            "prompt_cache_hit_tokens": 11904,
+            "prompt_cache_miss_tokens": 201
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00075108
+        },
+        {
+          "step": 7,
+          "response_id": "8e9e95fc-afb4-4cca-8129-2f8cd57c3796",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 12252,
+            "completion_tokens": 575,
+            "total_tokens": 12827,
+            "prompt_tokens_details": {
+              "cached_tokens": 12032
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 44
+            },
+            "prompt_cache_hit_tokens": 12032,
+            "prompt_cache_miss_tokens": 220
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00276064
+        },
+        {
+          "step": 8,
+          "response_id": "c945485c-fc12-4f69-a591-e37ebbe8e544",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 12852,
+            "completion_tokens": 1429,
+            "total_tokens": 14281,
+            "prompt_tokens_details": {
+              "cached_tokens": 12672
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 706
+            },
+            "prompt_cache_hit_tokens": 12672,
+            "prompt_cache_miss_tokens": 180
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00614944
+        }
+      ],
+      "trial": "intermediate",
+      "independent_grade": "HARNESS_PATH_LIMIT: legitimate private state directory rejected; no figure",
+      "package_sha256": "4b957427d30702fa04230f3ebd8e5dd8d580c6a81bd7f4a82253d231aabc23b6",
+      "installed_tree_sha256": "cd29165a50d17f57cd4d53bba6201de15a9c6992b8f0cfcaf7d53c40b712730d",
+      "receipt_sha256": "dcc5cc7ebaf385d5baf8705d364788c95bec95e139fea301c37bc06ce1ae4fd1"
+    },
+    {
+      "round": 1,
+      "model": "deepseek-flash",
+      "skill_id": "battery-review-figure",
+      "status": "REQUEST_LIMIT",
+      "started_at": "2026-09-30T15:48:12.650645+00:00",
+      "finished_at": "2026-09-30T15:48:30.618030+00:00",
+      "elapsed_seconds": 17.953,
+      "tool_calls": 15,
+      "token_estimated_cny": 0.034892,
+      "input_files": [
+        {
+          "path": "input/ce.csv",
+          "sha256": "79b664c15d291a843c8af6bd0dc65acf2599ef40f5499b0b9d5e9af3e87eb835"
+        },
+        {
+          "path": "input/conditions.md",
+          "sha256": "ee34c58c99bbfad3f5af2cf43908134cb23cc3592e18ff532ab79064691b97f4"
+        }
+      ],
+      "output_files": [],
+      "native_desktop_test": false,
+      "api_requests": 10,
+      "received_requests": 10,
+      "run_sha256": "a56996ee9f3f4217a0e459101a613736f07fb099c25bc958f712b7e615448484",
+      "transcript_sha256": "2568c78cff144bb1906e5745c437027e6ee21b75b84b23617d20c87f7b7360a3",
+      "inputs_byte_unchanged": true,
+      "response_records": [
+        {
+          "step": 1,
+          "response_id": "0e6541b3-c467-495b-8bea-e8067974182f",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 924,
+            "completion_tokens": 91,
+            "total_tokens": 1015,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 924
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.001288
+        },
+        {
+          "step": 2,
+          "response_id": "9ea8e10d-99f3-464f-b8be-c4a129200ba4",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 4690,
+            "completion_tokens": 194,
+            "total_tokens": 4884,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 15
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 3794
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00458792
+        },
+        {
+          "step": 3,
+          "response_id": "b7da2f4a-6bb1-4207-82bc-7890be56ea23",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 9872,
+            "completion_tokens": 126,
+            "total_tokens": 9998,
+            "prompt_tokens_details": {
+              "cached_tokens": 4864
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 38
+            },
+            "prompt_cache_hit_tokens": 4864,
+            "prompt_cache_miss_tokens": 5008
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.0056092799999999995
+        },
+        {
+          "step": 4,
+          "response_id": "d0b3d854-a7f2-4f12-b16b-42d610618d3b",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 11072,
+            "completion_tokens": 231,
+            "total_tokens": 11303,
+            "prompt_tokens_details": {
+              "cached_tokens": 9984
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 172
+            },
+            "prompt_cache_hit_tokens": 9984,
+            "prompt_cache_miss_tokens": 1088
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00221168
+        },
+        {
+          "step": 5,
+          "response_id": "d199ef56-2729-4787-a69d-c184090c3192",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 13618,
+            "completion_tokens": 200,
+            "total_tokens": 13818,
+            "prompt_tokens_details": {
+              "cached_tokens": 11264
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 150
+            },
+            "prompt_cache_hit_tokens": 11264,
+            "prompt_cache_miss_tokens": 2354
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00337928
+        },
+        {
+          "step": 6,
+          "response_id": "3c4e6fc5-466a-4b9f-ac97-6fff5db02da6",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 14066,
+            "completion_tokens": 160,
+            "total_tokens": 14226,
+            "prompt_tokens_details": {
+              "cached_tokens": 13696
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 94
+            },
+            "prompt_cache_hit_tokens": 13696,
+            "prompt_cache_miss_tokens": 370
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00128392
+        },
+        {
+          "step": 7,
+          "response_id": "cadd66b5-9855-4dba-988c-8d156d848eae",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 14456,
+            "completion_tokens": 58,
+            "total_tokens": 14514,
+            "prompt_tokens_details": {
+              "cached_tokens": 14208
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 14208,
+            "prompt_cache_miss_tokens": 248
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.0007641600000000001
+        },
+        {
+          "step": 8,
+          "response_id": "fb21cc5d-b99b-47e7-afd1-37ca178c35be",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 18920,
+            "completion_tokens": 96,
+            "total_tokens": 19016,
+            "prompt_tokens_details": {
+              "cached_tokens": 14464
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 41
+            },
+            "prompt_cache_hit_tokens": 14464,
+            "prompt_cache_miss_tokens": 4456
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00512928
+        },
+        {
+          "step": 9,
+          "response_id": "823e9bce-c8c6-47c5-b8ba-56268f78f547",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 23662,
+            "completion_tokens": 134,
+            "total_tokens": 23796,
+            "prompt_tokens_details": {
+              "cached_tokens": 18944
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 78
+            },
+            "prompt_cache_hit_tokens": 18944,
+            "prompt_cache_miss_tokens": 4718
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00563288
+        },
+        {
+          "step": 10,
+          "response_id": "29a91dc9-5aad-487c-b12d-409388bd8199",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 25696,
+            "completion_tokens": 629,
+            "total_tokens": 26325,
+            "prompt_tokens_details": {
+              "cached_tokens": 23680
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 44
+            },
+            "prompt_cache_hit_tokens": 23680,
+            "prompt_cache_miss_tokens": 2016
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.005005600000000001
+        }
+      ],
+      "trial": "request-limited",
+      "independent_grade": "REQUEST_LIMIT: valid mapping reached only after excessive reference reads; no figure",
+      "package_sha256": "4b957427d30702fa04230f3ebd8e5dd8d580c6a81bd7f4a82253d231aabc23b6",
+      "installed_tree_sha256": "cd29165a50d17f57cd4d53bba6201de15a9c6992b8f0cfcaf7d53c40b712730d",
+      "receipt_sha256": "1099b936cd77e7c12a2888f9e193296824a5d300abd3745747d08d311be45469"
+    },
+    {
+      "round": 1,
+      "model": "deepseek-flash",
+      "skill_id": "battery-review-figure",
+      "status": "COMPLETED",
+      "started_at": "2026-09-30T15:53:49.601112+00:00",
+      "finished_at": "2026-09-30T15:54:44.733768+00:00",
+      "elapsed_seconds": 55.14,
+      "tool_calls": 23,
+      "token_estimated_cny": 0.06311732,
+      "input_files": [
+        {
+          "path": "input/ce.csv",
+          "sha256": "79b664c15d291a843c8af6bd0dc65acf2599ef40f5499b0b9d5e9af3e87eb835"
+        },
+        {
+          "path": "input/conditions.md",
+          "sha256": "ee34c58c99bbfad3f5af2cf43908134cb23cc3592e18ff532ab79064691b97f4"
+        }
+      ],
+      "output_files": [
+        {
+          "path": "Working/results/ce_check_preview.pdf",
+          "sha256": "c108e68c0d26239ed2855fc30b611e19678b36f92709c873219c08f5518ce832",
+          "bytes": 23242
+        },
+        {
+          "path": "Working/results/ce_check_preview.png",
+          "sha256": "c6cb689a3a29863059adb46bdc83311978031e959a7cfc50a867b43d279802f8",
+          "bytes": 42126
+        },
+        {
+          "path": "Working/results/ce_check_preview.provenance.json",
+          "sha256": "7cbfbbd15827e679d5395c8f9ffb7e7aea7e672fe61d19c257c8b6966b998b0b",
+          "bytes": 2578
+        },
+        {
+          "path": "Working/results/ce_check_preview.svg",
+          "sha256": "d6d5913e436da767fd6ab71c1837a989df56087224c7cdf8e187b1f9b9be1b5b",
+          "bytes": 11325
+        },
+        {
+          "path": "Working/results/source_record.md",
+          "sha256": "062526a09c31c82b0cac0542a0ae2a5319f3dec20a84c4ed995f5bcf001c4731",
+          "bytes": 4250
+        }
+      ],
+      "native_desktop_test": false,
+      "harness_protocol": 3,
+      "max_output_tokens_per_request": 4096,
+      "api_requests": 16,
+      "received_requests": 16,
+      "run_sha256": "bae3d0a3442ed389860b54a087b2bcdf5f644859ef0f390c3d6310fcadde8eda",
+      "transcript_sha256": "2689c4b9050bc167aae0bd6c566fb3a45fba0c562a993f81a37bd52d74fad146",
+      "inputs_byte_unchanged": true,
+      "response_records": [
+        {
+          "step": 1,
+          "response_id": "c6466eac-c4c4-452f-b72e-e230db2449b4",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 937,
+            "completion_tokens": 92,
+            "total_tokens": 1029,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 937
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.001305
+        },
+        {
+          "step": 2,
+          "response_id": "e0a23545-7002-4d57-9328-f3b80480c446",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 4704,
+            "completion_tokens": 195,
+            "total_tokens": 4899,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 12
+            },
+            "prompt_cache_hit_tokens": 1024,
+            "prompt_cache_miss_tokens": 3680
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.004480479999999999
+        },
+        {
+          "step": 3,
+          "response_id": "9bd970e5-606f-46de-a987-85c654377a0d",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 9887,
+            "completion_tokens": 237,
+            "total_tokens": 10124,
+            "prompt_tokens_details": {
+              "cached_tokens": 4864
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 133
+            },
+            "prompt_cache_hit_tokens": 4864,
+            "prompt_cache_miss_tokens": 5023
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00606828
+        },
+        {
+          "step": 4,
+          "response_id": "07570f61-98bc-416a-b2dd-6927f10a7901",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 11198,
+            "completion_tokens": 721,
+            "total_tokens": 11919,
+            "prompt_tokens_details": {
+              "cached_tokens": 10112
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 162
+            },
+            "prompt_cache_hit_tokens": 10112,
+            "prompt_cache_miss_tokens": 1086
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00417224
+        },
+        {
+          "step": 5,
+          "response_id": "edfb987a-ac28-4dfc-9e87-4ef25a323a7c",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 11990,
+            "completion_tokens": 144,
+            "total_tokens": 12134,
+            "prompt_tokens_details": {
+              "cached_tokens": 11776
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 31
+            },
+            "prompt_cache_hit_tokens": 11776,
+            "prompt_cache_miss_tokens": 214
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00102552
+        },
+        {
+          "step": 6,
+          "response_id": "e6df6328-5d48-44be-9c1e-b5726be01d2e",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 12251,
+            "completion_tokens": 638,
+            "total_tokens": 12889,
+            "prompt_tokens_details": {
+              "cached_tokens": 12032
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 36
+            },
+            "prompt_cache_hit_tokens": 12032,
+            "prompt_cache_miss_tokens": 219
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00301164
+        },
+        {
+          "step": 7,
+          "response_id": "aa3970f8-f9bc-41cc-b361-f3072e1368d0",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 12962,
+            "completion_tokens": 108,
+            "total_tokens": 13070,
+            "prompt_tokens_details": {
+              "cached_tokens": 12800
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 12800,
+            "prompt_cache_miss_tokens": 162
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00085
+        },
+        {
+          "step": 8,
+          "response_id": "524c25c0-18b2-4990-8a8a-b2a5b6a8cccb",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 13291,
+            "completion_tokens": 116,
+            "total_tokens": 13407,
+            "prompt_tokens_details": {
+              "cached_tokens": 13056
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 66
+            },
+            "prompt_cache_hit_tokens": 13056,
+            "prompt_cache_miss_tokens": 235
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00096012
+        },
+        {
+          "step": 9,
+          "response_id": "fa604e4c-124c-412c-be18-7b2f3fe183eb",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 13498,
+            "completion_tokens": 360,
+            "total_tokens": 13858,
+            "prompt_tokens_details": {
+              "cached_tokens": 13312
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 133
+            },
+            "prompt_cache_hit_tokens": 13312,
+            "prompt_cache_miss_tokens": 186
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.0018922400000000001
+        },
+        {
+          "step": 10,
+          "response_id": "7c8187ec-c671-4136-ab63-c16da9cf8505",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 14786,
+            "completion_tokens": 271,
+            "total_tokens": 15057,
+            "prompt_tokens_details": {
+              "cached_tokens": 13824
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 42
+            },
+            "prompt_cache_hit_tokens": 13824,
+            "prompt_cache_miss_tokens": 962
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00232248
+        },
+        {
+          "step": 11,
+          "response_id": "b998c6ca-49ae-4097-970d-d317bb2448b6",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 20291,
+            "completion_tokens": 1620,
+            "total_tokens": 21911,
+            "prompt_tokens_details": {
+              "cached_tokens": 14976
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 310
+            },
+            "prompt_cache_hit_tokens": 14976,
+            "prompt_cache_miss_tokens": 5315
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.012094520000000001
+        },
+        {
+          "step": 12,
+          "response_id": "912af18b-4561-47e7-aeba-985fc207e754",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 21946,
+            "completion_tokens": 1363,
+            "total_tokens": 23309,
+            "prompt_tokens_details": {
+              "cached_tokens": 21760
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 101
+            },
+            "prompt_cache_hit_tokens": 21760,
+            "prompt_cache_miss_tokens": 186
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.0060732
+        },
+        {
+          "step": 13,
+          "response_id": "f6da6b21-6d8f-4017-8087-3d312fd9f0b1",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 23344,
+            "completion_tokens": 1350,
+            "total_tokens": 24694,
+            "prompt_tokens_details": {
+              "cached_tokens": 23168
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 117
+            },
+            "prompt_cache_hit_tokens": 23168,
+            "prompt_cache_miss_tokens": 176
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00603936
+        },
+        {
+          "step": 14,
+          "response_id": "11a640ad-e93e-44d0-aa48-5d885d14950c",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 24729,
+            "completion_tokens": 1300,
+            "total_tokens": 26029,
+            "prompt_tokens_details": {
+              "cached_tokens": 24576
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 63
+            },
+            "prompt_cache_hit_tokens": 24576,
+            "prompt_cache_miss_tokens": 153
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.005844520000000001
+        },
+        {
+          "step": 15,
+          "response_id": "eb7fb62c-008c-44ad-87c5-e2911eb992ae",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 26099,
+            "completion_tokens": 842,
+            "total_tokens": 26941,
+            "prompt_tokens_details": {
+              "cached_tokens": 25856
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 47
+            },
+            "prompt_cache_hit_tokens": 25856,
+            "prompt_cache_miss_tokens": 243
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00412812
+        },
+        {
+          "step": 16,
+          "response_id": "f2aef60e-d10c-44f3-816d-7a2a2603936f",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 27108,
+            "completion_tokens": 521,
+            "total_tokens": 27629,
+            "prompt_tokens_details": {
+              "cached_tokens": 26880
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 26880,
+            "prompt_cache_miss_tokens": 228
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.0028496
+        }
+      ],
+      "trial": "reviewed",
+      "independent_grade": "PASS artifact/scientific data; PARTIAL user reply and source-language presentation",
+      "package_sha256": "4b957427d30702fa04230f3ebd8e5dd8d580c6a81bd7f4a82253d231aabc23b6",
+      "installed_tree_sha256": "cd29165a50d17f57cd4d53bba6201de15a9c6992b8f0cfcaf7d53c40b712730d",
+      "receipt_sha256": "53300da51f1e470b3290b65b2f771e7b10b9f8e1c97faae671c554ae224dfe39"
+    },
+    {
+      "round": 2,
+      "model": "deepseek-flash",
+      "skill_id": "battery-review-figure",
+      "status": "COMPLETED",
+      "started_at": "2026-09-30T15:56:29.299386+00:00",
+      "finished_at": "2026-09-30T15:56:51.640876+00:00",
+      "elapsed_seconds": 22.343,
+      "tool_calls": 9,
+      "token_estimated_cny": 0.025447439999999998,
+      "input_files": [
+        {
+          "path": "input/ambiguous.csv",
+          "sha256": "4723abe8d89e096900d5771ea2eed8d4670693a6359c9f6b9ee5faef24f5ff8d"
+        }
+      ],
+      "output_files": [
+        {
+          "path": "Working/results/CE_two_group_BLOCKED.md",
+          "sha256": "bd64e78cc1c7027469be5317166ea54b8f33bb257c854c1b1d09a9258ec81973",
+          "bytes": 2285
+        }
+      ],
+      "native_desktop_test": false,
+      "harness_protocol": 3,
+      "max_output_tokens_per_request": 4096,
+      "api_requests": 7,
+      "received_requests": 7,
+      "run_sha256": "c15a460ce9db0d732a9f11b6bf5bdb382e30265765c728a4b5028328a741c20b",
+      "transcript_sha256": "c6414fb5b73e5f00f3f700ba58c9faf70ee524496b2451d0439f8c822d18d08b",
+      "inputs_byte_unchanged": true,
+      "response_records": [
+        {
+          "step": 1,
+          "response_id": "16edf2e6-258f-47d0-8291-18ae37b045e3",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 894,
+            "completion_tokens": 93,
+            "total_tokens": 987,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 894
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.001266
+        },
+        {
+          "step": 2,
+          "response_id": "5150fda1-ce00-4d58-a400-f1ad153c468c",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 4649,
+            "completion_tokens": 102,
+            "total_tokens": 4751,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 14
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 3753
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00417892
+        },
+        {
+          "step": 3,
+          "response_id": "6247b7dc-a1ea-4ee8-847e-24c1ed550e54",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 7713,
+            "completion_tokens": 193,
+            "total_tokens": 7906,
+            "prompt_tokens_details": {
+              "cached_tokens": 4736
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 105
+            },
+            "prompt_cache_hit_tokens": 4736,
+            "prompt_cache_miss_tokens": 2977
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.0038437199999999997
+        },
+        {
+          "step": 4,
+          "response_id": "884c42fb-396c-41b3-a8b5-975ca0dd7168",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 8928,
+            "completion_tokens": 1110,
+            "total_tokens": 10038,
+            "prompt_tokens_details": {
+              "cached_tokens": 7808
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 359
+            },
+            "prompt_cache_hit_tokens": 7808,
+            "prompt_cache_miss_tokens": 1120
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00571616
+        },
+        {
+          "step": 5,
+          "response_id": "17d44ab3-d9e8-4fef-915b-54ed8b609d4d",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 10073,
+            "completion_tokens": 784,
+            "total_tokens": 10857,
+            "prompt_tokens_details": {
+              "cached_tokens": 9344
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 31
+            },
+            "prompt_cache_hit_tokens": 9344,
+            "prompt_cache_miss_tokens": 729
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00405188
+        },
+        {
+          "step": 6,
+          "response_id": "b2f4f417-a575-4d90-894b-ccc5427712b1",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 10892,
+            "completion_tokens": 806,
+            "total_tokens": 11698,
+            "prompt_tokens_details": {
+              "cached_tokens": 10752
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 105
+            },
+            "prompt_cache_hit_tokens": 10752,
+            "prompt_cache_miss_tokens": 140
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00357904
+        },
+        {
+          "step": 7,
+          "response_id": "7a5e7a46-13bf-4c0e-ba7d-7bb3c510cafa",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 11769,
+            "completion_tokens": 489,
+            "total_tokens": 12258,
+            "prompt_tokens_details": {
+              "cached_tokens": 11136
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 41
+            },
+            "prompt_cache_hit_tokens": 11136,
+            "prompt_cache_miss_tokens": 633
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00281172
+        }
+      ],
+      "trial": "reviewed",
+      "independent_grade": "PASS safe stop; PARTIAL process-heavy reply and unnecessary blockers",
+      "package_sha256": "4b957427d30702fa04230f3ebd8e5dd8d580c6a81bd7f4a82253d231aabc23b6",
+      "installed_tree_sha256": "cd29165a50d17f57cd4d53bba6201de15a9c6992b8f0cfcaf7d53c40b712730d",
+      "receipt_sha256": "53300da51f1e470b3290b65b2f771e7b10b9f8e1c97faae671c554ae224dfe39"
+    },
+    {
+      "round": 3,
+      "model": "deepseek-v4-pro",
+      "skill_id": "battery-claim-check",
+      "status": "TOOL_ARGUMENT_TRUNCATED",
+      "started_at": "2026-09-30T15:59:09.757925+00:00",
+      "finished_at": "2026-09-30T16:00:07.555890+00:00",
+      "elapsed_seconds": 57.798,
+      "token_estimated_cny": 0.1059552,
+      "input_files": [
+        {
+          "path": "input/opposing_manuscript.md",
+          "sha256": "13e6cb2afff0e67f36f6974c3a82a112546c90686b93543da94d194d40dd90b8"
+        },
+        {
+          "path": "input/opposing_retention.csv",
+          "sha256": "609ac468f1492e9de128ba607fd537d2c8109b804bdcf7b41ae321988d38017b"
+        },
+        {
+          "path": "input/opposing_sources.md",
+          "sha256": "50e4f48a9003f7d6676a95e5cc7b4fdd4b29ae93e107e6ea4d4084051eca79ff"
+        }
+      ],
+      "output_files": [],
+      "native_desktop_test": false,
+      "tool_calls_observed": 12,
+      "transcript_complete": false,
+      "unpersisted_response_ids": [
+        "4255aceb-5d44-4e77-a8d7-adb80e5af3c3"
+      ],
+      "failure": "At request 5 finish_reason=length, malformed write_json arguments caused JSONDecodeError in transcript logging. No result file was written. Received usage retained in cost ledger.",
+      "harness_protocol": 3,
+      "max_output_tokens_per_request": 4096,
+      "api_requests": 5,
+      "received_requests": 5,
+      "run_sha256": "7c565a7ed7fd40037ee2a721edcf06ab6068b3b487af85653aeaf9ae338898a7",
+      "transcript_sha256": "86bd322602822b79ecce6ed02338ec6820322cc685ada6cdbef3da4605dcc753",
+      "inputs_byte_unchanged": true,
+      "response_records": [
+        {
+          "step": 1,
+          "response_id": "48dc441b-533a-4283-ba9f-29a3d305937a",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 998,
+            "completion_tokens": 163,
+            "total_tokens": 1161,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 13
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 998
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.0066915
+        },
+        {
+          "step": 2,
+          "response_id": "3e7ae130-2ff5-4753-bbb3-17dcafd33da0",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 2084,
+            "completion_tokens": 182,
+            "total_tokens": 2266,
+            "prompt_tokens_details": {
+              "cached_tokens": 1152
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 11
+            },
+            "prompt_cache_hit_tokens": 1152,
+            "prompt_cache_miss_tokens": 932
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.0068238000000000005
+        },
+        {
+          "step": 3,
+          "response_id": "838c0335-ae1d-4bd3-a409-485ad56b327b",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 5027,
+            "completion_tokens": 1298,
+            "total_tokens": 6325,
+            "prompt_tokens_details": {
+              "cached_tokens": 2176
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1201
+            },
+            "prompt_cache_hit_tokens": 2176,
+            "prompt_cache_miss_tokens": 2851
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.030678900000000002
+        },
+        {
+          "step": 4,
+          "response_id": "a1c0fa53-5cd5-46ec-96a2-d6182d4c71cc",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 6482,
+            "completion_tokens": 126,
+            "total_tokens": 6608,
+            "prompt_tokens_details": {
+              "cached_tokens": 6272
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 14
+            },
+            "prompt_cache_hit_tokens": 6272,
+            "prompt_cache_miss_tokens": 210
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.0035868000000000002
+        },
+        {
+          "step": 5,
+          "response_id": "4255aceb-5d44-4e77-a8d7-adb80e5af3c3",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 6950,
+            "completion_tokens": 4096,
+            "total_tokens": 11046,
+            "prompt_tokens_details": {
+              "cached_tokens": 6528
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 2868
+            },
+            "prompt_cache_hit_tokens": 6528,
+            "prompt_cache_miss_tokens": 422
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.058174199999999995
+        }
+      ],
+      "trial": "reviewed",
+      "independent_grade": "OUTPUT_TRUNCATED: malformed JSON logging crash; no result; received usage retained",
+      "package_sha256": "4b957427d30702fa04230f3ebd8e5dd8d580c6a81bd7f4a82253d231aabc23b6",
+      "installed_tree_sha256": "cd29165a50d17f57cd4d53bba6201de15a9c6992b8f0cfcaf7d53c40b712730d",
+      "receipt_sha256": "53300da51f1e470b3290b65b2f771e7b10b9f8e1c97faae671c554ae224dfe39"
+    },
+    {
+      "round": 3,
+      "model": "deepseek-v4-pro",
+      "skill_id": "battery-claim-check",
+      "status": "REQUEST_UNCERTAIN",
+      "started_at": "2026-09-30T16:22:35.562538+00:00",
+      "finished_at": "2026-09-30T16:23:34.838630+00:00",
+      "elapsed_seconds": 59.282,
+      "tool_calls": 6,
+      "token_estimated_cny": 0.0094602,
+      "input_files": [
+        {
+          "path": "input/opposing_manuscript.md",
+          "sha256": "13e6cb2afff0e67f36f6974c3a82a112546c90686b93543da94d194d40dd90b8"
+        },
+        {
+          "path": "input/opposing_retention.csv",
+          "sha256": "609ac468f1492e9de128ba607fd537d2c8109b804bdcf7b41ae321988d38017b"
+        },
+        {
+          "path": "input/opposing_sources.md",
+          "sha256": "50e4f48a9003f7d6676a95e5cc7b4fdd4b29ae93e107e6ea4d4084051eca79ff"
+        }
+      ],
+      "output_files": [],
+      "native_desktop_test": false,
+      "harness_protocol": 4,
+      "max_output_tokens_per_request": 8192,
+      "api_requests": 3,
+      "received_requests": 2,
+      "run_sha256": "c7668695c1602a050baa70409679f14da5b3ccd019d1ab68d97def900987b615",
+      "transcript_sha256": "e7b048844431af644b8847e7af89f64aca6a6a7627dd0f0a205d554bb7db3680",
+      "inputs_byte_unchanged": true,
+      "response_records": [
+        {
+          "step": 1,
+          "response_id": "17751eb8-6cfb-45ba-9efe-1198879168c0",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 998,
+            "completion_tokens": 170,
+            "total_tokens": 1168,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 82
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 102
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.0028884
+        },
+        {
+          "step": 2,
+          "response_id": "b53ea3c4-d356-4e11-9685-33c9d1caca2b",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 2028,
+            "completion_tokens": 182,
+            "total_tokens": 2210,
+            "prompt_tokens_details": {
+              "cached_tokens": 1152
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 11
+            },
+            "prompt_cache_hit_tokens": 1152,
+            "prompt_cache_miss_tokens": 876
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.0065718
+        },
+        {
+          "step": 3
+        }
+      ],
+      "trial": "pro-timeout",
+      "independent_grade": "REQUEST_UNCERTAIN: timeout; cost reserve retained; no automatic request retry",
+      "package_sha256": "4b957427d30702fa04230f3ebd8e5dd8d580c6a81bd7f4a82253d231aabc23b6",
+      "installed_tree_sha256": "cd29165a50d17f57cd4d53bba6201de15a9c6992b8f0cfcaf7d53c40b712730d",
+      "receipt_sha256": "92b16ca595195869389f47e9892195ed9be2aa87991b396ebe632a37a8a12398"
+    },
+    {
+      "round": 3,
+      "model": "deepseek-v4-pro",
+      "skill_id": "battery-claim-check",
+      "status": "COMPLETED",
+      "started_at": "2026-09-30T16:25:40.040496+00:00",
+      "finished_at": "2026-09-30T16:26:46.712106+00:00",
+      "elapsed_seconds": 66.672,
+      "tool_calls": 15,
+      "token_estimated_cny": 0.1230198,
+      "input_files": [
+        {
+          "path": "input/opposing_manuscript.md",
+          "sha256": "13e6cb2afff0e67f36f6974c3a82a112546c90686b93543da94d194d40dd90b8"
+        },
+        {
+          "path": "input/opposing_retention.csv",
+          "sha256": "609ac468f1492e9de128ba607fd537d2c8109b804bdcf7b41ae321988d38017b"
+        },
+        {
+          "path": "input/opposing_sources.md",
+          "sha256": "50e4f48a9003f7d6676a95e5cc7b4fdd4b29ae93e107e6ea4d4084051eca79ff"
+        }
+      ],
+      "output_files": [
+        {
+          "path": "Working/results/claim_check_result.md",
+          "sha256": "4075cd50360cce3324a26ad318c314204e8dd5cbf6719e5644576ecc026e0bb8",
+          "bytes": 3592
+        },
+        {
+          "path": "Working/results/original_manuscript_preserved.md",
+          "sha256": "ed67110f4a5c577616c5b0b9c9a2e7bec799c8b2b7f61ed05dd7b8046bdf730a",
+          "bytes": 684
+        }
+      ],
+      "native_desktop_test": false,
+      "harness_protocol": 4,
+      "max_output_tokens_per_request": 8192,
+      "api_requests": 8,
+      "received_requests": 8,
+      "run_sha256": "62a4c101ef5772027ae63d766712e98d726bf24eb1a465c1b012e8edfcf53d68",
+      "transcript_sha256": "432eec1cd7f6dd2a03da11d63277b9c7e38aebe9e3632d752fa6f0610caadfc7",
+      "inputs_byte_unchanged": true,
+      "response_records": [
+        {
+          "step": 1,
+          "response_id": "d448fd53-6980-4820-8d3d-9c2c776162ed",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 998,
+            "completion_tokens": 163,
+            "total_tokens": 1161,
+            "prompt_tokens_details": {
+              "cached_tokens": 896
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 45
+            },
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 102
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.0027939
+        },
+        {
+          "step": 2,
+          "response_id": "d7f84072-8c70-43c4-b6e1-52f269e9e2db",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 2064,
+            "completion_tokens": 182,
+            "total_tokens": 2246,
+            "prompt_tokens_details": {
+              "cached_tokens": 1152
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 11
+            },
+            "prompt_cache_hit_tokens": 1152,
+            "prompt_cache_miss_tokens": 912
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.0067338
+        },
+        {
+          "step": 3,
+          "response_id": "d500fb16-866c-4d1b-985a-80cb22a1b95d",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 5007,
+            "completion_tokens": 3019,
+            "total_tokens": 8026,
+            "prompt_tokens_details": {
+              "cached_tokens": 2176
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 2328
+            },
+            "prompt_cache_hit_tokens": 2176,
+            "prompt_cache_miss_tokens": 2831
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.0538224
+        },
+        {
+          "step": 4,
+          "response_id": "a8153886-2f24-4531-8650-7f7fe5c52268",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 8127,
+            "completion_tokens": 1527,
+            "total_tokens": 9654,
+            "prompt_tokens_details": {
+              "cached_tokens": 7936
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 137
+            },
+            "prompt_cache_hit_tokens": 7936,
+            "prompt_cache_miss_tokens": 191
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.0226644
+        },
+        {
+          "step": 5,
+          "response_id": "2f9d48e0-fc2d-4892-be93-c5b75fd617cc",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 9720,
+            "completion_tokens": 306,
+            "total_tokens": 10026,
+            "prompt_tokens_details": {
+              "cached_tokens": 9600
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 227
+            },
+            "prompt_cache_hit_tokens": 9600,
+            "prompt_cache_miss_tokens": 120
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.006111
+        },
+        {
+          "step": 6,
+          "response_id": "95b12e78-2ef0-4562-ab69-0ad567f28338",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 10071,
+            "completion_tokens": 313,
+            "total_tokens": 10384,
+            "prompt_tokens_details": {
+              "cached_tokens": 9984
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 52
+            },
+            "prompt_cache_hit_tokens": 9984,
+            "prompt_cache_miss_tokens": 87
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.0061146
+        },
+        {
+          "step": 7,
+          "response_id": "bf7b3ef2-4889-4abf-861f-f868e1fe89f3",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 10463,
+            "completion_tokens": 1166,
+            "total_tokens": 11629,
+            "prompt_tokens_details": {
+              "cached_tokens": 10368
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 16
+            },
+            "prompt_cache_hit_tokens": 10368,
+            "prompt_cache_miss_tokens": 95
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.017723700000000002
+        },
+        {
+          "step": 8,
+          "response_id": "32ef4961-c436-4a58-9fa8-03cba3d64d7f",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 11696,
+            "completion_tokens": 336,
+            "total_tokens": 12032,
+            "prompt_tokens_details": {
+              "cached_tokens": 11520
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 23
+            },
+            "prompt_cache_hit_tokens": 11520,
+            "prompt_cache_miss_tokens": 176
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.007056
+        }
+      ],
+      "trial": "pro-recovery",
+      "independent_grade": "PARTIAL: opposing effects/NR/NV correct; reconstructed copy and EIS mechanism wording incorrect",
+      "package_sha256": "4b957427d30702fa04230f3ebd8e5dd8d580c6a81bd7f4a82253d231aabc23b6",
+      "installed_tree_sha256": "cd29165a50d17f57cd4d53bba6201de15a9c6992b8f0cfcaf7d53c40b712730d",
+      "receipt_sha256": "566c0d6bd3343637a3674c52f1e76d350522e49660c679c8539bbed36efac934"
+    },
+    {
+      "round": 1,
+      "model": "deepseek-flash",
+      "skill_id": "battery-review-figure",
+      "status": "COMPLETED",
+      "started_at": "2026-09-30T16:36:15.578308+00:00",
+      "finished_at": "2026-09-30T16:36:44.759281+00:00",
+      "elapsed_seconds": 29.187,
+      "tool_calls": 18,
+      "token_estimated_cny": 0.03784604,
+      "input_files": [
+        {
+          "path": "input/ce.csv",
+          "sha256": "79b664c15d291a843c8af6bd0dc65acf2599ef40f5499b0b9d5e9af3e87eb835"
+        },
+        {
+          "path": "input/conditions.md",
+          "sha256": "ee34c58c99bbfad3f5af2cf43908134cb23cc3592e18ff532ab79064691b97f4"
+        }
+      ],
+      "output_files": [
+        {
+          "path": "Working/results/ce.csv",
+          "sha256": "79b664c15d291a843c8af6bd0dc65acf2599ef40f5499b0b9d5e9af3e87eb835",
+          "bytes": 634
+        },
+        {
+          "path": "Working/results/ce_check_preview.pdf",
+          "sha256": "d300e32d9f18700b26b5b77f6dceed0a356c0cf38b2c59cc45b3b75bb70022ee",
+          "bytes": 23242
+        },
+        {
+          "path": "Working/results/ce_check_preview.png",
+          "sha256": "c6cb689a3a29863059adb46bdc83311978031e959a7cfc50a867b43d279802f8",
+          "bytes": 42126
+        },
+        {
+          "path": "Working/results/ce_check_preview.provenance.json",
+          "sha256": "13d1e8cf99f1006905bd8e5ca73d8a4a6a834dfc2efd07de958ec3e3d0ed875c",
+          "bytes": 2108
+        },
+        {
+          "path": "Working/results/ce_check_preview.svg",
+          "sha256": "6a0624a5c9ca916e990335de7eb7c98d2d041223d8e33cf4637a7b40c13c5899",
+          "bytes": 11325
+        },
+        {
+          "path": "Working/results/conditions.md",
+          "sha256": "ee34c58c99bbfad3f5af2cf43908134cb23cc3592e18ff532ab79064691b97f4",
+          "bytes": 1046
+        }
+      ],
+      "native_desktop_test": false,
+      "harness_protocol": 5,
+      "max_output_tokens_per_request": 4096,
+      "api_requests": 9,
+      "received_requests": 9,
+      "run_sha256": "2735fa3cca23effd59a6a3b6438cbb8a71f126d41cfb0f3f62dd41c7a6f0985c",
+      "transcript_sha256": "a4b9231646b85e9ed092fc7b063099592ca6e98e5c4f37367caa5d4665dafd88",
+      "inputs_byte_unchanged": true,
+      "response_records": [
+        {
+          "step": 1,
+          "response_id": "6e2f6c55-f389-47f2-a930-0b773fad9940",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 1021,
+            "completion_tokens": 92,
+            "total_tokens": 1113,
+            "prompt_tokens_details": {
+              "cached_tokens": 512
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 512,
+            "prompt_cache_miss_tokens": 509
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00088724
+        },
+        {
+          "step": 2,
+          "response_id": "9d54ba84-2693-48b1-a02a-b0b24877075a",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 4788,
+            "completion_tokens": 201,
+            "total_tokens": 4989,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 37
+            },
+            "prompt_cache_hit_tokens": 1024,
+            "prompt_cache_miss_tokens": 3764
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00458848
+        },
+        {
+          "step": 3,
+          "response_id": "670b224f-91cb-4cef-a1a5-b6f7976b84a6",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 10906,
+            "completion_tokens": 193,
+            "total_tokens": 11099,
+            "prompt_tokens_details": {
+              "cached_tokens": 4864
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 68
+            },
+            "prompt_cache_hit_tokens": 4864,
+            "prompt_cache_miss_tokens": 6042
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00691128
+        },
+        {
+          "step": 4,
+          "response_id": "168ebe6d-bd19-4b84-bb39-80a84a7bb54f",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 11554,
+            "completion_tokens": 690,
+            "total_tokens": 12244,
+            "prompt_tokens_details": {
+              "cached_tokens": 11008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 247
+            },
+            "prompt_cache_hit_tokens": 11008,
+            "prompt_cache_miss_tokens": 546
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00352616
+        },
+        {
+          "step": 5,
+          "response_id": "8f4c9f7f-d6d9-45c4-8828-f56fd6dcfbbf",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 12552,
+            "completion_tokens": 150,
+            "total_tokens": 12702,
+            "prompt_tokens_details": {
+              "cached_tokens": 12160
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 47
+            },
+            "prompt_cache_hit_tokens": 12160,
+            "prompt_cache_miss_tokens": 392
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.0012352
+        },
+        {
+          "step": 6,
+          "response_id": "8cc67475-8b61-4bd5-8526-3d399a005289",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 13192,
+            "completion_tokens": 109,
+            "total_tokens": 13301,
+            "prompt_tokens_details": {
+              "cached_tokens": 12672
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 63
+            },
+            "prompt_cache_hit_tokens": 12672,
+            "prompt_cache_miss_tokens": 520
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00120944
+        },
+        {
+          "step": 7,
+          "response_id": "b2c0adb5-0666-4b3f-a397-37baeccafe87",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 18472,
+            "completion_tokens": 272,
+            "total_tokens": 18744,
+            "prompt_tokens_details": {
+              "cached_tokens": 13184
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 177
+            },
+            "prompt_cache_hit_tokens": 13184,
+            "prompt_cache_miss_tokens": 5288
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00663968
+        },
+        {
+          "step": 8,
+          "response_id": "0fa296e7-846f-41d3-a608-bf16ceb5b03b",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 21395,
+            "completion_tokens": 1681,
+            "total_tokens": 23076,
+            "prompt_tokens_details": {
+              "cached_tokens": 18688
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 279
+            },
+            "prompt_cache_hit_tokens": 18688,
+            "prompt_cache_miss_tokens": 2707
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.009804760000000001
+        },
+        {
+          "step": 9,
+          "response_id": "75e1a307-0383-43ba-9a26-a83130a0c485",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 23451,
+            "completion_tokens": 543,
+            "total_tokens": 23994,
+            "prompt_tokens_details": {
+              "cached_tokens": 23040
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 24
+            },
+            "prompt_cache_hit_tokens": 23040,
+            "prompt_cache_miss_tokens": 411
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.0030438
+        }
+      ],
+      "trial": "final-candidate",
+      "independent_grade": "PASS artifact/data; PARTIAL concise host-link presentation",
+      "package_sha256": "07d1ec7f1fa5396775acfa76a50507655b03ab763fbd8b342e2fe25871d61bd1",
+      "installed_tree_sha256": "0875136dbcd72a54e7ea3f583c41ec9a17e3bba134b302ef9079b2e6c31efecd",
+      "receipt_sha256": "36011e6881b14b8b39e10a672f3746f53ac3683f53961c246d13d106fe7add33"
+    },
+    {
+      "round": 2,
+      "model": "deepseek-flash",
+      "skill_id": "battery-review-figure",
+      "status": "COMPLETED",
+      "started_at": "2026-09-30T16:39:32.693347+00:00",
+      "finished_at": "2026-09-30T16:40:12.189593+00:00",
+      "elapsed_seconds": 39.5,
+      "tool_calls": 15,
+      "token_estimated_cny": 0.03719068,
+      "input_files": [
+        {
+          "path": "input/ambiguous.csv",
+          "sha256": "4723abe8d89e096900d5771ea2eed8d4670693a6359c9f6b9ee5faef24f5ff8d"
+        }
+      ],
+      "output_files": [
+        {
+          "path": "Working/results/ambiguous_ce_blockers.md",
+          "sha256": "83450c3d4c5d511f06a2b5924a4a9e7eeed34812110be64bbf63b9e4a29a476f",
+          "bytes": 2809
+        },
+        {
+          "path": "Working/results/ambiguous_source_copy.csv",
+          "sha256": "4723abe8d89e096900d5771ea2eed8d4670693a6359c9f6b9ee5faef24f5ff8d",
+          "bytes": 70
+        }
+      ],
+      "native_desktop_test": false,
+      "harness_protocol": 5,
+      "max_output_tokens_per_request": 4096,
+      "api_requests": 10,
+      "received_requests": 10,
+      "run_sha256": "73bfc84d35c6d63630dde3dfbf0814a455894ac61de4e7fe13a3278787c0b17b",
+      "transcript_sha256": "d3e8740e0c19cb69824dc54fb3b35bf22780311921a34fd6b7c05e64d5720130",
+      "inputs_byte_unchanged": true,
+      "response_records": [
+        {
+          "step": 1,
+          "response_id": "f929f2d7-776e-4323-9509-8c190379db5e",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 978,
+            "completion_tokens": 96,
+            "total_tokens": 1074,
+            "prompt_tokens_details": {
+              "cached_tokens": 512
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 512,
+            "prompt_cache_miss_tokens": 466
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00086024
+        },
+        {
+          "step": 2,
+          "response_id": "c7bce5a6-e57b-45fd-adef-accbb8f9f4a2",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 4765,
+            "completion_tokens": 369,
+            "total_tokens": 5134,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 234
+            },
+            "prompt_cache_hit_tokens": 1024,
+            "prompt_cache_miss_tokens": 3741
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.005237479999999999
+        },
+        {
+          "step": 3,
+          "response_id": "fa8cb371-4fbf-4700-ad92-353f7ccf67d7",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 9684,
+            "completion_tokens": 1638,
+            "total_tokens": 11322,
+            "prompt_tokens_details": {
+              "cached_tokens": 5120
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1430
+            },
+            "prompt_cache_hit_tokens": 5120,
+            "prompt_cache_miss_tokens": 4564
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.0112184
+        },
+        {
+          "step": 4,
+          "response_id": "64664e04-f5c3-42a2-b69a-187baadbc23a",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 11423,
+            "completion_tokens": 212,
+            "total_tokens": 11635,
+            "prompt_tokens_details": {
+              "cached_tokens": 11264
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 53
+            },
+            "prompt_cache_hit_tokens": 11264,
+            "prompt_cache_miss_tokens": 159
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.0012322799999999999
+        },
+        {
+          "step": 5,
+          "response_id": "33728d86-f557-44fc-b95c-b5cc660fdd60",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 11869,
+            "completion_tokens": 602,
+            "total_tokens": 12471,
+            "prompt_tokens_details": {
+              "cached_tokens": 11520
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 453
+            },
+            "prompt_cache_hit_tokens": 11520,
+            "prompt_cache_miss_tokens": 349
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.0029874000000000003
+        },
+        {
+          "step": 6,
+          "response_id": "8e9fe526-62eb-481e-87e2-048b7b1377bd",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 12540,
+            "completion_tokens": 113,
+            "total_tokens": 12653,
+            "prompt_tokens_details": {
+              "cached_tokens": 12288
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 6
+            },
+            "prompt_cache_hit_tokens": 12288,
+            "prompt_cache_miss_tokens": 252
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00094976
+        },
+        {
+          "step": 7,
+          "response_id": "569aad0d-e3b0-40ff-91ce-27b62d8c2687",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 12726,
+            "completion_tokens": 1795,
+            "total_tokens": 14521,
+            "prompt_tokens_details": {
+              "cached_tokens": 12544
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 601
+            },
+            "prompt_cache_hit_tokens": 12544,
+            "prompt_cache_miss_tokens": 182
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00761288
+        },
+        {
+          "step": 8,
+          "response_id": "50c259f1-161d-41c6-8472-a30bb27ae616",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 14615,
+            "completion_tokens": 876,
+            "total_tokens": 15491,
+            "prompt_tokens_details": {
+              "cached_tokens": 14464
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 37
+            },
+            "prompt_cache_hit_tokens": 14464,
+            "prompt_cache_miss_tokens": 151
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.0039442800000000005
+        },
+        {
+          "step": 9,
+          "response_id": "811a83e4-e6db-4d14-bf9b-e85a8ce9a297",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 15610,
+            "completion_tokens": 71,
+            "total_tokens": 15681,
+            "prompt_tokens_details": {
+              "cached_tokens": 15360
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 31
+            },
+            "prompt_cache_hit_tokens": 15360,
+            "prompt_cache_miss_tokens": 250
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.0008412000000000001
+        },
+        {
+          "step": 10,
+          "response_id": "9fb2d61b-f5ba-4918-94c1-d6a1dcfac00c",
+          "response_model": "deepseek-flash",
+          "usage": {
+            "prompt_tokens": 15737,
+            "completion_tokens": 437,
+            "total_tokens": 16174,
+            "prompt_tokens_details": {
+              "cached_tokens": 15488
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 15488,
+            "prompt_cache_miss_tokens": 249
+          },
+          "rates_cny_per_million": [
+            0.02,
+            1.0,
+            4.0
+          ],
+          "token_estimated_cny": 0.00230676
+        }
+      ],
+      "trial": "final-candidate",
+      "independent_grade": "PASS fail-stop/input protection; FAIL guidance says any one missing item suffices; PARTIAL final links",
+      "package_sha256": "07d1ec7f1fa5396775acfa76a50507655b03ab763fbd8b342e2fe25871d61bd1",
+      "installed_tree_sha256": "0875136dbcd72a54e7ea3f583c41ec9a17e3bba134b302ef9079b2e6c31efecd",
+      "receipt_sha256": "36011e6881b14b8b39e10a672f3746f53ac3683f53961c246d13d106fe7add33"
+    },
+    {
+      "round": 3,
+      "model": "deepseek-v4-pro",
+      "skill_id": "battery-claim-check",
+      "status": "COMPLETED",
+      "started_at": "2026-09-30T16:40:12.779286+00:00",
+      "finished_at": "2026-09-30T16:41:12.022267+00:00",
+      "elapsed_seconds": 59.234,
+      "tool_calls": 9,
+      "token_estimated_cny": 0.1001493,
+      "input_files": [
+        {
+          "path": "input/opposing_manuscript.md",
+          "sha256": "13e6cb2afff0e67f36f6974c3a82a112546c90686b93543da94d194d40dd90b8"
+        },
+        {
+          "path": "input/opposing_retention.csv",
+          "sha256": "609ac468f1492e9de128ba607fd537d2c8109b804bdcf7b41ae321988d38017b"
+        },
+        {
+          "path": "input/opposing_sources.md",
+          "sha256": "50e4f48a9003f7d6676a95e5cc7b4fdd4b29ae93e107e6ea4d4084051eca79ff"
+        }
+      ],
+      "output_files": [
+        {
+          "path": "Working/results/claim_check_report.md",
+          "sha256": "b1b23d541a990c6626c33531e96e4583d42c1b7db16f22501ed9e6e264d5d386",
+          "bytes": 4020
+        },
+        {
+          "path": "Working/results/opposing_manuscript_original.md",
+          "sha256": "13e6cb2afff0e67f36f6974c3a82a112546c90686b93543da94d194d40dd90b8",
+          "bytes": 777
+        }
+      ],
+      "native_desktop_test": false,
+      "harness_protocol": 5,
+      "max_output_tokens_per_request": 8192,
+      "api_requests": 5,
+      "received_requests": 5,
+      "run_sha256": "5aadc3c0b8d2cc9fc866ae817b4d13aed14732a5bb40ebd8860c29dcdd021245",
+      "transcript_sha256": "1b4017a4490d49a0e196a5a84784b416d82eeba17da729056fc397df55317e8f",
+      "inputs_byte_unchanged": true,
+      "response_records": [
+        {
+          "step": 1,
+          "response_id": "dbb57dd0-4dd5-42eb-9738-166e93e16098",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 1082,
+            "completion_tokens": 133,
+            "total_tokens": 1215,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 13
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 1082
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.0066645
+        },
+        {
+          "step": 2,
+          "response_id": "f317debb-fb95-40ef-b8aa-e7fc9bba57ba",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 2345,
+            "completion_tokens": 131,
+            "total_tokens": 2476,
+            "prompt_tokens_details": {
+              "cached_tokens": 1152
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 7
+            },
+            "prompt_cache_hit_tokens": 1152,
+            "prompt_cache_miss_tokens": 1193
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.0073098
+        },
+        {
+          "step": 3,
+          "response_id": "ccf751c4-88d1-44f1-829c-1c83b7b7023c",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 3888,
+            "completion_tokens": 3751,
+            "total_tokens": 7639,
+            "prompt_tokens_details": {
+              "cached_tokens": 2432
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 3070
+            },
+            "prompt_cache_hit_tokens": 2432,
+            "prompt_cache_miss_tokens": 1456
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.057555300000000004
+        },
+        {
+          "step": 4,
+          "response_id": "2533f444-c66c-496d-9483-ae38acd41f8f",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 7874,
+            "completion_tokens": 1353,
+            "total_tokens": 9227,
+            "prompt_tokens_details": {
+              "cached_tokens": 7552
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 18
+            },
+            "prompt_cache_hit_tokens": 7552,
+            "prompt_cache_miss_tokens": 322
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.0208473
+        },
+        {
+          "step": 5,
+          "response_id": "f512f43d-f6d5-4ecb-904c-1851d125aa33",
+          "response_model": "deepseek-v4-pro",
+          "usage": {
+            "prompt_tokens": 9340,
+            "completion_tokens": 432,
+            "total_tokens": 9772,
+            "prompt_tokens_details": {
+              "cached_tokens": 9216
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 93
+            },
+            "prompt_cache_hit_tokens": 9216,
+            "prompt_cache_miss_tokens": 124
+          },
+          "rates_cny_per_million": [
+            0.15,
+            4.5,
+            13.5
+          ],
+          "token_estimated_cny": 0.0077724
+        }
+      ],
+      "trial": "final-candidate",
+      "independent_grade": "PASS opposing-source core/byte-copy; PARTIAL final links and process detail",
+      "package_sha256": "07d1ec7f1fa5396775acfa76a50507655b03ab763fbd8b342e2fe25871d61bd1",
+      "installed_tree_sha256": "0875136dbcd72a54e7ea3f583c41ec9a17e3bba134b302ef9079b2e6c31efecd",
+      "receipt_sha256": "36011e6881b14b8b39e10a672f3746f53ac3683f53961c246d13d106fe7add33"
+    }
+  ],
+  "confirmed_token_estimated_cny": 0.67786444,
+  "uncertain_request_reserved_cny": 0.415863,
+  "controlled_cost_upper_bound_cny": 1.09372744,
+  "final_three_round_estimated_cny": 0.17518602,
+  "budget_cny": 5,
+  "uncertain_request": "One timeout without returned usage; its prior conservative peak-price reserve is retained. Do not claim zero charge.",
+  "protocol_limits": "Protocols/limits changed to fix discovery, private paths, malformed JSON logging, Pro output/timeout and byte-copy tools; this is not a controlled A/B model benchmark.",
+  "final_skill_tree": {
+    "installed_tree_sha256": "0875136dbcd72a54e7ea3f583c41ec9a17e3bba134b302ef9079b2e6c31efecd",
+    "files": [
+      {
+        "path": ".dsh/skills/battery-claim-check/agents/openai.yaml",
+        "sha256": "2224aa6263315708a4ca2bec470a25682953a630c54f973448499f3f66ac9afd"
+      },
+      {
+        "path": ".dsh/skills/battery-claim-check/assets/SKILL_RELEASE.json",
+        "sha256": "441b46fc81e0599966f4c2492edb5e64a320d49ceafb42adc9aa0b2ffc317cf1"
+      },
+      {
+        "path": ".dsh/skills/battery-claim-check/assets/templates/EVIDENCE_LEDGER.csv",
+        "sha256": "724a7a92968ba1190aa9b4fa613b0bd57799b5a5ea7c26bf6d553c99250322fa"
+      },
+      {
+        "path": ".dsh/skills/battery-claim-check/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0"
+      },
+      {
+        "path": ".dsh/skills/battery-claim-check/references/EXECUTION.md",
+        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac"
+      },
+      {
+        "path": ".dsh/skills/battery-claim-check/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69"
+      },
+      {
+        "path": ".dsh/skills/battery-claim-check/SKILL.md",
+        "sha256": "cf917ce6729be2e569509029e9c6f01e8adb3c97d99577093788821a250b095d"
+      },
+      {
+        "path": ".dsh/skills/battery-data-prepare/agents/openai.yaml",
+        "sha256": "82ad10ad1ffde2b8d042308f1204da9dd9704115df2f81a264faca9aa96c4c9c"
+      },
+      {
+        "path": ".dsh/skills/battery-data-prepare/assets/SKILL_RELEASE.json",
+        "sha256": "982a7dff1fb15156daba57afbe7ee59ef3f4072696e7bf189ccc6992536e9a0f"
+      },
+      {
+        "path": ".dsh/skills/battery-data-prepare/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0"
+      },
+      {
+        "path": ".dsh/skills/battery-data-prepare/references/EXECUTION.md",
+        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac"
+      },
+      {
+        "path": ".dsh/skills/battery-data-prepare/references/MAPPING_CONTRACT.md",
+        "sha256": "0aece8d47d70b6d0e591e915573a751955132a0881bdbdcfd663c8458db31a47"
+      },
+      {
+        "path": ".dsh/skills/battery-data-prepare/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69"
+      },
+      {
+        "path": ".dsh/skills/battery-data-prepare/scripts/prepare_csv.py",
+        "sha256": "83abe9c6be5ff24f27374db071413cf71492bcb0cc23fdff1133d1baa8a512fe"
+      },
+      {
+        "path": ".dsh/skills/battery-data-prepare/SKILL.md",
+        "sha256": "4808be235325c12631e7ac1edaa6e8d3516d85b72af902982dc726c0bef3bca5"
+      },
+      {
+        "path": ".dsh/skills/battery-experiment-plan/agents/openai.yaml",
+        "sha256": "e0cbffc1b15724ef01aadbb0a6b640389f772afbb6ea52f3b6021ad0c0189ec4"
+      },
+      {
+        "path": ".dsh/skills/battery-experiment-plan/assets/EXPERIMENT_PLAN.md",
+        "sha256": "8c313e650526411d602263d5e51d492adc54568278c1fa1d0a7e68c2edb9858b"
+      },
+      {
+        "path": ".dsh/skills/battery-experiment-plan/assets/SKILL_RELEASE.json",
+        "sha256": "7d90c4d8fbdb54c6f245306919744a884013ab7e5f3c353524828d22cf60e546"
+      },
+      {
+        "path": ".dsh/skills/battery-experiment-plan/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0"
+      },
+      {
+        "path": ".dsh/skills/battery-experiment-plan/references/EXECUTION.md",
+        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac"
+      },
+      {
+        "path": ".dsh/skills/battery-experiment-plan/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69"
+      },
+      {
+        "path": ".dsh/skills/battery-experiment-plan/SKILL.md",
+        "sha256": "05771b7c7f188a4b135760d5fab094777c767cd4656812484b4ccc89ad57e35b"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/agents/openai.yaml",
+        "sha256": "d8a7ff3531b6709a97aed7a7575109b25a0319533b0eaf98e3167e1c27e9b41e"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/assets/SKILL_RELEASE.json",
+        "sha256": "4e6220431d9c6d612a39db5754bd9bdb0157138c000159abca1af30dc8300856"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/examples/demo_assemble.py",
+        "sha256": "3cc0fd7a6da73d2e3163d9e475a56db9bd3d96bb2a2f377ca2c6397bd0d9af04"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/COMPOSITION.md",
+        "sha256": "2359f0566157e8d55cba159b08b58586302a7aacac4ede597082e1f1e895673b"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/EDITORIAL_COMPOSITION.md",
+        "sha256": "c1bf462adc52bf9fc03a19ac0ace68c581dfc0d8cca6c743fd24902e1dab1da5"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/EXECUTION.md",
+        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/LAYOUT_RECIPES.md",
+        "sha256": "461b196b6eaf603dd971e7ff86b319e5916a239baf6d828afce64363e7ccf2fa"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-figure-assemble/references/EDITORIAL_COMPOSITION.md",
+        "sha256": "c1bf462adc52bf9fc03a19ac0ace68c581dfc0d8cca6c743fd24902e1dab1da5"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-figure-assemble/references/LAYOUT_RECIPES.md",
+        "sha256": "968588b6be70a19fb6ee9c496edcfed9e763931874ff1b63639de813963b5483"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/assets/figure_theme.json",
+        "sha256": "d019f7c849bf837524251e8ded47b49254a69eb1f5948d7478e0c0dc8e6dea33"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/assets/original/electrolyte-evidence-chain.svg",
+        "sha256": "3cea6e37c0aac7cc9cc4890dd56371ebc1e3279cc7658e33eb1dcda40418cf27"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/assets/original/review-wheel.svg",
+        "sha256": "3721030fd5696725f02fe0c93bd620166fb5f284e54fa3e6f8ff3c4d25dc7103"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/assets/style-preview.svg",
+        "sha256": "056417f2981a7be70682de0e19a76891e7e77bcd5d0ee9abfecab4f8208bfe58"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/references/ADVANCED_FIGURE_ATLAS.md",
+        "sha256": "336c9af2512fb4a672066f4126eee9ef70df862c233d42030129a3659ea654c6"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/references/BATTERY_FIGURE_ATLAS.md",
+        "sha256": "dcd1fcf786f023a99d91f4b1e24f3c477ce294751bc7ae7668e6ca56ee6c0e97"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/references/BATTERY_FIGURE_GRAMMAR.json",
+        "sha256": "2dccdcf9e5c51c454255a37be4405e174280a8c5760beddb1ddd74add2fa0c24"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/references/BATTERY_FIGURE_GRAMMAR.md",
+        "sha256": "5098d687f9b6fee033ec99c49234af7a0256d4ccfee210cd322d2cc255784389"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/references/CORPUS_RECIPES.md",
+        "sha256": "be19e23a5c3e28182422a7f306c6d22a39832ba2e0612b65fb59eec88882c350"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/references/DELIVERY.md",
+        "sha256": "b4c5fc898c55a503ae8499673474c1b46e70c7c94be638324a9fd86af36f0ccd"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/references/JOURNAL_FIGURE_SPEC.json",
+        "sha256": "2d5dbdb24e16e5409493dd867e6ff1e2d00512764902523b0e10330032bd6577"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/references/PANEL_EVIDENCE.json",
+        "sha256": "2e4214b3cb0826e31290b5828d1f78af5f3bf9cedc2c1770fd6fa9afb4ee26c8"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/references/PHYSICAL_LAYOUT.md",
+        "sha256": "88a5745f58e39512adc7e6cc4965773647aa9b7e2cbbf6497c8d474bead1e7dc"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/references/PLOT_QA_CHECKLIST.md",
+        "sha256": "02853cc20ab2db54c46a22d50995ad07437ea201a3d0f91f39b71d2affae0ce7"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/references/PYTHON_PLOTTING.md",
+        "sha256": "9a79bcf74e5eac3afbb3be6121fac0b70fa2b067c45c654ddec7073f3c473ad5"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/references/SHOWCASE_QA.md",
+        "sha256": "212f78a49128faaf247627b488f74b51a7851fa136aab2c250e86e9c2a336a3b"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/references/SHOWCASE_RECIPES.md",
+        "sha256": "b26df397d252f24f5f606ef95e41b5d2bcb6ae9fa520dacd99d683ce96d0a706"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/references/SHOWCASE_SPEC.md",
+        "sha256": "e29a9e496b4c65b5fcf6feff853c81be05c1d738a62971e164ee8226f95108a6"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/references/SPECIALIST_RECIPES.md",
+        "sha256": "7359f4cfb24d22682d472c2a9f19eb9cfcee6853eff9fc1a98963fb8f3f14e34"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/references/STYLE_PRESETS.md",
+        "sha256": "4709d1debd66a56c98915cca7a6501d6028a7785d31b4c2c2c0b14b7660482e3"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/references/SVG_HANDOFF.md",
+        "sha256": "5da61eaf18b4f54e0c39df529873191bbf4087f2d11e90ce01389d731ae14189"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/references/UPLOADED_DATA.md",
+        "sha256": "552266ac7febb26fe8bdd4d4daf0bbae216f9744d37037fb2ccce012897a11b4"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/references/shared/battery-review-figure/references/VISUAL_FINISH.md",
+        "sha256": "87fbcf2d68f46c2b057b73586dc97074f7d3ee843b318b40ca67dc1ac370c6d9"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/requirements.txt",
+        "sha256": "5db24eee49748d82aa31644817b7dc861abc87020b456424b9dcf8bcaf45ae23"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/scripts/batterycompose/__init__.py",
+        "sha256": "11a6408b88b7b9e7e3f65c429484a00653d5f16b0717e69d263a5a242235c413"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/scripts/batterycompose/assets.py",
+        "sha256": "9c9320f3ad8b59956843cf75e32205c6cc6fcc554a6e462672277794682d7e3b"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/scripts/batterycompose/fonts.py",
+        "sha256": "7296f6d8bb1c96f4604efb0564da78515982c2d1612002646745879c25e57b16"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/scripts/batterycompose/inventory.py",
+        "sha256": "3579ad921a93d03f649679cad41808747fd0bae1ddd139e7de9009c318711fed"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/scripts/batterycompose/layout.py",
+        "sha256": "e1819ec7bcdbd7ec1c06b35ec7161cf172b354a86984b3e884a84aca05d3b7d8"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/scripts/batterycompose/render.py",
+        "sha256": "fa8c0416d93cc831971cb436ec4df5313820b71757586fa39be5dceff84206db"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/scripts/cli_runtime.py",
+        "sha256": "b0b7adc821a0dc706ac190cff20a0e2764ef59fb4da3fe873d558e79790d5370"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/scripts/compose_figure.py",
+        "sha256": "855e26d648a957670c968af4c08a49e23bae2ae9806972c1569475e030d68285"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/scripts/delivery_contract.py",
+        "sha256": "e0548e2c0c61c72bfb859d3ef42f5288437dc207d2a7e68a890205ff9ee35524"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/scripts/output_safety.py",
+        "sha256": "6f2b035179f83ae3fa25ea54a5d43c0cedf47ff5e0576daf979c3fb8fc0f11da"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/scripts/share_bundle.py",
+        "sha256": "c9935aebac50e23fa3e55d19f4914662e3712d990eba80823f1f46ecc41094b8"
+      },
+      {
+        "path": ".dsh/skills/battery-figure-assemble/SKILL.md",
+        "sha256": "35228ca60e884fb2d6c30600033ef094b7711e15912c26e536189577acd81207"
+      },
+      {
+        "path": ".dsh/skills/battery-literature-map/agents/openai.yaml",
+        "sha256": "69eb072b444d27b7f99185e553d8418ab1572f4d41b7b23276e77f10b7ea95a6"
+      },
+      {
+        "path": ".dsh/skills/battery-literature-map/assets/SKILL_RELEASE.json",
+        "sha256": "8e41d91064f881062f93e385304610581c4d3eb997086f8b414c921fef32e4bd"
+      },
+      {
+        "path": ".dsh/skills/battery-literature-map/assets/templates/SCREENING_LOG.csv",
+        "sha256": "a516087eb236ef26542f4aed473fb601d5da324d6f3d9e65f0598aceac13ad5c"
+      },
+      {
+        "path": ".dsh/skills/battery-literature-map/assets/templates/SEARCH_RUNS.csv",
+        "sha256": "3cf08a0635f7e494eaa6f8baf49cda7554d4a35983eae9bb44f21fd210464a28"
+      },
+      {
+        "path": ".dsh/skills/battery-literature-map/assets/templates/SOURCE_REGISTER.csv",
+        "sha256": "4694d43dd11e66bd049d2f2dda7c9841a38bbc9f824496a0d17a2f3b2b3f89d9"
+      },
+      {
+        "path": ".dsh/skills/battery-literature-map/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0"
+      },
+      {
+        "path": ".dsh/skills/battery-literature-map/references/EXECUTION.md",
+        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac"
+      },
+      {
+        "path": ".dsh/skills/battery-literature-map/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69"
+      },
+      {
+        "path": ".dsh/skills/battery-literature-map/SKILL.md",
+        "sha256": "e3d0943c0349e1ce0d514357ddab36bd99c6b534ef8841680131340f1f7ebf65"
+      },
+      {
+        "path": ".dsh/skills/battery-metrics-audit/agents/openai.yaml",
+        "sha256": "360383ca553ce05058848dda73e964bb5a7778923957cfd5548249f54aacba3a"
+      },
+      {
+        "path": ".dsh/skills/battery-metrics-audit/assets/SKILL_RELEASE.json",
+        "sha256": "43fdb953bdbeecf125fcd8676d6c42198885dac6d5208b8db2031fa104f276de"
+      },
+      {
+        "path": ".dsh/skills/battery-metrics-audit/assets/templates/BATTERY_COMPARISON.csv",
+        "sha256": "b98086bd2c61ca55db2ab9ed54944c11867b87c13d7454cbf13a61ef121672a0"
+      },
+      {
+        "path": ".dsh/skills/battery-metrics-audit/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0"
+      },
+      {
+        "path": ".dsh/skills/battery-metrics-audit/references/EXECUTION.md",
+        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac"
+      },
+      {
+        "path": ".dsh/skills/battery-metrics-audit/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69"
+      },
+      {
+        "path": ".dsh/skills/battery-metrics-audit/SKILL.md",
+        "sha256": "967ed12033cfe16bba9a749c057d45ee1ea0f0b6226525f184a645ebd8421015"
+      },
+      {
+        "path": ".dsh/skills/battery-review-audit/agents/openai.yaml",
+        "sha256": "d4e3d207bc1be96ef1f61054ab740797da754c6c1af7e284ad9aa32c6f029427"
+      },
+      {
+        "path": ".dsh/skills/battery-review-audit/assets/SKILL_RELEASE.json",
+        "sha256": "969913d366013b5d28aca7bc26caa3954aea9a6b74833e632b4fa933e4acf5fb"
+      },
+      {
+        "path": ".dsh/skills/battery-review-audit/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0"
+      },
+      {
+        "path": ".dsh/skills/battery-review-audit/references/EXECUTION.md",
+        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac"
+      },
+      {
+        "path": ".dsh/skills/battery-review-audit/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69"
+      },
+      {
+        "path": ".dsh/skills/battery-review-audit/SKILL.md",
+        "sha256": "c8b12a1453fab45d4b95335d5801b661591dd51ec7dfa426ee1b1c4f20559121"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/agents/openai.yaml",
+        "sha256": "e23c2cc5e0db8300e83f3ba5f5db7591f02f8859356044f8a6c35d397a758aa2"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/assets/corpus_evidence.json",
+        "sha256": "fb612455adbf21b8dabfbf5d585eb2a319c9c72af51968fc538fec6fd212b76f"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/assets/figure_theme.json",
+        "sha256": "d019f7c849bf837524251e8ded47b49254a69eb1f5948d7478e0c0dc8e6dea33"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/assets/original/battery-lab-primitives.svg",
+        "sha256": "7e7138a66bce240d281cb5bc38807082708a5182bc570b5b994751ebd60e8983"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/assets/original/battery-morphology-primitives.svg",
+        "sha256": "168c9cd5b0188adbbbe3f33b29fefb587828fc356031aa61b5dda14a2c9681a9"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/assets/original/cell-boundaries.svg",
+        "sha256": "e47335c8c707f55e43e856cba5c4108a8a541f4abe2d7db9bb282efa7f194386"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/assets/original/electrolyte-evidence-chain.svg",
+        "sha256": "3cea6e37c0aac7cc9cc4890dd56371ebc1e3279cc7658e33eb1dcda40418cf27"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/assets/original/review-wheel.svg",
+        "sha256": "3721030fd5696725f02fe0c93bd620166fb5f284e54fa3e6f8ff3c4d25dc7103"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/assets/SKILL_RELEASE.json",
+        "sha256": "c1d44fc0c174c05a15d117b16bbb1b4417dc6d88935625e33320e90ccd3957da"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/assets/style-preview.png",
+        "sha256": "cacaee0b347b2d000a5ae8ac09e2bb02e894ad7b7adc46f87cf5a35d02df8d17"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/assets/style-preview.svg",
+        "sha256": "056417f2981a7be70682de0e19a76891e7e77bcd5d0ee9abfecab4f8208bfe58"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/assets/templates/FIGURE_LEDGER.md",
+        "sha256": "16a95d59aa16e82ad6bea01fc3a0eec04266f0f68025164cd06763f4cd983172"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/examples/demo_figures.py",
+        "sha256": "b7807e974d0e4958779728c32642b0344c2a708232975cd3788b7544df15b03d"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/examples/demo_uploaded.py",
+        "sha256": "d9140d75b1e7ec9e69c9049f638b70ee5e8224a0fe5c3e6176a5843dfb0abd47"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/ADVANCED_FIGURE_ATLAS.md",
+        "sha256": "336c9af2512fb4a672066f4126eee9ef70df862c233d42030129a3659ea654c6"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/ASSET_PATTERN_ATLAS.md",
+        "sha256": "96ab3bd67b9abba0ea4f4705ac021a55fbf7530a27d9020491b6a30693d25dbe"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/BATTERY_COMMONS.md",
+        "sha256": "34a3d2ffe62c7954087943de777b518bfa4fe212b1aa9b18a4f92e20979ead82"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/BATTERY_FIGURE_ATLAS.md",
+        "sha256": "7c8d6c280fd5e67a4e202869644c8119344b0db8b86304d691bf2de415f5df55"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/BATTERY_FIGURE_GRAMMAR.json",
+        "sha256": "2dccdcf9e5c51c454255a37be4405e174280a8c5760beddb1ddd74add2fa0c24"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/BATTERY_FIGURE_GRAMMAR.md",
+        "sha256": "5098d687f9b6fee033ec99c49234af7a0256d4ccfee210cd322d2cc255784389"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/CORPUS_RECIPES.md",
+        "sha256": "02678d6ee958c4b4f4136f7fbce776af2eb42aa45438c5001a411cbf4d52b091"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/DELIVERY.md",
+        "sha256": "b4c5fc898c55a503ae8499673474c1b46e70c7c94be638324a9fd86af36f0ccd"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/ELECTROCHEM_RECIPES.md",
+        "sha256": "2182727edfdebc6621955ebaf284ff72017603c9a25002ff449c6ba6b68b76e6"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/EXECUTION.md",
+        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/FIGURE_ROUTER.md",
+        "sha256": "b546db4a4d68dc30570fff74679a18deedda593d52998937cadd04c67ec1ba3e"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/JOURNAL_FIGURE_SPEC.json",
+        "sha256": "2d5dbdb24e16e5409493dd867e6ff1e2d00512764902523b0e10330032bd6577"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/PANEL_EVIDENCE.json",
+        "sha256": "2e4214b3cb0826e31290b5828d1f78af5f3bf9cedc2c1770fd6fa9afb4ee26c8"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/PHYSICAL_LAYOUT.md",
+        "sha256": "88a5745f58e39512adc7e6cc4965773647aa9b7e2cbbf6497c8d474bead1e7dc"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/PLOT_QA_CHECKLIST.md",
+        "sha256": "02853cc20ab2db54c46a22d50995ad07437ea201a3d0f91f39b71d2affae0ce7"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/PYTHON_PLOTTING.md",
+        "sha256": "a4dce2dcf0d631b25f49b594419cb4391accbaba855a7e74911a0ad6d78e5c81"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/RESOURCE_LIBRARY.md",
+        "sha256": "e5da81d5ea2cc3f357797c2d6807836e4b4451226a287a3401bfa5527c1454b9"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/shared/battery-figure-assemble/references/COMPOSITION.md",
+        "sha256": "a9e37142d190d916ade4c0f8ba7a2455065fb0655c8605d40a590fae4dabedba"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/shared/battery-figure-assemble/references/EDITORIAL_COMPOSITION.md",
+        "sha256": "c1bf462adc52bf9fc03a19ac0ace68c581dfc0d8cca6c743fd24902e1dab1da5"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/shared/battery-figure-assemble/references/LAYOUT_RECIPES.md",
+        "sha256": "461b196b6eaf603dd971e7ff86b319e5916a239baf6d828afce64363e7ccf2fa"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/SHOWCASE_QA.md",
+        "sha256": "212f78a49128faaf247627b488f74b51a7851fa136aab2c250e86e9c2a336a3b"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/SHOWCASE_RECIPES.md",
+        "sha256": "b26df397d252f24f5f606ef95e41b5d2bcb6ae9fa520dacd99d683ce96d0a706"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/SHOWCASE_SPEC.md",
+        "sha256": "e29a9e496b4c65b5fcf6feff853c81be05c1d738a62971e164ee8226f95108a6"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/SPECIALIST_RECIPES.md",
+        "sha256": "7359f4cfb24d22682d472c2a9f19eb9cfcee6853eff9fc1a98963fb8f3f14e34"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/STYLE_PRESETS.md",
+        "sha256": "6ec79232c3791d6ed196b69bc8d87147e0d341faaca731a3e9c5d7c1b3871dfe"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/SVG_HANDOFF.md",
+        "sha256": "5da61eaf18b4f54e0c39df529873191bbf4087f2d11e90ce01389d731ae14189"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/UPLOADED_DATA.md",
+        "sha256": "a8b6fac59e6c6d10d08a8840fc9d2312d419c87d81ba86bf94274a25d8c40699"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/references/VISUAL_FINISH.md",
+        "sha256": "163852fa15eef2fb2d7e48cdf76d43c172980c641d9e5e91b8e40e1b754a20a0"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/requirements.txt",
+        "sha256": "c9fddcd4becef007720a433bcbf1944afef063a37d388261737dfdd0241906d0"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/asset_inventory.py",
+        "sha256": "e886c82d2c9435105c8518051e6ee83a05213308a2d4ffd9359deceb03fafda0"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/audit_pdf_fonts.py",
+        "sha256": "c042e01ec79f4b0223c6fc1598e30be08c93edb985eb95e215d5182e9a511ac2"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/batteryplot/__init__.py",
+        "sha256": "38f5f0a7c930ec5dc9b9dd4fc1665b712f02b3820dbae691970e96c3d9ba4158"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/batteryplot/battery_charts.py",
+        "sha256": "9fa4e980b7dc5c07c09e77e69a31011e5c7c69f214a721822fcc8c85d95d7a57"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/batteryplot/charts.py",
+        "sha256": "2476a025f800ba35bda2173061b863c1d7b1b7e397f5a62ac0b7c226aafacd92"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/batteryplot/corpus.py",
+        "sha256": "89e6da0b69068dfb44f94a8331a7db2d0e4ed2fdb27f04089a53a6fbd18a0099"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/batteryplot/data.py",
+        "sha256": "d8e5e49b51d2a7e23842e3cbae91e16f4fe337a2294ed53ff4a6505075e0ad0c"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/batteryplot/electrochem.py",
+        "sha256": "8bd0a0ee0c17550c4656f04134960e67e12707a99f8702516b7dda3c036c4aee"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/batteryplot/export.py",
+        "sha256": "42307fb9e52432b213118bf7130536f387b2ebf5b5fe3430009e95fd635ada47"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/batteryplot/ingest.py",
+        "sha256": "87ac0d04fe18a8787e2e98fdd38acc5885a72b41f67c2760ae17d15888011164"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/batteryplot/layout.py",
+        "sha256": "089b0734fb90630ebf48a0ad12c8f0f69af367d5bff00987dabdcb346272a5d8"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/batteryplot/qa.py",
+        "sha256": "6055643068fa6c58e4fd4ae60da309479c6e4799600509a10aef63010b1e5733"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/batteryplot/specialist.py",
+        "sha256": "fb9a9dd3bc7ec4bdbb148f82887693c26d1c6702448171d27d535abf51c4db97"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/batteryplot/specification.py",
+        "sha256": "6990e00e7cdcea3fb4f613346d5e7c276e2073a4147b52b69276ae4418178484"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/batteryplot/style.py",
+        "sha256": "e4c069340b9ba1d60f7a7680315329934df114fb6cff3d746b0cb08d17a000ab"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/batteryplot/tofsims.py",
+        "sha256": "3fd24e60a95f579820457d0cf522aae6638b1d30298ab16ccf2855942b4c0678"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/cli_runtime.py",
+        "sha256": "b0b7adc821a0dc706ac190cff20a0e2764ef59fb4da3fe873d558e79790d5370"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/community_registry.py",
+        "sha256": "2b2fc9bb361cd45172db8f893287d6aededa3e841f37e14d203362472bdefb87"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/deliver.py",
+        "sha256": "7fff8d75bad8647cc2b449bf87e1195990206b3e2f8a237445248b54e4ec9880"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/delivery_contract.py",
+        "sha256": "e0548e2c0c61c72bfb859d3ef42f5288437dc207d2a7e68a890205ff9ee35524"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/output_safety.py",
+        "sha256": "6f2b035179f83ae3fa25ea54a5d43c0cedf47ff5e0576daf979c3fb8fc0f11da"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/plot_uploaded.py",
+        "sha256": "68bbbf490a8b0e2c3779f7395be8416e1996ff7fc1d8d96525374bbc20bd367d"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/preview_styles.py",
+        "sha256": "93906a7ae2f4c5f78f01763aad34f45405b38fd3549c10afbff86334b7b2b0f8"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/render_specialist.py",
+        "sha256": "2accc5a2b1404aabcde57bffabde4c15ac55d8d3c3e2b6fd39606f292d333fa5"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/render_template.py",
+        "sha256": "db9544122daf96ed4a043684776d14836e8851dce7afc3a89df0afbd20240386"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/scripts/share_bundle.py",
+        "sha256": "c9935aebac50e23fa3e55d19f4914662e3712d990eba80823f1f46ecc41094b8"
+      },
+      {
+        "path": ".dsh/skills/battery-review-figure/SKILL.md",
+        "sha256": "391412c960aaeb0537ad749000d82dbd7a10e09dddb6b4083d0b59f5a0a4a2cc"
+      },
+      {
+        "path": ".dsh/skills/battery-review-forge/agents/openai.yaml",
+        "sha256": "5d1b2ffc31c3e22ec00cfdb3075ef718eaa17da52d3b7de33f7b77c59bc274da"
+      },
+      {
+        "path": ".dsh/skills/battery-review-forge/assets/SKILL_RELEASE.json",
+        "sha256": "b82090f383fc12610172ea6f2e8c06cfe4abf742afd7f0ba1e9aea4bc0a82165"
+      },
+      {
+        "path": ".dsh/skills/battery-review-forge/assets/templates/SESSION_HANDOFF.md",
+        "sha256": "16c43b5152ccad81866b3e7c90956764f4de9d6406c9f1e3fdd7ba770176a116"
+      },
+      {
+        "path": ".dsh/skills/battery-review-forge/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0"
+      },
+      {
+        "path": ".dsh/skills/battery-review-forge/references/AGENT_COMPATIBILITY.md",
+        "sha256": "84e5504753591c0ce6b78749598637b8cc3d1f3310118fa392880e07d7e99c52"
+      },
+      {
+        "path": ".dsh/skills/battery-review-forge/references/codex-operations.md",
+        "sha256": "36ae8014321acdfd592f3af36fb4e26989021869ade943d97a997b40a5810050"
+      },
+      {
+        "path": ".dsh/skills/battery-review-forge/references/EXECUTION.md",
+        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac"
+      },
+      {
+        "path": ".dsh/skills/battery-review-forge/references/shared/battery-review-figure/assets/style-preview.svg",
+        "sha256": "056417f2981a7be70682de0e19a76891e7e77bcd5d0ee9abfecab4f8208bfe58"
+      },
+      {
+        "path": ".dsh/skills/battery-review-forge/references/shared/battery-review-figure/references/FIGURE_ROUTER.md",
+        "sha256": "b546db4a4d68dc30570fff74679a18deedda593d52998937cadd04c67ec1ba3e"
+      },
+      {
+        "path": ".dsh/skills/battery-review-forge/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69"
+      },
+      {
+        "path": ".dsh/skills/battery-review-forge/SKILL.md",
+        "sha256": "65596803b4759161a4f629ed9dcc95a2b818bcbc6010300ff294e95e06be956e"
+      },
+      {
+        "path": ".dsh/skills/battery-review-plan/agents/openai.yaml",
+        "sha256": "8530a10417b28838fc70536011c86b7fd51969018e4ce92d7fee3c2c8fd3d875"
+      },
+      {
+        "path": ".dsh/skills/battery-review-plan/assets/SKILL_RELEASE.json",
+        "sha256": "2ca387cc64ec554b875a49fb7080f1522c502355f2c73cad35eaaaf5a827217a"
+      },
+      {
+        "path": ".dsh/skills/battery-review-plan/assets/templates/PROJECT_BRIEF.md",
+        "sha256": "77e93eb95b7d994eeb0327d0e64a33d6f867afaa40bb7d4a33cdd41f1529a812"
+      },
+      {
+        "path": ".dsh/skills/battery-review-plan/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0"
+      },
+      {
+        "path": ".dsh/skills/battery-review-plan/references/EXECUTION.md",
+        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac"
+      },
+      {
+        "path": ".dsh/skills/battery-review-plan/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69"
+      },
+      {
+        "path": ".dsh/skills/battery-review-plan/SKILL.md",
+        "sha256": "effb65258eb194c449668614600cf874bfda70be92d970ea443ce9ec919826f7"
+      },
+      {
+        "path": ".dsh/skills/battery-review-polish/agents/openai.yaml",
+        "sha256": "1af8d2bff5330a9d3e92f61f57216218e10d2b1379f1a737dd2112ad6b5bc8e4"
+      },
+      {
+        "path": ".dsh/skills/battery-review-polish/assets/SKILL_RELEASE.json",
+        "sha256": "a2ce177f954e45b0378c66637c6bcd64bd755682f8ca253edbe561068e24055a"
+      },
+      {
+        "path": ".dsh/skills/battery-review-polish/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0"
+      },
+      {
+        "path": ".dsh/skills/battery-review-polish/references/EXECUTION.md",
+        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac"
+      },
+      {
+        "path": ".dsh/skills/battery-review-polish/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69"
+      },
+      {
+        "path": ".dsh/skills/battery-review-polish/SKILL.md",
+        "sha256": "32edc5a934ddb36cb4849e4340ef4a39490d5f9d78a8e7558d8fea7e9f304da9"
+      },
+      {
+        "path": ".dsh/skills/battery-review-response/agents/openai.yaml",
+        "sha256": "2ec5f84d82fc356e179fe859712c4d949f90e154ca0fd91ab4ba866fe0e189e8"
+      },
+      {
+        "path": ".dsh/skills/battery-review-response/assets/SKILL_RELEASE.json",
+        "sha256": "85e5feaeeed2e3028c35402dd7ef3cfaef7d72cabb5b61345f29ffddc396524f"
+      },
+      {
+        "path": ".dsh/skills/battery-review-response/assets/templates/RESPONSE_MATRIX.md",
+        "sha256": "64b22375f2023be058931d20ebfce4810b8ed5efe93e53124b85f67eda62e70d"
+      },
+      {
+        "path": ".dsh/skills/battery-review-response/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0"
+      },
+      {
+        "path": ".dsh/skills/battery-review-response/references/EXECUTION.md",
+        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac"
+      },
+      {
+        "path": ".dsh/skills/battery-review-response/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69"
+      },
+      {
+        "path": ".dsh/skills/battery-review-response/SKILL.md",
+        "sha256": "1e3e958eb9e0c8131efb74ccf821d1630f7b68064e4b0154e4c72c319f807286"
+      },
+      {
+        "path": ".dsh/skills/battery-review-submission/agents/openai.yaml",
+        "sha256": "e63e314f9cd03d4f7615ab25872af6e6700945e0a725c9eeab22f631567f7d26"
+      },
+      {
+        "path": ".dsh/skills/battery-review-submission/assets/SKILL_RELEASE.json",
+        "sha256": "e7d665cceefb1d059c220bc6c031016741086aab45f95166c48436407ae77723"
+      },
+      {
+        "path": ".dsh/skills/battery-review-submission/assets/templates/JOURNAL_CHECK.md",
+        "sha256": "8a37d92a261e3d6d5f79780bf79d0eafb5044b5fc0d37ab66e1c6d066e84abda"
+      },
+      {
+        "path": ".dsh/skills/battery-review-submission/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0"
+      },
+      {
+        "path": ".dsh/skills/battery-review-submission/references/EXECUTION.md",
+        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac"
+      },
+      {
+        "path": ".dsh/skills/battery-review-submission/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69"
+      },
+      {
+        "path": ".dsh/skills/battery-review-submission/SKILL.md",
+        "sha256": "8e5933f8dd6c66e224d1701970da2a077e9b1866d878ac7f5c16b080c36f5802"
+      },
+      {
+        "path": ".dsh/skills/battery-review-write/agents/openai.yaml",
+        "sha256": "ecefedb6d5bfdafe3c361b2513cd4a704641979d14b45c965d74982cb1267f12"
+      },
+      {
+        "path": ".dsh/skills/battery-review-write/assets/SKILL_RELEASE.json",
+        "sha256": "8ec4f85045a0627d4507f0ed5f2bbb9f6feeae0ba4721bd74ff6c887773d91ae"
+      },
+      {
+        "path": ".dsh/skills/battery-review-write/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0"
+      },
+      {
+        "path": ".dsh/skills/battery-review-write/references/EXECUTION.md",
+        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac"
+      },
+      {
+        "path": ".dsh/skills/battery-review-write/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69"
+      },
+      {
+        "path": ".dsh/skills/battery-review-write/SKILL.md",
+        "sha256": "1e5f92e2b17fcfc479d8c41831df17cfd0a6cb21611840f107653a4bb7ae1d05"
+      },
+      {
+        "path": ".dsh/skills/battery-reviewer/agents/openai.yaml",
+        "sha256": "5236cbb5fcbeb254669ce0ffc4a0c7036c23a2c163c1ca084a06e3365a3ab7bf"
+      },
+      {
+        "path": ".dsh/skills/battery-reviewer/assets/SKILL_RELEASE.json",
+        "sha256": "fc5f67a4461797ca397cabb6e933e6875a44f945788aaaf61baf46fca358068c"
+      },
+      {
+        "path": ".dsh/skills/battery-reviewer/assets/templates/TASK_STATE.json",
+        "sha256": "13fa3099f4021229f724d473beae7fcd470dfff1b09c7d4d31ad0c5b374453f0"
+      },
+      {
+        "path": ".dsh/skills/battery-reviewer/references/EXECUTION.md",
+        "sha256": "c1bad2b83be87b160503baf0171b12a91df81fad9932fafefb4d15584a1469ac"
+      },
+      {
+        "path": ".dsh/skills/battery-reviewer/scripts/check_task_state.py",
+        "sha256": "6303a9789195b7a1ea82640d6d72d316cd3b93722c0804734030ac1d1dc17e69"
+      },
+      {
+        "path": ".dsh/skills/battery-reviewer/SKILL.md",
+        "sha256": "c286ccbca9a56439a6c11dea4861b2bfaf850890c65a5f3faa8a2a1bc99f5e01"
+      }
+    ],
+    "source_commit_observed": "6acca6972e40fbf043f10e49e263bb534ebec621"
+  },
+  "independent_artifact_check": {
+    "pdf_size_mm": [
+      89.0,
+      65.0
+    ],
+    "png": {
+      "pixel_size": [
+        1051,
+        767
+      ],
+      "dpi": [
+        299.9994,
+        299.9994
+      ]
+    },
+    "replayed_frozen_code_in_memory": [
+      {
+        "metadata": "figure_map.json",
+        "mode": null,
+        "figure_size_mm_runtime": [
+          89.0,
+          65.0
+        ],
+        "data_axes": 1,
+        "lines": 2,
+        "all_48_values_exact": true,
+        "anomaly_100_5_preserved": true,
+        "line_styles": [
+          "-",
+          "-"
+        ],
+        "markers": [
+          "None",
+          "None"
+        ],
+        "colors": [
+          "#C11155",
+          "#465AB0"
+        ],
+        "four_spines": [
+          {
+            "left": true,
+            "right": true,
+            "top": true,
+            "bottom": true
+          }
+        ]
+      }
+    ]
+  },
+  "independent_preview_inspection": "Reviewer opened final PNG: four-sided axes, separate solid colors, no markers, visible unaltered 100.5% anomaly; no journal-compliance certification.",
+  "original_manuscript_copy": {
+    "byte_exact": true,
+    "sha256": "13e6cb2afff0e67f36f6974c3a82a112546c90686b93543da94d194d40dd90b8"
+  },
+  "remaining": [
+    "Flash incomplete-data reply says any single missing item suffices; the code correctly refuses output until required scientific fields are valid.",
+    "Some final replies still contain process details/backtick or Windows-path links; native host link interaction has not been tested.",
+    "Native desktop discovery/permissions/full 69-case behavior/macOS require separate real execution; this pilot does not permit Stable."
+  ],
+  "privacy": "No API key, account balance, private absolute path or raw transcript is included. Raw runs remain only in private local workspaces.",
+  "late_distribution_documentation_fix": {
+    "reason": "Deduplicate each bare shared-guide path before global replacement, and require all truly missing mandatory inputs in short stop guidance.",
+    "changed_skill_files": [
+      "battery-claim-check/references/EXECUTION.md",
+      "battery-data-prepare/references/EXECUTION.md",
+      "battery-experiment-plan/references/EXECUTION.md",
+      "battery-figure-assemble/references/EXECUTION.md",
+      "battery-figure-assemble/references/shared/battery-review-figure/references/CORPUS_RECIPES.md",
+      "battery-figure-assemble/references/shared/battery-review-figure/references/PYTHON_PLOTTING.md",
+      "battery-figure-assemble/references/shared/battery-review-figure/references/STYLE_PRESETS.md",
+      "battery-figure-assemble/references/shared/battery-review-figure/references/UPLOADED_DATA.md",
+      "battery-literature-map/references/EXECUTION.md",
+      "battery-metrics-audit/references/EXECUTION.md",
+      "battery-review-audit/references/EXECUTION.md",
+      "battery-review-figure/references/EXECUTION.md",
+      "battery-review-figure/references/UPLOADED_DATA.md",
+      "battery-review-figure/references/shared/battery-figure-assemble/references/COMPOSITION.md",
+      "battery-review-forge/references/EXECUTION.md",
+      "battery-review-plan/references/EXECUTION.md",
+      "battery-review-polish/references/EXECUTION.md",
+      "battery-review-response/references/EXECUTION.md",
+      "battery-review-submission/references/EXECUTION.md",
+      "battery-review-write/references/EXECUTION.md",
+      "battery-reviewer/references/EXECUTION.md"
+    ],
+    "added_skill_files": [],
+    "removed_skill_files": [],
+    "current_skill_tree_sha256": "bf61d9c2422ed1a65aba922c83443a2aac5bd62f6e88fa2bffa42deb0acb5615",
+    "current_actor_skill_trees_byte_exact_with_final_pilot": {
+      "battery-review-figure": false,
+      "battery-claim-check": false
+    },
+    "python_scripts_changed_since_final_pilot": false,
+    "original_frozen_trial_preserved": true,
+    "current_complete_tree_model_behavior": "NOT_RUN: late shared-guide and missing-input reply corrections change the frozen tree",
+    "focused_sync_regression": "PASS: repeated same path in one document; second synchronization is byte-idempotent; 1 test / 0.121 s",
+    "scope": "Engineering checks do not transfer the previous frozen-tree pilot to this modified installation tree."
+  }
+}

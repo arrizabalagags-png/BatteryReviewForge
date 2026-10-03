@@ -1,0 +1,13 @@
+test_all_thirty_sources_and_archive_input_closure (test_demo_bundle_execution.DemoSourceDeliveryTests.test_all_thirty_sources_and_archive_input_closure) ... ok
+test_changed_author_data_retained_without_scientific_certification (test_demo_bundle_execution.DemoSourceDeliveryTests.test_changed_author_data_retained_without_scientific_certification) ... ok
+test_detached_render_all_families_and_both_composites (test_demo_bundle_execution.DemoSourceDeliveryTests.test_detached_render_all_families_and_both_composites) ... ok
+test_existing_output_refused_and_original_results_preserved (test_demo_bundle_execution.DemoSourceDeliveryTests.test_existing_output_refused_and_original_results_preserved) ... ok
+test_input_path_escape_rejected_by_packager (test_demo_bundle_execution.DemoSourceDeliveryTests.test_input_path_escape_rejected_by_packager) ... ok
+test_missing_input_stops_without_creating_output (test_demo_bundle_execution.DemoSourceDeliveryTests.test_missing_input_stops_without_creating_output) ... ok
+test_nonfinite_author_data_stops_before_plotting (test_demo_bundle_execution.DemoSourceDeliveryTests.test_nonfinite_author_data_stops_before_plotting) ... ok
+test_source_edits_require_opt_in_and_generate_is_never_called (test_demo_bundle_execution.DemoSourceDeliveryTests.test_source_edits_require_opt_in_and_generate_is_never_called) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 102.277s
+
+OK

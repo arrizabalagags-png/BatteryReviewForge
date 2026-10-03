@@ -1,0 +1,129 @@
+{
+  "id": "science_isotope_frequency_shift",
+  "title": "同位素质量与振动频率",
+  "domain": "general",
+  "type": "demo",
+  "license": "MIT",
+  "scope": "Original analytic teaching record. Source references support the declared method/derivation only, never this invented parameter set or measurements.",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "source_files": [
+    "data.csv",
+    "model.json"
+  ],
+  "test_conditions": "No acquired cell or material. Independently declared analytic parameters, assumptions and units in scientific_basis.",
+  "variables_and_units": {
+    "1": [
+      "Variable isotope mass (u)",
+      "Vibration wavenumber (cm$^{-1}$)"
+    ]
+  },
+  "creator": "VoltPeer",
+  "generator_version": "1.0.0",
+  "reproduce": "python render_existing.py --output result-01",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "relationship": "Harmonic frequency changes with reduced mass when the force constant is fixed.",
+    "equations": [
+      "nu=(1/(2pi c))*sqrt(k/mu); mu=m1m2/(m1+m2)"
+    ],
+    "parameters": {
+      "m2_u": 12,
+      "k_N_m": 500,
+      "u_kg": 1.6605390666e-27
+    },
+    "assumptions": [
+      "Independently declared parameters; no experimental or material fit.",
+      "Harmonic diatomic illustration; no real bond assignment or anharmonic isotope correction."
+    ],
+    "limitations": [
+      "Harmonic diatomic illustration; no real bond assignment or anharmonic isotope correction.",
+      "A numerical/model QA pass does not validate author data or a physical mechanism."
+    ],
+    "constraints": [
+      "Finite numerical values and explicit physical units.",
+      "Continuous plotted curves are solid without markers; data axes retain four borders.",
+      "All plotted responses are nonnegative."
+    ],
+    "references": [
+      {
+        "title": "IUPAC: harmonic approximation",
+        "doi": "10.1351/goldbook.HT07041",
+        "url": "https://goldbook.iupac.org/terms/view/HT07041/pdf",
+        "figure_panel": "Mass-weighted harmonic displacement approximation; diatomic reduced-mass specialization derived independently",
+        "supports": "Harmonic frequency changes with reduced mass when the force constant is fixed.",
+        "checked_at": "2026-10-03",
+        "scope": "Method/equation/caveat reference only. Original analytic teaching inputs; no copied paper points, pixels or experimental inference."
+      }
+    ],
+    "validation": {
+      "finite": true,
+      "nonnegative": true,
+      "unit_interval": false
+    },
+    "validation_scope": "Source method/principle and explicitly derived restricted teaching specialization checked; equation, units and numerical constraints only. No copied paper measurements, material parameters, experimental fit or mechanism certification."
+  },
+  "review": {
+    "science": "Equation/units/numerical constraints and source scope checked. No author-data validation.",
+    "display": "Actual solid/unmarked curve artists, four-frame spines, legend/title and text bounds checked."
+  },
+  "reference": {
+    "doi": "10.1351/goldbook.HT07041",
+    "figure_panel": "Mass-weighted harmonic displacement approximation; diatomic reduced-mass specialization derived independently",
+    "observation": "Harmonic frequency changes with reduced mass when the force constant is fixed.",
+    "review_scope": "Method/equation/caveat reference only. Original analytic teaching inputs; no copied paper points, pixels or experimental inference.",
+    "default_template": false
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Fixed force constant",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        }
+      ]
+    }
+  ],
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Fixed force constant",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        }
+      ]
+    }
+  ],
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "Fixed force constant",
+      "points": 241,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#287d8e"
+    }
+  ],
+  "curve_style_check": "Actual Line2D artists: all continuous curves solid and unmarked.",
+  "data_frame_check": "Actual data axes: all four spines visible."
+}

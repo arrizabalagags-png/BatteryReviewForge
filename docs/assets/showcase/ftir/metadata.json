@@ -5,11 +5,12 @@
   "source_files": [
     "data.csv"
   ],
-  "test_conditions": "Synthetic A/B/C electrolyte-like transmittance, 715-925 cm^-1. Gaussian troughs are visual examples only; no chemical assignment, measured transmittance or paper peak position.",
+  "test_conditions": "Original additive Gaussian absorbances converted through T=100*10^(-A), 715–925 cm^-1; baseline 92%. Generic bands only; no chemical assignment, concentration or copied paper peak.",
   "variables_and_units": [
     "sample",
     "wavenumber_cm_1",
-    "transmittance_percent"
+    "transmittance_percent",
+    "absorbance"
   ],
   "render_options": {
     "zoom_wavenumber_cm_1": [
@@ -28,5 +29,114 @@
     "default_template": false
   },
   "reproduce": "python render_specialist.py --recipe ftir --input-folder ftir --output-dir brf-output --style forge",
-  "creator": "BatteryReviewForge original synthetic analytic demonstration"
+  "creator": "BatteryReviewForge original synthetic analytic demonstration",
+  "generator_version": "1.6",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "A(x)=-log10(0.92)+(0.09+0.012*index)*G(x;825+2.5*index,9)+(0.048-0.005*index)*G(x;758,6)+0.014*G(x;880,12)",
+      "T_percent=100*10^(-A); A=-log10(T_percent/100)"
+    ],
+    "parameters": {
+      "wavenumber_cm_1_range": [
+        715,
+        925
+      ],
+      "baseline_transmittance_percent": 92,
+      "samples": [
+        "A",
+        "B",
+        "C"
+      ],
+      "gaussian_widths_cm_1": [
+        9,
+        6,
+        12
+      ]
+    },
+    "assumptions": [
+      "Nonnegative additive absorbances with ideal Beer–Lambert transmission in a homogeneous, non-scattering medium.",
+      "Absorbance strengths stand for original epsilon*c*l products; c, l and epsilon are not separately identified."
+    ],
+    "references": [
+      {
+        "url": "https://goldbook.iupac.org/terms/view/B00626",
+        "title": "IUPAC: Beer–Lambert law",
+        "supports": "Absorbance and transmittance relation; peak parameters are original.",
+        "scope": "model_definition_only"
+      },
+      {
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm",
+        "title": "NIST e-Handbook: normal distribution",
+        "supports": "Gaussian mathematical bands only; no assignment or copied peak.",
+        "scope": "model_definition_only"
+      }
+    ],
+    "limitations": [
+      "Generic bands only; no compound identification, instrument response or measured concentration."
+    ],
+    "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "C",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "C",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        }
+      ]
+    }
+  ]
 }

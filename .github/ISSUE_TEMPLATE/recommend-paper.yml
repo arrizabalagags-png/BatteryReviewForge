@@ -1,0 +1,21 @@
+name: 推荐一篇论文
+description: 推荐可学习的图、方法或组织思路
+title: "[Commons paper] "
+body:
+  - type: input
+    id: doi
+    attributes: {label: DOI 或原文链接}
+    validations: {required: true}
+  - type: input
+    id: figure
+    attributes: {label: 图号或章节, placeholder: "不知道可填待核对"}
+  - type: textarea
+    id: reason
+    attributes: {label: 值得学习的地方与适用方向, description: "只附原文链接和原创评论，不转载未授权论文图或数据。可附网页生成的 JSON 草稿。"}
+    validations: {required: true}
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: 公开投稿
+      options:
+        - {label: "我同意公开这份原创推荐文字；这不授权第三方论文内容。", required: true}

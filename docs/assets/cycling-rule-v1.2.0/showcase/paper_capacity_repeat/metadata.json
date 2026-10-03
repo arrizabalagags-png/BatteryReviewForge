@@ -1,0 +1,328 @@
+{
+  "id": "paper_capacity_repeat",
+  "title": "合成电池记录与误差",
+  "domain": "general",
+  "type": "demo",
+  "license": "MIT",
+  "scope": "Paper-informed original analytic teaching model; no copied points or figure.",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "source_files": [
+    "data.csv",
+    "model.json"
+  ],
+  "test_conditions": "Declared analytic parameters in scientific_basis.parameters; no experimental cell or material is assigned.",
+  "variables_and_units": {
+    "1": [
+      "Cycle number",
+      "Specific capacity (mAh g⁻¹)"
+    ],
+    "2": [
+      "Cycle number",
+      "Specific capacity (mAh g⁻¹)"
+    ]
+  },
+  "creator": "VoltPeer",
+  "generator_version": "1.0.0",
+  "reproduce": "python render_existing.py --output new-result-folder",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "phenomenological_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "Mean=ΣQi/n; sample SD=sqrt(Σ(Qi−mean)²/(n−1))"
+    ],
+    "assumptions": [
+      "Original explicitly idealised model; parameters are illustrative and do not describe the referenced experiment."
+    ],
+    "parameters": {
+      "n_independent_model_cells": 5,
+      "q0_mAh_g": [
+        161,
+        159,
+        162,
+        158,
+        160
+      ],
+      "slope_per_cycle": [
+        0.026,
+        0.032,
+        0.029,
+        0.035,
+        0.028
+      ]
+    },
+    "references": [
+      {
+        "title": "Aligning academia and industry for unified battery performance metrics",
+        "doi": "10.1038/s41467-018-07599-8",
+        "url": "https://www.nature.com/articles/s41467-018-07599-8",
+        "figure_panel": "Article discussion (not a figure template)",
+        "supports": "Mass / area / whole-cell normalisation and comparability caveats.",
+        "checked_at": "2026-10-02",
+        "scope": "Publisher caption / equation / measurement caveat checked. Original analytic teaching inputs; no paper points, images or material inference copied.",
+        "support_level": "measurement caveat",
+        "formula_scope": "The listed equations are declared teaching assumptions. A plot-form reference does not independently verify every analytic line shape, parameter or inference."
+      }
+    ],
+    "limitations": [
+      "Five explicitly declared synthetic cell identities, not a claim of experimental replication. Cycles within a cell are not independent samples."
+    ],
+    "validation_scope": "Analytic consistency / dimensional accounting / original synthetic redraw only. Not validation of an actual material or author-supplied measurement."
+  },
+  "reference": {
+    "doi": "10.1038/s41467-018-07599-8",
+    "figure_panel": "Article discussion (not a figure template)",
+    "observation": "Mass / area / whole-cell normalisation and comparability caveats.",
+    "review_scope": "Publisher caption / equation / measurement caveat checked. Original analytic teaching inputs; no paper points, images or material inference copied.",
+    "default_template": false
+  },
+  "review": {
+    "science": "Analytic consistency and units checked; no material validation.",
+    "display": "Actual artist, frame and text-bound checks; inspect exported figure at final size."
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Cell 1",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 300,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Cell 2",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 300,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Cell 3",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 300,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Cell 4",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 300,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Cell 5",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 300,
+          "sampling": "cycle_scatter"
+        }
+      ],
+      "xlabel": "Cycle number",
+      "ylabel": "Specific capacity (mAh g⁻¹)"
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Mean",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 300,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Mean + SD",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 300,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Mean − SD",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 300,
+          "sampling": "cycle_scatter"
+        }
+      ],
+      "xlabel": "Cycle number",
+      "ylabel": "Specific capacity (mAh g⁻¹)"
+    }
+  ],
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Cell 1",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 300,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Cell 2",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 300,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Cell 3",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 300,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Cell 4",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 300,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Cell 5",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 300,
+          "sampling": "cycle_scatter"
+        }
+      ],
+      "xlabel": "Cycle number",
+      "ylabel": "Specific capacity (mAh g⁻¹)"
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Mean",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 300,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Mean + SD",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 300,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Mean − SD",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 300,
+          "sampling": "cycle_scatter"
+        }
+      ],
+      "xlabel": "Cycle number",
+      "ylabel": "Specific capacity (mAh g⁻¹)"
+    }
+  ],
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "Cell 1",
+      "points": 300,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#287d8e",
+      "sampling": "cycle_scatter"
+    },
+    {
+      "panel_index": 0,
+      "label": "Cell 2",
+      "points": 300,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#ba5574",
+      "sampling": "cycle_scatter"
+    },
+    {
+      "panel_index": 0,
+      "label": "Cell 3",
+      "points": 300,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#4868a8",
+      "sampling": "cycle_scatter"
+    },
+    {
+      "panel_index": 0,
+      "label": "Cell 4",
+      "points": 300,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#a46d35",
+      "sampling": "cycle_scatter"
+    },
+    {
+      "panel_index": 0,
+      "label": "Cell 5",
+      "points": 300,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#655aa0",
+      "sampling": "cycle_scatter"
+    },
+    {
+      "panel_index": 1,
+      "label": "Mean",
+      "points": 300,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#287d8e",
+      "sampling": "cycle_scatter"
+    },
+    {
+      "panel_index": 1,
+      "label": "Mean + SD",
+      "points": 300,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#ba5574",
+      "sampling": "cycle_scatter"
+    },
+    {
+      "panel_index": 1,
+      "label": "Mean − SD",
+      "points": 300,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#4868a8",
+      "sampling": "cycle_scatter"
+    }
+  ],
+  "curve_style_check": "Cycle capacity/CE/charge ledger: marker-only; continuous profiles: solid/unmarked; user display preference.",
+  "data_frame_check": "All four spines visible on every data axis."
+}

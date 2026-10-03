@@ -1,6 +1,6 @@
 # 公开仓库入口更新 · 2026-10-01
 
-本记录对应 `main` 的文档更新。实际能力与包版本仍按原发布说明和适配证据核对；本轮没有升级或重新打包技能。
+本记录对应 `codex/public-skills` 的文档更新。实际能力与包版本仍按原发布说明和适配证据核对；本轮没有升级或重新打包技能。
 
 ## 仓库名称与主页
 
@@ -20,7 +20,7 @@
 - 四张图来自固定公开提交 `dfd46fcb4a3255b60826de8a4c721963adc4ff02` 的 CE、容量循环、电化学阻抗和关联六面板示例。数据、脚本、`synthetic_demo` 元数据与项目 MIT 许可均可核查；README 明示非实验数据。没有新造图片或科学结论。
 - 新手只优先走 DeepSeek Harness 桌面端：下载软件、配置模型、打开项目、完整解压绘图包、按 `AGENT_GUIDE.md` 安装 / 跑 Demo、核对结果后换作者数据。Python / 依赖 / 费用真实要求留在[入门指南](GETTING_STARTED.md)与当前一步。
 - 熟练用户直接下载；其他客户端和全部 15 个 Skill 表折叠。五条短请求保留原始值、单位、测试条件和来源核查要求。
-- 本分支原技术全文完整迁入 [TECHNICAL_REFERENCE_v0.9.2.md](TECHNICAL_REFERENCE_v0.9.2.md)：安装、覆盖规则、图型 / grammar、素材 / publisher profile、PDF 字体检查、回归和审计细节均保留。只有相对文档链接改为原固定提交、换行统一；完整正文保留已做程序对照。
+- 本分支原技术全文完整迁入 [TECHNICAL_REFERENCE_v0.10.1.md](TECHNICAL_REFERENCE_v0.10.1.md)：安装、覆盖规则、图型 / grammar、素材 / publisher profile、PDF 字体检查、回归和审计细节均保留。只有相对文档链接改为原固定提交、换行统一；完整正文保留已做程序对照。
 
 `main` 的 `.codex-plugin/plugin.json` / `CITATION.cff` 仍为 0.9.2，GitHub 正式 Release 的 `draft` 和 `prerelease` 均为 false。首页称其“正式技能包 / 保留基线”，没有据此断言全部宿主或科学规则获得 Stable 认证。`codex/public-skills` 仍是 0.10.1 Beta。两个首页各只保留一处集中版本 / 验证范围：原生桌面发现与完整行为验收待验证，Flash 有限 API 交付表达 PARTIAL 保留。
 

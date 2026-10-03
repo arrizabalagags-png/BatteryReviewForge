@@ -2,7 +2,7 @@
   "data_status": "synthetic_demo",
   "not_experimental_data": true,
   "random_seed": 20260923,
-  "generator_version": "1.2",
+  "generator_version": "1.6",
   "figure_grammar_id": "ten_panel_capability_spread",
   "journal_preset": "journal_neutral_180mm",
   "variables_and_units": {
@@ -10,15 +10,287 @@
     "y": "experiment-specific units",
     "linked": "ten panels from explicitly separate demonstration sources"
   },
-  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
+  "sample_identity": "A/B are local teaching-model labels, not one electrolyte across unlike techniques; SIM IDs are invented records, never citations.",
   "test_conditions": "Ten independently labelled synthetic capability panels; shared styles do not imply one experiment across unlike cell and measurement types.",
   "source_files": [
     "data_index.csv",
-    "sources.json"
+    "sources.json",
+    "../operando_xrd/data.csv",
+    "../full_cell/data.csv",
+    "../li_cu_ce/data.csv",
+    "../eis/data.csv",
+    "../literature_benchmark/data.csv",
+    "../pouch_thermal/history.csv",
+    "../li_li/data.csv",
+    "../rate_capability/data.csv",
+    "../gcd_profiles/data.csv",
+    "../reporting_matrix/data.csv"
   ],
   "creator": "BatteryReviewForge original code",
   "review": {
-    "science": "models and data-to-panel links inspected; no experimental interpretation",
-    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+    "science": "Declared model equations/units/linked-file relations have scoped automated tests; no experimental certification.",
+    "display": "Actual line/frame/alignment checks only; independent visual and author review remain pending."
+  },
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 1,
+      "label": "_child0",
+      "points": 500,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 1,
+      "label": "_child1",
+      "points": 500,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 2,
+      "label": "_child0",
+      "points": 300,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 2,
+      "label": "_child1",
+      "points": 300,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 3,
+      "label": "_child0",
+      "points": 86,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 3,
+      "label": "_child1",
+      "points": 86,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 5,
+      "label": "_child0",
+      "points": 61,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 5,
+      "label": "_child1",
+      "points": 61,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 6,
+      "label": "_child0",
+      "points": 351,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 6,
+      "label": "_child1",
+      "points": 351,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 7,
+      "label": "_child0",
+      "points": 60,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 7,
+      "label": "_child1",
+      "points": 60,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 8,
+      "label": "300 · discharge",
+      "points": 180,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#5d83a4"
+    },
+    {
+      "panel_index": 8,
+      "label": "300 · charge",
+      "points": 180,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#944462"
+    }
+  ],
+  "curve_style_check": "pass: actual rendered Line2D artists are solid and have no markers",
+  "data_frame_check": "pass: actual data axes show top/right/bottom/left spines",
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 2,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 3,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 4,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 5,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 6,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 7,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 8,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 9,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    }
+  ],
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "composite",
+    "data_origin": "original_synthetic",
+    "parameter_origin": "self-chosen teaching values; never paper measurements",
+    "validation_scope": "Declared teaching model; no experimental/material certification",
+    "dependency_ids": [
+      "li_cu_ce",
+      "li_li",
+      "eis",
+      "full_cell",
+      "rate_capability",
+      "gcd_profiles",
+      "operando_xrd",
+      "literature_benchmark",
+      "pouch_thermal",
+      "reporting_matrix"
+    ],
+    "equations": [
+      "Inherited source equations; read scientific_basis of the declared dependency IDs."
+    ],
+    "assumptions": [
+      "Reusing a color or label does not make independent models one experimental study.",
+      "GCD charge and discharge endpoints use their own charge ledger; styles change no data."
+    ],
+    "parameters": {
+      "source_files": [
+        "data_index.csv",
+        "sources.json",
+        "../operando_xrd/data.csv",
+        "../full_cell/data.csv",
+        "../li_cu_ce/data.csv",
+        "../eis/data.csv",
+        "../literature_benchmark/data.csv",
+        "../pouch_thermal/history.csv",
+        "../li_li/data.csv",
+        "../rate_capability/data.csv",
+        "../gcd_profiles/data.csv",
+        "../reporting_matrix/data.csv"
+      ]
+    },
+    "references": [
+      {
+        "url": "https://www.nature.com/articles/s41467-025-60833-y",
+        "title": "Deciphering coulombic loss in lithium-ion batteries and beyond",
+        "supports": "Charge/retention interpretation boundary only; component physics is in dependency records.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "limitations": [
+      "Layout/style linking does not establish cross-technique corroboration or causality."
+    ]
   }
 }

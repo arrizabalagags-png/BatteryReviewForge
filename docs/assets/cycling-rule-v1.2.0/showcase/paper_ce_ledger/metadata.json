@@ -1,0 +1,270 @@
+{
+  "id": "paper_ce_ledger",
+  "title": "库伦效率与电荷账本",
+  "domain": "general",
+  "type": "demo",
+  "license": "MIT",
+  "scope": "Paper-informed original analytic teaching model; no copied points or figure.",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "source_files": [
+    "data.csv",
+    "model.json"
+  ],
+  "test_conditions": "Declared analytic parameters in scientific_basis.parameters; no experimental cell or material is assigned.",
+  "variables_and_units": {
+    "1": [
+      "Cycle number",
+      "Charge (mAh)"
+    ],
+    "2": [
+      "Cycle number",
+      "Coulombic efficiency (%)"
+    ]
+  },
+  "creator": "VoltPeer",
+  "generator_version": "1.0.0",
+  "reproduce": "python render_existing.py --output new-result-folder",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "CE(n)=100*Qrecovered(n)/Qsupplied(n)"
+    ],
+    "assumptions": [
+      "Original explicitly idealised model; parameters are illustrative and do not describe the referenced experiment."
+    ],
+    "parameters": {
+      "supplied_mAh": 1,
+      "cycles": 200,
+      "formula": "99.7-0.2exp(-n/15)-i(0.2+0.001n)"
+    },
+    "references": [
+      {
+        "title": "Industrializable interlayer with catalytic conversion of dead lithium for Ah–level Nickel–rich lithium metal batteries",
+        "doi": "10.1038/s41467-025-60609-4",
+        "url": "https://www.nature.com/articles/s41467-025-60609-4",
+        "figure_panel": "Figure 3 and performance captions",
+        "supports": "Efficiency ledger, cycling, corresponding profiles and practical-cell reporting forms.",
+        "checked_at": "2026-10-02",
+        "scope": "Publisher caption / equation / measurement caveat checked. Original analytic teaching inputs; no paper points, images or material inference copied.",
+        "support_level": "plot form / caption",
+        "formula_scope": "The listed equations are declared teaching assumptions. A plot-form reference does not independently verify every analytic line shape, parameter or inference."
+      }
+    ],
+    "limitations": [
+      "A declared per-cycle charge protocol, not Aurbach reservoir CE. Efficiency is not capacity retention; no injected random failures or measured performance."
+    ],
+    "validation_scope": "Analytic consistency / dimensional accounting / original synthetic redraw only. Not validation of an actual material or author-supplied measurement."
+  },
+  "reference": {
+    "doi": "10.1038/s41467-025-60609-4",
+    "figure_panel": "Figure 3 and performance captions",
+    "observation": "Efficiency ledger, cycling, corresponding profiles and practical-cell reporting forms.",
+    "review_scope": "Publisher caption / equation / measurement caveat checked. Original analytic teaching inputs; no paper points, images or material inference copied.",
+    "default_template": false
+  },
+  "review": {
+    "science": "Analytic consistency and units checked; no material validation.",
+    "display": "Actual artist, frame and text-bound checks; inspect exported figure at final size."
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Protocol A charge",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 200,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Protocol A recovered",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 200,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Protocol B charge",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 200,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Protocol B recovered",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 200,
+          "sampling": "cycle_scatter"
+        }
+      ],
+      "xlabel": "Cycle number",
+      "ylabel": "Charge (mAh)"
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Protocol A",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 200,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Protocol B",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 200,
+          "sampling": "cycle_scatter"
+        }
+      ],
+      "xlabel": "Cycle number",
+      "ylabel": "Coulombic efficiency (%)"
+    }
+  ],
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Protocol A charge",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 200,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Protocol A recovered",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 200,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Protocol B charge",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 200,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Protocol B recovered",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 200,
+          "sampling": "cycle_scatter"
+        }
+      ],
+      "xlabel": "Cycle number",
+      "ylabel": "Charge (mAh)"
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Protocol A",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 200,
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Protocol B",
+          "linestyle": "None",
+          "marker": "o",
+          "points": 200,
+          "sampling": "cycle_scatter"
+        }
+      ],
+      "xlabel": "Cycle number",
+      "ylabel": "Coulombic efficiency (%)"
+    }
+  ],
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "Protocol A charge",
+      "points": 200,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#287d8e",
+      "sampling": "cycle_scatter"
+    },
+    {
+      "panel_index": 0,
+      "label": "Protocol A recovered",
+      "points": 200,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#ba5574",
+      "sampling": "cycle_scatter"
+    },
+    {
+      "panel_index": 0,
+      "label": "Protocol B charge",
+      "points": 200,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#4868a8",
+      "sampling": "cycle_scatter"
+    },
+    {
+      "panel_index": 0,
+      "label": "Protocol B recovered",
+      "points": 200,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#a46d35",
+      "sampling": "cycle_scatter"
+    },
+    {
+      "panel_index": 1,
+      "label": "Protocol A",
+      "points": 200,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#287d8e",
+      "sampling": "cycle_scatter"
+    },
+    {
+      "panel_index": 1,
+      "label": "Protocol B",
+      "points": 200,
+      "line_style": "None",
+      "marker": "o",
+      "colour": "#ba5574",
+      "sampling": "cycle_scatter"
+    }
+  ],
+  "curve_style_check": "Cycle capacity/CE/charge ledger: marker-only; continuous profiles: solid/unmarked; user display preference.",
+  "data_frame_check": "All four spines visible on every data axis."
+}

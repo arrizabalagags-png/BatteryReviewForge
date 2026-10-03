@@ -1,0 +1,171 @@
+{
+  "id": "science_sims_matrix_response",
+  "title": "SIMS 基体效应与离子响应",
+  "domain": "general",
+  "type": "demo",
+  "license": "MIT",
+  "scope": "Original analytic teaching record. Source references support the declared method/derivation only, never this invented parameter set or measurements.",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "source_files": [
+    "data.csv",
+    "model.json"
+  ],
+  "test_conditions": "No acquired cell or material. Independently declared analytic parameters, assumptions and units in scientific_basis.",
+  "variables_and_units": {
+    "1": [
+      "Declared analyte fraction (calibration input)",
+      "Secondary-ion signal (a.u.)"
+    ]
+  },
+  "creator": "VoltPeer",
+  "generator_version": "1.0.0",
+  "reproduce": "python render_existing.py --output result-01",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "relationship": "The same composition input can yield different secondary-ion signals in different matrices.",
+    "equations": [
+      "S=Y(matrix)*c; illustrative nonlinear S=Y*c²"
+    ],
+    "parameters": {
+      "relative_yields": [
+        0.2,
+        1,
+        3
+      ]
+    },
+    "assumptions": [
+      "Independently declared parameters; no experimental or material fit.",
+      "c is a declared calibration input; plotted S is signal, not a measured concentration."
+    ],
+    "limitations": [
+      "c is a declared calibration input; plotted S is signal, not a measured concentration.",
+      "A numerical/model QA pass does not validate author data or a physical mechanism."
+    ],
+    "constraints": [
+      "Finite numerical values and explicit physical units.",
+      "Continuous plotted curves are solid without markers; data axes retain four borders.",
+      "All plotted responses are nonnegative."
+    ],
+    "references": [
+      {
+        "title": "NIST/NBS: Secondary ion mass spectrometry",
+        "doi": "10.6028/NBS.SP.427",
+        "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nbsspecialpublication427.pdf",
+        "figure_panel": "Secondary ion yield and matrix sensitivity; calibration and sputtering limitations",
+        "supports": "The same composition input can yield different secondary-ion signals in different matrices.",
+        "checked_at": "2026-10-03",
+        "scope": "Method/equation/caveat reference only. Original analytic teaching inputs; no copied paper points, pixels or experimental inference."
+      }
+    ],
+    "validation": {
+      "finite": true,
+      "nonnegative": true,
+      "unit_interval": false
+    },
+    "validation_scope": "Source method/principle and explicitly derived restricted teaching specialization checked; equation, units and numerical constraints only. No copied paper measurements, material parameters, experimental fit or mechanism certification."
+  },
+  "review": {
+    "science": "Equation/units/numerical constraints and source scope checked. No author-data validation.",
+    "display": "Actual solid/unmarked curve artists, four-frame spines, legend/title and text bounds checked."
+  },
+  "reference": {
+    "doi": "10.6028/NBS.SP.427",
+    "figure_panel": "Secondary ion yield and matrix sensitivity; calibration and sputtering limitations",
+    "observation": "The same composition input can yield different secondary-ion signals in different matrices.",
+    "review_scope": "Method/equation/caveat reference only. Original analytic teaching inputs; no copied paper points, pixels or experimental inference.",
+    "default_template": false
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Matrix yield 0.2",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        },
+        {
+          "label": "Matrix yield 1",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        },
+        {
+          "label": "Cluster nonlinear response",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        }
+      ]
+    }
+  ],
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Matrix yield 0.2",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        },
+        {
+          "label": "Matrix yield 1",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        },
+        {
+          "label": "Cluster nonlinear response",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        }
+      ]
+    }
+  ],
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "Matrix yield 0.2",
+      "points": 241,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#287d8e"
+    },
+    {
+      "panel_index": 0,
+      "label": "Matrix yield 1",
+      "points": 241,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#ba5574"
+    },
+    {
+      "panel_index": 0,
+      "label": "Cluster nonlinear response",
+      "points": 241,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#4868a8"
+    }
+  ],
+  "curve_style_check": "Actual Line2D artists: all continuous curves solid and unmarked.",
+  "data_frame_check": "Actual data axes: all four spines visible."
+}

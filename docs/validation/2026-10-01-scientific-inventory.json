@@ -1,0 +1,2341 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-01",
+  "examples": [
+    {
+      "id": "aurbach_protocol",
+      "metadata": "examples/showcase/aurbach_protocol/metadata.json",
+      "metadata_sha256": "20f6fa8e4f5400bb725e6e30850c97b5655d5db86d19dbcc12b2609cbec8fd67",
+      "input_sha256": {
+        "examples/showcase/aurbach_protocol/data.csv": "abc2eec640a9bee44e52c8ffe81ece26a7536b0b52b8d90cbb3d9ddf72000361",
+        "examples/showcase/aurbach_protocol/protocol.json": "0c45b584cedffa66984c9e4c4621e25a6126f940ab47ed01f52aae6e80dbcd1a"
+      },
+      "figure_sha256": {
+        "figure.png": "0b73458e86c43ccc8dcfc2dec97a1cc404600ea31407fd8e190bce48c4a9dccd",
+        "figure.svg": "13c8065f5f27240908ffa0da5c15c5e8f874ecc080ecbdd84a481b24a6dbda8b",
+        "figure.pdf": "e58573c93b3d084ecb99177f6f0252399daff9771bb35c60624c3ed35b5f6a15"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "analytic_model",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "Explicit original teaching parameters, not measured values",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "equations": [
+          "Qstage=abs(j)*duration_h; plated/stripped charge integrates the zero-order-hold current",
+          "Plating: active_new=active_old+eta*Qplate; trapped_new=trapped_old+(1-eta)*Qplate",
+          "Stripping: active_new=active_old-Qstrip; trapped inventory is not recovered",
+          "After conditioning: CE_reservoir_demo=100*(n*Qc+Qfinal)/(n*Qc+Qreservoir)"
+        ],
+        "assumptions": [
+          "Formation is excluded from the reservoir metric and ends with no recoverable active Li.",
+          "Reservoir and subsequent deposits share eta=0.995; stripping recovers available active Li exactly.",
+          "Partial strips remove Qc before redepositing Qc, always leaving positive active inventory.",
+          "No calendar corrosion, crossover or additional parasitic stripping process is simulated."
+        ],
+        "parameters": {
+          "formation_plate_mAh_cm2": 1,
+          "formation_recovery": 0.97,
+          "reservoir_plate_mAh_cm2": 2,
+          "Qc_mAh_cm2": 0.25,
+          "n": 10,
+          "j_mA_cm2": 0.5,
+          "deposit_recovery": 0.995,
+          "final_cutoff_V": 1
+        },
+        "references": [
+          {
+            "url": "https://www.nature.com/articles/s41467-025-66197-7",
+            "title": "De-solvation of heteroalkali cations enabling stable solid electrolyte interphase for dendrite-free lithium metal batteries",
+            "supports": "Fig. 4c caption/Methods define stage grammar; no times, efficiencies, capacities or curve artwork copied.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          },
+          {
+            "url": "https://www.nature.com/articles/s41560-020-0648-z",
+            "title": "Understanding and applying coulombic efficiency in lithium metal batteries",
+            "supports": "Protocol and cell-configuration boundaries of reservoir versus cycle-by-cycle efficiency.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "The reservoir result is an algebraic check of the chosen ledger, not measured electrolyte CE or a universal protocol.",
+          "Voltage is an explicit bounded display relation, not SEI or nucleation physics."
+        ]
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "capability_spread",
+      "metadata": "examples/showcase/capability_spread/metadata.json",
+      "metadata_sha256": "108b8dada3f4126ed5aa3c6c432a78db591daddc11c7f67325dc3c3e6b0a2821",
+      "input_sha256": {
+        "examples/showcase/capability_spread/data_index.csv": "72bb685412ec28b43c11b9d268d023e306c793bcbb18f9d40c0b41f2a56ed342",
+        "examples/showcase/capability_spread/sources.json": "786cec4b9e57df133703d9cefb764979f6cbf6b023424291083eb77e431b5e17",
+        "examples/showcase/operando_xrd/data.csv": "7ed4b6b1ce6da4b978f08a1f1e60c9ed5a87a0b7b6f88d2e8580082cd9ad654a",
+        "examples/showcase/full_cell/data.csv": "1b8204c7d72bab8dac45e5827913230609c1e146609fd57a68a5d79bec4352f4",
+        "examples/showcase/li_cu_ce/data.csv": "cc4d9a633247ae4df9fada1b15e2adf7f6767c65be21532639c2374f5d8970f6",
+        "examples/showcase/eis/data.csv": "187d66d615d2151217d94f23d50a488800623e61357e4ce4a75ef945096ffa3c",
+        "examples/showcase/literature_benchmark/data.csv": "201fb399c2f286077826c6e9ddc4c2c5644c2fed3ee741307f1efa2174e3b84d",
+        "examples/showcase/pouch_thermal/history.csv": "37f1461623ccd1ba0e2e5fbf86ebad4cce05664cc3e1f1ead56df970d51346ab",
+        "examples/showcase/li_li/data.csv": "efc9991fcda15f264203d31a4931ae0fa86cc5d3fcb939f14fffcfb665713a2e",
+        "examples/showcase/rate_capability/data.csv": "02797d1e27ad33a1c1372e4505511fb5f87e7948efeb35fb404adf67ffe6ccd5",
+        "examples/showcase/gcd_profiles/data.csv": "d68bc3d08eac360dc4696225ddb468ef08d06c006308651f73a82f6e060f8468",
+        "examples/showcase/reporting_matrix/data.csv": "cc6e46644522fce88b2eba70cdd436f04203d6114330eb5c6b796d1ccd470000"
+      },
+      "figure_sha256": {
+        "figure.png": "6e799c9a140e1d97a212e86a0bf62b78db78705016e6df8328cc6182729709fa",
+        "figure.svg": "e92d559576ef000c7886779883665880a892fb97a9b856eba7b55a0bf78434dd",
+        "figure.pdf": "2b608f03608ba5ab74bc461a6f8199b98244cada0368f9c601cd6e2dcab1633e"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "composite",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "self-chosen teaching values; never paper measurements",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "dependency_ids": [
+          "li_cu_ce",
+          "li_li",
+          "eis",
+          "full_cell",
+          "rate_capability",
+          "gcd_profiles",
+          "operando_xrd",
+          "literature_benchmark",
+          "pouch_thermal",
+          "reporting_matrix"
+        ],
+        "equations": [
+          "Inherited source equations; read scientific_basis of the declared dependency IDs."
+        ],
+        "assumptions": [
+          "Reusing a color or label does not make independent models one experimental study.",
+          "GCD charge and discharge endpoints use their own charge ledger; styles change no data."
+        ],
+        "parameters": {
+          "source_files": [
+            "data_index.csv",
+            "sources.json",
+            "../operando_xrd/data.csv",
+            "../full_cell/data.csv",
+            "../li_cu_ce/data.csv",
+            "../eis/data.csv",
+            "../literature_benchmark/data.csv",
+            "../pouch_thermal/history.csv",
+            "../li_li/data.csv",
+            "../rate_capability/data.csv",
+            "../gcd_profiles/data.csv",
+            "../reporting_matrix/data.csv"
+          ]
+        },
+        "references": [
+          {
+            "url": "https://www.nature.com/articles/s41467-025-60833-y",
+            "title": "Deciphering coulombic loss in lithium-ion batteries and beyond",
+            "supports": "Charge/retention interpretation boundary only; component physics is in dependency records.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "Layout/style linking does not establish cross-technique corroboration or causality."
+        ]
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "chronoamperometry",
+      "metadata": "examples/showcase/chronoamperometry/metadata.json",
+      "metadata_sha256": "cd7b386cb1192d8fbc7dddd084fb738885a23a518a60ac319abdcbc012cdc92e",
+      "input_sha256": {
+        "examples/showcase/chronoamperometry/data.csv": "c686595180e174af03a34b3cd67507e20ae0cba7a4bf60816e3d2d975e5322f9"
+      },
+      "figure_sha256": {
+        "figure.png": "1f4b93e5e39b22ca0f2447cec10784fd8c9ea5ec15d1cd0552ab0cde04d01866",
+        "figure.svg": "787b09e949943b4375535ff018fa32bc89170d34e954816fd730f239f34b9e7f",
+        "figure.pdf": "095629b34650be58a86f8c4dc54f31ae9fb90de781394b62be0d7fbc4e9b02d7"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "analytic_model",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "Explicit original teaching parameters, not measured values",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "equations": [
+          "j(t)=-jsteady-j0*exp(-t/tau)",
+          "Qpassed(t)=(jsteady*t+j0*tau*(1-exp(-t/tau)))/3600 in mAh cm^-2",
+          "An ideal voltage-step RC branch gives j0=abs(deltaV)/Rs and tau=Rs*C; a parallel resistor gives jsteady=abs(deltaV)/Rf"
+        ],
+        "assumptions": [
+          "Stationary passive voltage-step RC plus a constant resistive branch.",
+          "All passed charge is external; no deposited mass or nucleation mechanism is assigned."
+        ],
+        "parameters": {
+          "step_V": -0.05,
+          "A": {
+            "jsteady_mA_cm2": 0.045,
+            "j0_mA_cm2": 0.68,
+            "tau_s": 45
+          },
+          "B": {
+            "jsteady_mA_cm2": 0.0324,
+            "j0_mA_cm2": 0.4896,
+            "tau_s": 80
+          }
+        },
+        "references": [
+          {
+            "url": "https://www.gamry.com/application-notes/EIS/basics-of-electrochemical-impedance-spectroscopy/",
+            "title": "Basics of Electrochemical Impedance Spectroscopy",
+            "supports": "Passive resistor/capacitor current-voltage laws; not a nucleation model or paper fit.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "Not Cottrell diffusion or Scharifker-Hills nucleation; cannot infer deposited Li, passivation or stability."
+        ]
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "cyclic_voltammetry",
+      "metadata": "examples/showcase/cyclic_voltammetry/metadata.json",
+      "metadata_sha256": "fcf441b58c9c0a38c5d67c0cf92bcd9e26cc2f1ce85bb32132682d61d064023a",
+      "input_sha256": {
+        "examples/showcase/cyclic_voltammetry/data.csv": "c331f0af98c4d8cfa2e443fdba363ee5bcc4319daec99633ea160daf8b131ed9"
+      },
+      "figure_sha256": {
+        "figure.png": "623f4bb381841b0c886c8e2fdb869f2e1b6ba6185a4cc3129e9c5d035d4be146",
+        "figure.svg": "7265cdd510d2abce3cec9009f086d0956b1a2ced679762d8890363e0a75a255a",
+        "figure.pdf": "e6083b6d5c6647903f6dd848916d42305aebe6f266ff6ae8d6ddde5d56319b94"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "phenomenological_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "v follows an ordered 2.8→4.4→2.8 V triangular sweep",
+          "g(v;mu,s)=exp(-0.5*((v-mu)/s)^2); amplitude=0.7*sqrt(scan_rate_mV_s)",
+          "i_forward=(amplitude*g(v;3.90+0.035*log10(rate/0.1),0.10)+0.015*rate)*sin(pi*(v-2.8)/1.6)^2",
+          "i_reverse=(-0.91*amplitude*g(v;3.66-0.025*log10(rate/0.1),0.115)-0.015*rate)*same_gate"
+        ],
+        "parameters": {
+          "scan_rates_mV_s": [
+            0.1,
+            0.2,
+            0.5,
+            1.0
+          ],
+          "reference_electrode": "Li/Li+",
+          "temperature_C": 25,
+          "voltage_window_V": [
+            2.8,
+            4.4
+          ],
+          "peak_amplitude_coefficient_mA": 0.7
+        },
+        "assumptions": [
+          "Illustrative separated oxidation/reduction peaks with rate-dependent shifts.",
+          "The endpoint gate is an explicit plotting fixture, not a diffusion solution."
+        ],
+        "references": [
+          {
+            "url": "https://www.gamry.com/electrochemistry-applications/cv-cyclic-voltammetry",
+            "title": "Gamry: cyclic voltammetry",
+            "supports": "Triangular acquisition order and the square-root scan-rate trend, not these phenomenological peak shapes.",
+            "scope": "model_definition_only"
+          },
+          {
+            "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm",
+            "title": "NIST e-Handbook: normal distribution",
+            "supports": "The Gaussian mathematical line shape only; no material peak assignment or numeric data.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "No reversible-couple kinetic fit, diffusion coefficient, active concentration or charge-balance inference.",
+          "A sqrt(rate) amplitude trend alone does not establish diffusion control."
+        ],
+        "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "differential_capacity",
+      "metadata": "examples/showcase/differential_capacity/metadata.json",
+      "metadata_sha256": "6bf75b13339fb452540e39ab6c7dc8c67f73769ecd0ec006570cb13726f7a211",
+      "input_sha256": {
+        "examples/showcase/differential_capacity/data.csv": "a3424b9ccaeb729f62ffa4632de96d10eac718ee8ff8d2f51d9a00d6a8a8af0f"
+      },
+      "figure_sha256": {
+        "figure.png": "2e08aa4bcc5920153eae71ed529afd37fabb1fde0a2a92c72f65cdbc81d49dbd",
+        "figure.svg": "5a54818b8ed64bf998bae8957c24ad27b7e09f4cdbff6f52ab03140b1163e47d",
+        "figure.pdf": "6c98f599a828ac7bb65ac9064c2801886edd8d742f7653e55c88473e1773b7cc"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "phenomenological_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "L(v;mu,s)=1/(1+exp(-(v-mu)/s))",
+          "Q(v)=10*(v-3)+scale*(75*L(v;3.64+shift,0.048)+100*L(v;4.04+shift,0.064)); Q=Q-Q(v=3)",
+          "dQ/dV is the finite-difference derivative of the same stored charge-branch Q,V pairs"
+        ],
+        "parameters": {
+          "cycles": [
+            1,
+            100,
+            300
+          ],
+          "peak_shift_V": [
+            0,
+            0.015,
+            0.04
+          ],
+          "accessible_capacity_scale": [
+            1,
+            0.96,
+            0.89
+          ],
+          "temperature_C": 25,
+          "current_rate_C": 0.1,
+          "capacity_basis": "cathode active mass",
+          "voltage_window_V": [
+            3,
+            4.35
+          ]
+        },
+        "assumptions": [
+          "Two monotonic charge-capacity transitions plus a positive background slope.",
+          "The cycle scale represents accessible active capacity, not a CE-derived inventory model."
+        ],
+        "references": [
+          {
+            "url": "https://www.nature.com/articles/s41598-025-88019-y",
+            "title": "Charge profiles and differential capacity",
+            "supports": "The definition and paired presentation of dQ/dV; no source numerical curve is copied.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "Charge branch only; not complete charge/discharge hysteresis or a named phase assignment.",
+          "No smoothing, experimental uncertainty or measured degradation mechanism."
+        ],
+        "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "eis",
+      "metadata": "examples/showcase/eis/metadata.json",
+      "metadata_sha256": "72cae39570e44b342795eef252f221d6d09d5887e77f0c9e66dbe8af511b77b0",
+      "input_sha256": {
+        "examples/showcase/eis/data.csv": "187d66d615d2151217d94f23d50a488800623e61357e4ce4a75ef945096ffa3c",
+        "examples/showcase/eis/model.json": "5906ec0e0c66dd1a01890c99ee0c1d8600a2362bea929fb683955d519c407ed1"
+      },
+      "figure_sha256": {
+        "figure.png": "9c8d218ea8f28d444d208ae64622dd6c122f25d38a601a0f2f7d743eaf63f56d",
+        "figure.svg": "a32ba50086aa77d9ef56c7b8e08b9c6a99b5df4327eb6cdebff5a5dc688eb18b",
+        "figure.pdf": "1d011489721a0c4eb7596334554922a8cd51d27524fcdc6d59fb03f88184fa4e"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "analytic_model",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "self-chosen teaching values; never paper measurements",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "equations": [
+          "omega=2*pi*f; ZW=sigma*(1-j)/sqrt(omega)",
+          "Y_CPE=Q*(j*omega)^alpha",
+          "Z=Rs+1/(Y_CPE+1/(Rct+ZW))",
+          "Nyquist=(Re Z,-Im Z); Bode=(abs(Z),arg(Z)) from the same stored complex values"
+        ],
+        "assumptions": [
+          "Linear small-signal stationary passive circuit, f>0, Rs>=0, Rct/Q>0, 0<alpha<=1, sigma>=0.",
+          "Semi-infinite planar diffusion is an assumed boundary; finite diffusion or nonstationary spectra require another model.",
+          "CPE is empirical; its Q with units S*s^alpha is not a measured capacitance unless alpha=1."
+        ],
+        "parameters": {
+          "frequency_Hz": [
+            0.01,
+            100000.0
+          ],
+          "A": {
+            "Rs_ohm": 4.2,
+            "Rct_ohm": 23,
+            "CPE_Q": 0.00085,
+            "CPE_alpha": 0.86,
+            "Warburg_sigma": 3.0
+          },
+          "B": {
+            "Rs_ohm": 5.1,
+            "Rct_ohm": 43,
+            "CPE_Q": 0.00067,
+            "CPE_alpha": 0.83,
+            "Warburg_sigma": 4.0
+          }
+        },
+        "references": [
+          {
+            "url": "https://www.gamry.com/application-notes/EIS/basics-of-electrochemical-impedance-spectroscopy/",
+            "title": "Basics of Electrochemical Impedance Spectroscopy",
+            "supports": "Complex impedance, series/parallel Randles topology, CPE and semi-infinite Warburg conventions; numbers self-chosen.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "No circuit fit, experimental validation, transport coefficient or microscopic mechanism."
+        ]
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "eis_frequency",
+      "metadata": "examples/showcase/eis_frequency/metadata.json",
+      "metadata_sha256": "479b9dda5a3961f2778d09fc80cceacb0ca16c54139066cd0e77d8040d7f28fb",
+      "input_sha256": {
+        "examples/showcase/eis_frequency/data.csv": "09cb70965be2564365229285cc32fff3f339dc182aa07c0119ed82599efda83e"
+      },
+      "figure_sha256": {
+        "figure.png": "feb708e34c8d42d65b6ab1945a784d1024c060839c1ce7a0a746b9f1388817dd",
+        "figure.svg": "6b854c67b23a04a35c6ae8461d0dad303411e19b081ab3fc0110fb561fb1ba92",
+        "figure.pdf": "d38311e3de31109c0b561bf525a38b484c4d1a98857ac14f056e041b05704bd8"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "analytic_model",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "Explicit original teaching parameters, not measured values",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "equations": [
+          "omega=2*pi*f; Z=Rs+Rct/(1+j*omega*Rct*C)",
+          "Nyquist circle: (Re Z-Rs-Rct/2)^2+(Im Z)^2=(Rct/2)^2",
+          "Stored real and signed imaginary components come from the same complex values"
+        ],
+        "assumptions": [
+          "Positive passive resistors/capacitor; linear stationary small-signal response.",
+          "No Warburg, inductance, CPE or microscopic assignment is present in this ideal RC example."
+        ],
+        "parameters": {
+          "A": {
+            "Rs_ohm": 3.6,
+            "Rct_ohm": 22,
+            "C_F": 0.0008
+          },
+          "B": {
+            "Rs_ohm": 4.8,
+            "Rct_ohm": 41,
+            "C_F": 0.0007
+          },
+          "frequency_Hz": [
+            0.01,
+            100000.0
+          ]
+        },
+        "references": [
+          {
+            "url": "https://www.gamry.com/application-notes/EIS/basics-of-electrochemical-impedance-spectroscopy/",
+            "title": "Basics of Electrochemical Impedance Spectroscopy",
+            "supports": "Complex circuit equations and the ideal Randles RC semicircle; original parameter values.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "No fitted cell resistance, active area, diffusion coefficient or material evidence."
+        ]
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "ftir",
+      "metadata": "examples/showcase/ftir/metadata.json",
+      "metadata_sha256": "5d7e4962ff00446992dec6c0851652872da85a4996875496304a55f76f054b94",
+      "input_sha256": {
+        "examples/showcase/ftir/data.csv": "45c6dbc8adefdd4e495fdf388dce50c8177f3a04a59f617b6e9db74427497c97"
+      },
+      "figure_sha256": {
+        "figure.png": "909453997dffcc71c0244a611d3e34b75c8a2e49813cef224e75c5b7cedb6b8b",
+        "figure.svg": "aadbdba509d524ac0513353f2a1dc666ea9fde661b5c8993bdd43714ac67efc2",
+        "figure.pdf": "b2572182311be09741285a295cb42bc399b4c665b7c18bfad34b9ec39e2a6d7a"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "analytic_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "A(x)=-log10(0.92)+(0.09+0.012*index)*G(x;825+2.5*index,9)+(0.048-0.005*index)*G(x;758,6)+0.014*G(x;880,12)",
+          "T_percent=100*10^(-A); A=-log10(T_percent/100)"
+        ],
+        "parameters": {
+          "wavenumber_cm_1_range": [
+            715,
+            925
+          ],
+          "baseline_transmittance_percent": 92,
+          "samples": [
+            "A",
+            "B",
+            "C"
+          ],
+          "gaussian_widths_cm_1": [
+            9,
+            6,
+            12
+          ]
+        },
+        "assumptions": [
+          "Nonnegative additive absorbances with ideal Beer–Lambert transmission in a homogeneous, non-scattering medium.",
+          "Absorbance strengths stand for original epsilon*c*l products; c, l and epsilon are not separately identified."
+        ],
+        "references": [
+          {
+            "url": "https://goldbook.iupac.org/terms/view/B00626",
+            "title": "IUPAC: Beer–Lambert law",
+            "supports": "Absorbance and transmittance relation; peak parameters are original.",
+            "scope": "model_definition_only"
+          },
+          {
+            "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm",
+            "title": "NIST e-Handbook: normal distribution",
+            "supports": "Gaussian mathematical bands only; no assignment or copied peak.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "Generic bands only; no compound identification, instrument response or measured concentration."
+        ],
+        "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "full_cell",
+      "metadata": "examples/showcase/full_cell/metadata.json",
+      "metadata_sha256": "0d76ea4dbb84ee5934538d5c615e63ba876791aa7329e9d816d298113c6a670c",
+      "input_sha256": {
+        "examples/showcase/full_cell/data.csv": "1b8204c7d72bab8dac45e5827913230609c1e146609fd57a68a5d79bec4352f4",
+        "examples/showcase/full_cell/voltage_profiles.csv": "db99b690fd9228788b5197b80435f57f0937c5571cc8a05b3539596c1b43c062"
+      },
+      "figure_sha256": {
+        "figure.png": "e88a83103d4479ee9d6f1b5842c8e5adc2bead024933010df1d61a3c696e7714",
+        "figure.svg": "145e41a03c9dac073061b383d28afe09f5e22083ce0826005f5611c5adf7dcc5",
+        "figure.pdf": "c0d797fb58d019e6f12a51e01f65d6d90e185fddbd2606ccb562fea2b6c272c6"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "phenomenological_model",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "self-chosen teaching values; never paper measurements",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "equations": [
+          "a_n=(1-a0*exp(-(n-1)/tau_a))*exp(-k*(n-1)-k_late*max(n-n_late,0)^2)",
+          "Qdis_n=Q0*a_n; eta_n=1-l_ss-l_tr*exp(-(n-1)/tau_CE)",
+          "Qchg_n=Qdis_n/eta_n; CE_n=100*Qdis_n/Qchg_n; side_charge_n=Qchg_n-Qdis_n",
+          "s(f)=0.55*f+0.45*f^7; Vdis=4.3-1.5*s(f); Vchg=2.8+1.5*s(f)"
+        ],
+        "assumptions": [
+          "Excess lithium counterelectrode remains available; no finite Li inventory bottleneck is imposed.",
+          "Accessible cathode activity and external coulombic loss are separate chosen functions.",
+          "The active fraction is a positive phenomenological display law, not a fitted NMC811 mechanism; CE products cannot predict this capacity.",
+          "Specific capacity uses cathode active-material mass; voltage endpoints respect the declared window."
+        ],
+        "parameters": {
+          "count_cycles": 500,
+          "A": {
+            "initial_capacity": 184,
+            "activation_fraction": 0.012,
+            "activation_cycles": 3,
+            "fade_per_cycle": 0.00012,
+            "late_fade_per_cycle2": 2e-06,
+            "late_fade_start": 350,
+            "steady_ce_loss": 0.0006,
+            "transient_ce_loss": 0.004,
+            "ce_decay_cycles": 4
+          },
+          "B": {
+            "initial_capacity": 182,
+            "activation_fraction": 0.018,
+            "activation_cycles": 4,
+            "fade_per_cycle": 0.00024,
+            "late_fade_per_cycle2": 3.5e-06,
+            "late_fade_start": 350,
+            "steady_ce_loss": 0.001,
+            "transient_ce_loss": 0.006,
+            "ce_decay_cycles": 4
+          },
+          "voltage_window_V": [
+            2.8,
+            4.3
+          ]
+        },
+        "references": [
+          {
+            "url": "https://www.nature.com/articles/s41467-025-60833-y",
+            "title": "Deciphering coulombic loss in lithium-ion batteries and beyond",
+            "supports": "Coulombic loss, electrode compensation and capacity fade are distinct; does not provide the numerical activity model.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          },
+          {
+            "url": "https://www.nature.com/articles/s41560-020-0648-z",
+            "title": "Understanding and applying coulombic efficiency in lithium metal batteries",
+            "supports": "Excess-Li half-cell versus full-cell interpretation boundaries; all demo values are original.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "No NMC811 material performance, cycle-life forecast, electrode mechanism or lithium reservoir mass is inferred.",
+          "Legacy resource_id full_cell is retained for file compatibility; this gallery example is a half-cell, not the full-cell recipe."
+        ]
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "gcd_profiles",
+      "metadata": "examples/showcase/gcd_profiles/metadata.json",
+      "metadata_sha256": "ba3c5b5e224f4feea3db3b9ea9e685241aa59d67628f57481d2a17213bc95a94",
+      "input_sha256": {
+        "examples/showcase/gcd_profiles/data.csv": "d68bc3d08eac360dc4696225ddb468ef08d06c006308651f73a82f6e060f8468"
+      },
+      "figure_sha256": {
+        "figure.png": "e075e0304bb0f93440d2ba12ab2d7789f766836818e723334ce8f72511338a84",
+        "figure.svg": "bf7e662ae619a02eee3285ad42c5ab8776068a1af390572a504c407483ff726b",
+        "figure.pdf": "ac4295103954786b3fcaaee8f2fa98fe447da9a3fc67ecd4e36efcd06ac22a31"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "composite",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "self-chosen teaching values; never paper measurements",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "dependency_ids": [
+          "full_cell"
+        ],
+        "equations": [
+          "Inherited source equations; read scientific_basis of the declared dependency IDs."
+        ],
+        "assumptions": [
+          "Reusing a color or label does not make independent models one experimental study.",
+          "GCD charge and discharge endpoints use their own charge ledger; styles change no data."
+        ],
+        "parameters": {
+          "source_files": [
+            "data.csv"
+          ]
+        },
+        "references": [
+          {
+            "url": "https://www.nature.com/articles/s41467-025-60833-y",
+            "title": "Deciphering coulombic loss in lithium-ion batteries and beyond",
+            "supports": "Charge/retention interpretation boundary only; component physics is in dependency records.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "Layout/style linking does not establish cross-technique corroboration or causality."
+        ]
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "gitt_pulse",
+      "metadata": "examples/showcase/gitt_pulse/metadata.json",
+      "metadata_sha256": "519e98c15eb8954c6456e74f9c93f126bfc4b368bdc9940c6d66f40cbffff8c1",
+      "input_sha256": {
+        "examples/showcase/gitt_pulse/data.csv": "8e32e9ef4d45735f23276c5ceaca43b25853b83a2bb27df7f20761b747dfa1bc"
+      },
+      "figure_sha256": {
+        "figure.png": "6eaa0051bc2cbee42490732f43044d7dd917ff81bf02f6762ea9cfb653f48997",
+        "figure.svg": "7c3dfa70365d62415ee14eb73a22cc396fc00b2432c0cef21c398c6b0328f943",
+        "figure.pdf": "da44d2ee416198075406abb927e32036bd10909606ea4fc2de49f208d30b27a8"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "analytic_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "Q_passed_mAh=0.1*on_time_min/60",
+          "du/dt=(Rp*I-u)/tau; exact interval update u_next=u*exp(-dt/tau)+Rp*I*(1-exp(-dt/tau))",
+          "Ueq=3.22+0.011*on_time_min+0.03*tanh((on_time_min-38)/10)",
+          "V_cell=Ueq+R0*I+u; I is in A in resistance terms"
+        ],
+        "parameters": {
+          "pulse_current_mA": 0.1,
+          "pulse_min": 6,
+          "rest_min": 24,
+          "pulses": 12,
+          "R0_ohm": 340,
+          "Rp_ohm": 850,
+          "tau_s": 300,
+          "sampling_interval_s": 12,
+          "temperature_C": 25,
+          "total_charge_mAh": 0.12
+        },
+        "assumptions": [
+          "One linear RC polarization mode plus an original monotonic OCV function.",
+          "Current is held constant on each recorded time interval and the RC state carries across switches."
+        ],
+        "references": [
+          {
+            "url": "https://www.gamry.com/application-notes/EIS/basics-of-electrochemical-impedance-spectroscopy/",
+            "title": "Gamry: electrochemical impedance spectroscopy",
+            "supports": "Ideal resistor/capacitor element definitions; original OCV and pulse parameters.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "A GITT schedule example, not a Fickian diffusion solution or a fitted diffusion coefficient.",
+          "A finite rest does not prove equilibrium; no geometry or material identity is inferred."
+        ],
+        "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "integrated_study",
+      "metadata": "examples/showcase/integrated_study/metadata.json",
+      "metadata_sha256": "1324cf2eaa5edfe5b450886899df31e927874183b79a1ae196e5701be8e96ef7",
+      "input_sha256": {
+        "examples/showcase/integrated_study/data_index.csv": "7a3db0c87c98e697e5ca325a4e9a8202dd5dc6459f9fc8ca6dfe6b42a8b69442",
+        "examples/showcase/integrated_study/sources.json": "04c30a8c88e397a7f49e51f6ee4c3938a4d1ec864f0659d1516d618324fb02fe",
+        "examples/showcase/li_cu_ce/data.csv": "cc4d9a633247ae4df9fada1b15e2adf7f6767c65be21532639c2374f5d8970f6",
+        "examples/showcase/li_cu_ce/profiles.csv": "49de4884a52d3e96dff0a10859548a1ca3220bf321d8eb87d8006d25e7040c36",
+        "examples/showcase/li_li/data.csv": "efc9991fcda15f264203d31a4931ae0fa86cc5d3fcb939f14fffcfb665713a2e",
+        "examples/showcase/eis/data.csv": "187d66d615d2151217d94f23d50a488800623e61357e4ce4a75ef945096ffa3c",
+        "examples/showcase/full_cell/data.csv": "1b8204c7d72bab8dac45e5827913230609c1e146609fd57a68a5d79bec4352f4",
+        "examples/showcase/full_cell/voltage_profiles.csv": "db99b690fd9228788b5197b80435f57f0937c5571cc8a05b3539596c1b43c062"
+      },
+      "figure_sha256": {
+        "figure.png": "959553953b4e57deb7c180e38b6ffe5994a9078c60f09c69be11ac46d44ce840",
+        "figure.svg": "7703bece618ea3b2aebbf53913261bb90c59b53fff26547170822bb185b9402d",
+        "figure.pdf": "c4a806f94a09ce4a0f07928d2cc7fee6f5cb46af522fcd5da7cefcc0542fc3da"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "composite",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "self-chosen teaching values; never paper measurements",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "dependency_ids": [
+          "li_cu_ce",
+          "li_li",
+          "eis",
+          "full_cell"
+        ],
+        "equations": [
+          "Inherited source equations; read scientific_basis of the declared dependency IDs."
+        ],
+        "assumptions": [
+          "Reusing a color or label does not make independent models one experimental study.",
+          "GCD charge and discharge endpoints use their own charge ledger; styles change no data."
+        ],
+        "parameters": {
+          "source_files": [
+            "data_index.csv",
+            "sources.json",
+            "../li_cu_ce/data.csv",
+            "../li_cu_ce/profiles.csv",
+            "../li_li/data.csv",
+            "../eis/data.csv",
+            "../full_cell/data.csv",
+            "../full_cell/voltage_profiles.csv"
+          ]
+        },
+        "references": [
+          {
+            "url": "https://www.nature.com/articles/s41467-025-60833-y",
+            "title": "Deciphering coulombic loss in lithium-ion batteries and beyond",
+            "supports": "Charge/retention interpretation boundary only; component physics is in dependency records.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "Layout/style linking does not establish cross-technique corroboration or causality."
+        ]
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "ionic_conductivity",
+      "metadata": "examples/showcase/ionic_conductivity/metadata.json",
+      "metadata_sha256": "aecef71a59a4d6d7dfa1a663ca5ea89fb93434b7791521caceeb570d7644236d",
+      "input_sha256": {
+        "examples/showcase/ionic_conductivity/data.csv": "8153cc848cad14225e179734617c13e11418cc3d00456030f019f29edb93a2a8"
+      },
+      "figure_sha256": {
+        "figure.png": "3774926e52a916d966ee794e2076ac74b98c1467db41a92099c21dca8c088014",
+        "figure.svg": "0f424de382efcf4156c9e8d11904581fa24b3ec2c91e4b0c0c401f1e58209256",
+        "figure.pdf": "12e138745194edf0d054f03d26d6cfca0a43a4d9ae9598e72f115174fe7a231b"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "analytic_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "sigma_S_cm=pre_S_cm*exp(-Ea_eV/(kB_eV_K*T_K)); T_K=T_C+273.15",
+          "stored conductivity_mS_cm=1000*sigma_S_cm; Arrhenius axes are ln(sigma_S_cm) and 1000/T_K"
+        ],
+        "parameters": {
+          "activation_energy_eV": {
+            "A": 0.2,
+            "B": 0.24,
+            "C": 0.29
+          },
+          "prefactor_S_cm": {
+            "A": 22,
+            "B": 40,
+            "C": 72
+          },
+          "kB_eV_K": 8.617333262e-05,
+          "temperature_C_range": [
+            -20,
+            80
+          ]
+        },
+        "assumptions": [
+          "Single thermally activated transport law, constant prefactor and Ea within the stated range."
+        ],
+        "references": [
+          {
+            "url": "https://goldbook.iupac.org/terms/view/A00446",
+            "title": "IUPAC: Arrhenius equation",
+            "supports": "Exponential temperature law; original conductivity prefactors and energies.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "No VTF behavior, phase transition, contact/geometry uncertainty or measured conductivity claim.",
+          "Input Ea is known by construction and is not an experimentally fitted activation energy."
+        ],
+        "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "li_cu_ce",
+      "metadata": "examples/showcase/li_cu_ce/metadata.json",
+      "metadata_sha256": "cda54a0e2a3af752fb67f987766d0f41e4abd04923f77193a685639ecfd2d607",
+      "input_sha256": {
+        "examples/showcase/li_cu_ce/data.csv": "cc4d9a633247ae4df9fada1b15e2adf7f6767c65be21532639c2374f5d8970f6",
+        "examples/showcase/li_cu_ce/profiles.csv": "49de4884a52d3e96dff0a10859548a1ca3220bf321d8eb87d8006d25e7040c36"
+      },
+      "figure_sha256": {
+        "figure.png": "6a0a197e10a10a99dface9c59c662bcbfb73f58c4a95b889da93be6ee964babd",
+        "figure.svg": "3d698706704fa2fc896a6944bb32da8813d52ee79fa61de139bc243237769179",
+        "figure.pdf": "948d22838495c5cc07bb8d38e31bfdd9998ff39d86a68a1fff96e3f227971e41"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "phenomenological_model",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "self-chosen teaching values; never paper measurements",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "equations": [
+          "CE=100*Qstrip/Qplate; Qplate=abs(jplate)*tplate; Qstrip=abs(jstrip)*tstrip",
+          "eta_A=0.9945-0.012*exp(-(n-1)/8)-0.0008*(n/300)^2",
+          "eta_B=0.991-0.018*exp(-(n-1)/9)-0.004*max((n-218)/82,0)^1.5; eta_B(n=264)-=0.0047",
+          "Vstrip=b+(1-b)*f^12; b=0.045+sample_offset+0.006*n/300; end Vstrip=1 V"
+        ],
+        "assumptions": [
+          "Chosen recoverable-charge fractions; excess Li counterelectrode so CE is not full-cell retention.",
+          "Negative applied current is plating; positive is stripping; cutoff is reached at the CE-derived endpoint.",
+          "Voltage is a display relation, not a fitted nucleation, SEI or depletion mechanism."
+        ],
+        "parameters": {
+          "j_mA_cm2": 1,
+          "Qplate_mAh_cm2": 1,
+          "cutoff_V": 1,
+          "cycles": 300,
+          "sample_offset_V": {
+            "A": 0,
+            "B": 0.02
+          }
+        },
+        "references": [
+          {
+            "url": "https://www.nature.com/articles/s41560-020-0648-z",
+            "title": "Understanding and applying coulombic efficiency in lithium metal batteries",
+            "supports": "CE charge accounting and protocol/cell-configuration boundaries; not the source of demo numbers.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "Cannot infer dead Li versus electrolyte consumption, dendrites, full-cell life or a material benefit."
+        ]
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "li_li",
+      "metadata": "examples/showcase/li_li/metadata.json",
+      "metadata_sha256": "8598363bc01bbbb6db391f97699dcb9e25bc00e454daf809210336bbd4699b7c",
+      "input_sha256": {
+        "examples/showcase/li_li/data.csv": "efc9991fcda15f264203d31a4931ae0fa86cc5d3fcb939f14fffcfb665713a2e"
+      },
+      "figure_sha256": {
+        "figure.png": "cd052bd9e066440b9f34143a22b5297f22fe888061f1eefc98ba78f0ee5ccf64",
+        "figure.svg": "8e104cb5bf48bd20fc0f1db8962293322095046eb02187498b526c254d9c0997",
+        "figure.pdf": "4facee4ac951fe9dd3111cec910ba5990154437205e0d2655141d70ab72a0dfb"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "analytic_model",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "explicit teaching choices; not reported measurements",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "equations": [
+          "T_half=Q_half/abs(j); j alternates sign each T_half",
+          "d eta/dt=(j*Rp-eta)/tau; V=j*Rs+eta",
+          "eta(t)=j*Rp+(eta_start-j*Rp)*exp(-t/tau); Qpassed=integral(j dt)"
+        ],
+        "assumptions": [
+          "Zero open-circuit offset; constant positive passive linear terminal RC parameters.",
+          "Applied current is a right-continuous zero-order hold; RC state stays continuous at switching.",
+          "External charge is not a lithium-deposition mass measurement."
+        ],
+        "parameters": {
+          "half_cycles": 200,
+          "j_mA_cm2": 1,
+          "Q_half_mAh_cm2": 1,
+          "A": {
+            "Rs_ohm_cm2": 10,
+            "Rp_ohm_cm2": 24,
+            "tau_h": 0.08
+          },
+          "B": {
+            "Rs_ohm_cm2": 12,
+            "Rp_ohm_cm2": 35,
+            "tau_h": 0.12
+          }
+        },
+        "references": [
+          {
+            "url": "https://www.gamry.com/application-notes/EIS/basics-of-electrochemical-impedance-spectroscopy/",
+            "title": "Basics of Electrochemical Impedance Spectroscopy",
+            "supports": "Ohm law, capacitor differential relation and passive equivalent circuits; values are not measured.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          },
+          {
+            "url": "https://www.nature.com/articles/s41560-020-0648-z",
+            "title": "Understanding and applying coulombic efficiency in lithium metal batteries",
+            "supports": "Cell configuration and plating/stripping protocol boundaries; no symmetric trace certifies CE or full-cell stability.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "No SEI, dendrite, short circuit, transfer mass, lifetime or CE claim follows from this ideal terminal RC trace."
+        ]
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "literature_benchmark",
+      "metadata": "examples/showcase/literature_benchmark/metadata.json",
+      "metadata_sha256": "4672d08463c5dd85d861a8e5ad5455c56004b0ea70ccc7a83afd2902ac6ba9a1",
+      "input_sha256": {
+        "examples/showcase/literature_benchmark/data.csv": "201fb399c2f286077826c6e9ddc4c2c5644c2fed3ee741307f1efa2174e3b84d"
+      },
+      "figure_sha256": {
+        "figure.png": "b4d84d9f9ac8624c815a6f5e36521747efae1b67a0e40c0596dc3ecf44cdaead",
+        "figure.svg": "9844a9710afc5c0604f4517636c18b92303f8cb9190759fac10d69d1941166eb",
+        "figure.pdf": "0e3c19fc98afc8ba325ebc7554d49a0bd4ca3c5f3e4a81ad2fa9d49ec4cf9536"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "layout_fixture",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "self-chosen teaching values; never paper measurements",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "equations": [
+          "No physical equations; categorical/scatter fixtures only."
+        ],
+        "assumptions": [
+          "SIM IDs are invented and are never citations or source-supported performance claims."
+        ],
+        "parameters": {
+          "seed": 20260923,
+          "source_files": [
+            "data.csv"
+          ]
+        },
+        "references": [
+          {
+            "url": "https://www.nature.com/nchem/editorial-policies/reporting-standards",
+            "title": "Nature Chemistry: reporting standards and availability of data, materials, code and protocols",
+            "supports": "Why source provenance/reporting are required; fixture values and categories are invented, not audited papers.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "No real literature benchmarking, material ranking or evidence audit."
+        ]
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "lsv",
+      "metadata": "examples/showcase/lsv/metadata.json",
+      "metadata_sha256": "f15ee5f320a103515e99e1ac9c93318582e70fc4f41d0d6c203e68a23d56319b",
+      "input_sha256": {
+        "examples/showcase/lsv/data.csv": "9508a60bffa4b234b125915038e367500dcf9d9715fd5a34958fe4234b485e0a"
+      },
+      "figure_sha256": {
+        "figure.png": "421cfcb60377b5e46d25311a55a34701a2837375643302209fe548350019a935",
+        "figure.svg": "1448dfd68010b86ff52cb2323cb70240006a22ec022cdd3b334890c1685bd4cd",
+        "figure.pdf": "1146271e46b38cb91766d7eb6659e2faec2940caf5f85be1b249b71708934ac0"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "analytic_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "j_anodic_uA_cm2=0.08+0.30*exp(alpha*F*(V-E0)/(R*T))",
+          "E0_A,B,C=4.32,4.49,4.66 V; alpha=0.15, T=298.15 K"
+        ],
+        "parameters": {
+          "alpha": 0.15,
+          "j0_uA_cm2": 0.3,
+          "baseline_uA_cm2": 0.08,
+          "R_J_mol_K": 8.314462618,
+          "F_C_mol": 96485.33212,
+          "temperature_K": 298.15,
+          "scan_rate_mV_s": 0.1,
+          "reference": "Li/Li+",
+          "voltage_window_V": [
+            3,
+            5.1
+          ]
+        },
+        "assumptions": [
+          "A one-way anodic charge-transfer term with negligible reverse product reaction and depletion.",
+          "The baseline and forward-rate parameters are original; no onset threshold is assigned."
+        ],
+        "references": [
+          {
+            "url": "https://www.gamry.com/electrochemistry-applications/cv-cyclic-voltammetry",
+            "title": "Gamry: electrochemical charge-transfer equations",
+            "supports": "The forward exponential term of charge-transfer kinetics, not a stability-window calibration.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "No mass-transport limit, electrode passivation, iR correction, measured stability window or kinetic fit.",
+          "A kinetic teaching turn-up is not a thermodynamic decomposition potential."
+        ],
+        "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "msd",
+      "metadata": "examples/showcase/msd/metadata.json",
+      "metadata_sha256": "ed5ac54f58eda112d12d30be41f05d6dad98c654208b12bc401e4ba7770a70ce",
+      "input_sha256": {
+        "examples/showcase/msd/data.csv": "4044244f5e37ae06f9b8b328c18264ee59f3ae5bfc41a015d772d7e1a4cbaebf"
+      },
+      "figure_sha256": {
+        "figure.png": "cc426eac900d5d2f1029c29b263c2f8052e3f276339cdc90ddd401246eda550d",
+        "figure.svg": "b2e8623938f8aa66e0dd4343ee6f99bbf1d13a1473283f4c4b4ba4cc383302a5",
+        "figure.pdf": "c923d135458657a83540fb178cd1adf25154c8bab7e7ef17823c3036cce65e8e"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "analytic_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "D(T)=D(298.15 K)*exp(-0.17 eV/kB*(1/T-1/298.15 K))",
+          "<|r(t)-r(0)|^2>=6*D*t for isotropic three-dimensional drift-free Brownian motion",
+          "1 Å²/ps=1e-4 cm²/s; D is a declared generator input, not fitted output"
+        ],
+        "parameters": {
+          "dimensions": 3,
+          "input_activation_energy_eV": 0.17,
+          "reference_temperature_K": 298.15,
+          "input_D_A2_ps": {
+            "25": {
+              "A": 0.08666666666666667,
+              "B": 0.051666666666666666,
+              "C": 0.028333333333333335
+            },
+            "-70": {
+              "A": 0.003926985491698151,
+              "B": 0.002341087504666205,
+              "C": 0.0012838221799782417
+            }
+          },
+          "time_ps_range": [
+            0,
+            50
+          ]
+        },
+        "assumptions": [
+          "The long-time Brownian relation is deliberately extended over this teaching grid.",
+          "Temperature dependence is a chosen Arrhenius input; no actual electrolyte phase behavior is modeled."
+        ],
+        "references": [
+          {
+            "url": "https://manual.gromacs.org/current/reference-manual/analysis/mean-square-displacement.html",
+            "title": "GROMACS: mean square displacement",
+            "supports": "Three-dimensional Einstein relation; known model inputs are not simulated trajectories.",
+            "scope": "model_definition_only"
+          },
+          {
+            "url": "https://goldbook.iupac.org/terms/view/A00446",
+            "title": "IUPAC: Arrhenius equation",
+            "supports": "Temperature law only; original activation energy.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "No MD trajectories or diffusion fit; no ballistic regime, confinement, crystallization or glass transition.",
+          "The input D values are not measurements or chemistry predictions."
+        ],
+        "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "nmr",
+      "metadata": "examples/showcase/nmr/metadata.json",
+      "metadata_sha256": "ffa9b15185777bfac668c02c1ce864570b1e40d51200ee28b96040b2ecc72bbc",
+      "input_sha256": {
+        "examples/showcase/nmr/data.csv": "9e23d6ed71222726ab2d338de99e8637a02c2f0d69bedaab3df453daa82e09bf"
+      },
+      "figure_sha256": {
+        "figure.png": "62d3bb4a79c52632ed4492f6c7e54a6fe2655b5ca09f1a041be947cfdbf801c1",
+        "figure.svg": "63c41b513a36190aa577403e70ffe41a1760c9c0f727997e2650585bab6f8ada",
+        "figure.pdf": "b3ab958f65b41b591f27417a64372015e422d6dae00c8e7cfba291dc62849024"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "phenomenological_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "L(x;mu,gamma)=1/(1+((x-mu)/gamma)^2)",
+          "I(x)=L(x;-0.30+0.115*index,0.035+0.003*index)+0.08*L(x;0.42,0.075)",
+          "Display-only offset=1.2 a.u. per series; raw intensities are unchanged"
+        ],
+        "parameters": {
+          "chemical_shift_ppm_range": [
+            -1,
+            1
+          ],
+          "nucleus": "7Li-like teaching label",
+          "reference": "original zero-point axis; no physical standard",
+          "samples": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        },
+        "assumptions": [
+          "Generic absorptive Lorentzian bands, without phasing or integration claims."
+        ],
+        "references": [
+          {
+            "url": "https://goldbook.iupac.org/terms/view/L03628",
+            "title": "IUPAC: Lorentzian band shape",
+            "supports": "Lorentzian half-width definition; original synthetic shifts and widths.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "No molecular assignment, measured chemical shift, pulse sequence or T2 determination."
+        ],
+        "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "ocv_rest",
+      "metadata": "examples/showcase/ocv_rest/metadata.json",
+      "metadata_sha256": "03d25f8a82e03e31dd209a6b70c42bc1ce3b6a8b5137d0338fdd14e810c46e63",
+      "input_sha256": {
+        "examples/showcase/ocv_rest/data.csv": "642637bc88967fae090f3ae6529c896737b11f41c4c9b36b64254e25dbbb79d7"
+      },
+      "figure_sha256": {
+        "figure.png": "8d531f37aa1fa8b69676b294faccc6b7be23b79726accc3c1e25bfbd54b12919",
+        "figure.svg": "6780358508fc0222211de3672a2d262b035131e77f64e0fdcfd1f88bf62e21ae",
+        "figure.pdf": "10ad87fb14b14049e3ca212b29e12263393375c34bda1d4b8802fc50ed7a28a8"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "analytic_model",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "Explicit original teaching parameters, not measured values",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "equations": [
+          "V(t)=V0-a_fast*(1-exp(-t/tau_fast))-a_slow*(1-exp(-t/tau_slow))",
+          "External rest current is zero; internal polarization states relax with positive RC time constants"
+        ],
+        "assumptions": [
+          "A terminal open-circuit display with two decaying initial polarization states.",
+          "No leakage current or capacity measurement is provided; voltage relaxation is not quantified self-discharge."
+        ],
+        "parameters": {
+          "V0_V": 4.15,
+          "tau_fast_h": 2.5,
+          "tau_slow_h": 60,
+          "A": {
+            "a_fast_V": 0.045,
+            "a_slow_V": 0.08
+          },
+          "B": {
+            "a_fast_V": 0.065,
+            "a_slow_V": 0.13
+          }
+        },
+        "references": [
+          {
+            "url": "https://www.gamry.com/application-notes/EIS/basics-of-electrochemical-impedance-spectroscopy/",
+            "title": "Basics of Electrochemical Impedance Spectroscopy",
+            "supports": "Passive RC relations only; parameters are chosen display amplitudes, not recovered capacity.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "No material thermodynamics, leakage rate, state of charge or retained charge can be inferred."
+        ]
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "operando_xrd",
+      "metadata": "examples/showcase/operando_xrd/metadata.json",
+      "metadata_sha256": "c4966ce6bf9ff03df010f2ba374e54189ad0ef62d7ee873be0ee6c5225def817",
+      "input_sha256": {
+        "examples/showcase/operando_xrd/data.csv": "7ed4b6b1ce6da4b978f08a1f1e60c9ed5a87a0b7b6f88d2e8580082cd9ad654a",
+        "examples/showcase/operando_xrd/voltage.csv": "3ff26a01ccf91e68f53f580e7de119fab316334ae3ef3552c63543be426a0eed"
+      },
+      "figure_sha256": {
+        "figure.png": "c10046cd953157b999683acf5bf482c405830a49a2730ce3903d90e157191550",
+        "figure.svg": "1f1a61cedbd16c0ee04201ab8786cf90e794d20d9b3cfe06dc2459ee77c2ab61",
+        "figure.pdf": "08342e9d9e97e224228b0916beb5ce1a533622ad3c6ceaad1860e86166572bd1"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "phenomenological_model",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "explicit teaching choices; not reported measurements",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "equations": [
+          "2theta=2*asin(lambda/(2*d)) in degrees (first order)",
+          "d1(p)=2.425*(1-0.022*p) A; d2(p)=2.075*(1+0.018*p) A",
+          "I(2theta,p)=background+sum(amplitude*exp(-0.5*((2theta-center)/sigma)^2))",
+          "V(p)=3.20+0.83*p+0.18*p^7"
+        ],
+        "assumptions": [
+          "Two independent fictitious d-spacings, not indexed planes of a refined shared crystal.",
+          "p is chosen fractional progression, not measured SOC; voltage is an independent display function.",
+          "Gaussian widths, amplitudes and background are display parameters, not structure factors or measured diffraction.",
+          "Legacy soc_fraction field stores display progress, not measured state of charge."
+        ],
+        "parameters": {
+          "wavelength_A": 1.5406,
+          "d1_initial_A": 2.425,
+          "d2_initial_A": 2.075,
+          "strain1_at_p1": -0.022,
+          "strain2_at_p1": 0.018,
+          "sigma_deg": [
+            0.13,
+            0.15
+          ],
+          "amplitudes_au": [
+            0.9,
+            0.77
+          ],
+          "background_au": 0.045
+        },
+        "references": [
+          {
+            "url": "https://dictionary.iucr.org/Bragg%27s_law",
+            "title": "IUCr Online Dictionary: Bragg's law",
+            "supports": "Diffraction angle versus wavelength and d spacing; no material assignment or literature numerical data.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "No phase transition, crystallographic refinement, material identity or voltage-driven causality is demonstrated."
+        ]
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "pouch_thermal",
+      "metadata": "examples/showcase/pouch_thermal/metadata.json",
+      "metadata_sha256": "0e5f771cdaf44e0c16e4f51f81438e02dbaf5d35a2e85af572f449c296b8304b",
+      "input_sha256": {
+        "examples/showcase/pouch_thermal/data.csv": "ca4b1a4bfbc06079e73240b3768ebc01cf4c551bd73e4c57e7b6f22b806c3642",
+        "examples/showcase/pouch_thermal/line_profile.csv": "6307db84a2d570c19ed11bc9af63a8ac965eae2e15fa66bd1865c7be640f50ff",
+        "examples/showcase/pouch_thermal/history.csv": "37f1461623ccd1ba0e2e5fbf86ebad4cce05664cc3e1f1ead56df970d51346ab",
+        "examples/showcase/pouch_thermal/geometry.json": "359379551c06117b7a7d608ef7a1987898e5639b9371ea54031d766d25b7b1f3"
+      },
+      "figure_sha256": {
+        "figure.png": "d99c27164632d6f7ab6dbb62dda5eb6361ca80900f07dfd4d0d89fd92dfc0395",
+        "figure.svg": "7d925c0e4c36bbde8946edefe7b20008476af9d63aba9c5df412dfed5bdd232f",
+        "figure.pdf": "f4da246369aa3cdbbf6128e8f6e50fa71e729dbd034819fbfdbd5ac2ff00893e"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "analytic_model",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "self-chosen teaching values; never paper measurements",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "equations": [
+          "Cnode*dT/dt=Pnode(x,y)-Gnode*(T-Tamb); T(x,y,0)=Tamb",
+          "T=Tamb+(P/Gnode)*(1-exp(-t/tau)); tau=Cnode/Gnode",
+          "Each equally weighted node has Cnode=Ctotal/N and Gnode=Gtotal/N; Ctotal=m*cp=90 J/K; Gtotal=1/6 W/K; tau=540 s",
+          "P/Gnode=5.5+9.6*Gaussian_center+3.2*Gaussian_tab+0.40*sin(x/15)*cos(y/12) K"
+        ],
+        "assumptions": [
+          "Independent uncoupled thermal nodes, constant positive heating and thermal conductance.",
+          "Spatial heating distribution is a chosen positive function, not a solved pouch conduction problem."
+        ],
+        "parameters": {
+          "Tamb_C": 25,
+          "tau_min": 9,
+          "total_mass_kg": 0.1,
+          "specific_heat_J_kg_K": 900,
+          "Gtotal_W_K": 0.16666666666666666,
+          "Ctotal_J_K": 90,
+          "geometry_mm": [
+            100,
+            70
+          ]
+        },
+        "references": [
+          {
+            "url": "https://openstax.org/books/university-physics-volume-2/pages/1-4-heat-transfer-specific-heat-and-calorimetry",
+            "title": "OpenStax University Physics: Heat Transfer, Specific Heat, and Calorimetry",
+            "supports": "Heat capacity and energy balance; demo node geometry and powers are self-chosen.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          },
+          {
+            "url": "https://openstax.org/books/university-physics-volume-2/pages/1-6-mechanisms-of-heat-transfer",
+            "title": "OpenStax University Physics: Mechanisms of Heat Transfer",
+            "supports": "Linear thermal conductance interpretation; no experimental cell parameters copied.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "No IR measurement, cell electrical-to-heat mapping, lateral coupling, thermal-runaway prediction or inferred 2 C heating."
+        ]
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "raman_series",
+      "metadata": "examples/showcase/raman_series/metadata.json",
+      "metadata_sha256": "9e6a0dbe1fc0a9030a0515aa94aecacbc868bf80143db96029da71ca425b66e7",
+      "input_sha256": {
+        "examples/showcase/raman_series/data.csv": "d5f12b7638cf67f635a3cf4fb5568bb4920576151764d7e971b8c7ae5e375948"
+      },
+      "figure_sha256": {
+        "figure.png": "591df6c37e679fab26c4037f9e3b860557c7bb9ccfa0438f8440b4b2b029eb1e",
+        "figure.svg": "b81b85e2158eda6d21f942d8e7561b9526a4de62707e1b3faad5f8ad4b7bdf0f",
+        "figure.pdf": "48be9a2fb77234654297662af5643af1620aa965d84ca5be77e0b77f029b18c3"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "phenomenological_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "I_A-D(x)=45+0.14*(x-680)+(330-45*index)*G(x;730,4.5)+(100+55*index)*G(x;745+0.6*index,5.2)+55*G(x;783,6)",
+          "Display-only offset = 340 counts per series; raw intensities are unchanged"
+        ],
+        "parameters": {
+          "wavenumber_cm_1_range": [
+            680,
+            810
+          ],
+          "samples": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "offset_counts": 340
+        },
+        "assumptions": [
+          "Generic nonnegative band shapes and background; common acquisition scale is assumed."
+        ],
+        "references": [
+          {
+            "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm",
+            "title": "NIST e-Handbook: normal distribution",
+            "supports": "The Gaussian mathematical line shape only; no material peak assignment or numeric data.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "No molecule, solvation state, concentration, measured shift or peak-area calibration is assigned."
+        ],
+        "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "rate_capability",
+      "metadata": "examples/showcase/rate_capability/metadata.json",
+      "metadata_sha256": "411c2b08edaac838419dbce8974cb700afefda7117d492f4048949045fc2e7bc",
+      "input_sha256": {
+        "examples/showcase/rate_capability/data.csv": "02797d1e27ad33a1c1372e4505511fb5f87e7948efeb35fb404adf67ffe6ccd5",
+        "examples/showcase/rate_capability/voltage_profiles.csv": "62efdd91803af0f47c04df26cd93102f24c07f44e47561523eddb74bbabfd0d8"
+      },
+      "figure_sha256": {
+        "figure.png": "69825ea5b96ebe687dc5e8323ade767e1ce7e6a4a0bbc5b00e9e39e242941dc9",
+        "figure.svg": "f9615ccdf86252a47450b1c3ce74a88a3f8212f110f6f8792fbba4a3d2ba99ea",
+        "figure.pdf": "89696ea16cddcc2933a47f5d076f0ea90eb5532f55fa4292cf8f0dfc42c94b7a"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "phenomenological_model",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "self-chosen teaching values; never paper measurements",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "equations": [
+          "inventory_n=Q0*exp(-k*n)",
+          "Qaccessible_n=inventory_n/(1+(rate_C/r_limit_C)^0.8)",
+          "Voltage uses the declared bounded 2.8..4.3 V display shape."
+        ],
+        "assumptions": [
+          "Separate reversible rate-accessible fraction and irreversible inventory decrease.",
+          "Both functions are chosen phenomenological responses, not a measured or universal rate law."
+        ],
+        "parameters": {
+          "A": {
+            "Q0_mAh_g": 185,
+            "k_per_cycle": 0.0004,
+            "r_limit_C": 12
+          },
+          "B": {
+            "Q0_mAh_g": 181,
+            "k_per_cycle": 0.0006,
+            "r_limit_C": 9
+          },
+          "stages_C": [
+            0.2,
+            0.5,
+            1,
+            2,
+            5,
+            0.2
+          ],
+          "cycles_per_stage": 10
+        },
+        "references": [
+          {
+            "url": "https://www.nature.com/articles/s41467-025-60833-y",
+            "title": "Deciphering coulombic loss in lithium-ion batteries and beyond",
+            "supports": "Inventory loss and measured available capacity need separate assumptions; chosen rate response is not a paper fit.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "No transport constant, rate capability of a named cathode or full-cell life forecast."
+        ]
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "rdf_coordination",
+      "metadata": "examples/showcase/rdf_coordination/metadata.json",
+      "metadata_sha256": "bfcff9e4519617cd4cac4c27e7ba5c76159c7c04c66c082317194ec3495816d0",
+      "input_sha256": {
+        "examples/showcase/rdf_coordination/data.csv": "b17fd3d2ab197e2f4323c873ee21a0be0037323a7e01179fbbb7b695c2aca863"
+      },
+      "figure_sha256": {
+        "figure.png": "e4e2f93b66c5589af341ebb6c435fe2ef831d0be8b6b12c2f6511b5c3295d7c2",
+        "figure.svg": "cc079d560ad1d3117ef4c66b8c7f11ca0e3f89fc916f4c33c63ae3bead6c14e9",
+        "figure.pdf": "03017e9941bf88918997480bfcbf2b4206e32309e5a1f972453bb8e37681cc03"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "analytic_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "g(r)=0 below 1.4 Å; above that: logistic((r-3.45)/0.23)+height*G(r;peak,0.18)",
+          "CN(r)=4*pi*rho*integral_0^r[s^2*g(s) ds], stored using trapezoids on the same grid",
+          "g(r)→1 in the far field; the excluded interval below the grid contributes zero to CN"
+        ],
+        "parameters": {
+          "distance_A_range": [
+            0.5,
+            4.8
+          ],
+          "exclusion_A": 1.4,
+          "cutoff_A": 3.4,
+          "pair_peak_A": [
+            1.95,
+            2.12,
+            2.9
+          ],
+          "pair_number_density_A3": [
+            0.025,
+            0.012,
+            0.007
+          ]
+        },
+        "assumptions": [
+          "An isotropic analytic pair-distribution model with nonnegative g and declared neighbor number densities."
+        ],
+        "references": [
+          {
+            "url": "https://manual.gromacs.org/current/reference-manual/analysis/radial-distribution-function.html",
+            "title": "GROMACS: radial distribution functions",
+            "supports": "RDF normalization and cumulative coordination relation; no GROMACS trajectory is supplied.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "No MD coordinates, uncertainty, chemical solvation-shell assignment or measured coordination number."
+        ],
+        "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "reporting_matrix",
+      "metadata": "examples/showcase/reporting_matrix/metadata.json",
+      "metadata_sha256": "aee9499f09daa11da4c26c1bd2a1489d8592461ba6d048b8de49d7674b37aaf5",
+      "input_sha256": {
+        "examples/showcase/reporting_matrix/data.csv": "cc6e46644522fce88b2eba70cdd436f04203d6114330eb5c6b796d1ccd470000",
+        "examples/showcase/reporting_matrix/status_key.json": "5cff88d069761e7efee2b2ea10233498a0bd1fac2581dc4992ad2de31ba01365"
+      },
+      "figure_sha256": {
+        "figure.png": "373f8d624688b39d1a7b7dc8621d149f6ccd25e03bc03dbd7f6379e8bf7f5a57",
+        "figure.svg": "25cbe491c49a6088df2da050e1d4ee2b9dc5a689a432ce02f1b5a7314fee50b0",
+        "figure.pdf": "5b86634c83f51774f78ab5eba33e9b537bdb51fc1d90fadb235f01e764ad0083"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "layout_fixture",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "self-chosen teaching values; never paper measurements",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "equations": [
+          "No physical equations; categorical/scatter fixtures only."
+        ],
+        "assumptions": [
+          "SIM IDs are invented and are never citations or source-supported performance claims."
+        ],
+        "parameters": {
+          "seed": 20260923,
+          "source_files": [
+            "data.csv",
+            "status_key.json"
+          ]
+        },
+        "references": [
+          {
+            "url": "https://www.nature.com/nchem/editorial-policies/reporting-standards",
+            "title": "Nature Chemistry: reporting standards and availability of data, materials, code and protocols",
+            "supports": "Why source provenance/reporting are required; fixture values and categories are invented, not audited papers.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "No real literature benchmarking, material ranking or evidence audit."
+        ]
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "style_presets",
+      "metadata": "examples/showcase/style_presets/metadata.json",
+      "metadata_sha256": "a1d8b8f430fcc439333f7319508f5eadc6cdab6e9dc0d870109400ca1c0482f4",
+      "input_sha256": {
+        "examples/showcase/style_presets/data.csv": "1b8204c7d72bab8dac45e5827913230609c1e146609fd57a68a5d79bec4352f4",
+        "examples/showcase/style_presets/source.json": "6918109fde27d78798edd8b38e5f394a05d82eb63a50e608d6f5c3ece98fab65"
+      },
+      "figure_sha256": {
+        "figure.png": "d270cfafcbfdcf967e3db8649320f4d2a4c64ddd68cbf33a99d7514debf04f94",
+        "figure.svg": "10ec49d2eb4326a33b0746d0b3d0baa54ded96045c209c0c8343b4a52fa63b79",
+        "figure.pdf": "ef42911958d96e28903a7734172b1d0be14045293b3025a6d82ac63503905184"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "composite",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "self-chosen teaching values; never paper measurements",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "dependency_ids": [
+          "full_cell"
+        ],
+        "equations": [
+          "Inherited source equations; read scientific_basis of the declared dependency IDs."
+        ],
+        "assumptions": [
+          "Reusing a color or label does not make independent models one experimental study.",
+          "GCD charge and discharge endpoints use their own charge ledger; styles change no data."
+        ],
+        "parameters": {
+          "source_files": [
+            "data.csv",
+            "source.json"
+          ]
+        },
+        "references": [
+          {
+            "url": "https://www.nature.com/articles/s41467-025-60833-y",
+            "title": "Deciphering coulombic loss in lithium-ion batteries and beyond",
+            "supports": "Charge/retention interpretation boundary only; component physics is in dependency records.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "Layout/style linking does not establish cross-technique corroboration or causality."
+        ]
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "tof_sims",
+      "metadata": "examples/showcase/tof_sims/metadata.json",
+      "metadata_sha256": "481b94a5b6e8fbacbdfb01e5095430bb958263394ccad8c65261bd020cab3e11",
+      "input_sha256": {
+        "examples/showcase/tof_sims/data.csv": "be700cba3888471d07d5b6b37208af142aa60fd09d1aaedf07f7af28370e263e",
+        "examples/showcase/tof_sims/depth.csv": "0afd9b3d31652c0d7ca4c431b8c275cba206ef0f989990eb9fb0ddf4f2080a89"
+      },
+      "figure_sha256": {
+        "figure.png": "d147dd7233faf0a1e67142cfddd12d5ada7240337c6e3c9ca1ee028b4b979a68",
+        "figure.svg": "938739b6f15c0d20faf62ccfd2923f94a2e033ab78911354403f228bba842875",
+        "figure.pdf": "e1ae229b5361071ec57e1c7e890314b2e01830b8699bc81253bb3ae63dac9d5d"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "layout_fixture",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "self-chosen teaching values; never paper measurements",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "equations": [
+          "Nonnegative chosen lateral fields times declared sputter-time functions; not an ion-yield or composition law."
+        ],
+        "assumptions": [
+          "Species labels are channel names, not concentration, compound or SEI proof.",
+          "Sputter time is not depth; matrix effects and sputter-rate calibration are absent."
+        ],
+        "parameters": {
+          "geometry_um": [
+            20,
+            20
+          ],
+          "map_sputter_time_s": 30,
+          "intensity_unit": "relative a.u."
+        },
+        "references": [
+          {
+            "url": "https://www.npl.co.uk/research/mass-spectrometry/secondary-ion",
+            "title": "National Physical Laboratory: secondary ion mass spectrometry",
+            "supports": "Measurement technique and matrix/calibration limits; no quantitative values or material assignment copied.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "Only layout/coordinate demonstration; it does not simulate actual ion yield or certify a chemical composition."
+        ]
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "transference",
+      "metadata": "examples/showcase/transference/metadata.json",
+      "metadata_sha256": "6095a14e49c394656c4bfdf00b54d41779e1fa2d66688c3d6d7470a4f86c9875",
+      "input_sha256": {
+        "examples/showcase/transference/data.csv": "591c0680f39e967347b2b83836c8d314c88bbcacd21321c8a1126f2692506248",
+        "examples/showcase/transference/eis.csv": "e9f3887c5f1c39f1c913c97ff2ff5a9e2174423501d796e1049c36fb5784a480"
+      },
+      "figure_sha256": {
+        "figure.png": "88e0f46f69d0923c558de5e40637756b6a3e03357ca229b1bc3567eeebb21a63",
+        "figure.svg": "a86e0b7eff1a1b9a581df29345fb1c0936b87b8dd84458f0438ac48ee80695d4",
+        "figure.pdf": "e9b8211ca46b41149bdacce69cc63580fdf0c9775b4d6ebbd70722f8a8b8203c"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "analytic_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "I(t)=Iss+(I0-Iss)*exp(-t/95 s)",
+          "Z(omega)=Rs+R_interface/(1+j*omega*R_interface*C); before/after R_interface is R0 and Rss",
+          "t_BV=Iss*(DeltaV-I0*R0)/(I0*(DeltaV-Iss*Rss)); current is converted mA→A"
+        ],
+        "parameters": {
+          "DeltaV_V": 0.01,
+          "tau_s": 95,
+          "interface_C_F": 5e-06,
+          "frequency_Hz_range": [
+            1000000.0,
+            0.0001
+          ],
+          "series_R_ohm": {
+            "A": 18,
+            "B": 25
+          },
+          "interface_R0_ohm": {
+            "A": 65,
+            "B": 85
+          },
+          "interface_Rss_ohm": {
+            "A": 79.3,
+            "B": 103.7
+          },
+          "I0_mA": {
+            "A": 0.04,
+            "B": 0.05
+          },
+          "Iss_mA": {
+            "A": 0.03,
+            "B": 0.02
+          }
+        },
+        "assumptions": [
+          "Binary-electrolyte Bruce–Vincent-style demonstration with the supplied interfacial resistances.",
+          "Semicircle diameter is R_interface; the separate Rs is not silently substituted for it."
+        ],
+        "references": [
+          {
+            "url": "https://doi.org/10.1016/0032-3861(87)90394-6",
+            "title": "Evans, Vincent and Bruce: electrochemical measurement of transference numbers",
+            "supports": "Resistance-corrected polarization method and its assumptions; all numeric inputs are original.",
+            "scope": "model_definition_only"
+          },
+          {
+            "url": "https://www.gamry.com/application-notes/EIS/basics-of-electrochemical-impedance-spectroscopy/",
+            "title": "Gamry: electrochemical impedance spectroscopy",
+            "supports": "Ideal parallel-RC element and high/low-frequency resistance limits.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "An apparent method-specific quantity, not a rigorous concentrated-solution transference measurement.",
+          "No EIS optimizer, concentration corrections, activity coefficients or measured electrode evolution."
+        ],
+        "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "xps_components",
+      "metadata": "examples/showcase/xps_components/metadata.json",
+      "metadata_sha256": "c9c49a4ce7d26c3d53b063771eeace0741a5c3a8fe23fb01aec1e8a23595c3ff",
+      "input_sha256": {
+        "examples/showcase/xps_components/data.csv": "de8fcadbceeb63ae9922373d708ce23912960c89617c2ddf2e2fc7c4ddda703b"
+      },
+      "figure_sha256": {
+        "figure.png": "417ac31d09f6c0d42e9120bebdbfe3c47d5459bf7fb1a978dfbfd09c91150970",
+        "figure.svg": "d2b551a90cda5db46fd01b1ce0f10f5578b3970fd948ae01006af4470fa386ac",
+        "figure.pdf": "749c9e5794116fbf6a7f4ba574b1bbb4ee9f4f2ee22c0f03e13c045971070a45"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "phenomenological_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "G(e)=exp(-0.5*((e-mu)/sigma)^2); L(e)=1/(1+((e-mu)/sigma)^2)",
+          "component=height*(0.7*G+0.3*L); expected_counts=110+3*(e-280)+sum(components)",
+          "observed_counts ~ Poisson(expected_counts); residual=observed-background-sum(known_components)"
+        ],
+        "parameters": {
+          "peak_centers_eV": [
+            284.7,
+            286.4,
+            289.0
+          ],
+          "shape_width_eV": [
+            0.5,
+            0.64,
+            0.71
+          ],
+          "peak_heights_counts": [
+            1000,
+            460,
+            270
+          ],
+          "lorentzian_fraction": 0.3,
+          "random_seed": 20260927
+        },
+        "assumptions": [
+          "Nonnegative independent counting statistics on known generic components and a linear background.",
+          "The mixture width is a shape parameter; it is not claimed as a common Gaussian/Lorentzian FWHM."
+        ],
+        "references": [
+          {
+            "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm",
+            "title": "NIST e-Handbook: normal distribution",
+            "supports": "The Gaussian mathematical line shape only; no material peak assignment or numeric data.",
+            "scope": "model_definition_only"
+          },
+          {
+            "url": "https://goldbook.iupac.org/terms/view/L03628",
+            "title": "IUPAC: Lorentzian band shape",
+            "supports": "Lorentzian mathematical shape only; original energies and intensities.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "No optimizer, fitted composition, charge calibration, Shirley/Tougaard background or chemical assignment.",
+          "Components are known inputs; residuals are not evidence of a successful experimental fit."
+        ],
+        "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "flow_efficiency",
+      "metadata": "examples/domain_showcase/flow_efficiency/metadata.json",
+      "metadata_sha256": "5e599534fd326fc9d1ad855680cdb2b84c6c5f0b147e799fdec6fb6c4b7416d4",
+      "input_sha256": {
+        "examples/domain_showcase/flow_efficiency/data.csv": "d24cd5b6e06c7772805b876df77d41c3c06b0da345a08443568156ca44a8bce7",
+        "examples/domain_showcase/flow_efficiency/cycle_profiles.csv": "0474c32fb44a537fdf195b130d64b98d318748dcd1f0fc8ce8058f02cb8b924e"
+      },
+      "figure_sha256": {
+        "figure.png": "ebb34e342420953f661ce39a9cb00fdc6fc263d44cd316ed679f29b1cc8dfbeb",
+        "figure.svg": "bd756bf1dce6c5cb6289841a1587194ee01a207cf46e6d790ab227083b1aa45b",
+        "figure.pdf": "eacfb449b5c0f039003da5ba1a61ef971c103ceb065ee5c564128508f2f788ad"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "analytic_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "CE=Q_discharge/Q_charge; Vmean_branch=integral(V dQ)/Q_branch",
+          "VE=Vmean_discharge/Vmean_charge; EE=E_discharge/E_charge=CE*VE",
+          "Q_charge=100-0.01*cycle mAh; CE=0.982-0.00002*cycle; VE=0.84-0.0003*cycle",
+          "V_charge_mean=1.42+0.00012*cycle; V_discharge_mean=VE*V_charge_mean",
+          "Branch V(Q)=Vmean+tilt*(2*Q/Qtotal-1), tilt_charge=0.08 V, tilt_discharge=-0.06 V"
+        ],
+        "assumptions": [
+          "Positive capacity and energy in both branches over identical declared cycle boundaries.",
+          "Cell DC energy only; linear V(Q) permits an exact trapezoidal integral."
+        ],
+        "parameters": {
+          "cycles": 150,
+          "initial_charge_mAh": 100,
+          "charge_capacity_drift_mAh_cycle": 0.01,
+          "nominal_charge_mean_V": 1.42,
+          "voltage_grid_points_per_branch": 51,
+          "auxiliary_pump_energy_included": false,
+          "voltage_average": "capacity-weighted"
+        },
+        "references": [
+          {
+            "url": "https://www.nature.com/articles/s41560-020-00772-8",
+            "title": "Assessment methods and performance metrics for redox flow batteries",
+            "supports": "CE/VE/EE reporting boundaries; the charge-voltage-energy ledger is original.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "All numeric material/rate parameters are original teaching assumptions, not measured or copied paper data.",
+          "No pump/inverter/thermal loss or named electrolyte chemistry; no system round-trip efficiency claim."
+        ],
+        "validation_scope": "Original teaching-model equations, charge/energy/units and declared boundaries only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "k_ion_rate",
+      "metadata": "examples/domain_showcase/k_ion_rate/metadata.json",
+      "metadata_sha256": "65d9e95e3226b2fd0a88f551de00dacf70527ff72195cec3035f2c8ed112b0ad",
+      "input_sha256": {
+        "examples/domain_showcase/k_ion_rate/data.csv": "6d8c9a58b7a7a1c6460a06d07a8d888e3d70548fd4fb712c346f62ac068aa471"
+      },
+      "figure_sha256": {
+        "figure.png": "5705e1d531de6d3a558e1dea6d2ab93b666b0cc3cea65be961cf519a5bf72738",
+        "figure.svg": "2a3f208a279f704f0c2cccd9e1b07d7b589bbdd2f88f752eaf6aad16f81846d7",
+        "figure.pdf": "c8bc731577399d323638baccbf4ca76bbe1533042a227e92df84a2e14425266e"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "phenomenological_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "Q_cycle=260*exp(-(cycle-1)/1800)/(1+(current_mA_g/500)^0.7)",
+          "Current steps are 50,100,200,500,1000,50 mA/g, 10 cycles each"
+        ],
+        "assumptions": [
+          "Rate-limited accessible capacity plus a small separate active-capacity loss.",
+          "Capacity is per gram of working active material vs excess potassium counter metal."
+        ],
+        "parameters": {
+          "accessible_Q0_mAh_g": 260,
+          "current_scale_mA_g": 500,
+          "exponent": 0.7,
+          "fade_constant_cycles": 1800
+        },
+        "references": [
+          {
+            "url": "https://pubs.acs.org/doi/10.1021/acsenergylett.1c00870",
+            "title": "Battery reporting checklist",
+            "supports": "Current-rate, mass-basis and cell-configuration reporting boundaries; the accessibility law is an original phenomenological assumption.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "All numeric material/rate parameters are original teaching assumptions, not measured or copied paper data.",
+          "No named cathode/theoretical capacity, ion-diffusion fit or full-cell energy inference."
+        ],
+        "validation_scope": "Original teaching-model equations, charge/energy/units and declared boundaries only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "na_metal_ce",
+      "metadata": "examples/domain_showcase/na_metal_ce/metadata.json",
+      "metadata_sha256": "4464c4e719b0df5e97cd881e6bdfc34e13b0e8f363bbe4ddaa2a0759c4321703",
+      "input_sha256": {
+        "examples/domain_showcase/na_metal_ce/data.csv": "b52e273348f3d241375c45f6d7df7c6f04273dad8363160dd0419f57e04f8e83"
+      },
+      "figure_sha256": {
+        "figure.png": "f576316561e1367f4f60b1eab12f044c96e52fb0975afcba93b358265e24d5d5",
+        "figure.svg": "e8186fc090aeb315ed1d25a8396106e82091a2218ab5528914abf1aaa572ef9a",
+        "figure.pdf": "4b01c0b7ef6c6a2c11bb77a22136d981b887a35cc9b967fc414d159b179a6f3a"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "phenomenological_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "Q_plating=1 mAh/cm2; Q_stripping=Q_plating*(1-loss_fraction)",
+          "loss_fraction=0.016-0.009*(1-exp(-cycle/25))+Uniform(-0.0011,0.0011)+declared local loss event",
+          "CE_percent=100*Q_stripping/Q_plating"
+        ],
+        "assumptions": [
+          "Each teaching cycle has positive irreversible charge loss; no negative-capacity or >100% CE fixture.",
+          "Fresh plating charge is available each cycle; CE does not predict a full-cell life."
+        ],
+        "parameters": {
+          "nominal_current_mA_cm2": 1,
+          "plating_capacity_mAh_cm2": 1,
+          "cycles": 200,
+          "stripping_endpoint_V": 1.0,
+          "reference": "Na/Na+",
+          "event_cycles": [
+            146,
+            151
+          ],
+          "event_additional_loss_fraction": [
+            0.002,
+            0.013
+          ]
+        },
+        "references": [
+          {
+            "url": "https://www.nature.com/articles/s41560-020-0648-z",
+            "title": "Understanding Coulombic efficiency in lithium metal batteries",
+            "supports": "Charge-ratio definitions and protocol limitations only; not calibration of this Na or Zn model.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "All numeric material/rate parameters are original teaching assumptions, not measured or copied paper data.",
+          "Only charge accounting is modeled; no nucleation, voltage trace, gas evolution or validated stripping protocol."
+        ],
+        "validation_scope": "Original teaching-model equations, charge/energy/units and declared boundaries only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "pv_jv",
+      "metadata": "examples/domain_showcase/pv_jv/metadata.json",
+      "metadata_sha256": "17b7559f064f615ce5e5588bf8c9a50f94ddcc396ef223eb52c143569b97a59b",
+      "input_sha256": {
+        "examples/domain_showcase/pv_jv/data.csv": "41fb1727710a0f25e783532c1574871115f14ecb44e52961eef8cba2820d1fe8",
+        "examples/domain_showcase/pv_jv/metrics.json": "cd3d9551bbda5780f14c75309258d30a69e448781490ffe0bb98fbb9697d0be2"
+      },
+      "figure_sha256": {
+        "figure.png": "1d590eb873fe73e875ae636e2241ecc0db9bc8b747aff4d6089d3d5177404026",
+        "figure.svg": "f9baa6602305ea5bf94d8a38ab24f3521f379fc18f01d965f1563103a6d3a925",
+        "figure.pdf": "7fb6d3a5a101a91f2ef844f61028e8e72b8d7551bf11bdba898c3ec6add84cc1"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "analytic_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "VT=kB*T/q; J0=Jph/expm1(Voc/(n*VT))",
+          "J=Jph-J0*expm1(V/(n*VT)); ideal single diode, Rs=0 and Rsh=infinity",
+          "P_delivered=V*J; MPP=max(P) within V>=0,J>=0; FF=Pmax/(Voc*Jsc)",
+          "model_efficiency_percent=100*Pmax/incident_power_mW_cm2"
+        ],
+        "assumptions": [
+          "One ideal single junction with uniform fixed illumination and temperature.",
+          "Delivered-current sign convention; negative current past Voc is retained, excluded from generating MPP."
+        ],
+        "parameters": {
+          "photocurrent_mA_cm2": 23.5,
+          "ideality_factor": 1.5,
+          "temperature_K": 298.15,
+          "open_circuit_voltage_V": 1.08,
+          "incident_power_mW_cm2": 100.0,
+          "series_resistance_ohm_cm2": 0.0,
+          "shunt_resistance_ohm_cm2": "infinite",
+          "kB_J_K": 1.380649e-23,
+          "electron_charge_C": 1.602176634e-19,
+          "thermal_voltage_V": 0.02569257912108585,
+          "saturation_current_mA_cm2": 1.5868967932198145e-11
+        },
+        "references": [
+          {
+            "url": "https://pvpmc.sandia.gov/modeling-guide/2-dc-module-iv/single-diode-equivalent-circuit-models/",
+            "title": "Sandia/NIST PVPMC: single diode equivalent circuit models",
+            "supports": "Governing single-diode equation and thermal voltage; all numerical parameters are original.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "All numeric material/rate parameters are original teaching assumptions, not measured or copied paper data.",
+          "No measured device efficiency, calibrated spectrum, resistance extraction, hysteresis or material-specific prediction.",
+          "A sampled MPP is within the stated 0.002 V grid resolution, not an experimental maximum-power tracker."
+        ],
+        "validation_scope": "Original teaching-model equations, charge/energy/units and declared boundaries only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "pv_stability",
+      "metadata": "examples/domain_showcase/pv_stability/metadata.json",
+      "metadata_sha256": "04b947863084d565cee48ac4afa69805f394183d5a16f9d9e580fa3b5d959eb1",
+      "input_sha256": {
+        "examples/domain_showcase/pv_stability/data.csv": "c975a4a4d30d8c13961e5a1d0a22b965a03f5b713c0a8e2e320487629b91cc6f"
+      },
+      "figure_sha256": {
+        "figure.png": "390c92d7bbe3206b55b2a5319f05dc951a18119610dc08bc0729e73ee0d0ebc6",
+        "figure.svg": "e9da32cd1636d219d87b0990f1f128d7625f10b576388a5822086b60d63805f6",
+        "figure.pdf": "bd019ce39446961735ce53b81ec0b1cffd4ece959423362f5468252d64a458d8"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "phenomenological_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "P_normalized(t)=exp(-0.12*(t/1000 h)^0.75); P_normalized(0)=1"
+        ],
+        "assumptions": [
+          "An original positive stretched-exponential teaching trace at one fixed operating point."
+        ],
+        "parameters": {
+          "time_h_range": [
+            0,
+            1000
+          ],
+          "decay_amplitude": 0.12,
+          "stretch_exponent": 0.75,
+          "normalization_time_h": 0
+        },
+        "references": [
+          {
+            "url": "https://www.nature.com/articles/s41560-019-0529-5",
+            "title": "Consensus statement for stability assessment and reporting for perovskite photovoltaics",
+            "supports": "Operating-point, environment and normalization reporting boundaries; not these teaching decay parameters.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "All numeric material/rate parameters are original teaching assumptions, not measured or copied paper data.",
+          "No measured T80/T95, MPP tracking, encapsulation, atmosphere or extrapolated device lifetime."
+        ],
+        "validation_scope": "Original teaching-model equations, charge/energy/units and declared boundaries only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "pv_trpl",
+      "metadata": "examples/domain_showcase/pv_trpl/metadata.json",
+      "metadata_sha256": "0101e5b6ad7e9666540c53b7e41f05cf15215e9c8ec7b873eaab7c49f3979f76",
+      "input_sha256": {
+        "examples/domain_showcase/pv_trpl/data.csv": "a29e5a917c7e8b4df3ec85e21af3ef7f29c84e971275ac216aa5c8763bb6a72d"
+      },
+      "figure_sha256": {
+        "figure.png": "cb4866d4ba605b9d978b1cd52782c95930aeeee5c25a3dbae232cbc8f082f758",
+        "figure.svg": "e1e20adb9242e0140bc30c6b32f31361f2ab1c0041c671dd83a77ff0b952665e",
+        "figure.pdf": "adff74398db5a5a4ef2e31e8709ee9530fc734a2dbf1e28d13b482e0ab567f7c"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "analytic_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "I(t)=0.7*exp(-t/18 ns)+0.3*exp(-t/90 ns)+0.002"
+        ],
+        "assumptions": [
+          "Two independent first-order decays with constant background and nonnegative amplitudes."
+        ],
+        "parameters": {
+          "amplitudes_a_u": [
+            0.7,
+            0.3
+          ],
+          "input_time_constants_ns": [
+            18,
+            90
+          ],
+          "background_a_u": 0.002,
+          "time_ns_range": [
+            0,
+            400
+          ]
+        },
+        "references": [
+          {
+            "url": "https://downloads.picoquant.com/manuals/SymPhoTime64_Manual.pdf",
+            "title": "PicoQuant SymPhoTime64 manual: lifetime analysis",
+            "supports": "Exponential lifetime modeling and the need for instrument-response-aware fitting; original known decay constants.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "All numeric material/rate parameters are original teaching assumptions, not measured or copied paper data.",
+          "No IRF convolution, instrument timing, fitted lifetime, carrier recombination mechanism or material assignment."
+        ],
+        "validation_scope": "Original teaching-model equations, charge/energy/units and declared boundaries only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "zn_air_power",
+      "metadata": "examples/domain_showcase/zn_air_power/metadata.json",
+      "metadata_sha256": "5d199ab87e217e9d7503a515ee31865a0f4cd9b01536f03c9ea7cb6969ad61e2",
+      "input_sha256": {
+        "examples/domain_showcase/zn_air_power/data.csv": "3f9ddc7f0f96fd49f116764808a56ccd85cb4a6219a4f13c9cbe7708dfe7c258"
+      },
+      "figure_sha256": {
+        "figure.png": "4f5c43ce0e561f613d22782d8dbd82aed22b505e8fff9b5b5cf15cddc30bc16f",
+        "figure.svg": "966baa166d52dda7d93f9e63a28c58e338c8429154a0409e6a961a2a428d889b",
+        "figure.pdf": "fd97ef151ec283d3c309e930c0a29ed2377a5c71e2dc76dc2199155eb09ad1e2"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "phenomenological_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "V=1.58-0.050*asinh(j/(2*0.5))-0.0018*j; j in mA/cm2",
+          "P_mW_cm2=j_mA_cm2*V_V"
+        ],
+        "assumptions": [
+          "Lumped activation plus ohmic losses at nonnegative discharge current.",
+          "The asinh relation is the effective symmetric charge-transfer form; it is not an oxygen reaction electron count."
+        ],
+        "parameters": {
+          "original_open_circuit_V": 1.58,
+          "effective_activation_coefficient_V": 0.05,
+          "effective_exchange_current_mA_cm2": 0.5,
+          "area_resistance_ohm_cm2": 1.8,
+          "temperature_C": 25
+        },
+        "references": [
+          {
+            "url": "https://www.gamry.com/electrochemistry-applications/cv-cyclic-voltammetry",
+            "title": "Gamry: charge-transfer equations",
+            "supports": "Symmetric charge-transfer/asinh form only; all effective device parameters are original.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "All numeric material/rate parameters are original teaching assumptions, not measured or copied paper data.",
+          "No oxygen-transport limit, catalyst/electrode calibration, recharge branch or stack power claim."
+        ],
+        "validation_scope": "Original teaching-model equations, charge/energy/units and declared boundaries only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "zn_i2_cycle",
+      "metadata": "examples/domain_showcase/zn_i2_cycle/metadata.json",
+      "metadata_sha256": "0ec0aa2238285c794984fbb85377a2f6ea64d45a31d7a50795da73a03a883830",
+      "input_sha256": {
+        "examples/domain_showcase/zn_i2_cycle/data.csv": "e0917c627cd3e822b9f40d9130c7d164ab5ed8ae940efd9e9f05251274621989"
+      },
+      "figure_sha256": {
+        "figure.png": "823b92d1f126172310f5b94628bb96e879813cc7e741036e05ef40665c511db8",
+        "figure.svg": "fe3f8814e858b186113d00997f286f5ed7407583032877c420092fa58fc1bda5",
+        "figure.pdf": "ccb06b0535ee8f5e5eaebe12465fdc89d32f5c214f8925e958156aafb10d15fa"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "phenomenological_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "I2+2e- -> 2I-; Q_theoretical=2*F/(3.6*M_I2) mAh/g_I2",
+          "Q_discharge=175*exp(-cycle/1600)+Normal(0,0.8) mAh/g_I2",
+          "CE=99.2+Normal(0,0.1) percent; Q_charge=Q_discharge/(CE/100)"
+        ],
+        "assumptions": [
+          "Only the two-electron iodine couple contributes capacity; carbon/other redox contributions are zero.",
+          "Fade represents inaccessible iodine capacity; independent CE loss can be buffered by excess zinc."
+        ],
+        "parameters": {
+          "F_C_mol": 96485.33212,
+          "M_I2_g_mol": 253.80894,
+          "theoretical_Q_mAh_g_I2": 211.19414583619036,
+          "initial_accessible_Q_mAh_g_I2": 175,
+          "excess_Zn_counter_inventory": true
+        },
+        "references": [
+          {
+            "url": "https://www.nature.com/articles/s41467-020-20331-9",
+            "title": "A four-electron Zn-I2 aqueous battery",
+            "supports": "Explicit distinction between ordinary two-electron and additional four-electron iodine couples; no reported capacity is copied.",
+            "scope": "model_definition_only"
+          },
+          {
+            "url": "https://physics.nist.gov/cgi-bin/cuu/Value?f",
+            "title": "NIST CODATA: Faraday constant",
+            "supports": "Charge per mole of electrons for theoretical iodine capacity.",
+            "scope": "model_definition_only"
+          },
+          {
+            "url": "https://www.nature.com/articles/s41467-022-28381-x",
+            "title": "Experimental practices for rechargeable aqueous zinc batteries",
+            "supports": "Electrode configuration, inventory and denominator reporting boundaries; no numeric data is copied.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "All numeric material/rate parameters are original teaching assumptions, not measured or copied paper data.",
+          "No four-electron iodine, shuttle mechanism, loading/volume claim or full-cell CE-product life law."
+        ],
+        "validation_scope": "Original teaching-model equations, charge/energy/units and declared boundaries only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "zn_plating_ce",
+      "metadata": "examples/domain_showcase/zn_plating_ce/metadata.json",
+      "metadata_sha256": "608174f4288b6aa6df1f26a5183273a85164dd63b02b5b4c9641eb818aa75138",
+      "input_sha256": {
+        "examples/domain_showcase/zn_plating_ce/data.csv": "d330da6da8f713ee03cdebf76e60606a0e13f8ab5e30b6a51fe59d98e5ea969a"
+      },
+      "figure_sha256": {
+        "figure.png": "7db6c475fd38c335a7c6a61de6b52825c435d9c45f312f1bcf207d3b70562b85",
+        "figure.svg": "e3a85a5fb104c9be7c7e9c392ead0c25046cf3e20a39e32db1ce7e7ce7ce5f88",
+        "figure.pdf": "e012251d9a9904a1ffb40eb01910274ac090babcb3f461ec846a9769797eaef5"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "phenomenological_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "Q_plating=1 mAh/cm2; Q_stripping=Q_plating*(1-loss_fraction)",
+          "loss_fraction=0.016-0.009*(1-exp(-cycle/25))+Uniform(-0.0011,0.0011)+declared local loss event",
+          "CE_percent=100*Q_stripping/Q_plating"
+        ],
+        "assumptions": [
+          "Each teaching cycle has positive irreversible charge loss; no negative-capacity or >100% CE fixture.",
+          "Fresh plating charge is available each cycle; CE does not predict a full-cell life."
+        ],
+        "parameters": {
+          "nominal_current_mA_cm2": 1,
+          "plating_capacity_mAh_cm2": 1,
+          "cycles": 200,
+          "stripping_endpoint_V": 0.5,
+          "reference": "Zn/Zn2+",
+          "event_cycles": [
+            146,
+            151
+          ],
+          "event_additional_loss_fraction": [
+            0.002,
+            0.013
+          ]
+        },
+        "references": [
+          {
+            "url": "https://www.nature.com/articles/s41560-020-0648-z",
+            "title": "Understanding Coulombic efficiency in lithium metal batteries",
+            "supports": "Charge-ratio definitions and protocol limitations only; not calibration of this Na or Zn model.",
+            "scope": "model_definition_only"
+          },
+          {
+            "url": "https://www.nature.com/articles/s41467-022-28381-x",
+            "title": "Experimental practices for rechargeable aqueous zinc batteries",
+            "supports": "Electrode configuration, inventory and denominator reporting boundaries; no numeric data is copied.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "All numeric material/rate parameters are original teaching assumptions, not measured or copied paper data.",
+          "Only charge accounting is modeled; no nucleation, voltage trace, gas evolution or validated stripping protocol."
+        ],
+        "validation_scope": "Original teaching-model equations, charge/energy/units and declared boundaries only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    },
+    {
+      "id": "zn_symmetric",
+      "metadata": "examples/domain_showcase/zn_symmetric/metadata.json",
+      "metadata_sha256": "f163cd85ebbe4e0d1bc4be912c3fe1d737c6998095335eb9c92e9875b2ef3fd0",
+      "input_sha256": {
+        "examples/domain_showcase/zn_symmetric/data.csv": "cf49f27109a8bb210720284dc6c0797a826225d9e4d35c0ec860cfdcaa49d749"
+      },
+      "figure_sha256": {
+        "figure.png": "8c058681918bdd4f9f8d3e543ef35cae0138a24daacf2eec58db2e35e1e323aa",
+        "figure.svg": "ae9f1ec778dc6c33852ea61c2b64fcbdad44b358493be962e06f1009fb367afb",
+        "figure.pdf": "a257cd3a939390753c357ffe6c06fc0f22f26c6d462f4c8ff06cf66d6f256242"
+      },
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "phenomenological_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "j=(-1)^floor(time_h)*1 mA/cm2",
+          "V_cell_mV=sign(j)*(35+0.13*time_h+5*exp(-(time_h mod 1)/0.04))",
+          "Transferred_areal_Q=|j|*1 h=1 mAh/cm2 for each complete half-cycle"
+        ],
+        "assumptions": [
+          "Two-terminal symmetric-cell polarization combines both interfaces and electrolyte drop.",
+          "An instantaneous ohmic voltage reversal is allowed at a commanded current switch."
+        ],
+        "parameters": {
+          "half_cycle_h": 1,
+          "current_density_mA_cm2": 1,
+          "initial_two_terminal_plateau_mV": 35,
+          "illustrative_drift_mV_h": 0.13,
+          "transient_mV": 5,
+          "transient_tau_h": 0.04
+        },
+        "references": [
+          {
+            "url": "https://www.nature.com/articles/s41467-022-28381-x",
+            "title": "Experimental practices for rechargeable aqueous zinc batteries",
+            "supports": "Electrode configuration, inventory and denominator reporting boundaries; no numeric data is copied.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "All numeric material/rate parameters are original teaching assumptions, not measured or copied paper data.",
+          "Cannot divide by two to assign electrode overpotentials without additional evidence.",
+          "No short-circuit, dendrite, Zn utilization or full-cell lifetime claim."
+        ],
+        "validation_scope": "Original teaching-model equations, charge/energy/units and declared boundaries only; no experimental or material certification."
+      },
+      "check_scope": "Schema, finite numeric input, source containment and delivered byte provenance; equation tests are separate."
+    }
+  ],
+  "example_count": 40,
+  "numeric_data_origin": "Original synthetic parameters; no paper measurements copied.",
+  "provenance_gate": "PASS",
+  "experimental_material_validation": "NOT_PERFORMED",
+  "real_model_and_host_behavior": "NOT_TESTED_BY_THIS_GATE"
+}

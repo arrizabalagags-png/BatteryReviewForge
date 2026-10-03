@@ -17,9 +17,14 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           VERSION=$(python3 -c 'import json; print(json.load(open(".codex-plugin/plugin.json"))["version"])')
+          CHANNEL=$(python3 -c 'import json; print(json.load(open("docs/RELEASE_STATUS.json"))["channel"])')
           TAG="v$VERSION"
           if gh release view "$TAG" >/dev/null 2>&1; then
             echo "Release already exists; refusing to replace published assets."
             exit 1
           fi
-          gh release create "$TAG" --verify-tag --title "BatteryReviewForge $TAG" --notes-file "docs/RELEASE_$TAG.md" docs/downloads/*-v"$VERSION".zip outputs/distribution-sha256.txt
+          OPTIONS=()
+          if [ "$CHANNEL" = "beta" ]; then
+            OPTIONS+=(--prerelease)
+          fi
+          gh release create "$TAG" --verify-tag "${OPTIONS[@]}" --title "VoltPeer Skills $TAG ($CHANNEL)" --notes-file "docs/RELEASE_$TAG.md" docs/downloads/v"$VERSION"/*-v"$VERSION".zip docs/downloads/v"$VERSION"/single/*-v"$VERSION".zip docs/downloads/v"$VERSION"/workbuddy/*-v"$VERSION".zip docs/downloads/v"$VERSION"/starter/*-v"$VERSION".zip docs/downloads/v"$VERSION"/distribution-sha256.txt docs/downloads/v"$VERSION"/download-index.json

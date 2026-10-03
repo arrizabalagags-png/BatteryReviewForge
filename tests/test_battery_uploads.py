@@ -15,14 +15,15 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from openpyxl import Workbook
+from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPTS = ROOT / "skills" / "battery-review-figure" / "scripts"
+SCRIPTS = ROOT / "skills" / "voltpeer-plot" / "scripts"
 sys.path.insert(0, str(SCRIPTS))
 
 from batteryplot import (  # noqa: E402
     DataContractError, coulombic_efficiency, cycling_capacity, inspect_table,
-    read_table, symmetric_voltage, tofsims_map, tofsims_depth,
+    read_table, symmetric_voltage, tofsims_map, tofsims_depth, nyquist,
 )
 
 
@@ -35,13 +36,29 @@ BASE = {
 
 
 class UploadedBatteryPlotTests(unittest.TestCase):
-    def test_nearly_constant_capacity_keeps_marker_headroom(self):
+    def test_nearly_constant_capacity_preserves_values_and_markerless_curve(self):
         rows=[{**BASE, 'series':'A', 'cycle':i+1, 'discharge_capacity':q,
                'capacity_basis':'cathode active mass', 'capacity_unit':'mAh/g'} for i,q in enumerate((150,149,148))]
         fig, ax=cycling_capacity(rows,cell_configuration='half')
         self.assertGreater(ax.get_ylim()[1]-150,5)
         self.assertEqual(list(ax.lines[0].get_ydata()),[150,149,148])
+        self.assertIn(ax.lines[0].get_marker(), (None, 'None', '', ' '))
+        self.assertEqual(ax.lines[0].get_linestyle(), '-')
+        self.assertTrue(all(ax.spines[side].get_visible() for side in ('top','right','bottom','left')))
         plt.close(fig)
+
+    def test_nyquist_preserves_supplied_array_and_markerless_curve(self):
+        rows=[{**BASE, 'series':'A', 'z_real_ohm':x, 'minus_z_imag_ohm':y,
+               'cell_state':'recorded after cycle 5', 'frequency_range_hz':'0.01-100000'}
+              for x,y in [(4.2,0.1),(12.4,8.6),(35.5,2.4)]]
+        fig, ax=nyquist(rows)
+        try:
+            self.assertEqual(list(ax.lines[0].get_xdata()), [4.2,12.4,35.5])
+            self.assertEqual(list(ax.lines[0].get_ydata()), [0.1,8.6,2.4])
+            self.assertIn(ax.lines[0].get_marker(), (None,'None','',' '))
+            self.assertEqual(ax.lines[0].get_linestyle(), '-')
+        finally:
+            plt.close(fig)
 
     def test_tofsims_requires_complete_calibrated_map(self):
         common={"source_id":"test:ion-map","evidence_state":"verified",
@@ -81,6 +98,7 @@ class UploadedBatteryPlotTests(unittest.TestCase):
         ]
         fig, ax = coulombic_efficiency(rows)
         self.assertEqual(list(ax.lines[0].get_ydata()), [99.0, 101.0])
+        self.assertIn(ax.lines[0].get_marker(), (None, 'None', '', ' '))
         self.assertEqual(fig.batteryplot_meta["calculation_note"], "CE = 100 × ce_numerator / ce_denominator")
         plt.close(fig)
         rows[0]["ce_denominator"] = "0"
@@ -129,6 +147,32 @@ class UploadedBatteryPlotTests(unittest.TestCase):
         self.assertEqual(fig.batteryplot_meta["comparison"], "contextual")
         plt.close(fig)
 
+    def test_plot_cli_rejects_unknown_metadata_before_output(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            data = root / "ce.csv"
+            data.write_text("series,cycle,ce_pct\nA,1,99.2\nA,2,99.7\n", encoding="utf-8")
+            metadata = root / "mapping.json"
+            config = {
+                "kind": "coulombic_efficiency", "claim": "Synthetic CE example",
+                "style": "rose_blue", "caption_notes": "Synthetic, not real evidence.",
+                "common": {**BASE, "ce_definition": "discharge/charge"},
+                "figure_size_mm": [100, 70], "dpi": 600,
+            }
+            metadata.write_text(json.dumps(config), encoding="utf-8")
+            result = subprocess.run(
+                [sys.executable, str(SCRIPTS / "plot_uploaded.py"), "plot",
+                 "--data", str(data), "--metadata", str(metadata), "--out", str(root / "ce_plot")],
+                capture_output=True, text=True, check=False,
+            )
+            self.assertEqual(result.returncode, 2, result.stderr)
+            self.assertIn("Unknown metadata keys: dpi, figure_size_mm", result.stderr)
+            self.assertIn("Allowed keys:", result.stderr)
+            self.assertIn("Use width_mm and height_mm", result.stderr)
+            self.assertIn("--dpi CLI argument", result.stderr)
+            self.assertNotIn("Traceback", result.stderr)
+            self.assertEqual(list(root.glob("ce_plot*")), [])
+
     def test_csv_xlsx_inspect_and_plot_cli(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
@@ -144,6 +188,7 @@ class UploadedBatteryPlotTests(unittest.TestCase):
             config = {
                 "kind": "coulombic_efficiency", "claim": "Synthetic CE example",
                 "style": "rose_blue",
+                "width_mm": 100, "height_mm": 70,
                 "caption_notes": "Synthetic, not real evidence.",
                 "columns": {"series": "sample", "cycle": "cycle_no", "ce_pct": "eff"},
                 "common": {**BASE, "ce_definition": "discharge/charge"},
@@ -152,7 +197,8 @@ class UploadedBatteryPlotTests(unittest.TestCase):
             metadata.write_text(json.dumps(config), encoding="utf-8")
             result = subprocess.run(
                 [sys.executable, str(SCRIPTS / "plot_uploaded.py"), "plot",
-                 "--data", str(data), "--metadata", str(metadata), "--out", str(root / "ce_plot")],
+                 "--data", str(data), "--metadata", str(metadata), "--out", str(root / "ce_plot"),
+                 "--dpi", "600"],
                 capture_output=True, text=True, check=False,
             )
             self.assertEqual(result.returncode, 0, result.stderr)
@@ -162,6 +208,12 @@ class UploadedBatteryPlotTests(unittest.TestCase):
                              "coulombic_efficiency")
             self.assertEqual(json.loads((root / "ce_plot.provenance.json").read_text(encoding="utf-8"))["style"],
                              "rose_blue")
+            provenance = json.loads((root / "ce_plot.provenance.json").read_text(encoding="utf-8"))
+            self.assertEqual(provenance["physical_size_mm"], [100, 70])
+            self.assertEqual(provenance["raster_dpi"], 600)
+            with Image.open(root / "ce_plot.png") as image:
+                self.assertEqual(image.size, (int(100 / 25.4 * 600), int(70 / 25.4 * 600)))
+                self.assertAlmostEqual(image.info["dpi"][0], 600, delta=0.1)
             workbook = Workbook()
             sheet = workbook.active
             sheet.title = "Test"

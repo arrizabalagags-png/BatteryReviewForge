@@ -1,0 +1,127 @@
+{
+  "id": "science_ion_pair_mass_action",
+  "title": "盐浓度与离子配对质量作用",
+  "domain": "general",
+  "type": "demo",
+  "license": "MIT",
+  "scope": "Original analytic teaching record. Source references support the declared method/derivation only, never this invented parameter set or measurements.",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "source_files": [
+    "data.csv",
+    "model.json"
+  ],
+  "test_conditions": "No acquired cell or material. Independently declared analytic parameters, assumptions and units in scientific_basis.",
+  "variables_and_units": {
+    "1": [
+      "Total salt (mol L$^{-1}$)",
+      "Free-ion fraction"
+    ]
+  },
+  "creator": "VoltPeer",
+  "generator_version": "1.0.0",
+  "reproduce": "python render_existing.py --output result-01",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "relationship": "An ideal association equilibrium changes free-ion fraction with total salt.",
+    "equations": [
+      "ctot=cfree+K cfree²; ffree=cfree/ctot"
+    ],
+    "parameters": {
+      "K_L_mol": 3
+    },
+    "assumptions": [
+      "Independently declared parameters; no experimental or material fit.",
+      "Ideal neutral-pair association only; activities and clusters excluded."
+    ],
+    "limitations": [
+      "Ideal neutral-pair association only; activities and clusters excluded.",
+      "A numerical/model QA pass does not validate author data or a physical mechanism."
+    ],
+    "constraints": [
+      "Finite numerical values and explicit physical units.",
+      "Continuous plotted curves are solid without markers; data axes retain four borders.",
+      "All plotted fractions lie between zero and one."
+    ],
+    "references": [
+      {
+        "title": "Fundamental investigations on the ionic transport and thermodynamic properties of non-aqueous potassium-ion electrolytes",
+        "doi": "10.1038/s41467-023-39523-0",
+        "url": "https://www.nature.com/articles/s41467-023-39523-0",
+        "figure_panel": "Association, self-diffusion, collective conductivity and thermodynamic-factor distinctions",
+        "supports": "An ideal association equilibrium changes free-ion fraction with total salt.",
+        "checked_at": "2026-10-03",
+        "scope": "Method/equation/caveat reference only. Original analytic teaching inputs; no copied paper points, pixels or experimental inference."
+      }
+    ],
+    "validation": {
+      "finite": true,
+      "nonnegative": false,
+      "unit_interval": true
+    },
+    "validation_scope": "Source method/principle and explicitly derived restricted teaching specialization checked; equation, units and numerical constraints only. No copied paper measurements, material parameters, experimental fit or mechanism certification."
+  },
+  "review": {
+    "science": "Equation/units/numerical constraints and source scope checked. No author-data validation.",
+    "display": "Actual solid/unmarked curve artists, four-frame spines, legend/title and text bounds checked."
+  },
+  "reference": {
+    "doi": "10.1038/s41467-023-39523-0",
+    "figure_panel": "Association, self-diffusion, collective conductivity and thermodynamic-factor distinctions",
+    "observation": "An ideal association equilibrium changes free-ion fraction with total salt.",
+    "review_scope": "Method/equation/caveat reference only. Original analytic teaching inputs; no copied paper points, pixels or experimental inference.",
+    "default_template": false
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Ideal pair equilibrium",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        }
+      ]
+    }
+  ],
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Ideal pair equilibrium",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        }
+      ]
+    }
+  ],
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "Ideal pair equilibrium",
+      "points": 241,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#287d8e"
+    }
+  ],
+  "curve_style_check": "Actual Line2D artists: all continuous curves solid and unmarked.",
+  "data_frame_check": "Actual data axes: all four spines visible."
+}

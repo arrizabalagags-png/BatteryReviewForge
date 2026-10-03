@@ -2,16 +2,16 @@
   "data_status": "synthetic_demo",
   "not_experimental_data": true,
   "random_seed": 20260923,
-  "generator_version": "1.1",
-  "figure_grammar_id": "same_synthetic_study_cross_validation",
+  "generator_version": "1.6",
+  "figure_grammar_id": "independent_model_assembly; no experimental cross-validation",
   "journal_preset": "journal_neutral_180mm",
   "variables_and_units": {
-    "x": "experiment-specific axes",
-    "y": "experiment-specific units",
-    "linked": "six panels from same A/B synthetic study"
+    "x": "model-specific axes",
+    "y": "model-specific units",
+    "linked": "six panels assembled from independent models; local A/B labels are not one shared study"
   },
-  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
-  "test_conditions": "One invented A/B electrolyte comparison reuses the source files and identities above; panels do not establish a real mechanism.",
+  "sample_identity": "A/B are local teaching-model labels, not one electrolyte across unlike techniques; SIM IDs are invented records, never citations.",
+  "test_conditions": "Independent analytic teaching models reuse the source files above; A/B labels are local to each technique and do not establish cross-technique evidence.",
   "source_files": [
     "data_index.csv",
     "sources.json",
@@ -24,7 +24,239 @@
   ],
   "creator": "BatteryReviewForge original code",
   "review": {
-    "science": "models and data-to-panel links inspected; no experimental interpretation",
-    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+    "science": "Declared model equations/units/linked-file relations have scoped automated tests; no experimental certification.",
+    "display": "Actual line/frame/alignment checks only; independent visual and author review remain pending."
+  },
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "Electrolyte A",
+      "points": 300,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 0,
+      "label": "Electrolyte B",
+      "points": 300,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 1,
+      "label": "A · 1",
+      "points": 100,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#7396b5"
+    },
+    {
+      "panel_index": 1,
+      "label": "A · 300",
+      "points": 100,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 1,
+      "label": "B · 1",
+      "points": 100,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#885369"
+    },
+    {
+      "panel_index": 1,
+      "label": "B · 300",
+      "points": 100,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 2,
+      "label": "A",
+      "points": 10001,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 2,
+      "label": "B",
+      "points": 10001,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 3,
+      "label": "Model A",
+      "points": 86,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 3,
+      "label": "Model B",
+      "points": 86,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 4,
+      "label": "Electrolyte A",
+      "points": 500,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 4,
+      "label": "Electrolyte B",
+      "points": 500,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 5,
+      "label": "1",
+      "points": 180,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#c6d7e6"
+    },
+    {
+      "panel_index": 5,
+      "label": "100",
+      "points": 180,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#92b4d0"
+    },
+    {
+      "panel_index": 5,
+      "label": "300",
+      "points": 180,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#6389aa"
+    },
+    {
+      "panel_index": 5,
+      "label": "500",
+      "points": 180,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    }
+  ],
+  "curve_style_check": "pass: actual rendered Line2D artists are solid and have no markers",
+  "data_frame_check": "pass: actual data axes show top/right/bottom/left spines",
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 2,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 3,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 4,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 5,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    }
+  ],
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "composite",
+    "data_origin": "original_synthetic",
+    "parameter_origin": "self-chosen teaching values; never paper measurements",
+    "validation_scope": "Declared teaching model; no experimental/material certification",
+    "dependency_ids": [
+      "li_cu_ce",
+      "li_li",
+      "eis",
+      "full_cell"
+    ],
+    "equations": [
+      "Inherited source equations; read scientific_basis of the declared dependency IDs."
+    ],
+    "assumptions": [
+      "Reusing a color or label does not make independent models one experimental study.",
+      "GCD charge and discharge endpoints use their own charge ledger; styles change no data."
+    ],
+    "parameters": {
+      "source_files": [
+        "data_index.csv",
+        "sources.json",
+        "../li_cu_ce/data.csv",
+        "../li_cu_ce/profiles.csv",
+        "../li_li/data.csv",
+        "../eis/data.csv",
+        "../full_cell/data.csv",
+        "../full_cell/voltage_profiles.csv"
+      ]
+    },
+    "references": [
+      {
+        "url": "https://www.nature.com/articles/s41467-025-60833-y",
+        "title": "Deciphering coulombic loss in lithium-ion batteries and beyond",
+        "supports": "Charge/retention interpretation boundary only; component physics is in dependency records.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "limitations": [
+      "Layout/style linking does not establish cross-technique corroboration or causality."
+    ]
   }
 }

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "title": "Normalized nucleation transients",
+  "panels": [
+    {
+      "title": "Normalized nucleation transients",
+      "xlabel": "Time / peak time",
+      "ylabel": "Squared current / squared peak current",
+      "yscale": "linear",
+      "xscale": "linear"
+    }
+  ],
+  "colours": [
+    "#287D8E",
+    "#BA5574",
+    "#4868A8",
+    "#A46D35",
+    "#655AA0",
+    "#387F64"
+  ],
+  "input_contract": "Panel is zero-based. x/y meanings and units are declared in panels. Rows are retained in original order. Author data require a reviewed adapted contract; no silent sorting, smoothing or normalisation."
+}

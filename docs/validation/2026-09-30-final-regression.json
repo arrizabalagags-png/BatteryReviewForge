@@ -1,0 +1,17 @@
+{
+  "checked_at": "2026-09-30",
+  "version": "0.10.0",
+  "channel": "beta",
+  "python": "3.12.14",
+  "platform": "Windows",
+  "command": "python -m unittest discover -s tests -v",
+  "tests_run": 102,
+  "elapsed_seconds": 148.271,
+  "result": "PASS",
+  "scope": "Core, styles, scientific arrays, installation, delivery and extracted recipe-pack checks defined by the test suite",
+  "raw_log_public": false,
+  "native_desktop_discovery_to_delivery": "NOT_RUN",
+  "flash_model_evaluation": "NOT_RUN",
+  "pro_model_evaluation": "NOT_RUN",
+  "macos_real_device": "NOT_RUN"
+}

@@ -1,9 +1,9 @@
 sample,test,source_csv
-A,LiCu CE,../li_cu_ce/data.csv
-A,LiLi,../li_li/data.csv
-A,EIS,../eis/data.csv
-A,full cell,../full_cell/data.csv
-B,LiCu CE,../li_cu_ce/data.csv
-B,LiLi,../li_li/data.csv
-B,EIS,../eis/data.csv
-B,full cell,../full_cell/data.csv
+A,LiCu CE teaching model,../li_cu_ce/data.csv
+A,LiLi terminal RC model,../li_li/data.csv
+A,EIS Randles model,../eis/data.csv
+A,Excess-Li half-cell accessible-capacity model,../full_cell/data.csv
+B,LiCu CE teaching model,../li_cu_ce/data.csv
+B,LiLi terminal RC model,../li_li/data.csv
+B,EIS Randles model,../eis/data.csv
+B,Excess-Li half-cell accessible-capacity model,../full_cell/data.csv

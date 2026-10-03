@@ -1,0 +1,100 @@
+{
+  "id": "flow_efficiency",
+  "title": "液流电池效率关系",
+  "domain": "storage",
+  "type": "demo",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260936,
+  "source_files": [
+    "data.csv",
+    "cycle_profiles.csv"
+  ],
+  "variables_and_units": [
+    "cycle",
+    "ce_percent",
+    "ve_percent",
+    "ee_percent",
+    "q_charge_mAh",
+    "q_discharge_mAh",
+    "capacity_weighted_charge_V",
+    "capacity_weighted_discharge_V",
+    "charge_energy_mWh",
+    "discharge_energy_mWh"
+  ],
+  "test_conditions": "Original unnamed flow-cell ledger; Q and integral(V dQ) are supplied for each branch; voltage means are capacity-weighted; excludes pump/auxiliary energy and all system-level claims",
+  "render_options": {
+    "recipe": "flow_efficiency"
+  },
+  "reproduce": "python render.py --output rebuilt --recipe flow_efficiency --demo-input data.csv",
+  "creator": "VoltPeer maintainers",
+  "license": "MIT",
+  "generator_version": "1.6",
+  "limitations": "Declared teaching model only; no measured device, mechanism or material certification. This generator does not adapt experimental data.",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "CE=Q_discharge/Q_charge; Vmean_branch=integral(V dQ)/Q_branch",
+      "VE=Vmean_discharge/Vmean_charge; EE=E_discharge/E_charge=CE*VE",
+      "Q_charge=100-0.01*cycle mAh; CE=0.982-0.00002*cycle; VE=0.84-0.0003*cycle",
+      "V_charge_mean=1.42+0.00012*cycle; V_discharge_mean=VE*V_charge_mean",
+      "Branch V(Q)=Vmean+tilt*(2*Q/Qtotal-1), tilt_charge=0.08 V, tilt_discharge=-0.06 V"
+    ],
+    "assumptions": [
+      "Positive capacity and energy in both branches over identical declared cycle boundaries.",
+      "Cell DC energy only; linear V(Q) permits an exact trapezoidal integral."
+    ],
+    "parameters": {
+      "cycles": 150,
+      "initial_charge_mAh": 100,
+      "charge_capacity_drift_mAh_cycle": 0.01,
+      "nominal_charge_mean_V": 1.42,
+      "voltage_grid_points_per_branch": 51,
+      "auxiliary_pump_energy_included": false,
+      "voltage_average": "capacity-weighted"
+    },
+    "references": [
+      {
+        "url": "https://www.nature.com/articles/s41560-020-00772-8",
+        "title": "Assessment methods and performance metrics for redox flow batteries",
+        "supports": "CE/VE/EE reporting boundaries; the charge-voltage-energy ledger is original.",
+        "scope": "model_definition_only"
+      }
+    ],
+    "limitations": [
+      "All numeric material/rate parameters are original teaching assumptions, not measured or copied paper data.",
+      "No pump/inverter/thermal loss or named electrolyte chemistry; no system round-trip efficiency claim."
+    ],
+    "validation_scope": "Original teaching-model equations, charge/energy/units and declared boundaries only; no experimental or material certification."
+  },
+  "actual_artist_checks": [
+    {
+      "panel": 0,
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "curve_styles": [
+        {
+          "linestyle": "-",
+          "marker": "None",
+          "points": 150
+        },
+        {
+          "linestyle": "-",
+          "marker": "None",
+          "points": 150
+        },
+        {
+          "linestyle": "-",
+          "marker": "None",
+          "points": 150
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "checked_at": "2026-09-30",
+  "version": "0.10.0",
+  "channel": "beta",
+  "source_base_commit": "4ddf96ca9b11cecc0e4084f7bf9c4d0ec84ac197",
+  "platform": "Windows",
+  "python": "3.12.14",
+  "scope": "Actual final figure text glyph coverage in three independent recipe ZIPs; engineering fixtures only",
+  "targeted_gates": [
+    {
+      "tests_run": 4,
+      "elapsed_seconds": 50.072,
+      "result": "PASS",
+      "scope": "Actual extracted ZIPs: late Chinese sample beyond row 60 retains PDF/SVG/PNG text and requested Latin font; true cmap deficits stop despite installed CJK names; ASCII axis-unit glyph deficit; invalid font_family"
+    },
+    {
+      "tests_run": 1,
+      "elapsed_seconds": 4.067,
+      "result": "PASS",
+      "scope": "Actual extracted ZIP final renderer missing-glyph warning must stop before Working delivery"
+    }
+  ],
+  "unique_targeted_tests": 5,
+  "actual_recipe_archives": [
+    {
+      "resource_id": "full_cell",
+      "version": "0.10.0",
+      "file": "VoltPeer-full_cell-0.10.0.zip",
+      "sha256": "5c2b4413f3650e08416c652bdf370592657f2253c993bd7ab739d35610cf7ba3",
+      "bytes": 223053,
+      "validation": "package_structure_checked; see local QA for extracted execution; model NOT_RUN",
+      "actual_extracted_execution": "PASS",
+      "elapsed_seconds": 5.703,
+      "formats": [
+        "pdf",
+        "png",
+        "svg",
+        "tiff"
+      ],
+      "input_sha256_unchanged": {
+        "cycling.csv": "85d6a89f681e27e0c1483b0a56ee0b41ef8f071418e3192666df49572906deef",
+        "profiles.csv": "b1c81edc874c20bd8bdf42bfe7ce4c7810c3c1769db52d22d1bcc591c1a191e1"
+      },
+      "actual_curve_identity_colors": {
+        "Demo sample A:capacity": "#1f77b4",
+        "Demo sample B:capacity": "#2ca02c",
+        "Demo sample A:profile:1": "#9467bd",
+        "Demo sample A:profile:20": "#8c564b",
+        "Demo sample A:profile:40": "#e377c2",
+        "Demo sample B:profile:1": "#7f7f7f",
+        "Demo sample B:profile:20": "#bcbd22",
+        "Demo sample B:profile:40": "#17becf",
+        "Demo sample A:CE": "#ff7f0e",
+        "Demo sample B:CE": "#d62728"
+      },
+      "data_axes_checked": 3,
+      "scientific_review": "pending_author_review",
+      "model_behavior": "NOT_RUN",
+      "font_glyph_checks": "PASS; all final recorded texts have actual-font cmap coverage and font file SHA-256"
+    },
+    {
+      "resource_id": "li_li",
+      "version": "0.10.0",
+      "file": "VoltPeer-li_li-0.10.0.zip",
+      "sha256": "04c681f4503e167ff58dcf2b7ebdafa20dd7b0ca1633d12b663689ef9784ae41",
+      "bytes": 275904,
+      "validation": "package_structure_checked; see local QA for extracted execution; model NOT_RUN",
+      "actual_extracted_execution": "PASS",
+      "elapsed_seconds": 4.734,
+      "formats": [
+        "pdf",
+        "png",
+        "svg",
+        "tiff"
+      ],
+      "input_sha256_unchanged": {
+        "trace.csv": "8f72659e9cc37dccc2bc6d56185915746f2aa2185a7f06ed478488783114223a"
+      },
+      "actual_curve_identity_colors": {
+        "Demo sample A:signed_voltage": "#1f77b4",
+        "Demo sample B:signed_voltage": "#ff7f0e"
+      },
+      "data_axes_checked": 2,
+      "scientific_review": "pending_author_review",
+      "model_behavior": "NOT_RUN",
+      "font_glyph_checks": "PASS; all final recorded texts have actual-font cmap coverage and font file SHA-256"
+    },
+    {
+      "resource_id": "operando_xrd",
+      "version": "0.10.0",
+      "file": "VoltPeer-operando_xrd-0.10.0.zip",
+      "sha256": "1b4c9cff409b50ff7cd2584fec484b256156ea26c201631a9dcb314e1d2e745e",
+      "bytes": 159031,
+      "validation": "package_structure_checked; see local QA for extracted execution; model NOT_RUN",
+      "actual_extracted_execution": "PASS",
+      "elapsed_seconds": 5.329,
+      "formats": [
+        "pdf",
+        "png",
+        "svg",
+        "tiff"
+      ],
+      "input_sha256_unchanged": {
+        "diffraction.csv": "60778374374341eb5d68cd5c7aba805dd39d8c90c0ec05c79b8d51ed7df8bcd8",
+        "voltage.csv": "f5c81ffff0322235c1ea9fd1ed50d169f89eccb9925eb9fb0a6337b1bb1e35e1"
+      },
+      "actual_curve_identity_colors": {
+        "Demo sample A:measured_synchronized_voltage": "#1f77b4"
+      },
+      "data_axes_checked": 2,
+      "scientific_review": "pending_author_review",
+      "model_behavior": "NOT_RUN",
+      "font_glyph_checks": "PASS; all final recorded texts have actual-font cmap coverage and font file SHA-256"
+    }
+  ],
+  "repair": {
+    "cause": "Previous heuristic sampled only the first 50 input rows and treated a CJK family name as proof of glyph coverage.",
+    "implementation": "One shared font_coverage.py walks visible figure artists, including titles, sample legends, axis/colorbar labels and generated ticks. It checks actual per-face cmap coverage, preserves usable requested fonts, records fallbacks, and stops when no complete face exists or the final backend warns of a missing glyph.",
+    "raw_data_policy": "No resampling, deleting, renaming, or font-driven changes to input data; original CSV bytes preserved.",
+    "font_delivery": "No local font files are copied into packages. Portable runtime code and dependencies are included; editable SVG text needs fonts on the viewing machine."
+  },
+  "compatibility_doc_corrections": [
+    "Use DeepSeek provider settings and current official UI without guessing exact menu hierarchy",
+    "Original 65 plus four opposing-evidence cases = 69; model suite still NOT_RUN"
+  ],
+  "new_font_record_fields": [
+    "text",
+    "requested_families",
+    "actual_family",
+    "font_file basename",
+    "font_sha256",
+    "required_codepoints",
+    "fallback_used",
+    "PASS_GLYPH_COVERAGE_ONLY"
+  ],
+  "prior_full_regression": {
+    "record": "2026-09-30-frame-final-regression.json",
+    "tests_run": 129,
+    "elapsed_seconds": 257.4,
+    "scope": "Historical full run before this follow-up, not rerun or claimed as current full coverage"
+  },
+  "prior_followup_record": "2026-09-30-recipe-eval-followup.json",
+  "native_desktop_model_behavior": "NOT_RUN",
+  "flash_full_suite": "NOT_RUN",
+  "pro_full_suite": "NOT_RUN",
+  "macos_real_device": "NOT_RUN",
+  "scientific_review": "pending_author_review",
+  "raw_logs_public": false
+}

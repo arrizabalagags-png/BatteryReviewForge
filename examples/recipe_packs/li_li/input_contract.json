@@ -1,0 +1,73 @@
+{
+  "schema_version": 2,
+  "config_schema_version": 1,
+  "resource_id": "li_li",
+  "format": "UTF-8/BOM CSV long table; explicit JSON mapping; preserve raw file",
+  "required_columns": {
+    "trace": [
+      "sample",
+      "time",
+      "voltage"
+    ]
+  },
+  "units_supported": {
+    "time": [
+      "h",
+      "s"
+    ],
+    "voltage": [
+      "V",
+      "mV"
+    ]
+  },
+  "units_optional": [],
+  "units_note": "time h/s; signed voltage mV/V; explicit Li||Li or Na||Na and current/half-cycle areal-capacity/overlap area basis",
+  "required_conditions": [
+    "metal",
+    "cell_configuration",
+    "area_basis",
+    "current_density_mA_cm2",
+    "half_cycle_areal_capacity_mAh_cm2",
+    "temperature_C",
+    "rest_protocol",
+    "failure_rule"
+  ],
+  "optional_conditions": [],
+  "condition_policy": "Every required field must be confirmed per actual sample. metal is Li or Na and cell_configuration must be exactly Li||Li or Na||Na. Current density and half-cycle areal capacity must be positive; signed voltage and overlap-area basis are retained. No full-cell N/P or E/C condition is inherited.",
+  "geometry": "One or more Li/Na symmetric-cell samples; uneven strictly increasing nonnegative time records allowed, at least two points per sample. Zoom must lie within every sample trace and contain at least two points. Auto ranges retain signed voltage; layouts must be reviewed.",
+  "fonts": {
+    "requested": "Optional style.font_family is a nonempty installed family name or nonempty list. Keep the requested face when it covers the actual text.",
+    "coverage_scope": "Every final visible title, sample legend/panel title, axis and colorbar unit, and tick label; actual cmap, not first-row sampling or family-name heuristics.",
+    "fallback": "Use a locally installed face covering the full text when necessary; record actual family, font file SHA and fallback. No font files are bundled.",
+    "stop_on": "No usable local font covers a visible text, invalid font_family, or final renderer warns of a missing glyph. Never delete/replace the text.",
+    "scope": "Glyph coverage and file checks only; not a visual, scientific, or journal approval. Editable SVG text needs the corresponding installed font on the viewing machine."
+  },
+  "curve_colors": {
+    "default_palette_size": 10,
+    "identity_rule": "<sample>:signed_voltage; full and zoom views share identity",
+    "custom": "Use style.colors with enough unique opaque colours, or exact style.curve_colors mapping for all actual identities; do not provide both.",
+    "stop_on": [
+      "insufficient colours",
+      "duplicate or alias-equivalent colours",
+      "transparent colour",
+      "white-background contrast below 2:1",
+      "pairwise sRGB distance below 0.10"
+    ],
+    "scope": "Project display heuristic and actual Line2D checks; not a universal journal or colour-vision certification."
+  },
+  "disallowed": [
+    "missing-data demo fallback",
+    "silent dropped rows",
+    "silent smoothing/fitting",
+    "duplicate coordinates overwritten",
+    "unknown units guessed",
+    "demo condition reuse in author output",
+    "truncated data from old limits",
+    "silent palette cycling or curve-identity reuse"
+  ],
+  "synthetic_model": {
+    "file": "demo/model.json",
+    "scope": "Demo-only teaching assumptions; never apply CE product, circuit or crystallographic assignments as author-data acceptance rules."
+  },
+  "validation_status": "local_engineering_checked; model_behavior_NOT_RUN; author_scientific_review_pending"
+}

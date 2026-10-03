@@ -1,0 +1,3320 @@
+{
+  "schema_version": 1,
+  "revision": "cycling-rule-v1.2.0",
+  "style_authority": "user preference; not universal journal mandate",
+  "inventory_count": 190,
+  "affected_examples": [
+    {
+      "id": "full_cell",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/full_cell",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-full_cell.zip",
+      "archive_sha256": "718e366e7bca7ebd87e412509cff3075e9afe65389f0a437a5d3871d1da8e026",
+      "metadata_sha256": "5614bee2c3d1030a2ef23b89789fd627145f9bc8515d144aa5841cf33649dc6b",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/full_cell/full_cell-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/full_cell/full_cell-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/full_cell/full_cell-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/full_cell/full_cell-prompt.txt",
+      "component_records": {
+        "source": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/full_cell/full_cell-source.zip",
+          "sha256": "0b4bc2d5badf44ec6840c8601181fecb7e7943f058130719163b2a0ac03373bb",
+          "bytes": 85497,
+          "files": [
+            "LICENSE",
+            "README.txt",
+            "SOURCE_MANIFEST.json",
+            "code/examples/recipe_packs/_runtime/generate_demo.py",
+            "code/examples/showcase/build.py",
+            "code/skills/voltpeer-plot/assets/SKILL_RELEASE.json",
+            "code/skills/voltpeer-plot/assets/figure_theme.json",
+            "code/skills/voltpeer-plot/scripts/batteryplot/__init__.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/battery_charts.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/charts.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/corpus.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/cycling.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/data.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/electrochem.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/export.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/ingest.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/layout.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/qa.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/series_policy.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/specialist.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/specification.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/style.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/tofsims.py",
+            "code/skills/voltpeer-plot/scripts/output_safety.py",
+            "render_existing.py",
+            "requirements.txt"
+          ],
+          "members": [
+            {
+              "path": "LICENSE",
+              "sha256": "8f4f64a4e2b245de1be63eff0dfe446ee456639c187864a507e8b7577d4dd8fb",
+              "bytes": 1077
+            },
+            {
+              "path": "README.txt",
+              "sha256": "36efa60aea3de2a59884b9a08959a6d485beacd11cdbcecd9e6e0f87139a7a81",
+              "bytes": 1812
+            },
+            {
+              "path": "SOURCE_MANIFEST.json",
+              "sha256": "e51e38161c1d56c260296c7e51e911b0e573422a2f42e4fa2cfb235b105e7e3e",
+              "bytes": 11872
+            },
+            {
+              "path": "code/examples/recipe_packs/_runtime/generate_demo.py",
+              "sha256": "a7fbddf2db64d903b34a38dce407f40586e27a06e1d792ac380799c6cbb509b1",
+              "bytes": 16490
+            },
+            {
+              "path": "code/examples/showcase/build.py",
+              "sha256": "ac557371807a9f217dbd1c3ac3cdfef07e8678feff51f4cd81a4eb3ef98ccd5c",
+              "bytes": 88270
+            },
+            {
+              "path": "code/skills/voltpeer-plot/assets/SKILL_RELEASE.json",
+              "sha256": "12b9794e42753f346abaebaec8b53afc1e730bb1322291e8dd3812333a5de537",
+              "bytes": 85
+            },
+            {
+              "path": "code/skills/voltpeer-plot/assets/figure_theme.json",
+              "sha256": "137bdb923dc2a69341d2b88fc6d78cd5d074471e3e04264313020bc1d649f38d",
+              "bytes": 5820
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/__init__.py",
+              "sha256": "38f5f0a7c930ec5dc9b9dd4fc1665b712f02b3820dbae691970e96c3d9ba4158",
+              "bytes": 828
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/battery_charts.py",
+              "sha256": "dfafe6cddbe9d3685fb53044dbde9b18b713b33f357baab0b50d2809ec7cf9ae",
+              "bytes": 16509
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/charts.py",
+              "sha256": "43c583ada8a6cc8084acac22c11f2936eb72fae7ca57bb8b684d6162178bcd2c",
+              "bytes": 11780
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/corpus.py",
+              "sha256": "89e6da0b69068dfb44f94a8331a7db2d0e4ed2fdb27f04089a53a6fbd18a0099",
+              "bytes": 18047
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/cycling.py",
+              "sha256": "4287eb8fa5453b88fcb0bc842a361ab8058130bcfb14d255d07ed1ab9bf38058",
+              "bytes": 4271
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/data.py",
+              "sha256": "d8e5e49b51d2a7e23842e3cbae91e16f4fe337a2294ed53ff4a6505075e0ad0c",
+              "bytes": 3415
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/electrochem.py",
+              "sha256": "134b77742c94dab715c97b24cda95cc6aba00745c4f9ba54243d33535c930c6c",
+              "bytes": 11725
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/export.py",
+              "sha256": "42307fb9e52432b213118bf7130536f387b2ebf5b5fe3430009e95fd635ada47",
+              "bytes": 4662
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/ingest.py",
+              "sha256": "87ac0d04fe18a8787e2e98fdd38acc5885a72b41f67c2760ae17d15888011164",
+              "bytes": 6401
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/layout.py",
+              "sha256": "089b0734fb90630ebf48a0ad12c8f0f69af367d5bff00987dabdcb346272a5d8",
+              "bytes": 3183
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/qa.py",
+              "sha256": "ebf51dbc92b08ceb2456a7663f975e53b038f53eff90591f2039a629e40e958b",
+              "bytes": 983
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/series_policy.py",
+              "sha256": "56a3a128a34462daab9c6fbee3e42a34ce44f0bd3a3c894fa33848e9c9b16ec0",
+              "bytes": 4929
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/specialist.py",
+              "sha256": "fb9a9dd3bc7ec4bdbb148f82887693c26d1c6702448171d27d535abf51c4db97",
+              "bytes": 12850
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/specification.py",
+              "sha256": "6990e00e7cdcea3fb4f613346d5e7c276e2073a4147b52b69276ae4418178484",
+              "bytes": 2425
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/style.py",
+              "sha256": "e4c069340b9ba1d60f7a7680315329934df114fb6cff3d746b0cb08d17a000ab",
+              "bytes": 15700
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/tofsims.py",
+              "sha256": "3fd24e60a95f579820457d0cf522aae6638b1d30298ab16ccf2855942b4c0678",
+              "bytes": 6394
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/output_safety.py",
+              "sha256": "6f2b035179f83ae3fa25ea54a5d43c0cedf47ff5e0576daf979c3fb8fc0f11da",
+              "bytes": 1871
+            },
+            {
+              "path": "render_existing.py",
+              "sha256": "345de99181487be9d9adf1548db64320c9c37251c41116d74ada9f0069846514",
+              "bytes": 12400
+            },
+            {
+              "path": "requirements.txt",
+              "sha256": "84f5adebc745706c410125781d91db59b59f4322870a2c53685e0aaefb9b8575",
+              "bytes": 34
+            }
+          ]
+        },
+        "data": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/full_cell/full_cell-data.zip",
+          "sha256": "a59a2b88fac7b47f0c46120335f44861108d1dd27ff4113ea80c551114c33e83",
+          "bytes": 42011,
+          "files": [
+            "full_cell/data.csv",
+            "full_cell/metadata.json",
+            "full_cell/voltage_profiles.csv"
+          ],
+          "members": [
+            {
+              "path": "full_cell/data.csv",
+              "sha256": "1b8204c7d72bab8dac45e5827913230609c1e146609fd57a68a5d79bec4352f4",
+              "bytes": 72260
+            },
+            {
+              "path": "full_cell/metadata.json",
+              "sha256": "5614bee2c3d1030a2ef23b89789fd627145f9bc8515d144aa5841cf33649dc6b",
+              "bytes": 5980
+            },
+            {
+              "path": "full_cell/voltage_profiles.csv",
+              "sha256": "db99b690fd9228788b5197b80435f57f0937c5571cc8a05b3539596c1b43c062",
+              "bytes": 40973
+            }
+          ]
+        },
+        "figures": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/full_cell/full_cell-figures.zip",
+          "sha256": "e9462f70c162229f731adb43e4abcd50686a42c6f4f5aeefe95b6321b51e1531",
+          "bytes": 218606,
+          "files": [
+            "reference/figure.pdf",
+            "reference/figure.png",
+            "reference/figure.svg",
+            "reference/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "reference/figure.pdf",
+              "sha256": "69dd939fab77a65e0f16aa0696a66001dffe6f0b91d5d952c003329967d87804",
+              "bytes": 47897
+            },
+            {
+              "path": "reference/figure.png",
+              "sha256": "9f7c6998b4738731f057810d6e2a78f0b944e6ace821da621fe5d31dd505b253",
+              "bytes": 164440
+            },
+            {
+              "path": "reference/figure.svg",
+              "sha256": "3d30e9c5877ac7061170024d642ce2ec619037cf1af5fd3449a29eaef5c1e4ca",
+              "bytes": 153811
+            },
+            {
+              "path": "reference/metadata.json",
+              "sha256": "5614bee2c3d1030a2ef23b89789fd627145f9bc8515d144aa5841cf33649dc6b",
+              "bytes": 5980
+            }
+          ]
+        },
+        "prompt": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/full_cell/full_cell-prompt.txt",
+          "sha256": "daed1edf5e170cfb408af4d08c7f66b6c13f824ec153ce85ccdbcd71bc4dbe07",
+          "bytes": 866
+        }
+      }
+    },
+    {
+      "id": "li_cu_ce",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/li_cu_ce",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-li_cu_ce.zip",
+      "archive_sha256": "0ffebae1191ab470226fb5a3b0e001a90dd648ade44a5b3381813ba2560739af",
+      "metadata_sha256": "779d193743d54e29ee86494a864e031288accfe8b1ad7e26b5c9f3c411369da2",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/li_cu_ce/li_cu_ce-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/li_cu_ce/li_cu_ce-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/li_cu_ce/li_cu_ce-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/li_cu_ce/li_cu_ce-prompt.txt",
+      "component_records": {
+        "source": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/li_cu_ce/li_cu_ce-source.zip",
+          "sha256": "ec563723d02a89795c112d51faf8c2bee51d8e913fbd5fd079e7dee89583f6e3",
+          "bytes": 85492,
+          "files": [
+            "LICENSE",
+            "README.txt",
+            "SOURCE_MANIFEST.json",
+            "code/examples/recipe_packs/_runtime/generate_demo.py",
+            "code/examples/showcase/build.py",
+            "code/skills/voltpeer-plot/assets/SKILL_RELEASE.json",
+            "code/skills/voltpeer-plot/assets/figure_theme.json",
+            "code/skills/voltpeer-plot/scripts/batteryplot/__init__.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/battery_charts.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/charts.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/corpus.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/cycling.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/data.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/electrochem.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/export.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/ingest.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/layout.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/qa.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/series_policy.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/specialist.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/specification.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/style.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/tofsims.py",
+            "code/skills/voltpeer-plot/scripts/output_safety.py",
+            "render_existing.py",
+            "requirements.txt"
+          ],
+          "members": [
+            {
+              "path": "LICENSE",
+              "sha256": "8f4f64a4e2b245de1be63eff0dfe446ee456639c187864a507e8b7577d4dd8fb",
+              "bytes": 1077
+            },
+            {
+              "path": "README.txt",
+              "sha256": "3908868148196a9b875ccb02b93279cbf0898efdb2e621cce4077d82d14ad815",
+              "bytes": 1810
+            },
+            {
+              "path": "SOURCE_MANIFEST.json",
+              "sha256": "b5f11a37534fec43f3144224a446945ea7af2a1b07c33bbac0e2c9ede7e46992",
+              "bytes": 11838
+            },
+            {
+              "path": "code/examples/recipe_packs/_runtime/generate_demo.py",
+              "sha256": "a7fbddf2db64d903b34a38dce407f40586e27a06e1d792ac380799c6cbb509b1",
+              "bytes": 16490
+            },
+            {
+              "path": "code/examples/showcase/build.py",
+              "sha256": "ac557371807a9f217dbd1c3ac3cdfef07e8678feff51f4cd81a4eb3ef98ccd5c",
+              "bytes": 88270
+            },
+            {
+              "path": "code/skills/voltpeer-plot/assets/SKILL_RELEASE.json",
+              "sha256": "12b9794e42753f346abaebaec8b53afc1e730bb1322291e8dd3812333a5de537",
+              "bytes": 85
+            },
+            {
+              "path": "code/skills/voltpeer-plot/assets/figure_theme.json",
+              "sha256": "137bdb923dc2a69341d2b88fc6d78cd5d074471e3e04264313020bc1d649f38d",
+              "bytes": 5820
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/__init__.py",
+              "sha256": "38f5f0a7c930ec5dc9b9dd4fc1665b712f02b3820dbae691970e96c3d9ba4158",
+              "bytes": 828
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/battery_charts.py",
+              "sha256": "dfafe6cddbe9d3685fb53044dbde9b18b713b33f357baab0b50d2809ec7cf9ae",
+              "bytes": 16509
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/charts.py",
+              "sha256": "43c583ada8a6cc8084acac22c11f2936eb72fae7ca57bb8b684d6162178bcd2c",
+              "bytes": 11780
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/corpus.py",
+              "sha256": "89e6da0b69068dfb44f94a8331a7db2d0e4ed2fdb27f04089a53a6fbd18a0099",
+              "bytes": 18047
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/cycling.py",
+              "sha256": "4287eb8fa5453b88fcb0bc842a361ab8058130bcfb14d255d07ed1ab9bf38058",
+              "bytes": 4271
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/data.py",
+              "sha256": "d8e5e49b51d2a7e23842e3cbae91e16f4fe337a2294ed53ff4a6505075e0ad0c",
+              "bytes": 3415
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/electrochem.py",
+              "sha256": "134b77742c94dab715c97b24cda95cc6aba00745c4f9ba54243d33535c930c6c",
+              "bytes": 11725
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/export.py",
+              "sha256": "42307fb9e52432b213118bf7130536f387b2ebf5b5fe3430009e95fd635ada47",
+              "bytes": 4662
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/ingest.py",
+              "sha256": "87ac0d04fe18a8787e2e98fdd38acc5885a72b41f67c2760ae17d15888011164",
+              "bytes": 6401
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/layout.py",
+              "sha256": "089b0734fb90630ebf48a0ad12c8f0f69af367d5bff00987dabdcb346272a5d8",
+              "bytes": 3183
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/qa.py",
+              "sha256": "ebf51dbc92b08ceb2456a7663f975e53b038f53eff90591f2039a629e40e958b",
+              "bytes": 983
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/series_policy.py",
+              "sha256": "56a3a128a34462daab9c6fbee3e42a34ce44f0bd3a3c894fa33848e9c9b16ec0",
+              "bytes": 4929
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/specialist.py",
+              "sha256": "fb9a9dd3bc7ec4bdbb148f82887693c26d1c6702448171d27d535abf51c4db97",
+              "bytes": 12850
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/specification.py",
+              "sha256": "6990e00e7cdcea3fb4f613346d5e7c276e2073a4147b52b69276ae4418178484",
+              "bytes": 2425
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/style.py",
+              "sha256": "e4c069340b9ba1d60f7a7680315329934df114fb6cff3d746b0cb08d17a000ab",
+              "bytes": 15700
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/tofsims.py",
+              "sha256": "3fd24e60a95f579820457d0cf522aae6638b1d30298ab16ccf2855942b4c0678",
+              "bytes": 6394
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/output_safety.py",
+              "sha256": "6f2b035179f83ae3fa25ea54a5d43c0cedf47ff5e0576daf979c3fb8fc0f11da",
+              "bytes": 1871
+            },
+            {
+              "path": "render_existing.py",
+              "sha256": "345de99181487be9d9adf1548db64320c9c37251c41116d74ada9f0069846514",
+              "bytes": 12400
+            },
+            {
+              "path": "requirements.txt",
+              "sha256": "84f5adebc745706c410125781d91db59b59f4322870a2c53685e0aaefb9b8575",
+              "bytes": 34
+            }
+          ]
+        },
+        "data": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/li_cu_ce/li_cu_ce-data.zip",
+          "sha256": "04eecaa66658f43c8493ee393aec6532ce8875e6fb49c9d6b38ec941938e50d0",
+          "bytes": 30326,
+          "files": [
+            "li_cu_ce/data.csv",
+            "li_cu_ce/metadata.json",
+            "li_cu_ce/profiles.csv"
+          ],
+          "members": [
+            {
+              "path": "li_cu_ce/data.csv",
+              "sha256": "cc4d9a633247ae4df9fada1b15e2adf7f6767c65be21532639c2374f5d8970f6",
+              "bytes": 24571
+            },
+            {
+              "path": "li_cu_ce/metadata.json",
+              "sha256": "779d193743d54e29ee86494a864e031288accfe8b1ad7e26b5c9f3c411369da2",
+              "bytes": 4707
+            },
+            {
+              "path": "li_cu_ce/profiles.csv",
+              "sha256": "49de4884a52d3e96dff0a10859548a1ca3220bf321d8eb87d8006d25e7040c36",
+              "bytes": 106597
+            }
+          ]
+        },
+        "figures": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/li_cu_ce/li_cu_ce-figures.zip",
+          "sha256": "9730aa06df9499f4d8ebfb835dc5506239c92e92fee1927c4b5f91edb9b1f68d",
+          "bytes": 192978,
+          "files": [
+            "reference/figure.pdf",
+            "reference/figure.png",
+            "reference/figure.svg",
+            "reference/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "reference/figure.pdf",
+              "sha256": "29525de372be97e05429f4f50c32f8bafa70c41345a5b492343e7b6d815852b8",
+              "bytes": 47117
+            },
+            {
+              "path": "reference/figure.png",
+              "sha256": "48eec011a9d7486be9fd7d1ad8e3b39c090d33e89ecbf6283acc8ae51e6d2e4b",
+              "bytes": 143603
+            },
+            {
+              "path": "reference/figure.svg",
+              "sha256": "6494d67a1e2de34816d7d885e80c4b08e14a60260b01e02dac5491fb682588b5",
+              "bytes": 108784
+            },
+            {
+              "path": "reference/metadata.json",
+              "sha256": "779d193743d54e29ee86494a864e031288accfe8b1ad7e26b5c9f3c411369da2",
+              "bytes": 4707
+            }
+          ]
+        },
+        "prompt": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/li_cu_ce/li_cu_ce-prompt.txt",
+          "sha256": "daed1edf5e170cfb408af4d08c7f66b6c13f824ec153ce85ccdbcd71bc4dbe07",
+          "bytes": 866
+        }
+      }
+    },
+    {
+      "id": "rate_capability",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/rate_capability",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-rate_capability.zip",
+      "archive_sha256": "f3f33db560d97c8f3a47edd51f77aab5c1a630749925cdf05101feeeaa33324d",
+      "metadata_sha256": "3da57cb75ef7a1d1e5fc5102694ed2b75647ccf671e5540c7712c03a1fc3f4b7",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/rate_capability/rate_capability-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/rate_capability/rate_capability-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/rate_capability/rate_capability-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/rate_capability/rate_capability-prompt.txt",
+      "component_records": {
+        "source": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/rate_capability/rate_capability-source.zip",
+          "sha256": "91203551832f993d51815d3e9f1d62e9ffbb4f184b44e41c184197562b05a4a0",
+          "bytes": 85508,
+          "files": [
+            "LICENSE",
+            "README.txt",
+            "SOURCE_MANIFEST.json",
+            "code/examples/recipe_packs/_runtime/generate_demo.py",
+            "code/examples/showcase/build.py",
+            "code/skills/voltpeer-plot/assets/SKILL_RELEASE.json",
+            "code/skills/voltpeer-plot/assets/figure_theme.json",
+            "code/skills/voltpeer-plot/scripts/batteryplot/__init__.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/battery_charts.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/charts.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/corpus.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/cycling.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/data.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/electrochem.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/export.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/ingest.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/layout.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/qa.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/series_policy.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/specialist.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/specification.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/style.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/tofsims.py",
+            "code/skills/voltpeer-plot/scripts/output_safety.py",
+            "render_existing.py",
+            "requirements.txt"
+          ],
+          "members": [
+            {
+              "path": "LICENSE",
+              "sha256": "8f4f64a4e2b245de1be63eff0dfe446ee456639c187864a507e8b7577d4dd8fb",
+              "bytes": 1077
+            },
+            {
+              "path": "README.txt",
+              "sha256": "aa95fce79be9b1a85ef7227d44f1df35ce3f4c345e7695d9334f254fd726f6bf",
+              "bytes": 1824
+            },
+            {
+              "path": "SOURCE_MANIFEST.json",
+              "sha256": "6390b550d8530c80becc62af302012c249d376b9edcd98b4f1a8b9c6620cb317",
+              "bytes": 11932
+            },
+            {
+              "path": "code/examples/recipe_packs/_runtime/generate_demo.py",
+              "sha256": "a7fbddf2db64d903b34a38dce407f40586e27a06e1d792ac380799c6cbb509b1",
+              "bytes": 16490
+            },
+            {
+              "path": "code/examples/showcase/build.py",
+              "sha256": "ac557371807a9f217dbd1c3ac3cdfef07e8678feff51f4cd81a4eb3ef98ccd5c",
+              "bytes": 88270
+            },
+            {
+              "path": "code/skills/voltpeer-plot/assets/SKILL_RELEASE.json",
+              "sha256": "12b9794e42753f346abaebaec8b53afc1e730bb1322291e8dd3812333a5de537",
+              "bytes": 85
+            },
+            {
+              "path": "code/skills/voltpeer-plot/assets/figure_theme.json",
+              "sha256": "137bdb923dc2a69341d2b88fc6d78cd5d074471e3e04264313020bc1d649f38d",
+              "bytes": 5820
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/__init__.py",
+              "sha256": "38f5f0a7c930ec5dc9b9dd4fc1665b712f02b3820dbae691970e96c3d9ba4158",
+              "bytes": 828
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/battery_charts.py",
+              "sha256": "dfafe6cddbe9d3685fb53044dbde9b18b713b33f357baab0b50d2809ec7cf9ae",
+              "bytes": 16509
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/charts.py",
+              "sha256": "43c583ada8a6cc8084acac22c11f2936eb72fae7ca57bb8b684d6162178bcd2c",
+              "bytes": 11780
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/corpus.py",
+              "sha256": "89e6da0b69068dfb44f94a8331a7db2d0e4ed2fdb27f04089a53a6fbd18a0099",
+              "bytes": 18047
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/cycling.py",
+              "sha256": "4287eb8fa5453b88fcb0bc842a361ab8058130bcfb14d255d07ed1ab9bf38058",
+              "bytes": 4271
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/data.py",
+              "sha256": "d8e5e49b51d2a7e23842e3cbae91e16f4fe337a2294ed53ff4a6505075e0ad0c",
+              "bytes": 3415
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/electrochem.py",
+              "sha256": "134b77742c94dab715c97b24cda95cc6aba00745c4f9ba54243d33535c930c6c",
+              "bytes": 11725
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/export.py",
+              "sha256": "42307fb9e52432b213118bf7130536f387b2ebf5b5fe3430009e95fd635ada47",
+              "bytes": 4662
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/ingest.py",
+              "sha256": "87ac0d04fe18a8787e2e98fdd38acc5885a72b41f67c2760ae17d15888011164",
+              "bytes": 6401
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/layout.py",
+              "sha256": "089b0734fb90630ebf48a0ad12c8f0f69af367d5bff00987dabdcb346272a5d8",
+              "bytes": 3183
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/qa.py",
+              "sha256": "ebf51dbc92b08ceb2456a7663f975e53b038f53eff90591f2039a629e40e958b",
+              "bytes": 983
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/series_policy.py",
+              "sha256": "56a3a128a34462daab9c6fbee3e42a34ce44f0bd3a3c894fa33848e9c9b16ec0",
+              "bytes": 4929
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/specialist.py",
+              "sha256": "fb9a9dd3bc7ec4bdbb148f82887693c26d1c6702448171d27d535abf51c4db97",
+              "bytes": 12850
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/specification.py",
+              "sha256": "6990e00e7cdcea3fb4f613346d5e7c276e2073a4147b52b69276ae4418178484",
+              "bytes": 2425
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/style.py",
+              "sha256": "e4c069340b9ba1d60f7a7680315329934df114fb6cff3d746b0cb08d17a000ab",
+              "bytes": 15700
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/tofsims.py",
+              "sha256": "3fd24e60a95f579820457d0cf522aae6638b1d30298ab16ccf2855942b4c0678",
+              "bytes": 6394
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/output_safety.py",
+              "sha256": "6f2b035179f83ae3fa25ea54a5d43c0cedf47ff5e0576daf979c3fb8fc0f11da",
+              "bytes": 1871
+            },
+            {
+              "path": "render_existing.py",
+              "sha256": "345de99181487be9d9adf1548db64320c9c37251c41116d74ada9f0069846514",
+              "bytes": 12400
+            },
+            {
+              "path": "requirements.txt",
+              "sha256": "84f5adebc745706c410125781d91db59b59f4322870a2c53685e0aaefb9b8575",
+              "bytes": 34
+            }
+          ]
+        },
+        "data": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/rate_capability/rate_capability-data.zip",
+          "sha256": "53287d80065b83d5dbe3169ca164e2e3f61ebd13b4c55a9b7fa597946beb2208",
+          "bytes": 9204,
+          "files": [
+            "rate_capability/data.csv",
+            "rate_capability/metadata.json",
+            "rate_capability/voltage_profiles.csv"
+          ],
+          "members": [
+            {
+              "path": "rate_capability/data.csv",
+              "sha256": "02797d1e27ad33a1c1372e4505511fb5f87e7948efeb35fb404adf67ffe6ccd5",
+              "bytes": 2666
+            },
+            {
+              "path": "rate_capability/metadata.json",
+              "sha256": "3da57cb75ef7a1d1e5fc5102694ed2b75647ccf671e5540c7712c03a1fc3f4b7",
+              "bytes": 5729
+            },
+            {
+              "path": "rate_capability/voltage_profiles.csv",
+              "sha256": "62efdd91803af0f47c04df26cd93102f24c07f44e47561523eddb74bbabfd0d8",
+              "bytes": 24060
+            }
+          ]
+        },
+        "figures": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/rate_capability/rate_capability-figures.zip",
+          "sha256": "50f55e5a27e5c2b44fb22df9e0e41b6daa261c77873b91eab67c5e48ac908933",
+          "bytes": 202768,
+          "files": [
+            "reference/figure.pdf",
+            "reference/figure.png",
+            "reference/figure.svg",
+            "reference/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "reference/figure.pdf",
+              "sha256": "2ba4cd11c6a4c5d85771c23431a200eaf94a8e50a796f04aee82498d12a2a63a",
+              "bytes": 41051
+            },
+            {
+              "path": "reference/figure.png",
+              "sha256": "a5daac1927777aa92461c4d8c10a8473eedbe97289e16c4d2d93bee15223f8b9",
+              "bytes": 166320
+            },
+            {
+              "path": "reference/figure.svg",
+              "sha256": "53ac3861de6a65739a092b808d388e676568c191e54a24add2ae536cb0fdcd36",
+              "bytes": 43904
+            },
+            {
+              "path": "reference/metadata.json",
+              "sha256": "3da57cb75ef7a1d1e5fc5102694ed2b75647ccf671e5540c7712c03a1fc3f4b7",
+              "bytes": 5729
+            }
+          ]
+        },
+        "prompt": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/rate_capability/rate_capability-prompt.txt",
+          "sha256": "daed1edf5e170cfb408af4d08c7f66b6c13f824ec153ce85ccdbcd71bc4dbe07",
+          "bytes": 866
+        }
+      }
+    },
+    {
+      "id": "integrated_study",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/integrated_study",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-integrated_study.zip",
+      "archive_sha256": "e543a053e0215408d60553718dfb5b8ad7d22e0b12be385938f3b3d43a9165a3",
+      "metadata_sha256": "5309f864875e02923010c2f4703bcb0e26ab74ce9e588d79f3038c86347358cf",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/integrated_study/integrated_study-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/integrated_study/integrated_study-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/integrated_study/integrated_study-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/integrated_study/integrated_study-prompt.txt",
+      "component_records": {
+        "source": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/integrated_study/integrated_study-source.zip",
+          "sha256": "9efe393b4a6b59b2c7acef2bded8ec3c255a904c3fa3bb8ebff8b820feb6039c",
+          "bytes": 86218,
+          "files": [
+            "LICENSE",
+            "README.txt",
+            "SOURCE_MANIFEST.json",
+            "code/examples/recipe_packs/_runtime/generate_demo.py",
+            "code/examples/showcase/build.py",
+            "code/skills/voltpeer-plot/assets/SKILL_RELEASE.json",
+            "code/skills/voltpeer-plot/assets/figure_theme.json",
+            "code/skills/voltpeer-plot/scripts/batteryplot/__init__.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/battery_charts.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/charts.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/corpus.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/cycling.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/data.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/electrochem.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/export.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/ingest.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/layout.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/qa.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/series_policy.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/specialist.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/specification.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/style.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/tofsims.py",
+            "code/skills/voltpeer-plot/scripts/output_safety.py",
+            "render_existing.py",
+            "requirements.txt"
+          ],
+          "members": [
+            {
+              "path": "LICENSE",
+              "sha256": "8f4f64a4e2b245de1be63eff0dfe446ee456639c187864a507e8b7577d4dd8fb",
+              "bytes": 1077
+            },
+            {
+              "path": "README.txt",
+              "sha256": "26eb1615301f3a16d4550f33dd35ea0de101244628f922b9579a5f46977c2d90",
+              "bytes": 1826
+            },
+            {
+              "path": "SOURCE_MANIFEST.json",
+              "sha256": "442798f39440df1ebb213f99f60554db23fe9e972d078b1b6964ad51b0288b1b",
+              "bytes": 16451
+            },
+            {
+              "path": "code/examples/recipe_packs/_runtime/generate_demo.py",
+              "sha256": "a7fbddf2db64d903b34a38dce407f40586e27a06e1d792ac380799c6cbb509b1",
+              "bytes": 16490
+            },
+            {
+              "path": "code/examples/showcase/build.py",
+              "sha256": "ac557371807a9f217dbd1c3ac3cdfef07e8678feff51f4cd81a4eb3ef98ccd5c",
+              "bytes": 88270
+            },
+            {
+              "path": "code/skills/voltpeer-plot/assets/SKILL_RELEASE.json",
+              "sha256": "12b9794e42753f346abaebaec8b53afc1e730bb1322291e8dd3812333a5de537",
+              "bytes": 85
+            },
+            {
+              "path": "code/skills/voltpeer-plot/assets/figure_theme.json",
+              "sha256": "137bdb923dc2a69341d2b88fc6d78cd5d074471e3e04264313020bc1d649f38d",
+              "bytes": 5820
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/__init__.py",
+              "sha256": "38f5f0a7c930ec5dc9b9dd4fc1665b712f02b3820dbae691970e96c3d9ba4158",
+              "bytes": 828
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/battery_charts.py",
+              "sha256": "dfafe6cddbe9d3685fb53044dbde9b18b713b33f357baab0b50d2809ec7cf9ae",
+              "bytes": 16509
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/charts.py",
+              "sha256": "43c583ada8a6cc8084acac22c11f2936eb72fae7ca57bb8b684d6162178bcd2c",
+              "bytes": 11780
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/corpus.py",
+              "sha256": "89e6da0b69068dfb44f94a8331a7db2d0e4ed2fdb27f04089a53a6fbd18a0099",
+              "bytes": 18047
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/cycling.py",
+              "sha256": "4287eb8fa5453b88fcb0bc842a361ab8058130bcfb14d255d07ed1ab9bf38058",
+              "bytes": 4271
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/data.py",
+              "sha256": "d8e5e49b51d2a7e23842e3cbae91e16f4fe337a2294ed53ff4a6505075e0ad0c",
+              "bytes": 3415
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/electrochem.py",
+              "sha256": "134b77742c94dab715c97b24cda95cc6aba00745c4f9ba54243d33535c930c6c",
+              "bytes": 11725
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/export.py",
+              "sha256": "42307fb9e52432b213118bf7130536f387b2ebf5b5fe3430009e95fd635ada47",
+              "bytes": 4662
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/ingest.py",
+              "sha256": "87ac0d04fe18a8787e2e98fdd38acc5885a72b41f67c2760ae17d15888011164",
+              "bytes": 6401
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/layout.py",
+              "sha256": "089b0734fb90630ebf48a0ad12c8f0f69af367d5bff00987dabdcb346272a5d8",
+              "bytes": 3183
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/qa.py",
+              "sha256": "ebf51dbc92b08ceb2456a7663f975e53b038f53eff90591f2039a629e40e958b",
+              "bytes": 983
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/series_policy.py",
+              "sha256": "56a3a128a34462daab9c6fbee3e42a34ce44f0bd3a3c894fa33848e9c9b16ec0",
+              "bytes": 4929
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/specialist.py",
+              "sha256": "fb9a9dd3bc7ec4bdbb148f82887693c26d1c6702448171d27d535abf51c4db97",
+              "bytes": 12850
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/specification.py",
+              "sha256": "6990e00e7cdcea3fb4f613346d5e7c276e2073a4147b52b69276ae4418178484",
+              "bytes": 2425
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/style.py",
+              "sha256": "e4c069340b9ba1d60f7a7680315329934df114fb6cff3d746b0cb08d17a000ab",
+              "bytes": 15700
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/tofsims.py",
+              "sha256": "3fd24e60a95f579820457d0cf522aae6638b1d30298ab16ccf2855942b4c0678",
+              "bytes": 6394
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/output_safety.py",
+              "sha256": "6f2b035179f83ae3fa25ea54a5d43c0cedf47ff5e0576daf979c3fb8fc0f11da",
+              "bytes": 1871
+            },
+            {
+              "path": "render_existing.py",
+              "sha256": "345de99181487be9d9adf1548db64320c9c37251c41116d74ada9f0069846514",
+              "bytes": 12400
+            },
+            {
+              "path": "requirements.txt",
+              "sha256": "84f5adebc745706c410125781d91db59b59f4322870a2c53685e0aaefb9b8575",
+              "bytes": 34
+            }
+          ]
+        },
+        "data": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/integrated_study/integrated_study-data.zip",
+          "sha256": "da5aa1cd99e9263eaa68276b551c5ff4316b5cc6fa09628fe3557dd74cd03044",
+          "bytes": 212986,
+          "files": [
+            "eis/data.csv",
+            "eis/metadata.json",
+            "eis/model.json",
+            "full_cell/data.csv",
+            "full_cell/metadata.json",
+            "full_cell/voltage_profiles.csv",
+            "integrated_study/data_index.csv",
+            "integrated_study/metadata.json",
+            "integrated_study/sources.json",
+            "li_cu_ce/data.csv",
+            "li_cu_ce/metadata.json",
+            "li_cu_ce/profiles.csv",
+            "li_li/data.csv",
+            "li_li/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "eis/data.csv",
+              "sha256": "187d66d615d2151217d94f23d50a488800623e61357e4ce4a75ef945096ffa3c",
+              "bytes": 10261
+            },
+            {
+              "path": "eis/metadata.json",
+              "sha256": "72cae39570e44b342795eef252f221d6d09d5887e77f0c9e66dbe8af511b77b0",
+              "bytes": 4278
+            },
+            {
+              "path": "eis/model.json",
+              "sha256": "5906ec0e0c66dd1a01890c99ee0c1d8600a2362bea929fb683955d519c407ed1",
+              "bytes": 2626
+            },
+            {
+              "path": "full_cell/data.csv",
+              "sha256": "1b8204c7d72bab8dac45e5827913230609c1e146609fd57a68a5d79bec4352f4",
+              "bytes": 72260
+            },
+            {
+              "path": "full_cell/metadata.json",
+              "sha256": "5614bee2c3d1030a2ef23b89789fd627145f9bc8515d144aa5841cf33649dc6b",
+              "bytes": 5980
+            },
+            {
+              "path": "full_cell/voltage_profiles.csv",
+              "sha256": "db99b690fd9228788b5197b80435f57f0937c5571cc8a05b3539596c1b43c062",
+              "bytes": 40973
+            },
+            {
+              "path": "integrated_study/data_index.csv",
+              "sha256": "7a3db0c87c98e697e5ca325a4e9a8202dd5dc6459f9fc8ca6dfe6b42a8b69442",
+              "bytes": 422
+            },
+            {
+              "path": "integrated_study/metadata.json",
+              "sha256": "5309f864875e02923010c2f4703bcb0e26ab74ce9e588d79f3038c86347358cf",
+              "bytes": 7505
+            },
+            {
+              "path": "integrated_study/sources.json",
+              "sha256": "04c30a8c88e397a7f49e51f6ee4c3938a4d1ec864f0659d1516d618324fb02fe",
+              "bytes": 2133
+            },
+            {
+              "path": "li_cu_ce/data.csv",
+              "sha256": "cc4d9a633247ae4df9fada1b15e2adf7f6767c65be21532639c2374f5d8970f6",
+              "bytes": 24571
+            },
+            {
+              "path": "li_cu_ce/metadata.json",
+              "sha256": "779d193743d54e29ee86494a864e031288accfe8b1ad7e26b5c9f3c411369da2",
+              "bytes": 4707
+            },
+            {
+              "path": "li_cu_ce/profiles.csv",
+              "sha256": "49de4884a52d3e96dff0a10859548a1ca3220bf321d8eb87d8006d25e7040c36",
+              "bytes": 106597
+            },
+            {
+              "path": "li_li/data.csv",
+              "sha256": "efc9991fcda15f264203d31a4931ae0fa86cc5d3fcb939f14fffcfb665713a2e",
+              "bytes": 1405393
+            },
+            {
+              "path": "li_li/metadata.json",
+              "sha256": "8598363bc01bbbb6db391f97699dcb9e25bc00e454daf809210336bbd4699b7c",
+              "bytes": 4376
+            }
+          ]
+        },
+        "figures": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/integrated_study/integrated_study-figures.zip",
+          "sha256": "2efb082935ee5012ff4c6cfa9fdfd2262a7922cd121af78ef529b13e65096d87",
+          "bytes": 521212,
+          "files": [
+            "reference/figure.pdf",
+            "reference/figure.png",
+            "reference/figure.svg",
+            "reference/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "reference/figure.pdf",
+              "sha256": "6e287ef34535ee869abee502968be35fdd0ed5105ebaae45de06aa5253dac6e5",
+              "bytes": 78836
+            },
+            {
+              "path": "reference/figure.png",
+              "sha256": "786803e771f30243b2e71a379d3ee267aa7bbf79458ec929b80b72355513de8e",
+              "bytes": 413120
+            },
+            {
+              "path": "reference/figure.svg",
+              "sha256": "57dc73fdba2afb998b25d25bbe635c0b93d87b30db1d70b4d098106f608ee86d",
+              "bytes": 335918
+            },
+            {
+              "path": "reference/metadata.json",
+              "sha256": "5309f864875e02923010c2f4703bcb0e26ab74ce9e588d79f3038c86347358cf",
+              "bytes": 7505
+            }
+          ]
+        },
+        "prompt": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/integrated_study/integrated_study-prompt.txt",
+          "sha256": "daed1edf5e170cfb408af4d08c7f66b6c13f824ec153ce85ccdbcd71bc4dbe07",
+          "bytes": 866
+        }
+      }
+    },
+    {
+      "id": "capability_spread",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/capability_spread",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-capability_spread.zip",
+      "archive_sha256": "f6d6f712ea52809342fb23969facd5bfc3c774ed37385acbca6db1673a889953",
+      "metadata_sha256": "6ecee220f5971c17843320d959130dcf40106ce543734c52afce0bcb5b9d03a8",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/capability_spread/capability_spread-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/capability_spread/capability_spread-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/capability_spread/capability_spread-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/capability_spread/capability_spread-prompt.txt",
+      "component_records": {
+        "source": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/capability_spread/capability_spread-source.zip",
+          "sha256": "9671b745f27e16798849143177bf0bcb130358a96d2a31182176d99dccc805cf",
+          "bytes": 87464,
+          "files": [
+            "LICENSE",
+            "README.txt",
+            "SOURCE_MANIFEST.json",
+            "code/examples/recipe_packs/_runtime/generate_demo.py",
+            "code/examples/showcase/build.py",
+            "code/skills/voltpeer-plot/assets/SKILL_RELEASE.json",
+            "code/skills/voltpeer-plot/assets/figure_theme.json",
+            "code/skills/voltpeer-plot/scripts/batteryplot/__init__.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/battery_charts.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/charts.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/corpus.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/cycling.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/data.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/electrochem.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/export.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/ingest.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/layout.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/qa.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/series_policy.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/specialist.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/specification.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/style.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/tofsims.py",
+            "code/skills/voltpeer-plot/scripts/output_safety.py",
+            "render_existing.py",
+            "requirements.txt"
+          ],
+          "members": [
+            {
+              "path": "LICENSE",
+              "sha256": "8f4f64a4e2b245de1be63eff0dfe446ee456639c187864a507e8b7577d4dd8fb",
+              "bytes": 1077
+            },
+            {
+              "path": "README.txt",
+              "sha256": "54c674eb60e30b5f58c52c1951e4ee3f9bb01a92481d87221fe8b7404ffe4433",
+              "bytes": 1828
+            },
+            {
+              "path": "SOURCE_MANIFEST.json",
+              "sha256": "579098c6b9db37fb8157abfc51a6e6ee5cfe1ebe67436c88e8a74e310342acc3",
+              "bytes": 24717
+            },
+            {
+              "path": "code/examples/recipe_packs/_runtime/generate_demo.py",
+              "sha256": "a7fbddf2db64d903b34a38dce407f40586e27a06e1d792ac380799c6cbb509b1",
+              "bytes": 16490
+            },
+            {
+              "path": "code/examples/showcase/build.py",
+              "sha256": "ac557371807a9f217dbd1c3ac3cdfef07e8678feff51f4cd81a4eb3ef98ccd5c",
+              "bytes": 88270
+            },
+            {
+              "path": "code/skills/voltpeer-plot/assets/SKILL_RELEASE.json",
+              "sha256": "12b9794e42753f346abaebaec8b53afc1e730bb1322291e8dd3812333a5de537",
+              "bytes": 85
+            },
+            {
+              "path": "code/skills/voltpeer-plot/assets/figure_theme.json",
+              "sha256": "137bdb923dc2a69341d2b88fc6d78cd5d074471e3e04264313020bc1d649f38d",
+              "bytes": 5820
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/__init__.py",
+              "sha256": "38f5f0a7c930ec5dc9b9dd4fc1665b712f02b3820dbae691970e96c3d9ba4158",
+              "bytes": 828
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/battery_charts.py",
+              "sha256": "dfafe6cddbe9d3685fb53044dbde9b18b713b33f357baab0b50d2809ec7cf9ae",
+              "bytes": 16509
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/charts.py",
+              "sha256": "43c583ada8a6cc8084acac22c11f2936eb72fae7ca57bb8b684d6162178bcd2c",
+              "bytes": 11780
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/corpus.py",
+              "sha256": "89e6da0b69068dfb44f94a8331a7db2d0e4ed2fdb27f04089a53a6fbd18a0099",
+              "bytes": 18047
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/cycling.py",
+              "sha256": "4287eb8fa5453b88fcb0bc842a361ab8058130bcfb14d255d07ed1ab9bf38058",
+              "bytes": 4271
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/data.py",
+              "sha256": "d8e5e49b51d2a7e23842e3cbae91e16f4fe337a2294ed53ff4a6505075e0ad0c",
+              "bytes": 3415
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/electrochem.py",
+              "sha256": "134b77742c94dab715c97b24cda95cc6aba00745c4f9ba54243d33535c930c6c",
+              "bytes": 11725
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/export.py",
+              "sha256": "42307fb9e52432b213118bf7130536f387b2ebf5b5fe3430009e95fd635ada47",
+              "bytes": 4662
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/ingest.py",
+              "sha256": "87ac0d04fe18a8787e2e98fdd38acc5885a72b41f67c2760ae17d15888011164",
+              "bytes": 6401
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/layout.py",
+              "sha256": "089b0734fb90630ebf48a0ad12c8f0f69af367d5bff00987dabdcb346272a5d8",
+              "bytes": 3183
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/qa.py",
+              "sha256": "ebf51dbc92b08ceb2456a7663f975e53b038f53eff90591f2039a629e40e958b",
+              "bytes": 983
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/series_policy.py",
+              "sha256": "56a3a128a34462daab9c6fbee3e42a34ce44f0bd3a3c894fa33848e9c9b16ec0",
+              "bytes": 4929
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/specialist.py",
+              "sha256": "fb9a9dd3bc7ec4bdbb148f82887693c26d1c6702448171d27d535abf51c4db97",
+              "bytes": 12850
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/specification.py",
+              "sha256": "6990e00e7cdcea3fb4f613346d5e7c276e2073a4147b52b69276ae4418178484",
+              "bytes": 2425
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/style.py",
+              "sha256": "e4c069340b9ba1d60f7a7680315329934df114fb6cff3d746b0cb08d17a000ab",
+              "bytes": 15700
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/tofsims.py",
+              "sha256": "3fd24e60a95f579820457d0cf522aae6638b1d30298ab16ccf2855942b4c0678",
+              "bytes": 6394
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/output_safety.py",
+              "sha256": "6f2b035179f83ae3fa25ea54a5d43c0cedf47ff5e0576daf979c3fb8fc0f11da",
+              "bytes": 1871
+            },
+            {
+              "path": "render_existing.py",
+              "sha256": "345de99181487be9d9adf1548db64320c9c37251c41116d74ada9f0069846514",
+              "bytes": 12400
+            },
+            {
+              "path": "requirements.txt",
+              "sha256": "84f5adebc745706c410125781d91db59b59f4322870a2c53685e0aaefb9b8575",
+              "bytes": 34
+            }
+          ]
+        },
+        "data": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/capability_spread/capability_spread-data.zip",
+          "sha256": "55d8948272429acd4ecabe206e8d5f9a803aa97d461814b99ad09e9d7ff5a932",
+          "bytes": 486732,
+          "files": [
+            "capability_spread/data_index.csv",
+            "capability_spread/metadata.json",
+            "capability_spread/sources.json",
+            "eis/data.csv",
+            "eis/metadata.json",
+            "eis/model.json",
+            "full_cell/data.csv",
+            "full_cell/metadata.json",
+            "full_cell/voltage_profiles.csv",
+            "gcd_profiles/data.csv",
+            "gcd_profiles/metadata.json",
+            "li_cu_ce/data.csv",
+            "li_cu_ce/metadata.json",
+            "li_cu_ce/profiles.csv",
+            "li_li/data.csv",
+            "li_li/metadata.json",
+            "literature_benchmark/data.csv",
+            "literature_benchmark/metadata.json",
+            "operando_xrd/data.csv",
+            "operando_xrd/metadata.json",
+            "operando_xrd/state.csv",
+            "operando_xrd/voltage.csv",
+            "pouch_thermal/data.csv",
+            "pouch_thermal/geometry.json",
+            "pouch_thermal/history.csv",
+            "pouch_thermal/line_profile.csv",
+            "pouch_thermal/metadata.json",
+            "rate_capability/data.csv",
+            "rate_capability/metadata.json",
+            "rate_capability/voltage_profiles.csv",
+            "reporting_matrix/data.csv",
+            "reporting_matrix/metadata.json",
+            "reporting_matrix/status_key.json"
+          ],
+          "members": [
+            {
+              "path": "capability_spread/data_index.csv",
+              "sha256": "72bb685412ec28b43c11b9d268d023e306c793bcbb18f9d40c0b41f2a56ed342",
+              "bytes": 339
+            },
+            {
+              "path": "capability_spread/metadata.json",
+              "sha256": "6ecee220f5971c17843320d959130dcf40106ce543734c52afce0bcb5b9d03a8",
+              "bytes": 8132
+            },
+            {
+              "path": "capability_spread/sources.json",
+              "sha256": "786cec4b9e57df133703d9cefb764979f6cbf6b023424291083eb77e431b5e17",
+              "bytes": 350
+            },
+            {
+              "path": "eis/data.csv",
+              "sha256": "187d66d615d2151217d94f23d50a488800623e61357e4ce4a75ef945096ffa3c",
+              "bytes": 10261
+            },
+            {
+              "path": "eis/metadata.json",
+              "sha256": "72cae39570e44b342795eef252f221d6d09d5887e77f0c9e66dbe8af511b77b0",
+              "bytes": 4278
+            },
+            {
+              "path": "eis/model.json",
+              "sha256": "5906ec0e0c66dd1a01890c99ee0c1d8600a2362bea929fb683955d519c407ed1",
+              "bytes": 2626
+            },
+            {
+              "path": "full_cell/data.csv",
+              "sha256": "1b8204c7d72bab8dac45e5827913230609c1e146609fd57a68a5d79bec4352f4",
+              "bytes": 72260
+            },
+            {
+              "path": "full_cell/metadata.json",
+              "sha256": "5614bee2c3d1030a2ef23b89789fd627145f9bc8515d144aa5841cf33649dc6b",
+              "bytes": 5980
+            },
+            {
+              "path": "full_cell/voltage_profiles.csv",
+              "sha256": "db99b690fd9228788b5197b80435f57f0937c5571cc8a05b3539596c1b43c062",
+              "bytes": 40973
+            },
+            {
+              "path": "gcd_profiles/data.csv",
+              "sha256": "d68bc3d08eac360dc4696225ddb468ef08d06c006308651f73a82f6e060f8468",
+              "bytes": 163416
+            },
+            {
+              "path": "gcd_profiles/metadata.json",
+              "sha256": "ba3c5b5e224f4feea3db3b9ea9e685241aa59d67628f57481d2a17213bc95a94",
+              "bytes": 4191
+            },
+            {
+              "path": "li_cu_ce/data.csv",
+              "sha256": "cc4d9a633247ae4df9fada1b15e2adf7f6767c65be21532639c2374f5d8970f6",
+              "bytes": 24571
+            },
+            {
+              "path": "li_cu_ce/metadata.json",
+              "sha256": "779d193743d54e29ee86494a864e031288accfe8b1ad7e26b5c9f3c411369da2",
+              "bytes": 4707
+            },
+            {
+              "path": "li_cu_ce/profiles.csv",
+              "sha256": "49de4884a52d3e96dff0a10859548a1ca3220bf321d8eb87d8006d25e7040c36",
+              "bytes": 106597
+            },
+            {
+              "path": "li_li/data.csv",
+              "sha256": "efc9991fcda15f264203d31a4931ae0fa86cc5d3fcb939f14fffcfb665713a2e",
+              "bytes": 1405393
+            },
+            {
+              "path": "li_li/metadata.json",
+              "sha256": "8598363bc01bbbb6db391f97699dcb9e25bc00e454daf809210336bbd4699b7c",
+              "bytes": 4376
+            },
+            {
+              "path": "literature_benchmark/data.csv",
+              "sha256": "201fb399c2f286077826c6e9ddc4c2c5644c2fed3ee741307f1efa2174e3b84d",
+              "bytes": 2614
+            },
+            {
+              "path": "literature_benchmark/metadata.json",
+              "sha256": "4672d08463c5dd85d861a8e5ad5455c56004b0ea70ccc7a83afd2902ac6ba9a1",
+              "bytes": 2769
+            },
+            {
+              "path": "operando_xrd/data.csv",
+              "sha256": "2bfcc786bfe890e045dee9ce1a7350116b6a731f75e3dec39c3258ff110f7785",
+              "bytes": 1242968
+            },
+            {
+              "path": "operando_xrd/metadata.json",
+              "sha256": "08b4f84f03ec0c6a0520e3383bf8968f52445b1dde57c042d69f9a79a355c39e",
+              "bytes": 5092
+            },
+            {
+              "path": "operando_xrd/state.csv",
+              "sha256": "432764174643ecb68dfbaf9d79e6f2f89dee91f5ad4516a9625a7beb7c35d26b",
+              "bytes": 11187
+            },
+            {
+              "path": "operando_xrd/voltage.csv",
+              "sha256": "3ff26a01ccf91e68f53f580e7de119fab316334ae3ef3552c63543be426a0eed",
+              "bytes": 3947
+            },
+            {
+              "path": "pouch_thermal/data.csv",
+              "sha256": "ca4b1a4bfbc06079e73240b3768ebc01cf4c551bd73e4c57e7b6f22b806c3642",
+              "bytes": 162553
+            },
+            {
+              "path": "pouch_thermal/geometry.json",
+              "sha256": "359379551c06117b7a7d608ef7a1987898e5639b9371ea54031d766d25b7b1f3",
+              "bytes": 766
+            },
+            {
+              "path": "pouch_thermal/history.csv",
+              "sha256": "37f1461623ccd1ba0e2e5fbf86ebad4cce05664cc3e1f1ead56df970d51346ab",
+              "bytes": 1994
+            },
+            {
+              "path": "pouch_thermal/line_profile.csv",
+              "sha256": "6307db84a2d570c19ed11bc9af63a8ac965eae2e15fa66bd1865c7be640f50ff",
+              "bytes": 2656
+            },
+            {
+              "path": "pouch_thermal/metadata.json",
+              "sha256": "0e5f771cdaf44e0c16e4f51f81438e02dbaf5d35a2e85af572f449c296b8304b",
+              "bytes": 4818
+            },
+            {
+              "path": "rate_capability/data.csv",
+              "sha256": "02797d1e27ad33a1c1372e4505511fb5f87e7948efeb35fb404adf67ffe6ccd5",
+              "bytes": 2666
+            },
+            {
+              "path": "rate_capability/metadata.json",
+              "sha256": "3da57cb75ef7a1d1e5fc5102694ed2b75647ccf671e5540c7712c03a1fc3f4b7",
+              "bytes": 5729
+            },
+            {
+              "path": "rate_capability/voltage_profiles.csv",
+              "sha256": "62efdd91803af0f47c04df26cd93102f24c07f44e47561523eddb74bbabfd0d8",
+              "bytes": 24060
+            },
+            {
+              "path": "reporting_matrix/data.csv",
+              "sha256": "cc6e46644522fce88b2eba70cdd436f04203d6114330eb5c6b796d1ccd470000",
+              "bytes": 2366
+            },
+            {
+              "path": "reporting_matrix/metadata.json",
+              "sha256": "aee9499f09daa11da4c26c1bd2a1489d8592461ba6d048b8de49d7674b37aaf5",
+              "bytes": 2712
+            },
+            {
+              "path": "reporting_matrix/status_key.json",
+              "sha256": "5cff88d069761e7efee2b2ea10233498a0bd1fac2581dc4992ad2de31ba01365",
+              "bytes": 264
+            }
+          ]
+        },
+        "figures": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/capability_spread/capability_spread-figures.zip",
+          "sha256": "ab68138810dbc68a530fd99bcfb15ba905ecf729eeb9f2ac7fec52c728988d83",
+          "bytes": 514887,
+          "files": [
+            "reference/figure.pdf",
+            "reference/figure.png",
+            "reference/figure.svg",
+            "reference/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "reference/figure.pdf",
+              "sha256": "a77b156fadbe9d6c5849fce5b6de0c9af9b93d0384091c4a2d99e400bc238e33",
+              "bytes": 93920
+            },
+            {
+              "path": "reference/figure.png",
+              "sha256": "87a253c3a48ef6e0b1a1d7ed0a96fe3e60ae07ca9134f1e1881834658d43a576",
+              "bytes": 395257
+            },
+            {
+              "path": "reference/figure.svg",
+              "sha256": "10f9a9b1595106d62262a9de6161136d3a35cf48c0264421345f2c8fa3160f54",
+              "bytes": 356626
+            },
+            {
+              "path": "reference/metadata.json",
+              "sha256": "6ecee220f5971c17843320d959130dcf40106ce543734c52afce0bcb5b9d03a8",
+              "bytes": 8132
+            }
+          ]
+        },
+        "prompt": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/capability_spread/capability_spread-prompt.txt",
+          "sha256": "daed1edf5e170cfb408af4d08c7f66b6c13f824ec153ce85ccdbcd71bc4dbe07",
+          "bytes": 866
+        }
+      }
+    },
+    {
+      "id": "style_presets",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/style_presets",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-style_presets.zip",
+      "archive_sha256": "9fa8df2dc9a50c14162d7e8c6c33c2659c659d1b97b5c3a4ea79a08895b778ed",
+      "metadata_sha256": "73a6c14705f57a5c9fc8c0a4ca4562aad9c9ac756cfce1480afcf07115c0a10d",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/style_presets/style_presets-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/style_presets/style_presets-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/style_presets/style_presets-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/style_presets/style_presets-prompt.txt",
+      "component_records": {
+        "source": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/style_presets/style_presets-source.zip",
+          "sha256": "9c6c134f8e91ae51361af7c2a9abf966fcd7516c928d4c00eecb7306a27ecd91",
+          "bytes": 85501,
+          "files": [
+            "LICENSE",
+            "README.txt",
+            "SOURCE_MANIFEST.json",
+            "code/examples/recipe_packs/_runtime/generate_demo.py",
+            "code/examples/showcase/build.py",
+            "code/skills/voltpeer-plot/assets/SKILL_RELEASE.json",
+            "code/skills/voltpeer-plot/assets/figure_theme.json",
+            "code/skills/voltpeer-plot/scripts/batteryplot/__init__.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/battery_charts.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/charts.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/corpus.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/cycling.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/data.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/electrochem.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/export.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/ingest.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/layout.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/qa.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/series_policy.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/specialist.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/specification.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/style.py",
+            "code/skills/voltpeer-plot/scripts/batteryplot/tofsims.py",
+            "code/skills/voltpeer-plot/scripts/output_safety.py",
+            "render_existing.py",
+            "requirements.txt"
+          ],
+          "members": [
+            {
+              "path": "LICENSE",
+              "sha256": "8f4f64a4e2b245de1be63eff0dfe446ee456639c187864a507e8b7577d4dd8fb",
+              "bytes": 1077
+            },
+            {
+              "path": "README.txt",
+              "sha256": "0111ff6afc8a6557999dcc0ac6b4e68904c5e17fa01f4285cd0d0bd3750b5f6c",
+              "bytes": 1820
+            },
+            {
+              "path": "SOURCE_MANIFEST.json",
+              "sha256": "b40130d7c4e5cdc95c026f0095f0444487a468cdfff0e4fc762c54f615c5c540",
+              "bytes": 11885
+            },
+            {
+              "path": "code/examples/recipe_packs/_runtime/generate_demo.py",
+              "sha256": "a7fbddf2db64d903b34a38dce407f40586e27a06e1d792ac380799c6cbb509b1",
+              "bytes": 16490
+            },
+            {
+              "path": "code/examples/showcase/build.py",
+              "sha256": "ac557371807a9f217dbd1c3ac3cdfef07e8678feff51f4cd81a4eb3ef98ccd5c",
+              "bytes": 88270
+            },
+            {
+              "path": "code/skills/voltpeer-plot/assets/SKILL_RELEASE.json",
+              "sha256": "12b9794e42753f346abaebaec8b53afc1e730bb1322291e8dd3812333a5de537",
+              "bytes": 85
+            },
+            {
+              "path": "code/skills/voltpeer-plot/assets/figure_theme.json",
+              "sha256": "137bdb923dc2a69341d2b88fc6d78cd5d074471e3e04264313020bc1d649f38d",
+              "bytes": 5820
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/__init__.py",
+              "sha256": "38f5f0a7c930ec5dc9b9dd4fc1665b712f02b3820dbae691970e96c3d9ba4158",
+              "bytes": 828
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/battery_charts.py",
+              "sha256": "dfafe6cddbe9d3685fb53044dbde9b18b713b33f357baab0b50d2809ec7cf9ae",
+              "bytes": 16509
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/charts.py",
+              "sha256": "43c583ada8a6cc8084acac22c11f2936eb72fae7ca57bb8b684d6162178bcd2c",
+              "bytes": 11780
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/corpus.py",
+              "sha256": "89e6da0b69068dfb44f94a8331a7db2d0e4ed2fdb27f04089a53a6fbd18a0099",
+              "bytes": 18047
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/cycling.py",
+              "sha256": "4287eb8fa5453b88fcb0bc842a361ab8058130bcfb14d255d07ed1ab9bf38058",
+              "bytes": 4271
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/data.py",
+              "sha256": "d8e5e49b51d2a7e23842e3cbae91e16f4fe337a2294ed53ff4a6505075e0ad0c",
+              "bytes": 3415
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/electrochem.py",
+              "sha256": "134b77742c94dab715c97b24cda95cc6aba00745c4f9ba54243d33535c930c6c",
+              "bytes": 11725
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/export.py",
+              "sha256": "42307fb9e52432b213118bf7130536f387b2ebf5b5fe3430009e95fd635ada47",
+              "bytes": 4662
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/ingest.py",
+              "sha256": "87ac0d04fe18a8787e2e98fdd38acc5885a72b41f67c2760ae17d15888011164",
+              "bytes": 6401
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/layout.py",
+              "sha256": "089b0734fb90630ebf48a0ad12c8f0f69af367d5bff00987dabdcb346272a5d8",
+              "bytes": 3183
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/qa.py",
+              "sha256": "ebf51dbc92b08ceb2456a7663f975e53b038f53eff90591f2039a629e40e958b",
+              "bytes": 983
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/series_policy.py",
+              "sha256": "56a3a128a34462daab9c6fbee3e42a34ce44f0bd3a3c894fa33848e9c9b16ec0",
+              "bytes": 4929
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/specialist.py",
+              "sha256": "fb9a9dd3bc7ec4bdbb148f82887693c26d1c6702448171d27d535abf51c4db97",
+              "bytes": 12850
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/specification.py",
+              "sha256": "6990e00e7cdcea3fb4f613346d5e7c276e2073a4147b52b69276ae4418178484",
+              "bytes": 2425
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/style.py",
+              "sha256": "e4c069340b9ba1d60f7a7680315329934df114fb6cff3d746b0cb08d17a000ab",
+              "bytes": 15700
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/batteryplot/tofsims.py",
+              "sha256": "3fd24e60a95f579820457d0cf522aae6638b1d30298ab16ccf2855942b4c0678",
+              "bytes": 6394
+            },
+            {
+              "path": "code/skills/voltpeer-plot/scripts/output_safety.py",
+              "sha256": "6f2b035179f83ae3fa25ea54a5d43c0cedf47ff5e0576daf979c3fb8fc0f11da",
+              "bytes": 1871
+            },
+            {
+              "path": "render_existing.py",
+              "sha256": "345de99181487be9d9adf1548db64320c9c37251c41116d74ada9f0069846514",
+              "bytes": 12400
+            },
+            {
+              "path": "requirements.txt",
+              "sha256": "84f5adebc745706c410125781d91db59b59f4322870a2c53685e0aaefb9b8575",
+              "bytes": 34
+            }
+          ]
+        },
+        "data": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/style_presets/style_presets-data.zip",
+          "sha256": "8aaa4b3193162e93e77933a345e619767efd9d4e8c4e899da173272fe396bbf9",
+          "bytes": 31081,
+          "files": [
+            "style_presets/data.csv",
+            "style_presets/metadata.json",
+            "style_presets/source.json"
+          ],
+          "members": [
+            {
+              "path": "style_presets/data.csv",
+              "sha256": "1b8204c7d72bab8dac45e5827913230609c1e146609fd57a68a5d79bec4352f4",
+              "bytes": 72260
+            },
+            {
+              "path": "style_presets/metadata.json",
+              "sha256": "73a6c14705f57a5c9fc8c0a4ca4562aad9c9ac756cfce1480afcf07115c0a10d",
+              "bytes": 8541
+            },
+            {
+              "path": "style_presets/source.json",
+              "sha256": "6918109fde27d78798edd8b38e5f394a05d82eb63a50e608d6f5c3ece98fab65",
+              "bytes": 255
+            }
+          ]
+        },
+        "figures": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/style_presets/style_presets-figures.zip",
+          "sha256": "42aba0d6f4a6731bcb57dfeb9c37fa287e6fb790430aec59b1c2a9e8554fd515",
+          "bytes": 354395,
+          "files": [
+            "reference/figure.pdf",
+            "reference/figure.png",
+            "reference/figure.svg",
+            "reference/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "reference/figure.pdf",
+              "sha256": "9837d760215f7a74b0622a1ede6ddacb8f2c93c0b8a43d734a281b4c91ad9a1c",
+              "bytes": 87760
+            },
+            {
+              "path": "reference/figure.png",
+              "sha256": "9bd4d47f8d9f10b13f4b638a44038aa37bd84a8f7e63b2a64c0435c76a337387",
+              "bytes": 219574
+            },
+            {
+              "path": "reference/figure.svg",
+              "sha256": "84768a1f3044b772d8021adf367f1ad639e16a992d0fc02e2a95ed497eac0200",
+              "bytes": 829769
+            },
+            {
+              "path": "reference/metadata.json",
+              "sha256": "73a6c14705f57a5c9fc8c0a4ca4562aad9c9ac756cfce1480afcf07115c0a10d",
+              "bytes": 8541
+            }
+          ]
+        },
+        "prompt": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/style_presets/style_presets-prompt.txt",
+          "sha256": "daed1edf5e170cfb408af4d08c7f66b6c13f824ec153ce85ccdbcd71bc4dbe07",
+          "bytes": 866
+        }
+      }
+    },
+    {
+      "id": "paper_capacity_repeat",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/paper_capacity_repeat",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-paper_capacity_repeat.zip",
+      "archive_sha256": "fa945e9c35192b83c8d43f4ea58bde13ed5a5fddad01c802b56998869d892868",
+      "metadata_sha256": "38ff16a4bb06b261953a2dc437510987e6fa4619b0ead822ed9c983f57199a95",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/paper_capacity_repeat/paper_capacity_repeat-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/paper_capacity_repeat/paper_capacity_repeat-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/paper_capacity_repeat/paper_capacity_repeat-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/paper_capacity_repeat/paper_capacity_repeat-prompt.txt",
+      "component_records": {
+        "source": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/paper_capacity_repeat/paper_capacity_repeat-source.zip",
+          "sha256": "f63abf726ecc344ebe2c7fc6f23e9b75664516d54b7cf97750b3359858ca165b",
+          "bytes": 11946,
+          "files": [
+            "LICENSE",
+            "README.txt",
+            "SOURCE_MANIFEST.json",
+            "code/examples/showcase/paper.py",
+            "code/examples/showcase/series_policy.py",
+            "render_existing.py",
+            "requirements.txt"
+          ],
+          "members": [
+            {
+              "path": "LICENSE",
+              "sha256": "8f4f64a4e2b245de1be63eff0dfe446ee456639c187864a507e8b7577d4dd8fb",
+              "bytes": 1077
+            },
+            {
+              "path": "README.txt",
+              "sha256": "4ba203b68e8b7149c30e69861b3ea8ff264a27a10535c82d03997607450c8c6a",
+              "bytes": 236
+            },
+            {
+              "path": "SOURCE_MANIFEST.json",
+              "sha256": "96d9a0a232f50f75ea75204844afea18e76fffcd8fe22c00d255dddd890f9166",
+              "bytes": 3232
+            },
+            {
+              "path": "code/examples/showcase/paper.py",
+              "sha256": "c0b472dd885faf41b40f212c0b6aa4b1a885497343073aa32b3bc03219430cde",
+              "bytes": 8879
+            },
+            {
+              "path": "code/examples/showcase/series_policy.py",
+              "sha256": "56a3a128a34462daab9c6fbee3e42a34ce44f0bd3a3c894fa33848e9c9b16ec0",
+              "bytes": 4929
+            },
+            {
+              "path": "render_existing.py",
+              "sha256": "345de99181487be9d9adf1548db64320c9c37251c41116d74ada9f0069846514",
+              "bytes": 12400
+            },
+            {
+              "path": "requirements.txt",
+              "sha256": "84f5adebc745706c410125781d91db59b59f4322870a2c53685e0aaefb9b8575",
+              "bytes": 34
+            }
+          ]
+        },
+        "data": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/paper_capacity_repeat/paper_capacity_repeat-data.zip",
+          "sha256": "6a926ef39df361eadf7058fc299b6a83daa9304f9eb724cec1246501c7b33759",
+          "bytes": 19567,
+          "files": [
+            "paper_capacity_repeat/data.csv",
+            "paper_capacity_repeat/metadata.json",
+            "paper_capacity_repeat/model.json"
+          ],
+          "members": [
+            {
+              "path": "paper_capacity_repeat/data.csv",
+              "sha256": "35ce92feb8375a4ea754a70bacccf40815fd62f2feac203a5991da0c0791b7b3",
+              "bytes": 65783
+            },
+            {
+              "path": "paper_capacity_repeat/metadata.json",
+              "sha256": "38ff16a4bb06b261953a2dc437510987e6fa4619b0ead822ed9c983f57199a95",
+              "bytes": 9246
+            },
+            {
+              "path": "paper_capacity_repeat/model.json",
+              "sha256": "9bebb83b07e05873f6f1c94429a5a669ba3ebddc19957cf7c2c20a7d5e08e7c6",
+              "bytes": 758
+            }
+          ]
+        },
+        "figures": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/paper_capacity_repeat/paper_capacity_repeat-figures.zip",
+          "sha256": "f124d09d750850748077097e257a57e57a6fd5f3348ca6864b913a8a670966d3",
+          "bytes": 160991,
+          "files": [
+            "reference/figure.pdf",
+            "reference/figure.png",
+            "reference/figure.svg",
+            "reference/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "reference/figure.pdf",
+              "sha256": "4b885d8cd13fd18a151a1689eb4f25951aea9d0689614a203aa846b88896bf7e",
+              "bytes": 29221
+            },
+            {
+              "path": "reference/figure.png",
+              "sha256": "a0b9bc36e7d379cd61691fbc09d1a8a8515bd78748c3dc19c470be19181de5b0",
+              "bytes": 106196
+            },
+            {
+              "path": "reference/figure.svg",
+              "sha256": "961a5d33caa2b4e0b0a663959c65ceace26a80ec311ac853632dd3d71109d98c",
+              "bytes": 332750
+            },
+            {
+              "path": "reference/metadata.json",
+              "sha256": "38ff16a4bb06b261953a2dc437510987e6fa4619b0ead822ed9c983f57199a95",
+              "bytes": 9246
+            }
+          ]
+        },
+        "prompt": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/paper_capacity_repeat/paper_capacity_repeat-prompt.txt",
+          "sha256": "daed1edf5e170cfb408af4d08c7f66b6c13f824ec153ce85ccdbcd71bc4dbe07",
+          "bytes": 866
+        }
+      }
+    },
+    {
+      "id": "paper_ce_ledger",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/paper_ce_ledger",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-paper_ce_ledger.zip",
+      "archive_sha256": "491c08270d00aee81c85bde557f17282a64d98691252e583693fc34258a0ca79",
+      "metadata_sha256": "83956b68a0d547e12f65f59a81b8491f1b573f8dcbc664d417eff48311e88320",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/paper_ce_ledger/paper_ce_ledger-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/paper_ce_ledger/paper_ce_ledger-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/paper_ce_ledger/paper_ce_ledger-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/paper_ce_ledger/paper_ce_ledger-prompt.txt",
+      "component_records": {
+        "source": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/paper_ce_ledger/paper_ce_ledger-source.zip",
+          "sha256": "6b4eaaab693c9886a48baf3d4271a8ccd3bb2c954df71f335d44252f6e366e3d",
+          "bytes": 11944,
+          "files": [
+            "LICENSE",
+            "README.txt",
+            "SOURCE_MANIFEST.json",
+            "code/examples/showcase/paper.py",
+            "code/examples/showcase/series_policy.py",
+            "render_existing.py",
+            "requirements.txt"
+          ],
+          "members": [
+            {
+              "path": "LICENSE",
+              "sha256": "8f4f64a4e2b245de1be63eff0dfe446ee456639c187864a507e8b7577d4dd8fb",
+              "bytes": 1077
+            },
+            {
+              "path": "README.txt",
+              "sha256": "4ba203b68e8b7149c30e69861b3ea8ff264a27a10535c82d03997607450c8c6a",
+              "bytes": 236
+            },
+            {
+              "path": "SOURCE_MANIFEST.json",
+              "sha256": "7fd6a3f8133a258ded6037f4cff6bd5a44e1c061bd6006c7a9d700db865b7a11",
+              "bytes": 3172
+            },
+            {
+              "path": "code/examples/showcase/paper.py",
+              "sha256": "c0b472dd885faf41b40f212c0b6aa4b1a885497343073aa32b3bc03219430cde",
+              "bytes": 8879
+            },
+            {
+              "path": "code/examples/showcase/series_policy.py",
+              "sha256": "56a3a128a34462daab9c6fbee3e42a34ce44f0bd3a3c894fa33848e9c9b16ec0",
+              "bytes": 4929
+            },
+            {
+              "path": "render_existing.py",
+              "sha256": "345de99181487be9d9adf1548db64320c9c37251c41116d74ada9f0069846514",
+              "bytes": 12400
+            },
+            {
+              "path": "requirements.txt",
+              "sha256": "84f5adebc745706c410125781d91db59b59f4322870a2c53685e0aaefb9b8575",
+              "bytes": 34
+            }
+          ]
+        },
+        "data": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/paper_ce_ledger/paper_ce_ledger-data.zip",
+          "sha256": "53d29f685028f9dce017266cb36f26eff511e8256824783031547a96c3a2eefc",
+          "bytes": 10244,
+          "files": [
+            "paper_ce_ledger/data.csv",
+            "paper_ce_ledger/metadata.json",
+            "paper_ce_ledger/model.json"
+          ],
+          "members": [
+            {
+              "path": "paper_ce_ledger/data.csv",
+              "sha256": "028f71a9e84364c3231d4b016fdc99c66331ef6a2f361d6b9e99f8c57f84be5c",
+              "bytes": 46458
+            },
+            {
+              "path": "paper_ce_ledger/metadata.json",
+              "sha256": "83956b68a0d547e12f65f59a81b8491f1b573f8dcbc664d417eff48311e88320",
+              "bytes": 8127
+            },
+            {
+              "path": "paper_ce_ledger/model.json",
+              "sha256": "136e3290e6ad1d7c5915dea05aea3bf02ee54a3b3276cfd0360caa2ed5e42616",
+              "bytes": 714
+            }
+          ]
+        },
+        "figures": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/paper_ce_ledger/paper_ce_ledger-figures.zip",
+          "sha256": "1a29a4be916ce218912abf436b1b3c1d692904c9b402507c07710a1d3746d83a",
+          "bytes": 147488,
+          "files": [
+            "reference/figure.pdf",
+            "reference/figure.png",
+            "reference/figure.svg",
+            "reference/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "reference/figure.pdf",
+              "sha256": "616af6d9c8a1a59d31a217d22d912fc3038e0407158d7dc68e62779f541668d6",
+              "bytes": 28817
+            },
+            {
+              "path": "reference/figure.png",
+              "sha256": "f7005c6d2166867387777606c12355638b1abc63317474aab92644cb584a7b2c",
+              "bytes": 114285
+            },
+            {
+              "path": "reference/figure.svg",
+              "sha256": "34c2d0e4433c798a8e0ce150cc8905750e5ccc8e81650e27f4ba35a743de7927",
+              "bytes": 182198
+            },
+            {
+              "path": "reference/metadata.json",
+              "sha256": "83956b68a0d547e12f65f59a81b8491f1b573f8dcbc664d417eff48311e88320",
+              "bytes": 8127
+            }
+          ]
+        },
+        "prompt": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/paper_ce_ledger/paper_ce_ledger-prompt.txt",
+          "sha256": "daed1edf5e170cfb408af4d08c7f66b6c13f824ec153ce85ccdbcd71bc4dbe07",
+          "bytes": 866
+        }
+      }
+    },
+    {
+      "id": "paper_flow_efficiency",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/paper_flow_efficiency",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-paper_flow_efficiency.zip",
+      "archive_sha256": "4b5b120ac79c5ad84ada55bcecc4a750c2aacc3eca709f3126a75b283ac1da1f",
+      "metadata_sha256": "1643e7cc20bb828865b5b8915f90d58c94fbee356b999c40ccd8d6954ef7e9be",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/paper_flow_efficiency/paper_flow_efficiency-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/paper_flow_efficiency/paper_flow_efficiency-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/paper_flow_efficiency/paper_flow_efficiency-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/paper_flow_efficiency/paper_flow_efficiency-prompt.txt",
+      "component_records": {
+        "source": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/paper_flow_efficiency/paper_flow_efficiency-source.zip",
+          "sha256": "352180cd4c59d1012cbc48a02fccb5691a422a59e5d8b96f0c84febc5ada0907",
+          "bytes": 11947,
+          "files": [
+            "LICENSE",
+            "README.txt",
+            "SOURCE_MANIFEST.json",
+            "code/examples/showcase/paper.py",
+            "code/examples/showcase/series_policy.py",
+            "render_existing.py",
+            "requirements.txt"
+          ],
+          "members": [
+            {
+              "path": "LICENSE",
+              "sha256": "8f4f64a4e2b245de1be63eff0dfe446ee456639c187864a507e8b7577d4dd8fb",
+              "bytes": 1077
+            },
+            {
+              "path": "README.txt",
+              "sha256": "4ba203b68e8b7149c30e69861b3ea8ff264a27a10535c82d03997607450c8c6a",
+              "bytes": 236
+            },
+            {
+              "path": "SOURCE_MANIFEST.json",
+              "sha256": "180f5571e3a215f91fa599756c8e611213b6f475dcf155cf555ceb1f28fcfc3e",
+              "bytes": 3232
+            },
+            {
+              "path": "code/examples/showcase/paper.py",
+              "sha256": "c0b472dd885faf41b40f212c0b6aa4b1a885497343073aa32b3bc03219430cde",
+              "bytes": 8879
+            },
+            {
+              "path": "code/examples/showcase/series_policy.py",
+              "sha256": "56a3a128a34462daab9c6fbee3e42a34ce44f0bd3a3c894fa33848e9c9b16ec0",
+              "bytes": 4929
+            },
+            {
+              "path": "render_existing.py",
+              "sha256": "345de99181487be9d9adf1548db64320c9c37251c41116d74ada9f0069846514",
+              "bytes": 12400
+            },
+            {
+              "path": "requirements.txt",
+              "sha256": "84f5adebc745706c410125781d91db59b59f4322870a2c53685e0aaefb9b8575",
+              "bytes": 34
+            }
+          ]
+        },
+        "data": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/paper_flow_efficiency/paper_flow_efficiency-data.zip",
+          "sha256": "14356017b6dac1a35e4fe951c0165c0a864795a18ec80c0fa5f2175649685e99",
+          "bytes": 6429,
+          "files": [
+            "paper_flow_efficiency/data.csv",
+            "paper_flow_efficiency/metadata.json",
+            "paper_flow_efficiency/model.json"
+          ],
+          "members": [
+            {
+              "path": "paper_flow_efficiency/data.csv",
+              "sha256": "811a8822283a9f66aa6f25c0bf5e240bc7f80f90e12462968559293555e0c3dc",
+              "bytes": 13306
+            },
+            {
+              "path": "paper_flow_efficiency/metadata.json",
+              "sha256": "1643e7cc20bb828865b5b8915f90d58c94fbee356b999c40ccd8d6954ef7e9be",
+              "bytes": 7424
+            },
+            {
+              "path": "paper_flow_efficiency/model.json",
+              "sha256": "61f4434611ccff346184b9d2cbcfc793738a4c074fbd427ce6ead77b2ef37f98",
+              "bytes": 718
+            }
+          ]
+        },
+        "figures": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/paper_flow_efficiency/paper_flow_efficiency-figures.zip",
+          "sha256": "7940e9f62c69f144b61925ede63a6065859fd46e8b08f5d84bd79feda4358e66",
+          "bytes": 99694,
+          "files": [
+            "reference/figure.pdf",
+            "reference/figure.png",
+            "reference/figure.svg",
+            "reference/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "reference/figure.pdf",
+              "sha256": "1754806f8b3efef4da391840674aac184aaee1cffd94665d693f80fe4399cf45",
+              "bytes": 25565
+            },
+            {
+              "path": "reference/figure.png",
+              "sha256": "989574d3691ee612276c32f807e72653c5d5132f07a385e0e078965e6bade44a",
+              "bytes": 73180
+            },
+            {
+              "path": "reference/figure.svg",
+              "sha256": "859bae199a25683f2b09962c73649ea756829c51fcd42ead549845a5afe48375",
+              "bytes": 64535
+            },
+            {
+              "path": "reference/metadata.json",
+              "sha256": "1643e7cc20bb828865b5b8915f90d58c94fbee356b999c40ccd8d6954ef7e9be",
+              "bytes": 7424
+            }
+          ]
+        },
+        "prompt": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/paper_flow_efficiency/paper_flow_efficiency-prompt.txt",
+          "sha256": "daed1edf5e170cfb408af4d08c7f66b6c13f824ec153ce85ccdbcd71bc4dbe07",
+          "bytes": 866
+        }
+      }
+    },
+    {
+      "id": "paper_rate_recovery",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/paper_rate_recovery",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-paper_rate_recovery.zip",
+      "archive_sha256": "f04f37d0798242b79a9cf4ad6279a7dae90fc48223534c10278032d5e2a015cc",
+      "metadata_sha256": "1b28e27cf1876c8ab6424227272a1dea0e0eeeb95a607b61c1eb0a0a29435996",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/paper_rate_recovery/paper_rate_recovery-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/paper_rate_recovery/paper_rate_recovery-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/paper_rate_recovery/paper_rate_recovery-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/paper_rate_recovery/paper_rate_recovery-prompt.txt",
+      "component_records": {
+        "source": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/paper_rate_recovery/paper_rate_recovery-source.zip",
+          "sha256": "ff764b75f363355275d483cc602cd7eb9d3f937eefa4d7e4079e7b92a9d649c5",
+          "bytes": 11945,
+          "files": [
+            "LICENSE",
+            "README.txt",
+            "SOURCE_MANIFEST.json",
+            "code/examples/showcase/paper.py",
+            "code/examples/showcase/series_policy.py",
+            "render_existing.py",
+            "requirements.txt"
+          ],
+          "members": [
+            {
+              "path": "LICENSE",
+              "sha256": "8f4f64a4e2b245de1be63eff0dfe446ee456639c187864a507e8b7577d4dd8fb",
+              "bytes": 1077
+            },
+            {
+              "path": "README.txt",
+              "sha256": "4ba203b68e8b7149c30e69861b3ea8ff264a27a10535c82d03997607450c8c6a",
+              "bytes": 236
+            },
+            {
+              "path": "SOURCE_MANIFEST.json",
+              "sha256": "921b8b8b0ede878c2134e8ed1c59b3c88a80fbea3ba826a0bd8f17780148099b",
+              "bytes": 3212
+            },
+            {
+              "path": "code/examples/showcase/paper.py",
+              "sha256": "c0b472dd885faf41b40f212c0b6aa4b1a885497343073aa32b3bc03219430cde",
+              "bytes": 8879
+            },
+            {
+              "path": "code/examples/showcase/series_policy.py",
+              "sha256": "56a3a128a34462daab9c6fbee3e42a34ce44f0bd3a3c894fa33848e9c9b16ec0",
+              "bytes": 4929
+            },
+            {
+              "path": "render_existing.py",
+              "sha256": "345de99181487be9d9adf1548db64320c9c37251c41116d74ada9f0069846514",
+              "bytes": 12400
+            },
+            {
+              "path": "requirements.txt",
+              "sha256": "84f5adebc745706c410125781d91db59b59f4322870a2c53685e0aaefb9b8575",
+              "bytes": 34
+            }
+          ]
+        },
+        "data": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/paper_rate_recovery/paper_rate_recovery-data.zip",
+          "sha256": "d7550dd60afcd0d579655b3d39b6da7c07cbd84687bc147dc952cc34a51ed99e",
+          "bytes": 3060,
+          "files": [
+            "paper_rate_recovery/data.csv",
+            "paper_rate_recovery/metadata.json",
+            "paper_rate_recovery/model.json"
+          ],
+          "members": [
+            {
+              "path": "paper_rate_recovery/data.csv",
+              "sha256": "6669f5f01304bb2ce742288f8607da7e4d83c100a2e3c8769b044a261640626e",
+              "bytes": 3890
+            },
+            {
+              "path": "paper_rate_recovery/metadata.json",
+              "sha256": "1b28e27cf1876c8ab6424227272a1dea0e0eeeb95a607b61c1eb0a0a29435996",
+              "bytes": 6131
+            },
+            {
+              "path": "paper_rate_recovery/model.json",
+              "sha256": "d054ecb792f4e0b7b8cd7d81f0642c4e1f58a746ec92d902a68df92399aefa16",
+              "bytes": 782
+            }
+          ]
+        },
+        "figures": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/paper_rate_recovery/paper_rate_recovery-figures.zip",
+          "sha256": "94a28fd961f5a733da435e3b147363a0c2458859a248676139549e4cbcf752fc",
+          "bytes": 77591,
+          "files": [
+            "reference/figure.pdf",
+            "reference/figure.png",
+            "reference/figure.svg",
+            "reference/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "reference/figure.pdf",
+              "sha256": "8bb3635e5d4129c85de8b2f0ca09c833cd4e6bd7d16aa9506e39b5a03bb1bba0",
+              "bytes": 20969
+            },
+            {
+              "path": "reference/figure.png",
+              "sha256": "1a814cdb76ac23dde6fd018a90a711a3de8218a3391ec8e9483adb1b138dd664",
+              "bytes": 60297
+            },
+            {
+              "path": "reference/figure.svg",
+              "sha256": "501503fdd078f3151b54699d3b69f0ceff96c67e41412173bae1a5c75d6750a9",
+              "bytes": 29206
+            },
+            {
+              "path": "reference/metadata.json",
+              "sha256": "1b28e27cf1876c8ab6424227272a1dea0e0eeeb95a607b61c1eb0a0a29435996",
+              "bytes": 6131
+            }
+          ]
+        },
+        "prompt": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/paper_rate_recovery/paper_rate_recovery-prompt.txt",
+          "sha256": "daed1edf5e170cfb408af4d08c7f66b6c13f824ec153ce85ccdbcd71bc4dbe07",
+          "bytes": 866
+        }
+      }
+    },
+    {
+      "id": "science_inventory_compounding",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/science_inventory_compounding",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-science_inventory_compounding.zip",
+      "archive_sha256": "541f35c30db771196c383c6aa2b3a03592f33b3d3f2797a887cb3547d0f7e213",
+      "metadata_sha256": "08b84f8357d6881eb0dae0f06ecb079414626e67499c0b328d42df08c895aa93",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/science_inventory_compounding/science_inventory_compounding-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/science_inventory_compounding/science_inventory_compounding-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/science_inventory_compounding/science_inventory_compounding-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/science_inventory_compounding/science_inventory_compounding-prompt.txt",
+      "component_records": {
+        "source": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/science_inventory_compounding/science_inventory_compounding-source.zip",
+          "sha256": "def07c2c73363ad6a5b2498d9b408fee3945bc1cfca83ae8d2a4c64f1ce852d8",
+          "bytes": 11377,
+          "files": [
+            "LICENSE",
+            "README.txt",
+            "SOURCE_MANIFEST.json",
+            "code/examples/showcase/science.py",
+            "code/examples/showcase/series_policy.py",
+            "render_existing.py",
+            "requirements.txt"
+          ],
+          "members": [
+            {
+              "path": "LICENSE",
+              "sha256": "8f4f64a4e2b245de1be63eff0dfe446ee456639c187864a507e8b7577d4dd8fb",
+              "bytes": 1077
+            },
+            {
+              "path": "README.txt",
+              "sha256": "4ba203b68e8b7149c30e69861b3ea8ff264a27a10535c82d03997607450c8c6a",
+              "bytes": 236
+            },
+            {
+              "path": "SOURCE_MANIFEST.json",
+              "sha256": "59370df5496faf3af69aac8c1434f885c9511a1e4b58a2b4b83ffef901bc9466",
+              "bytes": 3318
+            },
+            {
+              "path": "code/examples/showcase/science.py",
+              "sha256": "18740eab5232262e395c5d1c714d1026b0cbfc65d1457f8a3df7f69fc020a005",
+              "bytes": 7164
+            },
+            {
+              "path": "code/examples/showcase/series_policy.py",
+              "sha256": "56a3a128a34462daab9c6fbee3e42a34ce44f0bd3a3c894fa33848e9c9b16ec0",
+              "bytes": 4929
+            },
+            {
+              "path": "render_existing.py",
+              "sha256": "345de99181487be9d9adf1548db64320c9c37251c41116d74ada9f0069846514",
+              "bytes": 12400
+            },
+            {
+              "path": "requirements.txt",
+              "sha256": "84f5adebc745706c410125781d91db59b59f4322870a2c53685e0aaefb9b8575",
+              "bytes": 34
+            }
+          ]
+        },
+        "data": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/science_inventory_compounding/science_inventory_compounding-data.zip",
+          "sha256": "afedb5d106cd2c5777c478af6b949f6edaf4a2f10f93fb78e57ce68f34c5b9ce",
+          "bytes": 12042,
+          "files": [
+            "science_inventory_compounding/data.csv",
+            "science_inventory_compounding/metadata.json",
+            "science_inventory_compounding/model.json"
+          ],
+          "members": [
+            {
+              "path": "science_inventory_compounding/data.csv",
+              "sha256": "78a76523a8b16acfe025b1a66e6cadc85528dd5451798d90b98a430d9d2bd14b",
+              "bytes": 35629
+            },
+            {
+              "path": "science_inventory_compounding/metadata.json",
+              "sha256": "08b84f8357d6881eb0dae0f06ecb079414626e67499c0b328d42df08c895aa93",
+              "bytes": 5775
+            },
+            {
+              "path": "science_inventory_compounding/model.json",
+              "sha256": "e07b43689d38d996a5160623ca7f2735994109fba99f18e91fc2aa9f61e4a8c6",
+              "bytes": 670
+            }
+          ]
+        },
+        "figures": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/science_inventory_compounding/science_inventory_compounding-figures.zip",
+          "sha256": "0944c060908d78692f13e0bad39aa539deb4d2f3c8d837afc7ee08e6225058ad",
+          "bytes": 102336,
+          "files": [
+            "reference/figure.pdf",
+            "reference/figure.png",
+            "reference/figure.svg",
+            "reference/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "reference/figure.pdf",
+              "sha256": "6ca68f661b698763a04530764bda0515de7f6eedbe3a0c6d6781855bba19e9f6",
+              "bytes": 18280
+            },
+            {
+              "path": "reference/figure.png",
+              "sha256": "1e55611cc80426d50cd97aca1a6e8cdd2aa3daf9648c4222b48cc1877c54a8cb",
+              "bytes": 82266
+            },
+            {
+              "path": "reference/figure.svg",
+              "sha256": "b46bddbc779941552e262f9bd12cb8a54b86664cd12257a4d74eb7d1ef0eaf4a",
+              "bytes": 105313
+            },
+            {
+              "path": "reference/metadata.json",
+              "sha256": "08b84f8357d6881eb0dae0f06ecb079414626e67499c0b328d42df08c895aa93",
+              "bytes": 5775
+            }
+          ]
+        },
+        "prompt": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/science_inventory_compounding/science_inventory_compounding-prompt.txt",
+          "sha256": "daed1edf5e170cfb408af4d08c7f66b6c13f824ec153ce85ccdbcd71bc4dbe07",
+          "bytes": 866
+        }
+      }
+    },
+    {
+      "id": "na_metal_ce",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/na_metal_ce",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-na_metal_ce.zip",
+      "archive_sha256": "32cd12443bb1f9a0fee3621647b9fa573ecdcd4fc3b75570141533846cfd5754",
+      "metadata_sha256": "5e74b3658c35a0fda976dee756770b4f5da42ecd6adb1f599c55b801986d3c28",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/na_metal_ce/na_metal_ce-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/na_metal_ce/na_metal_ce-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/na_metal_ce/na_metal_ce-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/na_metal_ce/na_metal_ce-prompt.txt",
+      "component_records": {
+        "source": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/na_metal_ce/na_metal_ce-source.zip",
+          "sha256": "78ed018858a1ac83afcc5f45d49bb1bd68e1c6713bc2d3f39df44389da9ccb9c",
+          "bytes": 21106,
+          "files": [
+            "LICENSE",
+            "README.txt",
+            "SOURCE_MANIFEST.json",
+            "code/examples/showcase/domain.py",
+            "code/examples/showcase/domain_inputs.json",
+            "code/examples/showcase/domain_model.py",
+            "code/examples/showcase/series_policy.py",
+            "render_existing.py",
+            "requirements.txt"
+          ],
+          "members": [
+            {
+              "path": "LICENSE",
+              "sha256": "8f4f64a4e2b245de1be63eff0dfe446ee456639c187864a507e8b7577d4dd8fb",
+              "bytes": 1077
+            },
+            {
+              "path": "README.txt",
+              "sha256": "55c7718d7f4b4c7d770e014f4668e545c586676bf25e150e1ed4c9604677e478",
+              "bytes": 524
+            },
+            {
+              "path": "SOURCE_MANIFEST.json",
+              "sha256": "68d1ac4b0724e0f6c3f1d378437529e62d761dfba0a849f0bf700a732db25109",
+              "bytes": 3358
+            },
+            {
+              "path": "code/examples/showcase/domain.py",
+              "sha256": "581af8b2878f6e080f8ea4e81fc3e209e8eec69bf0b260e123dd82ac2fa24f31",
+              "bytes": 1876
+            },
+            {
+              "path": "code/examples/showcase/domain_inputs.json",
+              "sha256": "199619d4e1b3dede280788c3a9a9a5121371e26ad690a082ca6421fbf8717821",
+              "bytes": 243
+            },
+            {
+              "path": "code/examples/showcase/domain_model.py",
+              "sha256": "c6cf21057ea42ba427c25e720f04a321c076fe9a4abef4165cb613ceff2c28e1",
+              "bytes": 32824
+            },
+            {
+              "path": "code/examples/showcase/series_policy.py",
+              "sha256": "56a3a128a34462daab9c6fbee3e42a34ce44f0bd3a3c894fa33848e9c9b16ec0",
+              "bytes": 4929
+            },
+            {
+              "path": "render_existing.py",
+              "sha256": "345de99181487be9d9adf1548db64320c9c37251c41116d74ada9f0069846514",
+              "bytes": 12400
+            },
+            {
+              "path": "requirements.txt",
+              "sha256": "84f5adebc745706c410125781d91db59b59f4322870a2c53685e0aaefb9b8575",
+              "bytes": 34
+            }
+          ]
+        },
+        "data": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/na_metal_ce/na_metal_ce-data.zip",
+          "sha256": "70ec4fb2e57e427f59b23ffc60317721470de730c833ed79875145286e63de08",
+          "bytes": 4657,
+          "files": [
+            "na_metal_ce/data.csv",
+            "na_metal_ce/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "na_metal_ce/data.csv",
+              "sha256": "b52e273348f3d241375c45f6d7df7c6f04273dad8363160dd0419f57e04f8e83",
+              "bytes": 9492
+            },
+            {
+              "path": "na_metal_ce/metadata.json",
+              "sha256": "5e74b3658c35a0fda976dee756770b4f5da42ecd6adb1f599c55b801986d3c28",
+              "bytes": 3335
+            }
+          ]
+        },
+        "figures": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/na_metal_ce/na_metal_ce-figures.zip",
+          "sha256": "1f89609f8ffa0324c75091c5636827eb7ac87533f8c027e61ded10ed6fd5126a",
+          "bytes": 51531,
+          "files": [
+            "reference/figure.pdf",
+            "reference/figure.png",
+            "reference/figure.svg",
+            "reference/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "reference/figure.pdf",
+              "sha256": "f214abbf5f2cdd47511651580dd768dee8304d0f31033788a1e14e77014863cd",
+              "bytes": 12737
+            },
+            {
+              "path": "reference/figure.png",
+              "sha256": "c3d8ebf15f0e5cbb323c36a38eb70095cb79d68b41ad4a9735b6cbd3396e80f2",
+              "bytes": 36867
+            },
+            {
+              "path": "reference/figure.svg",
+              "sha256": "e266041a3e01edefbed51bcc51461506365dd405cdb9a73c540c2d9ea74704e5",
+              "bytes": 36453
+            },
+            {
+              "path": "reference/metadata.json",
+              "sha256": "5e74b3658c35a0fda976dee756770b4f5da42ecd6adb1f599c55b801986d3c28",
+              "bytes": 3335
+            }
+          ]
+        },
+        "prompt": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/na_metal_ce/na_metal_ce-prompt.txt",
+          "sha256": "daed1edf5e170cfb408af4d08c7f66b6c13f824ec153ce85ccdbcd71bc4dbe07",
+          "bytes": 866
+        }
+      }
+    },
+    {
+      "id": "zn_plating_ce",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/zn_plating_ce",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-zn_plating_ce.zip",
+      "archive_sha256": "c159c6d4d45c8bc6b3355b8ec8bbd00914656f6b8c82d115d1e5325ce4ced644",
+      "metadata_sha256": "7cf2b010a55842ff89f58f76ba87fa47e9eb351247a378d2d645a6c88d4142df",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/zn_plating_ce/zn_plating_ce-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/zn_plating_ce/zn_plating_ce-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/zn_plating_ce/zn_plating_ce-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/zn_plating_ce/zn_plating_ce-prompt.txt",
+      "component_records": {
+        "source": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/zn_plating_ce/zn_plating_ce-source.zip",
+          "sha256": "0e983b733f7bbc2b5e07a325f489a39fe3b276aa88144d6f134624c63a436665",
+          "bytes": 21107,
+          "files": [
+            "LICENSE",
+            "README.txt",
+            "SOURCE_MANIFEST.json",
+            "code/examples/showcase/domain.py",
+            "code/examples/showcase/domain_inputs.json",
+            "code/examples/showcase/domain_model.py",
+            "code/examples/showcase/series_policy.py",
+            "render_existing.py",
+            "requirements.txt"
+          ],
+          "members": [
+            {
+              "path": "LICENSE",
+              "sha256": "8f4f64a4e2b245de1be63eff0dfe446ee456639c187864a507e8b7577d4dd8fb",
+              "bytes": 1077
+            },
+            {
+              "path": "README.txt",
+              "sha256": "55c7718d7f4b4c7d770e014f4668e545c586676bf25e150e1ed4c9604677e478",
+              "bytes": 524
+            },
+            {
+              "path": "SOURCE_MANIFEST.json",
+              "sha256": "6dff7513043b065d256c1fb785505c466f5c60489ec5a96c41a2a78860a37345",
+              "bytes": 3372
+            },
+            {
+              "path": "code/examples/showcase/domain.py",
+              "sha256": "581af8b2878f6e080f8ea4e81fc3e209e8eec69bf0b260e123dd82ac2fa24f31",
+              "bytes": 1876
+            },
+            {
+              "path": "code/examples/showcase/domain_inputs.json",
+              "sha256": "2fe9a71152cf3519afe1ed03ca908249852c7587a01ea6e8fb841f8123921712",
+              "bytes": 245
+            },
+            {
+              "path": "code/examples/showcase/domain_model.py",
+              "sha256": "c6cf21057ea42ba427c25e720f04a321c076fe9a4abef4165cb613ceff2c28e1",
+              "bytes": 32824
+            },
+            {
+              "path": "code/examples/showcase/series_policy.py",
+              "sha256": "56a3a128a34462daab9c6fbee3e42a34ce44f0bd3a3c894fa33848e9c9b16ec0",
+              "bytes": 4929
+            },
+            {
+              "path": "render_existing.py",
+              "sha256": "345de99181487be9d9adf1548db64320c9c37251c41116d74ada9f0069846514",
+              "bytes": 12400
+            },
+            {
+              "path": "requirements.txt",
+              "sha256": "84f5adebc745706c410125781d91db59b59f4322870a2c53685e0aaefb9b8575",
+              "bytes": 34
+            }
+          ]
+        },
+        "data": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/zn_plating_ce/zn_plating_ce-data.zip",
+          "sha256": "3648c9f8904e39992a4377a263dc57f88839f0153592e7e1a579bc08adb8b39d",
+          "bytes": 4792,
+          "files": [
+            "zn_plating_ce/data.csv",
+            "zn_plating_ce/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "zn_plating_ce/data.csv",
+              "sha256": "d330da6da8f713ee03cdebf76e60606a0e13f8ab5e30b6a51fe59d98e5ea969a",
+              "bytes": 9493
+            },
+            {
+              "path": "zn_plating_ce/metadata.json",
+              "sha256": "7cf2b010a55842ff89f58f76ba87fa47e9eb351247a378d2d645a6c88d4142df",
+              "bytes": 3676
+            }
+          ]
+        },
+        "figures": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/zn_plating_ce/zn_plating_ce-figures.zip",
+          "sha256": "094527a2bf130f12ade9900b2ab6b6e3aaeea555266c6f206abcaa59045c7cc6",
+          "bytes": 51552,
+          "files": [
+            "reference/figure.pdf",
+            "reference/figure.png",
+            "reference/figure.svg",
+            "reference/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "reference/figure.pdf",
+              "sha256": "f9cadc088dbe17711c8e0986c6c210e6b7b2e567fd7679b336c0cc0bacb8b9ec",
+              "bytes": 12698
+            },
+            {
+              "path": "reference/figure.png",
+              "sha256": "1879e783ab9f855769db789339401f7c60f3b68ac64a484394fba3b4be35d9e3",
+              "bytes": 36735
+            },
+            {
+              "path": "reference/figure.svg",
+              "sha256": "84c1ffe7df6330d652f94deecf7f38f2b57099305cfa05f85debf14f3dd1f489",
+              "bytes": 36441
+            },
+            {
+              "path": "reference/metadata.json",
+              "sha256": "7cf2b010a55842ff89f58f76ba87fa47e9eb351247a378d2d645a6c88d4142df",
+              "bytes": 3676
+            }
+          ]
+        },
+        "prompt": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/zn_plating_ce/zn_plating_ce-prompt.txt",
+          "sha256": "daed1edf5e170cfb408af4d08c7f66b6c13f824ec153ce85ccdbcd71bc4dbe07",
+          "bytes": 866
+        }
+      }
+    },
+    {
+      "id": "k_ion_rate",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/k_ion_rate",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-k_ion_rate.zip",
+      "archive_sha256": "2ca12be1665cd658cc2ac0dbfaf2e932ff5b0879b87f40fb7f5508478532b980",
+      "metadata_sha256": "554a03c267a17ad927ef5037cd425a7a79bfc83407c33c304403641d899796f7",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/k_ion_rate/k_ion_rate-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/k_ion_rate/k_ion_rate-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/k_ion_rate/k_ion_rate-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/k_ion_rate/k_ion_rate-prompt.txt",
+      "component_records": {
+        "source": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/k_ion_rate/k_ion_rate-source.zip",
+          "sha256": "928f888ab565666d1c3da56813cb7aabd44e5267d57d9db27816fec15e778d66",
+          "bytes": 21102,
+          "files": [
+            "LICENSE",
+            "README.txt",
+            "SOURCE_MANIFEST.json",
+            "code/examples/showcase/domain.py",
+            "code/examples/showcase/domain_inputs.json",
+            "code/examples/showcase/domain_model.py",
+            "code/examples/showcase/series_policy.py",
+            "render_existing.py",
+            "requirements.txt"
+          ],
+          "members": [
+            {
+              "path": "LICENSE",
+              "sha256": "8f4f64a4e2b245de1be63eff0dfe446ee456639c187864a507e8b7577d4dd8fb",
+              "bytes": 1077
+            },
+            {
+              "path": "README.txt",
+              "sha256": "55c7718d7f4b4c7d770e014f4668e545c586676bf25e150e1ed4c9604677e478",
+              "bytes": 524
+            },
+            {
+              "path": "SOURCE_MANIFEST.json",
+              "sha256": "18b1bd1e490c09e79d165576c2136c38dfcae397ff0456f7102e89737fe121eb",
+              "bytes": 3351
+            },
+            {
+              "path": "code/examples/showcase/domain.py",
+              "sha256": "581af8b2878f6e080f8ea4e81fc3e209e8eec69bf0b260e123dd82ac2fa24f31",
+              "bytes": 1876
+            },
+            {
+              "path": "code/examples/showcase/domain_inputs.json",
+              "sha256": "5a7288bb45a3ce560a5ddd2371e8d278d6896f2b340f1137d51f3e58cbe7feda",
+              "bytes": 244
+            },
+            {
+              "path": "code/examples/showcase/domain_model.py",
+              "sha256": "c6cf21057ea42ba427c25e720f04a321c076fe9a4abef4165cb613ceff2c28e1",
+              "bytes": 32824
+            },
+            {
+              "path": "code/examples/showcase/series_policy.py",
+              "sha256": "56a3a128a34462daab9c6fbee3e42a34ce44f0bd3a3c894fa33848e9c9b16ec0",
+              "bytes": 4929
+            },
+            {
+              "path": "render_existing.py",
+              "sha256": "345de99181487be9d9adf1548db64320c9c37251c41116d74ada9f0069846514",
+              "bytes": 12400
+            },
+            {
+              "path": "requirements.txt",
+              "sha256": "84f5adebc745706c410125781d91db59b59f4322870a2c53685e0aaefb9b8575",
+              "bytes": 34
+            }
+          ]
+        },
+        "data": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/k_ion_rate/k_ion_rate-data.zip",
+          "sha256": "86155858c407cf2d7ce0465cd305950fda9bf566c146d281aa5a7b4cc874f52b",
+          "bytes": 2396,
+          "files": [
+            "k_ion_rate/data.csv",
+            "k_ion_rate/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "k_ion_rate/data.csv",
+              "sha256": "6d8c9a58b7a7a1c6460a06d07a8d888e3d70548fd4fb712c346f62ac068aa471",
+              "bytes": 1853
+            },
+            {
+              "path": "k_ion_rate/metadata.json",
+              "sha256": "554a03c267a17ad927ef5037cd425a7a79bfc83407c33c304403641d899796f7",
+              "bytes": 3426
+            }
+          ]
+        },
+        "figures": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/k_ion_rate/k_ion_rate-figures.zip",
+          "sha256": "2b101e668b278bb0dada414f16349b9e2891726d55eb16f663071b9103f350f3",
+          "bytes": 58177,
+          "files": [
+            "reference/figure.pdf",
+            "reference/figure.png",
+            "reference/figure.svg",
+            "reference/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "reference/figure.pdf",
+              "sha256": "2c1d74f8873a6d345309e01f5381ca390e0a9d01dc327d8e58c7c752db283c7c",
+              "bytes": 25601
+            },
+            {
+              "path": "reference/figure.png",
+              "sha256": "f9fff3eedecf1e79d939ac4b50fe7d70b021fe9e646ba15fcd159dec3c8dc272",
+              "bytes": 33147
+            },
+            {
+              "path": "reference/figure.svg",
+              "sha256": "1f6c255477d06a5152ecd6a188bdba883714f5f41e3f32491f352654da3892cc",
+              "bytes": 27975
+            },
+            {
+              "path": "reference/metadata.json",
+              "sha256": "554a03c267a17ad927ef5037cd425a7a79bfc83407c33c304403641d899796f7",
+              "bytes": 3426
+            }
+          ]
+        },
+        "prompt": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/k_ion_rate/k_ion_rate-prompt.txt",
+          "sha256": "daed1edf5e170cfb408af4d08c7f66b6c13f824ec153ce85ccdbcd71bc4dbe07",
+          "bytes": 866
+        }
+      }
+    },
+    {
+      "id": "zn_i2_cycle",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/zn_i2_cycle",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-zn_i2_cycle.zip",
+      "archive_sha256": "40fb5c988d37fd6e5da25578abb1bb7dc5b56027cb83b57629037689a79dbc97",
+      "metadata_sha256": "b000a578fe664d49a32904c40db0dcdadda6eb582fb8b9682af5750a11242c39",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/zn_i2_cycle/zn_i2_cycle-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/zn_i2_cycle/zn_i2_cycle-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/zn_i2_cycle/zn_i2_cycle-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/zn_i2_cycle/zn_i2_cycle-prompt.txt",
+      "component_records": {
+        "source": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/zn_i2_cycle/zn_i2_cycle-source.zip",
+          "sha256": "4396499991cfea414c15954a6accbfca704920928a6556f8ea17d50c91bd1272",
+          "bytes": 21115,
+          "files": [
+            "LICENSE",
+            "README.txt",
+            "SOURCE_MANIFEST.json",
+            "code/examples/showcase/domain.py",
+            "code/examples/showcase/domain_inputs.json",
+            "code/examples/showcase/domain_model.py",
+            "code/examples/showcase/series_policy.py",
+            "render_existing.py",
+            "requirements.txt"
+          ],
+          "members": [
+            {
+              "path": "LICENSE",
+              "sha256": "8f4f64a4e2b245de1be63eff0dfe446ee456639c187864a507e8b7577d4dd8fb",
+              "bytes": 1077
+            },
+            {
+              "path": "README.txt",
+              "sha256": "55c7718d7f4b4c7d770e014f4668e545c586676bf25e150e1ed4c9604677e478",
+              "bytes": 524
+            },
+            {
+              "path": "SOURCE_MANIFEST.json",
+              "sha256": "84d2f679053ffdad9f623e9841800d4a1fb85a34cabfcf5007a51adad4cd95c3",
+              "bytes": 3358
+            },
+            {
+              "path": "code/examples/showcase/domain.py",
+              "sha256": "581af8b2878f6e080f8ea4e81fc3e209e8eec69bf0b260e123dd82ac2fa24f31",
+              "bytes": 1876
+            },
+            {
+              "path": "code/examples/showcase/domain_inputs.json",
+              "sha256": "dce137945f6840d77ce7d96736d8ccef1ec3c937de189128844220e68d83405e",
+              "bytes": 248
+            },
+            {
+              "path": "code/examples/showcase/domain_model.py",
+              "sha256": "c6cf21057ea42ba427c25e720f04a321c076fe9a4abef4165cb613ceff2c28e1",
+              "bytes": 32824
+            },
+            {
+              "path": "code/examples/showcase/series_policy.py",
+              "sha256": "56a3a128a34462daab9c6fbee3e42a34ce44f0bd3a3c894fa33848e9c9b16ec0",
+              "bytes": 4929
+            },
+            {
+              "path": "render_existing.py",
+              "sha256": "345de99181487be9d9adf1548db64320c9c37251c41116d74ada9f0069846514",
+              "bytes": 12400
+            },
+            {
+              "path": "requirements.txt",
+              "sha256": "84f5adebc745706c410125781d91db59b59f4322870a2c53685e0aaefb9b8575",
+              "bytes": 34
+            }
+          ]
+        },
+        "data": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/zn_i2_cycle/zn_i2_cycle-data.zip",
+          "sha256": "30965794bff5c8470ea4fc54734d07d41508ad675df7c9947c5aa7b45c9d3a24",
+          "bytes": 16838,
+          "files": [
+            "zn_i2_cycle/data.csv",
+            "zn_i2_cycle/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "zn_i2_cycle/data.csv",
+              "sha256": "e0917c627cd3e822b9f40d9130c7d164ab5ed8ae940efd9e9f05251274621989",
+              "bytes": 31099
+            },
+            {
+              "path": "zn_i2_cycle/metadata.json",
+              "sha256": "b000a578fe664d49a32904c40db0dcdadda6eb582fb8b9682af5750a11242c39",
+              "bytes": 4973
+            }
+          ]
+        },
+        "figures": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/zn_i2_cycle/zn_i2_cycle-figures.zip",
+          "sha256": "066609840b22700167250edc9773314f328093a9438f857b64c4a8eabf4d4016",
+          "bytes": 149385,
+          "files": [
+            "reference/figure.pdf",
+            "reference/figure.png",
+            "reference/figure.svg",
+            "reference/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "reference/figure.pdf",
+              "sha256": "3c4c827add0e873e83304cdea797a9eb9184f542988e8baa00898d7a01633cc4",
+              "bytes": 47124
+            },
+            {
+              "path": "reference/figure.png",
+              "sha256": "191f15619a4439051e57a80208b2e03c45f516723dea603533d5a0a22330c169",
+              "bytes": 83186
+            },
+            {
+              "path": "reference/figure.svg",
+              "sha256": "3676019904e9343f44f4cfed047f5a3319123e238982347e18e1bdbd3e4c9f96",
+              "bytes": 212925
+            },
+            {
+              "path": "reference/metadata.json",
+              "sha256": "b000a578fe664d49a32904c40db0dcdadda6eb582fb8b9682af5750a11242c39",
+              "bytes": 4973
+            }
+          ]
+        },
+        "prompt": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/zn_i2_cycle/zn_i2_cycle-prompt.txt",
+          "sha256": "daed1edf5e170cfb408af4d08c7f66b6c13f824ec153ce85ccdbcd71bc4dbe07",
+          "bytes": 866
+        }
+      }
+    },
+    {
+      "id": "flow_efficiency",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/flow_efficiency",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-flow_efficiency.zip",
+      "archive_sha256": "b5c6ffea9e883996c1f5b679a3ed00a20d23d185dd3192cac6feef2eab8763af",
+      "metadata_sha256": "8a6d351f124ebda5892941726e938651b93c829ec85d6bfc483883b05555be6b",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/flow_efficiency/flow_efficiency-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/flow_efficiency/flow_efficiency-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/flow_efficiency/flow_efficiency-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/flow_efficiency/flow_efficiency-prompt.txt",
+      "component_records": {
+        "source": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/flow_efficiency/flow_efficiency-source.zip",
+          "sha256": "5920f160f782769e1b7338be1aa17dd059025427de33d7126b605bed30262d69",
+          "bytes": 21226,
+          "files": [
+            "LICENSE",
+            "README.txt",
+            "SOURCE_MANIFEST.json",
+            "code/examples/showcase/domain.py",
+            "code/examples/showcase/domain_inputs.json",
+            "code/examples/showcase/domain_model.py",
+            "code/examples/showcase/series_policy.py",
+            "render_existing.py",
+            "requirements.txt"
+          ],
+          "members": [
+            {
+              "path": "LICENSE",
+              "sha256": "8f4f64a4e2b245de1be63eff0dfe446ee456639c187864a507e8b7577d4dd8fb",
+              "bytes": 1077
+            },
+            {
+              "path": "README.txt",
+              "sha256": "55c7718d7f4b4c7d770e014f4668e545c586676bf25e150e1ed4c9604677e478",
+              "bytes": 524
+            },
+            {
+              "path": "SOURCE_MANIFEST.json",
+              "sha256": "3493f29d2f85c2a542dad4c6557427ee33443f85ee469e5d2956939137a1185d",
+              "bytes": 3749
+            },
+            {
+              "path": "code/examples/showcase/domain.py",
+              "sha256": "581af8b2878f6e080f8ea4e81fc3e209e8eec69bf0b260e123dd82ac2fa24f31",
+              "bytes": 1876
+            },
+            {
+              "path": "code/examples/showcase/domain_inputs.json",
+              "sha256": "372ce09cbd39a3a3c8ef325fb4b951b1fcafee0e7010c2f57c011408afe5227c",
+              "bytes": 351
+            },
+            {
+              "path": "code/examples/showcase/domain_model.py",
+              "sha256": "c6cf21057ea42ba427c25e720f04a321c076fe9a4abef4165cb613ceff2c28e1",
+              "bytes": 32824
+            },
+            {
+              "path": "code/examples/showcase/series_policy.py",
+              "sha256": "56a3a128a34462daab9c6fbee3e42a34ce44f0bd3a3c894fa33848e9c9b16ec0",
+              "bytes": 4929
+            },
+            {
+              "path": "render_existing.py",
+              "sha256": "345de99181487be9d9adf1548db64320c9c37251c41116d74ada9f0069846514",
+              "bytes": 12400
+            },
+            {
+              "path": "requirements.txt",
+              "sha256": "84f5adebc745706c410125781d91db59b59f4322870a2c53685e0aaefb9b8575",
+              "bytes": 34
+            }
+          ]
+        },
+        "data": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/flow_efficiency/flow_efficiency-data.zip",
+          "sha256": "f76819b4108b16b15e05dc13ac85612bf49fc8a605147cdedaf18acffb94c325",
+          "bytes": 155683,
+          "files": [
+            "flow_efficiency/cycle_profiles.csv",
+            "flow_efficiency/data.csv",
+            "flow_efficiency/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "flow_efficiency/cycle_profiles.csv",
+              "sha256": "0474c32fb44a537fdf195b130d64b98d318748dcd1f0fc8ce8058f02cb8b924e",
+              "bytes": 597459
+            },
+            {
+              "path": "flow_efficiency/data.csv",
+              "sha256": "d24cd5b6e06c7772805b876df77d41c3c06b0da345a08443568156ca44a8bce7",
+              "bytes": 17497
+            },
+            {
+              "path": "flow_efficiency/metadata.json",
+              "sha256": "8a6d351f124ebda5892941726e938651b93c829ec85d6bfc483883b05555be6b",
+              "bytes": 5186
+            }
+          ]
+        },
+        "figures": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/flow_efficiency/flow_efficiency-figures.zip",
+          "sha256": "2cb662abbf239cb3ed4d3ebf47d0772d0a0ea50320fb099b24141278b67fda38",
+          "bytes": 111849,
+          "files": [
+            "reference/figure.pdf",
+            "reference/figure.png",
+            "reference/figure.svg",
+            "reference/metadata.json"
+          ],
+          "members": [
+            {
+              "path": "reference/figure.pdf",
+              "sha256": "534affc100cc45501e40b465e06ec99abee8de9c84344e993ea53a0185225c76",
+              "bytes": 24033
+            },
+            {
+              "path": "reference/figure.png",
+              "sha256": "f42ef635d7fa26644216359c7ed16a1cc3782d19d749bc53988f4f4e9063695c",
+              "bytes": 76381
+            },
+            {
+              "path": "reference/figure.svg",
+              "sha256": "4b8b9988332d4df455d6a6e211fb765e64c6a46099c6fe19acf6ca75f6171fa1",
+              "bytes": 143064
+            },
+            {
+              "path": "reference/metadata.json",
+              "sha256": "8a6d351f124ebda5892941726e938651b93c829ec85d6bfc483883b05555be6b",
+              "bytes": 5186
+            }
+          ]
+        },
+        "prompt": {
+          "url": "assets/cycling-rule-v1.2.0/split-demos/flow_efficiency/flow_efficiency-prompt.txt",
+          "sha256": "daed1edf5e170cfb408af4d08c7f66b6c13f824ec153ce85ccdbcd71bc4dbe07",
+          "bytes": 866
+        }
+      }
+    }
+  ],
+  "original_csv_changes": [],
+  "recipe_registry": "assets/cycling-rule-v1.2.0/recipes/recipe-packs.json",
+  "starter_archive": "assets/cycling-rule-v1.2.1/starter/VoltPeer-Plot-Starter-v0.12.0.zip",
+  "frontpage_root": "assets/cycling-rule-v1.2.0/frontpage",
+  "publication": {
+    "GitHub": "NOT_PUSHED",
+    "ECS": "NOT_DEPLOYED"
+  },
+  "limits": [
+    "190 metadata/input inventories inspected; only affected examples replayed.",
+    "Zn-I2 and unnamed flow diagrams have original model capacity/CE ledgers but no acquired rate/cell protocol; model retention explicitly uses recorded cycle 1.",
+    "Inventory-compounding is an idealized retained-inventory formula, not measured capacity retention or a CE life prediction.",
+    "NMC811||Li belongs to the declared half-cell demonstration; historical resource ID is preserved.",
+    "No native desktop/model or experimental certification."
+  ],
+  "package_revision": "cycling-rule-v1.2.1",
+  "revision_note": "Six-percent retention axis headroom preserves complete 100-percent reference markers in Plot Starter. All 16 example and recipe archive bytes stay at cycling-rule-v1.2.0.",
+  "plugin_version": "0.12.0",
+  "url_map": {
+    "downloads/v0.12.0/single/voltpeer-assemble-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-assemble-v0.12.0.zip",
+    "downloads/v0.12.0/single/voltpeer-claim-check-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-claim-check-v0.12.0.zip",
+    "downloads/v0.12.0/single/voltpeer-data-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-data-v0.12.0.zip",
+    "downloads/v0.12.0/single/voltpeer-experiment-plan-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-experiment-plan-v0.12.0.zip",
+    "downloads/v0.12.0/single/voltpeer-literature-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-literature-v0.12.0.zip",
+    "downloads/v0.12.0/single/voltpeer-mechanism-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-mechanism-v0.12.0.zip",
+    "downloads/v0.12.0/single/voltpeer-metrics-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-metrics-v0.12.0.zip",
+    "downloads/v0.12.0/single/voltpeer-plan-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-plan-v0.12.0.zip",
+    "downloads/v0.12.0/single/voltpeer-plot-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-plot-v0.12.0.zip",
+    "downloads/v0.12.0/single/voltpeer-polish-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-polish-v0.12.0.zip",
+    "downloads/v0.12.0/single/voltpeer-response-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-response-v0.12.0.zip",
+    "downloads/v0.12.0/single/voltpeer-review-audit-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-review-audit-v0.12.0.zip",
+    "downloads/v0.12.0/single/voltpeer-reviewer-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-reviewer-v0.12.0.zip",
+    "downloads/v0.12.0/single/voltpeer-submission-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-submission-v0.12.0.zip",
+    "downloads/v0.12.0/single/voltpeer-workflow-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-workflow-v0.12.0.zip",
+    "downloads/v0.12.0/single/voltpeer-write-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-write-v0.12.0.zip",
+    "downloads/v0.12.0/VoltPeer-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/VoltPeer-v0.12.0.zip",
+    "downloads/v0.12.0/VoltPeer-WorkBuddy-Starter-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/VoltPeer-WorkBuddy-Starter-v0.12.0.zip",
+    "downloads/v0.12.0/VoltPeer-WorkBuddy-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/VoltPeer-WorkBuddy-v0.12.0.zip",
+    "downloads/v0.12.0/workbuddy/voltpeer-assemble-workbuddy-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-assemble-workbuddy-v0.12.0.zip",
+    "downloads/v0.12.0/workbuddy/voltpeer-claim-check-workbuddy-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-claim-check-workbuddy-v0.12.0.zip",
+    "downloads/v0.12.0/workbuddy/voltpeer-data-workbuddy-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-data-workbuddy-v0.12.0.zip",
+    "downloads/v0.12.0/workbuddy/voltpeer-experiment-plan-workbuddy-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-experiment-plan-workbuddy-v0.12.0.zip",
+    "downloads/v0.12.0/workbuddy/voltpeer-literature-workbuddy-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-literature-workbuddy-v0.12.0.zip",
+    "downloads/v0.12.0/workbuddy/voltpeer-mechanism-workbuddy-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-mechanism-workbuddy-v0.12.0.zip",
+    "downloads/v0.12.0/workbuddy/voltpeer-metrics-workbuddy-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-metrics-workbuddy-v0.12.0.zip",
+    "downloads/v0.12.0/workbuddy/voltpeer-plan-workbuddy-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-plan-workbuddy-v0.12.0.zip",
+    "downloads/v0.12.0/workbuddy/voltpeer-plot-workbuddy-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-plot-workbuddy-v0.12.0.zip",
+    "downloads/v0.12.0/workbuddy/voltpeer-polish-workbuddy-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-polish-workbuddy-v0.12.0.zip",
+    "downloads/v0.12.0/workbuddy/voltpeer-response-workbuddy-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-response-workbuddy-v0.12.0.zip",
+    "downloads/v0.12.0/workbuddy/voltpeer-review-audit-workbuddy-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-review-audit-workbuddy-v0.12.0.zip",
+    "downloads/v0.12.0/workbuddy/voltpeer-reviewer-workbuddy-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-reviewer-workbuddy-v0.12.0.zip",
+    "downloads/v0.12.0/workbuddy/voltpeer-submission-workbuddy-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-submission-workbuddy-v0.12.0.zip",
+    "downloads/v0.12.0/workbuddy/voltpeer-workflow-workbuddy-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-workflow-workbuddy-v0.12.0.zip",
+    "downloads/v0.12.0/workbuddy/voltpeer-write-workbuddy-v0.12.0.zip": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-write-workbuddy-v0.12.0.zip",
+    "downloads/v0.12.0/distribution-sha256.txt": "downloads/v0.12.0-cycling-rule-v1.2.1/distribution-sha256.txt",
+    "downloads/distribution-sha256.txt": "downloads/v0.12.0-cycling-rule-v1.2.1/distribution-sha256.txt",
+    "downloads/v0.12.0/download-index.json": "downloads/v0.12.0-cycling-rule-v1.2.1/download-index.json",
+    "downloads/download-index.json": "downloads/v0.12.0-cycling-rule-v1.2.1/download-index.json",
+    "downloads/v0.12.0/starter/VoltPeer-Plot-Starter-v0.12.0.zip": "assets/cycling-rule-v1.2.1/starter/VoltPeer-Plot-Starter-v0.12.0.zip",
+    "assets/frontpage/": "assets/cycling-rule-v1.2.0/frontpage/"
+  },
+  "archives": [
+    {
+      "file": "single/voltpeer-assemble-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-assemble-v0.12.0.zip",
+      "bytes": 137665,
+      "sha256": "3080babf8a2474bd8d6b21ce921f474cba696bdd6a9b042862838a048986d442"
+    },
+    {
+      "file": "single/voltpeer-claim-check-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-claim-check-v0.12.0.zip",
+      "bytes": 9591,
+      "sha256": "0fd042bb81ad4099e376e1274c0d8beb51b2fe14ca2f5324580db8af0963e0b4"
+    },
+    {
+      "file": "single/voltpeer-data-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-data-v0.12.0.zip",
+      "bytes": 32014,
+      "sha256": "f530596f3038e9ae114d32df7328b94114057215693025f6bfc24b078ac7a0e7"
+    },
+    {
+      "file": "single/voltpeer-experiment-plan-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-experiment-plan-v0.12.0.zip",
+      "bytes": 9491,
+      "sha256": "92d799122ffe287e22676986bffaea1ec603ec7fedce2c47b4995e3926f69291"
+    },
+    {
+      "file": "single/voltpeer-literature-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-literature-v0.12.0.zip",
+      "bytes": 9497,
+      "sha256": "294dce48c6fe09585fd150cc5c899075bf631b4a3d4a78d56fba9b6824ee4f64"
+    },
+    {
+      "file": "single/voltpeer-mechanism-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-mechanism-v0.12.0.zip",
+      "bytes": 50922,
+      "sha256": "17183918f078105950948128fe1ea08e2667f160e3b1c5acef9fa37dcba82b1f"
+    },
+    {
+      "file": "single/voltpeer-metrics-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-metrics-v0.12.0.zip",
+      "bytes": 10985,
+      "sha256": "dfb9ad20e231754ebfb5daf884c67b055150987dace7950dea58887f2aa8f206"
+    },
+    {
+      "file": "single/voltpeer-plan-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-plan-v0.12.0.zip",
+      "bytes": 11693,
+      "sha256": "7e8fa4970cf2f8d04d2c95ae62ea4db2812865d0cf9621d3a1baf310448beca1"
+    },
+    {
+      "file": "single/voltpeer-plot-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-plot-v0.12.0.zip",
+      "bytes": 555702,
+      "sha256": "ed04a1ba926194e98f868a970da7740115c87295593a750d9ef58faaaec6d37a"
+    },
+    {
+      "file": "single/voltpeer-polish-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-polish-v0.12.0.zip",
+      "bytes": 93639,
+      "sha256": "0797fe73c8153c311df7ad7715465ed16e3c97080f0046e33db03e6cb4b98595"
+    },
+    {
+      "file": "single/voltpeer-response-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-response-v0.12.0.zip",
+      "bytes": 8653,
+      "sha256": "a333972a6ee04bca58b46bdaa0ce4b3bf145ab04b615e00d0e44b303342f9d05"
+    },
+    {
+      "file": "single/voltpeer-review-audit-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-review-audit-v0.12.0.zip",
+      "bytes": 8467,
+      "sha256": "0cc3a88be502c79e2dd2e6c52b9b57c31a2d438b708f833adba4c1fc5c4f8c64"
+    },
+    {
+      "file": "single/voltpeer-reviewer-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-reviewer-v0.12.0.zip",
+      "bytes": 8330,
+      "sha256": "18c187d5f59bc8b89f1c13ea8e2230f60c231137bd0b6be886ebbfc77979de53"
+    },
+    {
+      "file": "single/voltpeer-submission-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-submission-v0.12.0.zip",
+      "bytes": 9136,
+      "sha256": "749f4e1f00da53c513a17b93d1504df705acd3f2f066a685108e0bb037d5a822"
+    },
+    {
+      "file": "single/voltpeer-workflow-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-workflow-v0.12.0.zip",
+      "bytes": 24336,
+      "sha256": "bbaf90824dd2919b6ca8c4aef06b2e6992140bf1120d55f7eb99af3f2fa36f1d"
+    },
+    {
+      "file": "single/voltpeer-write-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/single/voltpeer-write-v0.12.0.zip",
+      "bytes": 11410,
+      "sha256": "89fe7fb59d612a1f3f430a82d4f531fb0a3a4a6fc0709fe92f2300321deddf56"
+    },
+    {
+      "file": "VoltPeer-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/VoltPeer-v0.12.0.zip",
+      "bytes": 1205664,
+      "sha256": "f242306ceeac28890622a83ceb073760946fee8179e6cf5b355370856cd9b063"
+    },
+    {
+      "file": "VoltPeer-WorkBuddy-Starter-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/VoltPeer-WorkBuddy-Starter-v0.12.0.zip",
+      "bytes": 678065,
+      "sha256": "25a350b8778c2cff0a389bf337aed6b2f57e2ae0c3b5d719c8c9f3879cb6693f"
+    },
+    {
+      "file": "VoltPeer-WorkBuddy-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/VoltPeer-WorkBuddy-v0.12.0.zip",
+      "bytes": 969561,
+      "sha256": "f733efa13cc9d73d7a1f4c32f0b239437f1dbcf18d7d793f59ae1ce910c15ff3"
+    },
+    {
+      "file": "workbuddy/voltpeer-assemble-workbuddy-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-assemble-workbuddy-v0.12.0.zip",
+      "bytes": 137904,
+      "sha256": "91c22b731d88fb40615aa6a3839f02d29338696c741ce72e5980a95caaab9ccc"
+    },
+    {
+      "file": "workbuddy/voltpeer-claim-check-workbuddy-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-claim-check-workbuddy-v0.12.0.zip",
+      "bytes": 9809,
+      "sha256": "ace2fbed2357ee73aa4cd301234c7321da53dd6d93b385953d24f90aa2334ddb"
+    },
+    {
+      "file": "workbuddy/voltpeer-data-workbuddy-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-data-workbuddy-v0.12.0.zip",
+      "bytes": 32240,
+      "sha256": "7fd20d276f451181bd9e6ec750ce32a2383207b47673529ce21b9401d2ea73a8"
+    },
+    {
+      "file": "workbuddy/voltpeer-experiment-plan-workbuddy-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-experiment-plan-workbuddy-v0.12.0.zip",
+      "bytes": 9727,
+      "sha256": "67b292f12f13d6033266db26b43409e82768abf6585672621b05366a417b352f"
+    },
+    {
+      "file": "workbuddy/voltpeer-literature-workbuddy-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-literature-workbuddy-v0.12.0.zip",
+      "bytes": 9724,
+      "sha256": "c56c2f321acff2dc5463b286ca0220523504efab742e8b81571e1fb773666fdd"
+    },
+    {
+      "file": "workbuddy/voltpeer-mechanism-workbuddy-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-mechanism-workbuddy-v0.12.0.zip",
+      "bytes": 51150,
+      "sha256": "c486c8b8ed09f70977b083c0e51b475769ed68a6e61fcdbe673e5a5ce65776dc"
+    },
+    {
+      "file": "workbuddy/voltpeer-metrics-workbuddy-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-metrics-workbuddy-v0.12.0.zip",
+      "bytes": 11219,
+      "sha256": "8dfbff09caba3a5c6ebf0d03d94b89ad6afae8df82bbd252888c8ff70654b725"
+    },
+    {
+      "file": "workbuddy/voltpeer-plan-workbuddy-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-plan-workbuddy-v0.12.0.zip",
+      "bytes": 11934,
+      "sha256": "ab2935916f93066200f02ee699dece7b67aa58082f606d3f9374a2ced4f3e2d6"
+    },
+    {
+      "file": "workbuddy/voltpeer-plot-workbuddy-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-plot-workbuddy-v0.12.0.zip",
+      "bytes": 555924,
+      "sha256": "bf76b46df3ed71cb8909b91af6c39300c7217b076b60641cb24d85bdb9bae9e7"
+    },
+    {
+      "file": "workbuddy/voltpeer-polish-workbuddy-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-polish-workbuddy-v0.12.0.zip",
+      "bytes": 93868,
+      "sha256": "08552f1a58bcbf34c87172f73d69f3d5dfaad4e931086e765a8559f52eb048cc"
+    },
+    {
+      "file": "workbuddy/voltpeer-response-workbuddy-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-response-workbuddy-v0.12.0.zip",
+      "bytes": 8847,
+      "sha256": "b1dd5808f68089666ede5aa49c4170f6eab8661502b80a8d3af21144adb4377b"
+    },
+    {
+      "file": "workbuddy/voltpeer-review-audit-workbuddy-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-review-audit-workbuddy-v0.12.0.zip",
+      "bytes": 8697,
+      "sha256": "48f60570ac564cfe0722082d921d3816f2715fabbded0c8ad5fa8057446e5603"
+    },
+    {
+      "file": "workbuddy/voltpeer-reviewer-workbuddy-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-reviewer-workbuddy-v0.12.0.zip",
+      "bytes": 8526,
+      "sha256": "3bb46d6374c7ecbf9b395f397cd3679857831d187019eab0871d593406105759"
+    },
+    {
+      "file": "workbuddy/voltpeer-submission-workbuddy-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-submission-workbuddy-v0.12.0.zip",
+      "bytes": 9344,
+      "sha256": "224b485f47303bd5494c1d875a5215d192bc104c62131bd0ae4df6bd2b857242"
+    },
+    {
+      "file": "workbuddy/voltpeer-workflow-workbuddy-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-workflow-workbuddy-v0.12.0.zip",
+      "bytes": 24572,
+      "sha256": "d73fa5a20f770dcf6b7d2ef622fd8cda46cdc729e48a96d2d6303df85b199be0"
+    },
+    {
+      "file": "workbuddy/voltpeer-write-workbuddy-v0.12.0.zip",
+      "url": "downloads/v0.12.0-cycling-rule-v1.2.1/workbuddy/voltpeer-write-workbuddy-v0.12.0.zip",
+      "bytes": 11664,
+      "sha256": "c01ca73066e4ff582c11fcc7bc042ac6b10f6664cfde57093112e1d2473b0fca"
+    }
+  ],
+  "skill_archive_count": 35,
+  "distribution_sha256": "downloads/v0.12.0-cycling-rule-v1.2.1/distribution-sha256.txt",
+  "download_manifest": "downloads/v0.12.0-cycling-rule-v1.2.1/download-index.json",
+  "starter_registry": "assets/cycling-rule-v1.2.1/starter/plot-starter.json",
+  "installer_contract": {
+    "entry_point": "render_existing.py",
+    "metadata_path": "<id>/metadata.json",
+    "source_and_data": "Extract both components into the same NEW folder, preserving paths."
+  }
+}

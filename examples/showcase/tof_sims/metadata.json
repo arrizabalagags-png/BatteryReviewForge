@@ -2,7 +2,7 @@
   "data_status": "synthetic_demo",
   "not_experimental_data": true,
   "random_seed": 20260923,
-  "generator_version": "1.2",
+  "generator_version": "1.6",
   "figure_grammar_id": "tof_sims_map + same-model_sputter_profile",
   "journal_preset": "journal_neutral_180mm",
   "variables_and_units": {
@@ -10,15 +10,132 @@
     "y": "lateral position (µm)",
     "linked": "ion intensity (a.u.) and sputter time (s), not calibrated depth"
   },
-  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
-  "test_conditions": "Illustrative 20 × 20 µm ion maps at 30 s sputter time; arbitrary intensity, common 0–0.65 display scale; time is not depth.",
+  "sample_identity": "A/B are local teaching-model labels, not one electrolyte across unlike techniques; SIM IDs are invented records, never citations.",
+  "test_conditions": "Original synthetic 20 × 20 µm secondary-ion signal fields at 30 s sputter time; F−/S− negative-mode and Li+ positive-mode channels are separate hypothetical acquisitions. Relative a.u. signal, not concentration; sputter time has no depth calibration.",
   "source_files": [
     "data.csv",
     "depth.csv"
   ],
   "creator": "BatteryReviewForge original code",
   "review": {
-    "science": "models and data-to-panel links inspected; no experimental interpretation",
-    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+    "science": "Declared model equations/units/linked-file relations have scoped automated tests; no experimental certification.",
+    "display": "Actual line/frame/alignment checks only; independent visual and author review remain pending."
+  },
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 3,
+      "label": "F$^{-}$",
+      "points": 101,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 3,
+      "label": "Li$^{+}$",
+      "points": 101,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#00857f"
+    },
+    {
+      "panel_index": 3,
+      "label": "S$^{-}$",
+      "points": 101,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 3,
+      "label": "_child3",
+      "points": 2,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#526476"
+    }
+  ],
+  "curve_style_check": "pass: actual rendered Line2D artists are solid and have no markers",
+  "data_frame_check": "pass: actual data axes show top/right/bottom/left spines",
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 2,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 3,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    }
+  ],
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "layout_fixture",
+    "data_origin": "original_synthetic",
+    "parameter_origin": "self-chosen teaching values; never paper measurements",
+    "validation_scope": "Declared teaching model; no experimental/material certification",
+    "equations": [
+      "Nonnegative chosen lateral fields times declared sputter-time functions; not an ion-yield or composition law."
+    ],
+    "assumptions": [
+      "F− and S− are hypothetical negative-mode channels; Li+ is a separate positive-mode acquisition; no simultaneous cross-mode quantitative overlay.",
+      "Species labels are ion channels, not elemental concentration, compound abundance or SEI proof.",
+      "Sputter time is not depth; matrix-dependent ion yield, crater-depth and sputter-rate calibration are absent."
+    ],
+    "parameters": {
+      "geometry_um": [
+        20,
+        20
+      ],
+      "map_sputter_time_s": 30,
+      "intensity_unit": "relative a.u."
+    },
+    "references": [
+      {
+        "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nbsspecialpublication427.pdf",
+        "title": "NIST/NBS SP 427: Secondary ion mass spectrometry",
+        "supports": "Matrix-dependent secondary-ion yields and empirical calibration limits; arbitrary demonstration signals are not calibrated concentrations.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.nature.com/articles/s41467-025-58110-z",
+        "title": "Dynamic doping and interphase stabilization for cobalt-free and high-voltage Lithium metal batteries",
+        "supports": "Figure 4 supports the role of ion-channel/depth-profile evidence only; none of its pixels, chemical assignments or signal values are copied.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "limitations": [
+      "Original signal-field demonstration, no physical ion-yield fit, elemental concentration or chemical composition.",
+      "No calibrated depth, 3D volume concentration, cross-mode quantitative co-location or inferred interphase mechanism."
+    ]
   }
 }

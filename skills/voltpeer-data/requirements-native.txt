@@ -1,0 +1,4 @@
+# Optional local native reader; base CSV/Excel import does not need this package.
+# Only the checked NDAX NDC-14 split layout is enabled. NDA/CEX need vendor export.
+# Third-party library: BSD-3-Clause, https://github.com/d-cogswell/NewareNDA
+NewareNDA==2026.6.11

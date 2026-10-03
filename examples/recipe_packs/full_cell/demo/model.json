@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "model_class": "phenomenological_model",
+  "data_origin": "original_synthetic",
+  "parameter_origin": "explicit teaching choices; not reported measurements",
+  "validation_scope": "Declared teaching model; no experimental/material certification",
+  "equations": [
+    "eta_n=1-l_ss-l_tr*exp(-(n-1)/tau_cycles)",
+    "Qcharge_n=L_(n-1); Qdischarge_n=eta_n*Qcharge_n; L_n=Qdischarge_n",
+    "CE_n=100*Qdischarge_n/Qcharge_n; loss_n=Qcharge_n-Qdischarge_n",
+    "s(f)=0.55*f+0.45*f^7; Vdis=4.2-1.3*s(f); Vchg=2.9+1.3*s(f)"
+  ],
+  "assumptions": [
+    "No excess cyclable inventory, no electrode compensation, no active-material loss or reversible self-discharge.",
+    "Inventory-only loss is a restrictive teaching case, not a real-cell acceptance criterion.",
+    "Voltage shape is a bounded monotonic display relation, not an NMC/graphite model."
+  ],
+  "parameters": {
+    "count_cycles": 40,
+    "A": {
+      "initial_mAh_g": 170,
+      "loss_ss": 0.0012,
+      "loss_tr": 0.005,
+      "tau_cycles": 5
+    },
+    "B": {
+      "initial_mAh_g": 164,
+      "loss_ss": 0.002,
+      "loss_tr": 0.007,
+      "tau_cycles": 5
+    },
+    "voltage_window_V": [
+      2.9,
+      4.2
+    ]
+  },
+  "references": [
+    {
+      "url": "https://www.nature.com/articles/s41467-025-60833-y",
+      "title": "Deciphering coulombic loss in lithium-ion batteries and beyond",
+      "supports": "Charge conservation and warning that coulombic loss need not equal capacity loss; all numerical parameters are self-chosen.",
+      "scope": "model_definition_only",
+      "checked_date": "2026-10-01"
+    }
+  ],
+  "limitations": [
+    "No chemistry, life, N/P, electrolyte volume, electrode compensation or mechanism is certified.",
+    "CE/product relationship applies only under this toy inventory model."
+  ]
+}

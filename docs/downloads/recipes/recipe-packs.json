@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "packs": [
+    {
+      "resource_id": "full_cell",
+      "version": "0.10.2",
+      "file": "VoltPeer-full_cell-0.10.2.zip",
+      "sha256": "e41d501bf03e35a4bdece9dd52c98bb1b3f3ba641c6689204c6e5ee4ce68aa97",
+      "bytes": 341882,
+      "validation": "package_structure_checked; see local QA for extracted execution; model NOT_RUN"
+    },
+    {
+      "resource_id": "li_li",
+      "version": "0.10.2",
+      "file": "VoltPeer-li_li-0.10.2.zip",
+      "sha256": "4f8a6a4fd59bb766297693fef0968020822be36ecbdccf21cbe7d2455477add4",
+      "bytes": 327692,
+      "validation": "package_structure_checked; see local QA for extracted execution; model NOT_RUN"
+    },
+    {
+      "resource_id": "operando_xrd",
+      "version": "0.10.2",
+      "file": "VoltPeer-operando_xrd-0.10.2.zip",
+      "sha256": "c60174b6b9a88337d67a055343016e02db297285243fca24fe7729c21bd18511",
+      "bytes": 201298,
+      "validation": "package_structure_checked; see local QA for extracted execution; model NOT_RUN"
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "checkpoint": "01",
+  "scope": "Intermediate local candidate before two checker equivalence-fixture updates; never published or frozen as final0.11.0",
+  "archives": [
+    {
+      "file": "VoltPeer-v0.11.0.zip",
+      "bytes": 1161772,
+      "sha256": "b841fe5c838a394624fb0229102d99f68edbd6204d144cd96bf80a417d1c53bb"
+    },
+    {
+      "file": "VoltPeer-WorkBuddy-v0.11.0.zip",
+      "bytes": 913899,
+      "sha256": "981e0fce7643c6447b9f51b0c6044bd8cb4cadec9be9b986a460aa5fbbc2fdfb"
+    },
+    {
+      "file": "VoltPeer-WorkBuddy-Starter-v0.11.0.zip",
+      "bytes": 672932,
+      "sha256": "d725d24be62ddafface0a61a1490752581d4be66f28016f7f964b4f9f87396fd"
+    },
+    {
+      "file": "single/voltpeer-assemble-v0.11.0.zip",
+      "bytes": 137360,
+      "sha256": "afc3c77e89d7e381e1e8f2cdf81d67fe032e349a10231b7fbdfb6236b129e882"
+    },
+    {
+      "file": "single/voltpeer-claim-check-v0.11.0.zip",
+      "bytes": 9580,
+      "sha256": "9c0f0f12730b553c459826efc560ba473859099a664d5bbae221b4836905fc26"
+    },
+    {
+      "file": "single/voltpeer-data-v0.11.0.zip",
+      "bytes": 32003,
+      "sha256": "111b0dc4f54b9888859a21bc2c25ad4901ac77621a31ea635f9af4bd50f77d2a"
+    },
+    {
+      "file": "single/voltpeer-experiment-plan-v0.11.0.zip",
+      "bytes": 9483,
+      "sha256": "9b1f296b431caeb5bc846210cbe42ced21369fe3bc407b7a2d5b94006af90c09"
+    },
+    {
+      "file": "single/voltpeer-literature-v0.11.0.zip",
+      "bytes": 9488,
+      "sha256": "3e3e0379dbf184316d585dd476c4b8f494d0405d6a22812f08e596a3a86ba1d6"
+    },
+    {
+      "file": "single/voltpeer-metrics-v0.11.0.zip",
+      "bytes": 10972,
+      "sha256": "449b81afa53db51c8594f2725509419718a1562d36f338a634094945a4fc8099"
+    },
+    {
+      "file": "single/voltpeer-plan-v0.11.0.zip",
+      "bytes": 11681,
+      "sha256": "63bea28ec62b5dfdfa24ba6325783b49f3e392320aba6655d2f4e1024777ee7b"
+    },
+    {
+      "file": "single/voltpeer-plot-v0.11.0.zip",
+      "bytes": 550725,
+      "sha256": "3c425e41f71ae4c2ff014cccae624142542636b6e290eca16bd441b6e35cfcd2"
+    },
+    {
+      "file": "single/voltpeer-polish-v0.11.0.zip",
+      "bytes": 93443,
+      "sha256": "8c5673194ff89e52574c20d2ddb516bc07e5c18a4e5f419170c71b286fd76121"
+    },
+    {
+      "file": "single/voltpeer-response-v0.11.0.zip",
+      "bytes": 8644,
+      "sha256": "fb23b00b1cf19be5410dc4d494b69e34c0f9e7bc6d19d05e12f25c8696c8a7e1"
+    },
+    {
+      "file": "single/voltpeer-review-audit-v0.11.0.zip",
+      "bytes": 8457,
+      "sha256": "b4c91eb0f4ef0a8fa29ecbd6103da36227cad103afe711d5462c8a05054210ca"
+    },
+    {
+      "file": "single/voltpeer-reviewer-v0.11.0.zip",
+      "bytes": 8321,
+      "sha256": "f87f40b0b245738ab35a2789d95c006d72a23febb6dd990d3c438ca9ed66caa7"
+    },
+    {
+      "file": "single/voltpeer-submission-v0.11.0.zip",
+      "bytes": 9127,
+      "sha256": "9aa18a004e8249a1c79e0164c3709f65b8a04b23667391366e5f0b05877ec662"
+    },
+    {
+      "file": "single/voltpeer-workflow-v0.11.0.zip",
+      "bytes": 24324,
+      "sha256": "14e42edd247f5c94e5948b2d393d5adf12d93750886be43e5833f69b844e67e1"
+    },
+    {
+      "file": "single/voltpeer-write-v0.11.0.zip",
+      "bytes": 11400,
+      "sha256": "9730c3b857d958a58c89aa7b80b87592069ef289b1f1bc51a199f73f4804ddff"
+    },
+    {
+      "file": "workbuddy/voltpeer-assemble-workbuddy-v0.11.0.zip",
+      "bytes": 137609,
+      "sha256": "c8838eab6d84a0649f04910b14b13dd3e4704e7b6941f998b544da932b4815b1"
+    },
+    {
+      "file": "workbuddy/voltpeer-claim-check-workbuddy-v0.11.0.zip",
+      "bytes": 9808,
+      "sha256": "d5be18a221523d5a385aa13bce97b7dff613182442bcd84124961dc63b7117aa"
+    },
+    {
+      "file": "workbuddy/voltpeer-data-workbuddy-v0.11.0.zip",
+      "bytes": 32240,
+      "sha256": "9be05408b4e6ab83c395a75d72347e2f211e14dc53535fba02c365c6caba8dd3"
+    },
+    {
+      "file": "workbuddy/voltpeer-experiment-plan-workbuddy-v0.11.0.zip",
+      "bytes": 9726,
+      "sha256": "f892225023aeb053abd2e859f5d4348288a7c4b934d2ac92a095bb5add0ce75a"
+    },
+    {
+      "file": "workbuddy/voltpeer-literature-workbuddy-v0.11.0.zip",
+      "bytes": 9724,
+      "sha256": "fba5d74bab04f5dbadd17df0dbbcaba60bde1855577ef2e1425a17dd681fb5f6"
+    },
+    {
+      "file": "workbuddy/voltpeer-metrics-workbuddy-v0.11.0.zip",
+      "bytes": 11219,
+      "sha256": "7171f9a1e8bb09a36b906e46115543110b781e801388369da2b183bb293787c7"
+    },
+    {
+      "file": "workbuddy/voltpeer-plan-workbuddy-v0.11.0.zip",
+      "bytes": 11934,
+      "sha256": "c1008df5dc8d4d1b8c3d4392708ef176d5b3ed7e7b98053b24af82f9d281f117"
+    },
+    {
+      "file": "workbuddy/voltpeer-plot-workbuddy-v0.11.0.zip",
+      "bytes": 550972,
+      "sha256": "72fbb9ae1028b07ec1cef2af6d36493602a5d8043c119f66c63efb8cebb4c5bf"
+    },
+    {
+      "file": "workbuddy/voltpeer-polish-workbuddy-v0.11.0.zip",
+      "bytes": 93682,
+      "sha256": "937fc87b9b779b8ade971b0060be75b1d72f6671b9bf0a9e6aebbb30ef872499"
+    },
+    {
+      "file": "workbuddy/voltpeer-response-workbuddy-v0.11.0.zip",
+      "bytes": 8847,
+      "sha256": "ccc2b10e5e5ec7e030a747da2bf64a045250525640bfbfed28d68a3c0f3b2ea0"
+    },
+    {
+      "file": "workbuddy/voltpeer-review-audit-workbuddy-v0.11.0.zip",
+      "bytes": 8698,
+      "sha256": "4f141dcfbf1f14288a3bc2d50ce7f252f02a99ed039536b5aef8071ebb3305d8"
+    },
+    {
+      "file": "workbuddy/voltpeer-reviewer-workbuddy-v0.11.0.zip",
+      "bytes": 8525,
+      "sha256": "1e3db9b769f7c935919ff3a97322f1ac3d83b1e39f9536561df62315e382d60e"
+    },
+    {
+      "file": "workbuddy/voltpeer-submission-workbuddy-v0.11.0.zip",
+      "bytes": 9343,
+      "sha256": "ab7398036159d1038ea347d5f74dad94b919b8f33856174fb443c85c6abbf788"
+    },
+    {
+      "file": "workbuddy/voltpeer-workflow-workbuddy-v0.11.0.zip",
+      "bytes": 24572,
+      "sha256": "d89b1eab6aee7bce55ff8e024eb7f3b6794379ff45d345f423bfc554449b356b"
+    },
+    {
+      "file": "workbuddy/voltpeer-write-workbuddy-v0.11.0.zip",
+      "bytes": 11663,
+      "sha256": "92119c3bd907d07a70cfbda53d7197eb8f2efa33022ba9169b426811350cde4d"
+    },
+    {
+      "file": "starter/VoltPeer-Plot-Starter-v0.11.0.zip",
+      "bytes": 737059,
+      "sha256": "e60a22c1f04284a4b7b3eb95c2c78f54aff1d64316a5c4fc098535aec32fbb36"
+    }
+  ],
+  "affected_archives": [
+    "VoltPeer-v0.11.0.zip",
+    "VoltPeer-WorkBuddy-v0.11.0.zip",
+    "single/voltpeer-polish-v0.11.0.zip",
+    "workbuddy/voltpeer-polish-workbuddy-v0.11.0.zip"
+  ],
+  "actual_clean_bundle_installs": 2,
+  "original_guide_files": 10,
+  "original_guide_bytes": 525075
+}

@@ -1,24 +1,56 @@
 {
   "figure": "eis",
-  "tolerance_pt": 1.5,
-  "status": "independent_panels",
-  "checks": [],
+  "status": "pass",
+  "tolerance_mm": 0.3,
+  "checks": [
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "edge": "left",
+      "delta_mm": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "edge": "right",
+      "delta_mm": 0.0,
+      "pass": true
+    },
+    {
+      "panels": [
+        "a",
+        "b"
+      ],
+      "edge": "width",
+      "delta_mm": 0.0,
+      "pass": true
+    }
+  ],
   "failures": [],
   "plot_rectangles_mm": [
     {
       "panel": "a",
-      "left": 22.583,
-      "top": 5.391,
-      "width": 149.267,
-      "height": 51.065
+      "left": 19.00000000000003,
+      "right": 168.99999999999997,
+      "top": 6.000000000000011,
+      "bottom": 56.0,
+      "width": 149.99999999999991,
+      "height": 49.99999999999999
     },
     {
       "panel": "b",
-      "left": 17.333,
-      "top": 69.249,
-      "width": 159.769,
-      "height": 38.809
+      "left": 19.0,
+      "right": 169.0,
+      "top": 72.0,
+      "bottom": 106.0,
+      "width": 150.0,
+      "height": 34.0
     }
   ],
-  "note": "Measured after final Matplotlib draw. Colorbars are excluded."
+  "note": "Actual plot boxes after draw; a separate colorbar never steals panel space."
 }

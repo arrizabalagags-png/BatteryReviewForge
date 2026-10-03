@@ -5,7 +5,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-SCRIPT = Path(__file__).resolve().parents[1]/'skills/battery-data-prepare/scripts/prepare_csv.py'
+SCRIPT = Path(__file__).resolve().parents[1]/'skills/voltpeer-data/scripts/prepare_csv.py'
 spec = importlib.util.spec_from_file_location('prepare_csv', SCRIPT)
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)

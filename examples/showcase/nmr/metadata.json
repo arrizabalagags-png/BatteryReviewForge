@@ -5,7 +5,7 @@
   "source_files": [
     "data.csv"
   ],
-  "test_conditions": "Synthetic 7Li-like spectra A-D with invented positions and widths. No pulse sequence, concentration, integration or molecular assignment implied.",
+  "test_conditions": "Original generic absorptive Lorentzian spectra A–D on a 7Li-like ppm axis. No real chemical reference, pulse sequence, concentration, integration or molecular assignment.",
   "variables_and_units": [
     "sample",
     "chemical_shift_ppm",
@@ -30,5 +30,117 @@
     "default_template": false
   },
   "reproduce": "python render_specialist.py --recipe nmr --input-folder nmr --output-dir brf-output --style forge",
-  "creator": "BatteryReviewForge original synthetic analytic demonstration"
+  "creator": "BatteryReviewForge original synthetic analytic demonstration",
+  "generator_version": "1.6",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "phenomenological_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "L(x;mu,gamma)=1/(1+((x-mu)/gamma)^2)",
+      "I(x)=L(x;-0.30+0.115*index,0.035+0.003*index)+0.08*L(x;0.42,0.075)",
+      "Display-only offset=1.2 a.u. per series; raw intensities are unchanged"
+    ],
+    "parameters": {
+      "chemical_shift_ppm_range": [
+        -1,
+        1
+      ],
+      "nucleus": "7Li-like teaching label",
+      "reference": "original zero-point axis; no physical standard",
+      "samples": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ]
+    },
+    "assumptions": [
+      "Generic absorptive Lorentzian bands, without phasing or integration claims."
+    ],
+    "references": [
+      {
+        "url": "https://goldbook.iupac.org/terms/view/L03628",
+        "title": "IUPAC: Lorentzian band shape",
+        "supports": "Lorentzian half-width definition; original synthetic shifts and widths.",
+        "scope": "model_definition_only"
+      }
+    ],
+    "limitations": [
+      "No molecular assignment, measured chemical shift, pulse sequence or T2 determination."
+    ],
+    "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 550
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 550
+        },
+        {
+          "label": "C",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 550
+        },
+        {
+          "label": "D",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 550
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 550
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 550
+        },
+        {
+          "label": "C",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 550
+        },
+        {
+          "label": "D",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 550
+        }
+      ]
+    }
+  ]
 }

@@ -1,0 +1,621 @@
+{
+  "status": "synthetic_demo",
+  "not_experimental_data": true,
+  "panel_sources": {
+    "a": "li_cu_ce/data.csv",
+    "b": "li_cu_ce/profiles.csv",
+    "c": "li_li/data.csv",
+    "d": "li_li/data.csv (101–105 h exact subset)",
+    "e": "eis/data.csv",
+    "f": "full_cell/data.csv",
+    "g": "full_cell/voltage_profiles.csv",
+    "h": "eis/data.csv (absolute complex impedance)"
+  },
+  "sources": [
+    {
+      "path": "eis/data.csv",
+      "sha256": "187d66d615d2151217d94f23d50a488800623e61357e4ce4a75ef945096ffa3c"
+    },
+    {
+      "path": "full_cell/data.csv",
+      "sha256": "1b8204c7d72bab8dac45e5827913230609c1e146609fd57a68a5d79bec4352f4"
+    },
+    {
+      "path": "full_cell/voltage_profiles.csv",
+      "sha256": "db99b690fd9228788b5197b80435f57f0937c5571cc8a05b3539596c1b43c062"
+    },
+    {
+      "path": "li_cu_ce/data.csv",
+      "sha256": "cc4d9a633247ae4df9fada1b15e2adf7f6767c65be21532639c2374f5d8970f6"
+    },
+    {
+      "path": "li_cu_ce/profiles.csv",
+      "sha256": "49de4884a52d3e96dff0a10859548a1ca3220bf321d8eb87d8006d25e7040c36"
+    },
+    {
+      "path": "li_li/data.csv",
+      "sha256": "efc9991fcda15f264203d31a4931ae0fa86cc5d3fcb939f14fffcfb665713a2e"
+    }
+  ],
+  "source_model_records": {
+    "eis": {
+      "metadata_sha256": "72cae39570e44b342795eef252f221d6d09d5887e77f0c9e66dbe8af511b77b0",
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "analytic_model",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "self-chosen teaching values; never paper measurements",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "equations": [
+          "omega=2*pi*f; ZW=sigma*(1-j)/sqrt(omega)",
+          "Y_CPE=Q*(j*omega)^alpha",
+          "Z=Rs+1/(Y_CPE+1/(Rct+ZW))",
+          "Nyquist=(Re Z,-Im Z); Bode=(abs(Z),arg(Z)) from the same stored complex values"
+        ],
+        "assumptions": [
+          "Linear small-signal stationary passive circuit, f>0, Rs>=0, Rct/Q>0, 0<alpha<=1, sigma>=0.",
+          "Semi-infinite planar diffusion is an assumed boundary; finite diffusion or nonstationary spectra require another model.",
+          "CPE is empirical; its Q with units S*s^alpha is not a measured capacitance unless alpha=1."
+        ],
+        "parameters": {
+          "frequency_Hz": [
+            0.01,
+            100000.0
+          ],
+          "A": {
+            "Rs_ohm": 4.2,
+            "Rct_ohm": 23,
+            "CPE_Q": 0.00085,
+            "CPE_alpha": 0.86,
+            "Warburg_sigma": 3.0
+          },
+          "B": {
+            "Rs_ohm": 5.1,
+            "Rct_ohm": 43,
+            "CPE_Q": 0.00067,
+            "CPE_alpha": 0.83,
+            "Warburg_sigma": 4.0
+          }
+        },
+        "references": [
+          {
+            "url": "https://www.gamry.com/application-notes/EIS/basics-of-electrochemical-impedance-spectroscopy/",
+            "title": "Basics of Electrochemical Impedance Spectroscopy",
+            "supports": "Complex impedance, series/parallel Randles topology, CPE and semi-infinite Warburg conventions; numbers self-chosen.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "No circuit fit, experimental validation, transport coefficient or microscopic mechanism."
+        ]
+      }
+    },
+    "full_cell": {
+      "metadata_sha256": "5614bee2c3d1030a2ef23b89789fd627145f9bc8515d144aa5841cf33649dc6b",
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "phenomenological_model",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "self-chosen teaching values; never paper measurements",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "equations": [
+          "a_n=(1-a0*exp(-(n-1)/tau_a))*exp(-k*(n-1)-k_late*max(n-n_late,0)^2)",
+          "Qdis_n=Q0*a_n; eta_n=1-l_ss-l_tr*exp(-(n-1)/tau_CE)",
+          "Qchg_n=Qdis_n/eta_n; CE_n=100*Qdis_n/Qchg_n; side_charge_n=Qchg_n-Qdis_n",
+          "s(f)=0.55*f+0.45*f^7; Vdis=4.3-1.5*s(f); Vchg=2.8+1.5*s(f)"
+        ],
+        "assumptions": [
+          "Excess lithium counterelectrode remains available; no finite Li inventory bottleneck is imposed.",
+          "Accessible cathode activity and external coulombic loss are separate chosen functions.",
+          "The active fraction is a positive phenomenological display law, not a fitted NMC811 mechanism; CE products cannot predict this capacity.",
+          "Specific capacity uses cathode active-material mass; voltage endpoints respect the declared window."
+        ],
+        "parameters": {
+          "count_cycles": 500,
+          "A": {
+            "initial_capacity": 184,
+            "activation_fraction": 0.012,
+            "activation_cycles": 3,
+            "fade_per_cycle": 0.00012,
+            "late_fade_per_cycle2": 2e-06,
+            "late_fade_start": 350,
+            "steady_ce_loss": 0.0006,
+            "transient_ce_loss": 0.004,
+            "ce_decay_cycles": 4
+          },
+          "B": {
+            "initial_capacity": 182,
+            "activation_fraction": 0.018,
+            "activation_cycles": 4,
+            "fade_per_cycle": 0.00024,
+            "late_fade_per_cycle2": 3.5e-06,
+            "late_fade_start": 350,
+            "steady_ce_loss": 0.001,
+            "transient_ce_loss": 0.006,
+            "ce_decay_cycles": 4
+          },
+          "voltage_window_V": [
+            2.8,
+            4.3
+          ]
+        },
+        "references": [
+          {
+            "url": "https://www.nature.com/articles/s41467-025-60833-y",
+            "title": "Deciphering coulombic loss in lithium-ion batteries and beyond",
+            "supports": "Coulombic loss, electrode compensation and capacity fade are distinct; does not provide the numerical activity model.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          },
+          {
+            "url": "https://www.nature.com/articles/s41560-020-0648-z",
+            "title": "Understanding and applying coulombic efficiency in lithium metal batteries",
+            "supports": "Excess-Li half-cell versus full-cell interpretation boundaries; all demo values are original.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "No NMC811 material performance, cycle-life forecast, electrode mechanism or lithium reservoir mass is inferred.",
+          "Legacy resource_id full_cell is retained for file compatibility; this gallery example is a half-cell, not the full-cell recipe."
+        ]
+      }
+    },
+    "li_cu_ce": {
+      "metadata_sha256": "779d193743d54e29ee86494a864e031288accfe8b1ad7e26b5c9f3c411369da2",
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "phenomenological_model",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "self-chosen teaching values; never paper measurements",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "equations": [
+          "CE=100*Qstrip/Qplate; Qplate=abs(jplate)*tplate; Qstrip=abs(jstrip)*tstrip",
+          "eta_A=0.9945-0.012*exp(-(n-1)/8)-0.0008*(n/300)^2",
+          "eta_B=0.991-0.018*exp(-(n-1)/9)-0.004*max((n-218)/82,0)^1.5; eta_B(n=264)-=0.0047",
+          "Vstrip=b+(1-b)*f^12; b=0.045+sample_offset+0.006*n/300; end Vstrip=1 V"
+        ],
+        "assumptions": [
+          "Chosen recoverable-charge fractions; excess Li counterelectrode so CE is not full-cell retention.",
+          "Negative applied current is plating; positive is stripping; cutoff is reached at the CE-derived endpoint.",
+          "Voltage is a display relation, not a fitted nucleation, SEI or depletion mechanism."
+        ],
+        "parameters": {
+          "j_mA_cm2": 1,
+          "Qplate_mAh_cm2": 1,
+          "cutoff_V": 1,
+          "cycles": 300,
+          "sample_offset_V": {
+            "A": 0,
+            "B": 0.02
+          }
+        },
+        "references": [
+          {
+            "url": "https://www.nature.com/articles/s41560-020-0648-z",
+            "title": "Understanding and applying coulombic efficiency in lithium metal batteries",
+            "supports": "CE charge accounting and protocol/cell-configuration boundaries; not the source of demo numbers.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "Cannot infer dead Li versus electrolyte consumption, dendrites, full-cell life or a material benefit."
+        ]
+      }
+    },
+    "li_li": {
+      "metadata_sha256": "8598363bc01bbbb6db391f97699dcb9e25bc00e454daf809210336bbd4699b7c",
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "analytic_model",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "explicit teaching choices; not reported measurements",
+        "validation_scope": "Declared teaching model; no experimental/material certification",
+        "equations": [
+          "T_half=Q_half/abs(j); j alternates sign each T_half",
+          "d eta/dt=(j*Rp-eta)/tau; V=j*Rs+eta",
+          "eta(t)=j*Rp+(eta_start-j*Rp)*exp(-t/tau); Qpassed=integral(j dt)"
+        ],
+        "assumptions": [
+          "Zero open-circuit offset; constant positive passive linear terminal RC parameters.",
+          "Applied current is a right-continuous zero-order hold; RC state stays continuous at switching.",
+          "External charge is not a lithium-deposition mass measurement."
+        ],
+        "parameters": {
+          "half_cycles": 200,
+          "j_mA_cm2": 1,
+          "Q_half_mAh_cm2": 1,
+          "A": {
+            "Rs_ohm_cm2": 10,
+            "Rp_ohm_cm2": 24,
+            "tau_h": 0.08
+          },
+          "B": {
+            "Rs_ohm_cm2": 12,
+            "Rp_ohm_cm2": 35,
+            "tau_h": 0.12
+          }
+        },
+        "references": [
+          {
+            "url": "https://www.gamry.com/application-notes/EIS/basics-of-electrochemical-impedance-spectroscopy/",
+            "title": "Basics of Electrochemical Impedance Spectroscopy",
+            "supports": "Ohm law, capacitor differential relation and passive equivalent circuits; values are not measured.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          },
+          {
+            "url": "https://www.nature.com/articles/s41560-020-0648-z",
+            "title": "Understanding and applying coulombic efficiency in lithium metal batteries",
+            "supports": "Cell configuration and plating/stripping protocol boundaries; no symmetric trace certifies CE or full-cell stability.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "No SEI, dendrite, short circuit, transfer mass, lifetime or CE claim follows from this ideal terminal RC trace."
+        ]
+      }
+    }
+  },
+  "scope": "Independent synthetic measurement families; layout does not establish one real study or a mechanism.",
+  "font_requested": "Arial",
+  "font_resolved": "arial.ttf",
+  "pdf_fonts": [
+    [
+      19,
+      "ttf",
+      "Type0",
+      "ELUGPM+ArialMT",
+      "F1",
+      "Identity-H",
+      0
+    ],
+    [
+      26,
+      "ttf",
+      "Type0",
+      "ELUGPM+Arial-BoldMT",
+      "F2",
+      "Identity-H",
+      0
+    ]
+  ],
+  "width_mm": 183,
+  "height_mm": 141,
+  "raster_note": "Only the diffraction intensity matrix is rasterized; axes, labels and traces remain vectors.",
+  "alignment_tolerance_mm": 0.01,
+  "alignment": [
+    {
+      "panel": "a",
+      "actual_plot_box_mm": [
+        14.999999999999998,
+        11.0,
+        101.99999999999999,
+        28.999999999999996
+      ],
+      "curve_style": "cycle_scatter_or_continuous_solid",
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "traces": [
+        {
+          "label": "Electrolyte A",
+          "line_style": "None",
+          "marker": "o",
+          "points": 300,
+          "colour": "#167d8d",
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Electrolyte B",
+          "line_style": "None",
+          "marker": "o",
+          "points": 300,
+          "colour": "#cb5267",
+          "sampling": "cycle_scatter"
+        }
+      ]
+    },
+    {
+      "panel": "b",
+      "actual_plot_box_mm": [
+        135.0,
+        11.0,
+        38.0,
+        28.999999999999996
+      ],
+      "curve_style": "cycle_scatter_or_continuous_solid",
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "traces": [
+        {
+          "label": "A · 1",
+          "line_style": "-",
+          "marker": "None",
+          "points": 100,
+          "colour": "#7396b5",
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "A · 300",
+          "line_style": "-",
+          "marker": "None",
+          "points": 100,
+          "colour": "#167d8d",
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "B · 1",
+          "line_style": "-",
+          "marker": "None",
+          "points": 100,
+          "colour": "#885369",
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "B · 300",
+          "line_style": "-",
+          "marker": "None",
+          "points": 100,
+          "colour": "#cb5267",
+          "sampling": "continuous_solid"
+        }
+      ]
+    },
+    {
+      "panel": "c",
+      "actual_plot_box_mm": [
+        14.999999999999998,
+        58.00000000000001,
+        43.00000000000001,
+        28.999999999999996
+      ],
+      "curve_style": "cycle_scatter_or_continuous_solid",
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "traces": [
+        {
+          "label": "A",
+          "line_style": "-",
+          "marker": "None",
+          "points": 10001,
+          "colour": "#167d8d",
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "B",
+          "line_style": "-",
+          "marker": "None",
+          "points": 10001,
+          "colour": "#cb5267",
+          "sampling": "continuous_solid"
+        }
+      ]
+    },
+    {
+      "panel": "d",
+      "actual_plot_box_mm": [
+        73.0,
+        58.00000000000001,
+        43.00000000000001,
+        28.999999999999996
+      ],
+      "curve_style": "cycle_scatter_or_continuous_solid",
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "traces": [
+        {
+          "label": "_child0",
+          "line_style": "-",
+          "marker": "None",
+          "points": 201,
+          "colour": "#167d8d",
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "_child1",
+          "line_style": "-",
+          "marker": "None",
+          "points": 201,
+          "colour": "#cb5267",
+          "sampling": "continuous_solid"
+        }
+      ]
+    },
+    {
+      "panel": "e",
+      "actual_plot_box_mm": [
+        131.0,
+        58.00000000000001,
+        43.00000000000001,
+        28.999999999999996
+      ],
+      "curve_style": "cycle_scatter_or_continuous_solid",
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "traces": [
+        {
+          "label": "Model A",
+          "line_style": "-",
+          "marker": "None",
+          "points": 86,
+          "colour": "#167d8d",
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "Model B",
+          "line_style": "-",
+          "marker": "None",
+          "points": 86,
+          "colour": "#cb5267",
+          "sampling": "continuous_solid"
+        }
+      ]
+    },
+    {
+      "panel": "f",
+      "actual_plot_box_mm": [
+        14.999999999999998,
+        105.0,
+        43.00000000000001,
+        25.000000000000004
+      ],
+      "curve_style": "cycle_scatter_or_continuous_solid",
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "traces": [
+        {
+          "label": "Electrolyte A",
+          "line_style": "None",
+          "marker": "o",
+          "points": 500,
+          "colour": "#167d8d",
+          "sampling": "cycle_scatter"
+        },
+        {
+          "label": "Electrolyte B",
+          "line_style": "None",
+          "marker": "o",
+          "points": 500,
+          "colour": "#cb5267",
+          "sampling": "cycle_scatter"
+        }
+      ]
+    },
+    {
+      "panel": "g",
+      "actual_plot_box_mm": [
+        73.0,
+        105.0,
+        43.00000000000001,
+        25.000000000000004
+      ],
+      "curve_style": "cycle_scatter_or_continuous_solid",
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "traces": [
+        {
+          "label": "1",
+          "line_style": "-",
+          "marker": "None",
+          "points": 180,
+          "colour": "#99c9d2",
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "100",
+          "line_style": "-",
+          "marker": "None",
+          "points": 180,
+          "colour": "#459cae",
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "300",
+          "line_style": "-",
+          "marker": "None",
+          "points": 180,
+          "colour": "#24658a",
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "500",
+          "line_style": "-",
+          "marker": "None",
+          "points": 180,
+          "colour": "#302b68",
+          "sampling": "continuous_solid"
+        }
+      ]
+    },
+    {
+      "panel": "h",
+      "actual_plot_box_mm": [
+        131.0,
+        105.0,
+        43.00000000000001,
+        25.000000000000004
+      ],
+      "curve_style": "cycle_scatter_or_continuous_solid",
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "traces": [
+        {
+          "label": "Model A",
+          "line_style": "-",
+          "marker": "None",
+          "points": 86,
+          "colour": "#167d8d",
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "Model B",
+          "line_style": "-",
+          "marker": "None",
+          "points": 86,
+          "colour": "#cb5267",
+          "sampling": "continuous_solid"
+        }
+      ]
+    }
+  ],
+  "rows_checked": [
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      3,
+      4
+    ],
+    [
+      5,
+      6,
+      7
+    ]
+  ],
+  "curve_style_check": "Cycle capacity/CE: marker-only. Continuous voltage/spectra: solid, unmarked. User display preference.",
+  "data_frame_check": "pass: actual data axes show top/right/bottom/left spines",
+  "display_changes": "No smoothing, downsampling or input rewriting. Explicit offsets only in the labelled stacked spectra. Every input row is rendered for the XPS trace and model.",
+  "known_model_limitations": [
+    "Source metadata defines original teaching models, not acquired measurements. Discharge curves include their declared lower endpoint; Li||Cu stripping includes 1 V. These endpoint identities do not establish a material model.",
+    "Independent measurement families are shown together only to demonstrate layout; no common experimental cell or mechanism is implied.",
+    "No real phase or XPS chemical assignment is made. A/B identities are synthetic and cannot establish performance or a mechanism."
+  ],
+  "reference": "https://research-figure-guide.nature.com/figures/preparing-figures-our-specifications/"
+}

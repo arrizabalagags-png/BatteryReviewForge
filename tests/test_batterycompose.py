@@ -12,7 +12,7 @@ from PIL import Image, ImageDraw
 from pypdf import PdfReader
 from reportlab.pdfgen import canvas
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "skills" / "battery-figure-assemble" / "scripts"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "skills" / "voltpeer-assemble" / "scripts"))
 from batterycompose import ComposeError, compose, resolve_layout  # noqa: E402
 from batterycompose.inventory import inventory  # noqa: E402
 

@@ -1,82 +1,94 @@
-# 软件适配记录（技术资料）
+# 软件适配与实际验证状态
 
-普通使用者请走[开始使用](https://dazi.gsarrizabalaga.xyz/start.html)或[WorkBuddy 分步教程](https://dazi.gsarrizabalaga.xyz/install-workbuddy.html)。教程区分国内可选路线与已能正常使用 Codex 的路线，不要求更换熟悉的软件。BatteryReviewForge 是 `SKILL.md` 指令、Python 脚本和原创图形资源；没有独立账户、模型 API 或密钥输入框。核对日期：2026-09-27。
+当前活动工程是 **VoltPeer 0.11.0 Beta 本地候选版**，完整包和 Starter 位于 `downloads/v0.11.0/`，使用 15 个 `voltpeer-*` 技能名。[当前索引](downloads/v0.11.0/download-index.json) · [安全迁移](NAMING_MIGRATION.md)。以下明确标有旧版本或日期的宿主/API/科学记录保留原来的测试范围；它们不构成当前树的原生发现或完整模型门禁。
 
-必须分别记录：文件已复制（copied）、新会话发现技能（discovered）、依赖环境可用（runtime_ready）、真实导出成功（smoke_test_passed）。网页点击“继续”、脚本复制和包结构测试都不能替代原生客户端完整验收。本轮在临时目录测试包内容、冲突备份和 Python 导出；没有重新完成原生客户端登录、导入、发现到出图的全流程。
+默认路线是 **DeepSeek Harness 官方桌面端 + 项目工作区技能**。技术 ID 保持 `voltpeer-plot`、`voltpeer-assemble` 等；显示名支持情况不能替代技能发现检查。文档核对于 2026-10-01；本次为 **Beta**。完整69项固定行为EVAL及原生桌面发现到结果链路仍待实跑。此前有限Flash/Pro直连API pilot保留为历史 PARTIAL_API_PILOT，[去敏结果和用量](validation/2026-10-01-api-pilot.json)。
 
-| 软件 | 现在能做什么 | 本项目验证状态 |
+## 0.10.1 固定绘图 Starter 实测
+
+冻结 ZIP：580,632 bytes，SHA-256 `392b58b6a211c35f88a0148c95d07b9accb5b6eeb000640883466d96d3ab466a`。普通上传优先 inspect → 作者确认映射 → 固定 plot → check；不先加载整套论文策划文档。
+
+| 实测入口 | 已完成 | 边界 |
 | --- | --- | --- |
-| **Codex** | 使用插件，或请 Codex 检查固定官方仓库后安装独立技能 | 有历史 Windows 使用记录；v0.8.7 新安装与其他系统完整任务待实测 |
-| **Kimi Code CLI** | 把 15 个技能复制到官方扫描目录 | 官方技能格式与路径已确认；本项目完整任务待实机验收 |
-| **DeepSeek Harness** | 把 15 个技能复制到官方扫描目录 | 官方本地技能机制已确认；本项目完整任务待实机验收 |
-| **WorkBuddy** | 绘图与拼图入门套装仅含 2 个独立技能 ZIP | 官方入口与包内共享引用已检查；客户端导入、发现、运行仍待实测 |
-| **豆包桌面工作任务** | 可先用内置 Skills 和普通文件问答 | 尚无已核实的第三方 `SKILL.md` 导入步骤；目前不声称可一键安装 |
+| DeepSeek Flash 直连 API + 受限文件/固定程序工具 | 独立识别非标准列名、建立作者映射，13请求/15工具后导出 PNG/SVG/PDF；48值、异常、所选配色、实线无点四框和输出完整性通过 | 最终回复为反引号相对路径，缺可点击链接：交付表达 PARTIAL。不是原生 DSH 测试；模型没有视觉工具 |
+| Codex `gpt-6-luna` collaboration agent | 新包实际安装文件、inspect、重新映射、固定出图、check、打开 PNG；48值和格式独立评分通过。另一个只有CSV的工程缺项停止、未猜条件或出图 | 依赖使用之前已安装的相同隔离 Python 环境；原生客户端发现不在本次证据内；仅测试这个 CE 任务 |
+| Codex CLI 0.146.0 / ChatGPT 登录 / `gpt-6-luna` | 实际调用返回 HTTP 400 model not supported | 此 CLI/账户入口 MODEL_UNAVAILABLE，未运行模型任务；不能用另一入口成功掩盖此失败 |
 
-## 第 1 步：先登录你自己的 Agent
+[Flash 独立评分与用量](validation/2026-10-01-flash-starter-route-fix.json) · [Luna 新包评分](validation/2026-10-01-luna-starter-agent-route-fix.json) · [Luna 首轮历史评分](validation/2026-10-01-luna-starter-agent.json)。测试表是工程作者声明的合成验收数据，不代表真实实验；100.5%异常原值保留。以上有限试次不替代全部图型的模型验证或原生宿主验收。
 
-**Codex**：在 Codex 应用或 CLI 按提示登录。使用本项目绘图时，不需要另买或填写“BatteryReviewForge API Key”。[官方插件说明](https://developers.openai.com/plugins/build/plugins)。
+## DeepSeek Harness 桌面端主线
 
-**Kimi Code CLI**：首次运行 `kimi` 后输入 `/login`，按屏幕提示选 **Kimi Code 账号登录** 或 **Kimi Platform API Key**。前者不需要手动管理 Key。[官方入门说明](https://www.kimi.com/code/docs/en/kimi-code-cli/guides/getting-started)。
+第一次画图可先下载 [v0.11.0 Beta 绘图候选 Starter](downloads/v0.11.0/starter/VoltPeer-Plot-Starter-v0.11.0.zip)，解压后让 AI 读包内 `AGENT_GUIDE.md`。其中 `start.py setup` 仅安装隔离的 Python 环境，不需要 API key；一个固定 `batteryplot` 实现覆盖普通上传的10种图型。AI 负责识别图型、确认字段/科学条件和调用程序，不为每份数据重写绘图代码。Demo 与作者输入分开，其他任务按下面路线装单个 Skill。旧 v0.10.1 Starter 保留在上面的冻结记录中。
 
-**DeepSeek Harness**：在软件的 **Settings → Models** 中配置 DeepSeek 或你自己使用的模型提供方。只在该软件自己的设置页输入 Key。[官方模型设置说明](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/guide/providers.md)。
+Starter 的 Codex 适配为项目 `.agents/skills`，DSH 为项目 `.dsh/skills`；共用标准 name/description frontmatter。路径适配和本地执行已测试，原生发现/真实模型表现仍分别记录。[Codex 官方本地目录](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills)。
 
-**WorkBuddy**：从 [WorkBuddy 官方产品页](https://www.workbuddy.cn/work/)下载，按客户端提示登录，再回到客户端。[官方技能说明](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)。账号、额度和额外模型费用以该软件的官方账户说明为准。
+1. 从 [DeepSeek 官方下载页](https://www.deepseek.com/harness/)下载当前系统支持的桌面版，按官方安装步骤打开。
+2. 在设置中的 **DeepSeek 模型供应商** 保存自己在 DeepSeek 平台创建的 API key，具体入口按官方当前界面操作。模型费用以 [官方当前价格表](https://api-docs.deepseek.com/quick_start/pricing/)为准；本站和 Skill 不收取或提供模型 API key。无需把 key 发给作者或 AI。[官方快速开始](https://deepseek-harness.github.io/deepseek-harness/guide/quickstart)。
+3. 在桌面端选一个研究项目文件夹作为工作区。完整技能包解压后，在包目录打开终端，运行下面与系统对应的命令。
 
-**豆包**：使用豆包官方账号与客户端。桌面版支持“工作任务”和内置 Skills，但目前没有核实到可供本项目采用的第三方技能包导入规范。[官方下载页](https://www.doubao.com/download/desktop)。
+Windows：
 
-> **任何情况都不要把 API Key 粘到这个网站、GitHub Issue、数据表或聊天消息里。** 我们的静态网页没有密钥输入框。Python 绘图脚本在本地运行，也不单独向模型 API 发请求；你给 Agent 的文件仍受所选软件自身的数据处理规则约束。
-
-## 第 2 步：安装技能
-
-下载并解压 [完整技能安装包](https://dazi.gsarrizabalaga.xyz/downloads/BatteryReviewForge-v0.9.2.zip)。看到 `skills/`、`install.ps1` 和 `install.sh` 三项后，再按自己的软件做以下一步。
-
-### Codex：先确认目录与已有安装
-
-上手页提供固定指向 `https://github.com/arrizabalagags-png/BatteryReviewForge` 的自然语言安装请求。必须先核对当前宿主版本、插件和同名技能，再安装。它目前是待原生客户端完整验证的辅助路线，不能写成已独立通过三次。
-
-已会用终端：
-
-```text
-codex plugin marketplace add arrizabalagags-png/BatteryReviewForge
-codex plugin add battery-review-forge@battery-review-forge
+```powershell
+powershell -ExecutionPolicy Bypass -File .\install.ps1 -Workspace "D:\我的科研项目"
 ```
 
-下载 ZIP 的 Windows 用户：在解压目录打开 PowerShell，运行 `./install.ps1`。macOS/Linux 用户运行 `sh install.sh`。当前安装器保留 `$CODEX_HOME/skills` 或 `~/.codex/skills` 默认值，同时检查共享 `~/.agents/skills` 中的同名副本。当前宿主若扫描其他目录，先查明再显式指定目标，不可把历史路径当作永久保证。重复安装会停止。主动使用覆盖参数时先移动旧目录到 `.brf-install-backups`，再放入完整新版；不会合并遗留文件。恢复步骤见[更新与恢复](https://dazi.gsarrizabalaga.xyz/maintenance.html)。
+macOS（或 Linux CLI 的项目技能目录）：
 
-### Kimi Code CLI：复制到 Kimi 的技能目录
-
-在解压目录运行：Windows `./install.ps1 -Agent KimiCode`；macOS/Linux `sh install.sh --agent kimi`。默认目标为 `~/.kimi-code/skills/`。开始一个新会话，然后输入 `/skill:battery-review-figure` 试用绘图技能。官方还支持共享的 `~/.agents/skills/`，但本安装器选择专用目录，减少与其他 Agent 的同名技能冲突。[官方技能文档](https://www.kimi.com/code/docs/en/kimi-code-cli/customization/skills.html)。
-
-### DeepSeek Harness：复制到 DSH 的技能目录
-
-在解压目录运行：Windows `./install.ps1 -Agent DeepSeekHarness`；macOS/Linux `sh install.sh --agent dsh`。默认目标为 `~/.dsh/skills/`；如果设置了 `DSH_HOME`，安装器会跟随它，Windows 也可另用 `-TargetRoot` 指定完整目标目录。随后在新会话查看技能目录。DSH 需要已启用技能注册、文件系统提供方及调用工具；默认组合可在[官方文档](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/skill/README.md)核查。复制成功只证明文件到位，不证明图能在本机导出。
-
-### WorkBuddy：按技能逐个导入
-
-下载 [WorkBuddy 绘图与拼图套装](https://dazi.gsarrizabalaga.xyz/downloads/BatteryReviewForge-WorkBuddy-Starter-v0.9.2.zip)，先解压，按 `先读我.txt` 分别导入绘图与拼图 ZIP。套装保留共享规则；包内字段与引用通过自动检查，但不能由此推断宿主已正确扫描依赖。按[官方技能入口](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)操作后，新开任务检查实际路径、Python 依赖，再生成 PNG/SVG。15 技能合集仍供完整综述流程使用，不要求初学者逐个挑选。
-
-### 豆包：先不要照搬其他软件的目录
-
-先用豆包自带的文件处理功能，把一份数据或一张样图交给它，并附上本仓库对应技能的公开 `SKILL.md` 链接，请它按说明给出**绘图方案**。这只是手动参考说明，**不是技能已安装或脚本会执行**。待官方公开第三方导入规范且我们实际跑通后，才会补一键安装教程。
-
-## 第 3 步：用一句话开始
-
-```text
-我有一份全电池循环数据。请先用 battery-review-figure 检查列名、单位、
-测试条件和可比性；告诉我还缺什么，再画一张投稿尺寸能看清的图。
+```sh
+sh install.sh --workspace "/path/to/research project"
 ```
 
-```text
-我有 6 张已经画好的图。请用 battery-figure-assemble 先盘点来源，
-按同一字号和边界拼成 Fig. 3，导出 PDF 并给我逐面板检查图。
-```
+工作区须已存在。目标为 `<工作区>/.dsh/skills/<技术ID>/SKILL.md`，这是官方项目文件系统 provider 的高优先级路径；有 `.git` 时项目根取最近祖先。打开项目根，避免选择里面另一个嵌套目录。[官方技能发现说明](https://deepseek-harness.github.io/deepseek-harness/reference/subsystems/skills)。CLI 与桌面 profile 不能混同，不能仅复制到猜测的 userData/global 目录便写“桌面已安装”。
 
-绘图需要 Python、Matplotlib 等依赖；[绘图依赖](../skills/battery-review-figure/requirements.txt)和[拼图依赖](../skills/battery-figure-assemble/requirements.txt)可分别按需安装。若宿主没有本地 Python 执行权，技能仍可帮你规划、审查和写出脚本，但不能声称它已经产生了成图。示例数据是虚构的，不可写入论文。
+4. 在该工作区新开会话，请它定位实际装入的技能，读取其实际 SKILL.md。单个技能不要求同时装绘图和拼版。安装脚本输出只证明 copied；宿主实际定位才是 discovered。
+5. 绘图/拼版脚本在项目虚拟环境中安装该技能自己根目录的 `requirements.txt`，再跑合成样例；只用文字流程不要求安装绘图库。不要给系统 Python 装全局包。Windows 本次QA使用隔离 Python 3.12，脚本要求 Python ≥3.10；目录可含中文/空格，JSON BOM 可读。
+6. 用一份真实授权数据试样，核对结果里的单位、分母、边界和最终尺寸，再批量。缺关键字段时补材料，不要求新手读内部日志。
 
-## 关于其他 Agent
+更新：Windows 加 `-Overwrite`，shell 加 `--overwrite`。安装器先移动同名旧树到相邻 `.brf-install-backups`，再完整复制新树；保留作者修改，不合并旧遗留文件。没有覆盖参数时遇同名停止。恢复先把旧目录复制回原目标或指定独立测试工作区，核查实际被宿主发现的路径。
 
-Claude Code 未列为当前维护的安装入口，也未在本项目做兼容验证。我们只报告自己能核实和测试的产品行为，不把对公司的态度写成技术结论。提出新宿主适配时，请给出官方技能规范、实际导入截图、最小样例和一次完整绘图/拼图结果。
+高级显式目标：Windows `-TargetRoot "实际扫描的skills目录"`；shell `--target-root "实际扫描的skills目录"`。与 workspace 参数互斥。其他宿主须先查自身官方路径和当前设置，避免同名多副本。
 
-## v0.9.1 显示名称
+## Flash 与 Pro 的条件能力
 
-客户端支持展示配置时，绘图显示为「VoltPeer · 科研绘图」，拼图显示为「VoltPeer · Figure 拼版」。技术 ID 不变。WorkBuddy、Kimi 等客户端可能仍显示 `battery-review-figure`；请用这个技术名称查找，不要以是否显示中文判断安装成功。完整映射见 [SKILL_NAMES.json](SKILL_NAMES.json)。v0.8.7 的历史验证范围保持原样；v0.9.1 的原生客户端完整出图验收仍待完成。
+| 模型/模式 | 适合的工作 | 不能省略的检查 | 此包真实模型状态 |
+| --- | --- | --- | --- |
+| `deepseek-flash` / Guided | 先一份数据、一张试样；可在宿主提供视觉时检查图片 | 来源/单位/实验条件、实际脚本输出、视觉逐图复核 | 原65项加4项相反证据，共69项；模型实跑 NOT_RUN |
+| `deepseek-v4-pro` / Adaptive | 较复杂文字、证据核对和分阶段结构规划 | 同样的科学审查；当前 Pro 无视觉，PNG/显微图/最终Figure视觉待审 | 原65项加4项相反证据，共69项；模型实跑 NOT_RUN |
+
+当前 Flash 对应 V4.1 Flash 并有原生 Vision；仍服务的 V4 Pro 0813 不支持 Vision。[官方模型表](https://api-docs.deepseek.com/quick_start/pricing/)。能力会变化；每次真实验证记录精确 model ID、客户端版本和工具，不用价格或名称代替测量。无工具执行时可写脚本/方案，不能宣称已经导出。无视觉时可核对文字/几何指标，不能宣称看过图。
+
+## 五项状态分别记录
+
+| 状态 | 什么证据能证明 | 当前证据边界 |
+| --- | --- | --- |
+| copied | 包中技能文件和实际目标目录 | 本次临时安装/更新、冲突备份、中文路径已测试 |
+| discovered | 原生客户端新会话读取实际技术 ID 的路径 | 本次桌面原生发现待实测 |
+| runtime_ready | 所需包实际 import 成功及工具执行权 | 本地项目QA环境已检查；使用者机器必须自己检查 |
+| smoke_test_passed | 实际导出、文件解析与打开，非按钮点击 | 本次Python本地绘图/拼版路线及失效边界回归测试 |
+| behavior_eval | 完整case请求、模型输出/调用、产物与独立评分证据 | 有限直连API pilot PARTIAL；完整69项和原生宿主 NOT_RUN；不以单元测试冒充 |
+
+诊断命令：`python scripts/diagnose_install.py --skills-root "实际目标目录" --host "DeepSeek Harness desktop"`。目标可为安装集合，也可直接指向一个含 SKILL.md 的技能目录。诊断逐技能读取本包 requirements，检查已装版本和实际 import；无第三方依赖记 NOT_REQUIRED。显式 `--smoke-output "新目录"` 只实跑已实现的绘图 PDF/PNG/SVG 或拼版 PDF/PNG 路线，其他流程记 NOT_SUPPORTED，不创建假的产物或发现通过状态。默认隐藏个人路径；完整技术诊断由维护者按需查看。**SVG面板输入拼版**还需要原生 Cairo；import 可用不等于所有 SVG 已渲染通过。缺少时用原编辑器导出的矢量 PDF。
+
+## 结果与恢复
+
+绘图 `scripts/deliver.py`，拼版 `scripts/compose_figure.py deliver` 均生成私有 Working 文件夹：根 `index.html`/`README.md`，图件 `results/`，输入/规格/审查/checkpoint `.voltpeer/`。重复目标生成 `_v002`，旧结果保留。内部记录按需展开，科学未决项必须说明。TIFF默认LZW；位图每格式/内容类DPI明确记录；中性300 dpi预览不会标为所有期刊合规。
+
+要公开图件，先确认公开权利和许可，再生成 Share 包。它排除原始数据/恢复状态/内部路径和日志，清理元数据；最后人工检查可见姓名、课题与未公开内容，并保留必须科学标签和来源署名。真实 Key、用户研究材料、账号和全量私人对话不放到公共仓库。
+
+## 其他已有软件
+
+| 软件 | 安装入口 | 当前边界 |
+| --- | --- | --- |
+| Codex | 明确 `-Agent Codex` / `--agent codex`，或使用官方插件入口 | 保留历史支持；新版包不能仅凭旧记录标原生验收PASS |
+| Kimi Code CLI | `-Agent KimiCode` / `--agent kimi` | 既有目录/包路线保留；当前完整任务待本机测 |
+| WorkBuddy | 可选单技能ZIP/两技能套装 | 包内指南已自包含；第三方原生导入发现待实测，非主推 |
+| 其他桌面端 | 按已核实官方技能接口 | 不照搬目录、不杜撰一键安装；无官方可验证接口时只提供手动参考 |
+
+兼容测试协议见 [EVAL说明](../evals/README.md)。打包前用 `scripts/check_skill_distribution.py` 检查完整安装树和每个独立ZIP解压目录；必须能在单技能目录解析所有本地运行引用。引用检查也不证明客户端能力。
+
+维护者再运行 `python scripts/check_skill_dependencies.py --skills-root skills`，用 AST 检查每个技能所附 Python 源码的 import 是否在本技能 requirements 声明。检查不读取全局已装包来弥补漏项，懒加载和可选 SVG 导入仍记录；动态名称无法静态解析时保留 NOT_TESTED。此门禁只核对 Python 导入与声明，不验证宿主插件、真实模型或科学结论。
+
+
+## VoltPeer 0.11.0 naming migration
+
+The current naming candidate uses 15 canonical VoltPeer Skill IDs. Before updating an existing installation, follow [the migration guide](NAMING_MIGRATION.md); ordinary installation refuses legacy duplicates and explicit updates preserve old trees/customisations outside discovery. Historical version links retain their recorded identity.

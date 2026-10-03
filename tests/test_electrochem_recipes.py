@@ -9,7 +9,7 @@ import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT/'skills/battery-review-figure/scripts'))
+sys.path.insert(0, str(ROOT/'skills/voltpeer-plot/scripts'))
 from batteryplot.electrochem import ELECTROCHEM_RECIPES
 from batteryplot.specialist import RECIPES, render_recipe
 
@@ -92,7 +92,7 @@ class ElectrochemRecipeTests(unittest.TestCase):
         original = (source/'data.csv').read_bytes()
         with tempfile.TemporaryDirectory() as temp:
             output = Path(temp)/'new-output'
-            command = [sys.executable, str(ROOT/'skills/battery-review-figure/scripts/render_specialist.py'),
+            command = [sys.executable, str(ROOT/'skills/voltpeer-plot/scripts/render_specialist.py'),
                        '--recipe', 'eis_frequency', '--input-folder', str(source),
                        '--output-dir', str(output), '--style', 'forge']
             subprocess.run(command, check=True, capture_output=True, text=True)

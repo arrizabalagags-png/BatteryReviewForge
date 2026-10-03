@@ -1,0 +1,93 @@
+{
+  "id": "zn_air_power",
+  "title": "Zn-air 极化与功率密度",
+  "domain": "zinc",
+  "type": "demo",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260934,
+  "source_files": [
+    "data.csv"
+  ],
+  "variables_and_units": [
+    "current_density_mA_cm2",
+    "voltage_V",
+    "power_density_mW_cm2"
+  ],
+  "test_conditions": "Original effective discharge polarization model; geometric air-electrode area basis, 25 C; p=jV; no oxygen-transport or real catalyst calibration",
+  "render_options": {
+    "recipe": "zn_air_power"
+  },
+  "reproduce": "python render.py --output rebuilt --recipe zn_air_power --demo-input data.csv",
+  "creator": "VoltPeer maintainers",
+  "license": "MIT",
+  "generator_version": "1.6",
+  "limitations": "Declared teaching model only; no measured device, mechanism or material certification. This generator does not adapt experimental data.",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "phenomenological_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "V=1.58-0.050*asinh(j/(2*0.5))-0.0018*j; j in mA/cm2",
+      "P_mW_cm2=j_mA_cm2*V_V"
+    ],
+    "assumptions": [
+      "Lumped activation plus ohmic losses at nonnegative discharge current.",
+      "The asinh relation is the effective symmetric charge-transfer form; it is not an oxygen reaction electron count."
+    ],
+    "parameters": {
+      "original_open_circuit_V": 1.58,
+      "effective_activation_coefficient_V": 0.05,
+      "effective_exchange_current_mA_cm2": 0.5,
+      "area_resistance_ohm_cm2": 1.8,
+      "temperature_C": 25
+    },
+    "references": [
+      {
+        "url": "https://www.gamry.com/electrochemistry-applications/cv-cyclic-voltammetry",
+        "title": "Gamry: charge-transfer equations",
+        "supports": "Symmetric charge-transfer/asinh form only; all effective device parameters are original.",
+        "scope": "model_definition_only"
+      }
+    ],
+    "limitations": [
+      "All numeric material/rate parameters are original teaching assumptions, not measured or copied paper data.",
+      "No oxygen-transport limit, catalyst/electrode calibration, recharge branch or stack power claim."
+    ],
+    "validation_scope": "Original teaching-model equations, charge/energy/units and declared boundaries only; no experimental or material certification."
+  },
+  "actual_artist_checks": [
+    {
+      "panel": 0,
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "curve_styles": [
+        {
+          "linestyle": "-",
+          "marker": "None",
+          "points": 176
+        }
+      ]
+    },
+    {
+      "panel": 1,
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "curve_styles": [
+        {
+          "linestyle": "-",
+          "marker": "None",
+          "points": 176
+        }
+      ]
+    }
+  ]
+}

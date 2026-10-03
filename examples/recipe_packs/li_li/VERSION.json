@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "resource_id": "li_li",
+  "version": "0.12.0",
+  "updated": "2026-10-01",
+  "status": "Beta",
+  "original_code_license": "MIT",
+  "generated_demo": true,
+  "reference_image": "reference/figure.png",
+  "author_data_supported": true,
+  "derived_from_resource_id": "li_li",
+  "source_repository": "https://github.com/arrizabalagags-png/Voltpeer-skills",
+  "baseline_commit": "dfd46fcb4a3255b60826de8a4c721963adc4ff02",
+  "source_state": "local_unpublished_revision",
+  "model_evals": {
+    "deepseek-flash": "NOT_RUN",
+    "deepseek-v4-pro": "NOT_RUN"
+  },
+  "native_desktop_discovery": "NOT_RUN",
+  "demo_sha256": {
+    "demo/model.json": "4e8ff8b8e1ce9b851e635c73414e091db87b9a7b2d185abc9a6cfca5510af9da",
+    "demo/trace.csv": "bac0850eff25b3f308d510d12283b80ddde4a89b306315f4995c16b6030709bd"
+  }
+}

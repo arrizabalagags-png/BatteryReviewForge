@@ -1,0 +1,1644 @@
+{
+  "schema_version": "1.0.0",
+  "title": "Original battery polishing evaluation fixtures",
+  "synthetic": true,
+  "measured_results": false,
+  "article_text_copied": false,
+  "purpose": "Exercise protected numerical, unit, citation, metric, cell, claim and section boundaries",
+  "response_format": {
+    "case_id": {
+      "section": "detected section label",
+      "paper_type": "research or review",
+      "text": "polished text",
+      "notes": [
+        "material revision note if needed"
+      ]
+    }
+  },
+  "limitations": [
+    "Examples are one acceptable realization, not the only good wording.",
+    "Literal facts and regex checks are conservative and may flag valid paraphrases.",
+    "Passing does not establish full semantic equivalence or model performance.",
+    "An assistant evaluation requires actual generated responses plus human assessment."
+  ],
+  "cases": [
+    {
+      "id": "BP01",
+      "risk": "Average CE retains its quantity and electrode pair",
+      "task": "Polish the supplied Results passage without adding facts, claims or references.",
+      "source": "At 25 °C, Zn||Cu cells had average CE of 99.6% in 250 cycles, with 1 mA cm−2 current and 1 mAh cm−2 plating capacity.",
+      "language": "en",
+      "expected_section": "Results",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "25 °C"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "Zn||Cu"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "average CE"
+          ]
+        },
+        {
+          "label": "4",
+          "allowed": [
+            "99.6%"
+          ]
+        },
+        {
+          "label": "5",
+          "allowed": [
+            "250 cycles"
+          ]
+        },
+        {
+          "label": "6",
+          "allowed": [
+            "1 mA cm−2"
+          ]
+        },
+        {
+          "label": "7",
+          "allowed": [
+            "1 mAh cm−2"
+          ]
+        }
+      ],
+      "required_patterns": [],
+      "forbidden_patterns": [],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Results",
+        "paper_type": "research",
+        "text": "At 25 °C, Zn||Cu cells achieved an average CE of 99.6% over 250 cycles. The test used 1 mA cm−2 and 1 mAh cm−2.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "CE value changed",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "At 25 °C, Zn||Cu cells achieved an average CE of 98.6% over 250 cycles. The test used 1 mA cm−2 and 1 mAh cm−2.",
+            "notes": []
+          }
+        },
+        {
+          "label": "plating capacity changed to current",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "At 25 °C, Zn||Cu cells achieved an average CE of 99.6% over 250 cycles. The test used 1 mA cm−2 and 1 mA cm−2.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP02",
+      "risk": "Capacity-retention reference cycle",
+      "task": "Polish the supplied Results passage without adding facts, claims or references.",
+      "source": "The Li||LFP cell retained 82% relative to its cycle 3 capacity after 200 cycles at 0.5 C.",
+      "language": "en",
+      "expected_section": "Results",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "200 cycles"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "0.5 C"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "Li||LFP"
+          ]
+        },
+        {
+          "label": "4",
+          "allowed": [
+            "82%"
+          ]
+        },
+        {
+          "label": "5",
+          "allowed": [
+            "cycle 3 capacity"
+          ]
+        }
+      ],
+      "required_patterns": [
+        "retained 82%"
+      ],
+      "forbidden_patterns": [],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Results",
+        "paper_type": "research",
+        "text": "After 200 cycles at 0.5 C, the Li||LFP cell retained 82% of its cycle 3 capacity.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "reference cycle changed",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "After 200 cycles at 0.5 C, the Li||LFP cell retained 82% of its cycle 1 capacity.",
+            "notes": []
+          }
+        },
+        {
+          "label": "retention promoted to CE",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "After 200 cycles at 0.5 C, the Li||LFP cell had a CE of 82% of its cycle 3 capacity.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP03",
+      "risk": "Active-material mass does not become cell mass",
+      "task": "Polish the supplied Results passage without adding facts, claims or references.",
+      "source": "Specific energy was 219 Wh kg−1 on the combined active-material mass of the positive and negative electrodes.",
+      "language": "en",
+      "expected_section": "Results",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "219 Wh kg−1"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "combined active-material mass"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "positive and negative electrodes"
+          ]
+        }
+      ],
+      "required_patterns": [
+        "specific energy"
+      ],
+      "forbidden_patterns": [],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Results",
+        "paper_type": "research",
+        "text": "The specific energy was 219 Wh kg−1, based on the combined active-material mass of the positive and negative electrodes.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "mass boundary changed",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "The specific energy was 219 Wh kg−1, based on the total cell mass of the positive and negative electrodes.",
+            "notes": []
+          }
+        },
+        {
+          "label": "energy quantity changed",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "The specific power was 219 Wh kg−1, based on the combined active-material mass of the positive and negative electrodes.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP04",
+      "risk": "Packaging inclusion is retained",
+      "task": "Polish the supplied Results passage without adding facts, claims or references.",
+      "source": "The 2 Ah pouch cell specific energy is 348 Wh kg−1 including packaging.",
+      "language": "en",
+      "expected_section": "Results",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "2 Ah"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "pouch cell"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "348 Wh kg−1"
+          ]
+        },
+        {
+          "label": "4",
+          "allowed": [
+            "including packaging"
+          ]
+        }
+      ],
+      "required_patterns": [],
+      "forbidden_patterns": [],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Results",
+        "paper_type": "research",
+        "text": "The 2 Ah pouch cell had a specific energy of 348 Wh kg−1, including packaging.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "packaging scope reversed",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "The 2 Ah pouch cell had a specific energy of 348 Wh kg−1, excluding packaging.",
+            "notes": []
+          }
+        },
+        {
+          "label": "cell format changed",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "The 2 Ah coin cell had a specific energy of 348 Wh kg−1, including packaging.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP05",
+      "risk": "Energy retention is not capacity retention",
+      "task": "Polish the supplied Results passage without adding facts, claims or references.",
+      "source": "The cell retained 90% of the initial discharge energy after 80 cycles.",
+      "language": "en",
+      "expected_section": "Results",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "80 cycles"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "90%"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "initial discharge energy"
+          ]
+        }
+      ],
+      "required_patterns": [],
+      "forbidden_patterns": [],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Results",
+        "paper_type": "research",
+        "text": "After 80 cycles, the cell retained 90% of its initial discharge energy.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "retention quantity changed",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "After 80 cycles, the cell retained 90% of its initial discharge capacity.",
+            "notes": []
+          }
+        },
+        {
+          "label": "cycle count changed",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "After 800 cycles, the cell retained 90% of its initial discharge energy.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP06",
+      "risk": "Different charge and discharge rates",
+      "task": "Polish the supplied Results passage without adding facts, claims or references.",
+      "source": "The Li||NCM cell was charged at 0.2 C and discharged at 0.5 C; the definition was 1 C = 190 mA g−1.",
+      "language": "en",
+      "expected_section": "Results",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "Li||NCM"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "charged at 0.2 C"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "discharged at 0.5 C"
+          ]
+        },
+        {
+          "label": "4",
+          "allowed": [
+            "1 C = 190 mA g−1"
+          ]
+        }
+      ],
+      "required_patterns": [],
+      "forbidden_patterns": [],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Results",
+        "paper_type": "research",
+        "text": "The Li||NCM cell was charged at 0.2 C and discharged at 0.5 C, with 1 C = 190 mA g−1.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "rates swapped",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "The Li||NCM cell was charged at 0.5 C and discharged at 0.2 C, with 1 C = 190 mA g−1.",
+            "notes": []
+          }
+        },
+        {
+          "label": "C-rate basis changed",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "The Li||NCM cell was charged at 0.2 C and discharged at 0.5 C, with 1 C = 190 mA cm−2.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP07",
+      "risk": "Mass-normalized current and areal loading",
+      "task": "Polish the supplied Results passage without adding facts, claims or references.",
+      "source": "The cathode gave 141 mAh g−1 at 2 A g−1 with a loading of 8 mg cm−2.",
+      "language": "en",
+      "expected_section": "Results",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "141 mAh g−1"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "2 A g−1"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "8 mg cm−2"
+          ]
+        }
+      ],
+      "required_patterns": [],
+      "forbidden_patterns": [],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Results",
+        "paper_type": "research",
+        "text": "The cathode delivered 141 mAh g−1 at 2 A g−1, with a loading of 8 mg cm−2.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "current normalization changed",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "The cathode delivered 141 mAh g−1 at 2 mA cm−2, with a loading of 8 mg cm−2.",
+            "notes": []
+          }
+        },
+        {
+          "label": "loading becomes areal capacity",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "The cathode delivered 141 mAh g−1 at 2 A g−1, with a loading of 8 mAh cm−2.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP08",
+      "risk": "Symmetric hours and CE are different cell tests",
+      "task": "Polish the supplied Results passage without adding facts, claims or references.",
+      "source": "Na||Na cells cycled 1800 h. Separate Na||Cu cells gave mean CE 99.4% for 300 cycles.",
+      "language": "en",
+      "expected_section": "Results",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "Na||Na cells"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "1800 h"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "separate Na||Cu"
+          ]
+        },
+        {
+          "label": "4",
+          "allowed": [
+            "mean CE"
+          ]
+        },
+        {
+          "label": "5",
+          "allowed": [
+            "99.4%"
+          ]
+        },
+        {
+          "label": "6",
+          "allowed": [
+            "300 cycles"
+          ]
+        }
+      ],
+      "required_patterns": [],
+      "forbidden_patterns": [],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Results",
+        "paper_type": "research",
+        "text": "Na||Na cells cycled for 1800 h. In separate Na||Cu tests, the mean CE was 99.4% over 300 cycles.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "duration becomes cycle count",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "Na||Na cells cycled for 1800 cycles. In separate Na||Cu tests, the mean CE was 99.4% over 300 cycles.",
+            "notes": []
+          }
+        },
+        {
+          "label": "CE assigned to symmetric cell",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "Na||Na cells cycled for 1800 h. In separate Na||Na tests, the mean CE was 99.4% over 300 cycles.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP09",
+      "risk": "Initially anode-free inventory boundary",
+      "task": "Polish the supplied Results passage without adding facts, claims or references.",
+      "source": "The initially anode-free Cu||LFP cell had no excess Li metal before its first charge and retained 79% after 120 cycles.",
+      "language": "en",
+      "expected_section": "Results",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "initially anode-free"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "Cu||LFP"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "no excess Li metal before its first charge"
+          ]
+        },
+        {
+          "label": "4",
+          "allowed": [
+            "79%"
+          ]
+        },
+        {
+          "label": "5",
+          "allowed": [
+            "120 cycles"
+          ]
+        }
+      ],
+      "required_patterns": [],
+      "forbidden_patterns": [],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Results",
+        "paper_type": "research",
+        "text": "The initially anode-free Cu||LFP cell contained no excess Li metal before its first charge. It retained 79% after 120 cycles.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "starting inventory changed",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "The initially anode-free Cu||LFP cell contained excess Li metal before its first charge. It retained 79% after 120 cycles.",
+            "notes": []
+          }
+        },
+        {
+          "label": "cell never forms metal",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "The initially anode-free Cu||LFP cell never formed a Li-metal negative electrode. It retained 79% after 120 cycles.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP10",
+      "risk": "A spectral interpretation is not unique causal proof",
+      "task": "Polish the supplied Discussion passage without adding facts, claims or references.",
+      "source": "The Raman shift is consistent with weaker Na+ coordination; it does not prove that desolvation limits charging.",
+      "language": "en",
+      "expected_section": "Discussion",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "Raman shift"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "Na+ coordination"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "does not establish that desolvation limits charging"
+          ]
+        }
+      ],
+      "required_patterns": [
+        "(?:is consistent with|supports) weaker Na\\+ coordination"
+      ],
+      "forbidden_patterns": [
+        "\\bproves\\b"
+      ],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Discussion",
+        "paper_type": "research",
+        "text": "The Raman shift supports weaker Na+ coordination, but it does not establish that desolvation limits charging.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "causal strength increased",
+          "response": {
+            "section": "Discussion",
+            "paper_type": "research",
+            "text": "The Raman shift supports weaker Na+ coordination, but it proves that desolvation limits charging.",
+            "notes": []
+          }
+        },
+        {
+          "label": "measurement changed",
+          "response": {
+            "section": "Discussion",
+            "paper_type": "research",
+            "text": "The direct measurement of the desolvation barrier supports weaker Na+ coordination, but it does not establish that desolvation limits charging.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP11",
+      "risk": "Keep a weak-solvation counterexample",
+      "task": "Polish the supplied Discussion passage without adding facts, claims or references.",
+      "source": "Weak coordination correlated with better cycling for solvent A. Solvent B had weaker coordination but poorer cycling because it was more reactive.",
+      "language": "en",
+      "expected_section": "Discussion",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "solvent A"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "Solvent B had weaker coordination but poorer cycling"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "more reactive"
+          ]
+        }
+      ],
+      "required_patterns": [],
+      "forbidden_patterns": [
+        "guarantees",
+        "every metal battery"
+      ],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Discussion",
+        "paper_type": "research",
+        "text": "Weak coordination was associated with better cycling for solvent A. Solvent B had weaker coordination but poorer cycling because it was more reactive.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "counterexample removed",
+          "response": {
+            "section": "Discussion",
+            "paper_type": "research",
+            "text": "Weak coordination was associated with better cycling for solvent A. Solvent B had weaker coordination and better cycling because it was more reactive.",
+            "notes": []
+          }
+        },
+        {
+          "label": "universal implication added",
+          "response": {
+            "section": "Discussion",
+            "paper_type": "research",
+            "text": "Weak coordination guarantees better cycling in every metal battery. Solvent B had weaker coordination but poorer cycling because it was more reactive.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP12",
+      "risk": "Detection boundary and interphase identity",
+      "task": "Polish the supplied Results passage without adding facts, claims or references.",
+      "source": "Ex situ XPS detected LiF on the cycled surface. It did not establish a uniform LiF-only SEI through the electrode.",
+      "language": "en",
+      "expected_section": "Results",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "Ex situ XPS"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "LiF on the cycled surface"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "did not establish a uniform LiF-only SEI"
+          ]
+        }
+      ],
+      "required_patterns": [],
+      "forbidden_patterns": [
+        "\\bproved\\b"
+      ],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Results",
+        "paper_type": "research",
+        "text": "Ex situ XPS detected LiF on the cycled surface, but it did not establish a uniform LiF-only SEI throughout the electrode.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "method promoted to operando",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "Operando XPS detected LiF on the cycled surface, but it did not establish a uniform LiF-only SEI throughout the electrode.",
+            "notes": []
+          }
+        },
+        {
+          "label": "surface result becomes bulk proof",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "Ex situ XPS detected LiF on the cycled surface, but it proved a uniform LiF-only SEI throughout the electrode.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP13",
+      "risk": "Binding energy, sign and activation barrier",
+      "task": "Polish the supplied Results passage without adding facts, claims or references.",
+      "source": "DFT gave an adsorption binding energy of −0.41 eV relative to the isolated adsorbate and surface; this is not a kinetic barrier.",
+      "language": "en",
+      "expected_section": "Results",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "DFT"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "adsorption binding energy"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "−0.41 eV"
+          ]
+        },
+        {
+          "label": "4",
+          "allowed": [
+            "isolated adsorbate and surface"
+          ]
+        },
+        {
+          "label": "5",
+          "allowed": [
+            "not a kinetic barrier"
+          ]
+        }
+      ],
+      "required_patterns": [],
+      "forbidden_patterns": [],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Results",
+        "paper_type": "research",
+        "text": "DFT gave an adsorption binding energy of −0.41 eV relative to the isolated adsorbate and surface. This value is not a kinetic barrier.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "energy sign reversed",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "DFT gave an adsorption binding energy of 0.41 eV relative to the isolated adsorbate and surface. This value is not a kinetic barrier.",
+            "notes": []
+          }
+        },
+        {
+          "label": "equilibrium value becomes kinetic barrier",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "DFT gave an desolvation activation barrier of −0.41 eV relative to the isolated adsorbate and surface. This value is not a kinetic barrier.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP14",
+      "risk": "CE does not create a full-cell lifetime result",
+      "task": "Polish the supplied Results passage without adding facts, claims or references.",
+      "source": "Li||Cu cells gave average CE 99.7% for 150 cycles. A full-cell lifetime was not measured.",
+      "language": "en",
+      "expected_section": "Results",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "Li||Cu"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "average CE"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "99.7%"
+          ]
+        },
+        {
+          "label": "4",
+          "allowed": [
+            "150 cycles"
+          ]
+        },
+        {
+          "label": "5",
+          "allowed": [
+            "Full-cell lifetime was not measured"
+          ]
+        }
+      ],
+      "required_patterns": [],
+      "forbidden_patterns": [
+        "perfect charge recovery"
+      ],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Results",
+        "paper_type": "research",
+        "text": "Li||Cu cells showed an average CE of 99.7% over 150 cycles. Full-cell lifetime was not measured.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "untested lifetime invented",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "Li||Cu cells showed an average CE of 99.7% over 150 cycles. The full cell achieved 4000 cycles.",
+            "notes": []
+          }
+        },
+        {
+          "label": "CE becomes perfect reversibility",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "Li||Cu cells showed perfect charge recovery of 99.7% over 150 cycles. Full-cell lifetime was not measured.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP15",
+      "risk": "An ambiguous capacity unit needs a note",
+      "task": "Polish the supplied Results passage without adding facts, claims or references.",
+      "source": "The electrode delivered a capacity of 175 mA g−1 after 100 cycles.",
+      "language": "en",
+      "expected_section": "Results",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "100 cycles"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "175 mA g−1"
+          ]
+        }
+      ],
+      "required_patterns": [
+        "reported capacity"
+      ],
+      "forbidden_patterns": [],
+      "required_note_pattern": "check|verify|verification|ambiguous|clarif",
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Results",
+        "paper_type": "research",
+        "text": "After 100 cycles, the electrode delivered a reported capacity of 175 mA g−1.",
+        "notes": [
+          "Check the capacity unit: the draft omits an hour term, so the intended quantity needs verification."
+        ]
+      },
+      "corrupted_responses": [
+        {
+          "label": "hour silently inserted",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "After 100 cycles, the electrode delivered a reported capacity of 175 mAh g−1.",
+            "notes": [
+              "Check the capacity unit: the draft omits an hour term, so the intended quantity needs verification."
+            ]
+          }
+        },
+        {
+          "label": "capacity repaired as current",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "After 100 cycles, the electrode delivered a specific current of 175 mA g−1.",
+            "notes": [
+              "Check the capacity unit: the draft omits an hour term, so the intended quantity needs verification."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP16",
+      "risk": "Molarity and molality are different",
+      "task": "Polish the supplied Methods passage without adding facts, claims or references.",
+      "source": "The electrolyte concentration was 1.5 M, defined as 1.5 mol L−1 of solution.",
+      "language": "en",
+      "expected_section": "Methods",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "1.5 M"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "1.5 mol L−1 of solution"
+          ]
+        }
+      ],
+      "required_patterns": [],
+      "forbidden_patterns": [],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Methods",
+        "paper_type": "research",
+        "text": "The electrolyte concentration was 1.5 M, corresponding to 1.5 mol L−1 of solution.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "molarity rewritten as molality",
+          "response": {
+            "section": "Methods",
+            "paper_type": "research",
+            "text": "The electrolyte concentration was 1.5 m, corresponding to 1.5 mol L−1 of solution.",
+            "notes": []
+          }
+        },
+        {
+          "label": "concentration denominator changed",
+          "response": {
+            "section": "Methods",
+            "paper_type": "research",
+            "text": "The electrolyte concentration was 1.5 M, corresponding to 1.5 mol kg−1 of solvent.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP17",
+      "risk": "Conductivity temperature and length unit",
+      "task": "Polish the supplied Results passage without adding facts, claims or references.",
+      "source": "The polymer electrolyte ionic conductivity was 0.62 mS cm−1 at 60 °C.",
+      "language": "en",
+      "expected_section": "Results",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "ionic conductivity"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "0.62 mS cm−1"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "60 °C"
+          ]
+        }
+      ],
+      "required_patterns": [],
+      "forbidden_patterns": [],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Results",
+        "paper_type": "research",
+        "text": "The polymer electrolyte had an ionic conductivity of 0.62 mS cm−1 at 60 °C.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "temperature generalized",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "The polymer electrolyte had an ionic conductivity of 0.62 mS cm−1 at room temperature.",
+            "notes": []
+          }
+        },
+        {
+          "label": "centimetre changed to metre",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "The polymer electrolyte had an ionic conductivity of 0.62 mS m−1 at 60 °C.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP18",
+      "risk": "No detectable degradation does not prove absence",
+      "task": "Polish the supplied Discussion passage without adding facts, claims or references.",
+      "source": "No degradation was detected by NMR over 70 days; slower reactions below its detection limit cannot be excluded.",
+      "language": "en",
+      "expected_section": "Discussion",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "NMR"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "70 days"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "below its detection limit cannot be excluded"
+          ]
+        }
+      ],
+      "required_patterns": [],
+      "forbidden_patterns": [
+        "proved zero",
+        "completely absent"
+      ],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Discussion",
+        "paper_type": "research",
+        "text": "NMR detected no degradation over 70 days, although slower reactions below its detection limit cannot be excluded.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "limit deleted",
+          "response": {
+            "section": "Discussion",
+            "paper_type": "research",
+            "text": "NMR detected no degradation over 70 days, although slower reactions are completely absent.",
+            "notes": []
+          }
+        },
+        {
+          "label": "detection upgraded",
+          "response": {
+            "section": "Discussion",
+            "paper_type": "research",
+            "text": "NMR proved zero degradation over 70 days, although slower reactions below its detection limit cannot be excluded.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP19",
+      "risk": "Flow-battery decay time basis",
+      "task": "Polish the supplied Results passage without adding facts, claims or references.",
+      "source": "The negolyte capacity fade was 0.04% per day over 45 days, not a per-cycle rate.",
+      "language": "en",
+      "expected_section": "Results",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "negolyte"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "0.04% per day"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "45 days"
+          ]
+        },
+        {
+          "label": "4",
+          "allowed": [
+            "not a per-cycle rate"
+          ]
+        }
+      ],
+      "required_patterns": [],
+      "forbidden_patterns": [],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Results",
+        "paper_type": "research",
+        "text": "The negolyte showed a capacity fade rate of 0.04% per day over 45 days. This was not a per-cycle rate.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "day changed to cycle",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "The negolyte showed a capacity fade rate of 0.04% per cycle over 45 days. This was not a per-cycle rate.",
+            "notes": []
+          }
+        },
+        {
+          "label": "positive electrolyte substituted",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "The posolyte showed a capacity fade rate of 0.04% per day over 45 days. This was not a per-cycle rate.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP20",
+      "risk": "Flow-cell CE and EE remain separate",
+      "task": "Polish the supplied Results passage without adding facts, claims or references.",
+      "source": "The flow cell had average CE 99.8% and average electrical energy efficiency 76% at 40 mA cm−2, excluding pump energy.",
+      "language": "en",
+      "expected_section": "Results",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "40 mA cm−2"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "average CE of 99.8%"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "electrical energy efficiency of 76%"
+          ]
+        },
+        {
+          "label": "4",
+          "allowed": [
+            "excluding pump energy"
+          ]
+        }
+      ],
+      "required_patterns": [],
+      "forbidden_patterns": [],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Results",
+        "paper_type": "research",
+        "text": "At 40 mA cm−2, the flow cell had an average CE of 99.8% and an average electrical energy efficiency of 76%, excluding pump energy.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "efficiencies swapped",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "At 40 mA cm−2, the flow cell had an average CE of 76% and an average electrical energy efficiency of 99.8%, excluding pump energy.",
+            "notes": []
+          }
+        },
+        {
+          "label": "system boundary expanded",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "At 40 mA cm−2, the flow cell had an average CE of 99.8% and an average electrical energy efficiency of 76%, including pump energy.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP21",
+      "risk": "CE abbreviation collision and counter-electrode effect",
+      "task": "Polish the supplied Results passage without adding facts, claims or references.",
+      "source": "Na metal was the counter electrode (CE). Coulombic efficiency (CE) was 99.1%. The counter electrode may alter the hard-carbon SEI.",
+      "language": "en",
+      "expected_section": "Results",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "Na metal"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "counter electrode"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "Coulombic efficiency was 99.1%"
+          ]
+        },
+        {
+          "label": "4",
+          "allowed": [
+            "may alter the hard-carbon SEI"
+          ]
+        }
+      ],
+      "required_patterns": [],
+      "forbidden_patterns": [],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Results",
+        "paper_type": "research",
+        "text": "Na metal served as the counter electrode. The Coulombic efficiency was 99.1%, and the counter electrode may alter the hard-carbon SEI.",
+        "notes": [
+          "Expanded the colliding CE abbreviations to distinguish an electrode role from an efficiency metric."
+        ]
+      },
+      "corrupted_responses": [
+        {
+          "label": "counter-electrode boundary removed",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "Na metal served as the counter electrode. The Coulombic efficiency was 99.1%, and the counter electrode has no effect on the hard-carbon SEI.",
+            "notes": [
+              "Expanded the colliding CE abbreviations to distinguish an electrode role from an efficiency metric."
+            ]
+          }
+        },
+        {
+          "label": "efficiency applied to wrong role",
+          "response": {
+            "section": "Results",
+            "paper_type": "research",
+            "text": "Na metal served as the counter electrode. The counter electrode was 99.1%, and the counter electrode may alter the hard-carbon SEI.",
+            "notes": [
+              "Expanded the colliding CE abbreviations to distinguish an electrode role from an efficiency metric."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP22",
+      "risk": "Chinese translation retains negation and claim strength",
+      "task": "Translate the supplied Discussion into natural English while preserving the data, hedging and negation.",
+      "source": "Li||Cu 电池在 200 cycles 后的平均 CE 为 99.1%。该结果可能反映副反应减少，但尚未证实沉积完全没有枝晶。",
+      "language": "zh-to-en",
+      "expected_section": "Discussion",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "Li||Cu"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "average CE of 99.1%"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "200 cycles"
+          ]
+        },
+        {
+          "label": "4",
+          "allowed": [
+            "may reflect"
+          ]
+        },
+        {
+          "label": "5",
+          "allowed": [
+            "does not establish completely dendrite-free deposition",
+            "does not establish that deposition was completely free of dendrites"
+          ]
+        }
+      ],
+      "required_patterns": [],
+      "forbidden_patterns": [
+        "\\bproves\\b",
+        "side reactions were eliminated"
+      ],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Discussion",
+        "paper_type": "research",
+        "text": "Li||Cu cells had an average CE of 99.1% after 200 cycles. This may reflect fewer side reactions, but it does not establish completely dendrite-free deposition.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "negation lost",
+          "response": {
+            "section": "Discussion",
+            "paper_type": "research",
+            "text": "Li||Cu cells had an average CE of 99.1% after 200 cycles. This may reflect fewer side reactions, but it establishes completely dendrite-free deposition.",
+            "notes": []
+          }
+        },
+        {
+          "label": "hedge upgraded to cause",
+          "response": {
+            "section": "Discussion",
+            "paper_type": "research",
+            "text": "Li||Cu cells had an average CE of 99.1% after 200 cycles. This proves that side reactions were eliminated, but it does not establish completely dendrite-free deposition.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP23",
+      "risk": "Review synthesis retains citation ownership and comparison boundaries",
+      "task": "Polish the supplied Review passage without adding facts, claims or references.",
+      "source": "Study A [12] used Li||Cu cells at 1 mA cm−2. Study B [13] used Li||LFP cells at 0.5 C. These tests do not allow a direct lifetime ranking.",
+      "language": "en",
+      "expected_section": "Review",
+      "expected_paper_type": "review",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "Li||Cu"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "1 mA cm−2"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "Li||LFP"
+          ]
+        },
+        {
+          "label": "4",
+          "allowed": [
+            "0.5 C"
+          ]
+        },
+        {
+          "label": "5",
+          "allowed": [
+            "do not support a direct lifetime ranking"
+          ]
+        }
+      ],
+      "required_patterns": [
+        "Study A \\[12\\] tested Li\\|\\|Cu",
+        "Study B \\[13\\] tested Li\\|\\|LFP"
+      ],
+      "forbidden_patterns": [
+        "prove that Study A"
+      ],
+      "required_note_pattern": null,
+      "required_section_order": [],
+      "acceptable_response": {
+        "section": "Review",
+        "paper_type": "review",
+        "text": "Study A [12] tested Li||Cu cells at 1 mA cm−2, whereas Study B [13] tested Li||LFP cells at 0.5 C. These configurations do not support a direct lifetime ranking.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "citation ownership swapped",
+          "response": {
+            "section": "Review",
+            "paper_type": "review",
+            "text": "Study A [13] tested Li||Cu cells at 1 mA cm−2, whereas Study B [12] tested Li||LFP cells at 0.5 C. These configurations do not support a direct lifetime ranking.",
+            "notes": []
+          }
+        },
+        {
+          "label": "direct ranking invented",
+          "response": {
+            "section": "Review",
+            "paper_type": "review",
+            "text": "Study A [12] tested Li||Cu cells at 1 mA cm−2, whereas Study B [13] tested Li||LFP cells at 0.5 C. These configurations prove that Study A has a longer full-cell lifetime.",
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "BP24",
+      "risk": "Detect and preserve Results-Discussion boundary and citation key",
+      "task": "Polish both supplied Results and Discussion paragraphs while retaining their section roles, numerical facts, figure marker and citation key.",
+      "source": "Results\nNa||Cu cells had average CE 99.2% over 180 cycles (Fig. 2b) \\cite{Lin2024}.\nDiscussion\nThe result supports improved reversibility, but the surface mechanism remains unresolved.",
+      "language": "en",
+      "expected_section": "Results+Discussion",
+      "expected_paper_type": "research",
+      "protected_facts": [
+        {
+          "label": "1",
+          "allowed": [
+            "Na||Cu"
+          ]
+        },
+        {
+          "label": "2",
+          "allowed": [
+            "average CE"
+          ]
+        },
+        {
+          "label": "3",
+          "allowed": [
+            "99.2%"
+          ]
+        },
+        {
+          "label": "4",
+          "allowed": [
+            "180 cycles"
+          ]
+        },
+        {
+          "label": "5",
+          "allowed": [
+            "Fig. 2b"
+          ]
+        },
+        {
+          "label": "6",
+          "allowed": [
+            "surface mechanism remains unresolved"
+          ]
+        }
+      ],
+      "required_patterns": [],
+      "forbidden_patterns": [
+        "unique surface mechanism",
+        "\\bproves\\b"
+      ],
+      "required_note_pattern": null,
+      "required_section_order": [
+        "Results",
+        "Discussion"
+      ],
+      "acceptable_response": {
+        "section": "Results+Discussion",
+        "paper_type": "research",
+        "text": "Results\nNa||Cu cells showed an average CE of 99.2% over 180 cycles (Fig. 2b) \\cite{Lin2024}.\nDiscussion\nThis result supports improved reversibility, but the surface mechanism remains unresolved.",
+        "notes": []
+      },
+      "corrupted_responses": [
+        {
+          "label": "Results header reassigned",
+          "response": {
+            "section": "Results+Discussion",
+            "paper_type": "research",
+            "text": "Discussion\nNa||Cu cells showed an average CE of 99.2% over 180 cycles (Fig. 2b) \\cite{Lin2024}.\nDiscussion\nThis result supports improved reversibility, but the surface mechanism remains unresolved.",
+            "notes": []
+          }
+        },
+        {
+          "label": "unresolved mechanism invented",
+          "response": {
+            "section": "Results+Discussion",
+            "paper_type": "research",
+            "text": "Results\nNa||Cu cells showed an average CE of 99.2% over 180 cycles (Fig. 2b) \\cite{Lin2024}.\nDiscussion\nThis result supports improved reversibility, but the LiF-rich coating proves the unique surface mechanism.",
+            "notes": []
+          }
+        }
+      ]
+    }
+  ],
+  "engineering_revision": {
+    "version": "1.0.1",
+    "date": "2026-10-02",
+    "reason": "Accept the source-strength wording in BP10 and an equivalent explicit negative translation in BP22. Preserve source inputs and corrupted outputs; actual blind Luna responses are recorded privately."
+  }
+}

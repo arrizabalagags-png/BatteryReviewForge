@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "title": "Hydrostatic stress and equilibrium potential",
+  "panels": [
+    {
+      "title": "Hydrostatic stress and equilibrium potential",
+      "xlabel": "Hydrostatic stress (MPa; tensile +)",
+      "ylabel": "Equilibrium potential shift (mV)",
+      "yscale": "linear",
+      "xscale": "linear"
+    }
+  ],
+  "colours": [
+    "#287D8E",
+    "#BA5574",
+    "#4868A8",
+    "#A46D35",
+    "#655AA0",
+    "#387F64"
+  ],
+  "input_contract": "Panel is zero-based. x/y meanings and units are declared in panels. Rows are retained in original order. Author data require a reviewed adapted contract; no silent sorting, smoothing or normalisation."
+}

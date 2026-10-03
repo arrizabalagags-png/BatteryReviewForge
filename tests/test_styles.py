@@ -15,11 +15,11 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPTS = ROOT / "skills" / "battery-review-figure" / "scripts"
+SCRIPTS = ROOT / "skills" / "voltpeer-plot" / "scripts"
 sys.path.insert(0, str(SCRIPTS))
 
 from batteryplot import coulombic_efficiency  # noqa: E402
-from batteryplot.style import PRESETS  # noqa: E402
+from batteryplot.style import PRESETS, LINESTYLES, trace_shade  # noqa: E402
 
 
 def contrast_on_white(hex_color: str) -> float:
@@ -31,6 +31,15 @@ def contrast_on_white(hex_color: str) -> float:
 
 
 class StyleTests(unittest.TestCase):
+    def test_solid_traces_keep_distinct_readable_colours(self):
+        self.assertTrue(all(style == "-" for style in LINESTYLES))
+        for preset in PRESETS.values():
+            for base in preset["series"]:
+                for count in (2, 8):
+                    colours = [trace_shade(base, index, count) for index in range(count)]
+                    self.assertEqual(len(set(colours)), count)
+                    self.assertTrue(all(contrast_on_white(colour) >= 3.0 for colour in colours))
+
     def test_all_plot_series_are_visible_against_white(self):
         self.assertEqual(len(PRESETS), 6)
         for name, preset in PRESETS.items():

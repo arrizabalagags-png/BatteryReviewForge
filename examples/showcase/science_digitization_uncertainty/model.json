@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "title": "Readout resolution and quantization uncertainty",
+  "panels": [
+    {
+      "title": "Readout resolution and quantization uncertainty",
+      "xlabel": "Readout increment (unit)",
+      "ylabel": "Quantization standard uncertainty (unit)",
+      "yscale": "log",
+      "xscale": "log"
+    }
+  ],
+  "colours": [
+    "#287D8E",
+    "#BA5574",
+    "#4868A8",
+    "#A46D35",
+    "#655AA0",
+    "#387F64"
+  ],
+  "input_contract": "Panel is zero-based. x/y meanings and units are declared in panels. Rows are retained in original order. Author data require a reviewed adapted contract; no silent sorting, smoothing or normalisation."
+}

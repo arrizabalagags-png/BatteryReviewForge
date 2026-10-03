@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-01",
+  "version": "0.10.1",
+  "channel": "beta",
+  "status": "PASS_ENGINEERING_GUIDE_REFRESH",
+  "reason": "A real Flash Starter pilot stopped at excessive reference reads without mapping or plotting; this refresh changes guide routing, not algorithms or data.",
+  "changed_guides": [
+    "skills/battery-review-figure/SKILL.md",
+    "skills/battery-review-figure/references/PLOT_STARTER.md",
+    "examples/plot_starter/AGENT_GUIDE.md"
+  ],
+  "guide_check": {
+    "status": "PASS",
+    "seconds": 0.328,
+    "actual_skill_reference_check": "PASS",
+    "route_precedes_general_execution_and_review": "PASS",
+    "grammar_read_is_scoped": "PASS",
+    "metadata_top_level_fields_match_actual_api": [
+      "caption_notes",
+      "claim",
+      "columns",
+      "common",
+      "community_style_lock",
+      "condition_note",
+      "fragment",
+      "height_mm",
+      "kind",
+      "mode",
+      "sample_id",
+      "sheet",
+      "style",
+      "width_mm"
+    ],
+    "mandatory_ce_common_names_present": 14,
+    "model_behavior": "NOT_RUN",
+    "initial_checker_adjustment": "Ad hoc lookup corrected to actual METADATA_FIELDS AST; no production failure or modification",
+    "files": [
+      {
+        "file": "skills/battery-review-figure/SKILL.md",
+        "sha256": "bd29d1b314d4e2ed616199e524c52c767f6641a07da79b4c708e5363443bdc21"
+      },
+      {
+        "file": "skills/battery-review-figure/references/PLOT_STARTER.md",
+        "sha256": "2bb891fe83fa031e87878780841d6d88c32b601df8b0b9dee060104a7343ac67"
+      },
+      {
+        "file": "examples/plot_starter/AGENT_GUIDE.md",
+        "sha256": "cd554e6b6243a7eab8f4433caf80a2964473b93c4b035525c5d3fdaac0cf577b"
+      }
+    ]
+  },
+  "package_commands": [
+    {
+      "script": "scripts/package_release.py",
+      "args": [],
+      "exit_code": 0,
+      "seconds": 2.594
+    },
+    {
+      "script": "scripts/package_workbuddy.py",
+      "args": [],
+      "exit_code": 0,
+      "seconds": 1.016
+    },
+    {
+      "script": "scripts/package_recipe_packs.py",
+      "args": [
+        "--out",
+        "<local-output>"
+      ],
+      "exit_code": 0,
+      "seconds": 2.188
+    },
+    {
+      "script": "scripts/package_plot_starter.py",
+      "args": [],
+      "exit_code": 0,
+      "seconds": 2.031
+    },
+    {
+      "script": "scripts/verify_distribution.py",
+      "args": [],
+      "exit_code": 0,
+      "seconds": 26.172
+    }
+  ],
+  "starter": {
+    "resource_id": "plot_starter",
+    "version": "0.10.1",
+    "channel": "beta",
+    "file": "VoltPeer-Plot-Starter-v0.10.1.zip",
+    "bytes": 580632,
+    "sha256": "392b58b6a211c35f88a0148c95d07b9accb5b6eeb000640883466d96d3ab466a",
+    "hosts": [
+      "dsh",
+      "codex"
+    ],
+    "scientific_runtime": "batteryplot",
+    "plot_kinds": [
+      "coulombic_efficiency",
+      "full_cell_cycling",
+      "half_cell_cycling",
+      "symmetric_cell_voltage",
+      "voltage_capacity",
+      "nyquist",
+      "cycle_retention",
+      "rate_capability",
+      "tofsims_map",
+      "tofsims_depth"
+    ],
+    "validation": "structure_checked; actual extracted execution recorded separately; native/model NOT_TESTED"
+  },
+  "checks": {
+    "archives": 37,
+    "extracted_reference_and_ast_checks": 63,
+    "canonical_demo_metadata_closure": 30,
+    "starter_actual_extracted_check": "PASS",
+    "single_scientific_runtime": "PASS",
+    "old_v0_10_0_byte_exact_archives": 36,
+    "unchanged_runtime_and_data_files": 108
+  },
+  "history": {
+    "previous_starter": {
+      "bytes": 577033,
+      "sha256": "77e362bdb85161e32e1f1433963b8fba9919f2055945bb908395fff9da9e935e"
+    },
+    "previous_current_archives": 37,
+    "raw_prior_archives": "Retained locally in ignored outputs; prior model evidence remains pinned to previous SHA."
+  },
+  "historical_engineering_tests": {
+    "source": "docs/validation/2026-10-01-plot-starter.json",
+    "starter_cases": 13,
+    "all_kinds": 10,
+    "recipe_runs": 3,
+    "rerun_this_refresh": false,
+    "basis": "Runtime, launcher, scientific contracts, fixtures and test code have not changed; guide text and downloaded closure are checked here."
+  },
+  "model_behavior": "NOT_RUN_FOR_REFRESHED_GUIDES; root will prepare separate frozen pilots",
+  "api_calls_by_this_refresh": 0,
+  "git_operations_by_this_refresh": "No staging/commit/push; existing packager reads source provenance only.",
+  "initial_local_harness_issue": "WorkBuddy packaging console output used the system encoding; UTF-8 capture failed after generation. Local ignored orchestration now sets PYTHONUTF8=1; no production runtime changed."
+}

@@ -2,23 +2,184 @@
   "data_status": "synthetic_demo",
   "not_experimental_data": true,
   "random_seed": 20260923,
-  "generator_version": "1.1",
+  "generator_version": "1.6",
   "figure_grammar_id": "rate_capability + selected_rate_profiles",
   "journal_preset": "journal_neutral_180mm",
   "variables_and_units": {
     "x": "cycle number",
     "y": "discharge capacity (mAh g−1)",
-    "linked": "selected voltage (V) versus capacity (mAh g−1) at measured stages"
+    "linked": "selected voltage (V) versus capacity (mAh g−1) at declared teaching stages"
   },
-  "sample_identity": "A/B are invented formulations; SIM IDs are invented studies; colors retain their assigned identity within each panel group.",
-  "test_conditions": "Illustrative NMC811||Li; 0.2/0.5/1/2/5/0.2 C in ten-cycle stages; 2.8–4.3 V; 25 °C. Recovery stage is simulated, not measured.",
+  "sample_identity": "A/B are local teaching-model labels, not one electrolyte across unlike techniques; SIM IDs are invented records, never citations.",
+  "test_conditions": "Illustrative NMC811||Li half-cell; 0.2/0.5/1/2/5/0.2 C in ten-cycle stages; 2.8–4.3 V; 25 °C. Recovery stage is simulated, not measured.",
   "source_files": [
     "data.csv",
     "voltage_profiles.csv"
   ],
   "creator": "BatteryReviewForge original code",
   "review": {
-    "science": "models and data-to-panel links inspected; no experimental interpretation",
-    "display": "internal PNG and final-size inspection completed; independent author review remains required"
+    "science": "Declared model equations/units/linked-file relations have scoped automated tests; no experimental certification.",
+    "display": "Actual line/frame/alignment checks only; independent visual and author review remain pending."
+  },
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "Electrolyte A",
+      "points": 60,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 0,
+      "label": "Electrolyte B",
+      "points": 60,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#bc4566"
+    },
+    {
+      "panel_index": 0,
+      "label": "_child2",
+      "points": 2,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#ccd4dc"
+    },
+    {
+      "panel_index": 0,
+      "label": "_child3",
+      "points": 2,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#ccd4dc"
+    },
+    {
+      "panel_index": 0,
+      "label": "_child4",
+      "points": 2,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#ccd4dc"
+    },
+    {
+      "panel_index": 0,
+      "label": "_child5",
+      "points": 2,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#ccd4dc"
+    },
+    {
+      "panel_index": 0,
+      "label": "_child6",
+      "points": 2,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#ccd4dc"
+    },
+    {
+      "panel_index": 1,
+      "label": "0.2 C · cycle 7",
+      "points": 160,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#a2bacd"
+    },
+    {
+      "panel_index": 1,
+      "label": "1.0 C · cycle 27",
+      "points": 160,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#668aa8"
+    },
+    {
+      "panel_index": 1,
+      "label": "5.0 C · cycle 47",
+      "points": 160,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#31577d"
+    },
+    {
+      "panel_index": 1,
+      "label": "0.2 C · cycle 57",
+      "points": 160,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#00857f"
+    }
+  ],
+  "curve_style_check": "pass: actual rendered Line2D artists are solid and have no markers",
+  "data_frame_check": "pass: actual data axes show top/right/bottom/left spines",
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      }
+    }
+  ],
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "phenomenological_model",
+    "data_origin": "original_synthetic",
+    "parameter_origin": "self-chosen teaching values; never paper measurements",
+    "validation_scope": "Declared teaching model; no experimental/material certification",
+    "equations": [
+      "inventory_n=Q0*exp(-k*n)",
+      "Qaccessible_n=inventory_n/(1+(rate_C/r_limit_C)^0.8)",
+      "Voltage uses the declared bounded 2.8..4.3 V display shape."
+    ],
+    "assumptions": [
+      "Separate reversible rate-accessible fraction and irreversible inventory decrease.",
+      "Both functions are chosen phenomenological responses, not a measured or universal rate law."
+    ],
+    "parameters": {
+      "A": {
+        "Q0_mAh_g": 185,
+        "k_per_cycle": 0.0004,
+        "r_limit_C": 12
+      },
+      "B": {
+        "Q0_mAh_g": 181,
+        "k_per_cycle": 0.0006,
+        "r_limit_C": 9
+      },
+      "stages_C": [
+        0.2,
+        0.5,
+        1,
+        2,
+        5,
+        0.2
+      ],
+      "cycles_per_stage": 10
+    },
+    "references": [
+      {
+        "url": "https://www.nature.com/articles/s41467-025-60833-y",
+        "title": "Deciphering coulombic loss in lithium-ion batteries and beyond",
+        "supports": "Inventory loss and measured available capacity need separate assumptions; chosen rate response is not a paper fit.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "limitations": [
+      "No transport constant, rate capability of a named cathode or full-cell life forecast."
+    ]
   }
 }

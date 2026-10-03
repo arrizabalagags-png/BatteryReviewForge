@@ -1,0 +1,87 @@
+{
+  "id": "na_metal_ce",
+  "title": "钠金属逐圈 CE",
+  "domain": "alkali",
+  "type": "demo",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "random_seed": 20260930,
+  "source_files": [
+    "data.csv"
+  ],
+  "variables_and_units": [
+    "cycle",
+    "q_plating_mAh_cm2",
+    "q_stripping_mAh_cm2",
+    "ce_percent"
+  ],
+  "test_conditions": "Original Na|Cu teaching charge ledger; 1 mA/cm2, 1 mAh/cm2 plated, nominal 1 V vs Na/Na+ stripping endpoint; no voltage trace or experimental protocol validation",
+  "render_options": {
+    "recipe": "na_metal_ce"
+  },
+  "reproduce": "python render.py --output rebuilt --recipe na_metal_ce --demo-input data.csv",
+  "creator": "VoltPeer maintainers",
+  "license": "MIT",
+  "generator_version": "1.6",
+  "limitations": "Declared teaching model only; no measured device, mechanism or material certification. This generator does not adapt experimental data.",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "phenomenological_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "Q_plating=1 mAh/cm2; Q_stripping=Q_plating*(1-loss_fraction)",
+      "loss_fraction=0.016-0.009*(1-exp(-cycle/25))+Uniform(-0.0011,0.0011)+declared local loss event",
+      "CE_percent=100*Q_stripping/Q_plating"
+    ],
+    "assumptions": [
+      "Each teaching cycle has positive irreversible charge loss; no negative-capacity or >100% CE fixture.",
+      "Fresh plating charge is available each cycle; CE does not predict a full-cell life."
+    ],
+    "parameters": {
+      "nominal_current_mA_cm2": 1,
+      "plating_capacity_mAh_cm2": 1,
+      "cycles": 200,
+      "stripping_endpoint_V": 1.0,
+      "reference": "Na/Na+",
+      "event_cycles": [
+        146,
+        151
+      ],
+      "event_additional_loss_fraction": [
+        0.002,
+        0.013
+      ]
+    },
+    "references": [
+      {
+        "url": "https://www.nature.com/articles/s41560-020-0648-z",
+        "title": "Understanding Coulombic efficiency in lithium metal batteries",
+        "supports": "Charge-ratio definitions and protocol limitations only; not calibration of this Na or Zn model.",
+        "scope": "model_definition_only"
+      }
+    ],
+    "limitations": [
+      "All numeric material/rate parameters are original teaching assumptions, not measured or copied paper data.",
+      "Only charge accounting is modeled; no nucleation, voltage trace, gas evolution or validated stripping protocol."
+    ],
+    "validation_scope": "Original teaching-model equations, charge/energy/units and declared boundaries only; no experimental or material certification."
+  },
+  "actual_artist_checks": [
+    {
+      "panel": 0,
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "curve_styles": [
+        {
+          "linestyle": "-",
+          "marker": "None",
+          "points": 200
+        }
+      ]
+    }
+  ]
+}

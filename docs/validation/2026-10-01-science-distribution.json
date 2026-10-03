@@ -1,0 +1,411 @@
+{
+  "version": "0.10.2",
+  "channel": "beta",
+  "archives": [
+    {
+      "file": "BatteryReviewForge-v0.10.2.zip",
+      "bytes": 1024948,
+      "sha256": "755d06c46e34c555f83a850f3dfec204875e5621f55c8e38ed377c42885aa824"
+    },
+    {
+      "file": "BatteryReviewForge-WorkBuddy-v0.10.2.zip",
+      "bytes": 805979,
+      "sha256": "f47b9fd947ba9e6f72d91819a5f11aca2630288324d64cdaaa69a651d5e48603"
+    },
+    {
+      "file": "BatteryReviewForge-WorkBuddy-Starter-v0.10.2.zip",
+      "bytes": 672905,
+      "sha256": "84b4782c00f52cc5ac30af85f63688130d44a7b6e0392379e0f127764ad3cbcf"
+    },
+    {
+      "file": "single/battery-claim-check-v0.10.2.zip",
+      "bytes": 9591,
+      "sha256": "dc159ba1efa4a434faa2106bb0f666bb05ea8d729b1ec6b3079a49fb28a8f48d"
+    },
+    {
+      "file": "single/battery-data-prepare-v0.10.2.zip",
+      "bytes": 12195,
+      "sha256": "b9b5d2403682748d53747d5908aeafcb627247c927020ec17017ecc791f81e1f"
+    },
+    {
+      "file": "single/battery-experiment-plan-v0.10.2.zip",
+      "bytes": 9497,
+      "sha256": "5c822ff0649bb60546efd5b3b83f603ca0f59b75981d607f8d39d363cd0b7a12"
+    },
+    {
+      "file": "single/battery-figure-assemble-v0.10.2.zip",
+      "bytes": 138457,
+      "sha256": "e3c25a1b8c1d49080689e5e1dc65bc072d8fdc2ed98d6bc14ec80371e2dfd6a3"
+    },
+    {
+      "file": "single/battery-literature-map-v0.10.2.zip",
+      "bytes": 9569,
+      "sha256": "d91a85fe5d77cf8b9705ec3adef993693e87d70ded964510be4b6b1cc92c64e3"
+    },
+    {
+      "file": "single/battery-metrics-audit-v0.10.2.zip",
+      "bytes": 11073,
+      "sha256": "a2dda8de839ccc5dd641ba5343c526933f036d393a9701b260c984bf5147895b"
+    },
+    {
+      "file": "single/battery-review-audit-v0.10.2.zip",
+      "bytes": 8465,
+      "sha256": "02a4c32130c9346e067501d6ff5c2065a3f0207b48204da0884f85cf7eee809f"
+    },
+    {
+      "file": "single/battery-review-figure-v0.10.2.zip",
+      "bytes": 551808,
+      "sha256": "c39b82d657582815ab20c66252c9367098fce1e8189d1c0cbb5b44c86d285b17"
+    },
+    {
+      "file": "single/battery-review-forge-v0.10.2.zip",
+      "bytes": 24499,
+      "sha256": "795fcf2b2e60998aa5db424bd96cc4edcd9d2caedac10bbada3b96b8a894b3fb"
+    },
+    {
+      "file": "single/battery-review-plan-v0.10.2.zip",
+      "bytes": 10022,
+      "sha256": "32568da58ff50df08bc5575c76a32d4ad5a0d066b7fda376f335437856852aef"
+    },
+    {
+      "file": "single/battery-review-polish-v0.10.2.zip",
+      "bytes": 8196,
+      "sha256": "43b61140c8bccbbdea95dc170fc476736b83b8dc0027cd4cdd6cb8eb8db0c087"
+    },
+    {
+      "file": "single/battery-review-response-v0.10.2.zip",
+      "bytes": 8754,
+      "sha256": "20ffbab2866ed05a9f98d5553fdf6e8dcdd562d2d1d1650e3e84c376469c4aca"
+    },
+    {
+      "file": "single/battery-review-submission-v0.10.2.zip",
+      "bytes": 9239,
+      "sha256": "6851821ae4bda11da9f1e8d4bf937aee76396d16fd6d44657ea36601a6474753"
+    },
+    {
+      "file": "single/battery-review-write-v0.10.2.zip",
+      "bytes": 8634,
+      "sha256": "d41a2420a09ac193fc630ebd7953666648cdb741c0a2b9a3e39630ceea5e853f"
+    },
+    {
+      "file": "single/battery-reviewer-v0.10.2.zip",
+      "bytes": 8328,
+      "sha256": "5a5d6fd0748893fc24fa6d09bd9caef7367b4bd9f02a89ec6e4f26a93b02c6b4"
+    },
+    {
+      "file": "workbuddy/battery-claim-check-workbuddy-v0.10.2.zip",
+      "bytes": 9808,
+      "sha256": "74e985fb5f2935d645b5ee0f18adf29ad5408b0a6c9cd37d4af068cab9cdbe06"
+    },
+    {
+      "file": "workbuddy/battery-data-prepare-workbuddy-v0.10.2.zip",
+      "bytes": 12431,
+      "sha256": "ac50b3de7cba9673d21d899ce84d44483686679fa88725564cad0434865d187e"
+    },
+    {
+      "file": "workbuddy/battery-experiment-plan-workbuddy-v0.10.2.zip",
+      "bytes": 9732,
+      "sha256": "941f4352d345160d0f5965473e61139d5a8dd444b1ee4036a9873f621d09f635"
+    },
+    {
+      "file": "workbuddy/battery-figure-assemble-workbuddy-v0.10.2.zip",
+      "bytes": 138696,
+      "sha256": "e305c2ad75953dc0458be0f3e91edd2a0ed466f7b7eb87fa71971ef6e61a8928"
+    },
+    {
+      "file": "workbuddy/battery-literature-map-workbuddy-v0.10.2.zip",
+      "bytes": 9797,
+      "sha256": "8670cd1bac09c94aed1fb790664c274300ed8bb7ba79c337d8932edd37b1ecc8"
+    },
+    {
+      "file": "workbuddy/battery-metrics-audit-workbuddy-v0.10.2.zip",
+      "bytes": 11307,
+      "sha256": "8e2b08e122f7e51e9ed150ad2963eb66b8261ff80018881992f19463416451f9"
+    },
+    {
+      "file": "workbuddy/battery-review-audit-workbuddy-v0.10.2.zip",
+      "bytes": 8697,
+      "sha256": "0d1816885031533a3238b9db2d0e10ba0a51d9b8d2761976aa327ead74c8f797"
+    },
+    {
+      "file": "workbuddy/battery-review-figure-workbuddy-v0.10.2.zip",
+      "bytes": 552033,
+      "sha256": "1b0097f009a433ac0b11c962b5f8e097cde29bd07216f8a0658702bbb0584982"
+    },
+    {
+      "file": "workbuddy/battery-review-forge-workbuddy-v0.10.2.zip",
+      "bytes": 24734,
+      "sha256": "b0417485997afcb6727486dcded0cff23412a2a38d361457fa1a0b7db2ff859a"
+    },
+    {
+      "file": "workbuddy/battery-review-plan-workbuddy-v0.10.2.zip",
+      "bytes": 10229,
+      "sha256": "af82a7586ae288df5ce8b0d8d7ae78851c7899161710cfbd8440b84b0a0cd542"
+    },
+    {
+      "file": "workbuddy/battery-review-polish-workbuddy-v0.10.2.zip",
+      "bytes": 8416,
+      "sha256": "0759d34d1acd919860e57e98065f64e82bbd1898d993dbec5db390757332d511"
+    },
+    {
+      "file": "workbuddy/battery-review-response-workbuddy-v0.10.2.zip",
+      "bytes": 8947,
+      "sha256": "2f0528c4895ecaf5e1a60b7b85ab86b86cd9e98dcb23f5be9982913ffc0687cd"
+    },
+    {
+      "file": "workbuddy/battery-review-submission-workbuddy-v0.10.2.zip",
+      "bytes": 9448,
+      "sha256": "961c75522a50f82b428f52564b570985f4bc4ee336e85a8f0c2f91b49bf25a4f"
+    },
+    {
+      "file": "workbuddy/battery-review-write-workbuddy-v0.10.2.zip",
+      "bytes": 8846,
+      "sha256": "42b8c1bf485b6ebf8887c1110de6af56a88e60ca2f923b96975594c784b9f2c0"
+    },
+    {
+      "file": "workbuddy/battery-reviewer-workbuddy-v0.10.2.zip",
+      "bytes": 8524,
+      "sha256": "4477d5a444d1ee421d21fabaa5a7a6c0b3a6be67bc370cb8c74a0c402b0c6463"
+    },
+    {
+      "file": "recipes/VoltPeer-full_cell-0.10.2.zip",
+      "bytes": 341882,
+      "sha256": "e41d501bf03e35a4bdece9dd52c98bb1b3f3ba641c6689204c6e5ee4ce68aa97"
+    },
+    {
+      "file": "recipes/VoltPeer-li_li-0.10.2.zip",
+      "bytes": 327692,
+      "sha256": "4f8a6a4fd59bb766297693fef0968020822be36ecbdccf21cbe7d2455477add4"
+    },
+    {
+      "file": "recipes/VoltPeer-operando_xrd-0.10.2.zip",
+      "bytes": 201298,
+      "sha256": "c60174b6b9a88337d67a055343016e02db297285243fca24fe7729c21bd18511"
+    },
+    {
+      "file": "starter/VoltPeer-Plot-Starter-v0.10.2.zip",
+      "bytes": 737887,
+      "sha256": "3a0641a4d32ef29f57d1544cdf1fbb7d4f76521d545f2daa7e0858cbad0c1591"
+    }
+  ],
+  "isolated_skill_checks": 63,
+  "ast_dependency_checks": 63,
+  "downloaded_skill_file_closure_and_body": "PASS",
+  "downloaded_python_requirements_match_source": "PASS",
+  "text_source_comparison": "CRLF/LF-normalized; ZIP manifests and archive hashes are byte-exact",
+  "recipe_runtime_and_manifest_closure": "PASS",
+  "plot_starter_manifest_and_single_runtime_closure": "PASS",
+  "demo_schema_source_site_zip_checks": [
+    {
+      "id": "aurbach_protocol",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "capability_spread",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "chronoamperometry",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "cyclic_voltammetry",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "differential_capacity",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "eis",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "eis_frequency",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "ftir",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "full_cell",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "gcd_profiles",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "gitt_pulse",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "integrated_study",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "ionic_conductivity",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "li_cu_ce",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "li_li",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "literature_benchmark",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "lsv",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "msd",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "nmr",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "ocv_rest",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "operando_xrd",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "pouch_thermal",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "raman_series",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "rate_capability",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "rdf_coordination",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "reporting_matrix",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "style_presets",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "tof_sims",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "transference",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    },
+    {
+      "id": "xps_components",
+      "schema": "PASS",
+      "source_site_zip_metadata": "PASS",
+      "source_site_zip_inputs": "PASS",
+      "source_site_figures": "PASS"
+    }
+  ],
+  "real_host_model_behavior": "NOT_RUN"
+}

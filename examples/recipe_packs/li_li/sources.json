@@ -1,0 +1,70 @@
+{
+  "resource_id": "li_li",
+  "source_kind": "VoltPeer original reproducible tutorial",
+  "reference_origin": "Rendered from this pack config.demo.json and demo/*.csv; not copied from the gallery.",
+  "reference_scope": "Same-data demo figure only; no experimental values/conditions/claims inherited by author data.",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "parameter_origin": "explicit teaching choices; not reported measurements",
+    "validation_scope": "Declared teaching model; no experimental/material certification",
+    "equations": [
+      "T_half=Q_half/abs(j); j alternates sign each T_half",
+      "d eta/dt=(j*Rp-eta)/tau; V=j*Rs+eta",
+      "eta(t)=j*Rp+(eta_start-j*Rp)*exp(-t/tau); Qpassed=integral(j dt)"
+    ],
+    "assumptions": [
+      "Zero open-circuit offset; constant positive passive linear terminal RC parameters.",
+      "Applied current is a right-continuous zero-order hold; RC state stays continuous at switching.",
+      "External charge is not a lithium-deposition mass measurement."
+    ],
+    "parameters": {
+      "half_cycles": 40,
+      "j_mA_cm2": 1,
+      "Q_half_mAh_cm2": 1,
+      "A": {
+        "Rs_ohm_cm2": 10,
+        "Rp_ohm_cm2": 24,
+        "tau_h": 0.08
+      },
+      "B": {
+        "Rs_ohm_cm2": 12,
+        "Rp_ohm_cm2": 35,
+        "tau_h": 0.12
+      }
+    },
+    "references": [
+      {
+        "url": "https://www.gamry.com/application-notes/EIS/basics-of-electrochemical-impedance-spectroscopy/",
+        "title": "Basics of Electrochemical Impedance Spectroscopy",
+        "supports": "Ohm law, capacitor differential relation and passive equivalent circuits; values are not measured.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.nature.com/articles/s41560-020-0648-z",
+        "title": "Understanding and applying coulombic efficiency in lithium metal batteries",
+        "supports": "Cell configuration and plating/stripping protocol boundaries; no symmetric trace certifies CE or full-cell stability.",
+        "scope": "model_definition_only",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "limitations": [
+      "No SEI, dendrite, short circuit, transfer mass, lifetime or CE claim follows from this ideal terminal RC trace."
+    ]
+  },
+  "demo_inputs_sha256": {
+    "demo/trace.csv": "bac0850eff25b3f308d510d12283b80ddde4a89b306315f4995c16b6030709bd"
+  },
+  "config_demo_sha256": "dbc4efcc946144d67812af13fbff393b335ad276491ced5995701a41d0b2665f",
+  "model_sha256": "4e8ff8b8e1ce9b851e635c73414e091db87b9a7b2d185abc9a6cfca5510af9da",
+  "reference_sha256": {
+    "reference/figure.pdf": "08e1f65151b2bea493420616c90b2861274434503b25617029ea014db8d495a2",
+    "reference/figure.png": "6870c064a65b644200639c25bf4eb6539868095cd0f6728875babefea8aa6497",
+    "reference/figure.svg": "f272d7c6ca7a8b0721cd49b59ad42c21cda837addb26ea4ed99516d432004456"
+  },
+  "third_party_paper_data_included": false,
+  "DOI": null,
+  "license": "MIT; original code and generated tutorial assets only; does not license third-party papers"
+}

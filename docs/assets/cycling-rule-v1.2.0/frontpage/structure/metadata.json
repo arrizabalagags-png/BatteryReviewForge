@@ -1,0 +1,444 @@
+{
+  "status": "synthetic_demo",
+  "not_experimental_data": true,
+  "panel_sources": {
+    "a": "operando_xrd/data.csv + state.csv (same-time cubic peaks)",
+    "b": "operando_xrd/voltage.csv + state.csv (identical time/charge index)",
+    "c": "operando_xrd/data.csv (five recorded timestamps; +0.72 a.u. labelled display offset)",
+    "d": "raman_series/data.csv (+340 counts per series)",
+    "e": "xps_components/data.csv (analytic components, not an experimental fit)"
+  },
+  "sources": [
+    {
+      "path": "operando_xrd/data.csv",
+      "sha256": "2bfcc786bfe890e045dee9ce1a7350116b6a731f75e3dec39c3258ff110f7785"
+    },
+    {
+      "path": "operando_xrd/state.csv",
+      "sha256": "432764174643ecb68dfbaf9d79e6f2f89dee91f5ad4516a9625a7beb7c35d26b"
+    },
+    {
+      "path": "operando_xrd/voltage.csv",
+      "sha256": "3ff26a01ccf91e68f53f580e7de119fab316334ae3ef3552c63543be426a0eed"
+    },
+    {
+      "path": "raman_series/data.csv",
+      "sha256": "d5f12b7638cf67f635a3cf4fb5568bb4920576151764d7e971b8c7ae5e375948"
+    },
+    {
+      "path": "xps_components/data.csv",
+      "sha256": "de8fcadbceeb63ae9922373d708ce23912960c89617c2ddf2e2fc7c4ddda703b"
+    }
+  ],
+  "source_model_records": {
+    "operando_xrd": {
+      "metadata_sha256": "08b4f84f03ec0c6a0520e3383bf8968f52445b1dde57c042d69f9a79a355c39e",
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "analytic_model",
+        "data_origin": "original_synthetic",
+        "parameter_origin": "independently chosen teaching inputs, no fitted material or copied paper values",
+        "equations": [
+          "Q(t)=I*t/3600; x(t)=Q(t)/Qhost; I=180 mA/g, Qhost=180 mAh/g, 0<=t<=3600 s",
+          "a(x)=4.16*(1-0.012*x) Å; d_hkl=a/sqrt(h²+k²+l²); hkl=(111),(200)",
+          "2theta=2*asin(lambda/(2d)); lambda=1.5406 Å",
+          "I(2theta,t)=background+sum A_hkl*exp[-0.5*((2theta-two_theta_hkl(t))/sigma_hkl)²]",
+          "V(t)=3.20+0.83*x(t)+0.18*x(t)^7 (declared phenomenological voltage, not derived from crystal energy)"
+        ],
+        "parameters": {
+          "wavelength_A": 1.5406,
+          "lattice_a0_A": 4.16,
+          "fractional_lattice_change_at_x1": -0.012,
+          "hkl": [
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "sigma_deg": [
+            0.13,
+            0.15
+          ],
+          "amplitudes_au": [
+            0.9,
+            0.77
+          ],
+          "background_au": 0.045,
+          "current_mA_g": 180,
+          "host_capacity_mAh_g": 180,
+          "duration_s": 3600
+        },
+        "assumptions": [
+          "One fictitious cubic host, shared lattice at each timestamp; no independent peak motion.",
+          "The legacy soc_fraction field stores assumed site progress derived from the declared current ledger; no measured SOC.",
+          "Time, occupation, peak positions and voltage use the same recorded timestamps.",
+          "Gaussian line profiles and assumed voltage are teaching specializations; no instrument or chemical fit."
+        ],
+        "references": [
+          {
+            "url": "https://www.nature.com/articles/s41467-022-33931-4",
+            "title": "On the nanoscale structural evolution of solid discharge products in lithium-sulfur batteries using operando scattering",
+            "supports": "Figure 2e–g and Methods support pairing scattering/time with electrochemical records and separately inspecting peak width/strain. No Li-S phase, measured point or material parameter is transferred.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          },
+          {
+            "url": "https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf",
+            "title": "IUPAC Green Book, third edition",
+            "supports": "Section 2.8 defines reciprocal crystal geometry; cubic d_hkl and first-order Bragg specialization are independently calculated.",
+            "scope": "model_definition_only",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "limitations": [
+          "No phase identification, lattice refinement, measured SOC, operando acquisition or experimental voltage fit.",
+          "Peak intensity is arbitrary signal; its amplitude is not a phase fraction or concentration."
+        ],
+        "validation_scope": "Common-lattice Bragg identities, finite nonnegative signals and exact time/charge/voltage indexing; no material validation."
+      }
+    },
+    "raman_series": {
+      "metadata_sha256": "9e6a0dbe1fc0a9030a0515aa94aecacbc868bf80143db96029da71ca425b66e7",
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "phenomenological_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "I_A-D(x)=45+0.14*(x-680)+(330-45*index)*G(x;730,4.5)+(100+55*index)*G(x;745+0.6*index,5.2)+55*G(x;783,6)",
+          "Display-only offset = 340 counts per series; raw intensities are unchanged"
+        ],
+        "parameters": {
+          "wavenumber_cm_1_range": [
+            680,
+            810
+          ],
+          "samples": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "offset_counts": 340
+        },
+        "assumptions": [
+          "Generic nonnegative band shapes and background; common acquisition scale is assumed."
+        ],
+        "references": [
+          {
+            "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm",
+            "title": "NIST e-Handbook: normal distribution",
+            "supports": "The Gaussian mathematical line shape only; no material peak assignment or numeric data.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "No molecule, solvation state, concentration, measured shift or peak-area calibration is assigned."
+        ],
+        "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+      }
+    },
+    "xps_components": {
+      "metadata_sha256": "c9c49a4ce7d26c3d53b063771eeace0741a5c3a8fe23fb01aec1e8a23595c3ff",
+      "scientific_basis": {
+        "schema_version": 1,
+        "model_class": "phenomenological_model",
+        "data_origin": "original_synthetic",
+        "equations": [
+          "G(e)=exp(-0.5*((e-mu)/sigma)^2); L(e)=1/(1+((e-mu)/sigma)^2)",
+          "component=height*(0.7*G+0.3*L); expected_counts=110+3*(e-280)+sum(components)",
+          "observed_counts ~ Poisson(expected_counts); residual=observed-background-sum(known_components)"
+        ],
+        "parameters": {
+          "peak_centers_eV": [
+            284.7,
+            286.4,
+            289.0
+          ],
+          "shape_width_eV": [
+            0.5,
+            0.64,
+            0.71
+          ],
+          "peak_heights_counts": [
+            1000,
+            460,
+            270
+          ],
+          "lorentzian_fraction": 0.3,
+          "random_seed": 20260927
+        },
+        "assumptions": [
+          "Nonnegative independent counting statistics on known generic components and a linear background.",
+          "The mixture width is a shape parameter; it is not claimed as a common Gaussian/Lorentzian FWHM."
+        ],
+        "references": [
+          {
+            "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm",
+            "title": "NIST e-Handbook: normal distribution",
+            "supports": "The Gaussian mathematical line shape only; no material peak assignment or numeric data.",
+            "scope": "model_definition_only"
+          },
+          {
+            "url": "https://goldbook.iupac.org/terms/view/L03628",
+            "title": "IUPAC: Lorentzian band shape",
+            "supports": "Lorentzian mathematical shape only; original energies and intensities.",
+            "scope": "model_definition_only"
+          }
+        ],
+        "limitations": [
+          "No optimizer, fitted composition, charge calibration, Shirley/Tougaard background or chemical assignment.",
+          "Components are known inputs; residuals are not evidence of a successful experimental fit."
+        ],
+        "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+      }
+    }
+  },
+  "scope": "Independent synthetic measurement families; layout does not establish one real study or a mechanism.",
+  "font_requested": "Arial",
+  "font_resolved": "arial.ttf",
+  "pdf_fonts": [
+    [
+      17,
+      "ttf",
+      "Type0",
+      "ELUGPM+ArialMT",
+      "F1",
+      "Identity-H",
+      0
+    ],
+    [
+      24,
+      "ttf",
+      "Type0",
+      "ELUGPM+Arial-BoldMT",
+      "F2",
+      "Identity-H",
+      0
+    ]
+  ],
+  "width_mm": 183,
+  "height_mm": 132,
+  "raster_note": "Only the diffraction intensity matrix is rasterized; axes, labels and traces remain vectors.",
+  "alignment_tolerance_mm": 0.01,
+  "alignment": [
+    {
+      "panel": "a",
+      "actual_plot_box_mm": [
+        14.999999999999998,
+        12.000000000000004,
+        86.00000000000001,
+        48.0
+      ],
+      "curve_style": "cycle_scatter_or_continuous_solid",
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "traces": []
+    },
+    {
+      "panel": "b",
+      "actual_plot_box_mm": [
+        136.0,
+        12.000000000000004,
+        35.0,
+        48.0
+      ],
+      "curve_style": "cycle_scatter_or_continuous_solid",
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "traces": [
+        {
+          "label": "_child0",
+          "line_style": "-",
+          "marker": "None",
+          "points": 105,
+          "colour": "#cb5267",
+          "sampling": "continuous_solid"
+        }
+      ]
+    },
+    {
+      "panel": "c",
+      "actual_plot_box_mm": [
+        14.999999999999998,
+        85.0,
+        43.00000000000001,
+        34.0
+      ],
+      "curve_style": "cycle_scatter_or_continuous_solid",
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "traces": [
+        {
+          "label": "_child0",
+          "line_style": "-",
+          "marker": "None",
+          "points": 240,
+          "colour": "#3b0f70",
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "_child2",
+          "line_style": "-",
+          "marker": "None",
+          "points": 240,
+          "colour": "#782281",
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "_child4",
+          "line_style": "-",
+          "marker": "None",
+          "points": 240,
+          "colour": "#b73779",
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "_child6",
+          "line_style": "-",
+          "marker": "None",
+          "points": 240,
+          "colour": "#ed5a5f",
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "_child8",
+          "line_style": "-",
+          "marker": "None",
+          "points": 240,
+          "colour": "#fe9f6d",
+          "sampling": "continuous_solid"
+        }
+      ]
+    },
+    {
+      "panel": "d",
+      "actual_plot_box_mm": [
+        72.0,
+        85.0,
+        43.00000000000001,
+        34.0
+      ],
+      "curve_style": "cycle_scatter_or_continuous_solid",
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "traces": [
+        {
+          "label": "_child0",
+          "line_style": "-",
+          "marker": "None",
+          "points": 600,
+          "colour": "#167d8d",
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "_child2",
+          "line_style": "-",
+          "marker": "None",
+          "points": 600,
+          "colour": "#49668f",
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "_child4",
+          "line_style": "-",
+          "marker": "None",
+          "points": 600,
+          "colour": "#886099",
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "_child6",
+          "line_style": "-",
+          "marker": "None",
+          "points": 600,
+          "colour": "#cb5267",
+          "sampling": "continuous_solid"
+        }
+      ]
+    },
+    {
+      "panel": "e",
+      "actual_plot_box_mm": [
+        130.0,
+        85.0,
+        43.00000000000001,
+        34.0
+      ],
+      "curve_style": "cycle_scatter_or_continuous_solid",
+      "frame_spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "traces": [
+        {
+          "label": "Input",
+          "line_style": "-",
+          "marker": "None",
+          "points": 500,
+          "colour": "#6d7881",
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "Model",
+          "line_style": "-",
+          "marker": "None",
+          "points": 500,
+          "colour": "#20282e",
+          "sampling": "continuous_solid"
+        },
+        {
+          "label": "_child5",
+          "line_style": "-",
+          "marker": "None",
+          "points": 500,
+          "colour": "#8a9296",
+          "sampling": "continuous_solid"
+        }
+      ]
+    }
+  ],
+  "rows_checked": [
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      3,
+      4
+    ]
+  ],
+  "curve_style_check": "Cycle capacity/CE: marker-only. Continuous voltage/spectra: solid, unmarked. User display preference.",
+  "data_frame_check": "pass: actual data axes show top/right/bottom/left spines",
+  "display_changes": "No smoothing, downsampling or input rewriting. Explicit offsets only in the labelled stacked spectra. Every input row is rendered for the XPS trace and model.",
+  "known_model_limitations": [
+    "Source metadata defines original teaching models, not acquired measurements. Discharge curves include their declared lower endpoint; Li||Cu stripping includes 1 V. These endpoint identities do not establish a material model.",
+    "Independent measurement families are shown together only to demonstrate layout; no common experimental cell or mechanism is implied.",
+    "No real phase or XPS chemical assignment is made. A/B identities are synthetic and cannot establish performance or a mechanism."
+  ],
+  "reference": "https://research-figure-guide.nature.com/figures/preparing-figures-our-specifications/"
+}

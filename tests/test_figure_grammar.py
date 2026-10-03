@@ -5,7 +5,7 @@ from pathlib import Path
 import unittest
 
 
-BASE = Path(__file__).resolve().parents[1] / "skills" / "battery-review-figure" / "references"
+BASE = Path(__file__).resolve().parents[1] / "skills" / "voltpeer-plot" / "references"
 
 
 class FigureGrammarTests(unittest.TestCase):

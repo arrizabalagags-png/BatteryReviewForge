@@ -1,0 +1,174 @@
+{
+  "id": "science_williamson_hall_strain",
+  "title": "峰展宽与尺寸/应变分离",
+  "domain": "general",
+  "type": "demo",
+  "license": "MIT",
+  "scope": "Original analytic teaching record. Source references support the declared method/derivation only, never this invented parameter set or measurements.",
+  "data_status": "synthetic_demo",
+  "not_experimental_data": true,
+  "source_files": [
+    "data.csv",
+    "model.json"
+  ],
+  "test_conditions": "No acquired cell or material. Independently declared analytic parameters, assumptions and units in scientific_basis.",
+  "variables_and_units": {
+    "1": [
+      "4 sin(θ)",
+      "β cos(θ) (rad)"
+    ]
+  },
+  "creator": "VoltPeer",
+  "generator_version": "1.0.0",
+  "reproduce": "python render_existing.py --output result-01",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "relationship": "Williamson-Hall separates intercept size and slope strain under restricted assumptions.",
+    "equations": [
+      "beta*cos(theta)=K*lambda/D+4*epsilon*sin(theta)"
+    ],
+    "parameters": {
+      "K": 0.9,
+      "lambda_nm": 0.15406,
+      "D_nm": 40,
+      "strain": [
+        0,
+        0.001,
+        0.002
+      ]
+    },
+    "assumptions": [
+      "Independently declared parameters; no experimental or material fit.",
+      "Instrument-corrected breadth in radians; isotropic size/strain and simple additive profile assumption."
+    ],
+    "limitations": [
+      "Instrument-corrected breadth in radians; isotropic size/strain and simple additive profile assumption.",
+      "A numerical/model QA pass does not validate author data or a physical mechanism."
+    ],
+    "constraints": [
+      "Finite numerical values and explicit physical units.",
+      "Continuous plotted curves are solid without markers; data axes retain four borders.",
+      "All plotted responses are nonnegative."
+    ],
+    "references": [
+      {
+        "title": "On the nanoscale structural evolution of solid discharge products in lithium-sulfur batteries using operando scattering",
+        "doi": "10.1038/s41467-022-33931-4",
+        "url": "https://www.nature.com/articles/s41467-022-33931-4",
+        "figure_panel": "Figure 2 and Methods: paired scattering/time, peak width, strain and crystallite-size caveats",
+        "supports": "Williamson-Hall separates intercept size and slope strain under restricted assumptions.",
+        "checked_at": "2026-10-03",
+        "scope": "Method/equation/caveat reference only. Original analytic teaching inputs; no copied paper points, pixels or experimental inference."
+      }
+    ],
+    "validation": {
+      "finite": true,
+      "nonnegative": true,
+      "unit_interval": false
+    },
+    "validation_scope": "Source method/principle and explicitly derived restricted teaching specialization checked; equation, units and numerical constraints only. No copied paper measurements, material parameters, experimental fit or mechanism certification."
+  },
+  "review": {
+    "science": "Equation/units/numerical constraints and source scope checked. No author-data validation.",
+    "display": "Actual solid/unmarked curve artists, four-frame spines, legend/title and text bounds checked."
+  },
+  "reference": {
+    "doi": "10.1038/s41467-022-33931-4",
+    "figure_panel": "Figure 2 and Methods: paired scattering/time, peak width, strain and crystallite-size caveats",
+    "observation": "Williamson-Hall separates intercept size and slope strain under restricted assumptions.",
+    "review_scope": "Method/equation/caveat reference only. Original analytic teaching inputs; no copied paper points, pixels or experimental inference.",
+    "default_template": false
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Strain 0",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        },
+        {
+          "label": "Strain 0.001",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        },
+        {
+          "label": "Strain 0.002",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        }
+      ]
+    }
+  ],
+  "data_frame_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "left": true,
+        "right": true,
+        "top": true,
+        "bottom": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Strain 0",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        },
+        {
+          "label": "Strain 0.001",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        },
+        {
+          "label": "Strain 0.002",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 241
+        }
+      ]
+    }
+  ],
+  "continuous_curve_style_checks": [
+    {
+      "panel_index": 0,
+      "label": "Strain 0",
+      "points": 241,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#287d8e"
+    },
+    {
+      "panel_index": 0,
+      "label": "Strain 0.001",
+      "points": 241,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#ba5574"
+    },
+    {
+      "panel_index": 0,
+      "label": "Strain 0.002",
+      "points": 241,
+      "line_style": "-",
+      "marker": "None",
+      "colour": "#4868a8"
+    }
+  ],
+  "curve_style_check": "Actual Line2D artists: all continuous curves solid and unmarked.",
+  "data_frame_check": "Actual data axes: all four spines visible."
+}

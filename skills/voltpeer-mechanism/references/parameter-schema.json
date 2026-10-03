@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VoltPeer mechanism parameters",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "template": {
+      "enum": [
+        "solvation-shell",
+        "ion-pairing",
+        "ligand-exchange",
+        "desolvation",
+        "double-layer",
+        "migration-diffusion",
+        "sei-formation",
+        "selective-passivation",
+        "heterogeneous-sei",
+        "cei-formation",
+        "nucleation-growth",
+        "plating-stripping",
+        "inactive-lithium",
+        "film-reformation",
+        "solid-contact-loss",
+        "dual-pathways"
+      ]
+    },
+    "cation": {
+      "enum": [
+        "Li+",
+        "Na+",
+        "K+"
+      ],
+      "default": "Li+",
+      "description": "Five coordination/transport scenes support Li+/Na+/K+; the other eleven spatial metal/interphase illustrations are lithium-specific. Read each record's supported_cations."
+    },
+    "colors": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "string",
+        "pattern": "^#[0-9A-Fa-f]{6}$"
+      }
+    },
+    "palette_reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "version": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "author": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "license": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "url": {
+          "type": "string",
+          "maxLength": 500
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "license"
+      ]
+    },
+    "background": {
+      "enum": [
+        "white",
+        "transparent"
+      ],
+      "default": "white"
+    }
+  },
+  "required": [
+    "template"
+  ]
+}

@@ -22,5 +22,117 @@
     "default_template": false
   },
   "reproduce": "python render_specialist.py --recipe differential_capacity --input-folder differential_capacity --output-dir brf-output --style forge",
-  "creator": "BatteryReviewForge original synthetic model and drawing"
+  "creator": "BatteryReviewForge original synthetic model and drawing",
+  "generator_version": "1.6",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "phenomenological_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "L(v;mu,s)=1/(1+exp(-(v-mu)/s))",
+      "Q(v)=10*(v-3)+scale*(75*L(v;3.64+shift,0.048)+100*L(v;4.04+shift,0.064)); Q=Q-Q(v=3)",
+      "dQ/dV is the finite-difference derivative of the same stored charge-branch Q,V pairs"
+    ],
+    "parameters": {
+      "cycles": [
+        1,
+        100,
+        300
+      ],
+      "peak_shift_V": [
+        0,
+        0.015,
+        0.04
+      ],
+      "accessible_capacity_scale": [
+        1,
+        0.96,
+        0.89
+      ],
+      "temperature_C": 25,
+      "current_rate_C": 0.1,
+      "capacity_basis": "cathode active mass",
+      "voltage_window_V": [
+        3,
+        4.35
+      ]
+    },
+    "assumptions": [
+      "Two monotonic charge-capacity transitions plus a positive background slope.",
+      "The cycle scale represents accessible active capacity, not a CE-derived inventory model."
+    ],
+    "references": [
+      {
+        "url": "https://www.nature.com/articles/s41598-025-88019-y",
+        "title": "Charge profiles and differential capacity",
+        "supports": "The definition and paired presentation of dQ/dV; no source numerical curve is copied.",
+        "scope": "model_definition_only"
+      }
+    ],
+    "limitations": [
+      "Charge branch only; not complete charge/discharge hysteresis or a named phase assignment.",
+      "No smoothing, experimental uncertainty or measured degradation mechanism."
+    ],
+    "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "1",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 650
+        },
+        {
+          "label": "100",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 650
+        },
+        {
+          "label": "300",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 650
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "_child0",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 650
+        },
+        {
+          "label": "_child1",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 650
+        },
+        {
+          "label": "_child2",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 650
+        }
+      ]
+    }
+  ]
 }

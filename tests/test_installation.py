@@ -18,7 +18,7 @@ from diagnose_install import diagnose
 class InstallationTests(unittest.TestCase):
     def test_starter_shared_references_are_present(self):
         version = json.loads((ROOT / 'plugin.json').read_text(encoding='utf-8'))['version']
-        path = ROOT / 'docs/downloads' / f'BatteryReviewForge-WorkBuddy-Starter-v{version}.zip'
+        path = ROOT / 'docs/downloads' / f'v{version}' / f'VoltPeer-WorkBuddy-Starter-v{version}.zip'
         with ZipFile(path) as outer:
             zips = [name for name in outer.namelist() if name.endswith('.zip')]
             self.assertEqual(len(zips), 2)
@@ -64,12 +64,14 @@ class InstallationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             package = root / 'package'
-            source = package / 'skills/battery-test'
+            source = package / 'skills/voltpeer-plot'
             source.mkdir(parents=True)
             (source / 'SKILL.md').write_text('new', encoding='utf-8')
             shutil.copyfile(ROOT / 'install.ps1', package / 'install.ps1')
+            (package / 'docs').mkdir()
+            shutil.copyfile(ROOT / 'docs/SKILL_MIGRATION.json', package / 'docs/SKILL_MIGRATION.json')
             target = root / 'host/skills'
-            old = target / 'battery-test'
+            old = target / 'voltpeer-plot'
             old.mkdir(parents=True)
             (old / 'SKILL.md').write_text('old', encoding='utf-8')
             (old / 'custom.txt').write_text('my changes', encoding='utf-8')
@@ -81,7 +83,7 @@ class InstallationTests(unittest.TestCase):
             self.assertEqual(updated.returncode, 0, updated.stderr)
             self.assertEqual((old / 'SKILL.md').read_text(), 'new')
             self.assertFalse((old / 'custom.txt').exists())
-            backups = list((target.parent / '.brf-install-backups').glob('*/battery-test'))
+            backups = list((target.parent / '.voltpeer-install-backups').glob('*/canonical/voltpeer-plot'))
             self.assertEqual(len(backups), 1)
             self.assertEqual((backups[0] / 'custom.txt').read_text(), 'my changes')
             self.assertEqual((backups[0] / 'SKILL.md').read_text(), 'old')

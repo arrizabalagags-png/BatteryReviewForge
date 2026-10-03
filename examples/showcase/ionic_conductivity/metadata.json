@@ -23,5 +23,89 @@
     "default_template": false
   },
   "reproduce": "python render_specialist.py --recipe ionic_conductivity --input-folder ionic_conductivity --output-dir brf-output --style forge",
-  "creator": "BatteryReviewForge original synthetic model and drawing"
+  "creator": "BatteryReviewForge original synthetic model and drawing",
+  "generator_version": "1.6",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "analytic_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "sigma_S_cm=pre_S_cm*exp(-Ea_eV/(kB_eV_K*T_K)); T_K=T_C+273.15",
+      "stored conductivity_mS_cm=1000*sigma_S_cm; Arrhenius axes are ln(sigma_S_cm) and 1000/T_K"
+    ],
+    "parameters": {
+      "activation_energy_eV": {
+        "A": 0.2,
+        "B": 0.24,
+        "C": 0.29
+      },
+      "prefactor_S_cm": {
+        "A": 22,
+        "B": 40,
+        "C": 72
+      },
+      "kB_eV_K": 8.617333262e-05,
+      "temperature_C_range": [
+        -20,
+        80
+      ]
+    },
+    "assumptions": [
+      "Single thermally activated transport law, constant prefactor and Ea within the stated range."
+    ],
+    "references": [
+      {
+        "url": "https://goldbook.iupac.org/terms/view/A00446",
+        "title": "IUPAC: Arrhenius equation",
+        "supports": "Exponential temperature law; original conductivity prefactors and energies.",
+        "scope": "model_definition_only"
+      }
+    ],
+    "limitations": [
+      "No VTF behavior, phase transition, contact/geometry uncertainty or measured conductivity claim.",
+      "Input Ea is known by construction and is not an experimentally fitted activation energy."
+    ],
+    "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "A",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 11
+        },
+        {
+          "label": "B",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 11
+        },
+        {
+          "label": "C",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 11
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": []
+    }
+  ]
 }

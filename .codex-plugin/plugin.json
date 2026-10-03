@@ -1,23 +1,23 @@
 {
-  "name": "battery-review-forge",
-  "version": "0.9.2",
-  "description": "Evidence-first battery Review skills, six selectable figure styles, original SVG resources, and reproducible panel assembly.",
+  "name": "voltpeer",
+  "version": "0.12.0",
+  "description": "VoltPeer: battery data plotting, Figure assembly, original mechanism diagrams, scientific writing, planning and polishing.",
   "author": {
     "name": "Shuo Guo and Jinlong Jiang"
   },
-  "repository": "https://github.com/arrizabalagags-png/BatteryReviewForge",
+  "repository": "https://github.com/arrizabalagags-png/Voltpeer-skills",
   "license": "MIT",
   "skills": "./skills/",
   "interface": {
-    "displayName": "电研搭子 · VoltPeer",
-    "shortDescription": "Prepare battery data, draw figures and develop reviews.",
-    "longDescription": "Plan, search, write and revise battery Reviews; plot uploaded battery data and assemble source-traceable figures.",
+    "displayName": "VoltPeer",
+    "shortDescription": "电池科研绘图、拼版、机理图、写作与润色。",
+    "longDescription": "Plot supplied scientific data, assemble Figures, import instrument tables, and plan, write or polish research papers and Reviews using declared author evidence and verified sources.",
     "developerName": "Shuo Guo and Jinlong Jiang, Institute of Energy Materials Science, University of Shanghai for Science and Technology",
     "category": "Productivity",
     "websiteURL": "https://dazi.gsarrizabalaga.xyz/",
     "brandColor": "#205C85",
     "logo": "assets/brand.svg",
     "capabilities": [],
-    "defaultPrompt": "Help me identify my battery research task and input materials, then use the appropriate skill for data preparation, plotting, figure assembly, or review writing. Ask only for information needed to proceed."
+    "defaultPrompt": "Help me identify my battery research task and available evidence, then use the appropriate Skill for data preparation, plotting, Figure assembly, research-paper or Review writing, argument planning, or polishing. Ask only for information needed to proceed."
   }
 }

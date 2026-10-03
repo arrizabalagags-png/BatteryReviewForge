@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "revision": "cycling-rule-v1.2.0",
+  "style_authority": "user preference; not universal journal mandate",
+  "inventory_count": 190,
+  "affected_examples": [
+    {
+      "id": "full_cell",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/full_cell",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-full_cell.zip",
+      "archive_sha256": "718e366e7bca7ebd87e412509cff3075e9afe65389f0a437a5d3871d1da8e026",
+      "metadata_sha256": "5614bee2c3d1030a2ef23b89789fd627145f9bc8515d144aa5841cf33649dc6b",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/full_cell/full_cell-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/full_cell/full_cell-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/full_cell/full_cell-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/full_cell/full_cell-prompt.txt"
+    },
+    {
+      "id": "li_cu_ce",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/li_cu_ce",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-li_cu_ce.zip",
+      "archive_sha256": "0ffebae1191ab470226fb5a3b0e001a90dd648ade44a5b3381813ba2560739af",
+      "metadata_sha256": "779d193743d54e29ee86494a864e031288accfe8b1ad7e26b5c9f3c411369da2",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/li_cu_ce/li_cu_ce-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/li_cu_ce/li_cu_ce-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/li_cu_ce/li_cu_ce-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/li_cu_ce/li_cu_ce-prompt.txt"
+    },
+    {
+      "id": "rate_capability",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/rate_capability",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-rate_capability.zip",
+      "archive_sha256": "f3f33db560d97c8f3a47edd51f77aab5c1a630749925cdf05101feeeaa33324d",
+      "metadata_sha256": "3da57cb75ef7a1d1e5fc5102694ed2b75647ccf671e5540c7712c03a1fc3f4b7",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/rate_capability/rate_capability-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/rate_capability/rate_capability-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/rate_capability/rate_capability-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/rate_capability/rate_capability-prompt.txt"
+    },
+    {
+      "id": "integrated_study",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/integrated_study",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-integrated_study.zip",
+      "archive_sha256": "e543a053e0215408d60553718dfb5b8ad7d22e0b12be385938f3b3d43a9165a3",
+      "metadata_sha256": "5309f864875e02923010c2f4703bcb0e26ab74ce9e588d79f3038c86347358cf",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/integrated_study/integrated_study-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/integrated_study/integrated_study-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/integrated_study/integrated_study-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/integrated_study/integrated_study-prompt.txt"
+    },
+    {
+      "id": "capability_spread",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/capability_spread",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-capability_spread.zip",
+      "archive_sha256": "f6d6f712ea52809342fb23969facd5bfc3c774ed37385acbca6db1673a889953",
+      "metadata_sha256": "6ecee220f5971c17843320d959130dcf40106ce543734c52afce0bcb5b9d03a8",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/capability_spread/capability_spread-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/capability_spread/capability_spread-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/capability_spread/capability_spread-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/capability_spread/capability_spread-prompt.txt"
+    },
+    {
+      "id": "style_presets",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/style_presets",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-style_presets.zip",
+      "archive_sha256": "9fa8df2dc9a50c14162d7e8c6c33c2659c659d1b97b5c3a4ea79a08895b778ed",
+      "metadata_sha256": "73a6c14705f57a5c9fc8c0a4ca4562aad9c9ac756cfce1480afcf07115c0a10d",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/style_presets/style_presets-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/style_presets/style_presets-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/style_presets/style_presets-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/style_presets/style_presets-prompt.txt"
+    },
+    {
+      "id": "paper_capacity_repeat",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/paper_capacity_repeat",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-paper_capacity_repeat.zip",
+      "archive_sha256": "fa945e9c35192b83c8d43f4ea58bde13ed5a5fddad01c802b56998869d892868",
+      "metadata_sha256": "38ff16a4bb06b261953a2dc437510987e6fa4619b0ead822ed9c983f57199a95",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/paper_capacity_repeat/paper_capacity_repeat-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/paper_capacity_repeat/paper_capacity_repeat-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/paper_capacity_repeat/paper_capacity_repeat-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/paper_capacity_repeat/paper_capacity_repeat-prompt.txt"
+    },
+    {
+      "id": "paper_ce_ledger",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/paper_ce_ledger",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-paper_ce_ledger.zip",
+      "archive_sha256": "491c08270d00aee81c85bde557f17282a64d98691252e583693fc34258a0ca79",
+      "metadata_sha256": "83956b68a0d547e12f65f59a81b8491f1b573f8dcbc664d417eff48311e88320",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/paper_ce_ledger/paper_ce_ledger-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/paper_ce_ledger/paper_ce_ledger-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/paper_ce_ledger/paper_ce_ledger-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/paper_ce_ledger/paper_ce_ledger-prompt.txt"
+    },
+    {
+      "id": "paper_flow_efficiency",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/paper_flow_efficiency",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-paper_flow_efficiency.zip",
+      "archive_sha256": "4b5b120ac79c5ad84ada55bcecc4a750c2aacc3eca709f3126a75b283ac1da1f",
+      "metadata_sha256": "1643e7cc20bb828865b5b8915f90d58c94fbee356b999c40ccd8d6954ef7e9be",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/paper_flow_efficiency/paper_flow_efficiency-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/paper_flow_efficiency/paper_flow_efficiency-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/paper_flow_efficiency/paper_flow_efficiency-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/paper_flow_efficiency/paper_flow_efficiency-prompt.txt"
+    },
+    {
+      "id": "paper_rate_recovery",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/paper_rate_recovery",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-paper_rate_recovery.zip",
+      "archive_sha256": "f04f37d0798242b79a9cf4ad6279a7dae90fc48223534c10278032d5e2a015cc",
+      "metadata_sha256": "1b28e27cf1876c8ab6424227272a1dea0e0eeeb95a607b61c1eb0a0a29435996",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/paper_rate_recovery/paper_rate_recovery-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/paper_rate_recovery/paper_rate_recovery-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/paper_rate_recovery/paper_rate_recovery-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/paper_rate_recovery/paper_rate_recovery-prompt.txt"
+    },
+    {
+      "id": "science_inventory_compounding",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/science_inventory_compounding",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-science_inventory_compounding.zip",
+      "archive_sha256": "541f35c30db771196c383c6aa2b3a03592f33b3d3f2797a887cb3547d0f7e213",
+      "metadata_sha256": "08b84f8357d6881eb0dae0f06ecb079414626e67499c0b328d42df08c895aa93",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/science_inventory_compounding/science_inventory_compounding-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/science_inventory_compounding/science_inventory_compounding-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/science_inventory_compounding/science_inventory_compounding-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/science_inventory_compounding/science_inventory_compounding-prompt.txt"
+    },
+    {
+      "id": "na_metal_ce",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/na_metal_ce",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-na_metal_ce.zip",
+      "archive_sha256": "32cd12443bb1f9a0fee3621647b9fa573ecdcd4fc3b75570141533846cfd5754",
+      "metadata_sha256": "5e74b3658c35a0fda976dee756770b4f5da42ecd6adb1f599c55b801986d3c28",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/na_metal_ce/na_metal_ce-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/na_metal_ce/na_metal_ce-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/na_metal_ce/na_metal_ce-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/na_metal_ce/na_metal_ce-prompt.txt"
+    },
+    {
+      "id": "zn_plating_ce",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/zn_plating_ce",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-zn_plating_ce.zip",
+      "archive_sha256": "c159c6d4d45c8bc6b3355b8ec8bbd00914656f6b8c82d115d1e5325ce4ced644",
+      "metadata_sha256": "7cf2b010a55842ff89f58f76ba87fa47e9eb351247a378d2d645a6c88d4142df",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/zn_plating_ce/zn_plating_ce-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/zn_plating_ce/zn_plating_ce-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/zn_plating_ce/zn_plating_ce-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/zn_plating_ce/zn_plating_ce-prompt.txt"
+    },
+    {
+      "id": "k_ion_rate",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/k_ion_rate",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-k_ion_rate.zip",
+      "archive_sha256": "2ca12be1665cd658cc2ac0dbfaf2e932ff5b0879b87f40fb7f5508478532b980",
+      "metadata_sha256": "554a03c267a17ad927ef5037cd425a7a79bfc83407c33c304403641d899796f7",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/k_ion_rate/k_ion_rate-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/k_ion_rate/k_ion_rate-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/k_ion_rate/k_ion_rate-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/k_ion_rate/k_ion_rate-prompt.txt"
+    },
+    {
+      "id": "zn_i2_cycle",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/zn_i2_cycle",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-zn_i2_cycle.zip",
+      "archive_sha256": "40fb5c988d37fd6e5da25578abb1bb7dc5b56027cb83b57629037689a79dbc97",
+      "metadata_sha256": "b000a578fe664d49a32904c40db0dcdadda6eb582fb8b9682af5750a11242c39",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/zn_i2_cycle/zn_i2_cycle-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/zn_i2_cycle/zn_i2_cycle-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/zn_i2_cycle/zn_i2_cycle-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/zn_i2_cycle/zn_i2_cycle-prompt.txt"
+    },
+    {
+      "id": "flow_efficiency",
+      "asset_root": "assets/cycling-rule-v1.2.0/showcase/flow_efficiency",
+      "archive": "assets/cycling-rule-v1.2.0/showcase/BRF-demo-flow_efficiency.zip",
+      "archive_sha256": "b5c6ffea9e883996c1f5b679a3ed00a20d23d185dd3192cac6feef2eab8763af",
+      "metadata_sha256": "8a6d351f124ebda5892941726e938651b93c829ec85d6bfc483883b05555be6b",
+      "source": "assets/cycling-rule-v1.2.0/split-demos/flow_efficiency/flow_efficiency-source.zip",
+      "data": "assets/cycling-rule-v1.2.0/split-demos/flow_efficiency/flow_efficiency-data.zip",
+      "figures": "assets/cycling-rule-v1.2.0/split-demos/flow_efficiency/flow_efficiency-figures.zip",
+      "prompt": "assets/cycling-rule-v1.2.0/split-demos/flow_efficiency/flow_efficiency-prompt.txt"
+    }
+  ],
+  "original_csv_changes": [],
+  "recipe_registry": "assets/cycling-rule-v1.2.0/recipes/recipe-packs.json",
+  "starter_archive": "assets/cycling-rule-v1.2.1/starter/VoltPeer-Plot-Starter-v0.12.0.zip",
+  "frontpage_root": "assets/cycling-rule-v1.2.0/frontpage",
+  "publication": {
+    "GitHub": "NOT_PUSHED",
+    "ECS": "NOT_DEPLOYED"
+  },
+  "limits": [
+    "190 metadata/input inventories inspected; only affected examples replayed.",
+    "Zn-I2 and unnamed flow diagrams have original model capacity/CE ledgers but no acquired rate/cell protocol; model retention explicitly uses recorded cycle 1.",
+    "Inventory-compounding is an idealized retained-inventory formula, not measured capacity retention or a CE life prediction.",
+    "NMC811||Li belongs to the declared half-cell demonstration; historical resource ID is preserved.",
+    "No native desktop/model or experimental certification."
+  ],
+  "package_revision": "cycling-rule-v1.2.1",
+  "revision_note": "Six-percent retention axis headroom preserves complete 100-percent reference markers in Plot Starter. All 16 example and recipe archive bytes stay at cycling-rule-v1.2.0."
+}

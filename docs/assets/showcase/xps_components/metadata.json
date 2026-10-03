@@ -5,14 +5,15 @@
   "source_files": [
     "data.csv"
   ],
-  "test_conditions": "Invented C 1s-like binding-energy window, counts and 3 Gaussian components with known baseline. No compound identity, measured composition or fitting quality claim.",
+  "test_conditions": "Original generic 280–294 eV window with 3 known mixed-line-shape components and counting noise. No compound identity, measured composition or fitting quality claim.",
   "variables_and_units": [
     "binding_energy_eV",
     "intensity_counts",
     "background_counts",
     "component_1",
     "component_2",
-    "component_3"
+    "component_3",
+    "expected_counts"
   ],
   "render_options": {
     "component_labels": [
@@ -20,7 +21,7 @@
       "Component 2",
       "Component 3"
     ],
-    "fit_method": "Analytic invented components; no optimizer",
+    "fit_method": "Known Gaussian/Lorentzian mixtures plus Poisson counts; no optimizer",
     "charge_reference": "Synthetic energy axis; no measured calibration"
   },
   "reference": {
@@ -31,5 +32,130 @@
     "default_template": false
   },
   "reproduce": "python render_specialist.py --recipe xps_components --input-folder xps_components --output-dir brf-output --style forge",
-  "creator": "BatteryReviewForge original synthetic model and drawing"
+  "creator": "BatteryReviewForge original synthetic model and drawing",
+  "generator_version": "1.6",
+  "scientific_basis": {
+    "schema_version": 1,
+    "model_class": "phenomenological_model",
+    "data_origin": "original_synthetic",
+    "equations": [
+      "G(e)=exp(-0.5*((e-mu)/sigma)^2); L(e)=1/(1+((e-mu)/sigma)^2)",
+      "component=height*(0.7*G+0.3*L); expected_counts=110+3*(e-280)+sum(components)",
+      "observed_counts ~ Poisson(expected_counts); residual=observed-background-sum(known_components)"
+    ],
+    "parameters": {
+      "peak_centers_eV": [
+        284.7,
+        286.4,
+        289.0
+      ],
+      "shape_width_eV": [
+        0.5,
+        0.64,
+        0.71
+      ],
+      "peak_heights_counts": [
+        1000,
+        460,
+        270
+      ],
+      "lorentzian_fraction": 0.3,
+      "random_seed": 20260927
+    },
+    "assumptions": [
+      "Nonnegative independent counting statistics on known generic components and a linear background.",
+      "The mixture width is a shape parameter; it is not claimed as a common Gaussian/Lorentzian FWHM."
+    ],
+    "references": [
+      {
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm",
+        "title": "NIST e-Handbook: normal distribution",
+        "supports": "The Gaussian mathematical line shape only; no material peak assignment or numeric data.",
+        "scope": "model_definition_only"
+      },
+      {
+        "url": "https://goldbook.iupac.org/terms/view/L03628",
+        "title": "IUPAC: Lorentzian band shape",
+        "supports": "Lorentzian mathematical shape only; original energies and intensities.",
+        "scope": "model_definition_only"
+      }
+    ],
+    "limitations": [
+      "No optimizer, fitted composition, charge calibration, Shirley/Tougaard background or chemical assignment.",
+      "Components are known inputs; residuals are not evidence of a successful experimental fit."
+    ],
+    "validation_scope": "Declared teaching model and internal relationships only; no experimental or material certification."
+  },
+  "actual_artist_checks": [
+    {
+      "panel_index": 0,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "Component 1",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "Component 2",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "Component 3",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "Data",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "Sum",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "Background",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        }
+      ]
+    },
+    {
+      "panel_index": 1,
+      "spines": {
+        "top": true,
+        "right": true,
+        "bottom": true,
+        "left": true
+      },
+      "continuous_curves": [
+        {
+          "label": "_child0",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 500
+        },
+        {
+          "label": "_child1",
+          "linestyle": "-",
+          "marker": "None",
+          "points": 2
+        }
+      ]
+    }
+  ]
 }

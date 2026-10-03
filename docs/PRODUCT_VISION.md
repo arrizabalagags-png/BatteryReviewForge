@@ -1,4 +1,4 @@
-# BatteryReviewForge 的方向
+# VoltPeer 的方向
 
 **少花时间调图、拼图和反复核对格式，把时间还给科研思考。**
 

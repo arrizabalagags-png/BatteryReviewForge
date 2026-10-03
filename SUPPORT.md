@@ -1,6 +1,6 @@
 # 求助与反馈 / Support
 
-[首页](README.md) · [安装和第一次画图](docs/GETTING_STARTED.md) · [软件适配与验证范围](https://github.com/arrizabalagags-png/Voltpeer-skills/blob/codex/public-skills/docs/COMPATIBILITY.md)
+[首页](README.md) · [安装和第一次画图](docs/GETTING_STARTED.md) · [软件适配与验证范围](docs/COMPATIBILITY.md)
 
 GitHub Issues 公开可见。请提供软件/包版本、期望结果、实际问题及可分享的最小合成例子；不要附未公开数据、API key、完整私人日志或账号路径。
 

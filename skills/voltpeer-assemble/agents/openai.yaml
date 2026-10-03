@@ -1,0 +1,4 @@
+interface:
+  display_name: "VoltPeer · Figure 拼版"
+  short_description: "Align and audit supplied paper panels"
+  default_prompt: "Use $voltpeer-assemble to inspect these panels and build a tightly aligned, source-traceable manuscript figure."

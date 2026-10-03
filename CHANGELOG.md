@@ -1,5 +1,38 @@
 # 更新记录 / Changelog
 
+## 0.12.0 — 2026-10-03 (local Beta candidate)
+
+- Add an original mechanism drawing Skill and sixteen editable native SVG templates, with evidence boundaries and reproducible parameters.
+- Add one hundred literature-grounded analytical teaching examples; refine shared-state operando XRD and polarity-specific ToF-SIMS demonstrations. These are synthetic teaching data.
+- Expand the palette library to two hundred unique schemes with source licences and categorical, sequential and diverging use guidance.
+- Present seven primary Skills, retaining nine additional tools. Add readable catalogue cards and an optional moderated community API; server installation remains separate.
+- Preserve historical packages and validation identities. New package and browser checks do not certify native host discovery or every model.
+
+
+## v0.11.0 Beta — 2026-10-02 本地候选
+
+- Use VoltPeer for the active display name, `voltpeer` for plugin/marketplace identity and 15 canonical `voltpeer-*` Skill IDs. The repository remains `arrizabalagags-png/Voltpeer-skills`.
+- Put plotting, Figure assembly, data import, paper writing, argument/outline planning and polishing first; retain nine supporting workflows. Data preparation requires a separate `voltpeer-plot` install for rendered plots.
+- Detect legacy installed IDs, require explicit migration, preserve complete customised trees outside discovery and refuse conflicting old/new installations or silent overwrites.
+- Document research-paper and Review inputs and deliverables. The polishing Skill includes the original 100-paper language guide with its exact reading and redistribution boundaries; two equivalent-expression fixture corrections are recorded separately from the initial corpus snapshot.
+- Store 34 new archives, indexes and checksums under `docs/downloads/v0.11.0/`. Keep earlier published archives, scientific examples and fixed historical URLs unchanged. Selective rebuilds preserve unaffected ZIP bytes.
+- Actual installer, source closure, downloaded-package and preservation checks have separate evidence. Full current native-host discovery and model gates remain NOT_RUN. This candidate has not been pushed, released or deployed to ECS.
+
+## v0.10.0 Beta — 2026-09-30 本地候选
+
+- All numeric data axes now keep top/right/bottom/left frame spines, including spectra, coordinate heatmaps, selected-style previews, composite panels and standalone plot packs. Actual-artist gates reject a missing frame side; meaningful scatter and decorative axes remain distinct.
+- Distribution doctor reads each installed Skill's own dependency scope. Markdown bare-path closure and AST import-to-requirements gates include negative fixtures; metadata schema checks compare canonical inputs, served artifacts and packed bytes.
+- Correct NMC811||Li synthetic examples to half-cell descriptions while retaining historical full_cell resource IDs and original numerical inputs.
+- Scientific figure feedback: solid data curves with distinct colours; markerless CE without altering values; generalized Randles EIS demo with declared CPE/Warburg parameters and equal Nyquist coordinate units.
+- Fix the subsequently reported capacity-panel omission: cycling, retention, rate and continuous Nyquist curves use no point markers. Independent-observation scatter comparisons keep their meaningful points. Actual-artist export gates and complete-pack array/style records prevent a CE-only check from missing another panel.
+- Graphite and blue/orange presets replace two near-duplicate blue/green choices. Saved demos, standalone plot packs and source tests are updated together; see docs/validation/FIGURE_FEEDBACK_2026-09-30.md.
+- DeepSeek Harness desktop workspace installers and result-first execution contracts; Flash/Pro use the same scientific rules. Original desktop discovery and real model runs remain NOT_RUN.
+- Versioned Working deliverables, private provenance/recovery records, explicit raster DPI, LZW TIFF, guarded Share export and local standalone Skill reference closure.
+- 15 portable single-Skill ZIPs plus 15 WorkBuddy imports and their full/starter collections. Gates inspect the extracted distribution, not only source files.
+- Three independent, configurable full_cell / li_li / operando_xrd plot packs; unseen groups, length changes, bounds and required conditions checked locally.
+- 65 workflow EVAL fixtures and fixed-input A/B/C pack comparison preparation. Engineering PASS does not promote this candidate to Stable.
+- The private website is updated separately. This entry does not imply a GitHub Release or ECS deployment.
+
 ## v0.9.2 — 2026-09-27
 
 - All 15 skills now include capability-based execution, bounded repair, coverage tracking and a compact recovery record.
@@ -10,7 +43,7 @@
 ## v0.9.0 — 2026-09-27
 
 - 网站品牌采用“电研搭子 · VoltPeer”；开源仓库、插件标识与技能名保持兼容。顶部增加中文/英文选择，作者单位逐人标明。
-- 新增 `battery-data-prepare` 与 `battery-experiment-plan`，共 15 个技能。数据整理保留原文件，单位和映射需明确确认；实验规划提供变量与对照，不代替实验室操作规程。
+- 新增 `voltpeer-data` 与 `voltpeer-experiment-plan`，共 15 个技能。数据整理保留原文件，单位和映射需明确确认；实验规划提供变量与对照，不代替实验室操作规程。
 - 新增四类可选绘图规则：Aurbach 分段程序、阻抗频谱、恒电位电流瞬态、静置开路电压，共 30 组明确标记的虚构样图。Aurbach 不冒充逐圈 CE，OCV 衰减不换算容量损失。
 - 调整已有光谱与模拟样图的轴域、图例与可读性；修复新技能打包数量校验及 README 旧下载链接。
 - 网站的赞赏页面使用作者提供的原始二维码；二维码与网站开发源码不进入技能包。
@@ -74,7 +107,7 @@
 
 - 首页改为清晰的任务入口和一张完整科研样图：简化导航、标题、字体层级与新手文字，使用统一的响应式设计系统，移除叠放图和重复 CSS。
 - 六面板与 ToF-SIMS 样图在最终绘图区按 1.5 pt 尺量并重绘；所有七类样图新增 `alignment.json`。六图练习包包含可直接复现的 manifest、成图与 QA，严格拼版 27 项检查最大误差 0.0022 mm。
-- `battery-figure-assemble` 的严格模式要求每张面板声明对齐意图。可比面板必须有实测绘图区坐标；缺失或超过 1.5 pt 不再静默通过。诊断叠加图增加毫米刻度和内容范围提示。
+- `voltpeer-assemble` 的严格模式要求每张面板声明对齐意图。可比面板必须有实测绘图区坐标；缺失或超过 1.5 pt 不再静默通过。诊断叠加图增加毫米刻度和内容范围提示。
 - 逐 Figure/Panel 研读并记录四篇原始电池论文的 CE、ToF-SIMS、原位 XRD 与空间成像证据组织规则；将可执行的约束写入图型参考，未把他人图片纳入资源库。
 
 ## v0.8.1 — 2026-09-24

@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "brand": "VoltPeer",
+  "introduced_in": "0.11.0",
+  "canonical_only": true,
+  "install_legacy_aliases": false,
+  "legacy_plugin_ids": [
+    "battery-review-forge"
+  ],
+  "canonical_plugin_id": "voltpeer",
+  "aliases": [
+    {
+      "legacy_id": "battery-review-figure",
+      "canonical_id": "voltpeer-plot",
+      "primary": true
+    },
+    {
+      "legacy_id": "battery-figure-assemble",
+      "canonical_id": "voltpeer-assemble",
+      "primary": true
+    },
+    {
+      "legacy_id": "battery-data-prepare",
+      "canonical_id": "voltpeer-data",
+      "primary": true
+    },
+    {
+      "legacy_id": "battery-review-write",
+      "canonical_id": "voltpeer-write",
+      "primary": true
+    },
+    {
+      "legacy_id": "battery-review-plan",
+      "canonical_id": "voltpeer-plan",
+      "primary": true
+    },
+    {
+      "legacy_id": "battery-review-polish",
+      "canonical_id": "voltpeer-polish",
+      "primary": true
+    },
+    {
+      "legacy_id": "battery-claim-check",
+      "canonical_id": "voltpeer-claim-check",
+      "primary": false
+    },
+    {
+      "legacy_id": "battery-experiment-plan",
+      "canonical_id": "voltpeer-experiment-plan",
+      "primary": false
+    },
+    {
+      "legacy_id": "battery-literature-map",
+      "canonical_id": "voltpeer-literature",
+      "primary": false
+    },
+    {
+      "legacy_id": "battery-metrics-audit",
+      "canonical_id": "voltpeer-metrics",
+      "primary": false
+    },
+    {
+      "legacy_id": "battery-review-audit",
+      "canonical_id": "voltpeer-review-audit",
+      "primary": false
+    },
+    {
+      "legacy_id": "battery-review-forge",
+      "canonical_id": "voltpeer-workflow",
+      "primary": false
+    },
+    {
+      "legacy_id": "battery-review-response",
+      "canonical_id": "voltpeer-response",
+      "primary": false
+    },
+    {
+      "legacy_id": "battery-review-submission",
+      "canonical_id": "voltpeer-submission",
+      "primary": false
+    },
+    {
+      "legacy_id": "battery-reviewer",
+      "canonical_id": "voltpeer-reviewer",
+      "primary": false
+    }
+  ]
+}

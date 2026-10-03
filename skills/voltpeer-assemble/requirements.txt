@@ -1,0 +1,8 @@
+Pillow>=10
+pypdf>=5
+pypdfium2>=4
+reportlab>=4
+# CairoSVG is needed only for SVG input, plus a separately working native Cairo library.
+# On Windows, PDF/PNG/TIFF input works without native Cairo; see references/COMPOSITION.md.
+CairoSVG>=2.7
+pdfplumber>=0.11

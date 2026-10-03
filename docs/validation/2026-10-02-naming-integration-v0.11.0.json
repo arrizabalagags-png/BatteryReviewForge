@@ -1,0 +1,469 @@
+{
+  "version": "0.11.0",
+  "checked_at_utc": "2026-10-02T07:31:58.828301+00:00",
+  "status": "PASS_LOCAL_ENGINEERING",
+  "scope": "Public Skill naming, protected local installation, actual package source closure, language-guide integration and immutable public-file preservation. These scopes are not summed into a model/native/scientific score.",
+  "brand": "VoltPeer",
+  "plugin_id": "voltpeer",
+  "repository": "arrizabalagags-png/Voltpeer-skills",
+  "channel": "beta",
+  "publication": "LOCAL_CANDIDATE_NOT_PUSHED_NOT_RELEASED_NOT_DEPLOYED",
+  "source_commit_at_packaging": "18c659ecc46442497fd7e921161ea951640cc52b",
+  "source_worktree_dirty_at_packaging": true,
+  "effective_skill_tree_sha256": "5a9db9a0d9a7b35cd2655f4ae5ce50ab6348613120a127ea2d5763354c3b8817",
+  "canonical_aliases": [
+    {
+      "legacy_id": "battery-review-figure",
+      "canonical_id": "voltpeer-plot",
+      "primary": true
+    },
+    {
+      "legacy_id": "battery-figure-assemble",
+      "canonical_id": "voltpeer-assemble",
+      "primary": true
+    },
+    {
+      "legacy_id": "battery-data-prepare",
+      "canonical_id": "voltpeer-data",
+      "primary": true
+    },
+    {
+      "legacy_id": "battery-review-write",
+      "canonical_id": "voltpeer-write",
+      "primary": true
+    },
+    {
+      "legacy_id": "battery-review-plan",
+      "canonical_id": "voltpeer-plan",
+      "primary": true
+    },
+    {
+      "legacy_id": "battery-review-polish",
+      "canonical_id": "voltpeer-polish",
+      "primary": true
+    },
+    {
+      "legacy_id": "battery-claim-check",
+      "canonical_id": "voltpeer-claim-check",
+      "primary": false
+    },
+    {
+      "legacy_id": "battery-experiment-plan",
+      "canonical_id": "voltpeer-experiment-plan",
+      "primary": false
+    },
+    {
+      "legacy_id": "battery-literature-map",
+      "canonical_id": "voltpeer-literature",
+      "primary": false
+    },
+    {
+      "legacy_id": "battery-metrics-audit",
+      "canonical_id": "voltpeer-metrics",
+      "primary": false
+    },
+    {
+      "legacy_id": "battery-review-audit",
+      "canonical_id": "voltpeer-review-audit",
+      "primary": false
+    },
+    {
+      "legacy_id": "battery-review-forge",
+      "canonical_id": "voltpeer-workflow",
+      "primary": false
+    },
+    {
+      "legacy_id": "battery-review-response",
+      "canonical_id": "voltpeer-response",
+      "primary": false
+    },
+    {
+      "legacy_id": "battery-review-submission",
+      "canonical_id": "voltpeer-submission",
+      "primary": false
+    },
+    {
+      "legacy_id": "battery-reviewer",
+      "canonical_id": "voltpeer-reviewer",
+      "primary": false
+    }
+  ],
+  "installer_transactions": 26,
+  "skipped_file_symlink_cases": 2,
+  "actual_windows_junction_refusals": 2,
+  "current_clean_extracted_bundle_installs": [
+    {
+      "engine": "ps1",
+      "status": "PASS",
+      "exit_code": 0,
+      "canonical_skill_count": 15,
+      "installed_files": 232,
+      "exact_file_hash_closure": true,
+      "legacy_alias_folders_installed": 0,
+      "research_fixture_unchanged": true,
+      "public_guide_files": 10,
+      "public_guide_bytes": 525484
+    },
+    {
+      "engine": "sh",
+      "status": "PASS",
+      "exit_code": 0,
+      "canonical_skill_count": 15,
+      "installed_files": 232,
+      "exact_file_hash_closure": true,
+      "legacy_alias_folders_installed": 0,
+      "research_fixture_unchanged": true,
+      "public_guide_files": 10,
+      "public_guide_bytes": 525484
+    }
+  ],
+  "intermediate_bundle_install_evidence": "2026-10-02-naming-checkpoint-01-v0.11.0.json; two trials on its recorded earlier full-ZIP identity, not added to current scope",
+  "current_archive_count": 34,
+  "current_archives": [
+    {
+      "file": "VoltPeer-v0.11.0.zip",
+      "bytes": 1162137,
+      "sha256": "ef7dbe2b46b6ea3f9beccaadc685333164b07f4758a85fb5729a36ac8d1b1478"
+    },
+    {
+      "file": "VoltPeer-WorkBuddy-v0.11.0.zip",
+      "bytes": 914107,
+      "sha256": "d05dfe58485a7be9fe6db389506aa7a6c58bd8b1313709bc64b5daf6b6e6d602"
+    },
+    {
+      "file": "VoltPeer-WorkBuddy-Starter-v0.11.0.zip",
+      "bytes": 672932,
+      "sha256": "d725d24be62ddafface0a61a1490752581d4be66f28016f7f964b4f9f87396fd"
+    },
+    {
+      "file": "single/voltpeer-assemble-v0.11.0.zip",
+      "bytes": 137360,
+      "sha256": "afc3c77e89d7e381e1e8f2cdf81d67fe032e349a10231b7fbdfb6236b129e882"
+    },
+    {
+      "file": "single/voltpeer-claim-check-v0.11.0.zip",
+      "bytes": 9580,
+      "sha256": "9c0f0f12730b553c459826efc560ba473859099a664d5bbae221b4836905fc26"
+    },
+    {
+      "file": "single/voltpeer-data-v0.11.0.zip",
+      "bytes": 32003,
+      "sha256": "111b0dc4f54b9888859a21bc2c25ad4901ac77621a31ea635f9af4bd50f77d2a"
+    },
+    {
+      "file": "single/voltpeer-experiment-plan-v0.11.0.zip",
+      "bytes": 9483,
+      "sha256": "9b1f296b431caeb5bc846210cbe42ced21369fe3bc407b7a2d5b94006af90c09"
+    },
+    {
+      "file": "single/voltpeer-literature-v0.11.0.zip",
+      "bytes": 9488,
+      "sha256": "3e3e0379dbf184316d585dd476c4b8f494d0405d6a22812f08e596a3a86ba1d6"
+    },
+    {
+      "file": "single/voltpeer-metrics-v0.11.0.zip",
+      "bytes": 10972,
+      "sha256": "449b81afa53db51c8594f2725509419718a1562d36f338a634094945a4fc8099"
+    },
+    {
+      "file": "single/voltpeer-plan-v0.11.0.zip",
+      "bytes": 11681,
+      "sha256": "63bea28ec62b5dfdfa24ba6325783b49f3e392320aba6655d2f4e1024777ee7b"
+    },
+    {
+      "file": "single/voltpeer-plot-v0.11.0.zip",
+      "bytes": 550725,
+      "sha256": "3c425e41f71ae4c2ff014cccae624142542636b6e290eca16bd441b6e35cfcd2"
+    },
+    {
+      "file": "single/voltpeer-polish-v0.11.0.zip",
+      "bytes": 93629,
+      "sha256": "c61afc8b6da4c12fa43d83edf1100406f9aba76dace5b5be29d4717619380348"
+    },
+    {
+      "file": "single/voltpeer-response-v0.11.0.zip",
+      "bytes": 8644,
+      "sha256": "fb23b00b1cf19be5410dc4d494b69e34c0f9e7bc6d19d05e12f25c8696c8a7e1"
+    },
+    {
+      "file": "single/voltpeer-review-audit-v0.11.0.zip",
+      "bytes": 8457,
+      "sha256": "b4c91eb0f4ef0a8fa29ecbd6103da36227cad103afe711d5462c8a05054210ca"
+    },
+    {
+      "file": "single/voltpeer-reviewer-v0.11.0.zip",
+      "bytes": 8321,
+      "sha256": "f87f40b0b245738ab35a2789d95c006d72a23febb6dd990d3c438ca9ed66caa7"
+    },
+    {
+      "file": "single/voltpeer-submission-v0.11.0.zip",
+      "bytes": 9127,
+      "sha256": "9aa18a004e8249a1c79e0164c3709f65b8a04b23667391366e5f0b05877ec662"
+    },
+    {
+      "file": "single/voltpeer-workflow-v0.11.0.zip",
+      "bytes": 24324,
+      "sha256": "14e42edd247f5c94e5948b2d393d5adf12d93750886be43e5833f69b844e67e1"
+    },
+    {
+      "file": "single/voltpeer-write-v0.11.0.zip",
+      "bytes": 11400,
+      "sha256": "9730c3b857d958a58c89aa7b80b87592069ef289b1f1bc51a199f73f4804ddff"
+    },
+    {
+      "file": "workbuddy/voltpeer-assemble-workbuddy-v0.11.0.zip",
+      "bytes": 137609,
+      "sha256": "c8838eab6d84a0649f04910b14b13dd3e4704e7b6941f998b544da932b4815b1"
+    },
+    {
+      "file": "workbuddy/voltpeer-claim-check-workbuddy-v0.11.0.zip",
+      "bytes": 9808,
+      "sha256": "d5be18a221523d5a385aa13bce97b7dff613182442bcd84124961dc63b7117aa"
+    },
+    {
+      "file": "workbuddy/voltpeer-data-workbuddy-v0.11.0.zip",
+      "bytes": 32240,
+      "sha256": "9be05408b4e6ab83c395a75d72347e2f211e14dc53535fba02c365c6caba8dd3"
+    },
+    {
+      "file": "workbuddy/voltpeer-experiment-plan-workbuddy-v0.11.0.zip",
+      "bytes": 9726,
+      "sha256": "f892225023aeb053abd2e859f5d4348288a7c4b934d2ac92a095bb5add0ce75a"
+    },
+    {
+      "file": "workbuddy/voltpeer-literature-workbuddy-v0.11.0.zip",
+      "bytes": 9724,
+      "sha256": "fba5d74bab04f5dbadd17df0dbbcaba60bde1855577ef2e1425a17dd681fb5f6"
+    },
+    {
+      "file": "workbuddy/voltpeer-metrics-workbuddy-v0.11.0.zip",
+      "bytes": 11219,
+      "sha256": "7171f9a1e8bb09a36b906e46115543110b781e801388369da2b183bb293787c7"
+    },
+    {
+      "file": "workbuddy/voltpeer-plan-workbuddy-v0.11.0.zip",
+      "bytes": 11934,
+      "sha256": "c1008df5dc8d4d1b8c3d4392708ef176d5b3ed7e7b98053b24af82f9d281f117"
+    },
+    {
+      "file": "workbuddy/voltpeer-plot-workbuddy-v0.11.0.zip",
+      "bytes": 550972,
+      "sha256": "72fbb9ae1028b07ec1cef2af6d36493602a5d8043c119f66c63efb8cebb4c5bf"
+    },
+    {
+      "file": "workbuddy/voltpeer-polish-workbuddy-v0.11.0.zip",
+      "bytes": 93868,
+      "sha256": "aa5fc7574f88094deac40ab5afe04dc98e6321abffb3665435a13a2aff4545b7"
+    },
+    {
+      "file": "workbuddy/voltpeer-response-workbuddy-v0.11.0.zip",
+      "bytes": 8847,
+      "sha256": "ccc2b10e5e5ec7e030a747da2bf64a045250525640bfbfed28d68a3c0f3b2ea0"
+    },
+    {
+      "file": "workbuddy/voltpeer-review-audit-workbuddy-v0.11.0.zip",
+      "bytes": 8698,
+      "sha256": "4f141dcfbf1f14288a3bc2d50ce7f252f02a99ed039536b5aef8071ebb3305d8"
+    },
+    {
+      "file": "workbuddy/voltpeer-reviewer-workbuddy-v0.11.0.zip",
+      "bytes": 8525,
+      "sha256": "1e3db9b769f7c935919ff3a97322f1ac3d83b1e39f9536561df62315e382d60e"
+    },
+    {
+      "file": "workbuddy/voltpeer-submission-workbuddy-v0.11.0.zip",
+      "bytes": 9343,
+      "sha256": "ab7398036159d1038ea347d5f74dad94b919b8f33856174fb443c85c6abbf788"
+    },
+    {
+      "file": "workbuddy/voltpeer-workflow-workbuddy-v0.11.0.zip",
+      "bytes": 24572,
+      "sha256": "d89b1eab6aee7bce55ff8e024eb7f3b6794379ff45d345f423bfc554449b356b"
+    },
+    {
+      "file": "workbuddy/voltpeer-write-workbuddy-v0.11.0.zip",
+      "bytes": 11663,
+      "sha256": "92119c3bd907d07a70cfbda53d7197eb8f2efa33022ba9169b426811350cde4d"
+    },
+    {
+      "file": "starter/VoltPeer-Plot-Starter-v0.11.0.zip",
+      "bytes": 737059,
+      "sha256": "e60a22c1f04284a4b7b3eb95c2c78f54aff1d64316a5c4fc098535aec32fbb36"
+    }
+  ],
+  "full_package_source_files_exact": 300,
+  "isolated_packaged_skill_copies": 63,
+  "separate_preserved_recipe_archives": 3,
+  "separate_historical_demo_metadata_checks": 30,
+  "selective_rebuild_changed_archives": [
+    "VoltPeer-v0.11.0.zip",
+    "VoltPeer-WorkBuddy-v0.11.0.zip",
+    "single/voltpeer-polish-v0.11.0.zip",
+    "workbuddy/voltpeer-polish-workbuddy-v0.11.0.zip"
+  ],
+  "selective_rebuild_unchanged_archives": 30,
+  "initial_corpus_audit_scope": "The original corpus engineering FINAL_AUDIT and original ten-file hashes identify the initial snapshot, before the 0.11.0 equivalent-expression fixture integration. This addendum records the single changed case file.",
+  "initial_guide_files": [
+    {
+      "file": "corpus.csv",
+      "bytes": 87079,
+      "sha256": "013208f43e02110e3f1fefa36052ec8e097ed5af2e339cdc1fd5b5954e62a033"
+    },
+    {
+      "file": "corpus.json",
+      "bytes": 324070,
+      "sha256": "15b3d97a76a3852e3123a79ea75d8a462fa315b479e4d9e19ca1c5c586af6a2e"
+    },
+    {
+      "file": "DOMAIN_GUIDE.md",
+      "bytes": 18571,
+      "sha256": "17c715874d827fb0ddb8fc9eabd67101e1c97e721c2d03c533a929b711e823ff"
+    },
+    {
+      "file": "evaluation_cases.json",
+      "bytes": 52403,
+      "sha256": "afe25df7c8e6a04a5030f8401283cb48c7ed3b94ec93eaf1aee4325a60f237cb"
+    },
+    {
+      "file": "GLOSSARY.md",
+      "bytes": 10294,
+      "sha256": "2e8d95a6f237a32319d812e3c4df785d7cf5cbcb291ddd992eabb52b70d91bcd"
+    },
+    {
+      "file": "GUIDANCE_ADAPTATION.md",
+      "bytes": 4974,
+      "sha256": "b0436c3ad9d0740beb5096c10a1940939245d65908667791b25a8a3022962b93"
+    },
+    {
+      "file": "PHRASE_FUNCTIONS.md",
+      "bytes": 5799,
+      "sha256": "a80ff359e61c676b1001d50a63df12070e3b3afdf782cc24fe44197180e26712"
+    },
+    {
+      "file": "README.md",
+      "bytes": 3733,
+      "sha256": "c78a5f2a08b244366b46e84b8bff038f1aa8a4ec333f65940368fc877d1ccc6a"
+    },
+    {
+      "file": "SOURCE_SCOPE.md",
+      "bytes": 4081,
+      "sha256": "167d7e857eebea57f1378540e1e33cfd6ef8936e5e90684440c11fb844a4b52a"
+    },
+    {
+      "file": "validate_polish.py",
+      "bytes": 14071,
+      "sha256": "d089b3bf3f8c7be4de2f037d6b4933445107aa60f187e4d9693d7423366a5754"
+    }
+  ],
+  "current_guide_files": [
+    {
+      "file": "corpus.csv",
+      "bytes": 87079,
+      "sha256": "013208f43e02110e3f1fefa36052ec8e097ed5af2e339cdc1fd5b5954e62a033"
+    },
+    {
+      "file": "corpus.json",
+      "bytes": 324070,
+      "sha256": "15b3d97a76a3852e3123a79ea75d8a462fa315b479e4d9e19ca1c5c586af6a2e"
+    },
+    {
+      "file": "DOMAIN_GUIDE.md",
+      "bytes": 18571,
+      "sha256": "17c715874d827fb0ddb8fc9eabd67101e1c97e721c2d03c533a929b711e823ff"
+    },
+    {
+      "file": "evaluation_cases.json",
+      "bytes": 52812,
+      "sha256": "d7883ead8ff54c0b4ac54235ccc56a9f8702462eb07aac14ba2b0a5455139f24"
+    },
+    {
+      "file": "GLOSSARY.md",
+      "bytes": 10294,
+      "sha256": "2e8d95a6f237a32319d812e3c4df785d7cf5cbcb291ddd992eabb52b70d91bcd"
+    },
+    {
+      "file": "GUIDANCE_ADAPTATION.md",
+      "bytes": 4974,
+      "sha256": "b0436c3ad9d0740beb5096c10a1940939245d65908667791b25a8a3022962b93"
+    },
+    {
+      "file": "PHRASE_FUNCTIONS.md",
+      "bytes": 5799,
+      "sha256": "a80ff359e61c676b1001d50a63df12070e3b3afdf782cc24fe44197180e26712"
+    },
+    {
+      "file": "README.md",
+      "bytes": 3733,
+      "sha256": "c78a5f2a08b244366b46e84b8bff038f1aa8a4ec333f65940368fc877d1ccc6a"
+    },
+    {
+      "file": "SOURCE_SCOPE.md",
+      "bytes": 4081,
+      "sha256": "167d7e857eebea57f1378540e1e33cfd6ef8936e5e90684440c11fb844a4b52a"
+    },
+    {
+      "file": "validate_polish.py",
+      "bytes": 14071,
+      "sha256": "d089b3bf3f8c7be4de2f037d6b4933445107aa60f187e4d9693d7423366a5754"
+    }
+  ],
+  "initial_guide_bytes": 525075,
+  "current_guide_bytes": 525484,
+  "guide_changed_files": [
+    "evaluation_cases.json"
+  ],
+  "guide_revision": {
+    "version": "1.0.1",
+    "date": "2026-10-02",
+    "reason": "Accept the source-strength wording in BP10 and an equivalent explicit negative translation in BP22. Preserve source inputs and corrupted outputs; actual blind Luna responses are recorded privately."
+  },
+  "guide_unchanged_original_case_inputs_and_corrupted_responses": true,
+  "fixture_self_test": {
+    "mode": "engineering-fixture-self-test",
+    "case_count": 24,
+    "acceptable_fixture_count": 24,
+    "acceptable_fixtures_accepted": 24,
+    "deliberate_corruption_count": 48,
+    "deliberate_corruptions_rejected": 48,
+    "pass": true,
+    "response_safeguards": {
+      "missing_factual_note_rejected": true,
+      "empty_output_rejected": true,
+      "equivalent_capacity_typography_accepted": true
+    },
+    "model_requests": 0,
+    "model_behavior_certified": false,
+    "limitation": "Checks named scientific risks on synthetic outputs; they are conservative and do not prove full semantic equivalence."
+  },
+  "additional_selftest_guards": [],
+  "frozen_public_files_checked": 1159,
+  "frozen_public_archives_checked": 194,
+  "frozen_differences": [],
+  "native_helper_sha256": "5a0a6f10065868b306e2fc759182c9c81d046c7b5504030c2addafa32dd4e890",
+  "instrument_importer_sha256": "341227c52f369cd3b5f3fa3e95c2c201cc0ef843bc739d78ea992775da42b2a8",
+  "author_experiments_read_in_this_naming_packaging_scope": 0,
+  "native_host_discovery": "NOT_RUN_CURRENT_TREE",
+  "complete_current_model_gate": "NOT_RUN",
+  "remote_writes_in_this_scope": 0,
+  "paid_requests_in_this_scope": 0,
+  "current_download_root": "docs/downloads/v0.11.0/",
+  "website_download_root": "downloads/v0.11.0/",
+  "checksum_paths_are_relative_to": "docs/downloads/v0.11.0/",
+  "index_files": [
+    {
+      "file": "docs/downloads/v0.11.0/download-index.json",
+      "bytes": 7829,
+      "sha256": "6d4e26265633b70f94ce5b20cc983644872f92b419dacdce4907815c61fc3065"
+    },
+    {
+      "file": "docs/downloads/v0.11.0/distribution-sha256.txt",
+      "bytes": 3716,
+      "sha256": "f4d3fd31cb02c38224ceddf6cdf0146eba40aa8cbfab3e52ec0b23f861282e65"
+    },
+    {
+      "file": "docs/downloads/v0.11.0/starter/plot-starter.json",
+      "bytes": 850,
+      "sha256": "b6f0565f195c9edae7fe865f3098f881150aeaafdf4eee00186677cf7a32d679"
+    }
+  ]
+}
