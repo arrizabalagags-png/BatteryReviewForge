@@ -1,89 +1,78 @@
-# VoltPeer
-
+# VoltPeer · 电研搭子
 
 [简体中文](README.md) · English
 
-Open source Skills for battery research: scientific plotting, Figure assembly, mechanism illustration, data import, paper writing, argument planning and polishing, with nine supporting research workflows.
+**Less time adjusting figures. More time for research.**
 
-A Skill is a set of research instructions and tools for an AI assistant. Use it inside an AI application that can read the files and run the tools.
+Open source AI Skills for battery research: prepare data, plot scientific figures and assemble panels into a Figure. Mechanism illustration, paper writing and polishing are also available.
 
-[Get started](#get-started) · [See examples](#see-the-results) · [0.12.0 plotting candidate (Beta)](docs/assets/cycling-rule-v1.2.1/starter/VoltPeer-Plot-Starter-v0.12.0.zip) · [Project website](https://dazi.gsarrizabalaga.xyz/)
+Choose an example, get its data and source code, then work with your own data. Keep figures and code together so you can check, reproduce and revise them.
 
-## See the results
+A Skill provides instructions and tools for an AI assistant. It runs inside an AI application that can read Skills and execute the required tools.
 
-**Original synthetic demos, not experimental data.** Every figure comes with its data, plotting code and declared model. These examples are not evidence of material performance. [Data and source code](https://github.com/arrizabalagags-png/Voltpeer-skills/blob/main/assets/github-showcase/README.md)
+[Browse examples](https://dazi.gsarrizabalaga.xyz/gallery.html) · [Get started](#get-started) · [Download plotting Starter (0.12.0 Beta)](docs/assets/cycling-rule-v1.2.1/starter/VoltPeer-Plot-Starter-v0.12.0.zip) · [Project website](https://dazi.gsarrizabalaga.xyz/)
 
-### [Structure and spectra](https://github.com/arrizabalagags-png/Voltpeer-skills/blob/main/assets/github-showcase/README.md#structure-and-spectra)
+## See an example
 
-<a href="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/structure-spectra.png"><img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/structure-spectra.png" alt="Synthetic structure and spectra: Bragg-law peak evolution, selected progress traces, generic Raman bands and known spectral components" width="1000"></a>
+**Structure and spectra · Original synthetic teaching data, not experimental results.** Diffraction, Raman and spectral-component examples illustrate plotting methods; they do not establish material performance.
 
-### [EIS: three views of the same data](https://github.com/arrizabalagags-png/Voltpeer-skills/blob/main/assets/github-showcase/README.md#impedance-spectroscopy)
+<a href="assets/github-showcase/structure-spectra.png"><img src="assets/github-showcase/structure-spectra.png" alt="Synthetic structure and spectra: diffraction intensity, selected progress traces, generic Raman bands and known spectral components; not experimental results" width="780"></a>
 
-<a href="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/eis-cpe-warburg.png"><img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/eis-cpe-warburg.png" alt="Synthetic CPE and Warburg circuit: equal-scale Nyquist, impedance magnitude and signed phase from the same complex data" width="1000"></a>
-
-### [Multi-panel plotting example](docs/assets/cycling-rule-v1.2.0/split-demos/integrated_study/integrated_study-source.zip)
-
-<a href="docs/assets/cycling-rule-v1.2.0/showcase/integrated_study/figure.png"><img src="docs/assets/cycling-rule-v1.2.0/showcase/integrated_study/figure.png" alt="Synthetic multi-panel example: per-cycle capacity and efficiency markers with solid continuous voltage and EIS curves; not experimental results" width="1000"></a>
+[Data and model notes](assets/github-showcase/README.md#structure-and-spectra) · [Plotting source](examples/github_showcase/render.py) · [More examples](https://dazi.gsarrizabalaga.xyz/gallery.html). Click the image for its original size.
 
 <details>
-<summary>Another EIS example: an ideal RC circuit</summary>
+<summary>More examples: EIS, a mechanism illustration and a multi-panel figure</summary>
 
-<img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/eis-ideal-rc.png" alt="Original ideal RC synthetic example: equal-scale semicircle Nyquist, impedance magnitude and signed phase" width="1000">
+**EIS · Synthetic circuit data, not an experimental fit.**
+
+<a href="assets/github-showcase/eis-cpe-warburg.png"><img src="assets/github-showcase/eis-cpe-warburg.png" alt="Synthetic EIS: Nyquist, magnitude and phase from the same complex impedance data" width="650"></a>
+
+[Data, code and model basis](assets/github-showcase/README.md#impedance-spectroscopy)
+
+**Lithium-metal interphase · Original conceptual illustration, not experimental validation.**
+
+<a href="assets/mechanism-showcase/desolvation.svg"><img src="assets/mechanism-showcase/desolvation.svg" alt="Lithium-metal interphase concept: coordination, desolvation and transport through the SEI" width="650"></a>
+
+[SVG, source code and scientific references](skills/voltpeer-mechanism/SKILL.md) · [Synthetic multi-panel figure](docs/assets/cycling-rule-v1.2.0/showcase/integrated_study/figure.png) · [Its source and data package](docs/assets/cycling-rule-v1.2.0/split-demos/integrated_study/integrated_study-source.zip)
 
 </details>
-
-
-### Mechanism illustration
-
-<img src="assets/mechanism-showcase/desolvation.svg" alt="Original lithium-metal interphase illustration: generic donor groups, desolvation, SEI transport and electronic paths" width="1000">
-
-A conceptual illustration, not experimental validation. D denotes generic donor groups; repeated ions are process snapshots. Editable SVG, renderer source and scientific references are included with the [mechanism Skill](skills/voltpeer-mechanism/SKILL.md).
-
-## What would you like to do
-
-| Main product | What it does |
-| --- | --- |
-| [Scientific plotting](skills/voltpeer-plot/SKILL.md) | Draw supported figures from supplied data and checked units |
-| [Figure assembly](skills/voltpeer-assemble/SKILL.md) | Align supplied panels, labels, type sizes and spacing |
-| [Mechanism illustration](skills/voltpeer-mechanism/SKILL.md) | Draw original editable diagrams from the material system, process direction and supporting evidence |
-| [Data import to plotting](skills/voltpeer-data/SKILL.md) | Identify source fields, preserve originals and prepare input; rendering also needs voltpeer-plot |
-| [Paper writing](skills/voltpeer-write/SKILL.md) | Draft or restructure research papers and reviews from supplied results or inspected evidence |
-| [Argument and outline planning](skills/voltpeer-plan/SKILL.md) | Build the question, central argument, scope and section logic |
-| [Paper polishing](skills/voltpeer-polish/SKILL.md) | Revise existing wording, translation or length while retaining scientific meaning |
 
 ## Get started
 
-**For a first attempt, use DeepSeek Harness desktop.**
+For your first attempt, follow the **DeepSeek Harness desktop** route. Already using an AI application? See [other installation routes](docs/COMPATIBILITY.md#其他已有软件).
 
-1. Install the application from [DeepSeek](https://www.deepseek.com/harness/). Follow the [getting started guide](docs/GETTING_STARTED.md#english) to configure a model and open your research project folder.
-2. Download and fully extract the plotting package above. Give the AI its `AGENT_GUIDE.md` and ask it to prepare the environment, install the plotting Skill, then locate the actual Skill file in a new session.
-3. Run the synthetic demo and open the result's `index.html`. Next, provide your own data and confirm columns, units and test conditions before plotting.
+**Codex users can continue using Codex.** Its entry is currently hidden on the website for certain reasons. The Skills retain support for both Codex and DeepSeek Harness (DSH), and the same plotting Starter provides installation routes for both. Follow the [Codex installation notes](docs/COMPATIBILITY.md#其他已有软件) with your existing assistant.
 
-Plotting needs Python ≥3.10 and network access to obtain dependencies; the package guide prepares an isolated environment. The package is free and open source. AI use follows your application's or model provider's charges. [Installation, costs and troubleshooting](docs/GETTING_STARTED.md#english).
+1. **Prepare the application and your project folder.** Follow the [getting started guide](docs/GETTING_STARTED.md#english) to configure the application and model, then open your research project. Check that a conversation works; use the settings checks if the model cannot connect.
+2. **Extract the complete Starter and ask your assistant to install it.** Put the `plot_starter` folder in your project. Ask the assistant to read `AGENT_GUIDE.md`, check the environment and install the Skill. Start a new session and confirm that it can locate and read the installed `voltpeer-plot/SKILL.md`. If it cannot, use the [installation checks](docs/GETTING_STARTED.md#english).
+3. **Run the example, then use your own data.** Use the bundled program to run a synthetic demo. Open `demo-result/index.html` and inspect PNG, SVG and PDF files in `demo-result/results/`. Repeated runs preserve earlier results in separate versioned folders. Resolve the actual error if files are missing.
+
+The Starter contains **one plotting Skill, a fixed Python program and demos**. It needs Python ≥3.10 and the bundled requirements. Setup downloads dependencies into an isolated environment; no Python interpreter is included.
+
+Once installation is confirmed, copy this to run the demo:
+
+> Read plot_starter/AGENT_GUIDE.md. Check that this session can read the installed plotting Skill and that Python and its dependencies can run. Use the bundled program to run the synthetic demo into demo-result under my project. Check the actual files, then return preview and figure links. If anything fails, explain what is missing instead of reporting completion.
+
+To use your own data:
+
+> Use this example to plot the same type of figure from my data. Confirm the plot type, columns, units and required test conditions first. Use the supplied fixed program and preserve the original data. Ask me about missing information before proceeding.
+
+Confirm a method for unsupported plot types; do not fill gaps with demo parameters or freely rewrite scientific processing logic. You can also describe your request in your own words.
+
+## What you can do
+
+| Your task | What to provide | What you receive |
+| --- | --- | --- |
+| [Scientific plotting](skills/voltpeer-plot/SKILL.md) | Data, units and test conditions | Supported figures, code and draft captions |
+| [Figure assembly](skills/voltpeer-assemble/SKILL.md) | Existing panels, order and target size | An aligned Figure, labels and layout files |
+| [Data import](skills/voltpeer-data/SKILL.md) | Original files and field meanings | Prepared tables and mappings; rendering also needs the plotting Skill |
+| [Mechanism illustration](skills/voltpeer-mechanism/SKILL.md) | Material system, processes and supporting evidence | Original diagrams, editable SVG and source code |
+| [Paper writing](skills/voltpeer-write/SKILL.md) | Author results or verifiable literature | Draft text, evidence links and missing information |
+| [Arguments and outlines](skills/voltpeer-plan/SKILL.md) | A research question and existing material | An argument, section structure and evidence gaps |
+| [Paper polishing](skills/voltpeer-polish/SKILL.md) | Existing text, purpose and revision needs | Revised, translated or shortened text that preserves scientific meaning |
 
 <details>
-<summary>Download directly / other applications</summary>
-
-- [0.12.0 plotting candidate: fixed program, one plotting Skill and demos](docs/assets/cycling-rule-v1.2.1/starter/VoltPeer-Plot-Starter-v0.12.0.zip) · [Archive index and checksums](docs/downloads/v0.12.0-cycling-rule-v1.2.1/download-index.json)
-- [Historical 0.10.1 plotting package](https://github.com/arrizabalagags-png/Voltpeer-skills/raw/dfd46fcb4a3255b60826de8a4c721963adc4ff02/docs/downloads/starter/VoltPeer-Plot-Starter-v0.10.1.zip)
-- [Historical 0.10.1 bundle with all 15 Skills](https://github.com/arrizabalagags-png/Voltpeer-skills/raw/dfd46fcb4a3255b60826de8a4c721963adc4ff02/docs/downloads/BatteryReviewForge-v0.10.1.zip) · [Historical 0.9.2 release](https://github.com/arrizabalagags-png/Voltpeer-skills/releases/download/v0.9.2/BatteryReviewForge-v0.9.2.zip)
-- Codex, Kimi Code, WorkBuddy and individual Skill routes are in [compatibility](docs/COMPATIBILITY.md). Check actual discovery in your selected application.
-- Model behavior, host discovery and tool availability are assessed separately; see the scope below.
-
-</details>
-
-## Choose by task
-
-| What you have | Skill route |
-| --- | --- |
-| Raw tables | [`voltpeer-data`](skills/voltpeer-data/SKILL.md) → [`voltpeer-plot`](skills/voltpeer-plot/SKILL.md) |
-| Completed panels | [`voltpeer-assemble`](skills/voltpeer-assemble/SKILL.md) |
-| A Review topic and sources | [`voltpeer-plan`](skills/voltpeer-plan/SKILL.md) → [`voltpeer-literature`](skills/voltpeer-literature/SKILL.md) → [`voltpeer-write`](skills/voltpeer-write/SKILL.md) |
-| A manuscript to check | [`voltpeer-review-audit`](skills/voltpeer-review-audit/SKILL.md) |
-| A project with several stages | [`voltpeer-workflow`](skills/voltpeer-workflow/SKILL.md) |
-
-<details>
-<summary>All 16 Skills</summary>
+<summary>All 16 Skills and their technical IDs</summary>
 
 | Skill | Task |
 | --- | --- |
@@ -106,36 +95,30 @@ Plotting needs Python ≥3.10 and network access to obtain dependencies; the pac
 
 </details>
 
-## Try a short request
+## Common questions
 
-> Here is my cycling CSV. Check columns, units and test conditions, then plot capacity against cycle number. Preserve the original values.
+**Do I need to write Python?** You can ask the assistant to call the program using its guide. The application must be able to run tools, and your computer still needs a working Python environment and dependencies.
 
-> Assemble these six panels as Fig. 3 at the submission size. Align labels, type sizes and spacing, and keep the originals.
+**Is it free?** VoltPeer is free and open source. Your AI application or model service may charge separately; check its actual terms.
 
-> Here are my Review outline and sources. Organize inspected evidence and gaps before discussing the structure.
+**Do I upload data to the website?** VoltPeer does not require research files to be uploaded to its website. Your application and settings determine what the model provider receives. Check its privacy policy before using unpublished material, and keep API keys in the application's settings.
 
-> Can the performance numbers in this table be compared? List missing conditions first.
+**Can I submit the output to a journal?** Authors must check original data, units, conditions, citations, the journal's figure requirements and sharing rights. Demo data are not experimental results.
 
-> Check whether the source papers support this paragraph's numbers and claims. Mark anything not inspected.
+## Current version and documentation
 
-## Data and research responsibility
+The current source is **0.12.0 Beta, with 16 Skills**. The primary download is the **plotting Starter**. The [full 16-Skill package](docs/downloads/v0.12.0-cycling-rule-v1.2.1/VoltPeer-v0.12.0.zip) and [individual Skill packages and checksums](docs/downloads/v0.12.0-cycling-rule-v1.2.1/download-index.json) are available for installation as needed.
 
-- Quantitative plots use the supplied program. Missing units, conditions or provenance require clarification before proceeding.
-- VoltPeer does not ask you to upload research files to the website or send the authors an API key. Your chosen AI application determines what is sent to its model provider.
-- Check that application's privacy policy before using unpublished material. De-identify public feedback and confirm permission to share.
-- Authors remain responsible for data, citations, rights and scientific conclusions. Not reported and not verified are distinct states; neither is zero or verified evidence.
+These Beta packages are public in the repository. The latest full stable GitHub Release remains **v0.9.2**, separate from current development. The download index preserves its build-time status; see [version notes and historical downloads](docs/RELEASE_v0.12.0.md) for the current status.
 
-## Documentation and scope
+**Installation through figure delivery has not been tested in every client, and full model validation for this version is incomplete.** Run an example first and consult [compatibility](docs/COMPATIBILITY.md) for the actual scope.
 
-The current source version is **0.12.0 Beta**, with separate installation and distribution evidence. The fixed historical download links still identify **0.10.1 Beta** and the **0.9.2** Release; earlier 0.10.2 scientific packages retain their identity. Native desktop discovery and complete current-tree model behavior validation remain NOT_RUN. Delivery formatting in the earlier limited Flash API trial was PARTIAL. [Current version notes](docs/RELEASE_v0.12.0.md) · [Compatibility and exact validation scope](docs/COMPATIBILITY.md).
+[Plotting inputs](skills/voltpeer-plot/references/UPLOADED_DATA.md) · [Figure assembly](skills/voltpeer-assemble/references/COMPOSITION.md) · [Validation records](docs/EVAL.md) · [Maintainer guide](docs/MAINTAINER_GUIDE.md) · [Historical technical reference](docs/TECHNICAL_REFERENCE_v0.10.1.md)
 
-| Learn more | Document |
-| --- | --- |
-| Installation and a first plot | [Getting started](docs/GETTING_STARTED.md#english) |
-| Author data, palettes and plotting | [Uploaded-data plotting](skills/voltpeer-plot/references/UPLOADED_DATA.md) |
-| Submission sizes and panel layout | [Figure composition](skills/voltpeer-assemble/references/COMPOSITION.md) |
-| Literature / Reviews / experiments | [Literature mapping](skills/voltpeer-literature/SKILL.md) · [Review planning](skills/voltpeer-plan/SKILL.md) · [Experiment planning](skills/voltpeer-experiment-plan/SKILL.md) |
-| Engineering and behavior tests | [Validation protocol and records](docs/EVAL.md) |
-| Maintenance and full technical detail | [Maintainer guide](docs/MAINTAINER_GUIDE.md) · [Original technical README for this branch](docs/TECHNICAL_REFERENCE_v0.10.1.md) |
+## Authors and licensing
 
-Shuo Guo and Jinlong Jiang, Institute of Energy Materials Science, University of Shanghai for Science and Technology. [Authors](AUTHORS.md) · [Cite](CITATION.cff) · [MIT](LICENSE) · [Contribute](CONTRIBUTING.md) · [Support](SUPPORT.md) · [Security](SECURITY.md). Historical packages keep their old IDs; migrate active installations with the documented map.
+Shuo Guo (郭硕) and Jinlong Jiang (姜金龙), Institute of Energy Materials Science, University of Shanghai for Science and Technology. Affiliations identify the authors and do not imply institutional endorsement.
+
+Repository code and documentation use the [MIT license](LICENSE). Original examples state their licenses in their own notes. Check third-party material, published figures and user data separately for provenance and reuse rights.
+
+[Authors](AUTHORS.md) · [Cite](CITATION.cff) · [Contribute](CONTRIBUTING.md) · [Support](SUPPORT.md) · [Security](SECURITY.md)

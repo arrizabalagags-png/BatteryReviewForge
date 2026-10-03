@@ -1,89 +1,78 @@
 # VoltPeer · 电研搭子
 
-
 简体中文 · [English](README.en.md)
 
-面向电池科研的开源 AI Skill 工具箱：科研绘图、Figure 拼图、机理示意、数据导入、论文写作、论证提纲与论文润色。
+**少花时间调图，多留一点时间给科研。**
 
-Skill 是给 AI 助手的一组科研工作说明和工具，需要在支持它的 AI 软件中使用。
+面向电池科研的开源 AI Skill 工具箱，帮助你整理数据、绘制科研图和完成 Figure 拼版，也支持机理示意、论文写作与润色。
 
-[开始使用](#开始使用) · [看看效果](#看看实际效果) · [0.12.0 绘图候选包（Beta）](docs/assets/cycling-rule-v1.2.1/starter/VoltPeer-Plot-Starter-v0.12.0.zip) · [项目网站](https://dazi.gsarrizabalaga.xyz/)
+看中一张样图，拿到配套数据与源码，再用自己的数据绘图。图件和代码一起保留，方便检查、重画和继续修改。
 
-## 看看实际效果
+Skill 是给 AI 助手使用的工作说明和配套工具，需要在能读取技能、执行相应工具的 AI 软件中运行。
 
-**原创合成演示，非实验数据。** 每张图都保留对应数据、绘图代码和模型依据；不用于证明材料性能。[查看数据与源码](https://github.com/arrizabalagags-png/Voltpeer-skills/blob/main/assets/github-showcase/README.md)
+[查看样图](https://dazi.gsarrizabalaga.xyz/gallery.html) · [开始使用](#开始使用) · [下载绘图 Starter（0.12.0 Beta）](docs/assets/cycling-rule-v1.2.1/starter/VoltPeer-Plot-Starter-v0.12.0.zip) · [项目网站](https://dazi.gsarrizabalaga.xyz/)
 
-### [结构与光谱](https://github.com/arrizabalagags-png/Voltpeer-skills/blob/main/assets/github-showcase/README.md#structure-and-spectra)
+## 看看效果
 
-<a href="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/structure-spectra.png"><img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/structure-spectra.png" alt="结构与光谱合成演示：Bragg 定律峰位演化、选定进度的衍射曲线、通用 Raman 谱和已知谱峰成分" width="1000"></a>
+**结构与光谱 · 原创合成演示，非实验数据。** 展示衍射、Raman 与谱峰组合的画法，不用于证明材料性能。
 
-### [EIS：同一组数据，三个视角](https://github.com/arrizabalagags-png/Voltpeer-skills/blob/main/assets/github-showcase/README.md#impedance-spectroscopy)
+<a href="assets/github-showcase/structure-spectra.png"><img src="assets/github-showcase/structure-spectra.png" alt="结构与光谱合成示例：衍射强度、选定进度曲线、通用 Raman 谱与已知谱峰成分；非实验结果" width="780"></a>
 
-<a href="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/eis-cpe-warburg.png"><img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/eis-cpe-warburg.png" alt="合成 CPE 与 Warburg 模型：横纵等尺度 Nyquist、阻抗模值和真实有符号相位" width="1000"></a>
-
-### [多面板绘图示例](docs/assets/cycling-rule-v1.2.0/split-demos/integrated_study/integrated_study-source.zip)
-
-<a href="docs/assets/cycling-rule-v1.2.0/showcase/integrated_study/figure.png"><img src="docs/assets/cycling-rule-v1.2.0/showcase/integrated_study/figure.png" alt="多面板合成演示：循环容量与库伦效率用散点，连续电压与EIS用实线；不代表真实实验结果" width="1000"></a>
+[配套数据与模型说明](assets/github-showcase/README.md#structure-and-spectra) · [绘图源码](examples/github_showcase/render.py) · [更多样图](https://dazi.gsarrizabalaga.xyz/gallery.html)。点击图片可看原尺寸。
 
 <details>
-<summary>再看一个 EIS 示例：理想 RC 电路</summary>
+<summary>补充示例：EIS、机理示意与多面板绘图</summary>
 
-<img src="https://raw.githubusercontent.com/arrizabalagags-png/Voltpeer-skills/main/assets/github-showcase/eis-ideal-rc.png" alt="原创理想 RC 电路合成示例：等尺度半圆 Nyquist、阻抗模值及相位" width="1000">
+**EIS · 合成电路数据，非实验拟合。**
+
+<a href="assets/github-showcase/eis-cpe-warburg.png"><img src="assets/github-showcase/eis-cpe-warburg.png" alt="合成 EIS：同一组复阻抗数据的 Nyquist、模值与相位" width="650"></a>
+
+[数据、源码与模型依据](assets/github-showcase/README.md#impedance-spectroscopy)
+
+**锂金属界面 · 原创概念示意，非实验验证。**
+
+<a href="assets/mechanism-showcase/desolvation.svg"><img src="assets/mechanism-showcase/desolvation.svg" alt="锂金属界面概念示意：配位、脱溶剂化与 SEI 内传输" width="650"></a>
+
+[SVG、源码与科学来源](skills/voltpeer-mechanism/SKILL.md) · [多面板合成样图](docs/assets/cycling-rule-v1.2.0/showcase/integrated_study/figure.png) · [该图的源码与数据包](docs/assets/cycling-rule-v1.2.0/split-demos/integrated_study/integrated_study-source.zip)
 
 </details>
-
-
-### 机理示意
-
-<img src="assets/mechanism-showcase/desolvation.svg" alt="原创锂金属界面机理示意：抽象配体、脱溶剂化、SEI 内传输和电子路径" width="1000">
-
-概念示意，不能当作实验验证。SVG 中的 D 代表抽象配位基团；重复离子表示过程快照。图件、源码和科学来源可在[机理图 Skill](skills/voltpeer-mechanism/SKILL.md)中取得。
-
-## 你现在想做什么
-
-| 七个主要产品 | 可以帮你做什么 |
-| --- | --- |
-| [科研绘图](skills/voltpeer-plot/SKILL.md) | 根据提供的数据、单位和测试条件绘制支持的科研图 |
-| [Figure 拼图](skills/voltpeer-assemble/SKILL.md) | 对齐已有面板，统一尺寸、标签、字号和留白 |
-| [机理图绘制](skills/voltpeer-mechanism/SKILL.md) | 核对材料、过程方向与证据，绘制可编辑的原创示意图 |
-| [数据导入到绘图](skills/voltpeer-data/SKILL.md) | 自动识别源字段和明确单位，保留原文件并整理输入；绘图需另装 voltpeer-plot |
-| [论文写作](skills/voltpeer-write/SKILL.md) | 基于作者实验输入或已核查文献，起草或重组研究论文与综述正文 |
-| [论证与提纲规划](skills/voltpeer-plan/SKILL.md) | 梳理问题、中心论证、范围和章节逻辑 |
-| [论文润色](skills/voltpeer-polish/SKILL.md) | 润色、翻译或压缩已有文字，保留科学含义和引用 |
 
 ## 开始使用
 
-**第一次用，推荐 DeepSeek Harness 桌面端。**
+第一次用，按 **DeepSeek Harness 桌面端**路线开始；已有 AI 软件可看[其他安装方式](docs/COMPATIBILITY.md#其他已有软件)。
 
-1. 从 [DeepSeek 官网](https://www.deepseek.com/harness/)安装软件，按[入门指南](docs/GETTING_STARTED.md)配置模型并打开自己的科研项目文件夹。
-2. 下载上方绘图包并完整解压，把包内 `AGENT_GUIDE.md` 交给 AI，让它配置环境、安装绘图 Skill，并在新会话确认实际读到技能文件。
-3. 先跑合成 Demo，打开结果里的 `index.html`；再换自己的数据，确认列名、单位和测试条件后画图。
+**Codex 用户也可以使用。** 网站目前因部分原因隐藏了 Codex 入口，Skill 仍保留 Codex 与 DeepSeek Harness（DSH）的适配。同一个绘图 Starter 提供两种安装方式，已有 Codex 无须更换助手；按[Codex 安装说明](docs/COMPATIBILITY.md#其他已有软件)使用。
 
-绘图环境需要 Python ≥3.10 与下载依赖的网络，AI 可按包内指南配置隔离环境。包开源免费；使用 AI 的费用取决于所选软件与模型。[安装、费用与遇到问题的下一步](docs/GETTING_STARTED.md)。
+1. **准备软件和项目文件夹。** 按[入门指南](docs/GETTING_STARTED.md#1-打开-ai-软件和项目)配置软件、模型并打开科研项目。先确认能正常对话；连接失败时按指南检查设置。
+2. **完整解压 Starter，交给助手安装。** 把 `plot_starter` 文件夹放进项目，让助手读 `AGENT_GUIDE.md`，检查环境并安装。新开会话，确认它能定位并读取实际的 `voltpeer-plot/SKILL.md`；没读到时看[安装排查](docs/GETTING_STARTED.md#卡住时检查当前一步)。
+3. **跑示例，再换自己的数据。** 用包内程序生成合成 Demo，打开 `demo-result/index.html`，检查 `demo-result/results/` 中的 PNG、SVG、PDF。再次运行保留旧结果并生成新版本目录；缺文件时先处理实际报错。
+
+Starter 含**一个绘图 Skill、固定 Python 程序和示例**。运行需要 Python ≥3.10 及包内依赖；安装时需要网络下载依赖，助手可按指南准备隔离环境。包内不含 Python 解释器。
+
+安装确认后，可复制这段开始演示：
+
+> 请读取 plot_starter/AGENT_GUIDE.md，检查当前会话能读到已安装的绘图技能，确认 Python 和依赖能执行，再用包内程序跑合成 Demo，输出到项目下的 demo-result。检查实际文件后，给我预览和图件链接；失败就说明缺什么，不要报完成。
+
+换自己的数据时：
+
+> 参考样图，用我的数据画同类型的图。先确认图型、列名、单位和必要测试条件，使用包内固定程序，保留原始数据；缺信息先问我。
+
+支持范围外的图型先确认方法，不能套用示例参数或任意改写科学处理逻辑。你也可以用自己的话说明需求。
+
+## 你可以用它做什么
+
+| 你想做什么 | 准备什么 | 得到什么 |
+| --- | --- | --- |
+| [科研绘图](skills/voltpeer-plot/SKILL.md) | 数据、单位和测试条件 | 支持图型的图件、代码与图注草稿 |
+| [Figure 拼版](skills/voltpeer-assemble/SKILL.md) | 已有面板、顺序与目标尺寸 | 对齐的 Figure、标签和排版文件 |
+| [数据导入](skills/voltpeer-data/SKILL.md) | 原文件与字段含义 | 整理后的表格和映射；出图还需绘图 Skill |
+| [机理示意](skills/voltpeer-mechanism/SKILL.md) | 材料体系、过程与支持证据 | 原创示意、可编辑 SVG 和源码 |
+| [论文写作](skills/voltpeer-write/SKILL.md) | 作者结果或可核查文献 | 正文草稿、证据对应与待补信息 |
+| [论证与提纲](skills/voltpeer-plan/SKILL.md) | 研究问题与已有材料 | 论证主线、章节结构和证据缺口 |
+| [论文润色](skills/voltpeer-polish/SKILL.md) | 原文、用途与修改要求 | 保留科学含义的改稿、翻译或压缩稿 |
 
 <details>
-<summary>我会安装，直接拿包 / 其他软件</summary>
-
-- [0.12.0 绘图候选包：固定程序、一个绘图 Skill 与 Demo](docs/assets/cycling-rule-v1.2.1/starter/VoltPeer-Plot-Starter-v0.12.0.zip) · [包索引与校验](docs/downloads/v0.12.0-cycling-rule-v1.2.1/download-index.json)
-- [历史 0.10.1 绘图包](https://github.com/arrizabalagags-png/Voltpeer-skills/raw/dfd46fcb4a3255b60826de8a4c721963adc4ff02/docs/downloads/starter/VoltPeer-Plot-Starter-v0.10.1.zip)
-- [历史 0.10.1 全部 15 个技能包](https://github.com/arrizabalagags-png/Voltpeer-skills/raw/dfd46fcb4a3255b60826de8a4c721963adc4ff02/docs/downloads/BatteryReviewForge-v0.10.1.zip) · [历史 0.9.2 正式包](https://github.com/arrizabalagags-png/Voltpeer-skills/releases/download/v0.9.2/BatteryReviewForge-v0.9.2.zip)
-- Codex、Kimi Code、WorkBuddy 及单 Skill 安装见[软件适配](docs/COMPATIBILITY.md)；用对应入口检查实际识别情况。
-- 模型、宿主和工具能力分别核查；具体状态见下方版本与验证入口。
-
-</details>
-
-## 用哪个 Skill
-
-| 手里的材料 | 对应入口 |
-| --- | --- |
-| 原始数据表 | [`voltpeer-data`](skills/voltpeer-data/SKILL.md) → [`voltpeer-plot`](skills/voltpeer-plot/SKILL.md) |
-| 已画好的几个面板 | [`voltpeer-assemble`](skills/voltpeer-assemble/SKILL.md) |
-| 综述主题与文献 | [`voltpeer-plan`](skills/voltpeer-plan/SKILL.md) → [`voltpeer-literature`](skills/voltpeer-literature/SKILL.md) → [`voltpeer-write`](skills/voltpeer-write/SKILL.md) |
-| 待检查的稿件 | [`voltpeer-review-audit`](skills/voltpeer-review-audit/SKILL.md) |
-| 需要分阶段推进的整个项目 | [`voltpeer-workflow`](skills/voltpeer-workflow/SKILL.md) |
-
-<details>
-<summary>查看全部 16 个 Skills</summary>
+<summary>全部 16 个 Skill 与技术 ID</summary>
 
 | Skill | 用途 |
 | --- | --- |
@@ -106,36 +95,30 @@ Skill 是给 AI 助手的一组科研工作说明和工具，需要在支持它�
 
 </details>
 
-## 复制一句话试试
+## 常见疑问
 
-> 这是我的循环数据.csv。先核对列名、单位和测试条件，再画容量—循环曲线；保留原始值。
+**需要会写 Python 吗？** 不必先学编程，助手可按指南调用程序；所用软件仍须能执行工具，电脑也要有可用的 Python 与依赖。
 
-> 这 6 张图准备拼成 Fig. 3。按投稿尺寸统一标签、字号和留白，保留原图。
+**免费吗？** VoltPeer 开源免费；AI 软件、模型服务可能另行收费，按提供方的实际规则使用。
 
-> 这是综述大纲和文献。先整理已读证据与缺口，再讨论正文结构。
+**要把数据上传到网站吗？** 本项目不要求上传科研文件到网站。模型是否接收材料取决于所选软件与设置；使用未公开数据前先检查隐私政策，API key 只保存在软件设置中。
 
-> 检查这张电池性能表能否横向比较；缺失条件先列出来。
+**能直接用于投稿吗？** 作者须核对原始数据、单位、条件、引用、目标期刊要求与分享权利。演示数据不代表实验结果。
 
-> 检查这一段的数字和引用是否得到原文支持，未核查项明确标出。
+## 当前版本与文档
 
-## 数据与科研责任
+当前源码为 **0.12.0 Beta，共 16 个 Skill**。推荐的是**绘图 Starter**；[全部 16 个技能包](docs/downloads/v0.12.0-cycling-rule-v1.2.1/VoltPeer-v0.12.0.zip)和[单 Skill 包及校验索引](docs/downloads/v0.12.0-cycling-rule-v1.2.1/download-index.json)供按需安装。
 
-- 绘图使用包内程序；先核对输入，缺失单位、条件或来源时先补材料。
-- 本项目不要求把科研文件上传到网站，也不向你索取 API key；材料是否发送给模型取决于你选择的 AI 软件。
-- 使用未公开数据前，检查所用软件的隐私政策；公开投稿或反馈前先脱敏并核实分享权利。
-- 作者负责最终核对数据、引用、版权与科学结论。缺少报告和未经核查是不同状态，不能当成零或已验证。
+这些 Beta 包已在仓库公开。GitHub 最近的完整正式 Release 仍为 **v0.9.2**，与当前开发版分开。索引保留打包时的状态，现状与历史下载见[版本说明](docs/RELEASE_v0.12.0.md)。
 
-## 文档与当前范围
+**尚未完成全部客户端的安装到出图实测，也未完成当前版本的全量模型验证。** 建议先跑示例，具体范围见[软件适配](docs/COMPATIBILITY.md)。
 
-当前源码版本为 **0.12.0 Beta**。上面的旧提交下载保持 **0.10.1 Beta** 与 **0.9.2** 的历史身份，旧 0.10.2 科学包也保持原字节。研究论文、综述和润色的输入与交付契约已单独补充；完整原生宿主与模型行为门禁仍为 NOT_RUN，旧 Flash 有限 API 试次保留其 PARTIAL 范围。[当前候选说明](docs/RELEASE_v0.12.0.md) · [实际适配与验证范围](docs/COMPATIBILITY.md)。
+[绘图输入说明](skills/voltpeer-plot/references/UPLOADED_DATA.md) · [Figure 拼版说明](skills/voltpeer-assemble/references/COMPOSITION.md) · [验证记录](docs/EVAL.md) · [维护指南](docs/MAINTAINER_GUIDE.md) · [历史技术资料](docs/TECHNICAL_REFERENCE_v0.10.1.md)
 
-| 想深入了解 | 文档 |
-| --- | --- |
-| 安装和第一次画图 | [入门指南](docs/GETTING_STARTED.md) |
-| 作者数据、配色与出图 | [绘图说明](skills/voltpeer-plot/references/UPLOADED_DATA.md) |
-| 投稿尺寸与多面板排版 | [拼版说明](skills/voltpeer-assemble/references/COMPOSITION.md) |
-| 文献与证据 / 综述 / 实验规划 | [文献整理](skills/voltpeer-literature/SKILL.md) · [综述流程](skills/voltpeer-plan/SKILL.md) · [实验规划](skills/voltpeer-experiment-plan/SKILL.md) |
-| 软件检查与行为测试 | [验证协议与记录](docs/EVAL.md) |
-| 维护与完整技术资料 | [维护指南](docs/MAINTAINER_GUIDE.md) · [本分支原技术全文](docs/TECHNICAL_REFERENCE_v0.10.1.md) |
+## 作者与许可
 
-郭硕（Shuo Guo）· 姜金龙（Jinlong Jiang），上海理工大学能源材料科学研究院。[作者](AUTHORS.md) · [引用](CITATION.cff) · [MIT](LICENSE) · [贡献](CONTRIBUTING.md) · [反馈与求助](SUPPORT.md) · [安全报告](SECURITY.md)。历史包名与技术 ID 保持兼容。
+郭硕（Shuo Guo）· 姜金龙（Jinlong Jiang），上海理工大学能源材料科学研究院。机构署名用于作者信息，不代表机构背书。
+
+本仓库代码与文档按 [MIT](LICENSE) 开源；原创示例许可见对应说明。第三方素材、文献图片和用户数据须分别核对来源与许可。
+
+[作者](AUTHORS.md) · [引用](CITATION.cff) · [贡献](CONTRIBUTING.md) · [反馈与求助](SUPPORT.md) · [安全报告](SECURITY.md)
