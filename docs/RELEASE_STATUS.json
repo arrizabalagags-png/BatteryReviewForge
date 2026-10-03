@@ -4,15 +4,15 @@
   "checked_at": "2026-10-03",
   "host": "DeepSeek Harness desktop",
   "local_engineering_checks": "2026-10-03 candidate checks recorded separately; historical installer/model checks retain their original scope.",
-  "distribution_record": "validation/2026-10-03-release-distribution-v0.12.0.json",
+  "distribution_record": "validation/2026-10-03-cycling-delivery.json",
   "actual_archive_gate": "PASS: 35 current Skill archives / 66 isolated copies; extracted Starter and mechanism actual runtime checked separately",
   "desktop_discovery_to_delivery": "NOT_RUN_CURRENT_TREE",
   "flash_model_evaluation": "NOT_RUN: full 69-case suite on current tree; past limited frozen pilot remains PARTIAL",
   "pro_model_evaluation": "NOT_RUN: full 69-case suite on current tree; past limited frozen pilot remains PARTIAL",
   "macos_real_device": "NOT_RUN",
-  "publication": "LOCAL_REVIEWED_NOT_PUSHED_NOT_DEPLOYED",
+  "publication": "SOURCE_PUSHED_NO_STABLE_RELEASE_NO_ECS_DEPLOYMENT",
   "github_source_branch": "codex/public-skills",
-  "github_sync_record": "validation/GITHUB_SYNC_2026-09-30.md",
+  "github_sync_record": "validation/GITHUB_SYNC_2026-10-03.md",
   "schema_followup_record": "validation/2026-09-30-schema-followup.json",
   "api_pilot": {
     "status": "PARTIAL_API_PILOT",
@@ -32,5 +32,12 @@
   "demo_source_delivery_record": "validation/2026-10-01-demo-source-delivery.json",
   "historical_regression_record": "validation/2026-09-30-frame-final-regression.json",
   "historical_regression_scope": "Earlier scientific, model and host reports apply to their recorded frozen trees; they do not certify the new Skill naming or current host discovery.",
-  "distribution_record_location": "Public repository docs/validation; external digest record is not embedded into the archive it hashes."
+  "distribution_record_location": "Public repository docs/validation; external digest record is not embedded into the archive it hashes.",
+  "legacy_distribution_record": "validation/2026-10-03-release-distribution-v0.12.0.json",
+  "github_source_branches": [
+    "main",
+    "codex/public-skills"
+  ],
+  "github_readback_record": "validation/2026-10-03-github-readback.json",
+  "source_delivery_commit": "24970f5b0142bca80261a036a6d768143e251097"
 }

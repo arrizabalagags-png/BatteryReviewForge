@@ -1,0 +1,93 @@
+{
+  "status": "SOURCE_PUSHED_READBACK_VERIFIED",
+  "checked_at": "2026-10-03T10:31:49.835495+00:00",
+  "version": "0.12.0",
+  "channel": "beta",
+  "repository": "arrizabalagags-png/Voltpeer-skills",
+  "private": false,
+  "commit": "24970f5b0142bca80261a036a6d768143e251097",
+  "tree": "60506ff9f3710afddff5818397daabf5967b995c",
+  "branches": {
+    "main": "24970f5b0142bca80261a036a6d768143e251097",
+    "codex/public-skills": "24970f5b0142bca80261a036a6d768143e251097"
+  },
+  "files": 2616,
+  "critical_file_readbacks": [
+    {
+      "path": "README.md",
+      "blob": "5ec939ff7ccbf72c01e49c0e250ccb33aa6a92aa",
+      "bytes": 10825,
+      "status": "PASS"
+    },
+    {
+      "path": "README.en.md",
+      "blob": "55f47597ad825afb2e891a5ed61d5eec1fc108c9",
+      "bytes": 11865,
+      "status": "PASS"
+    },
+    {
+      "path": "skills/voltpeer-plot/SKILL.md",
+      "blob": "06b2b113578f1ef039e379c3cc47f9d6a7ec6151",
+      "bytes": 22833,
+      "status": "PASS"
+    },
+    {
+      "path": "skills/voltpeer-plot/references/PYTHON_PLOTTING.md",
+      "blob": "62ed1efbd8effeb29d258366bc29577a34cd2301",
+      "bytes": 9928,
+      "status": "PASS"
+    },
+    {
+      "path": "skills/voltpeer-data/SKILL.md",
+      "blob": "68c82bf04e2ddf1f49ce842628a5ba7842e18bd6",
+      "bytes": 4721,
+      "status": "PASS"
+    },
+    {
+      "path": "skills/voltpeer-mechanism/SKILL.md",
+      "blob": "0c88f26dfc85dd3a20a90b2c614ad9882baa7ad0",
+      "bytes": 7210,
+      "status": "PASS"
+    },
+    {
+      "path": "docs/assets/cycling-rule-v1.0.0/skill-downloads.json",
+      "blob": "8628379713afcbe55522cef42e0081aa5d700cc3",
+      "bytes": 151715,
+      "status": "PASS"
+    },
+    {
+      "path": "docs/assets/cycling-rule-v1.2.1/starter/VoltPeer-Plot-Starter-v0.12.0.zip",
+      "blob": "63114df40e2af80c1924d729d98a7e1a5c80d59b",
+      "bytes": 743774,
+      "status": "PASS"
+    },
+    {
+      "path": "docs/downloads/v0.12.0-cycling-rule-v1.2.1/VoltPeer-v0.12.0.zip",
+      "blob": "3cc468c8748c791b091d2146eae0d8e149624943",
+      "bytes": 1205664,
+      "status": "PASS"
+    },
+    {
+      "path": "docs/downloads/v0.12.0-cycling-rule-v1.2.1/download-index.json",
+      "blob": "eada48340c3afca490dd6b6e18712adf78eb7714",
+      "bytes": 10446,
+      "status": "PASS"
+    },
+    {
+      "path": "docs/assets/cycling-rule-v1.2.0/showcase/integrated_study/figure.png",
+      "blob": "be8f4f8dcbe18a403d2d5821836b5fef759920bd",
+      "bytes": 413120,
+      "status": "PASS"
+    },
+    {
+      "path": "docs/validation/2026-10-03-cycling-delivery.json",
+      "blob": "0dadf969a7c0c8391a67f393360f04c289b39ec1",
+      "bytes": 1325,
+      "status": "PASS"
+    }
+  ],
+  "about_description": "VoltPeer · 电研搭子：面向电池科研的开源 AI Skill。科研绘图、Figure 拼版、机理图、数据导入、论文写作、提纲规划与润色。搭配 DeepSeek Harness、Codex 等 AI 助手使用。",
+  "homepage": "https://dazi.gsarrizabalaga.xyz/",
+  "release_created": false,
+  "ecs_executed": false
+}

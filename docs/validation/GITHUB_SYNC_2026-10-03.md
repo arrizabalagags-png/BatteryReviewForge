@@ -8,4 +8,4 @@
 
 16个受影响示例、配方和Starter实际解压重画；190原CSV不改。35包/66独立Skill副本检查和当前完整包Python3.9独立52项检查通过；一圈、两圈、双轴CE和参考点留白另有真实执行证据。公开摘要见[循环交付记录](2026-10-03-cycling-delivery.json)。合成教学数据不证明材料性能；Zn-I2、flow等历史模型的缺失物理条件没有补造。
 
-此记录随源码上传，不创建Stable标签，不覆盖历史Release资产，不执行ECS部署。推送结果会在后续回执保存。
+源码已上传并从GitHub API回读：`main`与`codex/public-skills`均指向`24970f5b0142bca80261a036a6d768143e251097`。提交树及12个关键文件的Git blob与大小匹配。[推送回执](2026-10-03-github-readback.json)。本记录更新作为后续日志提交，不改变固定分发ZIP；未创建Stable标签或新Release，未执行ECS部署。
